@@ -1,0 +1,57 @@
+﻿<div class="inmodal contactdetails">
+    <div class="modal-header text-center">
+        <!--<i class="fa fa-sliders color-success h-modal-icon"></i>-->
+        <h4 class="modal-title">Contact Details</h4>
+        <div class="clostbtn">
+            <button type="button" ng-click="mbsCtrl.hideContact()" title="Close"><img src="Content/images/closebtn.png"></button>
+        </div>
+    </div>
+    <form name="contactDetailForm" ng-submit="mbsCtrl.saveContact()" novalidate>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Gate Number<span class="text-danger">*</span></label>
+                        <select required class="form-control" name="select" id="select" ng-model="mbsCtrl.contact.gate" ng-options="item as item.Option for item in mbsCtrl.contactModalGetList track by item.GateId">
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Contact<span class="text-danger">*</span></label>
+                        <input class="form-control only-float" name="" type="text" ng-model="mbsCtrl.contact.ContactPerson" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Email Address<span class="text-danger">*</span></label>
+                        <input class="form-control only-float" type="email" name="" ng-model="mbsCtrl.contact.Email" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Mobile  Number<span class="text-danger">*</span></label>
+                        <input class="form-control" name="" type="number" ng-model="mbsCtrl.contact.MobileNumber" ng-minlength="8" ng-maxlength="10" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="checkbox"><label class="p-l0"> <input icheck type="checkbox" ng-model="mbsCtrl.contact.IsDefault" value="true" class="i-checks"> Set as Default</label></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" title="Close" ng-click="mbsCtrl.hideCancel()">Close</button>
+            <button type="submit" class="btn btn btn-primary" data-dismiss="modal" title="Update" ng-if="mbsCtrl.contact.GateContactPersonId">Update</button>
+            <button type="submit" class="btn btn btn-primary" data-dismiss="modal" title="Save" ng-if="!mbsCtrl.contact.GateContactPersonId">Save</button>
+        </div>
+    </form>
+</div>
+

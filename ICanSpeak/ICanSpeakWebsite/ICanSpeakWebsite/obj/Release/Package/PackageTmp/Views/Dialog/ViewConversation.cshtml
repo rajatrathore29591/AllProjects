@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "ViewConversation";
+}
+
+@{
+    var userid = Session["UserId"];
+}
+
+<div class="row accordian">
+    <div class="navbar-bottom navbar-info " role="navigation">
+        <div class="container">
+            <div class=" col-lg-12 ">
+                <div class="heading-grays">
+                    <span class="btn cursor-none">@ViewBag.DialogName</span>
+                    <span class="unit-box">Conversation On Airport Ticket Booking</span>
+                    <div class="pull-right">
+                        <a class="btn" href="#"><i class="fa fa-book fa-1x"></i></a>
+                        <a class="btn" href="#"><i class="fa fa-microphone fa-1x"></i></a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="panel panel-denger chat-widget-main MT10">
+                    <!-- <div class="panel-heading panel-custom">
+                        <h4><b>Conversation On Airport Ticket Booking</b></h4>
+                    </div>-->
+                    <div class="panel-body">
+                        <div class=" col-lg-6">
+
+                            <div class="MT20">
+                                <div class="js-video [vimeo, widescreen]">
+                                    <video style="width: 100%; height: 50%" controls>
+                                        <source src="@ViewBag.VideoUrl" type="video/mp4">
+                                        <source src="@ViewBag.VideoUrl" type="video/ogg">
+                                    </video>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class=" col-lg-6 pull-right ">
+
+                            <div class="MT20">
+                                <ul class="media-list">
+                                    @foreach (var item in ViewBag.Conversation)
+                                    {
+                                        if (Convert.ToInt32(@item["RowIndex"]) % 2 != 0)
+                                        {
+                                        <li class="media">
+                                            <div class="media-body chat-widget-left">
+                                                <div class="media">
+                                                    <span class="first_specker">
+                                                        <h5><b>Sami  :</b></h5>
+                                                    </span>
+                                                    <div class="media-body">
+                                                        @item["Person1Text"]
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        }
+                                        else
+                                        {
+                                        <li class="media">
+                                            <div class="media-body chat-widget-right">
+                                                <div class="media">
+                                                    <span class="Second_specker">
+                                                        <h5><b>Sara :</b></h5>
+                                                    </span>
+                                                    <div class="media-body">
+                                                        @item["Person2Text"]
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                    
+                                        }
+                                    }
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

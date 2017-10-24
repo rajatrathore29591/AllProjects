@@ -1,0 +1,40 @@
+﻿<div class="text-right m-b20">
+    <a href="javascript:void(0);" ui-sref="configuration.AddUser()" class="btn btn-primary btn-i"><i class="fa fa-plus"></i>Add User</a>
+</div>
+
+<div class="animate-panel bookinglist" ng-controller="UserListCtrl as userlist">
+    
+    <div class="grid-tb-panel clearfix">
+        <table ng-table="userlist.bcaTableParams" class="table table-stripped toggle-arrow-tiny table-hover" show-filter="true">
+            <tr ng-repeat="users in $data" ng-if="$data.length > 0">
+                <td title="'Job'" filter="{ RoleName: 'text'}" sortable="'RoleName'" class="text-center">{{users.RoleName}}</td>
+
+                <td title="'First Name'" filter="{ FirstName : 'text'}" sortable="'FirstName'">{{users.FirstName}}</td>
+
+                <td title="'Last Name'" filter="{ SurName: 'text'}" sortable="'SurName'" class="text-center">{{users.SurName}}</td>
+
+                <td title="'Email'" filter="{ Email: 'text'}" sortable="'Email'" class="text-center">{{users.Email}}</td>
+
+                <td title="'Country'" filter="{ CountryName: 'text'}" sortable="'CountryName'" class="text-center">{{users.CountryName}}</td>
+
+                <td title="'State'" filter="{ StateName: 'text'}" sortable="'StateName'" class="text-center">{{users.StateName}}</td>
+
+
+                <td title="'Action'" align="center" nowrap="true" width="1%">
+                    <div class="btn-group">
+                        <a class="dropdown-toggle" id="dLabel" href="javascript:void(0);" data-toggle="dropdown">
+                            <i class="fa pe-7s-more action-icon" aria-hidden="true"></i>
+                        </a>
+                        <ul class="dropdown-menu hdropdown notification dropdown-menu-right animated flipInX" role="menu">
+                            <li><a href="javascript:void(0)" ui-sref="configuration.EditUser({UserId: users.EmployeeId})"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a></li>
+                            <li><a href="javascript:void(0);" ng-click="userlist.deleteUser(users.EmployeeId);"><i class="fa pe-7s-trash" aria-hidden="true"></i> Delete</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr ng-if="$data.length <= 0 || $data.length ===''">
+                <td colspan="7" class="text-center">Not records found</td>
+            </tr>
+        </table>
+    </div>
+</div>

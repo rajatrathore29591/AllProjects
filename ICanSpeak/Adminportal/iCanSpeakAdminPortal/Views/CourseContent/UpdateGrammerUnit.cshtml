@@ -1,0 +1,213 @@
+﻿@model iCanSpeakAdminPortal.Models.GrammerModel
+@{
+    ViewBag.Title = "UpdateGrammerUnit";
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".valid").keypress(function (e) {
+            if (e.which < 97 || e.which > 122) {
+                e.preventDefault();
+            }
+        });
+    });
+</script>
+<style>
+    .fileUpload {
+        position: relative;
+        overflow: hidden;
+        margin: 10px;
+    }
+
+        .fileUpload input.upload {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0px 10px;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+    .box1 {
+        border: 1px solid #ccc;
+        margin: 10px 0px;
+        padding: 20px;
+        border-radius: 8px;
+    }
+</style>
+
+<div class="dialog-page">
+    <div class="container">
+        @using (Html.BeginForm("UpdateGrammerUnit", "CourseContent", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <input type="hidden" value="@Model.UnitId" id="UnitId" name="UnitId" />
+               
+            <header>
+                <h2> <font color="44c9ff">Update Grammar Unit </font></h2>
+            </header>
+                   
+            <div class="contant">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                        <div class="form-group required">
+                            <label style="color: red !important; font-size: 16px;">
+                                @Model.errormsg
+                            </label>
+                            <input type="hidden" value="@Model.AudioUrl" name="AudioUrl" />
+                            <input type="hidden" value="@Model.VideoUrl" name="VideoUrl" />
+                        </div>
+                        <div class="form-group">
+                            <label>Unit Name English <span style="color: #FE2801;">*</span></label>
+                            <input class="form-control" required name="UnitNameEnglish" id="UnitNameEnglish" maxlength="30" value="@Model.UnitNameEnglish"  title="" type="text" />
+
+                        </div>
+                        <div class="form-group">
+                            <label>Description English <span style="color: #FE2801;">*</span></label>
+                            <textarea class="form-control" required name="DescriptionEnglish" id="DescriptionEnglish">@Model.DescriptionEnglish</textarea>
+
+
+                        </div>
+                        <div class="form-group">
+                            <label>Unit Name Arabic <span style="color: #FE2801;">*</span></label>
+                            <input class="form-control" required name="UnitNameArabic" maxlength="30" id="UnitNameArabic" value="@Model.UnitNameArabic"  title="" type="text" />
+
+                        </div>
+                        <div class="form-group">
+                            <label>Description Arabic <span style="color: #FE2801;">*</span></label>
+                            <textarea class="form-control" required name="DescriptionArabic" id="DescriptionArabic">@Model.DescriptionArabic</textarea>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Duration(in days) <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" value="@Model.Duration"   required id="Duration" name="Duration" maxlength="2"  onkeypress="return isNumber(event)">
+                        </div>
+                        <div class="form-group">
+                            <label>Reward Point <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" value="@Model.RewardPoints"  required maxlength="5"  id="RewardPoints" name="RewardPoints" onkeypress="return isNumber(event)">
+                        </div>
+                        <div class="form-group">
+                            <label>Price(in saudi riyal) <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" value="@Model.Price"  required id="Price" name="Price" onkeypress="return isNumberDecimal(event)" maxlength="5">
+                        </div>
+                        <div class="form-group">
+                            <label>Max Score <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" value="@Model.MaxScore"  required maxlength="4" id="MaxScore" name="MaxScore" onkeypress="return isNumber(event)">
+                        </div>
+                        <div class="form-group">
+                            <label>Is Free <span style="color: #FE2801;">*</span></label>
+                            @if (Model.IsFree == true)
+                            {
+                                <select class="form-control" id="IsFree" required name="IsFree">
+                                    <option selected="selected" value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            }
+                            else
+                            {
+                                <select class="form-control" id="IsFree" required name="IsFree">
+                                    <option value="Yes">Yes</option>
+                                    <option selected="selected" value="No">No</option>
+                                </select>
+                            }
+                        </div>
+                        <div class="form-group">
+                            <label>High Resolution Video</label>
+                            <div class="box1">
+                                <div class="row">
+                                    <video controls style="width: 100%" poster="poster.png">
+                                        <source src="@Model.AudioUrl" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+                                    </video>
+                                </div>
+
+                                <div class="row">
+                                    <div class="fileUpload btn btn-primary">
+                                        <span>Change Video</span>
+                                        <input id="video1" type="file" class="upload" name="Video" accept="video/*" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Low Resolution Video</label>
+                            <div class="box1">
+                                <div class="row">
+                                    <video controls style="width: 100%" poster="poster.png">
+                                        <source src="@Model.VideoUrl" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+                                    </video>
+                                </div>
+
+                                <div class="row">
+                                    <div class="fileUpload btn btn-primary">
+                                        <span>Change VIdeo</span>
+                                        <input id="video2" type="file" class="upload" name="Video2" accept="video/*" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-info2" value="Update" />&nbsp;&nbsp;<input type="button" class="btn btn-info2" value="Reset" onclick="ResetFormValues()" />&nbsp;&nbsp;<a href="../../Admin/CourseContent/GrammerList"> <input type="button" class="btn btn-info2" value="Cancel" /> </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>  
+                  
+        }
+    </div>
+</div>
+<script type="text/javascript">
+    function ResetFormValues() {
+        window.location = "@Url.Action("AddGrammerUnit", "CourseContent")";
+        }
+
+
+</script>
+
+<script type="text/javascript">
+
+    $('#video1').change(function () {
+
+        var val = $(this).val();
+        switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'mp4':
+                break;
+            default:
+                $(this).val('');
+
+                alert("Video must be of mp4 format.");
+                break;
+        }
+    });
+
+    $('#video2').change(function () {
+        var val = $(this).val();
+        switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'mp4':
+                break;
+            default:
+                $(this).val('');
+
+                alert("Video must be of mp4 format.");
+                break;
+        }
+    });
+
+    $('#ppt').change(function () {
+        var val = $(this).val();
+        switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'pdf':
+                break;
+            default:
+                $(this).val('');
+
+                alert("File must be of pdf format.");
+                break;
+        }
+    });
+
+
+</script>

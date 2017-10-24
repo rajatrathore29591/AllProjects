@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="33ae107e582040eba2a9c5903feb2f3f" Name="Diagram1" ZoomLevel="74" >
+        <EntityTypeShape EntityType="CraveASAPDBModel.AdminVendor" Width="1.5" PointX="11.966488497316133" PointY="30.866141408153876" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.AppDefaultLandingPage" Width="1.5" PointX="1.2925827434717596" PointY="15.86234921955613" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.Banner" Width="1.5" PointX="6.1464223014872621" PointY="20.130598867372889" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.Category" Width="1.5" PointX="6.8853378607357563" PointY="8.0993925668762028" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.Configuration" Width="1.5" PointX="3.6063285151525997" PointY="22.803467925080781" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.ContentManagement" Width="1.5" PointX="2.9736585854430024" PointY="29.793227507636523" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.DefaultPromotionCodeBanner" Width="1.5" PointX="10.726354970934967" PointY="20.142119908771534" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.DynamicHTMLContent" Width="1.5" PointX="10.375" PointY="15.875" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.Location" Width="1.5" PointX="10.961986787133844" PointY="4.0086075533221512" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.OAuth" Width="1.5" PointX="9.2288428532093967" PointY="4.3448795994487028" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.OpeningHour" Width="1.5" PointX="8.59136408594966" PointY="13.398905343096194" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.Point" Width="1.5" PointX="6.7984777683385076" PointY="27.250831870013304" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.PointsConfiguration" Width="1.5" PointX="1.073457303025507" PointY="6.0751304654754374" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.PredictiveNotification" Width="1.5" PointX="0.55757778908944589" PointY="25.402417164948965" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.Reward" Width="1.5" PointX="0.41155298259647233" PointY="25.231254425473164" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.Subscribe" Width="1.5" PointX="6.5850805931655128" PointY="2.1224568049062307" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.SuperAdminLogin" Width="1.5" PointX="11.596740698254081" PointY="0.79793632067643872" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.UserFavourite" Width="1.5" PointX="8.0872953944314716" PointY="1.151694909274436" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.UserPrefrence" Width="1.5" PointX="9.1642685426232724" PointY="5.801474812348129" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.UserReward" Width="1.5" PointX="5.4001094779931513" PointY="6.5410061956108576" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.VendorBranch" Width="1.5" PointX="4.6326691008325049" PointY="18.511730649746831" />
+        <AssociationConnector Association="CraveASAPDBModel.FK__AppDefaul__categ__25518C17" />
+        <AssociationConnector Association="CraveASAPDBModel.FK__UserPrefr__categ__36470DEF" />
+        <AssociationConnector Association="CraveASAPDBModel.FK__UserRewar__rewar__3B0BC30C" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.SubCategory" Width="1.5" PointX="8.9738915660297" PointY="7.8467653728308" />
+        <AssociationConnector Association="CraveASAPDBModel.FK__SubCatego__categ__5441852A" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.OptionalCategory" Width="1.5" PointX="5.9543552649926186" PointY="23.517983730657949" />
+        <AssociationConnector Association="CraveASAPDBModel.FK__OptionalC__categ__5EBF139D" />
+        <AssociationConnector Association="CraveASAPDBModel.FK_OptionalCategory_SubCategory" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.Admin" Width="1.75" PointX="4.375" PointY="13.125" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.UserPromotion" Width="1.5" PointX="9.7618363749989481" PointY="18.828944274610347" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.UserPromotionSkip" Width="1.5" PointX="11.093554224396847" PointY="25.775405746780059" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.PromotionCode" Width="1.5" PointX="2.2903112556274565" PointY="0.87438724975771609" />
+        <AssociationConnector Association="CraveASAPDBModel.FK__UserPromo__promo__628FA481" />
+        <AssociationConnector Association="CraveASAPDBModel.FK__UserPromo__promo__6D0D32F4" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.UserLocation" Width="1.5" PointX="4.02569014580254" PointY="30.864526360698289" />
+        <AssociationConnector Association="CraveASAPDBModel.FK_UserLocations_UserLocations" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.User" Width="1.5" PointX="1.3760443596989123" PointY="28.357493905517035" />
+        <AssociationConnector Association="CraveASAPDBModel.FK__UserFavou__userI__308E3499" />
+        <AssociationConnector Association="CraveASAPDBModel.FK__UserPrefr__userI__3552E9B6" />
+        <AssociationConnector Association="CraveASAPDBModel.FK__UserPromo__userI__6B24EA82" />
+        <AssociationConnector Association="CraveASAPDBModel.FK__UserRewar__userI__6A30C649" />
+        <EntityTypeShape EntityType="CraveASAPDBModel.Vendor" Width="1.5" PointX="7.9064232948731732" PointY="9.1677721334471229" />
+        <AssociationConnector Association="CraveASAPDBModel.FK__Vendor__business__13F1F5EB" />
+        <AssociationConnector Association="CraveASAPDBModel.FK__OpeningHo__fkven__51300E55" />
+        <AssociationConnector Association="CraveASAPDBModel.FK__Promotion__vendo__0B91BA14" />
+        <AssociationConnector Association="CraveASAPDBModel.FK__UserFavou__vendo__2F9A1060" />
+        <AssociationConnector Association="CraveASAPDBModel.FK__VendorBra__vendo__693CA210" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

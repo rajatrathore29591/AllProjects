@@ -1,0 +1,588 @@
+﻿@{    ViewBag.Title = "NormalPlan";
+}
+
+<link href="~/css/jquery.flipcountdown.css" rel="stylesheet" />
+<script src="@Url.Content("/Scripts/jquery.min.js")"></script>
+<script src="@Url.Content("/Scripts/jquery.flipcountdown.js")"></script>
+<script>
+    jQuery(function ($) {
+        var i = 1000;
+        $('#retroclockbox1').flipcountdown();
+        var i = 1;
+        $('#retroclockbox_counter').flipcountdown({
+            tick: function () {
+                return i++;
+            }
+        });
+        $('#retroclockbox2').flipcountdown({ showHour: false, showMinute: false, showSecond: true });
+        $('#retroclockbox3').flipcountdown({ tzoneOffset: 3, showSecond: false });
+        $('#retroclockbox4').flipcountdown({ am: true });
+        $('#retroclockbox5').flipcountdown({ speedFlip: 50 });
+        $('#retroclockbox6').flipcountdown({                                                           
+            tick: function () {
+                return new Date('5/10/2012 12:34:23');                                                
+            }
+        });
+    })
+</script>
+<style>
+    table {
+        width: 100%;
+        background: transparent !important;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+        table .td-1 {
+            width: 45%;
+        }
+
+    .td-2 {
+        width: 20%;
+    }
+
+    .td-3 {
+        width: 15%;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var sum = 0;
+        $('#gm10').change(function () {
+            sum = 0;
+            if (this.checked) {
+                $.each($("input[name='gm']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#gmtotal').text(sum + " ريال");
+
+            }
+            else {
+                sum = 0;
+                $.each($("input[name='gm']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#gmtotal').text(sum + " ريال");
+            }
+        });
+        $('#gm20').change(function () {
+            sum = 0;
+            if (this.checked) {
+                $.each($("input[name='gm']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#gmtotal').text(sum + " ريال");
+
+            }
+            else {
+                sum = 0;
+                $.each($("input[name='gm']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#gmtotal').text(sum + " ريال");
+            }
+        });
+        $('#gm30').change(function () {
+            sum = 0;
+            if (this.checked) {
+                $.each($("input[name='gm']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#gmtotal').text(sum + " ريال");
+
+            }
+            else {
+                sum = 0;
+                $.each($("input[name='gm']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#gmtotal').text(sum + " ريال");
+            }
+        });
+        $('#gm40').change(function () {
+            sum = 0;
+            if (this.checked) {
+                $.each($("input[name='gm']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#gmtotal').text(sum + " ريال");
+
+            }
+            else {
+                sum = 0;
+                $.each($("input[name='gm']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#gmtotal').text(sum + " ريال");
+            }
+        });
+
+        //----------------------Dialog Section------------------------------------------------------\\
+        $('#da10').change(function () {
+            sum = 0;
+            if (this.checked) {
+                $.each($("input[name='da']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#datotal').text(sum + " ريال");
+
+            }
+            else {
+                sum = 0;
+                $.each($("input[name='da']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#datotal').text(sum + " ريال");
+            }
+        });
+        $('#da20').change(function () {
+            sum = 0;
+            if (this.checked) {
+                $.each($("input[name='da']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#datotal').text(sum + " ريال");
+
+            }
+            else {
+                sum = 0;
+                $.each($("input[name='da']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#datotal').text(sum + " ريال");
+            }
+        });
+        $('#da30').change(function () {
+            sum = 0;
+            if (this.checked) {
+                $.each($("input[name='da']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#datotal').text(sum + " ريال");
+
+            }
+            else {
+                sum = 0;
+                $.each($("input[name='da']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#datotal').text(sum + " ريال");
+            }
+        });
+        $('#da40').change(function () {
+            sum = 0;
+            if (this.checked) {
+                $.each($("input[name='da']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#datotal').text(sum + " ريال");
+
+            }
+            else {
+                sum = 0;
+                $.each($("input[name='da']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#datotal').text(sum + " ريال");
+            }
+        });
+        //---------------------Dialog Section Ends--------------------------------------------------\\
+
+
+        //----------------------Vocab Section Starts------------------------------------------------------\\
+        $('#vb10').change(function () {
+            sum = 0;
+            if (this.checked) {
+                $.each($("input[name='vb']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#vbtotal').text(sum + " ريال");
+
+            }
+            else {
+                sum = 0;
+                $.each($("input[name='vb']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#vbtotal').text(sum + " ريال");
+            }
+        });
+        $('#vb20').change(function () {
+            sum = 0;
+            if (this.checked) {
+                $.each($("input[name='vb']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#vbtotal').text(sum + " ريال");
+
+            }
+            else {
+                sum = 0;
+                $.each($("input[name='vb']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#vbtotal').text(sum + " ريال");
+            }
+        });
+        $('#vb30').change(function () {
+            sum = 0;
+            if (this.checked) {
+                $.each($("input[name='vb']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#vbtotal').text(sum + " ريال");
+
+            }
+            else {
+                sum = 0;
+                $.each($("input[name='vb']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#vbtotal').text(sum + " ريال");
+            }
+        });
+        $('#vb40').change(function () {
+            sum = 0;
+            if (this.checked) {
+                $.each($("input[name='vb']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#vbtotal').text(sum + " ريال");
+
+            }
+            else {
+                sum = 0;
+                $.each($("input[name='vb']:checked"), function () {
+                    sum += +$(this).val();
+                });
+                $('#vbtotal').text(sum + " ريال");
+            }
+        });
+        //---------------------Dialog Section Ends--------------------------------------------------\\
+
+    });
+</script>
+
+
+
+<div class="row">
+    <div class="container PD50">
+        <div class="col-lg-12">
+            <div class="col-md-3 user-profice-pic">
+                <img src="@ViewBag.ProfilePicture" class="img-page">
+            </div>
+            <div class="col-md-9 right">
+                <div class="col-md-2">
+                    <h2 class=" user-profile">
+                        <img src="~/Content/img/online.png">@ViewBag.Username</h2>
+                    <h4 class="tutor-city-name left">@ViewBag.Country</h4>
+                </div>
+                <div class="col-md-10 right-profile">
+                    <ul class="nav nav-pills view-profile">
+                        <li><a href="../../Course/SubscriptionPlan">Subscription Plan</a></li>
+                        <li class="active"><a href="../../Course/NormalPlan">Normal Plan</a></li>
+                    </ul>
+                    <div class="clearfix"></div>
+
+
+                </div>
+
+
+            </div>
+
+            <div class="col-lg-2 blue-wrapper">
+                <h2>My Score</h2>
+                <h3>60/100 (details)</h3>
+            </div>
+            <div class="col-lg-2 blue-wrapper">
+                <h2>Instructor Evaluation</h2>
+                <h3>Great </h3>
+            </div>
+            <div class="col-lg-2 blue-wrapper">
+                <h2>Flashcards</h2>
+                <h3>60/100 </h3>
+            </div>
+            <div class="col-lg-2 blue-wrapper">
+                <h2>Days Remaining</h2>
+                <div align="center">
+                    <div id="retroclockbox_sm"></div>
+                </div>
+                <script>
+                    jQuery(function ($) {
+                        //var NY = Math.round((new Date('1/01/2015 00:00:01')).getTime()/1000);
+                        $('#new_year').flipcountdown({
+                            size: 'lg',
+                            beforeDateTime: '1/01/2015 00:00:01'
+                            /*tick:function(){
+                                var nol = function(h){
+                                    return h>9?h:'0'+h;
+                                }
+                                var	range  	= NY-Math.round((new Date()).getTime()/1000),
+                                    secday = 86400, sechour = 3600,
+                                    days 	= parseInt(range/secday),
+                                    hours	= parseInt((range%secday)/sechour),
+                                    min		= parseInt(((range%secday)%sechour)/60),
+                                    sec		= ((range%secday)%sechour)%60;
+                                return nol(days)+' '+nol(hours)+' '+nol(min)+' '+nol(sec);
+                            }*/
+                        });
+                    });
+                </script>
+                <script>
+                    jQuery(function ($) {
+                        $('#retroclockbox_lg').flipcountdown({ size: 'lg' });
+                        $('#retroclockbox_md').flipcountdown({ size: 'md' });
+                        $('#retroclockbox_sm').flipcountdown({ size: 'sm' });
+                        $('#retroclockbox_xs').flipcountdown({ size: 'xs' });
+                    })
+                </script>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <br />
+        <div class="col-lg-12">
+            <div class="bs-example">
+                <div class="row top">
+                    <div class="col-md-4">
+                        <div class="item_table option_pricing WT border ">
+
+                            <div class="headsubcribe">
+                                <div class="subheadtext">
+                                    <h4 class="subheadtext">Grammar</h4>
+
+                                </div>
+                                @* <h4 class="points-nav subheadtext">10 <span>points</span></h4>*@
+                            </div>
+
+                            <ul class="items PT10">
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <td class="td-1">Unit</td>
+                                            <td class="td-2">Point</td>
+                                            <td class="td-2">Price</td>
+                                            <td class="td-3">Select</td>
+                                        </tr>
+                                    </table>
+                                    @* <span class="pull-right MR20"></span><span class="pull-right MR20"></span>*@</li>
+                                 @foreach (var Grammer in ViewBag.ResultGrammer)
+                                {
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <td class="td-1"><i class="fa fa-book"></i>@Grammer["UnitNameEnglish"]</td>
+                                            <td class="td-2">10 pt</td>
+                                            <td class="td-2"><b class="pull-right MR20"><span class="MR20">20 ريال</span></b></td>
+                                            <td class="td-3">
+                                                <input id="gm30" name="gm" type="checkbox" value="10"></td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                }
+                               
+
+                               
+                               @* <li>
+                                    <table>
+                                        <tr>
+                                            <td class="td-1"><i class="fa fa-book"></i>10 Topic	Units</td>
+                                            <td class="td-2">50 pt</td>
+                                            <td class="td-2"><b class="pull-right MR20"><span class="MR20">50 ريال</span></b></td>
+                                            <td class="td-3">
+                                                <input id="gm40" name="gm" type="checkbox" value="10">
+                                                </b></td>
+                                        </tr>
+                                    </table>
+                                </li>*@
+                                <li class="pull-right pullrightdistance"><b>total =
+                                    <label id="gmtotal">0 ريال</label></b></li>
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="item_table option_pricing WT border ">
+
+                            <div class="headsubcribe">
+                                <div class="subheadtext">
+                                    <h4 class="subheadtext">Dialog</h4>
+
+                                </div>
+                                @* <h4 class="points-nav subheadtext">10 <span>points</span></h4>*@
+                            </div>
+
+                            <ul class="items PT10">
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <td class="td-1">Dialog</td>
+                                            <td class="td-2">Point</td>
+                                            <td class="td-2">Price</td>
+                                            <td class="td-3">Select</td>
+                                        </tr>
+                                    </table>
+                                    @* <span class="pull-right MR20"></span><span class="pull-right MR20"></span>*@</li>
+
+                                  @foreach (var Dialog in ViewBag.ResultDialog)
+                                {
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <td class="td-1"><i class="fa fa-book"></i>@Dialog["EnglishName"]</td>
+                                            <td class="td-2">10 pt</td>
+                                            <td class="td-2"><b class="pull-right MR20"><span class="MR20">20 ريال</span></b></td>
+                                            <td class="td-3">
+                                                <input id="gm20" name="gm" type="checkbox" value="10"></td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                 }
+                               @* <li>
+                                    <table>
+                                        <tr>
+                                            <td class="td-1"><i class="fa fa-book"></i>2 Topic	Units</td>
+                                            <td class="td-2">10 pt</td>
+                                            <td class="td-2"><b class="pull-right MR20"><span class="MR20">10 ريال</span></b></td>
+                                            <td class="td-3">
+                                                <input name="da" id="da10" value="10" type="checkbox"></td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <td class="td-1"><i class="fa fa-book"></i>5 Topic	Units</td>
+                                            <td class="td-2">20 pt</td>
+                                            <td class="td-2"><b class="pull-right MR20"><span class="MR20">20 ريال</span></b></td>
+                                            <td class="td-3">
+                                                <input name="da" id="da20" value="20" type="checkbox"></td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <td class="td-1"><i class="fa fa-book"></i>7 Topic	Units</td>
+                                            <td class="td-2">30 pt</td>
+                                            <td class="td-2"><b class="pull-right MR20"><span class="MR20">35 ريال</span></b></td>
+                                            <td class="td-3">
+                                                <input name="da" id="da30" value="40" type="checkbox"></td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <td class="td-1"><i class="fa fa-book"></i>10 Topic	Units</td>
+                                            <td class="td-2">50 pt</td>
+                                            <td class="td-2"><b class="pull-right MR20"><span class="MR20">50 ريال</span></b></td>
+                                            <td class="td-3">
+                                                <input name="da" id="da40" value="50" type="checkbox">
+                                                </b></td>
+                                        </tr>
+                                    </table>
+                                </li>*@
+                                <li class="pull-right pullrightdistance"><b>total =
+                                    <label id="datotal">0 ريال</label></b></li>
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="item_table option_pricing WT border ">
+
+                            <div class="headsubcribe">
+                                <div class="subheadtext">
+                                    <h4 class="subheadtext">Vocabulary</h4>
+
+                                </div>
+                                @* <h4 class="points-nav subheadtext">10 <span>points</span></h4>*@
+                            </div>
+
+                            <ul class="items PT10">
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <td class="td-1">Vocabulary</td>
+                                            <td class="td-2">Point</td>
+                                            <td class="td-2">Price</td>
+                                            <td class="td-3">Select</td>
+                                        </tr>
+                                    </table>
+                                    @* <span class="pull-right MR20"></span><span class="pull-right MR20"></span>*@</li>
+                                 @foreach (var Vocab in ViewBag.ResultVocab)
+                                {
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <td class="td-1"><i class="fa fa-book"></i> @Vocab["Text"]</td>
+                                            <td class="td-2">10 pt</td>
+                                            <td class="td-2"><b class="pull-right MR20"><span class="MR20">20 ريال</span></b></td>
+                                            <td class="td-3">
+                                                <input id="gm10" name="gm" type="checkbox" value="10"></td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                }
+                                
+
+                              @*  <li>
+                                    <table>
+                                        <tr>
+                                            <td class="td-1"><i class="fa fa-book"></i>2 Topic	Units</td>
+                                            <td class="td-2">10 pt</td>
+                                            <td class="td-2"><b class="pull-right MR20"><span class="MR20">10 ريال</span></b></td>
+                                            <td class="td-3">
+                                                <input name="vb" id="vb10" value="10" type="checkbox"></td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <td class="td-1"><i class="fa fa-book"></i>5 Topic	Units</td>
+                                            <td class="td-2">20 pt</td>
+                                            <td class="td-2"><b class="pull-right MR20"><span class="MR20">20 ريال</span></b></td>
+                                            <td class="td-3">
+                                                <input name="vb" id="vb20" value="20" type="checkbox"></td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <td class="td-1"><i class="fa fa-book"></i>7 Topic	Units</td>
+                                            <td class="td-2">30 pt</td>
+                                            <td class="td-2"><b class="pull-right MR20"><span class="MR20">35 ريال</span></b></td>
+                                            <td class="td-3">
+                                                <input name="vb" id="vb30" value="40" type="checkbox"></td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <td class="td-1"><i class="fa fa-book"></i>10 Topic	Units</td>
+                                            <td class="td-2">50 pt</td>
+                                            <td class="td-2"><b class="pull-right MR20"><span class="MR20">50 ريال</span></b></td>
+                                            <td class="td-3">
+                                                <input name="vb" id="vb40" value="50" type="checkbox">
+                                                </b></td>
+                                        </tr>
+                                    </table>
+                                </li>*@
+                                <li class="pull-right pullrightdistance "><b>total =
+                                    <label id="vbtotal">0 ريال</label></b></li>
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <input type="button" class="btn btn-info MT20 pull-right" value="Pay Now" />
+            </div>
+
+        </div>
+    </div>
+</div>

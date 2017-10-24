@@ -1,0 +1,93 @@
+﻿@using System.Globalization;
+@using TradeSystem.Utils.Models;
+@{
+    ViewBag.Title = "My Investment List";
+    Layout = "~/Views/Shared/_CustomerLoggedInLayout.cshtml";
+}
+@model IEnumerable<TradeSystem.Utils.Models.CustomerProductDataModel>
+
+<!-- Existing Customers -->
+<div class="panel panel-flat">
+    <div class="panel-body">
+        <div class="text-right mt-10">
+            <!--Change for export excel by datatable tool-->
+            <span class="btn btn-primary pr-15 mr-60 visible-none"></span>
+            <div class="tooltip-section">
+                <button type="button" class="btn btn-primary btn-sm" data-popup="tooltip" title="<strong>@Resources.Languages.ExportToolTip</strong>" data-html="true"><i class="icon-question7"></i> </button>
+            </div>
+            @*<span class="btn btn-primary pr-15"> @Html.ActionLink(@Resources.Languages.Export, "ExportToExcel", "Investment", (List<TradeSystem.Utils.Models.CustomerProductDataModel>)Model, new { @class = "btn-primary", title = @Resources.Languages.ExportToExcel, id = "btn-actionlink-export" })</span>*@
+        </div>
+        <div class="data-tbl-wrapper">
+            <table id="inventory_data_table" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th class="sorting_disabled">@Resources.Languages.SNo</th>
+                        <th>@Resources.Languages.InvestementName</th>
+                        <th>@Resources.Languages.InvestmentAmount</th>
+                        <th>@Resources.Languages.TotalWeeklyEarning</th>
+                        <th>@Resources.Languages.StartDate <i class="icon-calendar"></i></th>
+                        <th>@Resources.Languages.WithdrawDate <i class="icon-calendar"></i></th>
+                        <th>@Resources.Languages.Status</th>
+                        <th>@Resources.Languages.Receipt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+            {
+                        <tr>
+                            <td></td>
+                            @if (item.Status == "Active")
+                            {
+                                <td><a href="@Url.Action("MyInvestmentsDetails","Investment", new { id = item.ProductId })">@item.Name</a></td>
+                            }
+                            else if (item.Status == "InActive")
+                            {
+                                <td><a href="@Url.Action("MyInvestmentsDetails","Investment", new { id = item.ProductId })">@item.Name</a></td>
+                            }
+                            else
+                            {
+                                <td>@item.Name</td>
+                            }
+
+                            <td class="text-right">@item.InvestmentCustomer.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
+                            <td class="text-right">@item.CurrentWeekTotalEarning.Value.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
+
+                            <td>@item.CreatedDate.ToString("MM-dd-yyyy")</td>
+                            <td>@item.InvestmentWithdrawDate.ToString("MM-dd-yyyy")</td>
+                            @*@item.Published.Value.ToString("dd. MM. yyyy")*@
+                            @*<td>@Html.DisplayFor(Function(Model) item.InvestmentWithdrawDate.ToString("dd/MM/yyyy"))</td>*@
+                            @*@if (item.Status == "True")
+                                {*@
+                            <td class="text-center">@item.Status</td>
+                            @*}
+                                else
+                                {
+                                    <td class="text-center">@Resources.Languages.Completed</td>
+                                }*@
+                            @if (float.Parse(@item.Investment) == 0 || @item.Status == "Completed")
+                            {
+                                <td>-</td>
+                            }
+                            else if (@item.PaymentType == "MiniMarket" && @item.Status != "Reject")
+                            {
+                                <td><a href="@Url.Action("Receipt", "FinanceManagement", new { id = item.ProductId})">Receipt</a></td>
+                            }
+                            else
+                            {
+                                <td>-</td>
+                            }
+                        </tr>
+                    
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- /existing customers -->
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btn-actionlink-export').append('<i class="icon-file-excel position-right"></i>');
+    });
+</script>

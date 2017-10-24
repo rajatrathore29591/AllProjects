@@ -1,0 +1,174 @@
+﻿<style>
+    input[type="file"] {
+        display: block;
+    }
+
+    .imageThumb {
+        max-height: 100px;
+        border: 1px solid #ccc;
+        margin: 10px 10px 0 10px;
+        padding: 1px;
+    }
+</style>
+
+<div class="page-content-wrapper">
+    <div class="page-content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box green clearfix">
+                    <div class="portlet-title">
+                        <div class="caption pagename bold pull-left">
+                            <span>Website Banner</span>
+                        </div>
+                        <div class="caption path pull-right">
+                            <div class=""><span class="margin-right-10">Path</span> <i class="fa fa-angle-right margin-right-10"></i><span>Website Banner</span></div>
+                        </div>
+                    </div>
+                    <div class="portlet-body form ">
+
+
+                        <form  class="form-horizontal " ng-submit="save()">
+                            <div class="form-body">
+                                
+                                            <div class="form-group">
+                                                <div class=" col-md-8 ">
+                                                    <label class="label-custom pull-right">Delay with Seconds</label>
+                                                </div>
+                                                <div class="col-md-4 margin-top-15" >
+                                                    <input type="text" ng-model="delay"  class="form-control" required>
+                                                </div>
+                                            </div>
+                                        <div class="row">
+                                            <div class="col-lg-6 lefttitle pull-left ">
+                                                <h3 class="title">Currently Active</h3>
+                                            </div>
+
+                                            <div class="col-lg-6 rightbutton pull-right ">
+                                                <div class="fileUpload btn btn-danger pull-right margin-10">
+                                                    <span>Upload Banner</span>
+                                                    <input type="file" id="files" name="files[]" multiple class="upload" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <script type="text/javascript">
+                                            $(document).ready(function () {
+
+                                                if (window.File && window.FileList && window.FileReader) {
+                                                    $("#files").on("change", function (e) {
+                                                        var files = e.target.files,
+                                                        filesLength = files.length;
+                                                        for (var i = 0; i < filesLength ; i++) {
+                                                            var f = files[i]
+                                                            var fileReader = new FileReader();
+                                                            fileReader.onload = (function (e) {
+                                                                var file = e.target;
+                                                                /* $("<img></img>", {
+                                                                     class: "imageThumb",
+                                                                     src: e.target.result,
+                                                                     title: file.name
+                                                                 }).insertAfter("#output");*/
+                                                                var h = "<div class='imgcont'><img src='" + e.target.result + "' title = '" + file.name + "' class='imageThumb'><i class='fa fa-minus del'></i></div>";
+                                                                $(h).insertAfter("#output");
+                                                            });
+                                                            fileReader.readAsDataURL(f);
+                                                        }
+                                                    });
+                                                } else { alert("Your browser doesn't support to File API") }
+                                            });
+
+
+                                        </script>
+                                        <div class="row border-top">
+                                            <div class="col-sm-12 margin-top-20 ">
+                                                <div id="bannerImages" class="form-group">
+
+                                                    <div class="col-md-12" id="output"></div>
+                                                    <div class="imgcont" ng-repeat="item in landing">
+                                                        <div class="image-thumbnail">
+                                                           <img class="imageThumb" src="{{config.api}}/Pictures/{{item.imageURL}}"> </img>
+                                                        </div>
+                                                            <i ng-click="delete(item.bannerId)" class="fa fa-minus del"></i>
+                                                        
+                                                    </div>
+                                                    <!--<img ng-repeat="item in landing" class="imageThumb" src="http://localhost:3338/Pictures/{{item.imageURL}}"> </img>-->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    <!-- <div class="row main">
+                                        <div class="col-sm-10 border margin-top-20 ">
+                                            <div class="form-group">
+                                                <label class=" col-md-12 label-custom">Promo-1</label>
+                                                <div class="col-md-12">
+                                                    <img class="img-responsive border img-wd100" src="assets/admin/layout/img/pizza-img.png" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row main">
+                                        <div class="col-sm-10 border margin-top-20 ">
+                                            <div class="form-group">
+                                                <label class=" col-md-12 label-custom">Promo-1</label>
+                                                <div class="col-md-12">
+                                                    <img class="img-responsive border img-wd100" src="assets/admin/layout/img/pizza-img.png" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>-->
+                                <div class="form-group">
+                                            <label class="col-xs-12 col-sm-2 m-t-0 lh34">Hyperlink</label>
+                                            <!-- <input type="button" class="btn btn-primary" value="Hyperlink" /> -->
+                                        <div class="col-xs-12 col-sm-10">
+                                            <input type="text" ng-model="reference" class="form-control" placeholder="Add Link">
+                                        </div>
+                                </div>
+
+                                <div class="col-md-12 MT20 PDB50">
+                                    <button type="submit" value="Submit"  class="btn btn-primary pull-right">Save</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- END of portlet-->
+            </div>
+        </div>
+        <!-- END PAGE CONTENT-->
+    </div>
+</div>
+<div id="loader" ng-show="showLoader"> 
+    <div class="page-spinner-bar" ng-spinner-bar="">
+		<div class="bounce1"></div>
+		<div class="bounce2"></div>
+		<div class="bounce3"></div>
+	</div>
+
+</div>
+ <div id="static" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Message</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                       <!-- Would you like to continue with some arbitrary task?-->
+                        {{Message}}
+                    </p>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" ng-click="redirect()" id="clickme" data-dismiss="modal" class="btn green">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+
+
+<script>
+    $(document).ready(function () {
+        
+    })
+    </script>

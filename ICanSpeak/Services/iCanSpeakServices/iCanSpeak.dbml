@@ -1,0 +1,777 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="valens1_LLA" Class="iCanSpeakDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="ConnectionString" ConnectionString="Data Source=204.93.197.136;Initial Catalog=valens1_LLA;Persist Security Info=True;User ID=valens1_mm26;Password=techvalens@123" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Role" Member="Roles">
+    <Type Name="Role">
+      <Column Name="RoleId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Role_SubAdmin" Member="SubAdmins" ThisKey="RoleId" OtherKey="RoleId" Type="SubAdmin" />
+      <Association Name="Role_User" Member="Users" ThisKey="RoleId" OtherKey="RoleId" Type="User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Unit" Member="Units">
+    <Type Name="Unit">
+      <Column Name="UnitId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CourseId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="UnitName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Price" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UnitImageUrl" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UnitScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" AutoSync="Never" Type="System.Boolean" DbType="Bit NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CreatedDate" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TopicScore" Member="TopicScores">
+    <Type Name="TopicScore">
+      <Column Name="TopicScoreId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TopicId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TopicType" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Score" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RecentActivity" Member="RecentActivities">
+    <Type Name="RecentActivity">
+      <Column Name="ActivityId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="RefUserid" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ActivityText" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NotificationSetting" Member="NotificationSettings">
+    <Type Name="NotificationSetting">
+      <Column Name="UserId" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AddFriend" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SendMeMail" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ReviewSubmit" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ReviewReplySubmit" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AcceptFriendReq" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CommentsItem" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateNewFeatures" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NewSuccessStory" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedDate" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IsActive" AutoSync="Never" Type="System.Boolean" DbType="Bit NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DetededDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DialogAssessmentAnswer" Member="DialogAssessmentAnswers">
+    <Type Name="DialogAssessmentAnswer">
+      <Column Name="AnswerId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QuestionId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Answer" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" AutoSync="Never" Type="System.DateTime" DbType="DateTime" IsDbGenerated="true" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" AutoSync="Never" Type="System.Int32" DbType="Int" IsDbGenerated="true" CanBeNull="true" />
+      <Column Name="IsCorrectAnswer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AccountDelete" Member="AccountDeletes">
+    <Type Name="AccountDelete">
+      <Column Name="DeleteAccountId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Reason" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReasonExplain" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsActive" AutoSync="Never" Type="System.Boolean" DbType="Bit NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CreatedDate" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RX_Log" Member="RX_Logs">
+    <Type Name="RX_Log">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EventId" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Category" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="InnerException" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Timestamps" AutoSync="Never" Type="System.DateTime" DbType="DateTime" IsDbGenerated="true" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ContactUs" Member="ContactUs">
+    <Type Name="ContactUs">
+      <Column Name="QueryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EmailId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ContactNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Subject" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DeleteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsRead" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Welcome" Member="Welcomes">
+    <Type Name="Welcome">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Header" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreatedDate" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IsActive" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.About" Member="Abouts">
+    <Type Name="About">
+      <Column Name="AboutId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ScreenName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NewsLatter" Member="NewsLatters">
+    <Type Name="NewsLatter">
+      <Column Name="NewsLatterId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Subject" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="MessageBody" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="MeaageTo" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="MessageFrom" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreateDate" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Menu" Member="Menus">
+    <Type Name="Menu">
+      <Column Name="MenuId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DisplayName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsActivce" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedDate" AutoSync="Never" Type="System.DateTime" DbType="DateTime" IsDbGenerated="true" CanBeNull="true" />
+      <Column Name="DeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RoleMapper" Member="RoleMappers">
+    <Type Name="RoleMapper">
+      <Column Name="MapperId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MenuId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDate" AutoSync="Never" Type="System.DateTime" DbType="DateTime" IsDbGenerated="true" CanBeNull="true" />
+      <Column Name="DeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.iCanSpeakCourse" Member="iCanSpeakCourses">
+    <Type Name="iCanSpeakCourse">
+      <Column Name="CourseId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CourseName" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CourseDescription" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CourseType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Duration" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RewardPoints" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImageUrl" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="AudioUrl" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MaxScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsFree" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedDate" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Unit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="iCanSpeakCourse_Course" Member="Courses" ThisKey="CourseId" OtherKey="iCanSpeakCourseId" Type="Course" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PaymentDetail" Member="PaymentDetails">
+    <Type Name="PaymentDetail">
+      <Column Name="PaymentDetailId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CourseId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CoursePrice" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PaidAmount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PaidDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="NextDueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Discription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PaidBy" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDate" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TranctionId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GrammerAssessmentQuestions" Member="GrammerAssessmentQuestions">
+    <Type Name="GrammerAssessmentQuestion">
+      <Column Name="SlotId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Question" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SlotPointValue" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="CorrectAnswer" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" IsDbGenerated="true" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="GrammerAssessmentQuestion_GrammerAssessmentAnswer" Member="GrammerAssessmentAnswers" ThisKey="SlotId" OtherKey="SlotId" Type="GrammerAssessmentAnswer" />
+      <Association Name="GrammerUnit_GrammerAssessmentQuestion" Member="GrammerUnit" ThisKey="UnitId" OtherKey="UnitId" Type="GrammerUnit" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GrammerAssessmentAnswers" Member="GrammerAssessmentAnswers">
+    <Type Name="GrammerAssessmentAnswer">
+      <Column Name="AnswerId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SlotId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="UserAnswer" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UnitId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CreateDate" AutoSync="Never" Type="System.DateTime" DbType="DateTime" IsDbGenerated="true" CanBeNull="true" />
+      <Column Name="DeleteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="GrammerAssessmentQuestion_GrammerAssessmentAnswer" Member="GrammerAssessmentQuestion" ThisKey="SlotId" OtherKey="SlotId" Type="GrammerAssessmentQuestion" IsForeignKey="true" />
+      <Association Name="GrammerUnit_GrammerAssessmentAnswer" Member="GrammerUnit" ThisKey="UnitId" OtherKey="UnitId" Type="GrammerUnit" IsForeignKey="true" />
+      <Association Name="User_GrammerAssessmentAnswer" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GrammerAssessmentScore" Member="GrammerAssessmentScores">
+    <Type Name="GrammerAssessmentScore">
+      <Column Name="ScoreId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AssessmentNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Score" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UnitId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreateDate" AutoSync="Never" Type="System.DateTime" DbType="DateTime" IsDbGenerated="true" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="GrammerUnit_GrammerAssessmentScore" Member="GrammerUnit" ThisKey="UnitId" OtherKey="UnitId" Type="GrammerUnit" IsForeignKey="true" />
+      <Association Name="User_GrammerAssessmentScore" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TermsAndCondition" Member="TermsConditions">
+    <Type Name="TermsCondition">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreatedDate" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Course" Member="Courses">
+    <Type Name="Course">
+      <Column Name="CourseId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iCanSpeakCourseId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Score" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="iCanSpeakCourse_Course" Member="iCanSpeakCourse" ThisKey="iCanSpeakCourseId" OtherKey="CourseId" Type="iCanSpeakCourse" IsForeignKey="true" />
+      <Association Name="User_Course" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SubTutor" Member="SubTutors">
+    <Type Name="SubTutor">
+      <Column Name="SubTutorId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StudentUserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tutor" Member="Tutors">
+    <Type Name="Tutor">
+      <Column Name="TutorId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StudentUserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VocabularyWords" Member="VocabularyWords">
+    <Type Name="VocabularyWord">
+      <Column Name="WordId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VocabularySubId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="VocabularyId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EnglishText" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="ArabicText" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PictureUrl" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AudioUrl" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GrammerUnits" Member="GrammerUnits">
+    <Type Name="GrammerUnit">
+      <Column Name="UnitId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UnitNameEnglish" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="UnitNameArabic" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PPTUrl" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="VideoUrl" Type="System.String" DbType="NVarChar(70)" CanBeNull="true" />
+      <Column Name="Video2Url" Type="System.String" DbType="NVarChar(70)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Duration" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RewardPoints" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaxScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsFree" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AssessmentSlots" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CorrectAnswer" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DescriptionEnglish" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DescriptionArabic" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="GrammerUnit_GrammerAssessmentQuestion" Member="GrammerAssessmentQuestions" ThisKey="UnitId" OtherKey="UnitId" Type="GrammerAssessmentQuestion" />
+      <Association Name="GrammerUnit_GrammerAssessmentAnswer" Member="GrammerAssessmentAnswers" ThisKey="UnitId" OtherKey="UnitId" Type="GrammerAssessmentAnswer" />
+      <Association Name="GrammerUnit_GrammerAssessmentScore" Member="GrammerAssessmentScores" ThisKey="UnitId" OtherKey="UnitId" Type="GrammerAssessmentScore" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DialogKeyPhrases" Member="DialogKeyPhrases">
+    <Type Name="DialogKeyPhrase">
+      <Column Name="KeyPhrasesId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DialogId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="EnglishText" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ArabicText" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="AudioUrl" Type="System.String" DbType="NVarChar(70)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Dialog_DialogKeyPhrase" Member="Dialog" ThisKey="DialogId" OtherKey="DialogId" Type="Dialog" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vocabulary" Member="Vocabularies">
+    <Type Name="Vocabulary">
+      <Column Name="VocabularyId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ImageUrl" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AudioUrl" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SampleSentance" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ArabicText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Duration" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RewardPoints" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaxScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsFree" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsSubCategory" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SubCategoryCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WordCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Vocabulary_VocabularySubCategory" Member="VocabularySubCategories" ThisKey="VocabularyId" OtherKey="VocabularyId" Type="VocabularySubCategory" />
+      <Association Name="Vocabulary_VocabAssessmentScore" Member="VocabAssessmentScores" ThisKey="VocabularyId" OtherKey="VocabularyId" Type="VocabAssessmentScore" />
+      <Association Name="Vocabulary_VocabQuestion" Member="VocabQuestions" ThisKey="VocabularyId" OtherKey="VocabularyId" Type="VocabQuestion" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VocabularySubCategory" Member="VocabularySubCategories">
+    <Type Name="VocabularySubCategory">
+      <Column Name="VacabularySubId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VocabularyId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="SubCategoryName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ImageUrl" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AudioUrl" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ArabicText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="WordCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Vocabulary_VocabularySubCategory" Member="Vocabulary" ThisKey="VocabularyId" OtherKey="VocabularyId" Type="Vocabulary" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DialogConversation" Member="DialogConversations">
+    <Type Name="DialogConversation">
+      <Column Name="ConversationId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DialogId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Person1Text" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Person2Text" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Person1ArabicText" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Person2ArabicText" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LanguageName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Dialog_DialogConversation" Member="Dialog" ThisKey="DialogId" OtherKey="DialogId" Type="Dialog" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Messages" Member="Messages">
+    <Type Name="Message">
+      <Column Name="MessageId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SenderId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RecieverId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Message" Member="Message1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Subject" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IsRead" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DeletedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Help" Member="Helps">
+    <Type Name="Help">
+      <Column Name="HelpId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SignupContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PracticeContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FriendsContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PaymentContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TutorsContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AboutContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TermsConditionContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PrivacyPolicyContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Faq" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Notification" Member="Notifications">
+    <Type Name="Notification">
+      <Column Name="NotificationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FlashCard" Member="FlashCards">
+    <Type Name="FlashCard">
+      <Column Name="FlashCardId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WordId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DialogAssessmentQuestions" Member="DialogAssessmentQuestions">
+    <Type Name="DialogAssessmentQuestion">
+      <Column Name="QuestionId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Question" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="QuestionType" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="DialogId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FillAnswerText" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="OptionText1" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="OptionText2" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="OptionText3" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="OptionAudio1" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="OptionAudio2" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="OptionAudio3" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TrueFalseAnswer" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OptionCorrectAnswer" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Friends" Member="Friends">
+    <Type Name="Friend">
+      <Column Name="InviteFriendID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InvitedID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SubAdmin" Member="SubAdmins">
+    <Type Name="SubAdmin">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProfilePicture" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="DOB" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="AccessToken" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="RoleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="City" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ZipCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LastLogin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ContactNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Education" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Experience" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Expertise" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="Role_SubAdmin" Member="Role" ThisKey="RoleId" OtherKey="RoleId" Type="Role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PremiumSubscription" Member="PremiumSubscriptions">
+    <Type Name="PremiumSubscription">
+      <Column Name="PremiumSubscriptionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SubscriptionName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GrammerCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VocabCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DialogCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VocabWordCount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MappingSubscription" Member="MappingSubscriptions">
+    <Type Name="MappingSubscription">
+      <Column Name="MappingId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SubscriptionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CourseId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CourseType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Marks" Member="Marks">
+    <Type Name="Mark">
+      <Column Name="MarksId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TutorId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StudentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Marks" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TotalScore" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsMark" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Subscribe" Member="Subscribes">
+    <Type Name="Subscribe">
+      <Column Name="SubscribeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsSubscribe" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BookMarks" Member="BookMarks">
+    <Type Name="BookMark">
+      <Column Name="BookmarkId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BookMarkURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CourseId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VocabId" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="VocabSubId" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="CourseType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="ProfilePicture" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ZipCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="AboutMe" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LastLogin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RoleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AccessToken" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LevelId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubscriptionType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RewardPoints" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DeviceId" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="IsSuggested" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BatchCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FlashCard" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MyScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Messages" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Experience" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Specialisation" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Education" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="FacebookId" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TwitterId" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="GoogleId" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LoginType" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="LoginStatus" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="Language" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DialogBookmark" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VocabularyBookmark" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GrammerBookmark" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VocabId" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="VocabSubId" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="User_GrammerAssessmentAnswer" Member="GrammerAssessmentAnswers" ThisKey="UserId" OtherKey="UserId" Type="GrammerAssessmentAnswer" />
+      <Association Name="User_GrammerAssessmentScore" Member="GrammerAssessmentScores" ThisKey="UserId" OtherKey="UserId" Type="GrammerAssessmentScore" />
+      <Association Name="User_Course" Member="Courses" ThisKey="UserId" OtherKey="UserId" Type="Course" />
+      <Association Name="User_VocabAssessmentScore" Member="VocabAssessmentScores" ThisKey="UserId" OtherKey="UserId" Type="VocabAssessmentScore" />
+      <Association Name="Role_User" Member="Role" ThisKey="RoleId" OtherKey="RoleId" Type="Role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MyActivity" Member="MyActivities">
+    <Type Name="MyActivity">
+      <Column Name="MyActivityId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DeletedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DialogAssessmentScore" Member="DialogAssessmentScores">
+    <Type Name="DialogAssessmentScore">
+      <Column Name="ScoreId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AssessmentNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Score" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DialogId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Dialog_DialogAssessmentScore" Member="Dialog" ThisKey="DialogId" OtherKey="DialogId" Type="Dialog" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VocabAssessmentScore" Member="VocabAssessmentScores">
+    <Type Name="VocabAssessmentScore">
+      <Column Name="ScoreId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AssessmentNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Score" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VocabularyId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="User_VocabAssessmentScore" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+      <Association Name="Vocabulary_VocabAssessmentScore" Member="Vocabulary" ThisKey="VocabularyId" OtherKey="VocabularyId" Type="Vocabulary" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AssessmentScore" Member="AssessmentScores">
+    <Type Name="AssessmentScore">
+      <Column Name="AssessmentScoreId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CourseId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QuestionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CourseType" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="IsQuestionCorrect" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VocabQuestions" Member="VocabQuestions">
+    <Type Name="VocabQuestion">
+      <Column Name="QuestionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VocabularyId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="SelectSet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Question" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CorrectAnswer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ImageUrl" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="OptionsA" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OptionsB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OptionsC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OptionsD" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OptionAAudio" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="OptionBAudio" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="OptionCAudio" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="OptionDAudio" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="OptionCorrectAnswer" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Association Name="Vocabulary_VocabQuestion" Member="Vocabulary" ThisKey="VocabularyId" OtherKey="VocabularyId" Type="Vocabulary" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Dialogs" Member="Dialogs">
+    <Type Name="Dialog">
+      <Column Name="DialogId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArabicName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="EnglishName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="VideoUrl" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AudioUrl" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Audio2Url" Type="System.String" DbType="NVarChar(70)" CanBeNull="true" />
+      <Column Name="EnglishSubtitleUrl" Type="System.String" DbType="NVarChar(70)" CanBeNull="true" />
+      <Column Name="ArabicSubtitleUrl" Type="System.String" DbType="NVarChar(70)" CanBeNull="true" />
+      <Column Name="BothSubtitleUrl" Type="System.String" DbType="NVarChar(70)" CanBeNull="true" />
+      <Column Name="StoryArabic" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="StoryEnglish" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DescriptionArabic" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DescriptionEnglish" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DialogGender" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Duration" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RewardPoints" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaxScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsFree" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Dialog_DialogKeyPhrase" Member="DialogKeyPhrases" ThisKey="DialogId" OtherKey="DialogId" Type="DialogKeyPhrase" />
+      <Association Name="Dialog_DialogConversation" Member="DialogConversations" ThisKey="DialogId" OtherKey="DialogId" Type="DialogConversation" />
+      <Association Name="Dialog_DialogAssessmentScore" Member="DialogAssessmentScores" ThisKey="DialogId" OtherKey="DialogId" Type="DialogAssessmentScore" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TutorSubTutorMapping" Member="TutorSubTutorMappings">
+    <Type Name="TutorSubTutorMapping">
+      <Column Name="MappingId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StudentUserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TutorId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubTutorId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Faq" Member="Faqs">
+    <Type Name="Faq">
+      <Column Name="FaqId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ScreenName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SuccessStory" Member="SuccessStories">
+    <Type Name="SuccessStory">
+      <Column Name="StoryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClientName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ClientStory" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="ClientImageUrl" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DemoVideo" Member="DemoVideos">
+    <Type Name="DemoVideo">
+      <Column Name="VideoId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VideoName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VideoUrl" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.usp_AddUserRelationship" Method="usp_AddUserRelationship" IsComposable="true">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="AccessToken" Parameter="accessToken" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="ToUserId" Parameter="toUserId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="RelationStatus" Parameter="relationStatus" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Message" Parameter="message" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="AddFriendSetting" Parameter="addFriendSetting" Type="System.String" DbType="NVarChar(100)" Direction="InOut" />
+    <Parameter Name="AcceptFriendReq" Parameter="acceptFriendReq" Type="System.String" DbType="NVarChar(100)" Direction="InOut" />
+    <Parameter Name="ToUserMail" Parameter="toUserMail" Type="System.String" DbType="NVarChar(100)" Direction="InOut" />
+    <Parameter Name="FromUserMail" Parameter="fromUserMail" Type="System.String" DbType="NVarChar(100)" Direction="InOut" />
+    <Parameter Name="ToUserName" Parameter="toUserName" Type="System.String" DbType="NVarChar(100)" Direction="InOut" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" Direction="InOut" />
+    <Parameter Name="ErrorMessage" Parameter="errorMessage" Type="System.String" DbType="NVarChar(200)" Direction="InOut" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.usp_SearchFriendsByUserId" Method="usp_SearchFriendsByUserId" IsComposable="true">
+    <Parameter Name="AccessToken" Parameter="accessToken" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Count" Parameter="count" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PageNo" Parameter="pageNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SearchString" Parameter="searchString" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="ErrorMessage" Parameter="errorMessage" Type="System.String" DbType="VarChar(200)" Direction="InOut" />
+    <Return Type="object" />
+  </Function>
+</Database>

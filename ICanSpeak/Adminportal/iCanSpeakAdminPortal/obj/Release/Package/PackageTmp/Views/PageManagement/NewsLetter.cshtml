@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "NewsLetter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <font color="44c9ff">News Letter</font>
+        </h1>
+    </div>
+</div>
+
+<table>
+    <tr>
+        <td>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Subject</label>
+                <input type="text" class="form-control" id="title" placeholder="Subject Line">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="container-fluid">
+                <div class="row">
+                    @* <div class="container">
+                        <div class="row">*@
+                    <div class="col-lg-12 nopadding">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Body Text</label>
+                            @Html.Partial("CustomTextEditor")
+                        </div>
+                    </div>
+                    @*</div>
+                    </div>*@
+                    <input type="button" class="btn btn-info" onclick="SendMail()" value="Send News Letter" style="margin-top: 15px;" /><br />
+                    <br />
+                    <label id="msg" style="color: green; display: none;">News Letter Mails Sent Successfully</label>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<script type="text/javascript">
+
+    function SendMail() {
+        $.ajax({
+            url: '@Url.Action("SendNewsLetter", "PageManagement")',
+            type: "POST",
+            data: { message: CKEDITOR.instances.editor1.getData(), subject: $("#title").val() },
+            success: function (result) {
+                if (result == "LogIn") {
+                    window.location = "@Url.Action("Login", "Account")";
+                }
+                if (result == "Success") {
+                    $("#msg").css("display", "block");
+                    $("#msg").css("color", "green");
+                    $("#msg").text('News Letter Mails Successfully Sent');
+                }
+                else {
+                    $("#msg").css("display", "block");
+                    $("#msg").css("color", "red");
+                    $("#msg").text('Failed to send news letter, please try after some time later.');
+                }
+            },
+            error: function (result) {
+                $("#msg").css("display", "block");
+                $("#msg").css("color", "red");
+                $("#msg").text('Failed to send news letter, please try after some time later.');
+            },
+        });
+    }
+
+</script>

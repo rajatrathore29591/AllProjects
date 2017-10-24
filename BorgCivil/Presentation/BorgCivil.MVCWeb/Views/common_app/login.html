@@ -1,0 +1,48 @@
+<div ng-controller="LoginCtrl as logCtrl">
+   <div class="login-container after-login">
+      <div class="row">
+         <div class="col-md-4 p-r0">
+            <div class="hpanel">
+               <div class="panel-body text-center">
+                  <img src="images/login_logo.png" class="p-b10 img-responsive">
+                  <h1 class="login-heading">Login</h1>
+                  <form role="form" name="login_form" ng-submit="logCtrl.create(login_form.$valid)" novalidate>
+                     <div class="form-group user-name">
+                        <i class="pe-7s-user"></i>
+                        <input type="email" placeholder="E-Mail" class="form-control" ng-model="logCtrl.attributes.email" name="email" required>
+                        <div class="m-t-xs" ng-show="login_form.email.$invalid && login_form.$submitted">
+                           <span class="text-danger" ng-show="login_form.email.$error">
+                           <span ng-show="login_form.email.$error.required" ng-bind="logCtrl.validationMsg.required"></span>
+                           <span ng-show="login_form.email.$error.email" ng-bind="logCtrl.validationMsg.email"></span>
+                           </span>
+                        </div>
+                     </div>
+                     <div class="form-group password-field">
+                        <i class="pe-7s-lock"></i>
+                        <input type="password" placeholder="Password" title="Please enter your password" required ng-model="password" name="password" id="password" class="form-control">
+                        <div class="m-t-xs" ng-show="login_form.password.$invalid && login_form.$submitted">
+                           <span class="text-danger" ng-show="login_form.password.$error">
+                           <span ng-bind="logCtrl.validationMsg.required">
+                           </span>
+                           </span>
+                        </div>
+                     </div>
+                     <div class="checkbox pull-left inline-form-element">
+                        <input type="checkbox" class="i-checks" checked>
+                        &nbsp;Remember login
+                     </div>
+                     <a href="../borgcivil_dev/forget.php" class="pull-right forgot-btn">Forgot Password?</a>
+                     <div class="clearfix"></div>
+                     <div class="login-btn">
+                        <button class="btn btn-success btn-block" title="Login" type="submit">Login</button>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-8 login-right-img p-l0">
+            <img src="images/right-img.png" alt="right-img" class="img-responsive">    
+         </div>
+      </div>
+   </div>
+</div>

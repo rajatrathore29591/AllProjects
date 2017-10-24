@@ -1,0 +1,77 @@
+﻿    <div class="inmodal fleetlistdetail" ng-click="FleetListCtrl as fleetlist">
+        <div class="modal-header text-center">
+            <!--<i class="fa fa-sliders color-success h-modal-icon"></i>-->
+            <h4 class="modal-title">MORE DETAILS</h4>
+            <div class="clostbtn">
+                <button type="button" ng-click="fleetlist.cancel()" title="Close"><img src="Content/images/closebtn.png"></button>
+            </div>
+
+        </div>
+        <div class="modal-body">
+                <div class="row m-t-sm">
+                    <div class="col-md-12">
+                        <div class="grid-tb-panel">
+                            <table class="table table-stripped" id="vehicle_booking">
+                                <thead>
+                                    <tr>
+                                        <th>Plant No.</th>
+                                        <th>Registration No.</th>
+                                        <th>Engine No.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="table-row-clone" id="product_table_row_num_0">
+                                        <td class="text-center">
+                                           BCA - P047
+                                        </td>
+                                        <td class="text-center">
+                                          56469D
+                                        </td>
+                                        <td class="text-center">
+                                         RSX04170
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                      <div class="col-md-12 m-t-sm">
+                    <div class="form-group">
+                        <label>HVIS Type</label>
+                        <input class="form-control" readonly="readonly" name="" value="HVIAS" type="text" ng-model= "fleetlist.hvistype">
+                    </div>
+                </div> 
+                 <div class="col-md-6 m-t-sm">
+                    <div class="form-group">
+                        <label>Registration</label>
+                        <a download="" href="../styles/pdf/imagetopdf.pdf" class="view-field"><i class="fa fa-file-pdf-o"></i>View Document</a>
+                    </div>
+                </div>
+                <div class="col-md-6 m-t-sm clearfix">
+                    <div class="form-group">
+                        <label>Service History</label>
+                        <a href="javascript:void(0)" class="view-field"><i class="fa fa-file-pdf-o"></i>View Document</a>
+                    </div>
+                </div> 
+                 <div class="col-md-6 m-t-sm">
+                    <div class="form-group">
+                        <label>Plant Risk Assessment</label>
+                        <a href="javascript:void(0)" class="view-field"><i class="fa fa-file-pdf-o"></i>View Document</a>
+                    </div>
+                </div>
+                <div class="col-md-6 m-t-sm">
+                    <div class="form-group">
+                        <label>NHVR Compliance</label>
+                        <a href="javascript:void(0)" class="view-field"><i class="fa fa-file-pdf-o"></i>View Document</a>
+                    </div>
+                </div>    
+                
+                </div>
+            </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="fleetlist.cancel()" title="Close">Close</button>
+
+        </div>
+    </div>
+

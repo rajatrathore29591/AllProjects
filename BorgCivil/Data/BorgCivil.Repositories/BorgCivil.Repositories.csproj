@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4494BAFF-B5FF-4D06-AB17-C6FB299BECA7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BorgCivil.Repositories</RootNamespace>
+    <AssemblyName>BorgCivil.Repositories</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.EntityFramework.2.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnonymousField\AnonymousFieldRepository.cs" />
+    <Compile Include="AnonymousField\IAnonymousFieldRepository.cs" />
+    <Compile Include="BookingSiteSupervisor\BookingSiteSupervisorRepository.cs" />
+    <Compile Include="BookingSiteSupervisor\IBookingSiteSupervisorRepository.cs" />
+    <Compile Include="Country\CountryRepository.cs" />
+    <Compile Include="Country\ICountryRepository.cs" />
+    <Compile Include="Demo\DemoRepository.cs" />
+    <Compile Include="Demo\IDemoRepository.cs" />
+    <Compile Include="DocketCheckList\DocketCheckListRepository.cs" />
+    <Compile Include="DocketCheckList\IDocketCheckListRepository.cs" />
+    <Compile Include="Document\DocumentRepository.cs" />
+    <Compile Include="Document\IDocumentRepository.cs" />
+    <Compile Include="DriverInductionCard\DriverInductionCardRepository.cs" />
+    <Compile Include="DriverInductionCard\IDriverInductionCardRepository.cs" />
+    <Compile Include="DriverVocCard\DriverVocCardRepository.cs" />
+    <Compile Include="DriverVocCard\IDriverVocCardRepository.cs" />
+    <Compile Include="DriverWhiteCard\DriverWhiteCardRepository.cs" />
+    <Compile Include="DriverWhiteCard\IDriverWhiteCardRepository.cs" />
+    <Compile Include="Email\EmailRepository.cs" />
+    <Compile Include="Email\IEmailRepository.cs" />
+    <Compile Include="Employee\EmployeeRepository.cs" />
+    <Compile Include="Employee\IEmployeeRepository.cs" />
+    <Compile Include="LoadDocket\LoadDocketRepository.cs" />
+    <Compile Include="LoadDocket\ILoadDocketRepository.cs" />
+    <Compile Include="Docket\DocketRepository.cs" />
+    <Compile Include="Docket\IDocketRepository.cs" />
+    <Compile Include="DriversFleetsMapping\DriversFleetsMappingRepository.cs" />
+    <Compile Include="DriversFleetsMapping\IDriversFleetsMappingRepository.cs" />
+    <Compile Include="EmploymentCategory\EmploymentCategoryRepository.cs" />
+    <Compile Include="EmploymentCategory\IEmploymentCategoryRepository.cs" />
+    <Compile Include="FleetHistory\FleetHistoryRepository.cs" />
+    <Compile Include="FleetHistory\IFleetHistoryRepository.cs" />
+    <Compile Include="FleetsRegistration\FleetsRegistrationRepository.cs" />
+    <Compile Include="FleetsRegistration\IFleetsRegistrationRepository.cs" />
+    <Compile Include="Drivers\DriversRepository.cs" />
+    <Compile Include="Drivers\IDriversRepository.cs" />
+    <Compile Include="BookingSiteGates\BookingSiteGatesRepository.cs" />
+    <Compile Include="BookingSiteGates\IBookingSiteGatesRepository.cs" />
+    <Compile Include="GateContactPerson\GateContactPersonRepository.cs" />
+    <Compile Include="GateContactPerson\IGateContactPersonRepository.cs" />
+    <Compile Include="Subcontractor\ISubcontractorRepository.cs" />
+    <Compile Include="Subcontractor\SubcontractorRepository.cs" />
+    <Compile Include="State\IStateRepository.cs" />
+    <Compile Include="State\StateRepository.cs" />
+    <Compile Include="StatusLookup\StatusLookupRepository.cs" />
+    <Compile Include="StatusLookup\IStatusLookupRepository.cs" />
+    <Compile Include="LicenseClass\LicenseClassRepository.cs" />
+    <Compile Include="LicenseClass\ILicenseClassRepository.cs" />
+    <Compile Include="FleetTypes\FleetTypesRepository.cs" />
+    <Compile Include="FleetTypes\IFleetTypesRepository.cs" />
+    <Compile Include="BookingFleets\BookingFleetsRepository.cs" />
+    <Compile Include="BookingFleets\IBookingFleetsRepository.cs" />
+    <Compile Include="Attachments\AttachmentsRepository.cs" />
+    <Compile Include="Attachments\IAttachmentsRepository.cs" />
+    <Compile Include="Common\ContextFactory.cs" />
+    <Compile Include="Common\IRepository.cs" />
+    <Compile Include="Common\IUnitOfWork.cs" />
+    <Compile Include="Common\Repository.cs" />
+    <Compile Include="Common\UnitOfWork.cs" />
+    <Compile Include="Booking\BookingRepository.cs" />
+    <Compile Include="Booking\IBookingRepository.cs" />
+    <Compile Include="Supervisor\SupervisorRepository.cs" />
+    <Compile Include="Supervisor\ISupervisorRepository.cs" />
+    <Compile Include="WorkTypes\WorkTypesRepository.cs" />
+    <Compile Include="WorkTypes\IWorkTypesRepository.cs" />
+    <Compile Include="Sites\SitesRepository.cs" />
+    <Compile Include="Sites\ISitesRepository.cs" />
+    <Compile Include="Gates\GatesRepository.cs" />
+    <Compile Include="Gates\IGatesRepository.cs" />
+    <Compile Include="Fleet\FleetRepository.cs" />
+    <Compile Include="Fleet\IFleetRepository.cs" />
+    <Compile Include="Customer\CustomerRepository.cs" />
+    <Compile Include="Customer\ICustomerRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\BorgCivil.Framework\BorgCivil.Framework.csproj">
+      <Project>{00785902-1ea3-47be-ad19-ccc43e17c244}</Project>
+      <Name>BorgCivil.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

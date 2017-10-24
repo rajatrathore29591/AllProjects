@@ -1,0 +1,344 @@
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\ApplicationInsights.config
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\csc.exe
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\System.Collections.Immutable.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\System.Reflection.Metadata.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\vbc.exe
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\VBCSCompiler.exe
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\VBCSCompiler.exe.config
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.WebApi.dll.config
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.WebApi.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.WebApi.pdb
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\es\TradeSystem.WebApi.resources.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Antlr3.Runtime.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Autofac.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Autofac.Integration.Mvc.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Autofac.Integration.WebApi.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\EntityFramework.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\EntityFramework.SqlServer.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\log4net.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.DependencyCollector.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.Web.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.WindowsServer.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.ApplicationInsights.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Google.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Web.Infrastructure.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Newtonsoft.Json.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\NLog.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Openpay.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Owin.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Purplelight.Framework.Autofac.Integration.WebApi.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Net.Http.Formatting.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Helpers.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Http.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Http.Owin.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Http.WebHost.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Mvc.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Optimization.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Razor.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.WebPages.Deployment.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.WebPages.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.WebPages.Razor.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Framework.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Repositories.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Service.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Utils.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\WebGrease.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Service.pdb
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Repositories.pdb
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Framework.pdb
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Utils.pdb
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Autofac.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Autofac.Integration.Mvc.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Autofac.Integration.WebApi.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\log4net.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.DependencyCollector.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.Web.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.WindowsServer.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.ApplicationInsights.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Newtonsoft.Json.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\NLog.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Net.Http.Formatting.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Helpers.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Http.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Http.WebHost.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Mvc.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Optimization.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Razor.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.WebPages.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.WebPages.Deployment.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.WebPages.Razor.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Antlr3.Runtime.pdb
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\EntityFramework.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\EntityFramework.SqlServer.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Google.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Http.Owin.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\obj\Debug\TradeSystem.MVCWeb.csprojResolveAssemblyReference.cache
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\obj\Debug\TradeSystem.WebApi.App_GlobalResources.Languages.resources
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\obj\Debug\TradeSystem.WebApi.App_GlobalResources.Languages.es.resources
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\obj\Debug\TradeSystem.MVCWeb.csproj.GenerateResource.Cache
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\obj\Debug\es\TradeSystem.WebApi.resources.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\obj\Debug\TradeSystem.WebApi.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\obj\Debug\TradeSystem.WebApi.pdb
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\ApplicationInsights.config
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\csc.exe
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\System.Collections.Immutable.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\System.Reflection.Metadata.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\vbc.exe
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\VBCSCompiler.exe
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\VBCSCompiler.exe.config
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.WebApi.dll.config
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.WebApi.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.WebApi.pdb
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\es\TradeSystem.WebApi.resources.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Antlr3.Runtime.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Autofac.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Autofac.Integration.Mvc.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Autofac.Integration.WebApi.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\EntityFramework.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\EntityFramework.SqlServer.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\log4net.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.DependencyCollector.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.Web.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.WindowsServer.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.ApplicationInsights.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Google.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Web.Infrastructure.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Newtonsoft.Json.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\NLog.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Openpay.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Owin.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Purplelight.Framework.Autofac.Integration.WebApi.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Net.Http.Formatting.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Helpers.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Http.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Http.Owin.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Http.WebHost.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Mvc.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Optimization.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Razor.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.WebPages.Deployment.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.WebPages.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.WebPages.Razor.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Framework.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Repositories.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Service.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Utils.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\WebGrease.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Service.pdb
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Repositories.pdb
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Framework.pdb
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Utils.pdb
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Autofac.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Autofac.Integration.Mvc.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Autofac.Integration.WebApi.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\log4net.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.DependencyCollector.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.Web.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.WindowsServer.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.ApplicationInsights.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Newtonsoft.Json.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\NLog.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Net.Http.Formatting.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Helpers.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Http.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Http.WebHost.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Mvc.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Optimization.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Razor.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.WebPages.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.WebPages.Deployment.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.WebPages.Razor.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Antlr3.Runtime.pdb
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\EntityFramework.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\EntityFramework.SqlServer.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Google.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Http.Owin.xml
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\obj\Debug\TradeSystem.WebApi.App_GlobalResources.Languages.resources
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\obj\Debug\TradeSystem.WebApi.App_GlobalResources.Languages.es.resources
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\obj\Debug\TradeSystem.MVCWeb.csproj.GenerateResource.Cache
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\obj\Debug\es\TradeSystem.WebApi.resources.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\obj\Debug\TradeSystem.WebApi.dll
+D:\Working\TradeSystem\Presentation\TradeSystem.WebApi\obj\Debug\TradeSystem.WebApi.pdb
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\ApplicationInsights.config
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\csc.exe
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\System.Collections.Immutable.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\System.Reflection.Metadata.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\vbc.exe
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\VBCSCompiler.exe
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\roslyn\VBCSCompiler.exe.config
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.WebApi.dll.config
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.WebApi.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.WebApi.pdb
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\es\TradeSystem.WebApi.resources.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Antlr3.Runtime.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Autofac.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Autofac.Integration.Mvc.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Autofac.Integration.WebApi.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\EntityFramework.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\EntityFramework.SqlServer.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\log4net.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.DependencyCollector.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.Web.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.WindowsServer.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.ApplicationInsights.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Google.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Web.Infrastructure.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Newtonsoft.Json.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\NLog.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Openpay.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Owin.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Purplelight.Framework.Autofac.Integration.WebApi.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Net.Http.Formatting.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Helpers.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Http.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Http.Owin.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Http.WebHost.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Mvc.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Optimization.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Razor.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.WebPages.Deployment.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.WebPages.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.WebPages.Razor.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Framework.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Repositories.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Service.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Utils.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\WebGrease.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Service.pdb
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Repositories.pdb
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Framework.pdb
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\TradeSystem.Utils.pdb
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Autofac.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Autofac.Integration.Mvc.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Autofac.Integration.WebApi.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\log4net.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.DependencyCollector.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.Web.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AI.WindowsServer.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.ApplicationInsights.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Newtonsoft.Json.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\NLog.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Net.Http.Formatting.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Helpers.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Http.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Http.WebHost.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Mvc.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Optimization.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Razor.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.WebPages.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.WebPages.Deployment.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.WebPages.Razor.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Antlr3.Runtime.pdb
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\EntityFramework.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\EntityFramework.SqlServer.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Google.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\bin\System.Web.Http.Owin.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\obj\Debug\TradeSystem.MVCWeb.csprojResolveAssemblyReference.cache
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\obj\Debug\TradeSystem.WebApi.App_GlobalResources.Languages.resources
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\obj\Debug\TradeSystem.WebApi.App_GlobalResources.Languages.es.resources
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\obj\Debug\TradeSystem.MVCWeb.csproj.GenerateResource.Cache
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\obj\Debug\es\TradeSystem.WebApi.resources.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\obj\Debug\TradeSystem.WebApi.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\obj\Debug\TradeSystem.WebApi.pdb

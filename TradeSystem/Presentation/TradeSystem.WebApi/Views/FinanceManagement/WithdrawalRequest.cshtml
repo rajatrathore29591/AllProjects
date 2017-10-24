@@ -1,0 +1,137 @@
+﻿@using TradeSystem.Utils.Models;
+@using System.Globalization;
+@{
+    ViewBag.Title = "Withdrawal Request";
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+}
+@model IEnumerable<TradeSystem.Utils.Models.WithdrawDataModel>
+
+<!-- Existing Customers -->
+<div class="panel panel-flat">
+    <div class="panel-body">
+        <div class="text-right mt-10">
+            <!--Change for export excel by datatable tool-->
+            <span class="btn btn-primary pr-15 mr-60 visible-none"></span>
+            <div class="tooltip-section">
+                <button type="button" class="btn btn-primary btn-sm" data-popup="tooltip" title="<strong>@Resources.Languages.AdminExportToolTip</strong>" data-html="true"><i class="icon-question7"></i> </button>
+            </div>
+            @*<span class="btn btn-primary pr-15"> @Html.ActionLink("Export ", "ExportToExcel", "FinanceManagement", (List<WithdrawDataModel>)Model, new { @class = "btn-primary", title = "Export to Excel", id = "btn-actionlink-export" })</span>*@
+        </div>
+        <div class="data-tbl-wrapper">
+            <table id="withdrawal_data_table" class="table table-bordered table-hover display">
+                <thead>
+                    <tr>
+                        <th class="sorting_disabled">S.No.</th>
+                        <th>Customer Name</th>
+                        <th>Withdrawal For</th>
+                        <th>Deposited To</th>
+                        <th>Withdraw Request Amount</th>
+                        <th>Created Date</th>
+                        <th>Estimated Deposited Date</th>
+                        <th>Days Remaining</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ var sno = 1; var checknull = string.Empty;}
+                    @foreach (var item in Model)
+            {
+                        <tr>
+                            <td></td>
+                            <td>@item.CustomerName</td>
+                            <td>@item.WithDrawalFor</td>
+                            <td class="text-center">
+                                @if (item.ToWithdrawStatus != null)
+                                {
+                                    @item.ToWithdrawStatus
+                                }
+                                else
+                                {
+                                    <span>-</span>
+                                }
+                            </td>
+                            <td>@item.WithdrawAmount.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
+                            <td>@item.CreatedDate.ToString("MM-dd-yyyy")</td>
+                            @if (item.Status == "Fund Released" && item.IsEarning == false && item.IsSale == false && item.CustomerProductId == null)
+                            {
+                                <td>-</td>
+                            }
+                            else
+                            {
+                                <td>@item.EstimatedDepositDate.ToString("MM-dd-yyyy")</td>
+                            }
+
+                            <td>@item.RemainingDaysForDepositing</td>
+                            @if (item.Status == "true")
+                            {
+                                <td>Pending</td>
+                            }
+                            else
+                            {
+                                <td class="text-center">
+                                    @if (item.Status != null)
+                                    {
+                                        @item.Status
+                                    }
+                                    else
+                                    {
+                                        <span>-</span>
+                                    }
+                                </td>
+                            }
+                            @if (item.Status == "true")
+                            {
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                @*<li><a title="Approve" href="javascript.void();"><i class="icon-eye8"></i> @Resources.Languages.Approve</a></li>
+                                                    <li><a title="Reject"><i class="icon-database-edit2"></i> @Resources.Languages.Reject</a></li>*@
+                                                <li><a title="Approve" href="@Url.Action("EditFinanceByFinanceId", "FinanceManagement", new { id = item.Id, status = "Fund Released" })"><i class="icon-eye8"></i>Approve</a></li>
+                                                <li><a title="Reject" href="@Url.Action("EditFinanceByFinanceId", "FinanceManagement", new { id = item.Id, status = "Rejected" })"><i class="icon-database-edit2"></i>Reject</a></li>
+
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            }
+                            else if (item.Status == null && item.IsEarning == false && item.IsSale == false && item.CustomerProductId == null)
+                            {
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a title="Approve" href="@Url.Action("EditWithdrawWalletByFinanceId", "FinanceManagement", new { id = item.Id, status = "Fund Released" })"><i class="icon-eye8"></i>Approve</a></li>
+
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="text-center">-</td>
+                            }
+                        </tr>
+                        sno++;
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- /existing customers -->
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btn-actionlink-export').append('<i class="icon-file-excel position-right"></i>');
+    });
+
+</script>

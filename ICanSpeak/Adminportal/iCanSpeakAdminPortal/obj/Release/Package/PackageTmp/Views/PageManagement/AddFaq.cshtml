@@ -1,0 +1,106 @@
+﻿@model iCanSpeakAdminPortal.Models.FaqTextModel
+
+@{
+    ViewBag.Title = "AddFaq";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Add Frequently Asked Question</title>
+    <link href="~/Content/themes/fileinput.css" rel="stylesheet" />
+    <link href="~/Content/themes/style.css" rel="stylesheet" />
+    <script src="~/Scripts/fileinput.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".valid").keypress(function (e) {
+                if (e.which < 97 || e.which > 122) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+        function isNumberDecimal(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode != 45 && (charCode != 46 || $(this).val().indexOf('.') != -1) &&
+                    (charCode < 48 || charCode > 57))
+                return false;
+
+            return true;
+        }
+    </script>
+
+</head>
+<body>
+
+    <div class="dialog-page">
+        <div class="container">
+
+
+            @using (Html.BeginForm("AddFaq", "PageManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            <font color="44c9ff"> Add Frequently Asked Question </font>
+                        </h1>
+                    </div>
+                    <a style="cursor:pointer; color:#3d3b3b; font-size:14pt;margin-left: -185px; float:right;position: absolute; margin-top:55px; font-weight:200;" href="@Url.Action("FaqList", "PageManagement")">Go To FAQ List</a>
+                </div>
+                <div class="contant">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label>Question <span style="color: #FE2801;">*</span></label>
+                                <input class="form-control" placeholder="Question" required name="Title" id="Title" type="text" />
+                            </div>
+                            <div class="form-group">
+                                <label>Answer <span style="color: #FE2801;">*</span></label>
+                                <textarea class="form-control" required name="Description" placeholder="Answer" id="Description"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-info2" value="Submit" />&nbsp;&nbsp;<input type="button" class="btn btn-info2" value="Reset" onclick="ResetFormValues()" />
+                                &nbsp;&nbsp;<a href="../../Admin/PageManagement/FAQList">
+                                    <input type="button" class="btn btn-info2" value="Cancel" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>       
+            }
+        </div>
+    </div>
+    <script type="text/javascript">
+        function ResetFormValues() {
+            window.location = "@Url.Action("AddFaq", "PageManagement")";
+        }
+        function textonly(e) {
+            if (e.keyCode == 45) {
+                return false;
+            }
+            var code;
+            if (!e) var e = window.event;
+            if (e.keyCode) code = e.keyCode;
+            else if (e.which) code = e.which;
+            var character = String.fromCharCode(code);
+            var AllowRegex = /^[\ba-zA-Z\s-]$/;
+            if (AllowRegex.test(character)) return true;
+            return false;
+        }
+    </script>
+</body>
+</html>

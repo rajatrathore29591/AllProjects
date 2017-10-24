@@ -1,0 +1,226 @@
+﻿@{
+    Layout = null;
+}
+
+<style>
+    .border {
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        margin-bottom: 20px;
+        width: 100% !important;
+    }
+
+    .blue {
+        background: linear-gradient(180deg, #44c9ff, #23aae0);
+        padding: 15px 10px;
+        border-radius: 6px 6px 0px 0px;
+        color: #fff;
+        font-size: 15px;
+    }
+</style>
+
+<script type="text/javascript" src="@Url.Content("/Scripts/jquery.min.js")"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#next').click(function () {
+            //-----------------------Video Call Ajax Section -----------------------------------------------------//
+            $.ajax({
+                url: '@Url.Action("NextGrammerDetail", "Grammer")',
+                type: "POST",
+                data: { id: $('#unitid').val() },
+                success: function (data) {
+                    $("#grammerpartial").html(data);
+                    //$('#unitid').val(data[0].Unitid);
+                    //$('#unitname').text(data[0].UnitNameEnglish);
+                    //$('#video').attr('src', data[0].VideoUrl);
+                    //$('#DescriptionEnglish')
+                    //var unitcount = parseInt($('#unitcount').text(), 10);
+                    //unitcount = unitcount + 1;
+                    //$('#unitcount').text(unitcount);
+                },
+                error: function (result) {
+                    $("#lblLoginerror").css("display", "block");
+                }
+            });
+            //--------------------Video Call Ajax Section Ends -----------------------------------------------------//
+            return false;
+        });
+
+        $('#previous').click(function () {
+            //-----------------------Video Call Ajax Section -----------------------------------------------------//
+            $.ajax({
+                url: '@Url.Action("BackGrammerDetail", "Grammer")',
+                type: "POST",
+                data: { id: $('#unitid').val() },
+                success: function (data) {
+                    $("#grammerpartial").html(data);
+                    //$('#unitid').val(data[0].Unitid);
+                    //$('#unitname').text(data[0].UnitNameEnglish);
+                    //$('#video').attr('src', data[0].VideoUrl);
+                    //var unitcount = parseInt($('#unitcount').text(), 10);
+                    //unitcount = unitcount - 1;
+                    //$('#unitcount').text(unitcount);
+                },
+                error: function (result) {
+                    $("#lblLoginerror").css("display", "block");
+                }
+            });
+            //--------------------Video Call Ajax Section Ends -----------------------------------------------------//
+            return false;
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#addBookMarkWord").click(function () {
+            var bookMarkUrl = window.location.href;
+
+            //-----------------------Video Call Ajax Section -----------------------------------------------------//
+            $.ajax({
+                url: '@Url.Action("AddBookMarkGrammerWords", "Grammer")',
+                type: "POST",
+                data: { GrammerCourseId: $('#unitid').val(), bookMarkUrl: bookMarkUrl, courseName: $('#GrammerName').val() },
+                success: function (data) {
+                    alert("Word Succcessfully Added");
+                    $("#addBookMarkWord").css('visibility', 'hidden');
+                    $("#removeBookMarkWord").css('visibility', 'visible');
+                },
+                error: function (result) {
+                    $("#lblLoginerror").css("display", "block");
+                }
+            });
+        });
+
+        $("#removeBookMarkWord").click(function () {
+            var bookMarkUrl = window.location.href;
+
+            //-----------------------Video Call Ajax Section -----------------------------------------------------//
+            $.ajax({
+                url: '@Url.Action("RemoveBookMarkDialogWords", "Grammer")',
+                type: "POST",
+                data: { courseid: $('#unitid').val() },
+                success: function (data) {
+                    alert("Word Succcessfully Added");
+                    $("#addBookMarkWord").css('visibility', 'visible');
+                    $("#removeBookMarkWord").css('visibility', 'hidden');
+                },
+                error: function (result) {
+                    $("#lblLoginerror").css("display", "block");
+                }
+            });
+        });
+    });
+</script>
+<link rel="stylesheet" href="@Url.Content("~/video-plugin/jquery.videocontrols.css")" />
+<script src="@Url.Content("~/video-plugin/jquery.videocontrols.js")"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myVideo_demo').videocontrols(
+        {
+            markers: [40, 84, 158, 194, 236, 272, 317, 344, 397, 447, 490, 580],
+            preview:
+            {
+                sprites: ['~/Content/img/content-bg.png'],
+                step: 10,
+                width: 200
+            },
+            theme:
+            {
+                progressbar: 'blue',
+                range: 'pink',
+                volume: 'pink'
+            }
+        });
+    });
+</script>
+<div class="container ">
+    <input type="hidden" id="unitid" value="@Model.Unitid" />
+    <input type="hidden" id="GrammerName" value="@Model.UnitNameEnglish"/>
+    <div class="col-lg-12 PD50">
+        <div class="heading-grays">
+            @*<span class="unit-box">Unit <span id="unitcount">@Model.index</span> - <span id="unitname">@Model.UnitNameEnglish</span>
+                <span class="pull-right"><a href="#" class="btn"><i class="fa fa-microphone fa-1x"></i></a></span>
+            </span>*@
+            <a href="../Home/MyCourse"><span class="btn cursor-none">@Model.UnitNameEnglish</span></a>
+            @*<span class="unit-box">Lesson name 4/10</span>*@
+            <div class="pull-right">
+                @if (Model.VideoUrl == null)
+                {
+                    <a class="btn" id="addBookMarkWord" style="visibility: hidden;" title="Add Bookmark">
+                        <img src="~/Images/Star_wt.png" style="width: 13px; height: 14px" /></a>
+                    <a class="btn" id="removeBookMarkWord" style="visibility: hidden;" title="Add Bookmark">
+                        <img src="~/Images/Star_bl.png" style="width: 13px; height: 14px" /></a>
+                    
+                    <a class="btn" style="visibility: hidden;" href="#"><i class="fa fa-book fa-1x"></i></a>
+                    <a class="btn" style="visibility: hidden;" href="#"><i class="fa fa-microphone fa-1x"></i></a>
+                }
+                else
+                {
+                    if (Model.BookMarkStatus == "0")
+                    {
+                    <a class="btn" id="addBookMarkWord" style="visibility: visible;" title="Add Bookmark">
+                        <img src="~/Images/Star_wt.png" style="width: 13px; height: 14px" /></a>
+                    <a class="btn" id="removeBookMarkWord" style="visibility: hidden;" title="Remove Bookmark">
+                        <img src="~/Images/Star_bl.png" style="width: 13px; height: 14px" /></a>
+                    }
+                    else
+                    {
+                    <a class="btn" id="addBookMarkWord" style="visibility: hidden;" title="Add Bookmark">
+                        <img src="~/Images/Star_wt.png" style="width: 13px; height: 14px" /></a>
+                    <a class="btn" id="removeBookMarkWord" style="visibility: visible;" title="Remove Bookmark">
+                        <img src="~/Images/Star_bl.png" style="width: 13px; height: 14px" /></a>
+                    }
+                    <a class="btn" style="visibility: visible;" href="#"><i class="fa fa-book fa-1x"></i></a>
+                    <a class="btn" style="visibility: visible;" href="#"><i class="fa fa-microphone fa-1x"></i></a>
+                }
+            </div>
+        </div>
+        <div class="row">
+             <div class=" col-lg-12">
+                <p>
+                    <h5><b>Description : </b>@Model.DescriptionEnglish</h5>
+                </p>
+            </div>
+           <div class=" col-lg-12">
+
+                <div class="js-video [vimeo, widescreen]">
+                    @if (@Model.VideoUrl == null)
+                    {
+@*<iframe  height="auto" width="100%" id="video"  src="" frameborder="0" allowfullscreen ></iframe>*@
+                        <h2 style="margin-top: 40px" class="header" align="center" valign="center">No Record Found</h2>
+                    }
+                    else
+                    {
+@*<iframe  height="500px" width="100%" id="video"  src="@Model.VideoUrl"frameborder="0" allowfullscreen ></iframe>*@
+                        <video id="myVideo_demo" width="100%"  height="auto" controls>
+                            <source src="@Model.VideoUrl" type="video/mp4">
+                        </video> 
+                    }
+                </div>
+                <div class="pull-right MT20_new">
+                    @if (ViewBag.isLastData == "NxtBack")
+                    {
+                        <input type="button" class="btn btn-info" value="Previous" id="previous">
+                        <input type="button" class="btn btn-info ML20" value="Next" id="next">
+                    }
+                    @if (ViewBag.isLastData == "BackAssmt")
+                    {
+                        <input type="button" class="btn btn-info" value="Previous" id="previous">
+                        <a id="Assesment" class="btn btn-info " title="Assesment" href="#">Assesment
+                                    @*<img src="~/Images/question.png" class="operationIcons" title="Assesment" />*@</a>
+                    }
+                    @if (ViewBag.isLastData == "Nxt")
+                    {
+                        <input type="button" class="btn btn-info ML20" value="Next" id="next">
+                    }
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+

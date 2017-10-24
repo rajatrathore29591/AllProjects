@@ -1,0 +1,137 @@
+﻿@model iCanSpeakAdminPortal.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Login</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/login_forgotpassword_css.css" rel="stylesheet" />
+
+    @*<link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">*@
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body class="login-screen">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="row-fluid text-center">
+                    <div class="center">
+                        <h1>
+                            <img src="../Images/logo.png" /><br />
+                            <span class="logo-text">iCanSpeak</span>
+                            <span class="logo-text2">Application</span>
+                        </h1>
+
+                    </div>
+                </div>
+                <div class="login-panel panel panel-default login-box">
+
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                             @Html.ValidationSummary(true)
+
+                            <input type="hidden" id="ReturnUrl" name="ReturnUrl" value="@Request.QueryString["ReturnUrl"]" />
+                            <form role="form">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="E-mail" name="Email" type="email" value="@Model.Email" autofocus required="required">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="Password" name="Password" type="password" value="@Model.Password" required="required">
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                             @Html.CheckBoxFor(m => m.RememberMe) Remember Me
+                                            @*<input name="remember" type="checkbox" value="Remember Me">Remember Me*@                                   
+                                        </label>
+                                    </div>
+                                    <div class="clearfix">
+                                        <!-- Change this to a button or input when using this as a form -->
+                                        <button type="submit" name="forgot_pwd" class="width-35 pull-right btn btn-small btn-info">
+                                            Login                                   
+                                        </button>
+                                    </div>
+                                    <label style="color:red">@ViewBag.Result</label>
+                                </fieldset>
+                            </form>
+                        }
+                    </div>
+                    <div class="toolbar clearfix">
+                        <div>
+                            <a href="@Url.Action("ForgotPassword","Account")" class="back-to-login-link">
+                                <i class="fa fa-arrow-left"></i>I forgot my password
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+@*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                           <font color="44c9ff"> User LogIn </font>
+                        </h1>
+                        
+                    </div>
+                </div>
+               
+               <!--Edit Table start-->
+               
+                     <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2  col-sm-6 col-sm-offset-2 col-xs-12">
+                     <div class="row">
+                          <form role="form">
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Email Id</label>
+                            <input type="email" class="form-control" id="Email" placeholder="Enter email">
+                          </div>
+                         
+                           <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="Password" placeholder="Password">
+                          </div>
+                        
+                               <div class="form-group">
+                            <label for="exampleInputPassword1"></label>
+                            <input type="button" class="form-control" id="btnLogin" onclick="LogIn()" value="LogIn" />
+                          </div>
+                        </form>
+                     </div>
+                </div>
+
+<script type="text/javascript">
+    function LogIn() {
+        $.ajax({
+            url: '@Url.Action("AuthenticateUser", "Account")',
+            type: "POST",
+            data: { email: $("#Email").val(), password: $("#Password").val() },
+            success: function (result) {
+                alert(result);
+            },
+            error: function (result) {
+            },
+        });
+    }
+</script>*@

@@ -1,0 +1,277 @@
+﻿<script type="text/javascript" src="../Scripts/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>-->
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+
+
+<link href="../css/plugins/bootstrap.css.map" rel="stylesheet" type="text/css" />
+<link href="../css/plugins/bootstrap.min.css" rel="stylesheet" />
+<link href="../css/plugins/bootstrap.css" rel="stylesheet" />
+<script src="../js/plugins/bootstrap.min.js"></script>
+
+
+<style>
+    body {
+        font-family: arial !important;
+        overflow: hidden;
+    }
+
+    .margin-bottom15 {
+        margin-bottom: 15px;
+    }
+
+    .label-custom {
+        font-weight: normal;
+        text-align: right;
+    }
+
+    .form-control {
+        font-size: 14px;
+        font-weight: normal;
+        color: #333;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: none;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        -ms-border-radius: 0px;
+        -o-border-radius: 0px;
+        border-radius: 0px;
+    }
+</style>
+
+
+<div class=" col-md-4">
+
+
+    <div class=" row margin-bottom15">
+        <label class="label-custom">Search</label>
+        <input type="text" class="textarea form-control margin-bottom15" id="location" name="address"/>
+
+       <!-- <button type="button" class=" btn btn-success " id="Search">Go</button>-->
+    </div>
+
+
+
+    <div class=" row margin-bottom15">
+        <label class=" label-custom">Latitude</label>
+
+        <input type="text" class="textarea form-control" id="lat" />
+
+    </div>
+    <div class=" row margin-bottom15">
+        <label class=" label-custom">Longtitude</label>
+
+        <input type="text" class="textarea  form-control" id="long" />
+
+    </div>
+
+</div>
+<div class="col-md-8">
+    <div id="gmap" style="width: 100%; min-height: 450px; margin-bottom: 8px; overflow: hidden !important; border: 2px solid #fff;"></div>
+</div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        function initialize() {
+
+            var l = 13.736717;
+
+            var ln = 100.523186;
+            //var address = document.getElementById('location').value;
+            //alert(address);
+            var myLatlng = new google.maps.LatLng(l, ln);
+            var mapOptions = {
+                zoom: 18,
+                center: myLatlng
+            }
+            //console.log(document.getElementById('gmap'));
+            var map = new google.maps.Map(document.getElementById('gmap'), mapOptions);
+            //console.log(document.getElementById('gmap'));
+            //console.log("map", map);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                // title: address,
+                draggable: true
+            });
+
+            google.maps.event.addListener(marker, 'd ragend', function (a) {
+
+                var pos = marker.getPosition();
+                var geocoder = new google.maps.Geocoder();
+                geocoder.geocode({
+                    latLng: pos
+                }, function (responses) {
+                    if (responses && responses.length > 0) {
+                        //updateMarkerAddress(responses[0].formatted_address);
+                        var location = document.getElementById("location");
+                        location.value = responses[0].formatted_address;
+
+                    } else {
+                        updateMarkerAddress('Cannot determine address at this location.');
+                    }
+                });
+
+
+                // var div = document.createElement('div');
+                // div.innerHTML = a.latLng.lat().toFixed(4) + ', ' + a.latLng.lng().toFixed(4);
+
+
+                var lat = document.getElementById("lat");
+                lat.value = a.latLng.lat().toFixed(4);
+
+                var lng = document.getElementById("long");
+                lng.value = a.latLng.lng().toFixed(4);
+
+                document.getElementsByTagName('body')[0].appendChild(div);
+            });
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+        var input = document.getElementById('location');
+        var options = {
+            componentRestrictions: { country: 'th' }
+        };
+        var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+        //$('input[name=search]').click(function() 
+
+        $('#location').blur(function () {
+
+            //alert("hello");
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({
+                address: $('input[name=address]').val(),
+                region: 'no'
+            },
+                function (results, status) {
+
+                    if (status.toLowerCase() == 'ok') {
+                        // Get center
+                        var coords = new google.maps.LatLng(
+                            results[0]['geometry']['location'].lat(),
+                            results[0]['geometry']['location'].lng()
+                        );
+
+                        var lati = coords.lat();
+                        var lonng = coords.lng();
+
+                        //alert(lati);
+                        //alert(lonng);
+
+                        $('#lat').val(coords.lat());
+                        $('#long').val(coords.lng());
+
+                        var myLatlng = new google.maps.LatLng(lati, lonng);
+                        var mapOptions = {
+                            zoom: 5,
+                            center: myLatlng
+                        }
+                        var map = new google.maps.Map(document.getElementById('gmap'), mapOptions);
+
+                        var marker = new google.maps.Marker({
+                            position: myLatlng,
+                            map: map
+
+                        });
+
+                    }
+                }
+            );
+            //locateMap();
+        });
+
+
+        function locateMap()
+        {
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({
+                address: $('input[name=address]').val(),
+                region: 'no'
+            },
+                function (results, status) {
+
+                    if (status.toLowerCase() == 'ok') {
+                        // Get center
+                        var coords = new google.maps.LatLng(
+                            results[0]['geometry']['location'].lat(),
+                            results[0]['geometry']['location'].lng()
+                        );
+
+                        var lati = coords.lat();
+                        var lonng = coords.lng();
+
+                        //alert(lati);
+                        //alert(lonng);
+
+                        $('#lat').val(coords.lat());
+                        $('#long').val(coords.lng());
+
+                        var myLatlng = new google.maps.LatLng(lati, lonng);
+                        var mapOptions = {
+                            zoom: 5,
+                            center: myLatlng
+                        }
+                        var map = new google.maps.Map(document.getElementById('gmap'), mapOptions);
+
+                        var marker = new google.maps.Marker({
+                            position: myLatlng,
+                            map: map
+
+                        });
+
+                    }
+                }
+            );
+        }
+
+         //google.maps.event.addDomListener(window, 'load', initialize);
+
+        //$('#Search').click(function () {
+
+        //    var geocoder = new google.maps.Geocoder();
+        //    geocoder.geocode({
+        //        address: $('#location').val(),
+        //        region: 'no'
+        //    },
+        //        function (results, status) {
+        //            if (status.toLowerCase() == 'ok') {
+        //                // Get center
+        //                var coords = new google.maps.LatLng(
+        //                    results[0]['geometry']['location'].lat(),
+        //                    results[0]['geometry']['location'].lng()
+        //                );
+
+        //                var lati = coords.lat();
+        //                var lonng = coords.lng();
+        //                //  alert(coords.lat());
+        //                $('#lat').val(coords.lat());
+        //                $('#long').val(coords.lng());
+
+        //                var myLatlng = new google.maps.LatLng(lati, lonng);
+        //                var mapOptions = {
+        //                    zoom: 18,
+        //                    center: myLatlng
+        //                }
+        //                var map = new google.maps.Map(document.getElementById('gmap'), mapOptions);
+
+        //                var marker = new google.maps.Marker({
+        //                    position: myLatlng,
+        //                    map: map
+
+        //                });
+
+        //            }
+        //        }
+        //    );
+        //});
+
+
+    });
+
+</script>

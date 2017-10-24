@@ -1,0 +1,37 @@
+﻿<div class="text-right m-b20">
+    <a href="javascript:void(0);" ui-sref="configuration.AddCustomer()" class="btn btn-primary btn-i"><i class="fa fa-plus"></i>Add Customer</a>
+</div>
+
+<div class="animate-panel bookinglist" ng-controller="CustomerListCtrl as clCtrl">
+    
+    <div class="grid-tb-panel clearfix">
+        <table ng-table="clCtrl.bcaTableParams" class="table table-stripped toggle-arrow-tiny table-hover" show-filter="true">
+            <tr ng-repeat="customer in $data" ng-if="$data.length > 0">
+                <td title="'Customer Name'" filter="{ CustomerName: 'text'}" sortable="'CustomerName'" class="text-center">{{customer.CustomerName}}</td>
+
+                <td title="'ABN Number'" filter="{ ABN : 'text'}" sortable="'ABN'">{{customer.ABN}}</td>
+
+                <td title="'Contact Name'" filter="{ ContactName: 'text'}" sortable="'ContactName'" class="text-center">{{customer.ContactName}}</td>
+
+                <td title="'Account Name'" filter="{ ContactName: 'text'}" sortable="'ContactName'" class="text-center">{{customer.ContactName}}</td>
+
+                <td title="'Email For Invoices'" filter="{ EmailForInvoices: 'text'}" sortable="'EmailForInvoices'" class="text-center">{{customer.EmailForInvoices}}</td>
+
+                <td title="'Action'" align="center" nowrap="true" width="1%">
+                    <div class="btn-group">
+                        <a class="dropdown-toggle" id="dLabel" href="javascript:void(0);" data-toggle="dropdown">
+                            <i class="fa pe-7s-more action-icon" aria-hidden="true"></i>
+                        </a>
+                        <ul class="dropdown-menu hdropdown notification dropdown-menu-right animated flipInX" role="menu">
+                            <li><a href="javascript:void(0)" ui-sref="configuration.EditCustomer({CustomerId: customer.CustomerId})"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a></li>
+                            <li><a href="javascript:void(0);" ng-click="clCtrl.deleteCustomer(customer.CustomerId);"><i class="fa pe-7s-trash" aria-hidden="true"></i> Delete</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr ng-if="$data.length <= 0 || $data.length ===''">
+                <td colspan="6" class="text-center">Not records found</td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+@import "variables";
+@import "mixins";
+
+.btn {
+  &:active,
+  &.active {
+    .box-shadow(none);
+  }
+}
+
+.btn-black-white {
+  //  define static color button
+  .btn(#000, #fff);
+}
+
+.btn-primary-color {
+  //  define primary button stlyes
+  .btn(@btn-hover-color, @btn-color);
+}
+
+.btn-inverse-color {
+  //  define inverse colors button stlyes
+  .btn(@btn-color, @btn-hover-color);
+}
+
+.btn (@btn-color, @btn-hover-color) {
+  //  button styles
+  z-index: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 18px;
+  color: inherit;
+  border: none;
+  font-family: inherit;
+  background: none;
+  cursor: pointer;
+  padding: 14px 67px;
+  margin: 28px 0;
+  display: inline-block;
+  outline: none;
+  position: relative;
+  .transition(all 0.3s);
+
+  &:after {
+    //    define layer of background visible on hover
+    content: '';
+    position: absolute;
+    z-index: -1;
+    .transition(all 0.3s);
+    speak: normal;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  &:focus {
+    color: @btn-color;
+  }
+
+  &.btn-style {
+    border: 3px solid @btn-color;
+    color: @btn-color;
+    overflow: hidden;
+
+    &:after {
+      width: 100%;
+      height: 0;
+      top: 50%;
+      left: 50%;
+      background: @btn-color;
+      opacity: 0;
+      /*background figure transformation*/
+      -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      -moz-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    }
+
+    &:hover {
+      /*change color on hover*/
+      color: @btn-hover-color;
+      &:after {
+        /*make after bigger*/
+        height: 310%;
+        opacity: 1;
+      }
+    }
+
+    &:active, &.active {
+      color: @btn-hover-color;
+      &:after, &.active {
+        /*make after biggest to fill all button*/
+        height: 400%;
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+﻿<div ng-controller="LoginCtrl as lCtrl">
+    <div class="login-container after-login">
+        <div class="row">
+            <div class="col-md-4 p-r0">
+                <div class="hpanel">
+                    <div class="panel-body text-center">
+                        <img src="Content/images/login_logo.png" class="p-b10 img-responsive">
+                        <h1 class="login-heading">Login</h1>
+                        <span ng-if="!lCtrl.response" class="has-error">Invalide Credentials</span>
+                        <form role="form" name="login_form" ng-submit="lCtrl.loginSubmit(login_form.$valid)" novalidate>
+                            <div class="form-group user-name">
+                                <i class="pe-7s-user"></i>
+                                <input type="email" placeholder="E-Mail" class="form-control" ng-model="lCtrl.attributes.Email" name="email" required>
+                                <div class="m-t-xs" ng-show="login_form.email.$invalid && login_form.$submitted">
+                                    <!--<span class="text-danger" ng-show="login_form.email.$error">
+                                        <span ng-show="login_form.email.$error.required" ng-bind="lCtrl.validationMsg.required"></span>
+                                        <span ng-show="login_form.email.$error.email" ng-bind="lCtrl.validationMsg.email"></span>
+                                    </span>-->
+                                </div>
+                            </div>
+                            <div class="form-group password-field">
+                                <i class="pe-7s-lock"></i>
+                                <input type="password" placeholder="Password" class="form-control" title="Please enter your password" required ng-model="lCtrl.attributes.Password">
+                                <!--<div class="m-t-xs" ng-show="login_form.password.$invalid && login_form.$submitted">
+                                    <span class="text-danger" ng-show="login_form.password.$error">
+                                        <span ng-bind="logCtrl.validationMsg.required">
+                                        </span>
+                                    </span>
+                                </div>-->
+                            </div>
+                            <div class="checkbox pull-left inline-form-element">
+                                <input type="checkbox" class="i-checks" ng-model="lCtrl.remember" checked>
+                                &nbsp;Remember login
+                            </div>
+                            <a href="javascript:void(0);" ui-sref="admin.ForgotPassword()" class="pull-right forgot-btn">Forgot Password?</a>
+                            <div class="clearfix"></div>
+                            <div class="login-btn">
+                                <button class="btn btn-success btn-block" title="Login" type="submit">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 login-right-img p-l0">
+                <img src="Content/images/right-img.png" alt="right-img" class="img-responsive">
+            </div>
+        </div>
+    </div>
+</div>

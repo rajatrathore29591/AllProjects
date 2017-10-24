@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Split Deals - @ViewBag.Title</title>
+    <!-- Global stylesheets -->
+    @*<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="css/core.css" rel="stylesheet" type="text/css">*@
+
+
+    <link rel="stylesheet" href="@Url.Content("https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/bootstrap.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/icomoon/styles.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/core.css")">
+
+    <!-- /global stylesheets -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+    <script type="text/javascript" src="~/Content/js/bootstrap.min.js"></script>
+</head>
+<body class="navbar-bottom login-container">
+    <!-- Main navbar -->
+    <div class="navbar navbar-inverse bg-indigo">
+        <div class="navbar-header">
+            <ul class="nav navbar-nav pull-right visible-xs-block">
+                <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /main navbar -->
+
+    @RenderBody()
+    
+    <!-- Footer -->
+    <div class="navbar navbar-default navbar-fixed-bottom footer">
+        <ul class="nav navbar-nav visible-xs-block">
+            <li><a class="text-center collapsed" data-toggle="collapse" data-target="#footer"><i class="icon-circle-up2"></i></a></li>
+        </ul>
+        <div class="navbar-collapse collapse" id="footer">
+            <div class="navbar-text text-center">
+                &copy; 2017 @Resources.Languages.SplitDeals | @Resources.Languages.AllRightsReserved
+            </div>
+        </div>
+    </div>
+    <!-- /footer -->
+    <!--External js files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js"></script>
+    @{
+        var lang = "";
+        HttpCookie langCookie = Request.Cookies["culture"];
+        if (langCookie != null)
+        {
+            lang = langCookie.Value;
+        }
+    }
+    @if (lang == "es")
+    {
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.6.0/parsley.min.js"></script>
+        <script src="~/Content/js/es_validate.min.js"></script>
+    }
+    else
+    {
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.6.0/parsley.min.js"></script>
+    }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wysihtml5/0.3.0/wysihtml5.min.js"></script>
+    <!-- Core JS files -->
+    <script type="text/javascript" src="~/Content/js/plugins.js"></script>
+    <!-- /core JS files -->
+    <!-- Theme JS files -->
+    <script type="text/javascript" src="~/Content/js/site.js"></script>
+    <!-- /theme JS files -->
+    <script>
+   // Parsley Validation
+
+$(document).ready(function(){$('.form-validate').parsley();});
+
+    </script>
+</body>
+</html>

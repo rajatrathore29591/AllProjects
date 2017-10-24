@@ -1,0 +1,786 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CraveASAPDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="CraveASAPDBModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="CraveASAPDBModel.Store.Admin" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AdminVendor" EntityType="CraveASAPDBModel.Store.AdminVendor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AppDefaultLandingPage" EntityType="CraveASAPDBModel.Store.AppDefaultLandingPage" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Banners" EntityType="CraveASAPDBModel.Store.Banners" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Category" EntityType="CraveASAPDBModel.Store.Category" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Configuration" EntityType="CraveASAPDBModel.Store.Configuration" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContentManagement" EntityType="CraveASAPDBModel.Store.ContentManagement" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DefaultPromotionCodeBanner" EntityType="CraveASAPDBModel.Store.DefaultPromotionCodeBanner" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DynamicHTMLContent" EntityType="CraveASAPDBModel.Store.DynamicHTMLContent" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Location" EntityType="CraveASAPDBModel.Store.Location" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OAuth" EntityType="CraveASAPDBModel.Store.OAuth" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OpeningHours" EntityType="CraveASAPDBModel.Store.OpeningHours" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OptionalCategory" EntityType="CraveASAPDBModel.Store.OptionalCategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Points" EntityType="CraveASAPDBModel.Store.Points" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PointsConfiguration" EntityType="CraveASAPDBModel.Store.PointsConfiguration" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PredictiveNotifications" EntityType="CraveASAPDBModel.Store.PredictiveNotifications" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PromotionCode" EntityType="CraveASAPDBModel.Store.PromotionCode" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Rewards" EntityType="CraveASAPDBModel.Store.Rewards" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SubCategory" EntityType="CraveASAPDBModel.Store.SubCategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Subscribe" EntityType="CraveASAPDBModel.Store.Subscribe" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SuperAdminLogin" EntityType="CraveASAPDBModel.Store.SuperAdminLogin" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserFavourite" EntityType="CraveASAPDBModel.Store.UserFavourite" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserLocations" EntityType="CraveASAPDBModel.Store.UserLocations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserPrefrences" EntityType="CraveASAPDBModel.Store.UserPrefrences" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserPromotion" EntityType="CraveASAPDBModel.Store.UserPromotion" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserPromotionSkip" EntityType="CraveASAPDBModel.Store.UserPromotionSkip" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserRewards" EntityType="CraveASAPDBModel.Store.UserRewards" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="CraveASAPDBModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Vendor" EntityType="CraveASAPDBModel.Store.Vendor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VendorBranch" EntityType="CraveASAPDBModel.Store.VendorBranch" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__AppDefaul__categ__25518C17" Association="CraveASAPDBModel.Store.FK__AppDefaul__categ__25518C17">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="AppDefaultLandingPage" EntitySet="AppDefaultLandingPage" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OpeningHo__fkven__51300E55" Association="CraveASAPDBModel.Store.FK__OpeningHo__fkven__51300E55">
+      <End Role="Vendor" EntitySet="Vendor" />
+      <End Role="OpeningHours" EntitySet="OpeningHours" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OptionalC__categ__3B75D760" Association="CraveASAPDBModel.Store.FK__OptionalC__categ__3B75D760">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="OptionalCategory" EntitySet="OptionalCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Promotion__vendo__0B91BA14" Association="CraveASAPDBModel.Store.FK__Promotion__vendo__0B91BA14">
+      <End Role="Vendor" EntitySet="Vendor" />
+      <End Role="PromotionCode" EntitySet="PromotionCode" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SubCatego__categ__5441852A" Association="CraveASAPDBModel.Store.FK__SubCatego__categ__5441852A">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="SubCategory" EntitySet="SubCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserFavou__userI__308E3499" Association="CraveASAPDBModel.Store.FK__UserFavou__userI__308E3499">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserFavourite" EntitySet="UserFavourite" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserFavou__vendo__2F9A1060" Association="CraveASAPDBModel.Store.FK__UserFavou__vendo__2F9A1060">
+      <End Role="Vendor" EntitySet="Vendor" />
+      <End Role="UserFavourite" EntitySet="UserFavourite" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserPrefr__categ__36470DEF" Association="CraveASAPDBModel.Store.FK__UserPrefr__categ__36470DEF">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="UserPrefrences" EntitySet="UserPrefrences" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserPrefr__userI__3552E9B6" Association="CraveASAPDBModel.Store.FK__UserPrefr__userI__3552E9B6">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserPrefrences" EntitySet="UserPrefrences" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserPromo__promo__45F365D3" Association="CraveASAPDBModel.Store.FK__UserPromo__promo__45F365D3">
+      <End Role="PromotionCode" EntitySet="PromotionCode" />
+      <End Role="UserPromotionSkip" EntitySet="UserPromotionSkip" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserPromo__promo__6D0D32F4" Association="CraveASAPDBModel.Store.FK__UserPromo__promo__6D0D32F4">
+      <End Role="PromotionCode" EntitySet="PromotionCode" />
+      <End Role="UserPromotion" EntitySet="UserPromotion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserPromo__userI__6B24EA82" Association="CraveASAPDBModel.Store.FK__UserPromo__userI__6B24EA82">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserPromotion" EntitySet="UserPromotion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserRewar__rewar__3B0BC30C" Association="CraveASAPDBModel.Store.FK__UserRewar__rewar__3B0BC30C">
+      <End Role="Rewards" EntitySet="Rewards" />
+      <End Role="UserRewards" EntitySet="UserRewards" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserRewar__userI__6A30C649" Association="CraveASAPDBModel.Store.FK__UserRewar__userI__6A30C649">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserRewards" EntitySet="UserRewards" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vendor__business__13F1F5EB" Association="CraveASAPDBModel.Store.FK__Vendor__business__13F1F5EB">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Vendor" EntitySet="Vendor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VendorBra__vendo__693CA210" Association="CraveASAPDBModel.Store.FK__VendorBra__vendo__693CA210">
+      <End Role="Vendor" EntitySet="Vendor" />
+      <End Role="VendorBranch" EntitySet="VendorBranch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OptionalCategory_SubCategory" Association="CraveASAPDBModel.Store.FK_OptionalCategory_SubCategory">
+      <End Role="SubCategory" EntitySet="SubCategory" />
+      <End Role="OptionalCategory" EntitySet="OptionalCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserLocations_UserLocations" Association="CraveASAPDBModel.Store.FK_UserLocations_UserLocations">
+      <End Role="UserLocations" EntitySet="UserLocations" />
+      <End Role="UserLocations1" EntitySet="UserLocations" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="adminId" />
+    </Key>
+    <Property Name="adminId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="adminName" Type="nvarchar" MaxLength="100" />
+    <Property Name="firstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="lastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
+    <Property Name="phoneNo" Type="nvarchar" MaxLength="30" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="associatedVendors" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="AdminVendor">
+    <Key>
+      <PropertyRef Name="adminVendorId" />
+    </Key>
+    <Property Name="adminVendorId" Type="int" Nullable="false" />
+    <Property Name="adminVendorName" Type="nvarchar" MaxLength="30" />
+    <Property Name="password" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="AppDefaultLandingPage">
+    <Key>
+      <PropertyRef Name="landingPageId" />
+    </Key>
+    <Property Name="landingPageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="type" Type="nvarchar" MaxLength="50" />
+    <Property Name="fromTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="toTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="categoryId" Type="int" Nullable="false" />
+    <Property Name="categoryStatus" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Banners">
+    <Key>
+      <PropertyRef Name="bannerId" />
+    </Key>
+    <Property Name="bannerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="type" Type="nvarchar" MaxLength="50" />
+    <Property Name="platform" Type="nvarchar" MaxLength="50" />
+    <Property Name="language" Type="nvarchar" MaxLength="50" />
+    <Property Name="imageURL" Type="nvarchar(max)" />
+    <Property Name="reference" Type="nvarchar(max)" />
+    <Property Name="createdDate" Type="datetime" />
+    <Property Name="delay" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="categoryId" />
+    </Key>
+    <Property Name="categoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="categoryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="language" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Configuration">
+    <Key>
+      <PropertyRef Name="configId" />
+    </Key>
+    <Property Name="configId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="action" Type="nvarchar" MaxLength="200" />
+    <Property Name="value" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="ContentManagement">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="contentName" Type="nchar" MaxLength="100" />
+    <Property Name="contentLink" Type="nchar" MaxLength="200" />
+    <Property Name="isActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="DefaultPromotionCodeBanner">
+    <Key>
+      <PropertyRef Name="promotionCodeBannerId" />
+    </Key>
+    <Property Name="promotionCodeBannerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="promotionCodeBannerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="bannerUrl" Type="nvarchar" MaxLength="100" />
+    <Property Name="vendorId" Type="int" />
+    <Property Name="platform" Type="nvarchar" MaxLength="50" />
+    <Property Name="language" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DynamicHTMLContent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pageName" Type="nvarchar" MaxLength="50" />
+    <Property Name="language" Type="nvarchar" MaxLength="40" />
+    <Property Name="pageContent" Type="ntext" />
+    <Property Name="plainText" Type="nvarchar" MaxLength="50" />
+    <Property Name="contentFor" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="locationId" />
+    </Key>
+    <Property Name="locationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="locationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="city" Type="nvarchar" MaxLength="50" />
+    <Property Name="region" Type="nvarchar" MaxLength="50" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="OAuth">
+    <Key>
+      <PropertyRef Name="oAuthId" />
+    </Key>
+    <Property Name="oAuthId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="loginId" Type="int" />
+    <Property Name="appType" Type="nvarchar" MaxLength="50" />
+    <Property Name="OAuthToken" Type="nvarchar" MaxLength="1000" />
+    <Property Name="time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OpeningHours">
+    <Key>
+      <PropertyRef Name="openingHoursId" />
+    </Key>
+    <Property Name="openingHoursId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="fromday" Type="varchar" MaxLength="50" />
+    <Property Name="today" Type="varchar" MaxLength="50" />
+    <Property Name="fromtime" Type="varchar" MaxLength="50" />
+    <Property Name="totime" Type="varchar" MaxLength="50" />
+    <Property Name="fkvendorId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OptionalCategory">
+    <Key>
+      <PropertyRef Name="optCategoryId" />
+    </Key>
+    <Property Name="optCategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="optCategoryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="language" Type="nvarchar" MaxLength="50" />
+    <Property Name="categoryId" Type="int" Nullable="false" />
+    <Property Name="subCategoryId" Type="int" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Points">
+    <Key>
+      <PropertyRef Name="pointId" />
+    </Key>
+    <Property Name="pointId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="type" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PointsConfiguration">
+    <Key>
+      <PropertyRef Name="ptConfigurationId" />
+    </Key>
+    <Property Name="ptConfigurationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="action" Type="nvarchar" MaxLength="50" />
+    <Property Name="limit" Type="int" />
+    <Property Name="pointsEarned" Type="int" />
+  </EntityType>
+  <EntityType Name="PredictiveNotifications">
+    <Key>
+      <PropertyRef Name="preId" />
+    </Key>
+    <Property Name="preId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="int" />
+    <Property Name="promotionCodeId" Type="int" />
+    <Property Name="status" Type="bit" />
+    <Property Name="sendTime" Type="datetime" />
+    <Property Name="reSendTime" Type="nvarchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="PromotionCode">
+    <Key>
+      <PropertyRef Name="promotionCodeId" />
+    </Key>
+    <Property Name="promotionCodeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="nvarchar" MaxLength="20" />
+    <Property Name="name" Type="nvarchar" MaxLength="30" />
+    <Property Name="descriptionEnglish" Type="nvarchar(max)" />
+    <Property Name="descriptionThai" Type="nvarchar(max)" />
+    <Property Name="promotionCreatedDate" Type="datetime" />
+    <Property Name="createdDate" Type="datetime" />
+    <Property Name="expiryDate" Type="datetime" />
+    <Property Name="isActive" Type="bit" Nullable="false" />
+    <Property Name="modifyDate" Type="datetime" />
+    <Property Name="isRelaunch" Type="int" />
+    <Property Name="lastRelaunchDate" Type="datetime" />
+    <Property Name="vendorId" Type="int" Nullable="false" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="recommendation" Type="int" Nullable="false" />
+    <Property Name="isPinned" Type="bit" Nullable="false" />
+    <Property Name="PinnedDate" Type="datetime" />
+    <Property Name="categoryId" Type="int" Nullable="false" />
+    <Property Name="subCategoryId" Type="int" Nullable="false" />
+    <Property Name="optCategoryId" Type="int" Nullable="false" />
+    <Property Name="shareFacebookCount" Type="nvarchar" MaxLength="50" />
+    <Property Name="shareInstagramCount" Type="nvarchar" MaxLength="50" />
+    <Property Name="shareTwitterCount" Type="nvarchar" MaxLength="50" />
+    <Property Name="price" Type="int" />
+    <Property Name="useCount" Type="int" />
+    <Property Name="viewCount" Type="int" />
+    <Property Name="recommendationCount" Type="int" />
+    <Property Name="promotionImage" Type="nvarchar" MaxLength="100" />
+    <Property Name="isDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Rewards">
+    <Key>
+      <PropertyRef Name="rewardId" />
+    </Key>
+    <Property Name="rewardId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="rewardName" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="image" Type="nvarchar" MaxLength="150" />
+    <Property Name="platform" Type="nvarchar" MaxLength="50" />
+    <Property Name="code" Type="nvarchar" MaxLength="50" />
+    <Property Name="endDate" Type="datetime" />
+    <Property Name="expiryHours" Type="nvarchar" MaxLength="50" />
+    <Property Name="isSpecial" Type="bit" />
+    <Property Name="nextAvailability" Type="nvarchar" MaxLength="50" />
+    <Property Name="type" Type="nvarchar" MaxLength="20" />
+    <Property Name="usedCount" Type="int" />
+    <Property Name="isActive" Type="bit" />
+    <Property Name="language" Type="nvarchar" MaxLength="50" />
+    <Property Name="link" Type="nvarchar(max)" />
+    <Property Name="point" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="SubCategory">
+    <Key>
+      <PropertyRef Name="subCategoryId" />
+    </Key>
+    <Property Name="subCategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="subCategoryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="language" Type="nvarchar" MaxLength="50" />
+    <Property Name="categoryId" Type="int" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Subscribe">
+    <Key>
+      <PropertyRef Name="subscribeId" />
+    </Key>
+    <Property Name="subscribeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
+    <Property Name="isSubscribe" Type="bit" />
+  </EntityType>
+  <EntityType Name="SuperAdminLogin">
+    <Key>
+      <PropertyRef Name="loginId" />
+    </Key>
+    <Property Name="loginId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="loginName" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserFavourite">
+    <Key>
+      <PropertyRef Name="favoriteRestaurantId" />
+    </Key>
+    <Property Name="favoriteRestaurantId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="vendorId" Type="int" />
+    <Property Name="userId" Type="int" />
+    <Property Name="isActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="UserLocations">
+    <Key>
+      <PropertyRef Name="userLocationId" />
+    </Key>
+    <Property Name="userLocationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="fkUser" Type="int" Nullable="false" />
+    <Property Name="isDefault" Type="bit" />
+    <Property Name="mealTime" Type="nvarchar" MaxLength="500" />
+    <Property Name="locationAddress" Type="nvarchar" MaxLength="500" />
+    <Property Name="locationLat" Type="nvarchar" MaxLength="100" />
+    <Property Name="locationLong" Type="nvarchar" MaxLength="100" />
+    <Property Name="isCurrent" Type="bit" />
+    <Property Name="visitedDatetime" Type="datetime" />
+    <Property Name="isDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="UserPrefrences">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="int" Nullable="false" />
+    <Property Name="categoryId" Type="int" Nullable="false" />
+    <Property Name="prefrencesId" Type="int" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="isActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="UserPromotion">
+    <Key>
+      <PropertyRef Name="userPromotionId" />
+    </Key>
+    <Property Name="userPromotionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="int" />
+    <Property Name="promotionId" Type="int" />
+    <Property Name="isRecommended" Type="bit" />
+    <Property Name="isShareFacebook" Type="bit" />
+    <Property Name="isShareTwitter" Type="bit" />
+    <Property Name="isShareInstagram" Type="bit" />
+    <Property Name="isViewed" Type="bit" />
+    <Property Name="isUsed" Type="bit" />
+    <Property Name="userTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="useDate" Type="datetime" />
+    <Property Name="isDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="UserPromotionSkip">
+    <Key>
+      <PropertyRef Name="userPromotionId" />
+    </Key>
+    <Property Name="userPromotionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="int" />
+    <Property Name="promotionId" Type="int" />
+    <Property Name="isRecommended" Type="bit" />
+    <Property Name="isShareFacebook" Type="bit" />
+    <Property Name="isShareTwitter" Type="bit" />
+    <Property Name="isShareInstagram" Type="bit" />
+    <Property Name="isViewed" Type="bit" />
+    <Property Name="isUsed" Type="bit" />
+    <Property Name="userTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="useDate" Type="datetime" />
+    <Property Name="deviceToken" Type="varchar" MaxLength="500" />
+    <Property Name="devicePlatform" Type="varchar" MaxLength="100" />
+    <Property Name="isDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="UserRewards">
+    <Key>
+      <PropertyRef Name="userRewardId" />
+    </Key>
+    <Property Name="userRewardId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="rewardId" Type="int" />
+    <Property Name="userId" Type="int" />
+    <Property Name="isUsed" Type="bit" />
+    <Property Name="useTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="firstName" Type="nvarchar" MaxLength="150" />
+    <Property Name="lastName" Type="nvarchar" MaxLength="150" />
+    <Property Name="profilePicture" Type="nvarchar" MaxLength="150" />
+    <Property Name="gender" Type="nvarchar" MaxLength="25" />
+    <Property Name="email" Type="nvarchar" MaxLength="200" />
+    <Property Name="createdDate" Type="datetime" />
+    <Property Name="points" Type="int" />
+    <Property Name="facebookId" Type="nvarchar" MaxLength="200" />
+    <Property Name="facebookInviteDate" Type="datetime" />
+    <Property Name="facebookInviteCount" Type="int" />
+    <Property Name="instagramInviteDate" Type="datetime" />
+    <Property Name="instagramInviteCount" Type="int" />
+    <Property Name="twitterInviteDate" Type="datetime" />
+    <Property Name="twitterInviteCount" Type="int" />
+    <Property Name="dealFacebookInviteDate" Type="datetime" />
+    <Property Name="dealFacebookInviteCount" Type="int" />
+    <Property Name="dealInstagramInviteDate" Type="datetime" />
+    <Property Name="dealInstagramInviteCount" Type="int" />
+    <Property Name="dealTwitterInviteDate" Type="datetime" />
+    <Property Name="dealTwitterInviteCount" Type="int" />
+    <Property Name="language" Type="nvarchar" MaxLength="25" />
+    <Property Name="deviceToken" Type="nvarchar(max)" />
+    <Property Name="devicePlatform" Type="nvarchar(max)" />
+    <Property Name="usePromoDate" Type="datetime" />
+    <Property Name="useCount" Type="int" />
+    <Property Name="likePromoDate" Type="datetime" />
+    <Property Name="likeCount" Type="int" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="vendorId" />
+    </Key>
+    <Property Name="vendorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="loginVendorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="companyName" Type="nvarchar" MaxLength="100" />
+    <Property Name="businessCategory" Type="int" Nullable="false" />
+    <Property Name="shortDescription" Type="nvarchar" MaxLength="200" />
+    <Property Name="fullDescription" Type="nvarchar(max)" />
+    <Property Name="email" Type="nvarchar" MaxLength="150" />
+    <Property Name="phoneNo" Type="nvarchar" MaxLength="40" />
+    <Property Name="contactPerson" Type="nvarchar" MaxLength="100" />
+    <Property Name="contactPhoneNo" Type="nvarchar" MaxLength="30" />
+    <Property Name="contactEmail" Type="nvarchar" MaxLength="100" />
+    <Property Name="streetName" Type="nvarchar" MaxLength="150" />
+    <Property Name="postCode" Type="nvarchar" MaxLength="200" />
+    <Property Name="buildingName" Type="nvarchar" MaxLength="200" />
+    <Property Name="floor" Type="nvarchar" MaxLength="100" />
+    <Property Name="area" Type="nvarchar" MaxLength="200" />
+    <Property Name="city" Type="nvarchar" MaxLength="200" />
+    <Property Name="latitude" Type="nvarchar" MaxLength="500" />
+    <Property Name="longitude" Type="nvarchar" MaxLength="500" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="taxId" Type="int" Nullable="false" />
+    <Property Name="logoImg" Type="nvarchar(max)" />
+    <Property Name="deviceToken" Type="nvarchar(max)" />
+    <Property Name="devicePlatform" Type="nvarchar(max)" />
+    <Property Name="isDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="VendorBranch">
+    <Key>
+      <PropertyRef Name="vendorBranchId" />
+    </Key>
+    <Property Name="vendorBranchId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="businessName" Type="nvarchar" MaxLength="100" />
+    <Property Name="taxId" Type="nvarchar" MaxLength="50" />
+    <Property Name="location" Type="nvarchar" MaxLength="50" />
+    <Property Name="fullAddress" Type="nvarchar" MaxLength="200" />
+    <Property Name="deliveryAddress" Type="nvarchar" MaxLength="200" />
+    <Property Name="phoneNo" Type="nvarchar" MaxLength="30" />
+    <Property Name="contactPerson" Type="nvarchar" MaxLength="50" />
+    <Property Name="additionalInfo" Type="nvarchar" MaxLength="250" />
+    <Property Name="defaultBranch" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
+    <Property Name="vendorId" Type="int" Nullable="false" />
+    <Property Name="branchCode" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__AppDefaul__categ__25518C17">
+    <End Role="Category" Type="CraveASAPDBModel.Store.Category" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppDefaultLandingPage" Type="CraveASAPDBModel.Store.AppDefaultLandingPage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="categoryId" />
+      </Principal>
+      <Dependent Role="AppDefaultLandingPage">
+        <PropertyRef Name="categoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OpeningHo__fkven__51300E55">
+    <End Role="Vendor" Type="CraveASAPDBModel.Store.Vendor" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OpeningHours" Type="CraveASAPDBModel.Store.OpeningHours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="vendorId" />
+      </Principal>
+      <Dependent Role="OpeningHours">
+        <PropertyRef Name="fkvendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OptionalC__categ__3B75D760">
+    <End Role="Category" Type="CraveASAPDBModel.Store.Category" Multiplicity="1" />
+    <End Role="OptionalCategory" Type="CraveASAPDBModel.Store.OptionalCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="categoryId" />
+      </Principal>
+      <Dependent Role="OptionalCategory">
+        <PropertyRef Name="categoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Promotion__vendo__0B91BA14">
+    <End Role="Vendor" Type="CraveASAPDBModel.Store.Vendor" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PromotionCode" Type="CraveASAPDBModel.Store.PromotionCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="vendorId" />
+      </Principal>
+      <Dependent Role="PromotionCode">
+        <PropertyRef Name="vendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SubCatego__categ__5441852A">
+    <End Role="Category" Type="CraveASAPDBModel.Store.Category" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SubCategory" Type="CraveASAPDBModel.Store.SubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="categoryId" />
+      </Principal>
+      <Dependent Role="SubCategory">
+        <PropertyRef Name="categoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserFavou__userI__308E3499">
+    <End Role="Users" Type="CraveASAPDBModel.Store.Users" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserFavourite" Type="CraveASAPDBModel.Store.UserFavourite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="UserFavourite">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserFavou__vendo__2F9A1060">
+    <End Role="Vendor" Type="CraveASAPDBModel.Store.Vendor" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserFavourite" Type="CraveASAPDBModel.Store.UserFavourite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="vendorId" />
+      </Principal>
+      <Dependent Role="UserFavourite">
+        <PropertyRef Name="vendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserPrefr__categ__36470DEF">
+    <End Role="Category" Type="CraveASAPDBModel.Store.Category" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserPrefrences" Type="CraveASAPDBModel.Store.UserPrefrences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="categoryId" />
+      </Principal>
+      <Dependent Role="UserPrefrences">
+        <PropertyRef Name="categoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserPrefr__userI__3552E9B6">
+    <End Role="Users" Type="CraveASAPDBModel.Store.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserPrefrences" Type="CraveASAPDBModel.Store.UserPrefrences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="UserPrefrences">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserPromo__promo__45F365D3">
+    <End Role="PromotionCode" Type="CraveASAPDBModel.Store.PromotionCode" Multiplicity="0..1" />
+    <End Role="UserPromotionSkip" Type="CraveASAPDBModel.Store.UserPromotionSkip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PromotionCode">
+        <PropertyRef Name="promotionCodeId" />
+      </Principal>
+      <Dependent Role="UserPromotionSkip">
+        <PropertyRef Name="promotionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserPromo__promo__6D0D32F4">
+    <End Role="PromotionCode" Type="CraveASAPDBModel.Store.PromotionCode" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserPromotion" Type="CraveASAPDBModel.Store.UserPromotion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PromotionCode">
+        <PropertyRef Name="promotionCodeId" />
+      </Principal>
+      <Dependent Role="UserPromotion">
+        <PropertyRef Name="promotionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserPromo__userI__6B24EA82">
+    <End Role="Users" Type="CraveASAPDBModel.Store.Users" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserPromotion" Type="CraveASAPDBModel.Store.UserPromotion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="UserPromotion">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserRewar__rewar__3B0BC30C">
+    <End Role="Rewards" Type="CraveASAPDBModel.Store.Rewards" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserRewards" Type="CraveASAPDBModel.Store.UserRewards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rewards">
+        <PropertyRef Name="rewardId" />
+      </Principal>
+      <Dependent Role="UserRewards">
+        <PropertyRef Name="rewardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserRewar__userI__6A30C649">
+    <End Role="Users" Type="CraveASAPDBModel.Store.Users" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserRewards" Type="CraveASAPDBModel.Store.UserRewards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="UserRewards">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vendor__business__13F1F5EB">
+    <End Role="Category" Type="CraveASAPDBModel.Store.Category" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Vendor" Type="CraveASAPDBModel.Store.Vendor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="categoryId" />
+      </Principal>
+      <Dependent Role="Vendor">
+        <PropertyRef Name="businessCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VendorBra__vendo__693CA210">
+    <End Role="Vendor" Type="CraveASAPDBModel.Store.Vendor" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="VendorBranch" Type="CraveASAPDBModel.Store.VendorBranch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="vendorId" />
+      </Principal>
+      <Dependent Role="VendorBranch">
+        <PropertyRef Name="vendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OptionalCategory_SubCategory">
+    <End Role="SubCategory" Type="CraveASAPDBModel.Store.SubCategory" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OptionalCategory" Type="CraveASAPDBModel.Store.OptionalCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="subCategoryId" />
+      </Principal>
+      <Dependent Role="OptionalCategory">
+        <PropertyRef Name="subCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserLocations_UserLocations">
+    <End Role="UserLocations" Type="CraveASAPDBModel.Store.UserLocations" Multiplicity="1" />
+    <End Role="UserLocations1" Type="CraveASAPDBModel.Store.UserLocations" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="UserLocations">
+        <PropertyRef Name="userLocationId" />
+      </Principal>
+      <Dependent Role="UserLocations1">
+        <PropertyRef Name="userLocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GetCagegoryData" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetCagegoryDataByID" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryIDA" Type="int" Mode="In" />
+    <Parameter Name="CategoryIDB" Type="int" Mode="In" />
+    <Parameter Name="StaticId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Analytics" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vendorId" Type="int" Mode="In" />
+    <Parameter Name="time" Type="nvarchar" Mode="In" />
+    <Parameter Name="CategoryType" Type="nvarchar" Mode="In" />
+    <Parameter Name="fromDate" Type="datetime" Mode="In" />
+    <Parameter Name="toDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_AnalyticsByVendorID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vendorID" Type="int" Mode="In" />
+    <Parameter Name="fromDate" Type="datetime" Mode="In" />
+    <Parameter Name="toDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_AnalyticsPromotion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_AnalyticsSocialMedia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_AnalyticsTrackUsage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_AnalyticsUsagePerDay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_AnalyticsUserPerDayUseCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+</Schema>

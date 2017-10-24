@@ -1,0 +1,234 @@
+D:\Rahul\iCanSpeak\iCanSpeakServices\TestApplication\bin\Debug\TestApplication.exe.config
+D:\Rahul\iCanSpeak\iCanSpeakServices\TestApplication\bin\Debug\TestApplication.exe
+D:\Rahul\iCanSpeak\iCanSpeakServices\TestApplication\bin\Debug\TestApplication.pdb
+D:\Rahul\iCanSpeak\iCanSpeakServices\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+D:\Rahul\iCanSpeak\iCanSpeakServices\TestApplication\obj\Debug\TestApplication.Form1.resources
+D:\Rahul\iCanSpeak\iCanSpeakServices\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+D:\Rahul\iCanSpeak\iCanSpeakServices\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+D:\Rahul\iCanSpeak\iCanSpeakServices\TestApplication\obj\Debug\TestApplication.exe
+D:\Rahul\iCanSpeak\iCanSpeakServices\TestApplication\obj\Debug\TestApplication.pdb
+D:\Rahul\iCanSpeak\iCanSpeakServices\TestApplication\bin\Debug\Newtonsoft.Json.dll
+D:\Rahul\iCanSpeak\iCanSpeakServices\TestApplication\bin\Debug\Newtonsoft.Json.xml
+D:\Rahul\All Project's\LanguageLearningApp\trunk\dotnet\Updated\Services\iCanSpeakServices\TestApplication\bin\Debug\TestApplication.exe.config
+D:\Rahul\All Project's\LanguageLearningApp\trunk\dotnet\Updated\Services\iCanSpeakServices\TestApplication\bin\Debug\TestApplication.exe
+D:\Rahul\All Project's\LanguageLearningApp\trunk\dotnet\Updated\Services\iCanSpeakServices\TestApplication\bin\Debug\TestApplication.pdb
+D:\Rahul\All Project's\LanguageLearningApp\trunk\dotnet\Updated\Services\iCanSpeakServices\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+D:\Rahul\All Project's\LanguageLearningApp\trunk\dotnet\Updated\Services\iCanSpeakServices\TestApplication\obj\Debug\TestApplication.Form1.resources
+D:\Rahul\All Project's\LanguageLearningApp\trunk\dotnet\Updated\Services\iCanSpeakServices\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+D:\Rahul\All Project's\LanguageLearningApp\trunk\dotnet\Updated\Services\iCanSpeakServices\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+D:\Rahul\All Project's\LanguageLearningApp\trunk\dotnet\Updated\Services\iCanSpeakServices\TestApplication\obj\Debug\TestApplication.exe
+D:\Rahul\All Project's\LanguageLearningApp\trunk\dotnet\Updated\Services\iCanSpeakServices\TestApplication\obj\Debug\TestApplication.pdb
+D:\Rahul\All Project's\iCanSpeak\iCanSpeak\trunk\dotnet\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\Rahul\All Project's\iCanSpeak\iCanSpeak\trunk\dotnet\Services\TestApplication\bin\Debug\TestApplication.exe
+D:\Rahul\All Project's\iCanSpeak\iCanSpeak\trunk\dotnet\Services\TestApplication\bin\Debug\TestApplication.pdb
+D:\Rahul\All Project's\iCanSpeak\iCanSpeak\trunk\dotnet\Services\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+D:\Rahul\All Project's\iCanSpeak\iCanSpeak\trunk\dotnet\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+D:\Rahul\All Project's\iCanSpeak\iCanSpeak\trunk\dotnet\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+D:\Rahul\All Project's\iCanSpeak\iCanSpeak\trunk\dotnet\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+D:\Rahul\All Project's\iCanSpeak\iCanSpeak\trunk\dotnet\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\Rahul\All Project's\iCanSpeak\iCanSpeak\trunk\dotnet\Services\TestApplication\obj\Debug\TestApplication.pdb
+D:\iCanSpeak\DotNet\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\iCanSpeak\DotNet\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\iCanSpeak\DotNet\Services\TestApplication\obj\Debug\TestApplication.pdb
+E:\TVProjects\iCanSpeak\iCanSpeak\trunk\dotnet\Services\TestApplication\bin\Debug\TestApplication.exe.config
+E:\TVProjects\iCanSpeak\iCanSpeak\trunk\dotnet\Services\TestApplication\bin\Debug\TestApplication.exe
+E:\TVProjects\iCanSpeak\iCanSpeak\trunk\dotnet\Services\TestApplication\bin\Debug\TestApplication.pdb
+E:\TVProjects\iCanSpeak\iCanSpeak\trunk\dotnet\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+E:\TVProjects\iCanSpeak\iCanSpeak\trunk\dotnet\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+E:\TVProjects\iCanSpeak\iCanSpeak\trunk\dotnet\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+E:\TVProjects\iCanSpeak\iCanSpeak\trunk\dotnet\Services\TestApplication\obj\Debug\TestApplication.exe
+E:\TVProjects\iCanSpeak\iCanSpeak\trunk\dotnet\Services\TestApplication\obj\Debug\TestApplication.pdb
+E:\TVProjects\iCanSpeak\iCanSpeak\trunk\dotnet\Services\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+D:\Rajat\ICanSpeakUpdated\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\Rajat\ICanSpeakUpdated\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\Rajat\ICanSpeakUpdated\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+E:\AnubhavSatle\A_TV_Projects\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+E:\AnubhavSatle\A_TV_Projects\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe
+E:\AnubhavSatle\A_TV_Projects\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.pdb
+E:\AnubhavSatle\A_TV_Projects\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+E:\AnubhavSatle\A_TV_Projects\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+E:\AnubhavSatle\A_TV_Projects\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+E:\AnubhavSatle\A_TV_Projects\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+E:\AnubhavSatle\A_TV_Projects\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+D:\ICanSpeakBackup\ICanSpeak9-5-15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\ICanSpeakBackup\ICanSpeak9-5-15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\ICanSpeakBackup\ICanSpeak9-5-15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+C:\Users\Admin\Desktop\Services\TestApplication\bin\Debug\TestApplication.exe.config
+C:\Users\Admin\Desktop\Services\TestApplication\obj\Debug\TestApplication.exe
+C:\Users\Admin\Desktop\Services\TestApplication\obj\Debug\TestApplication.pdb
+C:\Users\Admin\Desktop\Services\TestApplication\bin\Debug\TestApplication.exe
+C:\Users\Admin\Desktop\Services\TestApplication\bin\Debug\TestApplication.pdb
+C:\Users\Admin\Desktop\Services\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+C:\Users\Admin\Desktop\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+C:\Users\Admin\Desktop\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+D:\ICanSpeakBackup\ICanSpeaks13-5-15\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\ICanSpeakBackup\ICanSpeaks13-5-15\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\ICanSpeakBackup\ICanSpeaks13-5-15\Services\TestApplication\obj\Debug\TestApplication.pdb
+D:\Rajat\ICanSpeak\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\Rajat\ICanSpeak\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe
+D:\Rajat\ICanSpeak\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.pdb
+D:\Rajat\ICanSpeak\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+D:\Rajat\ICanSpeak\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+D:\Rajat\ICanSpeak\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+D:\Rajat\ICanSpeak\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+D:\Rajat\ICanSpeak\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\Rajat\ICanSpeak\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+E:\RajatSystemData\Rajat\ICanSpeak\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+E:\RajatSystemData\Rajat\ICanSpeak\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe
+E:\RajatSystemData\Rajat\ICanSpeak\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.pdb
+E:\RajatSystemData\Rajat\ICanSpeak\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+E:\RajatSystemData\Rajat\ICanSpeak\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+E:\RajatSystemData\Rajat\ICanSpeak\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+E:\RajatSystemData\Rajat\ICanSpeak\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+E:\RajatSystemData\Rajat\ICanSpeak\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+C:\Users\Admin\Desktop\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+C:\Users\Admin\Desktop\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+C:\Users\Admin\Desktop\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+C:\Users\Admin\Desktop\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe
+C:\Users\Admin\Desktop\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.pdb
+C:\Users\Admin\Desktop\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+C:\Users\Admin\Desktop\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+C:\Users\Admin\Desktop\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+D:\Sanjay\Live\15_9_2015\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\Sanjay\Live\15_9_2015\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\Sanjay\Live\15_9_2015\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\Sanjay\Live\OCTOBER\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+D:\Sanjay\Live\OCTOBER\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+D:\Sanjay\Live\OCTOBER\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+D:\Sanjay\Live\OCTOBER\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+D:\Sanjay\Live\OCTOBER\5_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\Sanjay\Live\OCTOBER\5_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\5_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\5_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+D:\Sanjay\Live\OCTOBER\5_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+D:\Sanjay\Live\OCTOBER\5_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+D:\Sanjay\Live\OCTOBER\5_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+D:\Sanjay\Live\OCTOBER\5_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\5_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\7_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\Sanjay\Live\OCTOBER\7_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\7_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\New folder\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\Sanjay\Live\OCTOBER\New folder\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\New folder\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\New folder\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\New folder\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\New folder\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+D:\Sanjay\Live\OCTOBER\New folder\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+D:\Sanjay\Live\OCTOBER\New folder\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+D:\Sanjay\Live\OCTOBER\New folder\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+D:\Sanjay\Live\OCTOBER\8_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\Sanjay\Live\OCTOBER\8_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\8_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\8_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+D:\Sanjay\Live\OCTOBER\8_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+D:\Sanjay\Live\OCTOBER\8_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+D:\Sanjay\Live\OCTOBER\8_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+D:\Sanjay\Live\OCTOBER\8_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\8_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\9_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\Sanjay\Live\OCTOBER\9_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\9_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\9_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+D:\Sanjay\Live\OCTOBER\9_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+D:\Sanjay\Live\OCTOBER\9_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+D:\Sanjay\Live\OCTOBER\9_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+D:\Sanjay\Live\OCTOBER\9_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\9_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\10_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\Sanjay\Live\OCTOBER\10_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\10_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\10_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+D:\Sanjay\Live\OCTOBER\10_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+D:\Sanjay\Live\OCTOBER\10_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+D:\Sanjay\Live\OCTOBER\10_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+D:\Sanjay\Live\OCTOBER\10_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\10_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\12_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\Sanjay\Live\OCTOBER\12_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\12_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\12_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+D:\Sanjay\Live\OCTOBER\12_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+D:\Sanjay\Live\OCTOBER\12_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+D:\Sanjay\Live\OCTOBER\12_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+D:\Sanjay\Live\OCTOBER\12_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\12_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\14_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\Sanjay\Live\OCTOBER\14_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\14_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\14_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+D:\Sanjay\Live\OCTOBER\14_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+D:\Sanjay\Live\OCTOBER\14_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+D:\Sanjay\Live\OCTOBER\14_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+D:\Sanjay\Live\OCTOBER\14_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\14_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\15_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\Sanjay\Live\OCTOBER\15_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\15_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\16_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\Sanjay\Live\OCTOBER\16_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\16_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\16_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\16_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\16_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+D:\Sanjay\Live\OCTOBER\16_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+D:\Sanjay\Live\OCTOBER\16_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+D:\Sanjay\Live\OCTOBER\16_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+D:\Sanjay\Live\OCTOBER\19_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\Sanjay\Live\OCTOBER\19_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\19_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\19_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\19_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.pdb
+D:\Sanjay\Live\OCTOBER\19_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+D:\Sanjay\Live\OCTOBER\19_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+D:\Sanjay\Live\OCTOBER\19_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+D:\Sanjay\Live\OCTOBER\19_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+D:\Sanjay\Live\OCTOBER\24_10_15\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\Sanjay\Live\OCTOBER\24_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\Sanjay\Live\OCTOBER\24_10_15\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+E:\Projects\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+E:\Projects\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+E:\Projects\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+E:\Projects\Orignal\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+E:\Projects\Orignal\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe
+E:\Projects\Orignal\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.pdb
+E:\Projects\Orignal\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+E:\Projects\Orignal\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+E:\Projects\Orignal\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+E:\Projects\Orignal\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+E:\Projects\Orignal\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+E:\Projects\Orignal\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+E:\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+E:\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe
+E:\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.pdb
+E:\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+E:\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+E:\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+E:\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+E:\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+E:\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+D:\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe.config
+D:\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.exe
+D:\ICanSpeaks\Services\TestApplication\bin\Debug\TestApplication.pdb
+D:\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+D:\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+D:\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+D:\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache
+D:\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.exe
+D:\ICanSpeaks\Services\TestApplication\obj\Debug\TestApplication.pdb
+E:\Techvalens_Code\BAK\3\Services\TestApplication\bin\Debug\TestApplication.exe.config
+E:\Techvalens_Code\BAK\3\Services\TestApplication\obj\Debug\TestApplication.exe
+E:\Techvalens_Code\BAK\3\Services\TestApplication\obj\Debug\TestApplication.pdb
+E:\Techvalens_Code\BAK\3\Services\TestApplication\bin\Debug\TestApplication.exe
+E:\Techvalens_Code\BAK\3\Services\TestApplication\bin\Debug\TestApplication.pdb
+E:\Techvalens_Code\BAK\3\Services\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+E:\Techvalens_Code\BAK\3\Services\TestApplication\obj\Debug\TestApplication.Form1.resources
+E:\Techvalens_Code\BAK\3\Services\TestApplication\obj\Debug\TestApplication.Properties.Resources.resources
+E:\Techvalens_Code\BAK\3\Services\TestApplication\obj\Debug\TestApplication.csproj.GenerateResource.Cache

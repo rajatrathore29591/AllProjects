@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "StudentMarks";
+}
+<link href="@Url.Content("/Content/themes/fileinput.css")" rel="stylesheet" />
+<link href="@Url.Content("/Content/themes/style.css")" rel="stylesheet" />
+<script type="text/javascript" src="@Url.Content("/Scripts/jquery.min.js")"></script>
+
+
+@using (Html.BeginForm("AddStudentMark", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        <font color="44c9ff">Student Marks</font>
+                    </h1>
+                </div>
+            </div>
+
+            <!--Edit Table start-->
+
+            <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2  col-sm-6 col-sm-offset-2 col-xs-12">
+                <div class="row">
+                    <label id="msg" style="font-size: 16pt;"></label>
+                    <div class="form-group">
+                        @*<input type="button" class="btn btn-info" id="btnsubcategory" value="Add New Key Phrase" />&nbsp;&nbsp;*@
+                        @*<input type="submit" class="btn btn-info" id="btnremovesubcategory" value="Remove Last Key Phrase" style="display: none" />*@
+                    </div>
+                    <div class="form-group">
+                        @*<label for="exampleInputPassword1">Key Phrases <span style="color: #FE2801;">*</span></label>*@
+                        <div id="subcategorytxtdiv">
+                            @*<input name="Audio" id="Audio" type="file" required multiple="true" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false">*@
+                            <table style="width: 100%">
+                                <tr>
+                                    <td>
+                                        <label for="exampleInputPassword1">Student Name:- @ViewBag.FirstName @ViewBag.LastName<span style="color: #FE2801;"></span></label>
+                                    </td>                                  
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <div id="getingMarks">
+                                                <input type="text" required maxlength="499" name="Marks" class="form-control" placeholder="Student Marks">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>                                    
+                                                <input type="text" required maxlength="499" name="TotalMarks" class="form-control" placeholder="Total Marks">                                          
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="hidden" name="Studentid" value="@ViewBag.Studentid" />
+                        <input type="hidden" name="TutorId" value="@ViewBag.TutorId" />
+                        <button class="btn btn-info" type="submit">Submit</button>&nbsp;&nbsp;
+                        @*<a href="../../Admin/CourseContent/KeyPhraseList?dialogid=@Request["dialogid"]">
+                            <input type="button" class="btn btn-info" value="Reset" onclick="ResetFormValues()" /></a>*@
+                    </div>
+                    <div>
+                        <h1 style="font-size: 25px; color: red;">@TempData["Message"]</h1>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <!--edit table end here-->
+        </div>
+    </div>
+}

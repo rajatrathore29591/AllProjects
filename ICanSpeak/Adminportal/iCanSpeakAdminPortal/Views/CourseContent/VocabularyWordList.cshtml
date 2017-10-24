@@ -1,0 +1,169 @@
+﻿@{
+    ViewBag.Title = "VocabularyWordList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Content/jAlert/jquery.alerts.js")" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/jAlert/jquery.alerts.css")" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myDataTable').dataTable({
+            "bJQueryUI": true,
+            "aaSorting": [],
+            "sPaginationType": "full_numbers",
+            "aoColumns": [
+                { "sName": "Email", "bSearchable": true, "bSortable": true },
+                { "sName": "arabic", "bSearchable": true, "bSortable": true },
+                { "sName": "Gender", "bSearchable": false, "bSortable": false },
+                { "sName": "Created On", "bSearchable": true, "bSortable": true },
+                { "sName": "Status", "bSearchable": false, "bSortable": false },
+                { "sName": "Operations", "bSearchable": false, "bSortable": false }
+            ]
+        }).makeEditable({
+            fnStartProcessingMode: function () {
+                $("#processing_message").dialog();
+            },
+            fnEndProcessingMode: function () {
+                $("#processing_message").dialog("close");
+            }
+        });
+    });
+</script>
+<style type="text/css">
+    .operationIcons {
+        height: 25px;
+        width: 25px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #e2f3ff;
+    }
+</style>
+
+
+
+ <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <font color="44c9ff"> Vocabulary Word List </font>
+                </h1>               
+                 <span style="float:right; color:#3d3b3b;font-size:16pt; margin-top:-50px;">
+                   <img src="~/Images/add_icon.png" class="operationIcons" />
+                     <a style="cursor:pointer; color:#3d3b3b; text-decoration:none; font-weight:200" href="@Url.Action("AddVocabularyWord","CourseContent")?subcatid=@Request["subcatid"]&wordid=0&vocabid=@Request["vocabid"]">Add New Word</a>
+                </span>
+            </div>
+        </div>
+
+@*<h2>Vocabulary List</h2>
+ <span style="float:right; color:#262424;font-size:16pt;">
+                   Add New Vocabulary Category
+                </span>*@
+
+<table id="myDataTable" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>Word English</th>
+            <th>Word Arabic</th>
+            <th>Image</th>
+            <th>Created On</th>
+            <th>Status</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            
+            <tr>
+                <td><span>@item.EnglishText</span></td>
+                <td><span>@item.ArabicText</span></td>
+                <td><span><img style="width:100px;height:100px" src="@item.PictureUrl" /></span></td>
+                <td><span>@item.CreateDate</span></td>
+                <td>
+                    @if (item.IsActive == true)
+                    {
+                        <input type="button" value="Active" style="color:white; background-color:green; border:none;" id="btnStatus-@item.WordId" onclick="ManageVocabWordStatus(@item.WordId)" />
+                    }
+                    else
+                    {
+                        <input type="button" value="Inactive" style="color:white; background-color:red; border:none;" id="btnStatus-@item.WordId" onclick="ManageVocabWordStatus(@item.WordId)" />
+                    }
+                </td>
+               
+                <td width="120px">
+                    @*<img src="~/Images/add_icon.png" class="operationIcons" />
+                    &nbsp;*@
+                    <img src="~/Images/delete_icon.png" class="operationIcons" title="Delete Permanentaly"  onclick="DeleteVocabWordPermanentaly(@item.WordId,@Request["subcatid"],@Request["vocabid"])" />&nbsp;&nbsp;
+                   @* <img src="~/Images/detail_icon.png" class="operationIcons" title="View Details" onclick="GoToVocabWordList(@item.WordId)" />&nbsp;&nbsp;*@
+                   <a href="@Url.Action("AddVocabularyWord","CourseContent")?subcatid=@Request["subcatid"]&wordid=@item.WordId&vocabid=@Request["vocabid"]"><img src="~/Images/edit_icon.png" class="operationIcons" title="Edit Information" /></a>
+                    @* <img src="~/Images/u[date_icon.png" class="operationIcons" />*@
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<script type="text/ecmascript">
+    function EditInfo(wordid)
+    {
+        window.location.href="@Url.Action("AddVocabularyWord","CourseContent")?subcatid=@Request.QueryString["subcatid"]&wordid="+wordid;
+    }
+
+    //function GoToVocabWordList(wordid)
+    //{
+    //    window.location="/CourseContent/AddVocabularyWord?wordid="+wordid;
+    //}
+
+    function ManageVocabWordStatus(wordid)
+    {
+        $.ajax({
+            url:'@Url.Action("ManageVocabWordStatus", "CourseContent")',
+             type:"POST",
+             data:{wordid:wordid, softDelete:"true"},
+             success:function(result){
+                 if (result.indexOf("Dear user your session expired please") >= 0)
+                 {
+                     window.location="@Url.Action("Login","Account")";
+                 }
+                 var id="btnStatus-"+wordid;
+                 var btnText=$("#"+id).val();
+                 if(btnText=="Active")
+                 {
+                     $("#"+id).val('Inactive');
+                     $("#"+id).css("background-color","red");
+                 }
+                 else
+                 {
+                     $("#"+id).val('Active');
+                     $("#"+id).css("background-color","green");
+                 }
+             },
+             error:function(result){
+             },
+         });
+    }  
+    function DeleteVocabWordPermanentaly(wordid,subcategoryid,vocabid)
+    {
+        var result=confirm("Are you sure to delete user account permanentaly.");
+        if(result==true)
+        {
+            $.ajax({
+                url:'@Url.Action("ManageVocabWordStatus", "CourseContent")',
+                type:"POST",
+                data:{wordid:wordid,subcategoryid:subcategoryid,vocabid:vocabid,softDelete:"false"},
+                success:function(result){
+                    if (result.indexOf("Dear user your session expired please") >= 0)
+                    {
+                        window.location="@Url.Action("Login","Account")";
+                    }
+                    window.location="@Url.Action("VocabularyWordList","CourseContent")?subcatid=@Request["subcatid"]&vocabid=@Request["vocabid"]";
+                },
+                error:function(result){
+                },
+            });
+        }
+    }
+
+</script>

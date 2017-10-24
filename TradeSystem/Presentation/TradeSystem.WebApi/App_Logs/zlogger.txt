@@ -1,0 +1,12 @@
+﻿2017-04-17 06:43:58,016 [25] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - My Investment List
+2017-04-17 06:44:08,608 [37] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - My Investment List
+2017-04-17 06:44:11,548 [25] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - My Investment List
+2017-04-17 06:44:34,114 [25] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - My Investment List
+2017-04-17 06:49:53,278 [55] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Failed
+2017-04-17 06:50:02,892 [55] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Product Details
+2017-04-17 06:50:57,205 [55] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Product Details
+2017-04-17 06:51:46,583 [55] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Product Details
+2017-04-17 06:54:03,157 [7] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Product Details
+2017-04-17 06:54:37,052 [9] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Product Details
+2017-04-17 06:55:06,417 [26] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Product Details
+2017-04-17 06:55:41,648 [9] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Product Details

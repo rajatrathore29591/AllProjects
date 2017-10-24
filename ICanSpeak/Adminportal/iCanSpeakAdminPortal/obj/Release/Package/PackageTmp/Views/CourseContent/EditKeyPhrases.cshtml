@@ -1,0 +1,119 @@
+﻿@{
+    ViewBag.Title = "EditKeyPhrases";
+}
+<style>
+    .fileUpload {
+        position: relative;
+        overflow: hidden;
+        margin: 10px;
+    }
+
+        .fileUpload input.upload {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0px 10px;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+    .box1 {
+        border: 1px solid #ccc;
+        margin: 10px 0px;
+        padding: 20px;
+        border-radius: 8px;
+    }
+</style>
+@using (Html.BeginForm("UpdateKeyPhrases", "CourseContent", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        <font color="44c9ff">Edit Key Phrase</font>
+                    </h1>
+                </div>
+            </div>
+
+            <!--Edit Table start-->
+            @foreach (var item in Model)
+            { 
+                <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2  col-sm-6 col-sm-offset-2 col-xs-12">
+                    <div class="row">
+                        <input name="KeyPhrasesId" type="hidden" value="@item.KeyPhrasesId" />
+                        <input name="DialogId" type="hidden" value="@item.DialogId" />
+                        <label id="msg" style="font-size: 16pt;"></label>
+                        <div class="form-group">
+                            @*<label>Audio</label>
+                            <div class="box1">
+                                <div class="row">
+
+                                    <audio controls="" style="width: 100%">
+                                        <source src="@item.AudioUrl" type="audio/mpeg" />
+                                    </audio>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="fileUpload btn btn-primary">
+                                        <span>Change Audio</span>
+                                        <input id="audio1" type="file" class="upload" name="EditAudio" accept="audio/*" />
+                                    </div>
+                                </div>
+                            </div>*@
+
+                            <table style="width: 100%">
+                                <tr>
+                                    <td>
+                                        <label for="exampleInputPassword1">Edit Key Phrases <span style="color: #FE2801;">*</span></label>
+
+                                    </td>
+                                    <td>
+                                        @*<input value="@Model.KeyPhrasesId" type="hidden" required maxlength="499" name="KeyPhrasesId" class="form-control">*@
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td>
+                                        <div class="form-group">
+                                            <div id="englishdiv">
+                                                <input type="text" value="@item.EnglishText" required maxlength="499" name="EnglishText" class="form-control" placeholder="English Text">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <div id="arabicdiv">
+                                                <input type="text" value="@item.ArabicText" required maxlength="499" name="ArabicText" class="form-control" placeholder="Arabic Text">
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+
+                        <div style="margin-left: 90px;" class="form-group">
+
+                            <button class="btn btn-info" type="submit">Submit</button>&nbsp;&nbsp;
+                        <a href="../../Admin/CourseContent/KeyPhraseList?dialogid=@item.DialogId">
+                            <input type="button" class="btn btn-info" value="Cancel"  /></a>
+                        </div>
+                        <div>
+                            <h1 style="font-size: 25px; color: red;">@TempData["Message"]</h1>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}

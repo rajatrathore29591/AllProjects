@@ -1,0 +1,250 @@
+﻿@model iCanSpeakAdminPortal.Models.FaqTextModel
+@{
+    ViewBag.Title = "FAQ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>View Frequently Asked Question</title>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".valid").keypress(function (e) {
+                if (e.which < 97 || e.which > 122) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+        function isNumberDecimal(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode != 45 && (charCode != 46 || $(this).val().indexOf('.') != -1) &&
+                    (charCode < 48 || charCode > 57))
+                return false;
+
+            return true;
+        }
+    </script>
+
+</head>
+<body>
+
+    <div class="dialog-page">
+        <div class="container">
+
+
+            @using (Html.BeginForm("UpdateFAQ", "PageManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <h1 class="page-header">
+                            <font color="44c9ff"> View Frequently Asked Question </font>
+                        </h1>
+                    </div>
+                    <a style="cursor:pointer; color:#3d3b3b; font-size:14pt;margin-left: -185px; float:right;position: absolute; margin-top:55px; font-weight:200;" href="@Url.Action("FaqList", "PageManagement")">Go To FAQ List</a>
+                </div>
+                
+                <div class="contant">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label>Question <span style="color: #FE2801;">*</span></label>
+                                <input class="form-control" maxlength="30" placeholder="Question" name="Title" id="Title" type="text" value="@Model.Title" readonly="readonly" />
+                                <input type="hidden" id="FaqId" name="FaqId" value="@Model.FaqId" />
+
+                            </div>
+                            <div class="form-group">
+                                <label>Answer <span style="color: #FE2801;">*</span></label>
+                                  @*<input class="form-control" maxlength="30" placeholder="Question" name="Title" id="Title" type="text" value="@Model.Description"  />
+ *@                               <textarea class="form-control" required name="Description" placeholder="Answer" id="Description" readonly>@Model.Description</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>       
+            }
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*
+<div class="row">
+    <div class="col-lg-12">
+        @if (Model.FaqId == null)
+        {
+        <h1 class="page-header">                        
+            <font color="44c9ff">Add Frequently Asked Question</font>           
+        </h1>
+        }
+        else
+        {
+        <h1 class="page-header">
+            <font color="44c9ff">Update Frequently Asked Question</font>
+        </h1>
+        }
+        <h1 class="page-header">
+            <font color="44c9ff">Frequently Asked Question</font>
+        </h1>
+    </div>
+</div>
+<table>
+    <tr>
+        <td>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Title Name</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Title Name" @Model.Title>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Title Name">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 nopadding">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Body Text</label>
+                                    @Html.Partial("CustomTextEditor")
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @* @if (Model.FaqId == null)
+                    {
+                        <input class="btn btn-info" type="submit" class="btn btn-info" onclick="SubmitAbout()" value="Add Content" style="margin-left: 15px;" /><br />
+                        <br />
+                        <label id="msg" style="color: green; display: none;">About Text Added Successfully</label>
+                    }
+                    else
+                    {
+                        <input class="btn btn-info" type="submit" class="btn btn-info" onclick="SubmitAbout()" value="Update Content" style="margin-left: 15px;" /><br />
+                        <br />
+                        <label id="msg" style="color: green; display: none;">About Text Updated Successfully</label>
+                    }
+                    <input class="btn btn-info" type="submit" class="btn btn-info" onclick="SubmitAbout()" value="Update Content" style="margin-left: 15px;" /><br />
+                    <br />
+                    <label id="msg" style="color: green; display: none;">About Text Updated Successfully</label>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+@*<script type="text/javascript">
+    $(document).ready(function () {
+
+        $.ajax({
+            url: '@Url.Action("FAQ", "PageManagement")',
+            type: "POST",
+            data: { abouttext: " ", title: " ", operation: "select" },
+            success: function (result) {
+
+                //alert(JSON.stringify(result));
+                if (result == "LogIn") {
+                    window.location = "@Url.Action("Login", "Account")";
+                }
+
+                $.each(result, function (i, e) {
+                    $("#title").val(e.Title);
+                    CKEDITOR.instances.editor1.setData(e.Description);
+                });
+
+            },
+            error: function (result) {
+                alert(JSON.stringify(result));
+            },
+        });
+    });
+
+    //function SubmitAbout() {
+    //    var s = CKEDITOR.instances.editor1.getData();
+    //    var replacedata = "";
+    //    for (var i = 0; i < s.length; i++) {
+    //        var c = s.charAt(i).replace('"', '~#');
+    //        replacedata += c;
+    //    }
+    //    var newstring = "";
+    //    for (var i = 0; i < replacedata.length; i++) {
+    //        var c = replacedata.charAt(i).replace('<', '~!');
+    //        newstring += c;
+    //    }
+    //    var mystring = "";
+    //    for (var i = 0; i < newstring.length; i++) {
+    //        var c = newstring.charAt(i).replace('>', '!~');
+    //        mystring += c;
+    //    }
+
+
+       @* $.ajax({
+            url: '@Url.Action("FAQ", "PageManagement")',
+            type: "POST",
+            data: { abouttext: mystring, title: $("#title").val(), operation: "update" },
+            success: function (result) {
+                if (result == "LogIn") {
+                    window.location = "@Url.Action("Login", "Account")";
+                    }
+                    if (result == "Success") {
+                        $("#msg").css("display", "block");
+                    }
+                },
+            error: function (result) {
+            },
+        });
+        }
+</script>*@

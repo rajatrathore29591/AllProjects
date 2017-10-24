@@ -1,0 +1,166 @@
+﻿@using System.Globalization;
+@{
+    ViewBag.Title = "Investments List";
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+}
+@model IEnumerable<TradeSystem.Utils.Models.CustomerProductDataModel>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var IsApprove = '@TempData["IsApprove"]';
+        if (IsApprove == "False") {
+            $('#noappove_model').modal('show');
+        }
+    });
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-flat">
+            <div class="panel-body">
+                <div class="tabbable">
+                    <ul class="nav nav-tabs nav-tabs-highlight nav-justified">
+                        @*<li class="active"><a href="#general-details-tab" data-toggle="tab">General Details</a></li>
+                            <li><a href="#investments-tab" data-toggle="tab">Investments</a></li>
+                            <li><a href="#sales-tab" data-toggle="tab">Sales</a></li>*@
+                        <li><a href="@Url.Action("GeneralDetails", "CustomerManagement",new {@id=Session["CustomerId"] })">General Details</a></li>
+                        <li class="active"><a href="@Url.Action("InvestmentsList", "CustomerManagement",new {@id=Session["CustomerId"]})">Investments</a></li>
+                        <li><a href="@Url.Action("SalesList", "CustomerManagement",new {@id=Session["CustomerId"]})">Sales</a></li>
+
+                    </ul>
+                    <!-- Investments -->
+                    <div class="tab-pane" id="investments-tab">
+                        <!-- Customer Investment Details -->
+                        <h5 class="panel-title">Customer Investments List</h5>
+                        <div class="data-tbl-wrapper">
+                            <table id="investmentslists_data_table" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>S.No.</th>
+                                        <th>Investment Name</th>
+                                        <th>Investment Amount</th>
+                                        <th>Total Weekly Earning</th>
+                                        <th>Payment Type</th>
+                                        <th>Start Date <i class="icon-calendar3 position-right"></i></th>
+                                        <th>Withdraw Date <i class="icon-calendar3 position-right"></i></th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                        <th>View Receipt</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        var sno = 1;
+                                        foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@sno</td>
+                                                <td>@item.InvestmentName</td>
+                                                <td class="text-right">@item.InvestmentFloat.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
+                                                <td class="text-right">@item.WeeklyEarningFloat.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
+                                                <td>
+                                                    @{
+                                                        string paymentStatusOfWallet = string.Empty;
+                                                        if (item.WalletAmount != "0.0")
+                                                        {
+                                                            paymentStatusOfWallet = ", Wallet";
+                                                        }
+                                                        else
+                                                        {
+                                                            paymentStatusOfWallet = string.Empty;
+                                                        }
+
+                                                        switch (item.PaymentType)
+                                                        {
+                                                            case "CreditCard":
+                                                                <span>@String.Format("{0}{1}", "Credit Card", paymentStatusOfWallet)</span>
+                                                                break;  // Always break each case
+                                                            case "WireTransfer":
+                                                                <span>@String.Format("{0}{1}", "Wire Transfer", paymentStatusOfWallet)</span>
+                                                                break;
+                                                            case "MiniMarket":
+                                                                <span>@String.Format("{0}{1}", "Mini Market", paymentStatusOfWallet)</span>
+                                                                break;
+                                                            case "PaymentAtOffice":
+                                                                <span>@String.Format("{0}{1}", "Payment at Office", paymentStatusOfWallet)</span>
+                                                                break;
+                                                            default:
+                                                                <span>@item.PaymentType</span>
+                                                                break;
+                                                        }
+                                                    }
+                                                </td>
+                                                <td>@item.CreatedDate.ToString("MM-dd-yyyy")</td>
+                                                <td>@item.InvestmentWithdrawDate.ToString("MM-dd-yyyy")</td>
+                                                <td>@item.Status</td>
+                                                <td class="text-center">
+                                                    <ul class="icons-list">
+
+                                                        @if (item.Status == "Pending")
+                                                        {
+                                                            <li class="dropdown">
+                                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                                    <i class="icon-menu9"></i>
+                                                                </a>
+                                                                <ul class="dropdown-menu dropdown-menu-right">
+                                                                    <li><a title="Approve" href="@Url.Action("Approve", "CustomerManagement", new { CustomerId=item.CustomerId,ProductId = item.ProductId,Status = "Active",Investment = item.Investment})"><i class="icon-eye8"></i> Approve</a></li>
+                                                                    <li><a title="Approve" href="@Url.Action("Approve", "CustomerManagement", new { CustomerId=item.CustomerId,ProductId = item.ProductId,Status = "Reject",Investment = item.Investment})"><i class="icon-eye8"></i> Reject</a></li>
+
+                                                                </ul>
+                                                            </li>
+                                                        }
+                                                        else if (item.Status == "Reject")
+                                                        {
+                                                            <label>Rejected</label>
+                                                        }
+                                                        else
+                                                        {
+                                                            <label>Approved</label>
+                                                        }
+
+                                                    </ul>
+                                                </td>
+                                                @if (@item.PaymentType == "MiniMarket")
+                                                {
+                                                    <td><a href="@Url.Action("GenerateReceipt", "FinanceManagement", new { customerId =item.CustomerId, productId = item.ProductId })">Receipt</a></td>
+                                                }
+                                                else
+                                                {
+                                                    <td>-</td>
+                                                }
+                                            </tr>
+                                                            sno++;
+                                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="text-center mt-15">
+                            <a class="btn bg-orange" href="@Url.Action("ExistingCustomers","CustomerManagement")" title="Back"><i class="icon-arrow-left13 position-left"></i> Back </a>
+                        </div>
+                        <!-- /customer investment details -->
+                    </div>
+                    <!-- /investments -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--investment is not appove modal-->
+<div id="noappove_model" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="text-center">
+                    Remaining invetment value is less than invesment amount
+                </p>
+                <div class="text-center mt-20">
+                    <button title="Cancel" class="btn bg-orange" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/investment is not appove modal-->

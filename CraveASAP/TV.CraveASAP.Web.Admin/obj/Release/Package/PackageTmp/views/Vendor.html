@@ -1,0 +1,851 @@
+﻿<!-- BEGIN CONTENT -->
+<div class="page-content-wrapper" id="PrintDiv">
+    <div class="page-content clearfix">
+        <div class="col-md-12">
+            <div class="tabbable-line boxless tabbable-reversed">
+                <div class="portlet box green clearfix">
+                    <div class="portlet-title">
+                        <div class="caption pagename text-center btnwtit">
+                            <i class="fa fa-user btnwtit m-t-0 hidden-xs"></i>{{vendortitle}}<span>&nbsp;<i class="fa fa-refresh fa-spin" ng-if="isbusy"></i></span>
+                        </div>
+                        <div class="caption path pull-right ">
+                            <a class="btn btn-danger" href="javascript:window.print()">Print</a>
+                        </div>
+                    </div>
+                    <div class="portlet-body form">
+                        <!-- BEGIN FORM-->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form name="myForm" ng-submit="save(myForm)" type="POST" class=" form-horizontal">
+                                    <div class="form-body">
+                                        <h3 class="form-section">Company Info</h3>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Company Name{{test}}</label>
+                                                    <div class="col-md-9">
+                                                        <!--<input type="text" class="form-control" value="{{VendorDetail[0].companyName}}" ng-model="vendor.companyName">-->
+                                                        <input type="text" class="form-control" ng-model="vendor.companyName" required>
+                                                        <!--<span ng-show="myForm.companyName.$error.pattern"><font color="red">Alphabetic characters only!</font></span>-->
+                                                        <input type="hidden" class="form-control" ng-model="vendor.vendorId">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Business Category</label>
+                                                    <div class="col-md-9">
+                                                        <select class="select2_category form-control" ng-model="vendor.businessCategory" data-placeholder="Choose a Category" tabindex="1" required>
+                                                            <option ng-repeat="item in category" value="{{item.categoryId}}">{{item.categoryName}}</option>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--/span-->
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Short Description</label>
+                                                    <div class="col-md-9">
+
+                                                        <textarea class="form-control" ng-model="vendor.shortDescription" placeholder="Short Description" maxlength="150" required></textarea>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Full Description</label>
+                                                    <div class="col-md-9">
+                                                        <textarea class="form-control" ng-model="vendor.fullDescription" placeholder="Full Description" maxlength="250" required></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--/span-->
+                                        </div>
+
+                                        <!--/row-->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Email</label>
+                                                    <div class="col-md-9">
+                                                        <input type="email" class="form-control" ng-model="vendor.email" required>
+                                                        <!--<span ng-show="myForm.email.$error.pattern"><font color="red">Add Valid Email!</font></span>-->
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Phone Number</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" ng-focus="focusPhoneNo" name="phoneNo" maxlength="12" ng-pattern="/^[0-9]+$/" class="form-control" ng-model="vendor.phoneNo" required />
+                                                        <span ng-show="myForm.phoneNo.$error.pattern"><font color="red">Numeric characters only!</font></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--/span-->
+                                        </div>
+                                        <!--/row-->
+                                        <h3 class="form-section">Contact Person Detail</h3>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Contact Person </label>
+                                                    <div class="col-md-9">
+
+                                                        <input type="text" class="form-control" name="contactPersonV" ng-pattern="/^[a-zA-Z ]*$/" ng-model="vendor.contactPerson" placeholder="Contact Person Name" required>
+
+                                                        <span ng-show="myForm.contactPersonV.$error.pattern"><font color="red">Alphabetic characters only!</font></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Phone Number</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" name="contactPhoneNoV" class="form-control" maxlength="12" ng-pattern="/^[0-9]+$/" ng-model="vendor.contactPhoneNo" placeholder="Phone Number" required>
+                                                        <span ng-show="myForm.contactPhoneNoV.$error.pattern"><font color="red">Numeric characters only!</font></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Email</label>
+                                                    <div class="col-md-9">
+                                                        <input type="email" class="form-control" ng-model="vendor.contactEmail" placeholder="Email" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                        </div>
+                                        <!--/row-->
+
+                                        <h3 class="form-section">Opening Hours<i style="margin-top: 6px; font-size: 18px;" class="fa fa-plus-circle fa-3x text-right pull-right curp fa5" ng-click="addInput()"></i> <span style="font-size: 14px" class="pull-right">
+                                            <input style="border:1px solid #000" type="checkbox" ng-model="checked" />
+                                            Open 24 Hours </span></h3>
+                                        <div class="row startendtime" ng-repeat="input in openinghours" ng-if="checked == false">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-6"><i style="margin-top: 6px; font-size: 18px;" class="fa fa-minus-circle fa-3x fa5 " ng-click="removeInput($index)"></i>Start Day</label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <select class="form-control" ng-model="input.startDay">
+                                                            <option disabled selected value=''>Days</option>
+                                                            <option>MON</option>
+                                                            <option>TUE</option>
+                                                            <option>WED</option>
+                                                            <option>THU</option>
+                                                            <option>FRI</option>
+                                                            <option>SAT</option>
+                                                            <option>SUN</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <select class="form-control" ng-model="input.startTime">
+                                                            <option disabled selected value=''>Hrs</option>
+                                                            <option>00</option>
+                                                            <option>01</option>
+                                                            <option>02</option>
+                                                            <option>03</option>
+                                                            <option>04</option>
+                                                            <option>05</option>
+                                                            <option>06</option>
+                                                            <option>07</option>
+                                                            <option>08</option>
+                                                            <option>09</option>
+                                                            <option>10</option>
+                                                            <option>11</option>
+                                                            <option>12</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <select class="form-control" ng-model="input.startMinute">
+                                                            <option disabled selected value=''>Minute</option>
+                                                            <option>00</option>
+                                                            <option>30</option>
+
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <select class="form-control" ng-model="input.startType">
+                                                            <option disabled selected value=''>Type</option>
+                                                            <option>AM</option>
+                                                            <option>PM</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-6">End Day</label>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+
+                                                        <select class="form-control" ng-model="input.endDay">
+                                                            <option disabled selected value=''>Days</option>
+                                                            <option>MON</option>
+                                                            <option>TUE</option>
+                                                            <option>WED</option>
+                                                            <option>THU</option>
+                                                            <option>FRI</option>
+                                                            <option>SAT</option>
+                                                            <option>SUN</option>
+                                                        </select>
+
+                                                    </div>
+                                                    <div class="col-sm-3">
+
+                                                        <select class="form-control" ng-model="input.endTime">
+                                                            <option disabled selected value=''>Hrs</option>
+                                                            <option>00</option>
+                                                            <option>01</option>
+                                                            <option>02</option>
+                                                            <option>03</option>
+                                                            <option>04</option>
+                                                            <option>05</option>
+                                                            <option>06</option>
+                                                            <option>07</option>
+                                                            <option>08</option>
+                                                            <option>09</option>
+                                                            <option>10</option>
+                                                            <option>11</option>
+                                                            <option>12</option>
+                                                        </select>
+
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <select class="form-control" ng-model="input.endMinute">
+                                                            <option disabled selected value=''>Min</option>
+                                                            <option>00</option>
+                                                            <option>30</option>
+
+
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <select class="form-control" ng-model="input.endType">
+                                                            <option disabled selected value=''>Type</option>
+                                                            <option>AM</option>
+                                                            <option>PM</option>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <h3 class="form-section">Address</h3>
+                                        <!--/row-->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Road/Street Name</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" ng-model="vendor.streetName" ng-blur="change" class="form-control location" id="location" name="address" required>
+                                                        <!--  <input type="hidden" ng-blur="change()" class="form-control lat" id="lat" name="address">
+                                                        <input type="hidden" ng-blur="change()" class="form-control long" id="long" name="address">-->
+
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Post Code</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" name="postCodeV" maxlength="8" ng-model="vendor.postCode" ng-pattern="/^[0-9]+$/" class="form-control" required>
+                                                        <span ng-show="myForm.postCodeV.$error.pattern"><font color="red">Numeric characters only!</font></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                               <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3"></label>
+                                                    <div class="col-md-9">
+                                                       <input class="btn btn-danger " type="button" ng-click="currentLocation()" value="Grab My Location"></input>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--<div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">Building Name</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="buildingNameV" ng-pattern="" ng-model="vendor.buildingName" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>-->
+                                            <!--/span-->
+                                            <!--<div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">Floor</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" ng-model="vendor.floor" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>-->
+                                            <!--/span-->
+
+                                            <!--/row-->
+
+                                            <!--<div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">Area</label>
+                                                <div class="col-md-9">
+                                                     <input type="text" ng-pattern=""  ng-model="vendor.area" class="form-control">
+                                                   <!-- <select class="form-control" ng-model="vendor.area">
+                                                        <option>Area 1</option>
+                                                        <option>Area 2</option>
+                                                        <option>Area 3</option>
+                                                        <option>Area 4</option>
+                                                    </select>
+                                                </div>
+                                            </div>-->
+
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">City</label>
+                                                    <div class="col-md-9">
+                                                        <select class="form-control" id="city" ng-model="vendor.city" required>
+                                                            <option ng-selected="true">Greater Bangkok</option>
+                                                            <!--  <option>2</option>-->
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Vendor LoginId</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" ng-model="vendor.loginVendorName" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Password</label>
+                                                    <div class="col-md-9">
+                                                        <input type="password" class="form-control" ng-model="vendor.password" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <!-- <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3"></label>
+                                            <div class="col-md-9">
+                                            </div>
+                                        </div>
+                                    </div>-->
+                                            <!--/span-->
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <!--/row-->
+                                        <h3 class="form-section">Geo Location</h3>
+
+                                        <!-- BEGIN GEOCODING PORTLET-->
+                                        <!--<div id="coords"></div>
+                                            <div id="gmap" style="width: 100%; height: 300px; margin-bottom: 8px; border: 2px solid #fff; border-radius: 8px;"></div>
+                                            -->
+                                        <!-- END GEOCODING PORTLET-->
+                                        <div class="row">
+                                            <div class="col-xs-12">
+
+                                                <div class=" col-md-4">
+
+
+                                                    <div class=" row margin-bottom15">
+                                                        <label class="label-custom">Search</label>
+                                                        <input type="text" class="form-control margin-bottom15 location" id="Text1" name="address" disabled="disabled" />
+
+                                                        <!-- <button type="button" class=" btn btn-success " id="Search">Go</button>-->
+                                                    </div>
+
+
+
+                                                    <div class=" row margin-bottom15">
+                                                        <label class=" label-custom">Latitude</label>
+
+                                                        <input type="text" class="form-control lat" id="lat" ng-model="latitude" />
+
+                                                    </div>
+                                                    <div class=" row margin-bottom15">
+                                                        <label class=" label-custom">Longtitude</label>
+
+                                                        <input type="text" class="form-control long" id="long" ng-model="longitude" />
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div id="gmap" style="width: 100%; min-height: 450px; margin-bottom: 8px; overflow: hidden !important; border: 2px solid #fff;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div id="coords"></div>
+                                            <!--  <iframe name="map_iframe" src="views/Map.html" style="width: 100%; height: 445px; overflow: hidden; border: none"></iframe>-->
+
+                                            <!--     <div class="col-md-4">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Longtitude</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" ng-model="longitude" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Latitude</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" ng-model="latitude " class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>-->
+
+
+                                            <!--/row-->
+                                            <h3 class="form-section">Upload Logo</h3>
+                                            <div class="row">
+                                                <div class="col-md-12" id="vendorImages">
+
+                                                    <div class="fallback">
+                                                        <div class="form-group">
+
+                                                            <div class="">
+                                                                <!-- <input type="file" class="form-control ">-->
+                                                                <div class="col-md-12">
+                                                                    <!--<input class="form-control" value="test" type="file" ng-model="file" onchange="angular.element(this).scope().uploadFile(this)" name="file" base-sixty-four-input required onload="onLoad" maxsize="500" accept="image/*">-->
+                                                                    <input type="file"  name="fileInput" id="file1" onchange="angular.element(this).scope().fileChanged(event)" />
+                                                                    <!--<input type="file" id="files" name="files[]" class="upload" ng-click="remove()" />-->
+                                                                    <!--<div class="col-md-1" id="output" >
+                                                            </div>-->
+                                                                    <div class="col-md-12  pull-right" id="output">
+                                                                        <p id="filename"></p>
+                                                                        <img ng-src="{{config.api}}/Pictures/{{logoImg}}" src="{{result}}" height="350" width="900" class="imageThumb largelogoimage" />
+                                                                    </div>
+                                                                    <script type="text/javascript">
+
+                                                                        $(document).ready(function () {
+                                                                            if (window.File && window.FileList && window.FileReader) {
+
+                                                                                $("#files").on("change", function (e) {
+                                                                                    $('.imageThumb').remove();
+                                                                                    console.log('removed');
+                                                                                    var files = e.target.files,
+                                                                                    filesLength = files.length;
+                                                                                    var f = files[0]
+                                                                                    var fileReader = new FileReader();
+                                                                                    fileReader.onload = (function (e) {
+                                                                                        var file = e.target;
+                                                                                        $("<img></img>", {
+                                                                                            class: "imageThumb",
+                                                                                            src: e.target.result,
+                                                                                            title: file.name
+                                                                                        }).appendTo("#output");
+                                                                                        $('.imageThumb').attr({ width: 100, height: 100 });
+
+                                                                                    });
+                                                                                    fileReader.readAsDataURL(f);
+                                                                                    /* for (var i = 0; i < 1 ; i++) {
+                                                                                      
+                                                                                     }*/
+                                                                                });
+                                                                            } else { alert("Your browser doesn't support to File API") }
+                                                                        });
+
+
+                                                                    </script>
+                                                                </div>
+
+
+
+
+
+
+
+
+                                                                <!--  <div class="col-md-1">
+                                                            <span class="col-md-3 pull-right">
+                                                                <img src="{{config.api}}/Pictures/{{vendor.logoImg}}" height="100px" width="100px" />
+                                                            </span>
+                                                        </div>-->
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                    <!--<input name="file" type="file" multiple ng-model="vendor.promotionImage" />-->
+                                                </div>
+
+
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="pull-right">
+                                                        <button type="submit" id="submit" class="btn  btn-primary text-right">{{showTable}}</button>
+                                                        <a href="#/Main/VendorList" class="btn  btn-danger text-right">Cancel</a>
+                                                    </div>
+                                                    <!-- <button type="button" ng-click="update()" ng-hide="showTable" class="btn  blue pull-right text-right">Update</button>-->
+                                                </div>
+                                            </div>
+                                </form>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <!--/row-->
+                    <!-- <div class="row">
+                        <div class="col-md-3 pull-right">
+
+                            <button type="submit" class="btn  blue pull-right text-right">{{showTable}}</button>-->
+                    <!-- <button type="button" ng-click="update()" ng-hide="showTable" class="btn  blue pull-right text-right">Update</button>-->
+                    <!-- </div>
+                    </div>-->
+
+                    <!--/row-->
+                    <div class="col-lg-12">
+                        &nbsp;</form><form name="myForm1" ng-submit="saveBranch()" type="POST" class="form-horizontal">
+                            <div class="form-body">
+                                <h3 class="form-section">Company Info</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Business Name</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" ng-model="businessName" placeholder="Company Name" required>
+                                                <!--<span ng-show="myForm1.businessNameV.$error.pattern"><font color="red">Numeric characters only!</font></span>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Contact Person</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" name="contactPersonV" ng-model="contactPerson" placeholder="Contact Person" required>
+                                                <!--<span ng-show="myForm1.contactPersonV.$error.pattern"><font color="red">Alphabetic characters only!</font></span>-->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--/span-->
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Tax ID</label>
+                                            <div class="col-md-9">
+                                                <input type="text" name="taxId" class="form-control" ng-model="taxId" placeholder="Tax ID" required>
+                                                <span ng-show="myForm1.taxId.$error.pattern"><font color="red">Numeric characters only!</font></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+
+
+                                    <!--/span-->
+                                </div>
+
+                                <!--/row-->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Location</label>
+                                            <div class="col-md-9">
+
+                                                <div class="input-group  ">
+                                                    <div class="icheck-inline" style="margin-top: 4px !important; margin-bottom: 5px">
+
+                                                        <label>
+                                                            <input type="radio" ng-model="headOffice" value="HeadOffice" name="Vendor" class="icheck" data-radio="iradio_flat-grey">
+                                                            Head Office
+                                                        </label>
+                                                        <label>
+                                                            <input type="radio" name="Vendor" ng-model="branch" value="Branch" class="icheck" data-radio="iradio_flat-grey">
+                                                            Branch
+                                                        </label>
+
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+
+
+                                    <!--/span-->
+                                </div>
+                                <!--/row-->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Head Office </label>
+                                            <div class="col-md-9">
+                                                <input type="text" name="taxId" class="form-control" ng-model="headOffice" placeholder="Head Office" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Branch ID</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" ng-model="branchId" placeholder="Branch ID" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!--/span-->
+                                </div>
+                                <!--/row-->
+
+
+                                <!--/row-->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Full Address</label>
+                                            <div class="col-md-9">
+                                                <textarea class="form-control" ng-model="fullAddress" placeholder="Full Address" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Delivery Address</label>
+                                            <div class="col-md-9">
+                                                <textarea class="form-control" placeholder="Delivery Address" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Building Address</label>
+                                            <div class="col-md-9">
+                                                <textarea class="form-control" ng-model="buildingAddress" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Additional Information</label>
+                                            <div class="col-md-9">
+                                                <textarea class="form-control" ng-model="additionalInformation" placeholder="Additional Information" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Default Branch</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" ng-model="defaultBranch" placeholder="Default Branch" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Vendor Name</label>
+                                            <div class="col-md-9">
+
+                                                <select class="form-control" ng-model="vendorId" required>
+
+                                                    <option ng-repeat="item in vendorName" value="{{item.vendorId}}">{{item.loginVendorName}}</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+
+                                    <!--/span-->
+                                </div>
+                                <!--/row-->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Telephone</label>
+                                            <div class="col-md-9">
+                                                <input type="number" name="telephone" class="form-control" ng-model="telephoneNo" maxlength="12" placeholder="Telephone No" required>
+                                                <span ng-show="myForm1.telephone.$error.pattern"><font color="red">Numeric characters only!</font></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Email</label>
+                                            <div class="col-md-9">
+                                                <input type="text" ng-model="email" class="form-control" placeholder="Email ID" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                </div>
+                                <!--/row-->
+
+                                <!--/row-->
+                                <div class="row">
+                                    <div class="col-md-4 pull-right">
+
+                                        <button style="margin-left: 10px" type="button" class="btn  default pull-right">Cancel</button>
+
+                                        <button type="submit" class="btn  blue pull-right text-left ">Save</button>
+                                    </div>
+                                </div>
+
+                                <!--/row-->
+                            </div>
+
+                        </form>
+                        <!-- END FORM-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<div id="loader" ng-show="showLoader">
+    <div class="page-spinner-bar" ng-spinner-bar="">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+
+</div>
+
+</div>
+
+ <div id="static" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+     <div class="modal-dialog">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                 <h4 class="modal-title">Message</h4>
+             </div>
+             <div class="modal-body">
+                 <p>
+                     <!-- Would you like to continue with some arbitrary task?-->
+                     {{Message}}
+                 </p>
+             </div>
+             <div class="modal-footer">
+
+                 <button type="button" ng-click="redirect()" data-dismiss="modal" class="btn green">Ok</button>
+             </div>
+         </div>
+     </div>
+ </div>
+
+<div id="cropm" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modallarge">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Image Cropper</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <image-crop
+                        data-height="350"
+                        data-width="900"
+                        data-shape="square"
+                        data-step="imageCropStep"
+                        src="imgSrc"
+                        data-result="result"
+                        data-result-blob="resultBlob"
+                        crop="initCrop"
+                        padding="250"
+                        max-size="1024"></image-crop>
+                </div>
+
+                <div class="center-block cropbtns">
+                    <br />
+                    <button type="button" ng-click="clear()">Cancel</button>
+                    <button type="button" ng-click="initCrop = true;" id="croop">Crop</button>
+                </div>
+
+
+                <div class="hide">
+
+                    <h2>Result</h2>
+
+                    <p>The data-result-blob property is a Blob object, which is necessary in some upload libraries like <a href="https://github.com/nervgh/angular-file-upload" target="_blank">Angular File Upload</a></p>
+                    <p>Image using the data uri:</p>
+                    <img id="cropimage" ng-src="{{result}}"></img>
+                    <p>The Base64 String used in the image above:</p>
+                    <textarea class="result-datauri">{{ result }}</textarea>
+                    <button type="button" ng-click="clear()">Clear</button>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+
+                <!--                <button type="button" ng-click="redirect()" data-dismiss="modal" class="btn green">Ok</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END CONTENT -->
+
+<script type="text/javascript">
+
+    $(':input').keypress(function (e) {
+        var code = e.keyCode || e.which;
+        if (code == 13)
+            return false;
+    });
+
+</script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        //alert();
+
+    });
+
+</script>
+
+
+

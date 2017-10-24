@@ -1,0 +1,56 @@
+﻿@using System.Globalization;
+@{
+    ViewBag.Title = "New Investment";
+    Layout = "~/Views/Shared/_CustomerLoggedInLayout.cshtml";
+
+}
+@model IEnumerable<TradeSystem.Utils.Models.ProductDataModel>
+
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true)
+<!-- Investment content -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel pt-20 pl-20 pr-20">
+            <!-- Investments boxes -->
+            <div class="row">
+                @if (Model.Count() > 0)
+                {
+                    foreach (var item in Model)
+                    {
+                        <div class="col-md-4">
+                            <div class="panel panel-body border-top-primary pb-10">
+                                <div class="text-center">
+                                    <h6 class="no-margin text-semibold f-20x"><a href="@Url.Action("NewInvestmentDetails", "Investment", new { id = item.Id })" class="text-indigo-400">@item.Name</a></h6>
+                                </div>
+                                <div class="well well-sm no-border">
+                                    <div class="investments-img mb-20 text-center">
+                                        <img src="@item.ImageUrl" alt="">
+                                    </div>
+                                    <div class="investments-contents">
+                                        <div class="content-group">
+                                            <p><strong>@Resources.Languages.InvestmentValue:</strong> @item.TotalValueOfInvestment.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</p>
+                                            <p><strong> @Resources.Languages.RemainingValue:</strong> @item.RemainingValueOfInvestment.ToString("C", CultureInfo.CreateSpecificCulture("en-US")) </p>
+                                            <p><strong> @Resources.Languages.MinimumPrice:</strong> @item.MinPrice.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</p>
+                                            <p><strong> @Resources.Languages.MaximumPrice:</strong> @item.MaxPrice.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</p>
+                                            <p><strong>% @Resources.Languages.EarningbyWeek:</strong> @item.PercentWeeklyEarning%</p>
+                                            <p><strong>% @Resources.Languages.EarningbySale:</strong> @item.PercentSaleEarning%</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <label>No Data Found</label>
+                }
+
+            </div>
+
+            <!-- /investments boxes -->
+        </div>
+    </div>
+</div>
+<!-- /investment content -->

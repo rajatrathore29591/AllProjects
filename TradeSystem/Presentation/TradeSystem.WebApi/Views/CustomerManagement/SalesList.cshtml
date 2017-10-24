@@ -1,0 +1,77 @@
+﻿@using System.Globalization;
+@{
+    ViewBag.Title = "Sales List";
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+}
+@model IEnumerable<TradeSystem.Utils.Models.CustomerProductDataModel>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-flat">
+            <div class="panel-body">
+                <div class="tabbable">
+                    <ul class="nav nav-tabs nav-tabs-highlight nav-justified">
+                        @*<li class="active"><a href="#general-details-tab" data-toggle="tab">General Details</a></li>
+                            <li><a href="#investments-tab" data-toggle="tab">Investments</a></li>
+                            <li><a href="#sales-tab" data-toggle="tab">Sales</a></li>*@
+                        <li><a href="@Url.Action("GeneralDetails", "CustomerManagement",new {@id=Session["CustomerId"] })">General Details</a></li>
+                        <li><a href="@Url.Action("InvestmentsList", "CustomerManagement",new {@id=Session["CustomerId"]})">Investments</a></li>
+                        <li class="active"><a href="@Url.Action("SalesList", "CustomerManagement",new {@id=Session["CustomerId"]})">Sales</a></li>
+
+                    </ul>
+                    <div class="data-tbl-wrapper">
+                        <!-- Sales -->
+                        <div class="tab-pane" id="sales-tab">
+                            <!-- Customer Sales List -->
+                            <h5 class="panel-title">Customer Sales List</h5>
+                            <table id="saleslists_data_table" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>S.No.</th>
+                                        <th>Customer Name</th>
+                                        @*<th>Investment Name</th>*@
+                                        <th>Earning By Sales</th>
+                                        <th>Status</th>
+                                        <th>Date <i class="icon-calendar3 position-right"></i></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        var sno = 1;
+                                        foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@sno</td>
+                                                <td>@item.CustomerName</td>
+                                                @*<td>@item.InvestmentName</td>*@
+                                                <td class="text-right">@item.SaleEarningFloat.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
+                                                <td>
+                                                    @if (item.Status == "true")
+                                                    {
+                                                        <span class="label label-success">Active</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="label label-danger">InActive</span>
+                                                    }
+
+                                                </td>
+                                                <td>@item.CreatedDate.ToString("MM-dd-yyyy")</td>
+                                            </tr>
+                                            sno++;
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                            <div class="text-center mt-15">
+                                <a class="btn bg-orange" href="@Url.Action("ExistingCustomers","CustomerManagement")" title="Back"><i class="icon-arrow-left13 position-left"></i> Back </a>
+                            </div>
+                            <!-- /customer sales list -->
+                        </div>
+                        <!-- /sales -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

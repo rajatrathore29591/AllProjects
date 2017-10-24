@@ -1,0 +1,64 @@
+﻿@using System.Globalization;
+@using TradeSystem.Utils.Models;
+@{
+    Layout = null;
+    ViewBag.Title = "Report";
+}
+@*@model IEnumerable<TradeSystem.Utils.Models.CustomerReportDataModelList>*@
+@if (ViewBag.customerList.Count > 0)
+{
+    <div class="text-right">
+        <!--Change for export excel by datatable tool-->
+        <span class="btn btn-primary pr-15 mr-60 visible-none"></span>
+        <div class="tooltip-section">
+            <button type="button" class="btn btn-primary btn-sm" data-popup="tooltip" title="<strong>@Resources.Languages.AdminExportToolTip</strong>" data-html="true"><i class="icon-question7"></i> </button>
+        </div>
+        @*@Html.ActionLink("Export", "CustomerMoneyWithdrawalExcel", "Report", (List<CustomerReportDataModelList>)Model, new { @class = "btn btn-primary mb-10 mr-10", title = "Export to Excel", id = "btn-actionlink-export" })*@
+    </div>
+    <div class="data-tbl-wrapper">
+        <table class="table table-bordered table-hover" id="reportsData">
+            <thead>
+                <tr>
+                    @*<th>S.No.</th>*@
+                    <th>Customer Name</th>
+                    <th>Total Withdrawal Amount</th>
+                    <th>Country</th>
+                    <th>State</th>
+                    <th>Customer Created Date</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @{var sno = 1;}
+
+                @foreach (var item in ViewBag.customerList)
+                {
+
+                    <tr role="row" class="odd">
+                        @*<td class="sorting_1">@sno</td>*@
+                        <td>@item.Name</td>
+                        <td class="text-right">$@item.TotalValueOfInvestment</td>
+                        <td>@item.CountryName</td>
+                        <td>@item.StateName</td>
+                        <td>@item.CreatedDate.ToString("MM-dd-yyyy")</td>
+                    </tr>
+                    sno++;
+                }
+
+            </tbody>
+        </table>
+        </div>
+        }
+        else
+        {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class=" col-md-2">
+
+                        <label class="text-danger text-bold text-size-large">No Data Found</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }

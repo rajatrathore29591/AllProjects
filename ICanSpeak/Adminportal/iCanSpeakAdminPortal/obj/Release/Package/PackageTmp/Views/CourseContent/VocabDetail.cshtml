@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "VocabDetail";
+}
+
+<h1 class="page-header">
+    <font color="44c9ff"> Vocab Detail </font>
+    
+</h1>
+
+<div class="contant">
+    <div class="row">
+        <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+            <div class="form-group">
+                <label>Category English Name </label>
+                <input class="form-control" readonly value="@Model.Text"    />
+            </div>
+            <div class="form-group">
+                <label>Category Arabic Name </label>
+                <input class="form-control" readonly value="@Model.ArabicText"    />
+
+            </div>
+            <div class="form-group">
+                <label>Sample Sentence </label>
+                <textarea class="form-control" readonly>@Model.SampleSentance</textarea>
+            </div>
+            <div class="form-group">
+                <label>Duration(in months) </label>
+                <input type="text" class="form-control" value="@Model.Duration"   readonly>
+            </div>
+            <div class="form-group">
+                <label>Reward Point </label>
+                <input type="text" class="form-control" value="@Model.RewardPoints"  readonly>
+            </div>
+            <div class="form-group">
+                <label>Price(in dollar) </label>
+                <input type="text" class="form-control" value="@Model.Price"  readonly>
+            </div>
+            <div class="form-group">
+                <label>Max Score </label>
+                <input type="text" class="form-control" value="@Model.MaxScore"  readonly>
+            </div>
+            <div class="form-group">
+                <label>Is Free </label>
+                @if (Model.IsFree == true)
+                {
+                    <select class="form-control" disabled>
+                        <option selected="selected" value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                }
+                else
+                {
+                    <select class="form-control" disabled>
+                        <option value="Yes">Yes</option>
+                        <option selected="selected" value="No">No</option>
+                    </select>
+                }
+            </div>
+
+            <div class="form-group">
+                <label>Is Active </label>
+                @if (Model.IsActive == true)
+                {
+                    <select class="form-control" disabled>
+                        <option selected="selected" value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                }
+                else
+                {
+                    <select class="form-control" disabled>
+                        <option value="Yes">Yes</option>
+                        <option selected="selected" value="No">No</option>
+                    </select>
+                }
+            </div>
+         @*   <div class="form-group">
+                <label>Is Subcategory </label>
+                @if (Model.issubcategory == "true")
+                {
+                    <select class="form-control" disabled>
+                        <option selected="selected" value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                }
+                else
+                {
+                    <select class="form-control" disabled>
+                        <option value="Yes">Yes</option>
+                        <option selected="selected" value="No">No</option>
+                    </select>
+                }
+            </div>*@
+
+        </div>
+    </div>
+</div>

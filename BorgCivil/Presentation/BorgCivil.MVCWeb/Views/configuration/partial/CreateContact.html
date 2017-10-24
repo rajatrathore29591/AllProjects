@@ -1,0 +1,43 @@
+﻿<div class="inmodal contactdetails">
+    <div class="modal-header text-center">
+        <!--<i class="fa fa-sliders color-success h-modal-icon"></i>-->
+        <h4 class="modal-title"> Contact Details</h4>
+        <div class="clostbtn">
+            <button type="button" ng-click="mgCtrl.hideCancel()" title="Close"><img src="Content/images/closebtn.png"></button>
+        </div>
+    </div>
+    <form name="contactDetailForm" ng-submit="mgCtrl.saveContact()" novalidate>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Contact <span class="text-danger"> *</span></label>
+                        <input class="form-control only-float" type="text" ng-model="mgCtrl.contactAttributes.ContactPerson" ng-maxlength="50" ng-minlength="2" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Email Address <span class="text-danger"> *</span></label>
+                        <input class="form-control only-float" type="email" ng-model="mgCtrl.contactAttributes.Email" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Mobile Number <span class="text-danger"> *</span></label>
+                        <input class="form-control only-float"type="number" ng-model="mgCtrl.contactAttributes.MobileNumber" ng-maxlength="10" ng-minlength="10" required>
+                    </div>
+                </div>
+            </div>
+        </div>    
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" title="Close" ng-click="mgCtrl.hideCancel()">Close</button>
+            <button type="submit" class="btn btn btn-primary" data-dismiss="modal" title="Update" ng-if="mgCtrl.contactAttributes.GateContactPersonId">Update</button>
+            <button type="submit" class="btn btn btn-primary" data-dismiss="modal" title="Save" ng-if="!mgCtrl.contactAttributes.GateContactPersonId">Save</button>
+        </div>
+    </form>
+</div>
+

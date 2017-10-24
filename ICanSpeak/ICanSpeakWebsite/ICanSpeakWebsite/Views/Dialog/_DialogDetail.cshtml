@@ -1,0 +1,361 @@
+﻿@{
+    Layout = null;
+}
+
+<script type="text/javascript" src="@Url.Content("/Scripts/jquery.min.js")"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#next').click(function () {
+
+            //-----------------------Video Call Ajax Section -----------------------------------------------------//
+            var dialogid = $('#dialogid').val();
+            $.ajax({
+                url: '@Url.Action("NextDialogDetail", "Dialog")',
+                type: "POST",
+                data: { id: $('#dialogid').val() },
+                success: function (data) {
+                    //var nextDialogid = $('#dialogid').val(data[0].DialogId);
+                    //alert(dialogid);
+                    //alert(nextDialogid);
+                    //if (dialogid == nextDialogid)
+                    //{
+                    //    $("#next").css('visibility', 'hidden');
+                    //    $("#Assesment").css('visibility', 'visible')
+                    //}
+                    $("#dialogpartial").html(data);
+                },
+                error: function (result) {
+                    $("#lblLoginerror").css("display", "block");
+                }
+            });
+            //--------------------Video Call Ajax Section Ends -----------------------------------------------------//
+            return false;
+        });
+    });
+</script>
+<style>
+    .blue {
+        color: #0094ff !important;
+    }
+</style>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#back').click(function () {
+            //-----------------------Video Call Ajax Section -----------------------------------------------------//
+            var dialogid = $('#dialogid').val();
+            $.ajax({
+                url: '@Url.Action("BackDialogDetail", "Dialog")',
+                type: "POST",
+                data: { id: $('#dialogid').val() },
+                success: function (data) {
+                    //var previousDialogid = $('#dialogid').val(data[0].DialogId);
+                    //alert(dialogid);
+                    //alert(backDialogid);
+                    //if (dialogid == previousDialogid) {
+                    //    $("#back").css('visibility', 'hidden');
+                    //}
+                    $("#dialogpartial").html(data);
+                },
+                error: function (result) {
+                    $("#lblLoginerror").css("display", "block");
+                }
+            });
+            //--------------------Video Call Ajax Section Ends -----------------------------------------------------//
+            return false;
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Conversation").click(function () {
+            $("#Conversation").addClass("btn-info");
+            $("#Key").removeClass("btn-info");
+
+        });
+
+        $("#Key").click(function () {
+            $("#Key").addClass("btn-info");
+            //$("#Conversation").removeClass("btn-sucess");
+            $("#Conversation").removeClass("btn-info");
+
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#addBookMarkWord").click(function () {
+            var bookMarkUrl = window.location.href;
+
+            //-----------------------Video Call Ajax Section -----------------------------------------------------//
+            $.ajax({
+                url: '@Url.Action("AddBookMarkDialogWords", "Dialog")',
+                type: "POST",
+                data: { dialogCourseId: $('#dialogid').val(), bookMarkUrl: bookMarkUrl, courseName: $('#DialogName').val() },
+                success: function (data) {
+                    alert("Word Succcessfully Added");
+                    $("#addBookMarkWord").css('visibility', 'hidden');
+                    $("#removeBookMarkWord").css('visibility', 'visible');
+                },
+                error: function (result) {
+                    $("#lblLoginerror").css("display", "block");
+                }
+            });
+        });
+
+        $("#removeBookMarkWord").click(function () {
+            var bookMarkUrl = window.location.href;
+
+            //-----------------------Video Call Ajax Section -----------------------------------------------------//
+            $.ajax({
+                url: '@Url.Action("RemoveBookMarkDialogWords", "Dialog")',
+                type: "POST",
+                data: { courseid: $('#dialogid').val() },
+                success: function (data) {
+                    alert("Word Succcessfully Added");
+                    $("#addBookMarkWord").css('visibility', 'visible');
+                    $("#removeBookMarkWord").css('visibility', 'hidden');
+                },
+                error: function (result) {
+                    $("#lblLoginerror").css("display", "block");
+                }
+            });
+        });
+    });
+</script>
+@*<link rel="stylesheet" href="@Url.Content("~/video-plugin/jquery.videocontrols.css")" />
+<script src="@Url.Content("~/video-plugin/jquery.videocontrols.js")"></script>*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myVideo_demo').videocontrols(
+        {
+            markers: [40, 84, 158, 194, 236, 272, 317, 344, 397, 447, 490, 580],
+            preview:
+            {
+                sprites: ['~/Content/img/content-bg.png'],
+                step: 10,
+                width: 200
+            },
+            theme:
+            {
+                progressbar: 'blue',
+                range: 'pink',
+                volume: 'pink'
+            }
+        });
+    });
+</script>
+<div class="container ">
+    <input type="hidden" id="dialogid" value="@ViewBag.DialogId"/>
+    <input type="hidden" id="DialogName" value="@ViewBag.DialogName"/>
+    <div class="col-lg-12 PD50">
+        <div class="heading-grays">
+            <a href="../Dialog/DialogList"><span class="btn cursor-none">@ViewBag.DialogName</span></a>
+            @*<span class="unit-box">Lesson name 4/10</span>*@
+            <div class="pull-right">
+                @if (ViewBag.VideoUrl == null)
+                {
+                    <a class="btn" id="addBookMarkWord" style="visibility: hidden;" title="Add Bookmark">
+                        <img src="~/Images/Star_wt.png" style="width: 13px; height: 14px" /></a>
+                    <a class="btn" id="removeBookMarkWord" style="visibility: hidden;" title="Remove Bookmark">
+                        <img src="~/Images/Star_bl.png" style="width: 13px; height: 14px" /></a>
+                    
+                    <a class="btn" style="visibility: hidden;" href="#"><i class="fa fa-book fa-1x"></i></a>
+                    <a class="btn" style="visibility: hidden;" href="#"><i class="fa fa-microphone fa-1x"></i></a>
+                }
+                else
+                {
+                    if (ViewBag.BookMarkStatus == "0")
+                    {
+                    <a class="btn" id="addBookMarkWord" style="visibility: visible;" title="Add Bookmark">
+                        <img src="~/Images/Star_wt.png" style="width: 13px; height: 14px" /></a>
+                    <a class="btn" id="removeBookMarkWord" style="visibility: hidden;" title="Remove Bookmark">
+                        <img src="~/Images/Star_bl.png" style="width: 13px; height: 14px" /></a>
+                    }
+                    else
+                    {
+                    <a class="btn" id="addBookMarkWord" style="visibility: hidden;" title="Add Bookmark">
+                        <img src="~/Images/Star_wt.png" style="width: 13px; height: 14px" /></a>
+                    <a class="btn" id="removeBookMarkWord" style="visibility: visible;" title="Remove Bookmark">
+                        <img src="~/Images/Star_bl.png" style="width: 13px; height: 14px" /></a>
+                    }
+                    <a class="btn" style="visibility: visible;" href="#"><i class="fa fa-book fa-1x"></i></a>
+                    <a class="btn" style="visibility: visible;" href="#"><i class="fa fa-microphone fa-1x"></i></a>
+                }
+            </div>
+        </div>
+        <div class="row">
+            <div class=" col-lg-8">
+                <div class=" wrapper">
+                    <div class="MT20_new">
+                        <div class="js-video [vimeo, widescreen]">
+                            @if (ViewBag.VideoUrl == null)
+                            {
+@*<iframe style="width: 100%; height: auto" src="" frameborder="0" allowfullscreen></iframe>*@
+                                <h2 style="margin-top: 40px" class="header" align="center" valign="center">No Record Found</h2>
+                            }
+                            else
+                            {
+@*<iframe style="width:100%; height:400px" src="@ViewBag.VideoUrl" frameborder="0" allowfullscreen ></iframe>
+                                <video id="myVideo_demo" width="100%" height="auto" controls="controls">
+                                    <source src="@ViewBag.VideoUrl" type="video/mp4">
+                                </video>*@
+                                <link href="@Url.Content("~/video_subtitle/css/styles.css")" rel="stylesheet" />
+                                <figure id="videoContainer" data-fullscreen="false">
+                                    <video id="video" controls preload="metadata">
+                                        <source src="@ViewBag.VideoUrl" type="video/mp4">                                     
+                                        <track label="English" kind="subtitles" srclang="en" src="@ViewBag.EnglishSubtitleUrl" default>
+                                        <track label="العربية" kind="subtitles" srclang="ar" src="@ViewBag.ArabicSubtitleUrl">
+                                        <track label="English+العربية" kind="subtitles" srclang="de" src="@ViewBag.BothSubtitleUrl">
+                                    </video>
+                                    <div id="video-controls" class="controls" data-state="hidden">
+                                        <button id="playpause" type="button" data-state="play">Play/Pause</button>
+                                        <button id="stop" type="button" data-state="stop">Stop</button>
+                                        <div class="progress">
+                                            <progress id="progress" value="0" min="0">
+                                                <span id="progress-bar"></span>
+                                            </progress>
+                                        </div>
+                                        <button id="mute" type="button" data-state="mute">Mute/Unmute</button>
+                                        <button id="volinc" type="button" data-state="volup">Vol+</button>
+                                        <button id="voldec" type="button" data-state="voldown">Vol-</button>
+                                        <button id="fs" type="button" data-state="go-fullscreen">Fullscreen</button>
+                                        <button id="subtitles" type="button" data-state="subtitles">CC</button>
+                                    </div>
+                                </figure>
+                                <script src= "@Url.Content("~/video_subtitle/js/video-player.js")"></script>
+                            }
+                        </div>
+                        <div class="pull-right MT20_new">
+                            @if (ViewBag.isLastData == "NxtBack" && ViewBag.isScore == "1")
+                            {
+                                <input id="back" type="button" value="Previous" class="btn btn-info">
+                                <input id="next" type="button" value="Next" class="btn btn-info ML20">
+                            }
+                            @if (ViewBag.isLastData == "NxtBack" && ViewBag.isScore == "0")
+                            {
+                                <input id="back" type="button" value="Previous" class="btn btn-info">
+                                <a id="Assesment" class="btn btn-info " title="Assesment" href="../Assesment/GetDialogAssesmentlist?dialogId=@ViewBag.DialogId">Assesment
+                                    @*<img src="~/Images/question.png" class="operationIcons" title="Assesment" />*@</a>
+                            }
+                            @if (ViewBag.isLastData == "BackAssmt" && ViewBag.isScore == "0")
+                            {
+                                <input id="back" type="button" value="Previous" class="btn btn-info">
+@*<a id="Assesment" href="../Assesment/GetDialogAssesmentlist?dialogId=@ViewBag.DialogId">
+                                <img src="~/Images/question.png" class="operationIcons" title="Assesment" /></a>*@
+                                <a id="Assesment" class="btn btn-info " title="Assesment" href="../Assesment/GetDialogAssesmentlist?dialogId=@ViewBag.DialogId">Assesment
+                                    @*<img src="~/Images/question.png" class="operationIcons" title="Assesment" />*@</a>
+                            }
+                            @if (ViewBag.isLastData == "Nxt" && ViewBag.isScore == "1")
+                            {
+                                <input id="next" type="button" value="Next" class="btn btn-info ML20">
+                            }
+
+
+                            @if (ViewBag.isLastData == "BackAssmt")
+                            {
+                                <input id="back" type="button" value="Previous" class="btn btn-info">
+                                <a id="Assesment" class="btn btn-info " title="Assesment" href="../Assesment/GetDialogAssesmentlist?dialogId=@ViewBag.DialogId">Assesment
+                                    @*<img src="~/Images/question.png" class="operationIcons" title="Assesment" />*@</a>
+@*<input id="next" type="button" value="Next" class="btn btn-info ML20">*@
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 pull-right MT20_new">
+                <div id="Div1" class="btn-group" style="width: 100%" data-toggle="buttons-radio">
+                    <a href="#prices2" id="Conversation" class="btn btn-large btn-info" style="width: 50%" data-toggle="tab">View Conversation</a>
+                    <a href="#contact2" id="Key" class="btn btn-large btn-sucess" style="width: 50%" data-toggle="tab">Key Phrase</a>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="prices2">
+                        <div class=" wrapper">
+                            <div id="con" class="MT20_new">
+                                @if (ViewBag.Conversation.ToString() == "No Data")
+                                {
+                                    <ul class="media-list">
+                                        <li class="media">
+                                            <span class="first_specker" align="center">
+                                                <h5><b>No conversations</b></h5>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                }
+                                else
+                                {
+                                    foreach (var item in ViewBag.Conversation)
+                                    {
+                                    <ul class="media-list">
+                                        <li class="media">
+                                            <div class="media-body chat-widget-left">
+                                                <div class="media">
+                                                    <span class="first_specker">
+                                                        <h5><b>You :</b></h5>
+                                                    </span>
+                                                    <div class="media-body">
+                                                        @item["Person1Text"]
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="media">
+                                            <div class="media-body chat-widget-right">
+                                                <div class="media">
+                                                    <span class="Second_specker">
+                                                        <h5><b>Sara :</b></h5>
+                                                    </span>
+                                                    <div class="media-body">
+                                                        @item["Person2Text"]
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    }
+                                }
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="tab-pane" id="contact2">
+                        <table id="example" class="table table-striped table-bordered MT20" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>English (الإنجليزية)</th>
+                                    <th>Arabic (العربية)</th>
+
+                                </tr>
+                            </thead>
+                            <tbody id="key">
+                                @if (ViewBag.Text.ToString() == "No Data")
+                                {
+                                    <tr>
+                                        <td>No phrases</td>
+                                        <td>No phrases</td>
+                                    </tr>
+                                }
+                                else
+                                {
+                                    foreach (var item in ViewBag.Text)
+                                    {
+                                    <tr>
+                                        <td>@item["EnglishText"]</td>
+                                        <td>@item["ArabicText"]</td>
+                                    </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

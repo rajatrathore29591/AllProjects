@@ -1,0 +1,98 @@
+<div class="animate-panel dashboard-booking">
+   <div ng-controller="ManageJobBookingCtrl as mjbCtrl">
+      <!--Tab Start-->
+      <div ng-controller="TabCtrl">
+         <div class="tab-right-btn text-right">
+            <!--BEGIN:right button-->
+            <a ui-sref="customer.CustomerRegistration" class="btn btn-primary btn-i" title="Add New Customer"><i class="fa fa-plus"></i> Add New Customer</a>
+            <!--END:right button-->
+         </div>
+         <uib-tabset active="active">
+            <uib-tab index="0" heading="Customers List">
+               <!--Customers List Content-->
+               <div id="customer-tab" >
+                  <div class="hpanel">
+                     <div class="panel-body">
+                        <div class="row">
+                           <div class="col-md-8">
+                              <h4 class="text-muted">Top Customers <span>Based on bookings done in last 15 days</span></h4>
+                           </div>
+                           <div class="col-md-4">
+                              <div class="search-filter">
+                                 <input class="form-control" type="text" ng-model="searchText" placeholder="Search">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row" ng-controller="DashboardBookingCtrl">
+                     <div class="col-lg-4" ng-repeat="customerslist in customerslist | filter:searchText">
+                        <div class="hpanel hgreen contact-panel">
+                           <div class="panel-body">
+                              <a ui-sref="customer.CustomerRegistration" class="edit-btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                              <h3><a href="javascript:void(0)">{{customerslist.name}}</a></h3>
+                              <div class="text-muted font-bold m-b-xs">{{customerslist.place}}</div>
+                           </div>
+                           <div class="panel-footer contact-footer">
+                              <a ui-sref="booking.JobBooking">Go to Booking Page</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!--Customers List Content End-->
+            </uib-tab>
+            <uib-tab index="1" heading="Fleet List">
+               <!--Fleet list Content-->
+               <div id="vehicles-tab" class="tab-pane">
+                  <div class="hpanel">
+                     <div class="panel-body">
+                        <div class="row">
+                           <div class="col-md-8">
+                              <h4 class="text-muted">Total Fleet Booked 50/129</h4>
+                           </div>
+                           <div class="col-md-4">
+                              <div class="search-filter">
+                                 <div class="input-group">
+                                <input class="form-control" type="text" ng-model="searchText" placeholder="Search">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                 <div class="row" ng-controller="DashboardBookingCtrl">
+                     <div class="col-lg-4" ng-repeat="fleetlist in fleetlist | filter:searchText">
+                        <div class="hpanel booking-box contact-panel">
+                           <div class="panel-heading hbuilt">
+                             {{fleetlist.fleetheading}}
+                           </div>
+                           <div class="panel-body">
+                              <div class="row">
+                                 <div class="col-md-4">
+                                    <img ng-src="{{fleetlist.imagePath}}" />
+                                 </div>
+                                 <div class="col-md-8">
+                                    <h4 class="font-extra-bold no-margins text-success">
+                                       <a href="javascript:void(0)" class="available-text">{{fleetlist.availability}}</a><br>
+                                       <a href="javascript:void(0)">{{fleetlist.total}}</a>
+                                    </h4>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="panel-footer">
+                              <a ui-sref="booking.JobBooking">Go to Booking Page</a>
+                           </div>
+                        </div>
+                     </div>
+                     
+                     
+                  </div>
+               </div>
+               <!--Fleet list Content End-->
+            </uib-tab>
+         </uib-tabset>
+      </div>
+      <!--Tab End-->
+   </div>
+</div>

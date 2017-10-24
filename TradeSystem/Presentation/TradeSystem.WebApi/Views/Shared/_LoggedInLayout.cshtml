@@ -1,0 +1,490 @@
+﻿@using TradeSystem.WebApi.Helpers;
+@{
+    string actionName = ViewContext.RouteData.Values["action"].ToString();
+    string controllerName = ViewContext.RouteData.Values["Controller"].ToString();
+    var separatedactioncontrollerName = System.Text.RegularExpressions.Regex.Replace(controllerName, "([a-z])([A-Z])", "$1 $2");
+    var separatedactionName = System.Text.RegularExpressions.Regex.Replace(actionName, "([a-z])([A-Z])", "$1 $2");
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Split Deals - @ViewBag.Title</title>
+
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/css/core.css" rel="stylesheet" type="text/css">
+
+    <!-- /global stylesheets -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+    <script type="text/javascript" src="~/Content/js/bootstrap.min.js"></script>
+
+</head>
+<body class="navbar-bottom">
+
+    <!-- Main navbar -->
+    <div class="navbar navbar-inverse bg-indigo">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="~/Account/Admin" title="SPLIT DEALS"> <img class="logo" src="~/Content/images/logo-splitdeals.png" alt=""></a>
+
+            <ul class="nav navbar-nav pull-right visible-xs-block">
+                <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+                <li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navbar-mobile">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a class="sidebar-control sidebar-main-toggle hidden-xs">
+                        <i class="icon-paragraph-justify3"></i>
+                    </a>
+                </li>
+            </ul>
+            @*@{
+                    foreach (var i in TradeSystem.MVCWeb.SiteLanguages.AvailableLanguages)
+                    {
+                        @Html.ActionLink(i.LangFullName, "ChangeLanguage", "Home", new { lang = i.LangCultureName }, null) <text>&nbsp;</text>
+                    }
+                }*@
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    @*<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-bell2"></i>
+                            <span class="visible-xs-inline-block position-right">Messages</span>
+                            <span class="badge bg-warning-400">2</span>
+                        </a>*@
+
+                    <div class="dropdown-menu dropdown-content width-350">
+                        <div class="dropdown-content-heading">
+                            Messages
+                            <ul class="icons-list">
+                                <li><a href="#"><i class="icon-compose"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <ul class="media-list dropdown-content-body">
+                            <li class="media">
+                                <div class="media-left">
+                                    @*<img src="~/Content/images/placeholder.jpg" class="img-circle img-sm" alt="">*@
+                                    <span class="badge bg-danger-400 media-badge">5</span>
+                                </div>
+
+                                <div class="media-body">
+                                    <a href="#" class="media-heading">
+                                        <span class="text-semibold">James Alexander</span>
+                                        <span class="media-annotation pull-right">04:58</span>
+                                    </a>
+
+                                    <span class="text-muted">who knows, maybe that would be the best thing for me...</span>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="dropdown-content-footer">
+                            <a href="#" data-popup="tooltip" title="All messages"><i class="icon-menu display-block"></i></a>
+                        </div>
+                    </div>
+                </li>
+
+                <!--Start Notification bell implementation-->
+                @{
+                    List<TradeSystem.Utils.Models.PromotionDataModel> listPromotionItems = (List<TradeSystem.Utils.Models.PromotionDataModel>)Session["AdminPromotionListDetails"];
+
+                    <li class="dropdown">
+                        @{ var viewCount = 0;
+                            foreach (var item in listPromotionItems)
+                            {
+                                if (item.Viewed == false)
+                                {
+                                    viewCount++;
+
+                                }
+                            }
+
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="icon-bell2"></i>
+                                <span class="visible-xs-inline-block position-right">Messages</span>
+                                @if (viewCount != 0)
+                                {
+                                    <span class="badge bg-warning-400">@viewCount</span>
+                                }
+
+                            </a>
+
+                        }
+                        <div class="dropdown-menu dropdown-content width-350">
+                            <div class="dropdown-content-heading">
+                                Notifications
+                                @*<ul class="icons-list">
+                                        <li><a href="#"><i class="icon-compose"></i></a></li>
+                                    </ul>*@
+                            </div>
+
+                            <ul class="media-list dropdown-content-body">
+                                @{
+                                    var count = 0;
+                                    if (listPromotionItems != null)
+                                    {
+                                        foreach (var item in listPromotionItems)
+                                        {
+                                            if (item.Viewed == false)
+                                            {
+                                                <li class="media">
+                                                    <div class="media-left">
+                                                        @*<img src="~/Content/images/placeholder.jpg" class="img-circle img-sm" alt="">*@
+                                                        @*<span class="badge bg-danger-400 media-badge">5</span> *@
+                                                    </div>
+
+                                                    @if (item.Url == null)
+                                                    {
+                                                        <div class="media-body">
+                                                            <a href="javascript:void(0);" data-toggle="modal" data-target="#View_Notification_modal" class="media-heading" onclick="UpdatePromotion('@item.Id');">
+                                                                <span class="text-muted ellipsis">@item.Description</span>
+                                                            </a>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="media-body">
+                                                            <a href="@item.Url" class="media-heading" onclick="UpdatePromotion('@item.Id');">
+                                                                <span class="text-muted ellipsis">@item.Description</span>
+                                                            </a>
+                                                        </div>
+                                                    }
+
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                count++;
+                                            }
+                                        }
+                                        if (listPromotionItems.Count == count)
+                                        {
+                                            <li class="media ellipsis">No unread notifications</li>
+                                        }
+                                    }
+                                }
+
+                            </ul>
+
+                            <div class="dropdown-content-footer">
+                                <a href="@Url.Action("AdminNotifications","Promotion")" data-popup="tooltip" title="AllMessages"><i class="icon-menu display-block"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                }
+
+                <!--End Notification bell-->
+
+                <li class="dropdown dropdown-user">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        @*<img src="~/Content/images/placeholder.jpg" alt="">*@
+                        <span class="text-size-base">Hi, @Session["LoginUserName"]</span>
+                        <i class="caret"></i>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="~/AccountManagement/EditMyProfile/@Session["UserId"]"><i class="icon-user-plus"></i> My Profile</a></li>
+                        <li><a href="~/Account/ChangePassword"><i class="icon-lock2"></i> Change Password</a></li>
+                        <li><a href="~/Account/Logout"><i class="icon-switch2"></i> Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /main navbar -->
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="breadcrumb-line">
+            <ul class="breadcrumb">
+                @if (controllerName != null && actionName != null)
+                {
+                    <li>
+                        <i class="icon-home2 position-left"></i>
+                        <a href="@Url.Action("Dashboard","Dashboard")">Home  /  </a><a href="@Url.Action(actionName,controllerName)">@separatedactioncontrollerName</a>
+                    </li>
+                    <li class="active">@separatedactionName</li>
+                }
+            </ul>
+        </div>
+        <div class="page-header-content">
+            <div class="page-title">
+            </div>
+        </div>
+    </div>
+    <!-- /page header -->
+    <!-- Page container -->
+    <div class="page-container">
+
+        <!-- Page content -->
+        <div class="page-content">
+
+            <!-- Left sidebar -->
+            <div class="sidebar sidebar-main sidebar-default">
+                <div class="sidebar-content">
+
+                    <!-- Main navigation -->
+                    <div class="sidebar-category sidebar-category-visible">
+                        <div class="sidebar-user-material mb-10">
+                            <div class="category-content">
+                                <div class="sidebar-user-material-content">
+                                    <a href="" class="legitRipple"></a>
+                                    <h6></h6>
+                                    <span class="text-size-small">@Session["loginUserName"]</span>
+                                </div>
+
+                                <div class="sidebar-user-material-menu">
+                                    <a href="#user-nav" data-toggle="collapse"><span>My Account</span> <i class="caret"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="navigation-wrapper collapse" id="user-nav">
+                                <ul class="navigation">
+                                    <li><a href="~/AccountManagement/EditMyProfile/@Session["UserId"]"><i class="icon-user-plus"></i> <span>My Profile</span></a></li>
+                                    <li><a href="~/Account/Logout"><i class="icon-switch2"></i> <span>Logout</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="category-content no-padding">
+                            <ul class="navigation navigation-main navigation-accordion">
+
+                                <!-- Main -->                             
+                                <li class="@Html.IsActive(actionName == "Dashboard" && controllerName == "Dashboard")"><a href="~/Dashboard/Dashboard"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+                                @if (Session["CustomerManagement"] != null)
+                                {
+                                    <li class="">
+                                        <a href="javascript:void(0);"><i class="icon-magazine"></i> <span>Customer Management</span></a>
+                                        <ul>
+                                            <li class="@Html.IsActive(actionName == "NewCustomerRegistration" && controllerName == "CustomerManagement")">
+                                                <a href="@Url.Action("NewCustomerRegistration","CustomerManagement")">
+                                                    New Customer
+                                                    Registration
+                                                </a>
+                                            </li>
+                                            <li class="@Html.IsActive(actionName == "ExistingCustomers" && controllerName == "CustomerManagement")">
+                                                <a href="@Url.Action("ExistingCustomers","CustomerManagement")">
+                                                    Existing
+                                                    Customers
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                }
+                                @if (Session["InvestmentConfiguration"] != null)
+                                {
+                                    <li>
+                                        <a href="javascript:void(0);"><i class="icon-coins"></i> <span>Investment Configuration</span></a>
+                                        <ul>
+                                            <li class="@Html.IsActive(actionName == "CreateNewInvestment" && controllerName == "InvestmentConfiguration")">
+                                            <a href="@Url.Action("CreateNewInvestment","InvestmentConfiguration")" id="layout1">Create New Investment</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                }
+                                @if (Session["Inventory"] != null)
+                                {
+                                    <li class="@Html.IsActive(actionName == "Inventory" && controllerName == "InventoryManagement")">
+                                        <a href="@Url.Action("Inventory","InventoryManagement")"><i class="icon-add-to-list"></i> <span>Inventory</span></a>
+                                    </li>
+                                }
+                                @if (Session["FinanceManagement"] != null)
+                                {
+                                    <li class="@Html.IsActive(actionName == "WithdrawalRequest" && controllerName == "FinanceManagement")">
+                                        <a href="@Url.Action("WithdrawalRequest","FinanceManagement")"><i class="icon-cash2"></i> <span>Finance Management</span></a>
+                                    </li>
+                                }
+                                @if (Session["TicketManagement"] != null)
+                                {
+                                    <li class="@Html.IsActive(actionName == "CustomerSupport" && controllerName == "TicketManagement")">
+                                <a href="@Url.Action("CustomerSupport","TicketManagement")"><i class="icon-ticket"></i> <span>Ticket Management </span></a>
+                                    </li>
+                                }
+                                @if (Session["AccountManagement"] != null)
+                                {
+                                    <li>
+                                        <a href="javascript:void(0);"><i class="icon-notebook"></i> <span>Account Management</span></a>
+                                        <ul>
+                                            <li class="@Html.IsActive(actionName == "CreateAccount" && controllerName == "AccountManagement")"><a href="~/AccountManagement/CreateAccount">Create Account</a></li>
+                                            <li class="@Html.IsActive(actionName == "ExistingAccount" && controllerName == "AccountManagement")"><a href="~/AccountManagement/ExistingAccount">Existing Accounts</a></li>
+                                            <li class="@Html.IsActive(actionName == "ManageRolePermission" && controllerName == "AccountManagement")"><a href="~/AccountManagement/ManageRolePermission">Manage Role &amp; Permission</a></li>
+                                        </ul>
+                                    </li>
+                                }
+                                @if (Session["Reports"] != null)
+                                {
+                                    <li>
+                                        <a href="javascript:void(0);"><i class="icon-stack"></i> <span>Reports</span></a>
+                                        <ul>
+                                            <li class="@Html.IsActive(actionName == "CustomerReport" && controllerName == "Report")"><a href="~/Report/CustomerReport">Customer Report</a></li>
+                                            <li class="@Html.IsActive(actionName == "ProductReport" && controllerName == "Report")"><a href="~/Report/ProductReport">Investment Report</a></li>
+                                            <li class="@Html.IsActive(actionName == "WithdrawalReport" && controllerName == "Report")"><a href="~/Report/WithdrawalReport">Withdrawal Report</a></li>
+                                            <li class="@Html.IsActive(actionName == "TicketReport" && controllerName == "Report")"><a href="~/Report/TicketReport">Ticket Report</a></li>
+                                        </ul>
+                                    </li>
+                                }
+                                @if (Session["Promotions"] != null)
+                                {
+                                    <li class="@Html.IsActive(actionName == "Promotion" && controllerName == "Promotion")">
+                                        <a href="@Url.Action("Promotion","Promotion")"><i class="icon-price-tags"></i> <span>Promotion</span></a>
+                                    </li>
+                                }
+
+                                <!-- /main -->
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /main navigation -->
+                </div>
+            </div>
+            <!-- /Left sidebar -->
+
+
+            <div class="content-wrapper">
+                @RenderBody()
+            </div>
+            <!-- /main content -->
+
+        </div>
+        <!-- /page content -->
+
+    </div>
+    <!-- /page container -->
+    <!-- Footer -->
+    <div class="navbar navbar-default navbar-fixed-bottom footer">
+        <ul class="nav navbar-nav visible-xs-block">
+            <li><a class="text-center collapsed" data-toggle="collapse" data-target="#footer"><i class="icon-circle-up2"></i></a></li>
+        </ul>
+
+        <div class="navbar-collapse collapse" id="footer">
+            <div class="navbar-text text-center">
+                &copy; 2017 @Resources.Languages.SplitDeals |  All Rights Reserved
+            </div>
+        </div>
+    </div>
+    <!-- /footer -->
+    <!-- Core JS files -->
+    <!--External js files -->
+    <!-- Notification modal for deatis -->
+    <div id="View_Notification_modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h5 class="modal-title">Notifications :</h5>
+                </div>
+
+                <div class="modal-body">
+                    <div class="pre-scrollable" style="max-height:230px;">
+                        <div>
+                            <pre id="div_add_description"></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /Notification modal detials -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.6.0/parsley.min.js"></script>
+    <!--js datatable js files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wysihtml5/0.3.0/wysihtml5.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+
+
+    <script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"></script>
+    <link href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css">
+    <!-- <link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">  --> <!-- Core JS files -->
+    <script type="text/javascript" src="~/Content/js/plugins.js"></script>
+    <!-- /core JS files -->
+    <!-- Theme JS files -->
+    <script type="text/javascript" src="~/Content/js/site.js"></script>
+    <!-- /theme JS files -->
+    <script>
+
+        //ajax call for notification and wallet update
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("AdminNotificationsUpdate", "Dashboard")',
+            success: function (response) {
+                //$("#span_wallet_amount").text(response);
+            }
+        });
+
+        //Update view option in database
+        function UpdatePromotion(promotionId) {
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("_EditPromotionAdmin", "Promotion")',
+                data: { promotionId: promotionId },
+                success: function (response) {
+                    $("#div_add_description").html(response);
+                }
+            });
+        }
+
+        // Parsley Validation
+        $(document).ready(function () {
+            $('.form-validate').parsley();
+
+            //for image validation
+            // Validate parsley image fields.
+            // data-parsley-image=""
+            window.Parsley.addValidator('image', {
+                requirementType: 'string',
+                validateString: function (value, requirement) {
+                    var allowedFiles = [".png", ".jpg", ".gif", ".jpeg"];
+                    var regex = new RegExp("([a-zA-Z0-9\(\)\s_\\.\-:])+(" + allowedFiles.join('|') + ")$");
+                    return (value !== "" && regex.test(value.toLowerCase()));
+                },
+                messages: {
+                    en: 'Please select valid image file.'
+                }
+            });
+
+            // Validate file size.
+            // data-parsley-max-file-size="42"
+            window.Parsley.addValidator('maxFileSize', {
+                validateString: function (_value, maxSize, parsleyInstance) {
+                    if (!window.FormData) {
+                        return true;
+                    }
+                    var files = parsleyInstance.$element[0].files;
+                    return files.length != 1 || files[0].size <= maxSize * 1024 * 1024;
+                },
+                requirementType: 'integer',
+                messages: {
+                    en: 'File size should not be larger than %s Mb'
+                }
+            });
+        });
+
+        // Validate parsley password fields.
+        // data-parsley-password=""
+        window.Parsley.addValidator('password', {
+            requirementType: 'string',
+            validateString: function (value, requirement) {
+                return new RegExp("(?=^.{8,}$)(?=.*?\\d)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[^a-zA-Z\\d])").test(value);
+            },
+            messages: {
+                en: 'The password should contain combination of upper, lower, numeric and non-alphanumeric'
+            }
+        });
+
+    </script>
+</body>
+</html>

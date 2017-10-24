@@ -1,0 +1,251 @@
+﻿@{
+    ViewBag.Title = "ViewCourseInfo";
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Courses Info</title>
+
+    <link href="~/Content/themes/fileinput.css" rel="stylesheet" />
+    <link href="~/Content/themes/style.css" rel="stylesheet" />
+    <script src="~/Scripts/fileinput.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
+
+</head>
+<body>
+     @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="courses-page">
+        <div class="container">
+            <!------header section start------->
+            <header>
+                <h2>Courses Info</h2>
+                 <a style="cursor:pointer; color:#3d3b3b; font-size:14pt;float:right;margin-top:-55px; font-weight:200;" href="@Url.Action("CourseList","Courses")">Go To Courses List</a>
+            </header>
+            <!------header section end------->
+            <!------content section start------->
+            <div class="contant">
+                <div class="row">
+
+                    @using (Html.BeginForm("AddCourse", "Courses", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        
+                      
+                        if (Model != null)
+                        {
+                        <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                           
+                            <form action="" method="post" role="form">
+                                <input type="hidden" id="CourseId" name="CourseId" value="@Model.CourseId" />
+                                <div class="form-group">
+                                    <label>Course Name</label>                                    
+                                    <input type="text" class="form-control" placeholder="Course Name" value="@Model.CourseName" id="CourseName" name="CourseName" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>Course Description</label>
+                                    <textarea class="form-control" placeholder="Course Description" id="CourseDescription" name="CourseDescription" readonly>@Model.CourseDescription</textarea>
+                                    @* <input type="text" class="form-control" placeholder="Course Description">*@
+                                </div>
+                                <div class="form-group">
+                                    <label>Course Type</label>
+                                    @*<input type="text" class="form-control" placeholder="Course Type">*@
+                                    <select class="form-control" id="CourseType" name="CourseType" disabled>
+                                        <option value="">Course Type</option>
+                                        @if (Model.CourseType == "grammer")
+                                        {
+                                            <option value="grammer" selected="selected">Grammer</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="grammer">Grammer</option>
+                                        }
+                                        @if (Model.CourseType == "dialog")
+                                        {
+                                             <option value="dialog" selected="selected">Dialog</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="dialog">Dialog</option>
+                                        }
+                                        @if (Model.CourseType == "vocabulary")
+                                        {
+                                             <option value="vocabulary" selected="selected">Vocabulary</option>   
+                                        }
+                                        else
+                                        {
+                                            <option value="vocabulary">Vocabulary</option>   
+                                        }
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Duration</label>
+                                    <input type="text" class="form-control" placeholder="2 Months" value="@Model.Duration" id="Duration" name="Duration" readonly>
+                                </div> 
+                                <div class="form-group">
+                                    <label>Reward Point</label>
+                                    <input type="text" class="form-control" placeholder="Reward Point" value="@Model.RewardPoints" id="RewardPoints" name="RewardPoints" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>Price</label>
+                                    <input type="text" class="form-control" placeholder="Price" value="@Model.Price" id="Price" name="Price" readonly>
+                                </div> 
+                                <div class="form-group">
+                                    <label style="display:block;">Image</label>
+                                    @*<input type="text" class="form-control" placeholder="Image Url">*@
+                                   <img src="@Model.ImageUrl" width="20%"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Audio</label>
+                                    <div class="form-group">
+                                       <audio controls="controls">
+          
+                                        <source src="@Model.AudioUrl" type="audio/x-wav" />
+                                             </audio>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Max Score</label>
+                                    <input type="text" class="form-control" placeholder="Max Score" value="@Model.MaxScore" id="MaxScore" name="MaxScore" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>Is Free</label>
+                                    @if (Model.IsFree == true)
+                                    {
+                                    <select class="form-control" id="IsFree" name="IsFree" disabled>
+                                        <option selected="selected" value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    }
+                                    else
+                                    {
+                                        <select class="form-control" id="IsFree" name="IsFree" disabled>
+                                        <option value="Yes">Yes</option>
+                                        <option selected="selected" value="No">No</option>
+                                    </select>
+                                    }
+                                </div>
+                                <div class="form-group">
+                                    <label>Unit</label>
+                                    <input type="text" class="form-control" placeholder="Unit" id="Unit" name="Unit" value="@Model.Unit" readonly>
+                                </div>
+                                <div class="form-group">
+                                    
+                                  @*  <button type="submit" class="btn btn-info">Submit</button>
+                                    <button type="button" class="btn btn-info">cancel</button>*@
+                                </div>
+
+                            </form>
+                        </div>
+                        }
+                        else
+                        {
+                       <input type="hidden" id="CourseId" name="CourseId" value="0" />
+                        <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                            <form action="" method="post" role="form">
+                                <div class="form-group">
+                                    <div style="width:115%">
+                                   <label style="color: red; font-size: 16pt; font-weight: 200;">
+                                   @ViewBag.tabledata
+                                  </label>
+                                        </div>
+                                    <label>Course Name</label>
+                                    <input type="text" class="form-control" placeholder="Course Name" id="CourseName" name="CourseName">
+                                </div>
+                                <div class="form-group">
+                                    <label>Course Description</label>
+                                    <textarea class="form-control" placeholder="Course Description" id="CourseDescription" name="CourseDescription"></textarea>
+                                    @* <input type="text" class="form-control" placeholder="Course Description">*@
+                                </div>
+                                <div class="form-group">
+                                    <label>Course Type</label>
+                                    @*<input type="text" class="form-control" placeholder="Course Type">*@
+                                    <select class="form-control" id="CourseType" name="CourseType">
+                                        <option value="">Course Type</option>
+                                        <option value="grammer">Grammer</option>
+                                        <option value="dialog">Dialog</option>
+                                        <option value="vocabulary">Vocabulary</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Duration</label>
+                                    <input type="text" class="form-control" placeholder="2 Months" id="Duration" name="Duration">
+                                </div>
+                                <div class="form-group">
+                                    <label>Reward Point</label>
+                                    <input type="text" class="form-control" placeholder="Reward Point"  id="RewardPoints" name="RewardPoints">
+                                </div>
+                                <div class="form-group">
+                                    <label>Price</label>
+                                    <input type="text" class="form-control" placeholder="Price" id="Price" name="Price">
+                                </div>
+                                <div class="form-group">
+                                    <label>Image Url</label>
+                                    @*<input type="text" class="form-control" placeholder="Image Url">*@
+                                    <input id="file-1a" type="file" multiple="true" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false" id="Image" name="Image">
+                                   
+                                       
+                                     
+                                </div>
+                                <div class="form-group">
+                                    <label>Audio</label>
+                                    <div class="form-group">
+                                       
+                                         <input id="file-1a" type="file" multiple="true" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false" id="Audio" name="Audio">
+                                                  
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Max Score</label>
+                                    <input type="text" class="form-control" placeholder="Max Score" id="MaxScore" name="MaxScore">
+                                </div>
+                                <div class="form-group">
+                                    <label>Is Free</label>
+                                    <select  class="form-control" id="IsFree" name="IsFree">
+                                        <option value="No">No</option>
+                                        <option value="Yes">Yes</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Unit</label>
+                                    <input type="text" class="form-control" placeholder="Unit" id="Unit" name="Unit" />
+                                </div>
+                                <div class="form-group">
+                                   @* <button type="submit" class="btn btn-info">Submit</button>
+                                    <button type="button" class="btn btn-info">cancel</button>*@
+                                </div>
+
+                            </form>
+                        </div>
+                        }
+                    }
+                   
+                </div>
+
+            </div>
+            <!------content section end------->
+        </div>
+    </div>
+    <script>
+        $("#file-1").fileinput({
+            initialPreview: ["<img src='Desert.jpg' class='file-preview-image'>", "<img src='Jellyfish.jpg' class='file-preview-image'>"],
+            overwriteInitial: false,
+            maxFileSize: 100,
+            maxFilesNum: 10
+        });
+        $("#file-3").fileinput({
+            showCaption: false,
+            browseClass: "btn btn-primary btn-lg",
+            fileType: "any"
+        });
+        $(".btn-warning").on('click', function () {
+            if ($('#file-4').attr('disabled')) {
+                $('#file-4').fileinput('enable');
+            } else {
+                $('#file-4').fileinput('disable');
+            }
+        });
+	</script>
+</body>
+</html>
+

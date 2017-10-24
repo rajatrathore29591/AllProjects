@@ -1,0 +1,149 @@
+﻿@{
+    ViewBag.Title = "PaymentInfo";
+}
+<link href="~/css/jquery.flipcountdown.css" rel="stylesheet" />
+<script src="@Url.Content("/Scripts/jquery.min.js")"></script>
+<script src="@Url.Content("/Scripts/jquery.flipcountdown.js")"></script>
+<script>
+    jQuery(function ($) {
+        var i = 1000;
+        $('#retroclockbox1').flipcountdown();
+        var i = 1;
+        $('#retroclockbox_counter').flipcountdown({
+            tick: function () {
+                return i++;
+            }
+        });
+        $('#retroclockbox2').flipcountdown({ showHour: false, showMinute: false, showSecond: true });
+        $('#retroclockbox3').flipcountdown({ tzoneOffset: 3, showSecond: false });
+        $('#retroclockbox4').flipcountdown({ am: true });
+        $('#retroclockbox5').flipcountdown({ speedFlip: 50 });
+        $('#retroclockbox6').flipcountdown({
+            tick: function () {
+                return new Date('5/10/2012 12:34:23');
+            }
+        });
+    })
+</script>
+
+
+      	<div class="container">
+        	<div class="col-lg-12">
+                <div class="col-md-3 user-profice-pic">
+                	<img src="@ViewBag.ProfilePicture" class="img-thumbnail">            	
+                </div>
+              	<div class="col-md-9 right">
+                    <div class="col-md-2">
+                        <h2 class=" user-profile"><img src="~/Content/img/online.png" />@ViewBag.Username</h2>
+              
+                        <h4 class="tutor-city-name left">@ViewBag.Country</h4>
+                    </div>
+                    <div class="col-md-10 right-profile">
+                        <ul class="nav nav-pills view-profile">
+                            <li ><a href="../../Notification/Notifications">Notifications (0)</a></li>
+                        <li><a href="../../Message/Messages">Messages (0)</a></li>                     
+                        </ul>	
+                    </div>
+                    
+               </div> 
+                 <div class="col-lg-2 blue-wrapper">
+                    <h2>My Score</h2>
+                    <h3>60/100 (details)</h3>
+                </div>
+                <div class="col-lg-2 blue-wrapper">
+                    <h2>Instructor Evaluation</h2>
+                    <h3>Great </h3>
+                </div>  
+                <div class="col-lg-2 blue-wrapper">
+                    <h2>Flashcards</h2>
+                    <h3>60/100 </h3>
+                </div>
+                <div class="col-lg-2 blue-wrapper">
+                    <h2>Days Remaining</h2>
+                    <div align="center">
+                    <div id="retroclockbox_sm"></div>
+                    </div>
+                    <script>
+					jQuery(function($){
+						//var NY = Math.round((new Date('1/01/2015 00:00:01')).getTime()/1000);
+						$('#new_year').flipcountdown({
+							size:'lg',
+							beforeDateTime:'1/01/2015 00:00:01'
+							/*tick:function(){
+								var nol = function(h){
+									return h>9?h:'0'+h;
+								}
+								var	range  	= NY-Math.round((new Date()).getTime()/1000),
+									secday = 86400, sechour = 3600,
+									days 	= parseInt(range/secday),
+									hours	= parseInt((range%secday)/sechour),
+									min		= parseInt(((range%secday)%sechour)/60),
+									sec		= ((range%secday)%sechour)%60;
+								return nol(days)+' '+nol(hours)+' '+nol(min)+' '+nol(sec);
+							}*/
+						});
+					});
+					</script>
+					<script>
+				jQuery(function($){
+					$('#retroclockbox_lg').flipcountdown({size:'lg'});
+					$('#retroclockbox_md').flipcountdown({size:'md'});
+					$('#retroclockbox_sm').flipcountdown({size:'sm'});
+					$('#retroclockbox_xs').flipcountdown({size:'xs'});
+				})
+				</script>
+                </div>  
+         
+               	<div class="col-lg-12">
+                	<h4 class="blue">My Payment Details</h4>
+                	<table class="table table-striped table-hover payment-table ">
+                      <thead class="table-first">
+                        <tr>
+                          <th>#</th>
+                          <th>Course</th>
+                          <th>Cost</th>
+                          <th>Purchase Date</th>
+                          <th>Paid Via</th>
+                          
+                          
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Course Name 1</td>
+                          <td>1000</td>
+                          <td>15/10/2014</td>
+                          <td><img src="~/Content/img/paypal-png-6fkap5zfpng-zf7pthca.png" width="50px"></td>
+                         
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>Course Name 2</td>
+                          <td>1000</td>
+                          <td>15/10/2014</td>
+                          <td><img src="~/Content/img/mastercard.png" width="50px"></td>
+                          
+                        </tr>
+                        <tr>
+                        	<td>2</td>
+                            <td>Course Name 3</td>
+                            <td>1000</td>
+                            <td>15/10/2014</td>
+                            <td><img src="~/Content/img/amex.png" width="50px"></td>
+                        </tr>
+                        <tr>
+                         	<td>Total</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>3000</td>
+                            
+                        </tr>                        
+                      </tbody>
+                    </table> 
+                </div>
+   	       </div>
+      </div>
+
+

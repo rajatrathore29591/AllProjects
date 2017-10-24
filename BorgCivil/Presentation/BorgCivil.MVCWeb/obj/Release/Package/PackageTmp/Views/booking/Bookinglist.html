@@ -1,0 +1,868 @@
+<div class="animate-panel bookinglist" ng-controller="BookingListCtrl as blCtrl">
+    <div class="clearfix">
+        <div class="bc-panel-white clearfix" ng-controller="StartDatepickerCtrl">
+            <div class="col-md-5 p-l0">
+                <div class="row">
+                    <div class="col-md-5 ">
+                        <label>From Date</label>
+                        <div class="form-group">
+                            <div class="input-group date-picker">
+                                <span class="input-group-addon" ng-click="startDate()">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                                <input placeholder="DD-MM-YYYY" type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                                       show-button-bar="false" ng-model="blCtrl.attributes.FromDate" is-open="popup1.opened"
+                                       max-date="blCtrl.attributes.ToDate" datepicker-options="dateOptions"
+                                       date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 p-l0">
+                        <label>To Date</label>
+                        <div class="form-group">
+                            <div class="input-group date-picker">
+                                <span class="input-group-addon" ng-click="endDate()">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                                <input placeholder="DD-MM-YYYY" type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                                       show-button-bar="false" ng-model="blCtrl.attributes.ToDate" is-open="popup2.opened"
+                                       min-date="blCtrl.attributes.FromDate"
+                                       max-date="'2019-06-22'" datepicker-options="dateOptions"
+                                       date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 p-l0">
+                        <a href="javascript:void(0)" ng-click="blCtrl.getBookingList()" class="btn-primary btn go-btn" title="GO">GO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row right-btn-group clearfix">
+        <div class="col-md-12">
+            <div class="btn-group pull-right ">
+                <button type="button" class="btn btn-default" title="PDF"  ng-click="blCtrl.savePDF(blCtrl.bcaTableParams.data)"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</button>
+                <button type="button" class="btn btn-default" title="Excel" ng-click="blCtrl.downloadExcelBookingList(blCtrl.bcaTableParams.data)"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Excel</button>
+                <button type="button" class="btn btn-default" title="Print" ng-click="blCtrl.downloadPrintBookingList(blCtrl.bcaTableParams.data)"><i class="fa fa-print" aria-hidden="true"></i> Print</button>
+                <button type="button" class="btn btn-default" title="Email" ng-click="blCtrl.sendEmail(blCtrl.bcaTableParams.data)"><i class="fa fa-envelope" aria-hidden="true"></i> Email</button>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!--END: Table And Search Top Section-->
+    <!--Pending Details Content-->
+    <div>
+        <div class="grid-tb-panel clearfix">
+            <table ng-table="blCtrl.bcaTableParams" class="table table-stripped toggle-arrow-tiny table-hover" show-filter="true">
+                <tr ng-repeat="booking in $data" ng-if="$data.length > 0">
+                    <td title="'Booking Number'" filter="{ BookingNumber: 'text'}" sortable="'BookingNumber'" class="text-center"><a href="javascript:void(0)" ng-click="blCtrl.fleetDetail(booking.Fleet)">{{booking.BookingNumber}}</a></td>
+
+                    <td title="'Customer Name'" filter="{ CustomerName: 'text'}" sortable="'CustomerName'"><a href="javascript:void(0)" ng-click="blCtrl.bookingCustomerDetail(booking)">{{booking.CustomerName}}</a></td>
+
+                    <td title="'Site Details'" filter="{ SiteDetail: 'text'}" sortable="'SiteDetail'">{{booking.SiteDetail}}</td>
+
+                    <!--<td title="'Fleet'" fi<a href="javascript:void(0)" ng-click="blCtrl.customerDetail(booking)">lter="{ fleet: 'text'}" sortable="'fleet'">{{booking.fleet}}</td>-->
+
+                    <td title="'Work Type'" filter="{ WorkType: 'text'}" sortable="'WorkType'" class="text-center">{{booking.WorkType}}</a></td>
+
+                    <td title="'Status'" filter="{ StatusTitle: 'text'}" sortable="'StatusTitle'" class="text-center">{{booking.StatusTitle}}</td>
+
+                    <td ng-if="booking.FleetCount == 0" title="'Booked Fleet'" filter="{ FleetCount: 'text'}" sortable="'FleetCount'" class="text-center">{{booking.FleetCount}}</td>
+                    
+                    <td ng-if="booking.FleetCount != 0" title="'Booked Fleet'" filter="{ FleetCount: 'text'}" sortable="'FleetCount'" class="text-center"><a href="javascript:void(0)" ng-click="blCtrl.fleetDetail(booking.Fleet)">{{booking.FleetCount}}</a></td>
+
+                    <td title="'Start Date'" filter="{ FleetBookingDateTime: 'text'}" sortable="'FleetBookingDateTime'" class="text-center">{{booking.FleetBookingDateTime | date :  "dd-MM-yyyy"}}</td>
+
+                    <td title="'End Date'" filter="{ EndDate: 'text'}" sortable="'EndDate'" class="text-center">{{booking.EndDate | date :  "dd-MM-yyyy"}}</td>
+
+                    <td title="'Action'" align="center" nowrap="true" width="1%">
+                        <div class="btn-group">
+                            <a class="dropdown-toggle" id="dLabel" href="javascript:void(0);" data-toggle="dropdown">
+                                <i class="fa pe-7s-more action-icon" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu hdropdown notification dropdown-menu-right animated flipInX" role="menu">
+                                <li><a ui-sref="booking.BookingWorkAllocation({BookingId: booking.BookingId})" href="javascript:void(0);"><i class="fa fa-history fa-icon" aria-hidden="true"></i>  Work Allocation</a></li>
+                                <li ng-if="booking.StatusTitle == 'Allocated'"><a href="javascript:void(0)" ng-click="blCtrl.updateBookingStatus(booking.BookingId,4)"><i class="fa pe-7s-look" aria-hidden="true"></i> Marked As Complete</a></li>
+                                <li><a ui-sref="booking.JobBooking({BookingId: booking.BookingId})" href="javascript:void(0)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a></li>
+                                <li ng-if="booking.StatusTitle == 'Pending'"><a href="javascript:void(0)" ng-click="blCtrl.cancelStatusPopup(booking.BookingId)"><i class="fa pe-7s-look" aria-hidden="true"></i> Cancel Booking</a></li>
+                                <li><a href="javascript:void(0)" ng-click="blCtrl.deleteBooking(booking.BookingId)"><i class="fa pe-7s-trash" aria-hidden="true"></i> Delete</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr ng-if="$data.length <= 0">
+                    <td colspan="9" class="text-center">Not records found</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--Pending Details Content End-->
+    <!--Sub Grid Modal -->
+    <div class="modal fade" id="sub-grid" tabindex="-1" role="dialog">
+        <div class="modal-dialog sub-gridModal">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title">Allocated Fleets</h4>
+                    <div class="clostbtn">
+                        <button type="button" data-dismiss="modal" aria-label="Close"><img src="../images/closebtn.png"></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-stripped toggle-arrow-tiny" data-page-size="8" data-filter=#filter>
+                                <thead>
+                                    <tr>
+                                        <th>Fleet Booking Date &amp; Time</th>
+                                        <th>Fleet Number/Description</th>
+                                        <th>Site Details</th>
+                                        <th>Start Date &amp; Time</th>
+                                        <th>End Date</th>
+                                        <th>Docket Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>20/02/2017 2:00 PM</td>
+                                        <td>
+                                            <strong>Fleet Number:</strong>
+                                            8ORG<br>
+                                            <strong>Description:</strong>
+                                            T90499A
+                                        </td>
+                                        <td>M4</td>
+                                        <td>16/02/2017 1:00 PM</td>
+                                        <td>20/02/2017</td>
+                                        <td class="text-center"><a href="javascript:void()">2</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>15/02/2017 9:00 AM</td>
+                                        <td>
+                                            <strong>Fleet Number:</strong>
+                                            8RGCVL<br>
+                                            <strong>Description:</strong>
+                                            CMHR
+                                        </td>
+                                        <td>Albans Road</td>
+                                        <td>18/02/2017 08:00AM</td>
+                                        <td>20/02/2017</td>
+                                        <td class="text-center"><a href="javascript:void()">3</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" title="Close" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Sub Grid Modal -->
+    <!-- Cancel Details Modal -->
+    <div class="modal fade" id="cancel-detail" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title">Cancel Note</h4>
+                    <div class="clostbtn">
+                        <button type="button" data-dismiss="modal" aria-label="Close"><img src="../images/closebtn.png"></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Note</label>
+                                <textarea class="form-control" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <a href="javascript:void(0)" target="_black" class="btn btn-primary" title="Save">Save</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Cancel Details Modal -->
+    <!-- Customer details Modal -->
+    <div class="modal fade" id="customer-details" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title">Customer Details</h4>
+                    <div class="clostbtn">
+                        <button type="button" data-dismiss="modal" aria-label="Close"><img src="../images/closebtn.png"></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Customer Name</label>
+                                <input class="form-control" readonly="readonly" name="" value="2010 Debtors" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>ABN/ ACN Number</label>
+                                <input class="form-control only-float" readonly="readonly" name="" value="19150704331" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input class="form-control only-float" readonly="readonly" name="" value="accounts@cbbgroup.com.au" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Contact Number</label>
+                                <input class="form-control" readonly="readonly" name="" value="02 9621 4433" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Customer details Modal -->
+    <!-- Site details Model -->
+    <div class="modal fade" id="site-details" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title">Site Details</h4>
+                    <div class="clostbtn">
+                        <button type="button" data-dismiss="modal" aria-label="Close"><img src="../images/closebtn.png"></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Site Name</label>
+                                <input class="form-control" readonly="readonly" name="" value="Peter Broek" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Site Details</label>
+                                <textarea class="form-control" readonly="readonly" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="tb-panel">
+                                <table class="table table-stripped m-b-none" id="vehicle_booking">
+                                    <thead>
+                                        <tr>
+                                            <th>Supervisor Name</th>
+                                            <th>Supervisor Email</th>
+                                            <th>Supervisor Mobile Number</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="table-row-clone" id="product_table_row_num_0">
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="table-row-clone" id="product_table_row_num_0">
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Site details Model -->
+    <!-- Fleet Model -->
+    <div class="modal fade" id="fleet-details" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title">Fleet Details</h4>
+                    <div class="clostbtn">
+                        <button type="button" data-dismiss="modal" aria-label="Close"><img src="../images/closebtn.png"></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="tb-panel">
+                                <table class="table table-stripped m-b-none" id="vehicle_booking">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Plant Number</th>
+                                            <th>Registration Number</th>
+                                            <th>Engine Number</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="table-row-clone" id="product_table_row_num_0">
+                                            <td>
+                                                Truck &amp; Dog
+                                            </td>
+                                            <td>
+                                                BCA-P046
+                                            </td>
+                                            <td>
+                                                BOR9Y
+                                            </td>
+                                            <td>79471428</td>
+                                        </tr>
+                                        <tr class="table-row-clone" id="product_table_row_num_0">
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 m-t-sm">
+                            <div class="form-group">
+                                <label>HVIS Type</label>
+                                <input class="form-control" readonly="readonly" name="" value="HVIAS" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Fleet Model -->
+    <!-- Driver details -->
+    <div class="modal fade" id="driver-details" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title">Driver Details</h4>
+                    <div class="clostbtn">
+                        <button type="button" data-dismiss="modal" aria-label="Close"><img src="../images/closebtn.png"></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input class="form-control" readonly="readonly" name="" value="Chris" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input class="form-control only-float" readonly="readonly" name="" value="Roberts" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input class="form-control" readonly="readonly" name="" value="" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Contact</label>
+                                <input class="form-control only-float" readonly="readonly" name="" value="" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Address Line #1</label>
+                                <textarea class="form-control" readonly="readonly" rows="4"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Address Line #2</label>
+                                <textarea class="form-control" readonly="readonly" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/Driver details -->
+    <!-- Pending model -->
+    <div class="modal fade" id="pending-popup" tabindex="-1" role="dialog">
+        <div class="modal-dialog work-allocation-popup">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title">Job Allocation</h4>
+                    <div class="clostbtn">
+                        <button type="button" data-dismiss="modal" aria-label="Close"><img src="../images/closebtn.png"></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="tb-panel">
+                                <table class="table table-stripped m-b-none" id="vehicle_booking">
+                                    <thead>
+                                        <tr>
+                                            <th>Fleet</th>
+                                            <th>Registration Number</th>
+                                            <th>Driver/Operator</th>
+                                            <th>Shift</th>
+                                            <th>Note</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="table-row-clone" id="product_table_row_num_0">
+                                            <td>
+                                                <select class="form-control">
+                                                    <option>Select</option>
+                                                    <option>Truck</option>
+                                                    <option>Watercart</option>
+                                                    <option>Motor Fleet</option>
+                                                    <option>Trailer</option>
+                                                    <option>Skid Steer Loader</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="" class="form-control">
+                                                    <option>Select</option>
+                                                    <option>8RGCVL</option>
+                                                    <option>MRBORG</option>
+                                                    <option>OSOHVY</option>
+                                                    <option>PHALAP</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="" class="form-control">
+                                                    <option>Select</option>
+                                                    <option>Paul</option>
+                                                    <option>Phil</option>
+                                                    <option>Marcus</option>
+                                                    <option>Chris</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="" class="form-control">
+                                                    <option>Select</option>
+                                                    <option>Day</option>
+                                                    <option>Night</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" name="" value="">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="bc-panel-white">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Attachments</label>
+                                            <ul class="list-inline attachment-list">
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Hammer (5T Excavator) </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Hammer (6T Excavator) </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Hammer (8T Excavator) </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Auger (5T Excavator) </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Auger (8T Excavator) </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Saw </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Trolly </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Forklift </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Load Arms </label></div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Allocate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Pending model -->
+    <!-- Allocated model -->
+    <div class="modal fade" id="allocated-popup" tabindex="-1" role="dialog">
+        <div class="modal-dialog work-allocation-popup">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title">Job Allocation</h4>
+                    <div class="clostbtn">
+                        <button type="button" data-dismiss="modal" aria-label="Close"><img src="../images/closebtn.png"></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="tb-panel">
+                                <table class="table table-stripped m-b-none" id="vehicle_booking">
+                                    <thead>
+                                        <tr>
+                                            <th>Fleet</th>
+                                            <th>Registration Number</th>
+                                            <th>Driver/Operator</th>
+                                            <th>Shift</th>
+                                            <th>Note</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="table-row-clone" id="product_table_row_num_0">
+                                            <td>
+                                                <select class="form-control">
+                                                    <option selected="">Truck</option>
+                                                    <option>Watercart</option>
+                                                    <option>Motor Fleet</option>
+                                                    <option>Trailer</option>
+                                                    <option>Skid Steer Loader</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="" class="form-control">
+                                                    <option>Select</option>
+                                                    <option selected="">8RGCVL</option>
+                                                    <option>MRBORG</option>
+                                                    <option>OSOHVY</option>
+                                                    <option>PHALAP</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="" class="form-control">
+                                                    <option>Select</option>
+                                                    <option selected="">Paul</option>
+                                                    <option>Phil</option>
+                                                    <option>Marcus</option>
+                                                    <option>Chris</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="" class="form-control">
+                                                    <option>Select</option>
+                                                    <option selected="">Day</option>
+                                                    <option>Night</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" name="" value="">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="bc-panel-white">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Attachments</label>
+                                            <ul class="list-inline attachment-list">
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks" checked=""> Hammer (5T Excavator) </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Hammer (6T Excavator) </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Hammer (8T Excavator) </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Auger (5T Excavator) </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Auger (8T Excavator) </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Saw </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks" checked=""> Trolly </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Forklift </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Load Arms </label></div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Combo Hire</label>
+                                            <ul class="list-inline attachment-list">
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" checked="" class="i-checks"> 5T Excavator &amp; Bobcat </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Beavertail &amp; 5T Excavator </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks" checked=""> Bobcat &amp; Mini Tipper </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks" checked=""> 5T Excavator &amp; Tipper </label></div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Allocated model -->
+    <!-- Cancel Modal -->
+    <div class="modal fade" id="cancel" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title">Cancel Details</h4>
+                    <div class="clostbtn">
+                        <button type="button" data-dismiss="modal" aria-label="Close"><img src="../images/closebtn.png"></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Note</label>
+                                <textarea class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="checkbox"><label class="p-l0"><input type="checkbox" class="i-checks"> Is Rate Changed</label></div>
+                                <div class="price-section">
+                                    <label>Rate</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <a href="#" title="Save" class="btn btn-primary">Save</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Cancel Modal -->
+    <!-- Re-Allocation Modal -->
+    <div class="modal fade" id="re-allocation" tabindex="-1" role="dialog">
+        <div class="modal-dialog work-allocation-popup">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title">Re-Allocation</h4>
+                    <div class="clostbtn">
+                        <button type="button" data-dismiss="modal" aria-label="Close"><img src="../images/closebtn.png"></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="tb-panel">
+                                <table class="table table-stripped m-b-none" id="vehicle_booking">
+                                    <thead>
+                                        <tr>
+                                            <th>Fleet</th>
+                                            <th>Registration Number</th>
+                                            <th>Driver/Operator</th>
+                                            <th>Shift</th>
+                                            <th>Note</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="table-row-clone" id="product_table_row_num_0">
+                                            <td>
+                                                <select class="form-control">
+                                                    <option>Select</option>
+                                                    <option selected="">Truck</option>
+                                                    <option>Watercart</option>
+                                                    <option>Motor Fleet</option>
+                                                    <option>Trailer</option>
+                                                    <option>Skid Steer Loader</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="" class="form-control">
+                                                    <option>Select</option>
+                                                    <option selected="">DAL87W</option>
+                                                    <option>MRBORG</option>
+                                                    <option>OSOHVY</option>
+                                                    <option>PHALAP</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="" class="form-control">
+                                                    <option>Select</option>
+                                                    <option selected="">Paul</option>
+                                                    <option>Phil</option>
+                                                    <option>Marcus</option>
+                                                    <option>Chris</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="" class="form-control">
+                                                    <option>Select</option>
+                                                    <option selected="">Day</option>
+                                                    <option>Night</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" name="" value="">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="bc-panel-white">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Attachments</label>
+                                            <ul class="list-inline attachment-list">
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks" checked=""> Hammer (5T Excavator) </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Hammer (6T Excavator) </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Hammer (8T Excavator) </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Auger (5T Excavator) </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Auger (8T Excavator) </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks" checked=""> Saw </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Trolly </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Forklift </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Load Arms </label></div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Combo Hire</label>
+                                            <ul class="list-inline attachment-list">
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" checked="" class="i-checks"> 5T Excavator &amp; Bobcat </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Beavertail &amp; 5T Excavator </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks" checked=""> Bobcat &amp; Mini Tipper </label></div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks" checked=""> 5T Excavator &amp; Tipper </label></div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bc-panel-light-grey">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="checkbox"><label class="p-l0"> <input type="checkbox" class="i-checks"> Is fleet at customer’s site? </label></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Allocate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        //VD
+        $(".table-expandable-arrow").click(function () {
+            $(this).toggleClass("active");
+        });
+    </script>

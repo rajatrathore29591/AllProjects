@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TV.CraveASAP.DataModel.CraveASAPDBEntities">
+    <Position X="2.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAADAAAAAAAAAAABAAAAAAEAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>CreaveASAPDB.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TV.CraveASAP.DataModel.Restaurant">
+    <Position X="6.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAACAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Restaurant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TV.CraveASAP.DataModel.sp_GetUsers_Result">
+    <Position X="2.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAgAAAAAAAAAAAAAAAAAACAAAAAAAAAAg=</HashCode>
+      <FileName>sp_GetUsers_Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TV.CraveASAP.DataModel.Subscribe">
+    <Position X="4" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAggAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Subscribe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TV.CraveASAP.DataModel.User">
+    <Position X="2.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAABAAAAgCAAAAAAAAAAAAAAAAAAACgAAAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TV.CraveASAP.DataModel.GenericRepository.GenericRepository&lt;TEntity&gt;">
+    <Position X="4" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAkAAAgAgAABAAAAAAAAAAAEIAAAAAgAAgQEAggA=</HashCode>
+      <FileName>GenericRepository\GenericRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TV.CraveASAP.DataModel.UnitOfWork.UnitOfWork" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAIAQIAgACAABAAAAAAAAAAAAgAAAAEAAAAAEAAAAAA=</HashCode>
+      <FileName>UnitOfWork\UnityOfWork.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,176 @@
+﻿<div class="page-content-wrapper">
+    <div class="page-content">
+
+        <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+        <!-- BEGIN PAGE HEADER-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box green">
+                    <div class="portlet-title">
+                        <div class="caption pagename5 bold pull-left">
+                            <span>Manual Notification</span>
+                        </div>
+                        <div class="caption path5  pull-right">
+                            <div class="path5"><span class="margin-right-10">Path</span> <i class="fa fa-angle-right margin-right-10"></i><span>Notification</span></div>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <form type="POST" ng-submit="SendManualNoti()" class="form-horizontal formbox">
+                                    <fieldset>
+                                        <div class=" row">
+                                            <div class="form-group">
+
+                                                <h4 class="col-sm-3 m-t-0">Notification For:</h4>
+                                                <div ng-repeat="contact in contacts">
+
+                                                    <div class="col-sm-3">
+                                                        <input type="radio" name="{{contact.type}}" ng-model="contactTypes[contact.type].default" ng-value="contact.value" id="{{contact.value}}" />
+                                                        <label for="{{contact.value}}">{{contact.value}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Customize Message</legend>
+                                        <div class="row">
+                                            <div class="col-xs-8 col-sm-6 col-md-4 col-lg-2">
+                                                <div class="form-group">
+                                                    <input class="form-control" id="alert" placeholder="Type your alert Name" ng-model="alert" maxlength="16"></input>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <textarea class="form-control" id="msg" placeholder="Type your message here" rows="6" maxlength="160" ng-model="noti"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <input type="submit" name="" class="btn btn-success btn-lg" value="Send">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE HEADER-->
+        <!-- BEGIN DASHBOARD STATS -->
+
+    </div>
+    <!-- END DASHBOARD STATS -->
+    <div class="clearfix">
+    </div>
+
+
+
+    <div class="clearfix">
+    </div>
+
+
+    <!-- END REGIONAL STATS PORTLET-->
+
+    <div class="clearfix">
+    </div>
+
+</div>
+<div id="loader" ng-show="showLoader">
+    <div class="page-spinner-bar" ng-spinner-bar="">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+
+</div>
+<div id="static" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+     <div class="modal-dialog">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                 <h4 class="modal-title">Message</h4>
+             </div>
+             <div class="modal-body">
+                 <p>
+                     <!-- Would you like to continue with some arbitrary task?-->
+                     {{Message}}
+                 </p>
+             </div>
+             <div class="modal-footer">
+
+                 <button type="button" ng-click="redirect()" data-dismiss="modal" class="btn green">Ok</button>
+             </div>
+         </div>
+     </div>
+ </div>
+
+
+<script type="text/javascript">
+    (function (exports) {
+        function valOrFunction(val, ctx, args) {
+            if (typeof val == "function") {
+                return val.apply(ctx, args);
+            } else {
+                return val;
+            }
+        }
+
+        function InvalidInputHelper(input, options) {
+            input.setCustomValidity(valOrFunction(options.defaultText, window, [input]));
+
+            function changeOrInput() {
+                if (input.value == "") {
+                    input.setCustomValidity(valOrFunction(options.emptyText, window, [input]));
+                } else {
+                    input.setCustomValidity("");
+                }
+            }
+
+            function invalid() {
+                if (input.value == "") {
+                    input.setCustomValidity(valOrFunction(options.emptyText, window, [input]));
+                } else {
+                    input.setCustomValidity(valOrFunction(options.invalidText, window, [input]));
+                }
+            }
+
+            input.addEventListener("change", changeOrInput);
+            input.addEventListener("input", changeOrInput);
+            input.addEventListener("invalid", invalid);
+        }
+        exports.InvalidInputHelper = InvalidInputHelper;
+    })(window);
+
+
+
+    InvalidInputHelper(document.getElementById("alert"), {
+        defaultText: "Please enter Alert",
+        emptyText: "Please enter Alert",
+        invalidText: function (input) {
+            return 'The This Alert "' + input.value + '" is invalid!';
+        }
+    });
+
+    InvalidInputHelper(document.getElementById("msg"), {
+        defaultText: "Please enter Push Notification ",
+        emptyText: "Please enter Push Notification ",
+        invalidText: function (input) {
+            return 'The notification "' + input.value + '" is invalid!';
+        }
+    });
+</script>
+

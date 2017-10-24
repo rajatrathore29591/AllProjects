@@ -1,0 +1,159 @@
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\TV.CraveASAP.Web.Admin.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\TV.CraveASAP.Web.Admin.pdb
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\Antlr3.Runtime.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.Core.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\EntityFramework.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\Newtonsoft.Json.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Net.Http.Formatting.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Helpers.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Http.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Http.WebHost.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Mvc.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Optimization.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Razor.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.WebPages.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.WebPages.Razor.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\WebGrease.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\WebMatrix.Data.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\WebMatrix.WebData.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\Mono.Math.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.Core.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\Newtonsoft.Json.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\EntityFramework.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Net.Http.Formatting.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Helpers.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Http.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Http.WebHost.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Mvc.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Razor.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.WebPages.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.WebPages.Razor.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\WebMatrix.Data.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\WebMatrix.WebData.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\bin\Mono.Math.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\obj\Release\TV.CraveASAP.Web.Admin.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\obj\Release\TV.CraveASAP.Web.Admin.pdb
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.Web.Admin\obj\Release\TV.CraveASAP.Web.Admin.csprojResolveAssemblyReference.cache
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\TV.CraveASAP.Web.Admin.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\TV.CraveASAP.Web.Admin.pdb
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\Antlr3.Runtime.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.AspNet.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.Core.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OAuth.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OpenId.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\EntityFramework.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\Microsoft.Web.Infrastructure.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\Microsoft.Web.WebPages.OAuth.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\Newtonsoft.Json.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Net.Http.Formatting.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Helpers.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Http.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Http.WebHost.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Mvc.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Optimization.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Razor.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.WebPages.Deployment.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.WebPages.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.WebPages.Razor.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\WebGrease.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\WebMatrix.Data.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\WebMatrix.WebData.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\Org.Mentalis.Security.Cryptography.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\Mono.Math.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.AspNet.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.Core.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OAuth.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OpenId.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\Newtonsoft.Json.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\EntityFramework.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Net.Http.Formatting.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Helpers.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Http.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Http.WebHost.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Mvc.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Razor.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.WebPages.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.WebPages.Deployment.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.WebPages.Razor.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\WebMatrix.Data.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\Microsoft.Web.WebPages.OAuth.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\WebMatrix.WebData.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\Org.Mentalis.Security.Cryptography.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\bin\Mono.Math.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\obj\Release\TV.CraveASAP.Web.Admin.csprojResolveAssemblyReference.cache
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\obj\Release\TV.CraveASAP.Web.Admin.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.Web.Admin\obj\Release\TV.CraveASAP.Web.Admin.pdb
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\TV.CraveASAP.Web.Admin.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\TV.CraveASAP.Web.Admin.pdb
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\Antlr3.Runtime.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.AspNet.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.Core.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OAuth.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OpenId.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\EntityFramework.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\Microsoft.Web.Infrastructure.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\Microsoft.Web.WebPages.OAuth.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\Newtonsoft.Json.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Net.Http.Formatting.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Helpers.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Http.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Http.WebHost.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Mvc.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Optimization.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Razor.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.WebPages.Deployment.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.WebPages.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.WebPages.Razor.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\WebGrease.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\WebMatrix.Data.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\WebMatrix.WebData.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\Org.Mentalis.Security.Cryptography.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\Mono.Math.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.AspNet.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.Core.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OAuth.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OpenId.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\Newtonsoft.Json.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\EntityFramework.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Net.Http.Formatting.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Helpers.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Http.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Http.WebHost.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Mvc.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.Razor.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.WebPages.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.WebPages.Deployment.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\System.Web.WebPages.Razor.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\WebMatrix.Data.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\Microsoft.Web.WebPages.OAuth.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\WebMatrix.WebData.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\Org.Mentalis.Security.Cryptography.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\bin\Mono.Math.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\obj\Release\TV.CraveASAP.Web.Admin.csprojResolveAssemblyReference.cache
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\obj\Release\TV.CraveASAP.Web.Admin.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.Web.Admin\obj\Release\TV.CraveASAP.Web.Admin.pdb

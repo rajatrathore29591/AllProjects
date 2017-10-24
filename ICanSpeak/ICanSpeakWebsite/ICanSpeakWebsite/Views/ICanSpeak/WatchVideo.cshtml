@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "~/Views/Shared/_FAQLayout.cshtml";
+}
+<link rel="stylesheet" href="@Url.Content("~/video-plugin/jquery.videocontrols.css")" />
+<script src="@Url.Content("~/video-plugin/jquery.videocontrols.js")"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myVideo_demo').videocontrols(
+        {
+            markers: [40, 84, 158, 194, 236, 272, 317, 344, 397, 447, 490, 580],
+            preview:
+            {
+                sprites: ['~/Content/img/content-bg.png'],
+                step: 10,
+                width: 200
+            },
+            theme:
+            {
+                progressbar: 'blue',
+                range: 'pink',
+                volume: 'pink'
+            }
+        });
+    });
+</script>
+
+    @foreach (var item in Model)
+    {
+          
+        <div class="container ">
+            <div class="col-lg-12 PD50">
+                <div class="js-video [vimeo, widescreen]">
+                    <video id="myVideo_demo" width="100%" height="auto" controls="controls">
+                        <source src="@item.VideoUrl" type="video/mp4">
+                </div>
+            </div>
+        </div>
+    }
+
+    

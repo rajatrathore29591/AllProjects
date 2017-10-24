@@ -1,0 +1,67 @@
+﻿
+<div ng-controller="TabCtrl" class="workallocation">
+    <!--Search Filter-->
+    <div class="row right-btn-group clearfix">
+        <div class="col-md-12">
+            <div class="btn-group pull-right ">
+                <button type="button" class="btn btn-default" title="PDF"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</button>
+                <button type="button" class="btn btn-default" title="Excel"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Excel</button>
+                <button type="button" class="btn btn-default" title="Print"><i class="fa fa-print" aria-hidden="true"></i> Print</button>
+                <button type="button" class="btn btn-default" title="Email"><i class="fa fa-envelope" aria-hidden="true"></i> Email</button>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!--Search Filter-->
+    <div ng-controller="WorkAllocationCtrl as waCtrl">
+        <div class="hpanel">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="booking-details left-heading">
+                            <table cellpadding="0" cellspacing="0">
+                                <tbody>
+                                    <tr>
+                                        <td><b>Booking Number:</b> {{waCtrl.bookingFleetHistory.BookingNumber}}</td>
+                                        <td><b>Fleet:</b> {{waCtrl.bookingFleetHistory.FleetName}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Customer Name:</b> {{waCtrl.bookingFleetHistory.CustomerName}}</td>
+                                        <td><b>Fleet Number/Description:</b> {{waCtrl.bookingFleetHistory.RegistrationDescription}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Booking Start Date:</b> {{waCtrl.bookingFleetHistory.BookingFleetStartDate | date : "dd-MM-yyyy"}}</td>
+                                        <td><b>Booking End Date:</b> {{waCtrl.bookingFleetHistory.BookingFleetEndDate | date : "dd-MM-yyyy"}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+             </div>
+           </div>
+                <!--Fleet History Content-->
+
+                <div class="grid-tb-panel clearfix">
+                    <table ng-table="waCtrl.bcaTableParams" class="table table-stripped toggle-arrow-tiny table-hover">
+                        <tr ng-repeat="item in $data" ng-if="$data.length > 0">
+                            <td title="'Date'" class="text-center">{{item.CreatedDate | date : "dd-MM-yyyy"}}</td>
+                            <td title="'Driver/Shift'" class="text-center">{{item.DriverName}} / {{(item.IsDayShift=="true")?"Day":"Night"}}</td>
+                            <td title="'Notes'">{{item.NoteForDrive}}</td>
+                            <td title="'Reason For Change'">{{item.Reason}}</td>
+                            <td title="'Attachments'" class="text-center">{{item.Attachments}}</td>
+                            <!--<td title="'Dockets'" class="text-center">{{item.Dockets}}</td>-->
+                        </tr>
+                        <tr ng-if="$data.length <= 0">
+                            <td colspan="6" class="text-center">Not records found</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!--Fleet History Content End-->
+                <div class="text-right m-b">
+                    <a href="javascript:void(0);" ng-click="goBack();"  class="btn btn-primary btn-i"><i class="fa fa-chevron-left" aria-hidden="true"></i>Back</a>
+                </div>
+            </div>
+        </div>
+        <!--Tab End-->

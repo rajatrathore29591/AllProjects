@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "MessageReply";
+}
+
+<style type="text/css">
+    #footer
+    {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    #mailsection
+    {
+        min-height: 400px;
+        margin-top: 20px;
+    }
+
+    .working
+    {
+        background: url('../Images/indicator.jpg') no-repeat right center;
+    }
+</style>
+
+<div class="row accordian">
+    <div class="col-sm-9">
+        <section id="mailsection" class="panel">
+            <header class="panel-heading wht-bg">
+                <h4 class="gen-case">Reply Message
+                </h4>
+            </header>
+            <div class="panel-body">
+                <div class="compose-mail">
+                    <div>
+                        @using (Html.BeginForm("MessageReply", "Message", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <div class="form-group">
+                                <label for="to" class="">To:</label>
+                                <input value="@Model.UserName" readonly type="text" tabindex="1" id="txtSearch" class="form-control">
+                                <input value="@Model.RecieverId" name="RecieverId" type="hidden" id="recieverid" />
+                            </div>
+                            <div class="form-group">
+                                <label for="subject" class="">Subject:</label>
+                                <input name="Subject" type="text" tabindex="1" id="subject" class="form-control">
+                            </div>
+                            <div class="form-group ">
+                                <label for="subject" class="">Message:</label>
+                                <div class="col-lg-10 tp20  pull-left ">
+                                    <textarea name="Messagebody" class="form-control" rows="5" id="textArea"></textarea>
+                                </div>
+                            </div>
+                            <div class="compose-btn">
+                                <button class="btn btn-theme btn-info"><i class="fa fa-check"></i>Reply</button>
+                                <a href="../../Message/Messages">
+                                    <button class="btn btn-info"><i class="fa fa-times"></i>Discard</button></a>
+                            </div>
+                                
+                            <div class="form-group ">
+                                @if (ViewBag.Message == "success")
+                                {
+                                    <div style="margin-top: 10px" class="alert alert-dismissible alert-success">
+                                        <strong class="alert-link">Your message was successfully delivered. </strong>
+                                    </div>
+                                }
+                                @if (ViewBag.Message == "error")
+                                {
+                                    <div style="margin-top: 10px" class="alert alert-dismissible alert-danger">
+                                        @*<button type="button" class="close" data-dismiss="alert">×</button>*@
+                                        <strong class="alert-link">Message delivery failed. </strong><strong>Please try again.</strong>
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

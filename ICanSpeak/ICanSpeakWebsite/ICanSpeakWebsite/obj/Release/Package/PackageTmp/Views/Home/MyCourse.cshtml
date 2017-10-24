@@ -1,0 +1,301 @@
+﻿@using ICanSpeakWebsite.Models
+@{
+    ViewBag.Title = "MyCourse";
+}
+
+<link href="~/css/jquery.flipcountdown.css" rel="stylesheet" />
+<script src="@Url.Content("/Scripts/jquery.min.js")"></script>
+<script src="@Url.Content("/Scripts/jquery.flipcountdown.js")"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+    jQuery(function ($) {
+        var i = 1000;
+        $('#retroclockbox1').flipcountdown();
+        var i = 1;
+        $('#retroclockbox_counter').flipcountdown({
+            tick: function () {
+                return i++;
+            }
+        });
+        $('#retroclockbox2').flipcountdown({ showHour: false, showMinute: false, showSecond: true });
+        $('#retroclockbox3').flipcountdown({ tzoneOffset: 3, showSecond: false });
+        $('#retroclockbox4').flipcountdown({ am: true });
+        $('#retroclockbox5').flipcountdown({ speedFlip: 50 });
+        $('#retroclockbox6').flipcountdown({
+            tick: function () {
+                return new Date('5/10/2012 12:34:23');
+            }
+        });
+
+
+    })
+
+</script>
+<script src="@Url.Content("/Scripts/jquery.min.js")"></script>
+<script src="@Url.Content("/Scripts/jquery.flipcountdown.js")"></script>
+@*<script>
+     
+          //function myFunction() {
+          var txt;
+
+          setTimeout(function () {
+
+
+            //  alert("Hello" + $('#GrammerBookmarkId').val());
+
+              var r = confirm("Press a button!" + $('#GrammerBookmarkId').val());
+              if (r == true) {
+                 
+                  //txt = "You pressed OK!";
+                  // $('#BookmarkId').click(function () {
+                  //-----------------------Video Call Ajax Section -----------------------------------------------------//
+
+                  $.ajax({
+
+                      url: '@Url.Action("GrammerDetail", "Grammer")',
+
+                  type: "POST",
+                  data: { id: $('#GrammerBookmarkId').val(),value:$('#value').val() },
+
+                  success: function (data) {
+
+                      console.log("data====" + JSON.stringify(data));
+                      $("#grammerpartial").html(data);
+                      //$('#unitid').val(data[0].Unitid);
+                      //$('#DescriptionEnglish')
+                      //var unitcount = parseInt($('#unitcount').text(), 10);
+                      //unitcount = unitcount + 1;
+                      //$('#unitcount').text(unitcount);
+                  },
+                  error: function (result) {
+                      console.log("result====" + JSON.stringify(result));
+
+                      $("#lblLoginerror").css("display", "block");
+                  }
+              });
+
+              //--------------------Video Call Ajax Section Ends -----------------------------------------------------//
+              // return false;
+              // });
+
+          }
+          else {
+              txt = "You pressed Cancel!";
+          }
+
+
+          }, 3000);
+
+
+          //document.getElementById("demo").innerHTML = txt;
+
+          //}
+      
+</script>*@
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //$("#click_btn").click(function(){
+        $("#myModal").modal('show');
+        //});
+    });
+</script>
+@*<input type="button" value="Bookmark" id="BookmarkId"/>
+<input type="hidden" value="@ViewBag.GrammerBookmark" id="GrammerBookmarkId" />
+<input type="hidden" value="1" id="value" />*@
+<div class="row">
+    <div class="container">
+        @if (ViewBag.GrammerBookmark != "")
+        {
+            <div id="myModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <div class="modal-header btn-info">
+
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Confirmation</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Do you want to redirect on saved bookmark</p>
+                            <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+                        </div>
+                        <div class="modal-footer">
+                            @*<a href="#" class="btn btn-info">Save changes</a>*@
+                            <a href="../../Grammer/GrammerDetail?id=@ViewBag.GrammerBookmark"  class="btn btn-info" id="grammerBookmark">Grammer Bookmark</a>
+                            <a href="#" class="btn btn-danger" data-dismiss="modal">Close</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>​
+        }
+        <div class="col-lg-12">
+
+            <div class="col-md-3 user-profice-pic">
+
+
+                <img src="@ViewBag.ProfilePicture"  class="img-page">
+            </div>
+            <div class="col-md-9">
+                <div class="col-md-4">
+                    <h2 class=" user-profile">@ViewBag.Username</h2>
+
+                    <h4 class="tutor-city-name">@ViewBag.Country</h4>
+                </div>
+                <div class="col-lg-5 col-lg-push-3">
+                    <!--<ul class="nav nav-pills view-profile">
+                        <li class="active"><a href="#">Subscription</a></li>
+                        <li><a href="#">Normal</a></li>                      
+                    </ul>
+                   -->
+                </div>
+            </div>
+
+            <div class="col-lg-2 blue-wrapper">
+                <h2>My Score</h2>
+                <h3>@ViewBag.MyScore / @ViewBag.TotalScore</h3>
+            </div>
+            <div class="col-lg-2 blue-wrapper">
+                <h2>Instructor Evaluation</h2>
+                <h3>Great </h3>
+            </div>
+            <div class="col-lg-2 blue-wrapper">
+                <a href="../../Vocab/FlashCardWordList">
+                    <h2>Flashcards</h2>
+                </a>
+
+                <h3>@ViewBag.FlashCard</h3>
+            </div>
+            @*<div class="col-lg-2 blue-wrapper">
+                <h2>Days Remaining</h2>
+                <div align="center">
+                    <div id="retroclockbox_sm"></div>
+                </div>
+                <script>
+                    jQuery(function ($) {
+                        //var NY = Math.round((new Date('1/01/2015 00:00:01')).getTime()/1000);
+                        $('#new_year').flipcountdown({
+                            size: 'lg',
+                            beforeDateTime: '1/01/2015 00:00:01'
+                            /*tick:function(){
+                                var nol = function(h){
+                                    return h>9?h:'0'+h;
+                                }
+                                var	range  	= NY-Math.round((new Date()).getTime()/1000),
+                                    secday = 86400, sechour = 3600,
+                                    days 	= parseInt(range/secday),
+                                    hours	= parseInt((range%secday)/sechour),
+                                    min		= parseInt(((range%secday)%sechour)/60),
+                                    sec		= ((range%secday)%sechour)%60;
+                                return nol(days)+' '+nol(hours)+' '+nol(min)+' '+nol(sec);
+                            }*/
+                        });
+                    });
+                </script>
+                <script>
+                    jQuery(function ($) {
+                        $('#retroclockbox_lg').flipcountdown({ size: 'lg' });
+                        $('#retroclockbox_md').flipcountdown({ size: 'md' });
+                        $('#retroclockbox_sm').flipcountdown({ size: 'sm' });
+                        $('#retroclockbox_xs').flipcountdown({ size: 'xs' });
+                    })
+                </script>
+            </div>*@
+
+            <div class="col-lg-2 blue-wrapper">
+                <h2>Days Remaining</h2>
+                <div align="center">
+                    <div id="retroclockbox_sm"></div>
+                </div>
+                <script>
+                    jQuery(function ($) {
+                        //var NY = Math.round((new Date('1/01/2015 00:00:01')).getTime()/1000);
+                        $('#new_year').flipcountdown({
+                            size: 'lg',
+                            beforeDateTime: '1/01/2015 00:00:01'
+
+                        });
+                    });
+                </script>
+                <script>
+                    jQuery(function ($) {
+                        $('#retroclockbox_lg').flipcountdown({ size: 'lg' });
+                        $('#retroclockbox_md').flipcountdown({ size: 'md' });
+                        $('#retroclockbox_sm').flipcountdown({ size: 'sm' });
+                        $('#retroclockbox_xs').flipcountdown({ size: 'xs' });
+                    })
+                </script>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <h2 class="header ML20">Courses</h2>
+
+            <div class="col-lg-2 blue-wrapper2">
+                <h2>Grammar</h2>
+
+            </div>
+            <a href="../../Vocab/VocabList">
+                <div class="col-lg-2 grey-wrapper">
+                    <h2>Vocabulary</h2>
+                </div>
+            </a>
+            <a href="../../Dialog/DialogList">
+                <div class="col-lg-2 grey-wrapper">
+                    <h2>Dialogue</h2>
+                </div>
+            </a>
+            <!--<div class="col-lg-2 grey-wrapper">
+                    <h2>Course Duration</h2>
+                    
+                </div>-->
+            <span class=" right-part">
+                <a href="../../Course/SubscriptionPlan">
+                    <button type="button" class="btn btn-info"><i class="fa fa-plus-circle"></i>&nbsp;Add New course</button></a>
+            </span>
+            <div class="clearfix"></div>
+            <div class="col-lg-12">
+
+                <div class="vocab-wrapper">
+
+                    <div class="col-lg-12">
+                        <div class="tab-pane " id="grammar">
+                            @foreach (var grammer in ViewBag.Grammer)
+                            {
+                                if (Convert.ToInt32(@grammer["RowIndex"]) % 2 != 0)
+                                { 
+                                <div class="panel panel-default panel-bottom">
+                                    <a href="../../Grammer/GrammerDetail?id=@grammer["UnitId"]&index=@grammer["RowIndex"]">
+                                        <div class="panel-body panel-body-Padding unit-tab">
+                                            @grammer["UnitNameEnglish"]
+                                            <i class="fa fa-arrow-circle-right course-size"></i>
+
+                                        </div>
+                                    </a>
+                                </div>
+                                    
+                                }
+                                else
+                                {
+                                <div class="panel panel-default panel-bottom">
+                                    <a href="../../Grammer/GrammerDetail?id=@grammer["UnitId"]&index=@grammer["RowIndex"]">
+                                        <div class="panel-body panel-body-Padding unit-tab2">
+                                            @grammer["UnitNameEnglish"]
+                                            <i class="fa fa-arrow-circle-right course-size" style="cursor: pointer;"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                }
+
+                            }
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

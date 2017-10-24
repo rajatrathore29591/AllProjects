@@ -1,0 +1,240 @@
+﻿<div class="animate-panel createdocket" ng-controller="DocketViewCtrl as dvCtrl">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-body p-b0" id="printDocket">
+                    <form role="form" id="form">
+                        <div class="print-show">
+                            <table width="100%">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <img src="../images/print-logo.jpg">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">
+                                            <p>ABN 53 158  472 907</p>
+                                            <p>Email: admin@brogcivilaust.com.au</p>
+                                            <p>PO Box 78 Horsley Park NSW 2175</p>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="padding-right: 20px"><h4 style="margin-bottom: 0">Excavation</h4></td>
+                                                        <td><h4 style="margin-bottom: 0">Plant Hire</h4></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right: 20px"><h4 style="margin-bottom: 0">Haulage</h4></td>
+                                                        <td><h4 style="margin-bottom: 0">Contracting</h4></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <br>
+                        <p class="m-b0"></p><h3 class="blue" style="text-align: right;">Docket Number: {{(dvCtrl.viewAttributes.DocketNo)?dvCtrl.viewAttributes.DocketNo: '________'}}</h3><p></p><br>
+
+                        <table width="100%" style="padding-bottom: 10px">
+                            <tbody>
+                                <tr>
+                                    <td width="100%">
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <th width="180">Customer Name</th>
+                                                    <td>{{dvCtrl.viewAttributes.CustomerName}}</td>
+                                                    <th width="180">Site Name</th>
+                                                    <td>{{dvCtrl.viewAttributes.SiteName}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="180">Contact Person Name</th>
+                                                    <td>{{dvCtrl.viewAttributes.SupervisorName}}</td>
+                                                    <th width="180">Contract Number</th>
+                                                    <td>{{dvCtrl.viewAttributes.BookingNumber}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Driver's Name</th>
+                                                    <td>{{dvCtrl.viewAttributes.DriverName}}</td>
+                                                    <th>Shift</th>
+                                                    <td>{{(dvCtrl.viewAttributes.IsDayShift===true)?"Day":"Night"}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Date &amp; Day</th>
+                                                    <td>{{dvCtrl.viewAttributes.DocketDate | date : 'dd-MM-yyyy EEEE'}}</td>
+                                                    <th>Wet Hire</th>
+                                                    <td>{{(dvCtrl.viewAttributes.Iswethire===true)?"Yes":"No"}}</td>
+                                                </tr>
+
+
+                                            </tbody>
+                                        </table>
+                                    </td>
+  
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="section-light-grey m-b0">
+                            <table class="table table-bordered text-center m-b0" style="table-layout: fixed;">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <label>Start</label>
+                                        </td>
+                                        <td>
+                                            <label>End</label>
+                                        </td>
+                                        <td>
+                                            <label>Total Hours</label>
+                                        </td>                                       
+                                        <td>
+                                            <label>Brog Civil Truck No.</label>
+                                        </td>
+                                        <td>
+                                            <label>Truck Rego</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            {{dvCtrl.viewAttributes.StartTime}}
+                                        </td>
+                                        <td>
+                                             {{dvCtrl.viewAttributes.EndTime}}
+                                        </td>
+                                        <td>
+                                           {{dvCtrl.viewAttributes.TotalHour}}
+                                        </td>
+                                        <td>
+                                            {{}}
+                                        </td>
+                                        <td>
+                                            {{dvCtrl.viewAttributes.Registration}}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <table class="table m-t10 m-b0">
+                            <tbody>
+                                <tr>
+                                    <td style="border:none" nowrap="">
+                                        <h4>Lunch</h4>
+                                    </td>
+                                    <td style="border:none">
+                                        <p class="">
+                                            <label>Break 1</label>
+                                            <label>From:{{(dvCtrl.viewAttributes.LunchBreak1From != '00:00:00' && dvCtrl.viewAttributes.LunchBreak1From)?dvCtrl.viewAttributes.LunchBreak1From : '______________'}} </label>
+                                            <label>To: {{(dvCtrl.viewAttributes.LunchBreak1End != '00:00:00' && dvCtrl.viewAttributes.LunchBreak1End)?dvCtrl.viewAttributes.LunchBreak1End: '______________'}} </label>
+                                        </p>
+                                        <p class="m-b0">
+                                            <label>Break 2</label>
+                                            <label>From:{{(dvCtrl.viewAttributes.LunchBreak2From != '00:00:00' && dvCtrl.viewAttributes.LunchBreak2From)?vdCtrl.viewAttributes.LunchBreak2From : '______________'}} </label>
+                                            <label>To:{{(dvCtrl.viewAttributes.LunchBreak2End != '00:00:00' && dvCtrl.viewAttributes.LunchBreak2End)?vdCtrl.viewAttributes.LunchBreak2End : '______________'}}</label>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th nowrap="" width="1%">Load</th>
+                                    <th>Loading Site</th>
+                                    <th>Weight(tonne)</th>
+                                    <th>Load Time</th>
+                                    <th>Tip Off Site</th>
+                                    <th>Tip Off Time</th>
+                                    <th>Material</th>
+                                </tr>
+                                <tr ng-repeat="loading in dvCtrl.viewAttributes.LoadDocket" ng-if="dvCtrl.viewAttributes.LoadDocket.length>0">
+                                    <td align="center">{{$index+1}}</td>
+                                    <td>{{loading.LoadingSite}}</td>
+                                    <td>{{loading.Weight}}</td>
+                                    <td>{{loading.LoadTime}}</td>
+                                    <td>{{loading.TipOffSite}}</td>
+                                    <td>{{loading.TipOffTime}}</td>
+                                    <td>{{loading.Material}}</td>
+                                </tr>
+                                <tr ng-if="dvCtrl.viewAttributes.LoadDocket.length<=0">
+                                    <td align="center" colspan="7">No Records Found</td>                                    
+                                </tr>                               
+                            </tbody>
+                        </table>
+                        <table width="100%">
+                            <tbody>
+                                <tr>
+                                    <td width="75%" style="vertical-align: top">
+                                        <div class="docket-checklist docket-checklist-disabled">
+                                            <ul class="list-left-box">
+                                                <li ng-repeat="item in dvCtrl.docketCheckList">
+                                                    <div class="checkbox"><label class="p-l0"> <input icheck type="checkbox" ng-model="dvCtrl.checkList[item.DocketCheckListId]" class="i-checks" ng-disabled="true"> {{item.Title}} </label></div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    
+                                    <td width="25%" align="right" style="vertical-align: top">
+                                        <table class="table table-bordered" width="100%" align="left">
+                                            <tbody>
+                                                <tr>
+                                                    <th width="110">Start KMs</th>
+                                                    <td>{{dvCtrl.viewAttributes.StartKMs}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Finish KMs</th>
+                                                    <td>{{dvCtrl.viewAttributes.FinishKMsA}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Total KMs</th>
+                                                    <td>{{((dvCtrl.viewAttributes.FinishKMsA-dvCtrl.viewAttributes.StartKMs)>0)?(dvCtrl.viewAttributes.FinishKMsA-dvCtrl.viewAttributes.StartKMs):0}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <p>
+                            By signing this Daliy Drivers docket I confirm that I am free from the effects of drugs/alcohol and fatigue
+                            and I am fit for work. I understand that I am to report to my supervisor if not fit for duty.
+                            I understand that if I make a false or misleading declaration it may be considered to be an offence and I may be subject to Brog Civil disciplinary action.<br>
+                            <br>
+                            Driver's Signature_____________________________
+                            <br>
+                        </p>
+                        <p>
+                        </p><table width="100%">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Customer Name_________________
+                                    </td>
+                                    <td align="right">
+                                        Supervisor Signature_________________
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br><br>
+                        <p class="m-b0"></p><h3 class="blue" style="text-align: left;" ng-if="dvCtrl.viewAttributes.Image!==''">Download Attachment: <a id="image" target="_self" download="Image.png" href="">Click Here</a></h3><p></p><br>
+
+                    </form>
+                </div>
+                <div class="panel-footer text-right bc-panel-footer">
+                    <div class="row">
+                        <div class="col-md-6 text-left"><!-- <input type="checkbox" class="i-checks"> Is Verified. --></div>
+                        <div class="col-md-6">
+                            <!--<a class="btn btn-default" href="javascript:void(0);" ng-click="dvCtrl.testprint('printDocket')">Print</a>-->
+       
+                             <a class="btn btn-default"ui-sref="booking.DocketList({BookingFleetId: dvCtrl.viewAttributes.BookingFleetId})">Back</a>
+                            <!--<a class="btn btn-primary" href="">Submit</a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

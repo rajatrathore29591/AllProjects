@@ -1,0 +1,88 @@
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\TradeSystem.Service.dll.config
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\TradeSystem.Service.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\TradeSystem.Service.pdb
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\AutoMapper.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\EntityFramework.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\EntityFramework.SqlServer.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\TradeSystem.Framework.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\TradeSystem.Repositories.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\TradeSystem.Utils.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\System.Web.Mvc.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.Owin.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.Owin.Security.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\System.Web.Razor.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\System.Web.WebPages.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Owin.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\TradeSystem.Repositories.pdb
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\TradeSystem.Framework.pdb
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\TradeSystem.Utils.pdb
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\AutoMapper.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\EntityFramework.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\EntityFramework.SqlServer.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\System.Web.Mvc.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.Owin.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.Owin.Security.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\System.Web.Razor.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\System.Web.WebPages.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\obj\Debug\TradeSystem.Service.csprojResolveAssemblyReference.cache
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\obj\Debug\TradeSystem.Service.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Business\TradeSystem.Service\obj\Debug\TradeSystem.Service.pdb
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\TradeSystem.Service.dll.config
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\TradeSystem.Service.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\TradeSystem.Service.pdb
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\AutoMapper.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\EntityFramework.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\EntityFramework.SqlServer.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\TradeSystem.Framework.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\TradeSystem.Repositories.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\TradeSystem.Utils.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\System.Web.Mvc.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.Owin.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.Owin.Security.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\System.Web.Razor.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\System.Web.WebPages.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Owin.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\TradeSystem.Repositories.pdb
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\TradeSystem.Framework.pdb
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\TradeSystem.Utils.pdb
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\AutoMapper.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\EntityFramework.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\EntityFramework.SqlServer.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\System.Web.Mvc.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.Owin.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.Owin.Security.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\System.Web.Razor.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\System.Web.WebPages.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\obj\Debug\TradeSystem.Service.csprojResolveAssemblyReference.cache
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\obj\Debug\TradeSystem.Service.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\obj\Debug\TradeSystem.Service.pdb

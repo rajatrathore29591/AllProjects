@@ -1,0 +1,38 @@
+﻿@model List<TradeSystem.Utils.Models.RoleSideMenuDataModel>
+@{
+
+    Layout = null;
+}
+
+<!--Contain for show role title-->
+<div class="col-md-12 rolecheckbox">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+
+        <label class="checkbox-inline">
+            @Html.CheckBoxFor(m => m[i].IsChecked)          
+            @Model[i].SideMenuName
+            @Html.HiddenFor(m => m[i].SideMenuId)            
+        </label>
+    }
+</div>
+@*<div class="col-md-6">
+        <label class="checkbox-inline">
+            <input class="styled" type="checkbox">
+            Investment Configuration
+        </label>
+        <label class="checkbox-inline no-margin-left">
+            <input class="styled" type="checkbox">
+            Finance Management
+        </label>
+        <label class="checkbox-inline no-margin-left">
+            <input class="styled" type="checkbox">
+            Account Management
+        </label>
+        <label class="checkbox-inline no-margin-left">
+            <input class="styled" type="checkbox">
+            Promotions
+        </label>
+    </div>*@
+
+

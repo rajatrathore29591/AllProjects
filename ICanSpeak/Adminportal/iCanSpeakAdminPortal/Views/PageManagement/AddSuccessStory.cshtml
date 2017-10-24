@@ -1,0 +1,138 @@
+﻿@model iCanSpeakAdminPortal.Models.SuccessStoryModel
+
+@{
+    ViewBag.Title = "AddSuccessStory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/themes/fileinput.css" rel="stylesheet" />
+<link href="~/Content/themes/style.css" rel="stylesheet" />
+<script src="~/Scripts/fileinput.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var files = e.files;
+                var filePath = input.value;
+                var ext = filePath.substring(filePath.lastIndexOf('.') + 1).toLowerCase();
+                if ($.inArray(ext, ['jpg', 'png', 'jpeg']) == -1) {
+                    alert('You can only upload .jpg,.png, .jpeg files');
+                    input.value = '';
+                    e.preventDefault();
+                    return false;
+                }
+                $("#imagebase64").val(e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementsByName("dob")[0].setAttribute('max', today);
+
+    function textonly(e) {
+        if (e.keyCode == 45) {
+            return false;
+        }
+        var code;
+        if (!e) var e = window.event;
+        if (e.keyCode) code = e.keyCode;
+        else if (e.which) code = e.which;
+        var character = String.fromCharCode(code);
+        var AllowRegex = /^[\ba-zA-Z\s-]$/;
+        if (AllowRegex.test(character)) return true;
+        return false;
+    }
+</script>
+
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+        @using (Html.BeginForm("AddSuccessStory", "PageManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <!-- Page Heading -->
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        <font color="44c9ff"> Add Success Story</font>
+                    </h1>
+                </div>
+                <a style="cursor: pointer; color: #3d3b3b; font-size: 14pt; margin-left: -260px; float: right; position: absolute; margin-top: 55px; font-weight: 200;" href="../../Admin/PageManagement/SuccessStoryList/">Go to Success Story List</a>
+            </div>
+            <!--Edit Table start-->
+            <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2  col-sm-6 col-sm-offset-2 col-xs-12">
+                <div class="row">
+                    <label id="msg" style="font-size: 16pt;"></label>
+                    <div>                       
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Client Name <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" name="clientName" required id="clientName" placeholder="Client Name">
+                        </div>                     
+                        <div class="form-group">
+                            <label>Client Image<span style="color: #FE2801;">*</span></label>                         
+                            <input id="file-1a" name="Image" required type="file" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false" onchange="readURL(this);">
+                        </div>                                            
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Story <span style="color: #FE2801;">*</span></label>
+                            <textarea class="form-control" id="clientStory" name="clientStory" placeholder="250 characters only" required maxlength="250" rows="3"></textarea>
+                        </div>                       
+
+                        <div class="form-group">
+                            <button id="submit" class="btn btn-info" onclick="validateUserInput()">Submit</button>&nbsp;&nbsp;
+                        <input type="button" class="btn btn-info" value="Reset" onclick="ResetFormValues()" />&nbsp;&nbsp;
+                      <a href="../../Admin/PageManagement/SuccessStoryList">
+                          <input type="button" class="btn btn-info" value="Cancel" /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <!--edit table end here-->
+        }
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+
+<script type="text/javascript">
+    function CreateSubAdmin() {         
+            var result = validateUserInput();
+            if (result != false) {
+                $.ajax({
+                    url: '@Url.Action("AddSuccessStory", "PageManagement")',
+                    type: "POST",
+                    data: { clientName: $("#clientName").val(), clientStory: $("#clientStory").val(), clientImage: $('#imagebase64').val() },
+                    success: function (result) {
+                        if (result == "Success") {
+                            window.location.href = "../../Admin/PageManagement/SuccessStoryList"
+                        }
+                        else {
+                            $("#msg").text("An error occured , please try again.");
+                            $("#msg").css("color", "red");
+                        }
+                        $("#msg").focus();
+                        $(document).scrollTop(0);
+                    },
+                    error: function (result) {
+                    }
+                });
+            }
+        }
+    function ResetFormValues() {
+        $("#clientName").val(''); $("#clientStory").val('');
+    }
+    </script>
+

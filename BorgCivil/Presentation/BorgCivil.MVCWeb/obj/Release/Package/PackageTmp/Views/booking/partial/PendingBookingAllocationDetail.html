@@ -1,0 +1,124 @@
+﻿<div class="inmodal" >
+    <div class="modal-header text-center">
+        <!--<i class="fa fa-sliders color-success h-modal-icon"></i>-->
+        <h4 class="modal-title">Add Fleet Detail</h4>
+        <div class="clostbtn">
+            <button type="button" data-dismiss="modal" aria-label="Close" ng-click="waCtrl.cancel()"><img src="Content/images/closebtn.png" title="Close"></button>
+        </div>
+    </div>
+    <form ng-submit="waCtrl.manageFleetBooking()" novalidate>
+        <div class="modal-body">
+            <!--Form Content Start-->
+            <div class="bc-panel-white" ng-controller="StartDatepickerCtrl">
+                <div class="row clearfix">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Fleet</label>
+                            <select class="form-control" ng-change="waCtrl.fleetChange()" ng-model="waCtrl.attributes.BookingFleet.FleetTypeId">
+                                <option value="">Select</option>
+                                <option value="{{item.FleetTypeId}}" ng-repeat="item in waCtrl.fleetTypeDropdownList">{{item.FleetTypeName}}</option>
+                            </select>
+                        </div>
+                    </div>                   
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Registration Number / Description<span class="text-danger">*</span></label>
+                            <select name="" class="form-control" ng-change="waCtrl.fleetRegistrationChange()" ng-model="waCtrl.attributes.BookingFleet.FleetRegistrationId" required>
+                                <option value="">Select</option>
+                                <option value="{{item.FleetRegistrationId}}" ng-repeat="item in waCtrl.fleetRegistrationDropdownList">{{item.RegistrationNumber}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Driver<span class="text-danger">*</span></label>
+                            <select name="" class="form-control" ng-model="waCtrl.attributes.BookingFleet.DriverId" required>
+                                <option value="">Select</option>
+                                <option value="{{item.DriverId}}" ng-repeat="item in waCtrl.driverDropdownList">{{item.DriverName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-2">
+                        <label>Shift</label>
+                        <div class="form-group">
+                            <ul class="list-inline inline-form-element">
+                                <li>
+                                    <div class="checkbox"><label class="p-l0"> <input type="radio" icheck name="radioshift" ng-model="waCtrl.attributes.BookingFleet.IsDayShift" value="true" ng-checked="true"> Day</label></div>
+                                </li>
+                                <li>
+                                    <div class="checkbox"><label class="p-l0"> <input type="radio" icheck name="radioshift" ng-model="waCtrl.attributes.BookingFleet.IsDayShift" value="false"> Night</label></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label>Wet Hire</label>
+                        <ul class="list-inline inline-form-element">
+                            <li>
+                                <div class="checkbox"><label class="p-l0"> <input type="radio" name="radiowet" ng-model="waCtrl.attributes.BookingFleet.Iswethire" value="true" icheck ng-checked="true"> Yes</label></div>
+                            </li>
+                            <li>
+                                <div class="checkbox"><label class="p-l0"> <input type="radio" name="radiowet" ng-model="waCtrl.attributes.BookingFleet.Iswethire" value="false" icheck> No</label></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-11">
+                        <div class="form-group">
+                            <label>Attachments</label>
+                            <ul class="list-inline attachment-list inline-form-element">
+                                <li ng-repeat="item in waCtrl.attachementList.Attachments">
+                                    <div class="checkbox"><label class="p-l0"> <input icheck type="checkbox" ng-model="waCtrl.check[item.AttachmentId]" ng-checked="waCtrl.isChecked(item.AttachmentId)" class="i-checks"> {{item.AttachmentTitle}} </label></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-11">
+                        <div class="form-group">
+                            <label>Combo Hire</label>
+                            <ul id="ulCheckList" class="list-inline attachment-list inline-form-element">
+                                <li ng-repeat="item in waCtrl.attachementList.ComboHire">
+                                    <div class="checkbox"><label class="p-l0"> <input icheck type="checkbox" id="{{item.AttachmentId}}" ng-model="waCtrl.check[item.AttachmentId]" class="i-checks"> {{item.AttachmentTitle}} </label></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-if="waCtrl.show">
+                    <div class="col-md-11">
+                        <div class="form-group">
+                            <ul id="ulCheckList" class="list-inline attachment-list inline-form-element">
+                                <li>
+                                    <div class="checkbox"><label class="p-l0"> <input icheck type="checkbox" ng-model="waCtrl.attributes.BookingFleet.IsfleetCustomerSite" value="true" class="i-checks">Is fleet at customer’s site? </label></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Notes For Driver<span class="text-danger">*</span></label>
+                            <textarea class="form-control" ng-model="waCtrl.attributes.BookingFleet.NotesForDrive" required></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-6" ng-if="waCtrl.show">
+                        <div class="form-group">
+                            <label>Reason<span class="text-danger">*</span></label>
+                            <textarea class="form-control" ng-model="waCtrl.attributes.BookingFleet.Reason" required></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Form Content End-->
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="waCtrl.cancel()" title="Close">Close</button>
+            <button type="submit" class="btn btn-primary" title="Save Changes">Save Changes</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,277 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+ <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Tutor</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+       
+        <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+     <link href="~/font-awesome-4.1.0/css/._font-awesome.min.css" rel="stylesheet" />
+        <style>
+            body {
+                
+              
+            }
+        </style>
+      
+     <link href="~/css/main.css" rel="stylesheet" />
+<link href="~/css/bootstrap-theme.min.css" rel="stylesheet" />
+        <!--[if lt IE 9]>
+            <script src="js/vendor/html5-3.6-respond-1.1.0.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="navbar navbar-info " role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+           <a class="navbar-brand" href="#"> <font size="2" color="white">Switch to</font> <button type="button" class="btn btn-info btn-nav"><font size="2">Arabic</font></button>
+           </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="form">
+            <div class="set">
+
+                    <ul class="navDropDown">
+                        <li class="drop"><a href="#">Home</a> |</li>
+                        <li class="drop"><a href="#">Account</a> |</li>
+                         <li class="drop"><a href="#">Logout</a></li>
+                    </ul>
+            </div>             
+      
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+ 
+   <div class="row jumbo">
+     <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-offset-2 col-xs-12">
+       <img src="~/Images/userlogo.png" />
+     </div>
+
+     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 ">
+        <ul class="menu">
+          <li><a href="#">Tutors</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+     </div>
+   </div>
+  
+
+     
+
+      
+      <div class="row">
+      	<div class="container">
+         <div class="col-lg-12 ">
+            <h2 class="heading-left"> <font color="#868686">Tutor</font></h2>
+         </div>
+         </div>
+      </div>
+       
+        <!--Tutor start-->
+     
+            
+      @foreach (var item in Model)
+      {
+          
+      
+        <div class="container">
+        	<div class="row">
+            	<div class="col-lg-12 tutor-wrap">
+                	<div class="col-lg-2 tutor-pic">
+                    	<img src="@item.ProfilePicture"class="img-responsive" >
+                    </div>
+                    <div class="col-lg-7">
+                    	<h2 class="tutor-name">@item.FirstName</h2>
+                        <h4 class="tutor-city-name">@item.Country</h4>
+                        <h4 class="tutor-city-name"><span class=" blue">Experience - </span>@item.Experience</h4>
+                        <h4 class="tutor-city-name"><span class=" blue">Specialisation - </span>@item.Specialisation</h4>
+                        <p>I will help you with every aspect of English (or ESL): reading, writing, grammar, proofreading and TOEFL prep. After 25 years as a successful freelance writer, with thousands of articles published in The New York Times and other newspapers and magazines, I earned... <a href="#">More</a></p>
+                    </div>
+                    <div class="col-lg-2">
+                    <h4 class="details">Date of Birth</h4>
+                    <h4 class="tutor-city-name">@item.DOB</h4>
+                    <h4 class="details">Email Id:</h4>
+                    <h4 class="tutor-city-name"><a href="mailto:roberta@gmail.com">@item.Email</a></h4>
+                    <h4 class="details">Skype:</h4>
+                    <h4 class="tutor-city-name"><a href="#">Roberta</a></h4>
+                    <h4 class="details">Contact No:</h4>
+                    <h4 class="tutor-city-name">@item.Phone</h4>
+                    </div>
+                	
+                </div>
+                @*<div class="col-lg-12 tutor-wrap">
+                	<div class="col-lg-2 tutor-pic">
+                    	<img src="img/tutor-pic.png"class="img-responsive" >
+                    </div>
+                    <div class="col-lg-7">
+                    	<h2 class="tutor-name"><img src="img/online.png">Suzie S.</h2>
+                        <h4 class="tutor-city-name">New York</h4>
+                        <h4 class="tutor-city-name"><span class=" blue">Experience - </span>8 Years</h4>
+                        <h4 class="tutor-city-name"><span class=" blue">Specialisation - </span>English, vocabulary, grammar</h4>
+                        <p>When students work with me, they look forward to our sessions. Whether learning English as a Second language, writing, grammar, literature, public speaking, or business English - it can be fun. <a href="#">More</a></p>
+                    </div>
+                    <div class="col-lg-2">
+                    <h4 class="details">Date of Birth</h4>
+                    <h4 class="tutor-city-name">20th August 1968</h4>
+                    <h4 class="details">Email Id:</h4>
+                    <h4 class="tutor-city-name"><a href="mailto:suzie@gmail.com">suzie@gmail.com</a></h4>
+                    <h4 class="details">Skype:</h4>
+                    <h4 class="tutor-city-name"><a href="#">Suzie</a></h4>
+                    <h4 class="details">Contact No:</h4>
+                    <h4 class="tutor-city-name"> 0456199081 </h4>
+                    </div>
+                	
+                </div>*@	
+                <div class="col-lg-12">
+                	
+                    <ul class="pagination pagination-sm">
+                      <li class="disabled"><a href="#">«</a></li>
+                      <li class="active"><a href="#">1</a></li>
+                      <li><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">4</a></li>
+                      <li><a href="#">5</a></li>
+                      <li><a href="#">»</a></li>
+                    </ul>
+                </div>               
+                
+            </div>
+        </div>
+      }
+        <!--Tutor end-->  
+
+
+      <footer>
+        <div class="row footer-1">
+          <div class="container">
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+              <ul class="footer-menu">
+                 <h2 class="text-left">Company</h2>
+                 <li><a href="#"><i class=" fa fa-caret-right"></i>  About us</a></li>
+                 <li><a href="#"><i class=" fa fa-caret-right"></i>   Mission</a></li>
+                 <li><a href="#"><i class=" fa fa-caret-right"></i>    Contact us</a></li>
+              </ul>
+           </div>
+
+           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+              <ul class="footer-menu">
+                 <h2 class="text-left">Course</h2>
+                 <li><a href="#"><i class=" fa fa-caret-right"></i>  The Idea</a></li>
+                 <li><a href="#"><i class=" fa fa-caret-right"></i>  Contents</a></li>
+                 <li><a href="#"><i class=" fa fa-caret-right"></i>  Benefits</a></li>
+              </ul>
+           </div>
+
+           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+              <ul class="footer-menu">
+                 <h2 class="text-left">Community</h2>
+                 <li><a href="#"><i class=" fa fa-caret-right"></i>  You tube</a></li>
+                 <li><a href="#"><i class=" fa fa-caret-right"></i>  Facebook</a></li>
+                 <li><a href="#"><i class=" fa fa-caret-right"></i>  Twitter</a></li>
+              </ul>
+           </div>
+
+           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+              <ul class="footer-menu">
+                 <h2 class="text-left">News letter signup</h2>
+                 <li><a href="#"><font size="1"> Enter your email to join our mailing list</font></a></li>
+                 <div class="form-group">
+                        <div class="input-group">
+                         
+                          <input class="form-control" type="email" placeholder="Enter email">
+                           <div class="input-group-addon"><i class=" fa fa-caret-right"></i></div>
+                        </div>
+                  </div>
+    
+              </ul>
+           </div>
+          </div>                 
+   
+        </div>
+     
+           <div class="row footer-2">
+            
+        <div class="container-footer">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+               <ul class="footer-menu-bottom">
+                  <li><a href="#">I can speak &copy; 2014 All right reserved. |</a></li>   
+                  <li><a href="#">Privacy Policy |</a></li>    
+                  <li><a href="#">User Agreement</a></li>      
+               </ul>
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+
+
+       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+       <script src="js/vendor/jquery-1.11.0.min.js"></script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function (b, o, i, l, e, r) {
+                b.GoogleAnalyticsObject = l; b[l] || (b[l] =
+                function () { (b[l].q = b[l].q || []).push(arguments) }); b[l].l = +new Date;
+                e = o.createElement(i); r = o.getElementsByTagName(i)[0];
+                e.src = '//www.google-analytics.com/analytics.js';
+                r.parentNode.insertBefore(e, r)
+            }(window, document, 'script', 'ga'));
+            ga('create', 'UA-XXXXX-X'); ga('send', 'pageview');
+        </script>
+        
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#horizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion           
+            width: 'auto', //auto or any width like 600px
+            fit: true,   // 100% fit in a container
+            closed: 'accordion', // Start closed if in accordion view
+            activate: function (event) { // Callback function if tab is switched
+                var $tab = $(this);
+                var $info = $('#tabInfo');
+                var $name = $('span', $info);
+
+                $name.text($tab.text());
+
+                $info.show();
+            }
+        });
+
+        $('#verticalTab').easyResponsiveTabs({
+            type: 'vertical',
+            width: 'auto',
+            fit: true
+        });
+    });
+</script>
+
+
+      
+    </body>
+</html>

@@ -1,0 +1,161 @@
+﻿@{
+    ViewBag.Title = "Promotion";
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+}
+@model TradeSystem.Utils.Models.PromotionDataModel
+
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Promotion", "Promotion", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-validate form-horizontal" }))
+        {
+
+            <!-- Promotion Form -->
+            <div class="panel panel-flat">
+                <div class="panel-heading pb-10">
+                    <h5 class="panel-title"><span class="text-danger text-size-mini">* Fields are mandatory</span></h5>
+
+                    <div class="col-md-12 rolecheckbox modal fade" id="customer_list">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="divCustomerList" class="pre-scrollable">
+
+                                    </div>
+                                    <span class="clearfix"></span>
+                                    <div class="text-center mt-15">
+                                        <button type="button" id="close_model" data-dismiss="modal" class="btn btn-primary" onclick="getAllCustomer();" title="Ok">Ok<i class="icon-arrow-right14 position-right"></i></button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <!-- Promotion Information -->
+                    <fieldset>
+                        <legend class="text-bold">
+                            <i class="icon-file-text2 position-left"></i>
+                            Promotion Information
+                        </legend>
+                        @if (ViewBag.Success == "true")
+                        {
+                            <label class="green">@ViewBag.Message</label>
+                        }
+                        @if (ViewBag.Success == "false")
+                        {
+                            if (ViewBag.Message != null)
+                            {
+                                <label class="red">@ViewBag.Message</label>
+                            }
+                        }
+                        <div class="collapse in" id="AM_personal_information">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">Promotion Type:<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="PromotionType" id="email" class="styled" value="Email" required="required" />
+                                                Email
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="PromotionType" id="alert" class="styled" value="Alert on Web & App" required="required" />
+                                                Alert on Web & App
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">Subject/ Title<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <input type="text" name="Subject" value="@Model.Subject" placeholder="Subject" class="form-control" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="form-group mailto">
+                                        <label class="col-lg-2 control-label">To<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <input type="text" name="Email_Ids" value="@Model.To" placeholder="To" class="form-control" id="Email_Ids" required="required" readonly="readonly" />
+                                            <input type="hidden" value="" id="To" name="To" />
+                                            <a id="add_mail" class="mt-10  display-inline-block" title="Add/Remove" href="javascript:void(0);" data-toggle="modal" data-target="#customer_list" onclick="return getCustomerList();">
+                                                <i class="icon-add"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">Description:</label>
+                                        <div class="col-lg-7">
+                                            @*@Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control ckeditor" } })*@
+                                            <div id="descriptionEmail">
+                                                <textarea cols="18" rows="18" id="promotion_description" class="wysihtml5 wysihtml5-default form-control" name="Description" value="@Model.Description" placeholder="Description for email"></textarea>
+                                            </div>
+                                            <div>
+                                                <textarea cols="18" rows="10" id="descriptionAlert" class="form-control" style="display:none;" name="Alert" value="@Model.Alert" placeholder="Description for notification"></textarea>
+                                            </div>
+                                            @if (ViewBag.DescriptionMessage != "")
+                                            {
+                                                <label class="error-red error-red-t0">@ViewBag.DescriptionMessage</label>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- /personal information -->
+                    <div class="text-center mt-15 mb-10">
+                        <a class="btn bg-orange" href='@Url.Action("Promotion","Promotion")' title="Reset"><i class="icon-arrow-left13 position-left"></i> Reset </a>
+                        <button type="submit" class="btn btn-primary" title="Send">Send <i class="icon-arrow-right14 position-right"></i></button>
+
+                    </div><span class="clearfix"></span>
+                    <div id="customer_selected_list"></div>
+                </div>
+            </div>
+
+            <!-- /customer form -->
+        }
+    </div>
+</div>
+<!-- /form -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        strEmail = "";
+        strCustomerId = "";
+        localStorage.setItem('CustomerEmail', strEmail);
+        localStorage.setItem('CustomerId', strCustomerId);
+    });
+    function getCustomerList() {
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("_CustomerList","Promotion")',
+            success: function (response) {
+                $("#divCustomerList").html(response);
+                $("#Email_Ids").val('');
+                UpdateCheckbox();
+                return false;
+            }
+        });
+    }
+    $('#email').change(function () {
+        if ($(this).is(":checked")) {
+            $('#descriptionAlert').hide();
+            $('#descriptionEmail').show();
+            $('#parsley-id-16').css("display", "none");
+        }
+    })
+    $('#alert').change(function () {
+        if ($(this).is(":checked")) {
+            $('#descriptionEmail').hide();
+            $('#descriptionAlert').show();
+            $('#parsley-id-16').css("display", "block");
+            //$('#parsley-id-16').css("visibility", "visible");
+        }
+    })
+
+</script>

@@ -1,0 +1,398 @@
+﻿@using System.Globalization
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_CustomerLoggedInLayout.cshtml";
+}
+@model TradeSystem.Utils.Models.ProductDataModel
+<head>
+    @*<script type="text/javascript" src="https://
+
+        .googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>*@
+    <script type="text/javascript" src="https://openpay.s3.amazonaws.com/openpay.v1.min.js"></script>
+    <script type='text/javascript' src="https://openpay.s3.amazonaws.com/openpay-data.v1.min.js"></script>
+</head>
+<!-- Form -->
+<div class="row">
+    <div class="col-md-12">
+        <!-- Customer Form -->
+        @using (Html.BeginForm("WireTransfer", "FinanceManagement", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-validate form-horizontal" }))
+        {
+            <input type="hidden" id="remainingValue" value="@Model.RemainingValueOfInvestment" />
+            <input type="hidden" name="productId" id="GetproductId" value="@Model.Id" />
+            <div class="panel panel-flat">
+                <div class="panel-heading pb-10">
+                    <h5 class="panel-title"><span class="text-danger text-size-mini">* @Resources.Languages.Fieldsaremandatory</span></h5>
+                </div>
+
+                <div class="panel-body">
+                    <!-- Payment Information -->
+                    <fieldset>
+                        <legend class="text-bold">
+                            <i class="icon-file-text2 position-left"></i>
+                            @Resources.Languages.EnterAmounttoInvest &amp; @Resources.Languages.PaymentMethod
+                        </legend>
+
+                        <div class="collapse in" id="AM_personal_information">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">@Resources.Languages.EnterAmounttoInvest<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            @if (Model.LastRemainingInvestmentAmount != true)
+                                            {
+                                                <input data-parsley-type="number" min="1" maxlength="10" id="amountToInvest" name="amountToInvest" class="form-control" value="" placeholder="@Resources.Languages.EnterAmounttoInvest" required>
+                                            }
+                                            else
+                                            {
+                                                <label class="col-lg-4 control-label">@Model.RemainingValueOfInvestment.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</label>
+                                                <input data-parsley-type="number" min="1" maxlength="10" id="amountToInvest" name="amountToInvest" class="form-control" value="@Model.RemainingValueOfInvestment" placeholder="@Resources.Languages.EnterAmounttoInvest" style="display:none;">
+                                                <input type="hidden" id="LastRemainingStatus" name="lastRemainingInvestmentAmountStatus" value="true" />
+                                            }
+                                            <label id="show" class="error-red" style="display:none;">@Resources.Languages.Thisfieldisrequired</label>
+                                            <label id="remainingError" class="error-red" style="display:none;">@Resources.Languages.Amountshouldbeequalorlessthanremainingamount</label>
+                                            <label id="numError" class="error-red" style="display:none;">@Resources.Languages.Onlynumbersareallowed</label>
+                                            <label id="negativeError" class="error-red" style="display:none;">@Resources.Languages.Numbershouldbegreaterthan0</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-lg-11">
+                                            <div class="check">
+                                                <label>
+                                                    <input type="checkbox" id="walletAmount" name="walletAmount" value="@ViewBag.WalletAmount">
+                                                    <span>@Resources.Languages.Use</span> @ViewBag.WalletAmount.ToString("C", CultureInfo.CreateSpecificCulture("en-US")) @Resources.Languages.AvailableVirtualWallet
+                                                    <input type="hidden" id="wallet_payment_type" name="wallet_payment_type" />
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group" id="payment_option">
+                                        <label class="col-lg-5 control-label">@Resources.Languages.Pleasechooseoptiontomakepaymentforinvestment:</label>
+                                        <div class="col-lg-6">
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="paymentRadio" class="styled" id="MoreOptionControl" value="CreditCard" data-toggle="modal">
+                                                    @Resources.Languages.CreditCard
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" id="wireTransfer" value="WireTransfer" name="paymentRadio" class="styled" checked>
+                                                    @Resources.Languages.WireTransfer
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" id="MiniMarket" name="paymentRadio" value="MiniMarket" class="styled">
+                                                    @Resources.Languages.DeposittoMinimarket
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" id="paymentOffice" name="paymentRadio" class="styled" value="PaymentAtOffice">
+                                                    @Resources.Languages.PaymentatOffice
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    @if (TempData["Message"] != "" || TempData["Message"] != null)
+                    {
+                        <label class="error-red">@TempData["Message"]</label>
+                    }
+                    @if (Model.LastRemainingInvestmentAmount == true)
+                    {
+                        <label class="content-group text-danger text-size-large">@Resources.Languages.LastRemainingInvestmentAmount</label>
+                    }
+                    @if (Model.IsInvest != true)
+                    {
+                        if (Model.AllowUserToInvest == true)
+                        {
+                            <!-- /payment information -->
+                            <div class="text-center" id="divPaymentMethod">
+                                <a class="btn bg-orange" href="@Url.Action("NewInvestmentDetails", "Investment", new { id = Model.Id })" title="@Resources.Languages.Back"><i class="icon-arrow-left13 position-left"></i> @Resources.Languages.Back</a>
+                                @*<button type="button" class="btn bg-orange" onclick="goBack()"> @Resources.Languages.Back</button>*@
+                                <button type="submit" id="submitSuccess" class="btn btn-primary" title="@Resources.Languages.Submit">@Resources.Languages.Submit<i class="icon-arrow-right14 position-right"></i></button>
+                            </div>
+                        }
+                        else
+                        {
+                            <span class="red">@Resources.Languages.ConditionCheck</span>
+                        }
+                    }
+                    else
+                    {
+                        <span class="green">@Resources.Languages.Youhavealreadyinvested</span>
+
+                    }
+
+                </div>
+            </div>
+        }
+        @*</form>*@
+        <!-- /customer form -->
+
+    </div>
+</div>
+
+
+@if (Model.IsInvest != true)
+{
+    if (Model.AllowUserToInvest == true)
+    {
+        <div id="withdraw_modal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" id="modalClose">&times;</button>
+                        <h5 class="modal-title">@Resources.Languages.CreditCard:</h5>
+                    </div>
+
+                    <div class="modal-body">
+                        @using (Html.BeginForm("CreateCharge", "FinanceManagement", FormMethod.Post, new { id = "payment-form", enctype = "multipart/form-data", @class = "form-validate form-horizontal" }))
+                        {
+                            <input type="hidden" id="remainingValue" value="@Model.RemainingValueOfInvestment" />
+                            <input type="hidden" name="token_id" id="token_id">
+                            <input type="hidden" name="use_card_points" id="use_card_points" value="false">
+                            <input type="text" id="holder_name" name="holder" class="form-control" placeholder="@Resources.Languages.Nameoncard" autocomplete="off" data-openpay-card="holder_name" maxlength="50" required="required">
+                            <input type="hidden" name="investment" id="investment" value="" />
+                            <input type="hidden" name="productId" id="productId" value="@Model.Id" />
+                            <input type="hidden" name="creditcard" id="creditcard" />
+                            <input type="hidden" name="walletamount" id="walletamount" />
+                            if (Model.LastRemainingInvestmentAmount)
+                            {
+                                <input type="hidden" name="checkRemainingInvestmentAmount" id="checkRemainingInvestmentAmount" value="true" />
+                            }
+                            <input data-parsley-type="number" id="card_number" name="card" class="form-control" autocomplete="off" data-openpay-card="card_number" maxlength="16" minlength="16" placeholder="@Resources.Languages.Cardnumber" required="required">
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <div class="col-lg-7">
+                                        <select class="form-control" id="expiration_month" name="month" placeholder="month" data-openpay-card="expiration_month" required>
+                                            <option value="" disabled selected>@Resources.Languages.MM</option>
+                                            <option value="01">01 </option>
+                                            <option value="02">02</option>
+                                            <option value="03">03</option>
+                                            <option value="04">04</option>
+                                            <option value="05">05 </option>
+                                            <option value="06">06</option>
+                                            <option value="07">07</option>
+                                            <option value="08">08</option>
+                                            <option value="09">09 </option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <div class="col-lg-7">
+                                        <select class="form-control" id="expiration_year" name="year" placeholder="year" data-openpay-card="expiration_year" required>
+                                            <option value="" disabled selected>@Resources.Languages.YYYY</option>
+                                            @for (int i = DateTime.UtcNow.Year; i <= DateTime.UtcNow.Year + int.Parse("35"); i++)
+                                            {
+                                                <option value="@i.ToString().Substring(2, 2)">@i</option>
+                                            }
+                                            @*<option value="" disabled selected>YY</option>
+                                                <option value="21">21 </option>
+                                                <option value="22">22</option>
+                                                <option value="22">03</option>
+                                                <option value="22">04</option>*@
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <input data-parsley-type="number" id="cvv_number" name="cvv" class="form-control" placeholder="@Resources.Languages.CVV" autocomplete="off" maxlength="3" data-openpay-card="cvv2" required="required">
+                            <div class="text-center mt-10">
+                                <a class="btn bg-orange" href="@Url.Action("NewInvestmentDetails", "Investment", new { id = Model.Id })" title="@Resources.Languages.Back"><i class="icon-arrow-left13 position-left"></i> @Resources.Languages.Back </a>
+                                <button type="submit" class="btn btn-primary" title="@Resources.Languages.Pay" id="pay-button">@Resources.Languages.Pay <i class="icon-arrow-right14 position-right"></i></button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+        // OpenPay.setId('mqedj8cghx5dofntpqyg');
+        //OpenPay.setApiKey('pk_471af72a5e3f4a3dadcb211ff5fdeb7c');
+        OpenPay.setId('mfulu2s6gnxjdvwv8qhn');
+        OpenPay.setApiKey('pk_b36febbd723544e6990691183c5c7062');
+
+        var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
+        OpenPay.setSandboxMode(true);
+
+        function updateInvestmentAmount() {
+            var price = parseFloat($("#amountToInvest").val());
+            $("#investment").val(price);
+
+            //function for wallet amount is greater then withdraw amount
+            if ($("#walletAmount").attr("checked")) {
+                var walletprice = parseFloat($("#walletAmount").val());
+                var withdrawprice = parseFloat($("#amountToInvest").val());
+                if (walletprice >= withdrawprice) {
+                    $("#payment_option").css("display", "none");
+                    $('#wallet_payment_type').val("Wallet");
+                }
+                else {
+                    $('#wallet_payment_type').val("");
+                    $("#payment_option").css("display", "block");
+                }
+            }
+            else {
+                $('#wallet_payment_type').val("");
+                $("#payment_option").css("display", "block");
+            }
+        }
+        $(document).on("change, keyup", "#amountToInvest", updateInvestmentAmount);
+    });
+    //wallet check option
+    $("#walletAmount").on('change', function () {
+        if ($(this).is(':checked')) {
+            var walletprice = parseFloat($("#walletAmount").val());
+            var withdrawprice = parseFloat($("#amountToInvest").val());
+            if (walletprice >= withdrawprice) {
+                $("#payment_option").css("display", "none");
+                $('#wallet_payment_type').val("Wallet");
+            }
+            else {
+                $('#wallet_payment_type').val("");
+                $("#payment_option").css("display", "block");
+            }
+        }
+        else {
+            $('#wallet_payment_type').val("");
+            $("#payment_option").css("display", "block");
+        }
+    });
+    // modal close
+    $('#modalClose').click(function () {
+        $('#MoreOptionControl').prop('checked', false);
+    });
+
+    // setting remaining amount
+    var remainingValue = $('#remainingValue').val();
+    if ($('#remainingValue').val() != "" && $('#remainingValue').val() != "undedined" && $('#remainingValue').val() != "0") {
+        localStorage.setItem("RemainingValue", $('#remainingValue').val());
+    }
+    $("#MoreOptionControl").click(function () {
+        $('#amountToInvest').removeAttr('required');
+        $('#parsley-id-5').hide();
+        var amountToInvest = $('#amountToInvest').val();
+        var creditcardval = $('#MoreOptionControl').val();
+        $('#creditcard').val(creditcardval);
+        var walletamount = $("#walletAmount").val();
+        $("#walletamount").val(walletamount);
+        $('#pay').attr("disabled", true);
+        if ($('#amountToInvest').val() == "") {
+            $('#wireTransfer').prop('checked', true);
+            $('#show').show();
+            $('#negativeError').hide();
+            $('#numError').hide();
+            $('#remainingError').hide();
+        }
+        else if (parseInt(amountToInvest) < 0) {
+            $('#wireTransfer').prop('checked', true);
+            $('#negativeError').show();
+            $('#numError').hide();
+            $('#remainingError').hide();
+            $('#show').hide();
+            return false;
+        }
+        else {
+            var amountToInvest = $('#amountToInvest').val();
+            if (parseInt(localStorage["RemainingValue"]) >= parseInt(amountToInvest)) {
+                $('#remainingError').hide();
+                $('#negativeError').hide();
+                $('#show').hide();
+                $('#divPaymentMethod').hide();
+                $('#withdraw_modal').modal('show');
+            }
+            else {
+                var num = $('#amountToInvest').val();
+                if (!$.isNumeric(num)) {
+                    //Check if phone is numeric
+                    $('#wireTransfer').prop('checked', true);
+                    $('#numError').show();
+                    $('#negativeError').hide();
+                    $('#remainingError').hide();
+                    $('#show').hide();
+                    return false;
+                }
+                else {
+                    $('#wireTransfer').prop('checked', true);
+                    $('#remainingError').show();
+                    $('#negativeError').hide();
+                    $('#numError').hide();
+                    $('#show').hide();
+                }
+            }
+        }
+
+    });
+
+    if ($('#MoreOptionControl').prop('checked', false)) {
+        $('#pay').attr("disabled", false);
+    }
+
+    $('#wireTransfer').click(function () {
+        if ($("#wireTransfer").is(":checked")) {
+            $('#divPaymentMethod').show();
+            $('#pay').attr("disabled", false);
+            $('#amountToInvest').attr('required', 'required');
+            $('#parsley-id-5').show();
+            $('#show').hide();
+        }
+    })
+
+    $('#paymentOffice').click(function () {
+        if ($("#paymentOffice").is(":checked")) {
+            $('#divPaymentMethod').show();
+            $('#pay').attr("disabled", false);
+            $('#amountToInvest').attr('required', 'required');
+            $('#parsley-id-5').show();
+            $('#show').hide();
+        }
+    })
+    $('#MiniMarket').click(function () {
+        if ($("#MiniMarket").is(":checked")) {
+            $('#divPaymentMethod').show();
+        }
+    })
+
+
+    $('#pay-button').on('click', function (event) {
+        if ($('#holder_name').val() != "" && $('#card_number').val() != "" && $('#expiration_month').val() != "" && $('#expiration_year').val() != "" && $('#cvv_number').val() != "") {
+            event.preventDefault();
+            $("#pay-button").prop("disabled", true);
+            OpenPay.token.extractFormAndCreate('payment-form', success_callbak, error_callbak);
+        }
+
+    });
+
+    var success_callbak = function (response) {
+        var token_id = response.data.id;
+        $('#token_id').val(token_id);
+        $('#payment-form').submit();
+    };
+
+    var error_callbak = function (response) {
+        var desc = response.data.description != undefined ?
+           response.data.description : response.message;
+        alert("ERROR [" + response.status + "] " + desc);
+        $("#pay-button").prop("disabled", false);
+    };
+</script>

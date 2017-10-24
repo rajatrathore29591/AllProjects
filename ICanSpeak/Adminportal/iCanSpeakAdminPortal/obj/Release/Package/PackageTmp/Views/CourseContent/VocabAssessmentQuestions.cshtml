@@ -1,0 +1,163 @@
+﻿@{
+    ViewBag.Title = "VocabAssessment Questions";
+}
+<script src="@Url.Content("~/Content/jAlert/jquery.alerts.js")" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/jAlert/jquery.alerts.css")" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myDataTable').dataTable({
+            "bJQueryUI": true,
+            "aaSorting": [],
+            "sPaginationType": "full_numbers",
+            "aoColumns": [
+                { "sName": "Question", "bSearchable": true, "bSortable": true },
+                { "sName": "Set", "bSearchable": true, "bSortable": true },
+                { "sName": "CorrectAnswer", "bSearchable": true, "bSortable": true }, 
+                { "sName": "CreatedDate", "bSearchable": true, "bSortable": true },
+                { "sName": "IsActive", "bSearchable": false, "bSortable": false },
+                { "sName": "Operations", "bSearchable": false, "bSortable": false }
+            ]
+        }).makeEditable({
+            fnStartProcessingMode: function () {
+                $("#processing_message").dialog();
+            },
+            fnEndProcessingMode: function () {
+                $("#processing_message").dialog("close");
+            }
+        });
+    });
+</script>
+<style type="text/css">
+    .operationIcons {
+        height: 25px;
+        width: 25px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #e2f3ff;
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <font color="44c9ff"> 
+                    Vocabulary Assessment Questions </font>
+        </h1>
+        <span style="float: right; color: #3d3b3b; font-size: 16pt; margin-top: -50px;">
+            <img src="~/Images/add_icon.png" class="operationIcons" />
+            <a style="cursor:pointer; color:#3d3b3b; text-decoration:none; font-weight:200" href="@Url.Action("AddVocabAssessmentQuestions", "CourseContent", new { VocabularyId = Request.QueryString["VocabularyId"] })">Add Vocabulary Assessment Questions</a>
+        </span>
+    </div>
+</div>
+
+@*<h2>Vocabulary List</h2>
+ <span style="float:right; color:#262424;font-size:16pt;">
+                   Add New Vocabulary Category
+                </span>*@
+
+<table id="myDataTable" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>Question</th>
+            <th>Set</th>
+            <th>Correct Answer</th>
+            <th>Create Date and Time</th>
+            <th>Is Active</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            
+            <tr>
+                <td><span>@item.Question</span></td>
+                <td><span>@item.SelectSet</span></td>
+                <td><span>@item.CorrectAnswer</span></td>
+                <td><span>@item.CreatedDate</span></td>
+                <td>
+                    
+                    @if (item.IsActive == true)
+                    {
+                        <input type="button" value="Active" style="color:white; background-color:green; border:none;" id="btnStatus-@item.QuestionId" onclick="ManageVocabAssessmentQuestions(@item.QuestionId)" />
+                    }
+                    else
+                    {
+                        <input type="button" value="Inactive" style="color:white; background-color:red; border:none;" id="btnStatus-@item.QuestionId" onclick="ManageVocabAssessmentQuestions(@item.QuestionId)" />
+                    }
+                </td>
+
+                <td width="120px">
+                    <img src="~/Images/delete_icon.png" class="operationIcons" title="Delete Permanentaly"  onclick="DeleteVocabAssessmentQuestions(@item.QuestionId)" />&nbsp;&nbsp;
+                    <img src="~/Images/detail_icon.png" class="operationIcons" title="View Details" onclick="GoToVocabAssessmentQuestionsDetails(@item.QuestionId)" />&nbsp;&nbsp;
+                   <img src="~/Images/edit_icon.png" class="operationIcons" title="Edit Information" onclick="EditVocabAssessmentQuestions(@item.QuestionId)" />
+                </td>
+            </tr>
+           
+        }
+    </tbody>
+
+</table>
+
+<script type="text/ecmascript">
+    
+    function GoToVocabAssessmentQuestionsDetails(QuestionId)
+    {
+        window.location.href="@Url.Action("ViewVocabAssessmentQuestionsInfo", "CourseContent")?QuestionId="+QuestionId+"&VocabularyId="+@Request.QueryString["VocabularyId"]+""
+    }
+
+    function EditVocabAssessmentQuestions(QuestionId)
+    {
+        window.location.href="@Url.Action("UpdateVocabAssessmentQuestions", "CourseContent")?QuestionId="+QuestionId+"&VocabularyId="+@Request.QueryString["VocabularyId"]+"";
+    }
+    function ManageVocabAssessmentQuestions(QuestionId)
+    {
+        $.ajax({
+            url:'@Url.Action("DeleteVocabAssessmentQuestions", "CourseContent")',
+            type:"POST",
+            data:{QuestionId:QuestionId, softDelete:"true"},
+            success:function(result){
+                var id="btnStatus-"+QuestionId;
+                var btnText=$("#"+id).val();
+                if(btnText=="Active")
+                {
+                    $("#"+id).val('Inactive');
+                    $("#"+id).css("background-color","red");
+                }
+                else
+                {
+                    $("#"+id).val('Active');
+                    $("#"+id).css("background-color","green");
+                }
+            },
+            error:function(result){
+            },
+        });
+    }  
+	
+    function DeleteVocabAssessmentQuestions(QuestionId)
+    {
+        var result=confirm("Are you sure to delete question permanentaly.");
+        if(result==true)
+        {
+            $.ajax({
+                url:'@Url.Action("DeleteVocabAssessmentQuestions", "CourseContent")',
+                type:"POST",
+                data:{QuestionId:QuestionId, softDelete:"false"},
+                success:function(result){
+                    window.location.href="@Url.Action("VocabAssessmentQuestions", "CourseContent", new {VocabularyId=@Request.QueryString["VocabularyId"] })";
+                },
+                error:function(result){
+                },
+            });
+            }
+        }
+
+</script>
+
+ 
+
+

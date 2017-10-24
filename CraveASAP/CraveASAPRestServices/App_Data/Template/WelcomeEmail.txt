@@ -1,0 +1,24 @@
+﻿Mime-Version: 1.0;
+Content-Type: text/html; charset="ISO-8859-1";
+Content-Transfer-Encoding: 7bit;
+<html>
+<head></head>
+<body>
+<div style="background-color: #ff5e00;
+    box-shadow: 0 0 3px 1px grey;
+    color: #ffffff;
+    font-family: helvetica;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 0;
+    padding: 2%;
+    width: 500px; ">
+<p>Hi</p>
+<p>Welcome to Eddee Newsletter</p>
+<p>We are happy that you decided to join our successful community of Restaurant. Stay tuned for our valuable Updates!</p>
+<p>Sincerely</p>
+<p>Vendor Support Team</p>
+<img style="text-align:center;" src="images/logo.png">
+</div>
+</body>
+</html>

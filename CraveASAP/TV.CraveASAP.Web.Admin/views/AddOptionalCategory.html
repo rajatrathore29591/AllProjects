@@ -1,0 +1,90 @@
+﻿<div class="page-content-wrapper">
+    <div class="page-content" style="min-height: 720px;">
+        <div id="page-wrapper">
+
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-green">
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Optional Category</h3>
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-4 col-offset-6 centered">
+                                    <form enctype="multipart/form-data" role="form" method="post" ng-submit="save()">
+                                        <div class="form-group">
+                                            <label>Select Main Category</label>
+                                            <select class="form-control" ng-change="change()" name="category_id" ng-model="categorySelect" required >
+                                                <option ng-repeat="item in category" value="{{item.categoryId}}">{{item.categoryName}}</option>
+                                            </select>
+                                        </div>
+                                          <div class="form-group">
+                                            <label>Select Sub Category</label>
+                                            <select class="form-control" name="subCategory_id"  ng-model="subCategorySelect"  ng-options="item.subCategoryId as item.subCategoryName for item in subCategory"  required>
+                                                <!--<option selected ng-repeat="item in subCategory" ng-selected="selected" value="{{item.subCategoryId}}">{{item.subCategoryName}}</option>-->
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Optional Category Name</label>
+                                            <input placeholder="Enter Optional Category Name" ng-model="optCategory.optCategoryName" class="form-control" required>
+                                        </div>
+                                        <button class="btn btn-success" type="submit" name="add_subcategory">Submit </button>
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+
+
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+
+                    </div>
+
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /#page-wrapper -->
+
+        </div>
+    </div>
+    <!-- end of page content -->
+</div>
+<!-- end of page content wrappe -->
+<div id="loader" ng-show="showLoader">
+    <div class="page-spinner-bar" ng-spinner-bar="">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+
+</div>
+
+
+<div id="static" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Message</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <!-- Would you like to continue with some arbitrary task?-->
+                    {{Message}}
+                </p>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" ng-click="redirect()" data-dismiss="modal" class="btn green">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+

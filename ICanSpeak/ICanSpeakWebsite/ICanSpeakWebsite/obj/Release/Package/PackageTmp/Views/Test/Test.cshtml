@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Test";
+}
+
+<script src="@Url.Content("/Scripts/jquery.min.js")"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btn').click(function () {
+            //-----------------------Video Call Ajax Section -----------------------------------------------------//
+            $.ajax({
+                url: '@Url.Action("_Test", "Test")',
+                type: "POST",
+                data: {},
+                success: function (data) {
+                    alert('sucess');
+                    $("#person-list").html(data);
+                    $('#dialogid').val(data[0].DialogId);
+                    $('#DialogName').text(data[0].DialogName);
+                    $('#video').attr('src', data[0].VideoUrl);
+                    var unitcount = parseInt($('#unitcount').text(), 10);
+                    unitcount = unitcount + 1;
+                    $('#unitcount').text(unitcount);
+                },
+                error: function (result) {
+                    alert('error');
+                    $("#lblLoginerror").css("display", "block");
+                }
+            });
+            //--------------------Video Call Ajax Section Ends -----------------------------------------------------//
+            return false;
+        });
+    });
+
+
+</script>
+
+<h2>Test</h2>
+
+<div>
+    @Html.Partial("_Test");
+</div>
+
+<input value="Ajax" type="button" id="btn" />

@@ -1,0 +1,431 @@
+<div class="animate-panel createdocket" ng-controller="ManageDocketCtrl as cdCtrl">
+   <div class="row">
+      <div class="col-lg-12">
+         <div class="hpanel h-panel h-panel">
+             <form name="create_docket" ng-submit="cdCtrl.saveDocket(create_docket)" novalidate>
+                 <div class="panel-body p-b0" style="padding-bottom:0 !important;">
+                     <div class="print-show" style="display:none;">
+                         <table width="100%">
+                             <tr>
+                                 <td>
+                                     <img src="../images/print-logo.jpg">
+                                 </td>
+                                 <td align="right">
+                                     <p>ABN 53 158  472 907</p>
+                                     <p>Email: admin@brogcivilaust.com.au</p>
+                                     <p>PO Box 78 Horsley Park NSW 2175</p>
+                                     <table>
+                                         <tr>
+                                             <td style="padding-right: 20px">
+                                                 <h4 style="margin-bottom: 0">Excavation</h4>
+                                             </td>
+                                             <td>
+                                                 <h4 style="margin-bottom: 0">Plant Hire</h4>
+                                             </td>
+                                         </tr>
+                                         <tr>
+                                             <td style="padding-right: 20px">
+                                                 <h4 style="margin-bottom: 0">Haulage</h4>
+                                             </td>
+                                             <td>
+                                                 <h4 style="margin-bottom: 0">Contracting</h4>
+                                             </td>
+                                         </tr>
+                                     </table>
+                                 </td>
+                             </tr>
+                         </table>
+                     </div>
+                     <div class="row">
+                         <div class="col-md-8">
+                         </div>
+                         <div class="col-md-4">
+                             <div class="form-group">
+                                 <div class="row">
+                                     <div class="col-md-6 p-r0">
+                                         <h3 class="booking-heading">Docket Number <span class="text-danger">*</span>:</h3>
+                                     </div>
+                                     <div class="col-md-6">                                        
+                                         <input class="form-control" type="text" ng-model="cdCtrl.attributes.DocketNo"  maxlength="20" required>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <table width="100%" class="booking-docket-tb" style="padding-bottom: 10px">
+                         <tr>
+                             <td>
+                                
+                                     <table class="table table-bordered">
+                                         <tr>
+                                             <th width="180">Registration Number <span class="text-danger">*</span></th>
+                                             <td>
+                                                 <div class="form-group m-b0">                                                     
+                                                     <select ng-model="cdCtrl.fleetRegistrationNumber" ng-change="cdCtrl.getBookingFleetDetail(cdCtrl.fleetRegistrationNumber.BookingFleetId)" ng-options="item.Registration for item in cdCtrl.bookedFleetRegistration" class="form-control" required>
+                                                         <option value="">Select</option>
+                                                     </select>
+                                                 </div>
+                                             </td>
+
+                                             <th width="180">Fleet</th>
+                                             <td>
+                                                 <div class="form-group m-b0">
+                                                     <input  type="text" readonly="" ng-model="cdCtrl.bookingFleetDetail.Fleet" class="form-control" />
+                                                  </div>
+                                            </td>
+
+                                         </tr>
+                                         <tr>
+                                             <th width="15%">Site Name</th>
+                                             <td width="30%">
+                                                 <div class="form-group m-b0">
+                                                     <input  type="text" readonly="" ng-model="cdCtrl.bookingFleetDetail.SiteName" class="form-control" />
+                                                </div>
+                                             </td>
+                                             <th width="15%">Customer Name</th>
+                                             <td width="30%">
+                                                 <div class="form-group m-b0">
+                                                     <input  type="text" readonly="" ng-model="cdCtrl.bookingFleetDetail.CustomerName" class="form-control" />
+                                                 </div>  
+                                              </td>
+
+                                         </tr>
+
+                                         <tr>
+                                             <th>Supervisor Name <span class="text-danger">*</span></th>
+                                             <td>
+                                                 <div class="form-group m-b0">                                                     
+                                                     <select ng-model="cdCtrl.BookingSiteSupervisors" ng-options="item.SupervisorName for item in cdCtrl.bookingFleetDetail.BookingSiteSupervisors  track by item.SupervisorId" class="form-control" required>
+                                                         <option value="">Select</option>
+                                                     </select>
+                                                </div>
+                                             </td>
+                                             <th width="180">Contact No.</th>
+                                             <td>
+                                                 <div class="form-group m-b0">
+                                                     <input type="text" readonly=""  ng-model="cdCtrl.BookingSiteSupervisors.MobileNumber" class="form-control" />
+                                                 </div>
+                                                </td>
+                                         </tr>
+                                         <tr>
+                                             <th>Driver's Name</th>
+                                             <td>{{cdCtrl.bookingFleetDetail.DriverName}}</td>
+                                             <th>Shift</th>
+                                             <td>{{(cdCtrl.bookingFleetDetail.IsDayShift===true)?"Day":"Night"}}</td>
+                                         </tr>
+                                         <tr>
+                                             <th>Date & Day <span class="text-danger">*</span></th>
+                                             <td>
+                                                 <div class="form-group m-b0" ng-controller="DateTimePickerCtrl">
+                                                     <div class="input-group date">
+                                                         <span class="input-group-addon" ng-click="openCalendar()">
+                                                             <span class="fa fa-calendar"></span>
+                                                         </span>                                                        
+                                                         <input  type="text" tabindex="1" id="dateTime" name="appointment_date" class="form-control" ng-model="cdCtrl.attributes.DocketDate" date-time-picker datetimepicker-options="{format:'DD-MM-YYYY hh:mm A' }" required />
+                                                     </div>
+                                                 </div>                                                 
+                                             </td>
+                                             <th>Wet Hire</th>
+                                             <td>{{(cdCtrl.bookingFleetDetail.Iswethire===true)?"Yes":"No"}}</td>
+                                         </tr>
+                                     </table>
+                                
+                             </td>
+                         </tr>
+                     </table>
+                     <div class="section-light-grey m-b0 p-b0">
+
+                         <table class="table table-bordered text-left" style="table-layout: fixed;">
+                             <tr>
+                                 <td class="form-inline" colspan="3">
+                                     <div class="row">
+                                         <div class="col-md-2">
+                                             <label>Start <span class="text-danger">*</span></label><br>
+                                             <div class="form-group m-b0">
+                                                 <div class="col-md-12 p-l0">
+                                                     <p class="input-group m-b0">                                                         
+                                                         <!--<input type="time" class="form-control" ng-model="cdCtrl.StartTime">-->                                                         
+                                                         <input type="text" class="form-control" ng-model="cdCtrl.StartTime" name="StartTimePicker" id="StartTimePicker" required date-time-picker datetimepicker-options="{ format:'LT' }" ng-change="cdCtrl.checkTotalHour(cdCtrl.StartTime, cdCtrl.EndTime)" />
+                                                         <span class="input-group-btn">
+                                                             <button type="button" class="btn btn-default" ng-click="cdCtrl.openStartTimeCalendar('StartTimePicker')"><i class="fa fa-clock-o"></i></button>
+                                                         </span>
+                                                     </p>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <div class="col-md-2">
+                                             <label>End <span class="text-danger">*</span></label><br>
+                                             <div class="form-group m-b0">
+                                                 <div class="col-md-12 p-l0" >
+                                                     <p class="input-group m-b0">
+                                                         <!--<input type="time" class="form-control" name="EndTime" ng-model="cdCtrl.EndTime" ng-change="cdCtrl.checkTotalHour(cdCtrl.StartTime, cdCtrl.EndTime)">-->                                                      
+                                                         <input type="text" class="form-control" ng-model="cdCtrl.EndTime"  name="EndTimePicker" id="EndTimePicker" required date-time-picker datetimepicker-options="{ format:'LT' }" ng-change="cdCtrl.checkTotalHour(cdCtrl.StartTime, cdCtrl.EndTime)" />
+                                                         <span class="input-group-btn">
+                                                             <button type="button" class="btn btn-default" ng-click="cdCtrl.openEndTimeCalendar('EndTimePicker')"><i class="fa fa-clock-o"></i></button>
+                                                         </span>                                                        
+                                                     </p>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <div class="col-md-3 form-group m-b0 totalhours" ng-class="(cdCtrl.invalidTime)?'ng-inactive':'ng-active'">
+                                             <p class="input-group m-b0">
+                                                 <label>Total Hours</label><br>
+                                                 <input type="text" class="form-control"name="totalHour" ng-model="cdCtrl.attributes.totalHour" disabled />
+                                                 <span class="clearfix"></span>
+                                                 <span ng-if="cdCtrl.invalidTime" class="has-error">EndTime should be greater than StartTime</span>
+                                                
+                                             </p>
+                                         </div>
+                               
+                                     </div>
+                                 </td>
+                             </tr>
+                             <tr>
+                                 <td colspan="3" class="docket-checklist">
+                                     <div class="row">
+                                         <div class="col-md-12">
+                                             <label></label>
+                                         </div>
+                                         <div class="clearfix"></div>
+                                         <div class="col-md-12">
+                                             <div class="form-group">
+                                                 <label>Attachments</label>
+                                                 <ul class="list-inline">
+                                                     <li ng-repeat="item in cdCtrl.attachementList.Attachments">
+                                                         <div class="checkbox"><label class="p-l0"> <input icheck type="checkbox" ng-model="cdCtrl.check[item.AttachmentId]" class="i-checks" disabled> {{item.AttachmentTitle}} </label></div>
+                                                     </li>
+                                                 </ul>
+                                             </div>
+                                         </div>
+                                         <div class="col-md-12">
+                                             <div class="form-group">
+                                                 <label>Combo Hire</label>
+                                                 <ul id="ulCheckList" class="list-inline">
+                                                     <li ng-repeat="item in cdCtrl.attachementList.ComboHire">
+                                                         <div class="checkbox"><label class="p-l0"> <input icheck type="checkbox" id="{{item.AttachmentId}}" ng-model="cdCtrl.check[item.AttachmentId]" class="i-checks" disabled> {{item.AttachmentTitle}} </label></div>
+                                                     </li>
+                                                 </ul>
+                                              </div>
+                                         </div>
+                                         <div class="col-md-3">
+
+                                         </div>
+                                         <div class="col-md-3">
+                                             &nbsp;
+                                         </div>
+                                     </div>
+
+
+                                 </td>
+                             </tr>
+                             <tr>
+                                 <td colspan="3">
+                                     <div class="row">
+                                         <div class="col-md-3">
+                                             <div class="form-group m-b0">
+                                                 <label>Brog Civil Truck Number</label>
+                                                 <input type="text" class="form-control" readonly="" value="BCA-P001" ng-model="cdCtrl.attributes.brogtrucknumber">
+                                             </div>
+                                         </div>
+                                         <div class="col-md-3">
+                                             <div class="form-group m-b0">
+                                                 <label>Truck Registration</label>
+                                                 <input type="text" class="form-control" readonly="" ng-model="cdCtrl.fleetRegistrationNumber.Registration">
+                                             </div>
+                                         </div>
+                                         <div class="col-md-6">
+                                             &nbsp;
+                                         </div>
+                                     </div>
+                                  </td>
+                             </tr>
+                         </table>
+                     </div>
+                     <table class="table form-inline m-b20 table-form-inline">
+                         <tr>
+                             <td style="border:none">
+                                 <h4>Lunch</h4>
+                             </td>
+                             <td style="border:none">                                      
+                                        <div class="form-group m-b15 m-r">
+                                            <label class="m-r">Break 1</label>
+                                            <label>From</label>
+                                            <input type="text" class="form-control" ng-model="cdCtrl.attributes.LunchBreak1From" name="Break1FromPicker" id="Break1FromPicker" date-time-picker datetimepicker-options="{ format:'LT' }" />
+                                            <button type="button" class="btn btn-default" ng-click="cdCtrl.openBreak1FromCalendar('Break1FromPicker')"><i class="fa fa-clock-o"></i></button>
+                                        </div>
+                                        <div class="form-group m-b15">
+                                            <label>To</label>
+                                            <input type="text" class="form-control" ng-model="cdCtrl.attributes.LunchBreak1End" name="Break1ToPicker" id="Break1ToPicker" date-time-picker datetimepicker-options="{ format:'LT' }" />
+                                            <button type="button" class="btn btn-default" ng-click="cdCtrl.openBreak1ToCalendar('Break1ToPicker')"><i class="fa fa-clock-o"></i></button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="form-group m-r">
+                                            <label class="m-r">Break 2</label>
+                                            <label>From</label>
+                                            <input type="text" class="form-control" ng-model="cdCtrl.attributes.LunchBreak2From" name="Break2FromPicker" id="Break2FromPicker" date-time-picker datetimepicker-options="{ format:'LT' }" />
+                                            <button type="button" class="btn btn-default" ng-click="cdCtrl.openBreak2FromCalendar('Break2FromPicker')"><i class="fa fa-clock-o"></i></button>
+                                        </div>
+                                            <!--<input type="text" ng-model="cdCtrl.attributes.LunchBreak1From" class="form-control m-r" value="1:00 pm">-->
+                                        <div class="form-group">
+                                            <label>To</label>
+                                            <input type="text" class="form-control" ng-model="cdCtrl.attributes.LunchBreak2End" name="Break2ToPicker" id="Break2ToPicker" date-time-picker datetimepicker-options="{ format:'LT' }" />
+
+                                            <button type="button" class="btn btn-default" ng-click="cdCtrl.openBreak2ToCalendar('Break2ToPicker')"><i class="fa fa-clock-o"></i></button>
+                                        </div>
+
+                             </td>
+                         </tr>
+                     </table>
+                     <div class="grid-tb-panel">                       
+                             <table class="table">
+                                 <thead>
+                                     <tr>
+                                         <th>Load</th>
+                                         <th>Loading Site</th>
+                                         <th>Weight(tonne)</th>
+                                         <th>Load Time</th>
+                                         <th>Tip Off Site</th>
+                                         <th>Tip Off Time</th>
+                                         <th>Material</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody>
+
+                                     <tr ng-repeat="loadData in cdCtrl.attributes.LoadDocketDataModel" ng-if="cdCtrl.attributes.LoadDocketDataModel.length>=0">
+                                         <td>
+                                             {{$index+1}}
+                                         </td>
+                                         <td>
+                                             <div class="form-group">
+                                                 <input type="text" class="form-control" ng-model="loadData.LoadingSite" maxlength="50" />
+                                            </div>     
+                                         </td>
+                                         <td><div class="form-group">
+                                            <input type="number" class="form-control" ng-model="loadData.Weight" max="10000"/>
+                                            </div>
+                                         </td>
+                                         <td>
+                                             <div class="form-group">
+                                                 <input type="text" class="form-control" ng-model="loadData.LoadTime" name="LoadTimePicker" id="LoadTimePicker" date-time-picker datetimepicker-options="{ format:'LT' }" />
+                                                 <!--<button type="button" class="btn btn-default" ng-click="openLoadTimePickerCalendar()"><i class="fa fa-clock-o"></i></button>-->
+                                                </div>
+                                            </td>
+                                         <td>
+                                             <div class="form-group">
+                                                 <input type="text" class="form-control" ng-model="loadData.TipOffSite" maxlength="15" />
+                                            </div>
+                                        </td>
+                                         <td>
+                                             <div class="form-group">
+                                                 <input type="text" class="form-control" ng-model="loadData.TipOffTime" name="LoadTimePicker" id="LoadTimePicker" date-time-picker datetimepicker-options="{ format:'LT' }" />
+                                            </div>
+                                        </td>
+                                         <td>
+                                             <div class="form-group">
+                                                 <input type="text" class="form-control" ng-model="loadData.Material" maxlength="200" />
+                                            </div>
+                                        </td>
+
+                                     </tr>
+                                     <tr ng-if="cdCtrl.attributes.LoadDocketDataModel.length<0">
+                                         <td colspan="7" class="text-center">No Records Found</td>
+                                     </tr>
+                                 </tbody>
+                             </table>
+                        
+                     </div>
+                     <div class="text-right m-b">
+                         <button class="btn btn-primary btn-i" title="Add More" type="button" ng-click="cdCtrl.addNewLoading()"><i class="fa fa-plus"></i> Add More</button>
+                     </div>
+                     <div class="row kms">
+                         <div class="col-md-12">
+                             <div class="form-group">
+                                 <table class="table table-bordered" width="100%">
+                                     <tr>
+                                         <th width="110">Start KMs <span class="text-danger">*</span></th>
+                                         <td><div class="form-group m-b0">
+                                             <input type="number" class="form-control" maxlength="15" ng-model="cdCtrl.attributes.StartKMs" ng-change="cdCtrl.totalKm();" required>
+                                            </div>
+                                         </td>
+                                         <th>Finish KMs <span class="text-danger">*</span></th>
+                                         <td><div class="form-group m-b0">
+                                             <input type="number" class="form-control" maxlength="15" ng-model="cdCtrl.attributes.FinishKMsA" ng-change="cdCtrl.totalKm();" required> 
+                                            </div>    
+                                         </td>
+                                         <th>Total KMs</th>
+                                         <td>
+                                             <div class="form-group m-b0">
+                                                 <input type="number" class="form-control" ng-model="cdCtrl.attributes.totalKMs" disabled />
+                                                 <span ng-if="cdCtrl.checkTotalKMs" class="has-error">Finish KMs should be greater than Start KMs</span>
+                                            </div>
+                                        </td>
+                                     </tr>
+                                 </table>
+                             </div>
+                        </div>
+                     </div>
+                     <div class="row docket-checklist">
+                         <div class="col-md-12">
+                             <label>Check List</label>
+                         </div>
+                         <div class="clearfix"></div>
+                         <div class="col-md-12">
+                             <div class="form-group">
+                                 <ul class="list-inline">
+                                     <li ng-repeat="item in cdCtrl.docketCheckList">
+                                         <div class="checkbox"><label class="p-l0"> <input icheck type="checkbox" ng-model="cdCtrl.checkList[item.DocketCheckListId]" class="i-checks"> {{item.Title}} </label></div>
+                                     </li>
+                                 </ul>
+                             </div>
+                         </div>                       
+                         <div class="col-md-6">
+                             &nbsp;
+                         </div>
+                     </div>
+
+                     <div class="section-light-grey m-b0 p-b0">
+                         <h4>Add Attachment</h4>
+                         <div class="row">
+                             <div class="col-md-6">
+                                 <div class="form-group">                                     
+                                     <input type="hidden" id="textAreaFileContents" ng-model="cdCtrl.attributes.DocumentId"/>                                                                       
+                                     <div class="input-group image-preview">
+                                         <input type="text" class="form-control image-preview-filename" id="fileName"> <!-- don't give a name === doesn't send on POST/GET -->
+                                         <div class="input-group-btn">
+                                             <!-- image-preview-clear button -->
+                                             <!--<button type="button" id="clearImageId" ng-click="cdCtrl.clearImage();" class="btn btn-default image-preview-clear">
+                                                 <span class="glyphicon glyphicon-remove"></span> Clear
+                                             </button>-->
+                                             <!-- image-preview-input -->
+                                             <div class="btn btn-default image-preview-input">
+                                                 <span class="glyphicon glyphicon-folder-open"></span>
+                                                 <span class="image-preview-input-title">Choose File</span>
+                                                 <input type="file" ngf-select ng-model="picFile" name="file" accept="image/*" ngf-max-size="2MB" ngf-model-invalid="errorFile" class="btn btn-default" id="inputFileToLoad" ng-change="cdCtrl.loadImageFileAsURL();"><!-- rename it -->
+                                             </div>
+                                         </div>
+                                     </div><!-- /input-group image-preview [TO HERE]-->
+                         
+                                             <div class="no-img">
+                                                 <input type="hidden" id="imageBase64" />
+                                                 <img id="previewId" ng-src="{{cdCtrl.Image}}"/>
+                                             </div>
+                               
+                                     <!-- /input-group image-preview [TO HERE]-->
+                                 </div>                                
+                             </div>
+                         </div>
+                     </div>                     
+                 </div>
+                 <div class="panel-footer text-right bc-panel-footer m-t20">
+                     <div class="row">
+                         <div class="col-md-12">
+                             <a href="javascript:void(0);" ui-sref="booking.DocketList({BookingFleetId: cdCtrl.attributes.BookingFleetId})" class="btn btn-default" ng-if="cdCtrl.attributes.BookingFleetId!=''">Cancel</a>
+                                 <button type="submit" class="btn btn-primary" ng-disabled="create_docket.$invalid" title="Submit">Submit</button>
+</div>
+                     </div>
+                 </div>
+             </form>
+         </div>
+      </div>
+   </div>
+</div>

@@ -1,0 +1,399 @@
+﻿@{
+    ViewBag.Title = "Messages";
+}
+
+<style type="text/css">
+    em
+    {
+        background-color: yellow;
+    }
+</style>
+
+<script src="@Url.Content("/Scripts/jquery.min.js")"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.table-inbox tr').click(function (event) {
+            if (event.target.type !== 'checkbox') {
+                var id = $(':checkbox', this).val();
+                window.location.href = '../Message/MessageDetail?id=' + id + ''
+            }
+        });
+        //----------------------------------Search section starts---------------------------------//
+        $("#search").on("keyup", function () {
+            searchTable($(this).val());
+        });
+        //----------------------------------Search section ends----------------------------------//
+    });
+</script>
+
+@*<script>
+    $(document).ready(function () {
+        $("#delete").click(function () {
+           // var bookMarkUrl = window.location.href;
+
+            //-----------------------Video Call Ajax Section -----------------------------------------------------//
+            $.ajax({
+                url: '@Url.Action("DeleteMessage", "Message")',
+                type: "POST",
+                data: { messageId: $('#MessageId').val() },
+                success: function (data) {
+                    alert("Deleted Succcessfully");
+                    //$("#addBookMarkWord").css('visibility', 'hidden');
+                    //$("#removeBookMarkWord").css('visibility', 'visible');
+                    location.reload();
+                },
+                error: function (result) {
+                    $("#lblLoginerror").css("display", "block");
+                }
+            });
+        });
+
+      
+    });
+</script>*@
+
+
+<script type="text/javascript">
+    function searchTable(inputVal) {
+        var table = $('#tblData');
+        table.find('tr').each(function (index, row) {
+            var allCells = $(row).find('td');
+            if (allCells.length > 0) {
+                var found = false;
+                allCells.each(function (index, td) {
+                    var regExp = new RegExp(inputVal, 'i');
+                    if (regExp.test($(td).text())) {
+                        found = true;
+                        return false;
+                    }
+                });
+                if (found == true) {
+
+                    $(row).show();
+                }
+                else {
+
+                    $(row).hide();
+                }
+            }
+        });
+    }
+
+
+    function addHighlighting(element, textToHighlight) {
+        var text = element.text();
+        var highlightedText = '<em>' + textToHighlight + '</em>';
+        var newText = text.replace(textToHighlight, highlightedText);
+
+        element.html(newText);
+    }
+
+    function removeHighlighting(highlightedElements) {
+        highlightedElements.each(function () {
+            var element = $(this);
+            element.replaceWith(element.html());
+        })
+    }
+</script>
+
+@*<script type="text/javascript">
+
+    var myArray = [];
+  
+    //start function
+   
+    function start()
+       
+    {
+            var button = document.getElementById("delete");
+            button.addEventListener("click", calculations, false);
+    }
+    //end start
+    function calculations()
+       
+        {
+           
+            //capture value amount for array size
+           
+           var inputValue = document.getElementById("MessageId");
+           
+            //clear input and change label
+           
+            label.innerHTML = "Enter values to be calculated: ";
+          
+            for (var i = 0; i < inputValue.value; ++i)
+              
+            {
+                
+                inputValue.innerHTML = "";
+              
+                myArray[i] = document.getElementById("MessageId").value;
+               
+            }
+            
+          
+            result.innerHTML = myArray.length;
+          
+            result2.innerHTML = myArray;
+           
+        }
+       
+        //specify start function to load first
+       
+        window.addEventListener("load", start, false);
+        alert(myArray);
+      
+
+
+</script>*@
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var email = [];
+
+        var val = [];
+
+        $('#delete').click(function () {
+
+            $(':checkbox:checked').each(function (i) {
+
+                val[i] = $(this).val();
+
+                email.push(val[i]);
+
+                //console.log("emal==" + email);
+
+            });
+            //console.log("emal==" + email);
+            //$scope.email = email;
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("DeleteMultipleMessage", "Message")',
+                data: { MessageId: email.toString() },
+                success: function (data) {
+                    console.log(data);
+                    location.reload();
+                }
+
+                //}).done(function (data) {
+
+                //    if (data) {
+
+                //        //$('.sending').css('display', 'none');
+                //        location.reload();
+                //        //$('.coupon_sent').css('display', 'block');
+
+                //    }
+                //});
+            });
+           
+        });
+    });
+</script>
+
+<div class="accordian">
+    <div class="container">
+        <div>
+            <h2 class="header">Messages</h2>
+            <div class="col-md-8">
+                <h2 class=" user-profile">
+                    <img src="~/Content/img/online.png" />@ViewBag.Username</h2>
+                <h4 class="tutor-city-name left">@ViewBag.Country</h4>
+            </div>
+            @if (Model != null)
+            {
+                <div class="col-md-4">
+                    <ul class="nav nav-pills view-profile">
+                        <li><a href="../../Notification/Notifications">Notification (@ViewBag.BatchCount)</a></li>
+                        <li><a href="../../Message/Messages">Messages(@ViewBag.Messages)</a></li>
+                    </ul>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-4">
+                    <ul class="nav nav-pills view-profile">
+                        <li><a href="../../Notification/Notifications">Notification (@ViewBag.BatchCount)</a></li>
+                        <li><a href="../../Message/SendMessage">Compose Message</a></li>
+                    </ul>
+                </div>
+                
+            }
+        </div>
+
+
+        @if (Model != null)
+        {
+            <div class="col-lg-12">
+                <div class="gen-case">
+                    Inbox (3)
+                        <form action="#" class="pull-right mail-src-position">
+                            <div class="input-append">
+                                <input type="text" id="search" class="form-control " placeholder="Search Mail">
+                            </div>
+                        </form>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="mail-option">
+                    <div class="chk-all">
+                        <div class="pull-left mail-checkbox">
+                            <input type="checkbox" class="">
+                        </div>
+
+                        <div class="btn-group">
+                            <a data-toggle="dropdown" href="#" class="btn mini all">All
+                                        <i class="fa fa-angle-down "></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">None</a></li>
+                                <li><a href="#">Read</a></li>
+                                <li><a href="#">Unread</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="btn-group ">
+                        <a href="#" class="btn" id="delete"><i class="fa fa-trash-o"></i>Delete</a>
+                    </div>
+                    <div class="btn-group ">
+                        <a style="margin-left: 4px;" href="../../Message/SendMessage" class="btn"><i class="fa fa-envelope-square"></i>Compose</a>
+                    </div>
+
+
+
+
+                    <ul class="unstyled inbox-pagination">
+                        <li>
+                            <a class="np-btn" href="#"><i class="fa fa-angle-left  pagination-left"></i></a>
+                        </li>
+                        <li><span>1-50 of 99</span></li>
+                        <li>
+                            <a class="np-btn" href="#"><i class="fa fa-angle-right pagination-right"></i></a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="table-inbox-wrap ">
+                    <table id="tblData" class="table table-inbox table-hover">
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                if (item.IsRead == "false")
+                                {
+                     
+                                <tr class="unread">
+                                    <td class="inbox-small-cells">
+                                        <input type="checkbox" value="@item.MessageId" id="MessageId" class="mail-checkbox email">
+                                    </td>
+                                    <td class="view-message  dont-show">@item.Username.</td>
+                                    <td class="view-message ">@item.Subject.</td>
+                                    <td class="view-message inbox-small-cells"></td>
+                                    <td class="view-message  text-right">@item.Date</td>
+
+                                </tr>
+                                }
+                                else
+                                {
+                                <tr class="">
+
+                                    <td class="inbox-small-cells">
+                                        <input type="checkbox" value="@item.MessageId" id="MessageId" class="mail-checkbox email">
+                                    </td>
+                                    <td class="view-message dont-show">@item.Username.</td>
+                                    <td class="view-message">@item.Subject</td>
+                                    <td class="view-message inbox-small-cells"></td>
+                                    <td class="view-message text-right">@item.Date</td>
+
+                                </tr> 
+                                }
+                            }
+                        </tbody>
+
+
+                    </table>
+                </div>
+            </div>
+        }
+        else
+        {   
+            <div class="col-lg-12 tutor-wrap">
+                <h2>No Messages</h2>
+            </div>
+        }
+
+    </div>
+
+</div>
+
+
+
+@*<div class="row accordian">
+      	<div class="container">
+         <div class="col-lg-12 ">
+         <h2 class="header">Messages</h2>
+            <div class="col-md-8">
+                <h2 class=" user-profile"><img src="~/Content/img/online.png">@ViewBag.Username</h2>
+                <h4 class="tutor-city-name left">@ViewBag.Country</h4>
+            </div>
+            <div class="col-md-4">
+                <ul class="nav nav-pills view-profile">
+                    <li><a href="../../Notification/Notifications">Notification (@ViewBag.BatchCount)</a></li>
+                    <li class="active"><a href="../../Message/Messages">Messages(@ViewBag.Messages)</a></li>                      
+                </ul>	
+            </div>           
+         </div>
+         
+              <div class="col-lg-12">
+              <div id="edit_profile_header">
+                <h1>inbox <span class="inbox_no">(20)</span></h1>
+                <h5>Select</h5>
+                <select id="dropdown1">
+ 				<option value="1">All</option>
+ 				<option value="2">Read</option>
+ 				<option value="3">Unread</option>
+				</select>
+				
+                <div id="reply_del">
+                <span class="reply" title="Reply"><a href="#"><i class="fa fa-reply"></i></a></span>
+                <span class="delete" title="Delete"><a href="#"><i class="fa fa-trash-o"></i></a></span>
+                </div>
+               
+                
+			</div>
+         	  
+            <div class="vocab-wrapper">
+            
+            	<div class="col-lg-12">
+                    @foreach(var item in Model)
+                    {
+                	<div class="friends-panel">
+                    
+                            <div class="col-lg-2">
+                            <input name="" type="checkbox" value="">
+                           		<img src="@item.ProfilePicture" class="img-responsive img-thumbnail friends-pic"><img src="~/Content/img/online.png" alt="online">
+                            </div>
+                            <div class="col-lg-2 col-lg-pull-1">
+                            <span class=" user-name">@item.Username</span>
+                           
+                            </div>
+                           <div class="col-lg-6">
+                           <p class="sub">@item.Message - </p> 
+                            <a href="#" ><p class="matter">Check out my new grammer lesson</p> 
+                            </a>
+                            <p>10.25 am</p>
+                           </div>
+                           <div class="col-lg-2 col-lg-push-1">
+                           <p class="matter"><a href="#"><i class="fa fa-reply"></i> &nbsp;</a> <a href="#"> <i class="fa fa-trash-o"></i></a></p> 
+                           </div>
+                   </div>
+                    }
+                </div>
+            </div>           
+         </div>
+         </div>
+      </div>*@

@@ -1,0 +1,139 @@
+﻿@model iCanSpeakAdminPortal.Models.SuccessStoryModel
+@{
+    ViewBag.Title = "UpdateStory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var files = e.files;
+                var filePath = input.value;
+
+                var ext = filePath.substring(filePath.lastIndexOf('.') + 1).toLowerCase();
+                if ($.inArray(ext, ['jpg', 'png', 'jpeg']) == -1) {
+                    alert('You can only upload .jpg,.png, .jpeg files');
+                    input.value = '';
+                    e.preventDefault();
+                    return false;
+                }
+                $("#image").attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+<style>
+    .fileUpload {
+        position: relative;
+        overflow: hidden;
+        margin: 10px;
+    }
+
+        .fileUpload input.upload {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0px 10px;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+    .box1 {
+        border: 1px solid #ccc;
+        margin: 3px 0px;
+        padding: 20px;
+        border-radius: 8px;
+    }
+</style>
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <font color="44c9ff"> Update Story</font>
+                </h1>
+            </div>
+            @*<a style="cursor:pointer; color:#3d3b3b; text-decoration:none; font-weight:200" href="/CourseContent/AddVocabularyCategoryName/">Add New Vocabulary Category</a>*@
+            <a style="cursor:pointer; color:#3d3b3b; font-size:14pt;margin-left: -155px; float:right;position: absolute; margin-top:55px; font-weight:200;" href="@Url.Action("SuccessStoryList", "PageManagement")"]">Go To Story List</a>
+        </div>
+
+        <!--Edit Table start-->
+        <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2  col-sm-6 col-sm-offset-2 col-xs-12">
+            <div class="row">
+             @*   @using (Html.BeginForm("UpdateStory", "PageManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {*@
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)                   
+                    <div class="form-group">
+                        <label>Client Name <span style="color: #FE2801;">*</span></label>
+                        <input  type="text"  class="form-control" id="name" value="@Model.ClientName"  required name="EnglishText" maxlength="30">
+                        <input type="hidden" id="sotryId" name="sotryId" value="@Model.StoryId" />
+                    </div>
+                    <div class="form-group">
+                        <label>Client Story <span style="color: #FE2801;">*</span></label>
+                        <textarea class="form-control" name="EnglishText" id="story" placeholder="250 characters only" required maxlength="250" rows="3">@Model.ClientStory</textarea>
+                    </div>@*
+                    <div class="form-group">
+                        <label>Client Image</label>
+                        <div class="box1">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="file-preview">
+                                        <div class="file-preview-thumbnails">
+                                            <div class="file-preview-frame" id="preview">
+                                                <img id="image" style="width: 150px; height: 150px" src="@Model.ClientImageUrl" class="file-preview-image" title="logo_symbol.png" alt="logo_symbol.png">
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="file-preview-status text-center text-success"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="fileUpload btn btn-primary">
+                                    <span>Change Image</span>
+                                    <input id="imgfile" type="file" class="upload" onchange="readURL(this);" name="ImageFile" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-info2" id="submtform" value="Submit" />&nbsp;&nbsp;<input type="button" class="btn btn-info2" value="Reset" onclick="ResetFormValues()" />
+                        &nbsp;&nbsp;<a href="../../Admin/PageManagement/SuccessStoryList">
+                            <input type="button" class="btn btn-info2" value="Cancel" />
+                        </a>
+                    </div>             
+                @*}*@
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('#submtform').click(function () {   
+        $.ajax({
+            url: '@Url.Action("UpdateStory1", "PageManagement")',
+                type: "POST",
+                data: { storyId: '@Model.StoryId' ,clientName:$('#name').val(),clientStory:$('#story').val()},
+            success: function (data) {
+                window.location = "@Url.Action("SuccessStoryList", "PageManagement")";
+                },
+                error: function (result) {
+                    $("#lblLoginerror").css("display", "block");
+                }
+            });      
+        return false;
+    })
+    function ResetFormValues() {
+        window.location = "@Url.Action("UpdateStory", "PageManagement")";
+    }
+</script>

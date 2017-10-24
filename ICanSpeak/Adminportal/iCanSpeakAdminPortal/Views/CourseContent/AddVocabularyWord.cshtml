@@ -1,0 +1,306 @@
+﻿@model iCanSpeakAdminPortal.Models.VocabularyWordModel
+@{
+    ViewBag.Title = "AddVocabularyWord";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".valid").keypress(function (e) {
+            if (e.which < 97 || e.which > 122) {
+                e.preventDefault();
+            }
+        });
+        $('#btnsubcategory').click(function () {
+            $('#divword').append('<div class="clearfix"></div><p class="row" style="margin-top:10px"><span class="col-lg-3"><input type="text" maxlength="30" required  class="form-control" onkeypress="charvalid(event)" name="EnglishTexts" placeholder="Word English"></span><span class="col-lg-3"><input type="text" maxlength="30"  class="form-control" onkeypress="charvalid(event)" required name="ArabicTexts" placeholder="Word Arabic"></span><span class="col-lg-3"><input  type="file" class="form-control" name="Image" onchange="readURL(this);" required /></span><span class="col-lg-3"><input  type="file" class="form-control" onchange="readAudio(this);" required name="Audio" /></span></p>');
+            $('#btnremovesubcategory').show();
+            return false;
+        })
+
+
+        $('#btnremovesubcategory').click(function () {
+            if ($("#divword .form-control").length != 1) {
+                $("#divword .form-control:last").remove();
+                //$("#divword .form-control:last").remove();
+                //$("#divword .form-control:last").remove();
+                $("#divword .row:last").remove();
+            }
+            if ($("#divword .form-control").length == 4) {
+                $('#btnremovesubcategory').hide();
+            }
+            // $('#subcategorytxtdiv').append('<br /><input type="text" class="form-control" placeholder="Sub Category Name" name="subcategory" required="">');
+            return false;
+        })
+
+        $('#submtform').click(function () {
+            var wordname = '';
+            $("#divword .form-control").each(function () {
+                wordname = wordname + $(this).val() + "|||"
+            });
+            wordname = wordname.substr(0, wordname.length - 3);
+
+            $('#wordname').val(subcategory);
+            alert($('#wordname').val());
+        });
+    });
+</script>
+
+<script>
+    function charvalid(evt) {
+        var theEvent = evt || window.event;
+        var key = theEvent.keyCode || theEvent.which;
+
+        if (key < 97 || key > 122) {
+            evt.preventDefault();
+        }
+    }
+</script>
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var files = e.files;
+                var filePath = input.value;
+
+                var ext = filePath.substring(filePath.lastIndexOf('.') + 1).toLowerCase();
+                if ($.inArray(ext, ['jpg', 'png', 'jpeg']) == -1) {
+                    alert('You can only upload .jpg,.png, .jpeg files');
+                    input.value = '';
+                    e.preventDefault();
+                    return false;
+                }
+                $("#image").attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function readAudio(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var files = e.files;
+                var filePath = input.value;
+
+                var ext = filePath.substring(filePath.lastIndexOf('.') + 1).toLowerCase();
+                if ($.inArray(ext, ['mp3']) == -1) {
+                    alert('You can only upload .mp3 files');
+                    input.value = '';
+                    e.preventDefault();
+                    return false;
+                }
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+<style>
+    .fileUpload {
+        position: relative;
+        overflow: hidden;
+        margin: 10px;
+    }
+
+        .fileUpload input.upload {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0px 10px;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+    .box1 {
+        border: 1px solid #ccc;
+        margin: 3px 0px;
+        padding: 20px;
+        border-radius: 8px;
+    }
+</style>
+
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        @using (Html.BeginForm("AddVocabularyWord", "CourseContent", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div class="row">
+                <div class="col-lg-12">
+                    @if (Model != null)
+                    {
+                        <h1 class="page-header">
+                            <font color="44c9ff"> Update Vocabulary Word</font>
+                        </h1>
+                    }
+                    else
+                    {
+                        <h1 class="page-header">
+                            <font color="44c9ff"> Add Vocabulary Word</font>
+                        </h1>
+                    }
+                </div>
+                @*<a style="cursor: pointer; color: #3d3b3b; text-decoration: none; font-weight: 200" href="/CourseContent/AddVocabularyCategoryName/">Add New Vocabulary Category</a>*@
+                <a style="cursor:pointer; color:#3d3b3b; font-size:14pt;margin-left: -155px; float:right;position: absolute; margin-top:55px; font-weight:200;" href="@Url.Action("VocabularyWordList", "CourseContent")?subcatid=@Request.QueryString["subcatid"]&vocabid=@Request.QueryString["vocabid"]">Go To Word List</a>
+            </div>
+
+            <!--Edit Table start-->
+            <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2  col-sm-6 col-sm-offset-2 col-xs-12">
+                <div class="row">
+                    @if (Model != null)
+                    {
+                        <div class="form-group">
+                            <label>Word English <span style="color: #FE2801;">*</span></label>
+                            <input  type="text"  class="form-control" required value="@Model.EnglishText"   name="EnglishText" maxlength="30">
+                        </div>
+                        <div class="form-group">
+                            <label>Word Arabic <span style="color: #FE2801;">*</span></label>
+                            <input  type="text"  class="form-control"  required value="@Model.ArabicText"  name="ArabicText" maxlength="30">
+                        </div>
+                        <div class="form-group">
+                            <label>Image</label>
+                            <div class="box1">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="file-preview">
+                                            <div class="file-preview-thumbnails">
+                                                <div class="file-preview-frame" id="preview">
+                                                    <img id="image" style="width: 150px; height: 150px" src="@Model.PictureUrl" class="file-preview-image" title="logo_symbol.png" alt="logo_symbol.png">
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div class="file-preview-status text-center text-success"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="fileUpload btn btn-primary">
+                                        <span>Change Image</span>
+                                        <input id="imgfile" type="file" class="upload" onchange="readURL(this);" name="ImageFile" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+@*<div class="form-group">
+    <label>Image <span style="color: #FE2801;">*</span></label>
+    <img style="width: 150px; height: 150px" src="@Model.PictureUrl" /><br />
+    <br />
+    <input onchange="readURL(this);" type="file" style="margin-left: 10%;" multiple="true" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false" name="ImageFile">
+                        </div>*@
+                        <div class="form-group">
+                            <label>Audio</label>
+                            <div class="box1">
+                                <div class="row">
+
+                                    <audio id="audio_preview" controls="" style="width: 100%">
+                                        <source src="@Model.AudioUrl" type="audio/mpeg" />
+                                    </audio>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="fileUpload btn btn-primary">
+                                        <span>Change Audio</span>
+                                        <input id="audio" onchange="readAudio(this);" type="file" class="upload" name="AudioFile" accept="audio/*" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+@*<div class="form-group">
+    <label>Audio</label><br />
+    <audio controls>
+        <source src="@Model.AudioUrl" type="audio/mpeg" />
+    </audio>
+                        </div>
+                        <div class="form-group">
+                            <label>Change Audio</label>
+                            <input id="audio" onchange="readAudio(this);" type="file" name="AudioFile" multiple="true" accept="audio/*" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false">
+                        </div>*@
+                        <div class="form-group">
+                            <input type="submit" id="submtform" class="btn btn-info" value="Update" />&nbsp;&nbsp;
+                        <a href="../../Admin/CourseContent/VocabularyList">
+                            <input type="button" class="btn btn-info" value="Reset" onclick="ResetFormValues()" /></a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-info" id="btnsubcategory" value="Add New Word" />&nbsp;&nbsp;
+                        <input type="submit" class="btn btn-info" id="btnremovesubcategory" value="Remove Last Word" style="display: none" />
+                        </div>
+                        <div class="row">
+                            <label class="col-lg-3">Word English</label>
+                            <label class="col-lg-3">Word Arabic</label>
+                            <label class="col-lg-3">Picture</label>
+                            <label class="col-lg-3">Audio</label>
+                        </div>
+                        <div id="divword">
+                            <div class="row">
+                                <span class="col-lg-3">
+                                    <input type="text" class="form-control" maxlength="30" required name="EnglishTexts" placeholder="Word English"></span>
+                                <span class="col-lg-3">
+                                    <input type="text" class="form-control" maxlength="30" required name="ArabicTexts" placeholder="Word Arabic"></span>
+                                <span class="col-lg-3">
+                                    <input type="file" class="form-control" onchange="readURL(this);" required name="Image" /></span>
+                                <span class="col-lg-3">
+                                    <input type="file" class="form-control" onchange="readAudio(this);" required name="Audio" /></span>
+
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+@*<div style="display: table-cell">
+    <div class="form-group" style="float: left">
+        <label for="exampleInputEmail1">Word <span style="color: #FE2801;">*</span></label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="form-group" style="float: left">
+        <label for="exampleInputEmail1">Picture <span style="color: #FE2801;">*</span></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="form-group" style="float: left">
+        <label for="exampleInputEmail1">Audio <span style="color: #FE2801;">*</span></label>
+    </div>
+                        </div>
+                        <div class="form-group">
+                            <div id="divword">
+                                <input type="text" class="form-control" name="EnglishText" placeholder="Word">
+                                <input type="file" class="form-control" name="Image" />
+                                <input type="file" class="form-control" name="Audio" />
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                        *@<div class="form-group">
+                            <input type="submit" id="submtform" class="btn btn-info" value="Submit" />&nbsp;&nbsp;
+                        <a href="../../Admin/CourseContent/VocabularyList">
+                            <input type="button" class="btn btn-info" value="Cancel" /></a>
+                        </div>
+                    }
+                    <input type="hidden" id="WordId" name="WordId" value="@Request.QueryString["wordid"]" />
+                    <input type="hidden" id="VocabularySubId" name="VocabularySubId" value="@Request.QueryString["subcatid"]" />
+                    <input type="hidden" id="wordname" name="wordname" />
+                    <input type="hidden" id="vocabid" name="vocabid" value="@Request.QueryString["vocabid"]" />
+
+                </div>
+            </div>
+        }
+        <!-- /.row -->
+        <!--edit table end here-->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript">
+    function ResetFormValues() {
+
+    }
+</script>

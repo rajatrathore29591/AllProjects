@@ -1,0 +1,614 @@
+﻿<div ng-controller="CustomerRegistrationCtrl as crCtrl" class="customer-register">
+   <!--Tab Start-->
+   <div ng-controller="TabCtrl">
+      <uib-tabset active="active">
+         <!--Customer Info Start-->
+         <uib-tab index="0" heading="Customer Info">
+            <form name="add_customerinfo_form" ng-submit="crCtrl.manageCustomerInfo(add_customerinfo_form.$valid)" novalidate>
+               <!--Customer Info Content Start-->
+               <div id="customer-info-tab">
+                  <div class="bc-panel-white">
+                     <div class="row">
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Customer Name</label>
+                              <input type="text" class="form-control" ng-model="crCtrl.attributes.customername" required>
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>ABN/ ACN Number</label>
+                              <input type="number" class="form-control only-float" ng-model="crCtrl.attributes.abnnumber"  required>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Contact Name</label>
+                              <input type="text" class="form-control only-float" maxlength="10" ng-model="crCtrl.attributes.contactname" required>
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Contact #</label>
+                              <input type="text" class="form-control only-float" >
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Account Contact</label>
+                              <input type="text" class="form-control only-float" ng-model="crCtrl.attributes.accountcontact" required>
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Account #</label>
+                              <input type="text" class="form-control only-float" maxlength="10" ng-model="crCtrl.attributes.account" required>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Phone #1</label>
+                              <input type="number" class="form-control only-float">
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Phone #2</label>
+                              <input type="number" class="form-control only-float">
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Mobile #1</label> 
+                              <input type="number" class="form-control only-float">
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Mobile #2</label>
+                              <input type="number" class="form-control only-float">
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Fax #</label>
+                              <input type="text" class="form-control only-float">
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Email Address For Invoices</label>
+                              <input type="Email" class="form-control">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="bc-panel-light-grey">
+                     <h3 class="sub-title">Office Address</h3>
+                     <div class="row">
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Street</label>
+                              <input type="text" class="form-control" ng-model="crCtrl.attributes.street" required>
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Suburb</label>
+                              <input type="text" class="form-control">
+                           </div>
+                        </div>
+                        <div class="col-md-2">
+                           <div class="form-group">
+                              <label>State</label>
+                              <input type="text" class="form-control">
+                           </div>
+                        </div>
+                        <div class="col-md-2">
+                           <div class="form-group">
+                              <label>Postcode</label>
+                              <input type="number" class="form-control only-float">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="bc-panel-white">
+                     <h3 class="sub-title">Postal Address</h3>
+                     <div class="row">
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Street/PO Box</label>
+                              <input type="text" class="form-control only-float" ng-model="crCtrl.attributes.streetxox" required>
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Suburb</label>
+                              <input type="text" class="form-control">
+                           </div>
+                        </div>
+                        <div class="col-md-2">
+                           <div class="form-group">
+                              <label>State</label>
+                              <input type="text" class="form-control">
+                           </div>
+                        </div>
+                        <div class="col-md-2">
+                           <div class="form-group">
+                              <label>Postcode</label>
+                              <input type="number" class="form-control only-float">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="panel-footer text-right bc-panel-footer">
+                     <button class="btn btn-primary continue" type="submit" title="Save &amp; Next">Save &amp; Next</button>
+                  </div>
+               </div>
+               <!--Customer Info Content End-->
+            </form>
+         </uib-tab>
+         <!--Customer Info End-->
+         <!--Site Details Start-->
+         <uib-tab index="1" heading="Site Details">
+          <form name="add_sitedetail_form" ng-submit="crCtrl.manageSiteDetails(add_sitedetail_form.$valid)" novalidate>
+            <!--Site Details Content Start-->
+            <div id="site-details-tab" class="tab-pane">
+               <div class="bc-panel-white m-b-none">
+                  <h3 class="sub-title">Site Details</h3>
+                  <div class="row">
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label>Site Name</label>
+                           <input type="text" class="form-control" ng-model="crCtrl.sitename" required>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="form-group">
+                           <label>Site Details</label>
+                           <textarea class="form-control"></textarea>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <div class="row">
+                              <div class="col-md-6">
+                                 <label>Day Shift Rate </label>
+                                 <div class="input-group date" >
+                                    <span class="input-group-addon">
+                                    <span class="fa fa-usd"></span>
+                                    </span>
+                                    <input type="text" class="form-control only-float">
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <label>Night Shift Rate </label>
+                                 <div class="input-group date" >
+                                    <span class="input-group-addon">
+                                    <span class="fa fa-usd"></span>
+                                    </span>
+                                    <input type="text" class="form-control only-float">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <div class="row">
+                              <div class="col-md-6">
+                                 <label>Float Charge </label>
+                                 <div class="input-group date" >
+                                    <span class="input-group-addon">
+                                    <span class="fa fa-usd"></span>
+                                    </span>
+                                    <input type="text" class="form-control only-float">
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <label>Pilot Charge </label>
+                                 <div class="input-group date" >
+                                    <span class="input-group-addon">
+                                    <span class="fa fa-usd"></span>
+                                    </span>
+                                    <input type="text" class="form-control only-float">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row clearfix">
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label>Fuel Included </label>
+                           <ul class="list-inline" >
+                              <li>
+                                 <div class="checkbox"><label class="p-l0"> <input icheck type="radio" ng-model="crCtrl.attributes.fuelincludedyes" name="fuel" class="i-checks" > Yes </label></div>
+                              </li>
+                              <li>
+                                 <div class="checkbox"><label> <input icheck type="radio" name="fuel" ng-model="crCtrl.attributes.fuelincludedno" class="i-checks"> No </label></div>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label>Tolls Included </label>
+                           <ul class="list-inline">
+                              <li>
+                                 <div class="checkbox"><label class="p-l0"> <input icheck ng-model="crCtrl.attributes.tollstncludedyes"  type="radio" name="toll" class="i-checks"> Yes </label></div>
+                              </li>
+                              <li>
+                                 <div class="checkbox"><label> <input icheck type="radio" ng-model="crCtrl.attributes.tollstncludedno" name="toll" class="i-checks"> No </label></div>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row clearfix add-supervisor">
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label>Supervisor Name</label>
+                           <input type="text" ng-model="crCtrl.name" class="form-control" required>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label>Supervisor Email</label>
+                           <input type="Email" ng-model="crCtrl.email"  class="form-control" required>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label>Supervisor Mobile No.</label>
+                           <input type="text" ng-model="crCtrl.mobile" class="form-control only-float" maxlength="10" required>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group add-btn">
+                           <button class="btn btn-primary btn-i" title="Add Supervisor" ng-click="crCtrl.addPerson()"><i class="fa fa-plus"></i> Add Supervisor</button>
+                        </div>
+                     </div>
+                     <div class="col-md-12">
+                        <div class="grid-tb-panel">
+                           <table class="table table-stripped table-hover">
+                              <thead>
+                                 <tr>
+                                    <th>Supervisor Name</th>
+                                    <th>Supervisor Email</th>
+                                    <th>Supervisor Mobile No.</th>
+                                 </tr>
+                              </thead>
+                              <tr ng-repeat="person in crCtrl.supervisor">
+                                 <td>{{ crCtrl.name }}</td>
+                                 <td>{{ crCtrl.email }}</td>
+                                 <td class="text-center">{{ crCtrl.mobile }}</td>
+                              </tr>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="bc-panel-light-grey m-b-none">
+                  <h3 class="sub-title">Gate Details</h3>
+                  <div class="row">
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label>Gate Number</label>
+                           <input type="number" class="form-control only-float" ng-model="crCtrl.gatenumber" required>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label>Equipment Type</label>
+                           <select class="form-control">
+                              <option >Select</option>
+                              <option value="CLient1">Equipment-1</option>
+                              <option value="CLient3">Equipment-2</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label>Tip Off Rate </label>
+                           <div class="input-group date">
+                              <span class="input-group-addon">
+                              <span class="fa fa-usd"></span>
+                              </span>
+                              <input type="text" class="form-control only-float">
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label>Tipping Site</label>
+                           <input type="text" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-3" style="">
+                        <div class="form-group">
+                           <label>Contact Person Name</label>
+                           <input class="form-control" type="text">
+                        </div>
+                     </div>
+                     <div class="col-md-3" style="">
+                        <div class="form-group">
+                           <label>Contact Person Email</label>
+                           <input class="form-control" type="Email">
+                        </div>
+                     </div>
+                     <div class="col-md-3" style="">
+                        <div class="form-group">
+                           <label>Contact Person Mobile No.</label>
+                           <input class="form-control only-float" maxlength="10" type="text">
+                        </div>
+                     </div>
+                     <div class="col-md-3" style="">
+                        <div class="form-group add-btn">
+                           <a href="#" class="btn btn-primary btn-i" title="Add Contact Person"><i class="fa fa-plus"></i> Add Contact Person</a>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12 text-right m-t-sm">
+                        <a href="#" class="btn btn-primary btn-i" title="Add Gate"><i class="fa fa-plus"></i> Add Gate</a> 
+                     </div>
+                  </div>
+               </div>
+               <div class="bc-panel-white">
+                  <div class="row">
+                     <div class="col-md-12 text-right">
+                        <a href="#" class="btn btn-primary btn-i" title="Add Site"><i class="fa fa-plus"></i> Add Site</a> 
+                     </div>
+                  </div>
+               </div>
+               <div class="panel-footer text-right bc-panel-footer">
+                  <button class="btn btn-primary back" title="Previous">Previous</button>  
+                  <button class="btn btn-primary" title="Save As Draft">Save As Draft</button>
+                  <button class="btn btn-primary" type="submit" title="Save &amp; Next">Save &amp; Next</button>       
+               </div>
+            </div>
+            <!--Site Details Content End-->
+            </form>
+         </uib-tab>
+         <!--Site Details End-->
+         <!--Billing Payment Start-->
+         <uib-tab index="2" heading="Billing & Payment">
+            <!--Billing Content Start-->
+            <div id="billing-payment-tab">
+               <div class="bc-panel-white">
+                  <div class="row">
+                     <div class="col-md-2">
+                        <div class="form-group">
+                           <label>Billing Cycle</label>
+                           <select class="form-control">
+                              <option>Select</option>
+                              <option>Weekly</option>
+                              <option>Daily</option>
+                              <option>Monthly</option>
+                              <option>Yearly</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="col-md-2">
+                        <label>Discount</label>
+                        <input value="" class="form-control only-float" type="text">
+                     </div>
+                     <div class="col-md-2">
+                        <label>Payment Methods</label>
+                        <select class="form-control">
+                           <option>Select</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <p><a href="javascript:void(0)">Payment &amp; Invoice History </a></p>
+                     </div>
+                  </div>
+               </div>
+               <div class="panel-footer text-right bc-panel-footer">
+                  <a class="btn btn-primary back" href="javascript:void(0)" title="Previous">Previous</a>            
+                  <a class="btn btn-primary" href="javascript:void(0)" title="Save As Draft">Save As Draft</a> <a class="btn btn-primary continue" href="javascript:void(0)" title="Save &amp; Next">Save &amp; Next</a>
+               </div>
+            </div>
+            <!--Billing Content End-->
+         </uib-tab>
+         <!--Billing Payment End-->
+         <!--Contact Log Start-->
+         <uib-tab index="3" heading="Contact Log">
+            <!--Contact Log Content Start-->
+            <div id="contact-log" class="tab-pane">
+               <div class="bc-panel-white" ng-controller="StartDatepickerCtrl">
+                  <div class="row">
+                     <div class="col-md-2">
+                        <div class="form-group">
+                           <label>Dated Form</label>
+                           <div class="input-group date-picker">
+                              <span class="input-group-addon" ng-click="startDate()">
+                              <span class="fa fa-calendar"></span>
+                              </span>
+                              <input placeholder="DD-MM-YYYY" type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                                 show-button-bar="false" ng-model="blCtrl.attributes.FromDate" is-open="popup1.opened"
+                                 max-date="'2019-06-22'" datepicker-options="dateOptions"
+                                 date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-2">
+                        <div class="form-group">
+                           <label>Dated To</label>
+                           <div class="input-group date-picker">
+                              <span class="input-group-addon" ng-click="endDate()">
+                              <span class="fa fa-calendar"></span>
+                              </span>
+                              <input placeholder="DD-MM-YYYY" type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                                 show-button-bar="false" ng-model="blCtrl.attributes.ToDate" is-open="popup2.opened"
+                                 max-date="'2019-06-22'" datepicker-options="dateOptions"
+                                 date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="grid-tb-panel">
+                        <table class="table table-stripped table-hover" data-page-size="8">
+                           <thead>
+                              <tr>
+                                 <th>No.</th>
+                                 <th>Date</th>
+                                 <th>Time</th>
+                                 <th>Recontact</th>
+                                 <th>Notes</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>1.</td>
+                                 <td>&nbsp;</td>
+                                 <td>&nbsp;</td>
+                                 <td>&nbsp;</td>
+                                 <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                 <td>2.</td>
+                                 <td>&nbsp;</td>
+                                 <td>&nbsp;</td>
+                                 <td>&nbsp;</td>
+                                 <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                 <td>3.</td>
+                                 <td>&nbsp;</td>
+                                 <td>&nbsp;</td>
+                                 <td>&nbsp;</td>
+                                 <td>&nbsp;</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+               <div class="panel-footer text-right bc-panel-footer">
+                  <a class="btn btn-primary back" href="javascript:void(0)" title="Previous">Previous</a>  
+                  <a class="btn btn-primary" href="javascript:void(0)" title="Save As Draft">Save As Draft</a> <a class="btn btn-primary continue" href="javascript:void(0)" title="Save &amp; Next">Save &amp; Next</a>
+               </div>
+            </div>
+            <!--Contact Log Content End-->
+         </uib-tab>
+         <!--Contact Log End-->
+         <!--Jobs Start-->
+         <uib-tab index="4" heading="Jobs">
+            <!--Jobs Content Start-->
+            <div id="jobs" class="tab-pane">
+               <div class="bc-panel-white">
+                  <div class="row">
+                     <div class="col-md-2">
+                        <div class="form-group">
+                           <label>View</label>
+                           <select class="form-control">
+                              <option>Select</option>
+                              <option>Incomplete Jobs</option>
+                              <option>100% complete</option>
+                              <option>All Jobs</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="grid-tb-panel">
+                        <table class="table table-stripped table-hover" data-page-size="8">
+                           <thead>
+                              <tr>
+                                 <th>No.</th>
+                                 <th>Job Number</th>
+                                 <th>Percent Complete</th>
+                                 <th>Name</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>1.</td>
+                                 <td>&nbsp;</td>
+                                 <td>&nbsp;</td>
+                                 <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                 <td>2.</td>
+                                 <td>&nbsp;</td>
+                                 <td>&nbsp;</td>
+                                 <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                 <td>3.</td>
+                                 <td>&nbsp;</td>
+                                 <td>&nbsp;</td>
+                                 <td>&nbsp;</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+               <div class="row" >
+                  <div class="col-md-12">
+                     Filter:
+                     <select ng-model="filterItem.store" ng-options="item.name for item in filterOptions.stores">
+                  </select>
+      
+      <div class="grid-tb-panel">
+                        <table class="table table-stripped table-hover" data-page-size="8">
+                           <thead>
+                              <tr>
+                                 <th>No.</th>
+                                 <th>Job Number</th>
+                                 <th>Percent Complete</th>
+                                 <th>Name</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr data-ng-repeat="item in data | filter:customFilter">
+                                 <td>Name: {{item.namee}}</td>
+                                 <td> Price: {{item.jobnumber}}</td>
+                                 <td> Rating: {{item.rating}}</td>
+                                 <td> Testing: {{item.testing}}</td>
+                              </tr>
+            
+                           </tbody>
+                        </table>
+                     </div>
+
+                  </div>
+               </div>
+
+
+
+
+               <div class="panel-footer text-right bc-panel-footer">
+                  <a class="btn btn-primary" href="javascript:void(0)" title="Save As Draft">Save As Draft</a> <a class="btn btn-primary continue" href="javascript:void(0)" title="Submit">Submit</a>
+               </div>
+            </div>
+            <!--Jobs Content End-->
+         </uib-tab>
+         <!--Jobs End-->
+      </uib-tabset>
+   </div>
+   <!--Tab End-->
+</div>

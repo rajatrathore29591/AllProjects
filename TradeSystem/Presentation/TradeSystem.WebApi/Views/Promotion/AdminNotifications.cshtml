@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Notification List";
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-flat">
+            <div class="panel-body">
+                <div class="tabbable">
+                    <!-- Investments -->
+                    <div class="tab-pane" id="investments-tab">
+                        <div class="data-tbl-wrapper">
+                            <table id="notification_list_data_table" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>@Resources.Languages.SNo</th>
+                                        <th>@Resources.Languages.Description</th>
+                                        <th>@Resources.Languages.CreatedDate</th>
+                                        <th>@Resources.Languages.Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        List<TradeSystem.Utils.Models.PromotionDataModel> listPromotionItems = (List<TradeSystem.Utils.Models.PromotionDataModel>)Session["AdminPromotionListDetails"];
+                                        var sno = 1;
+                                        foreach (var item in listPromotionItems)
+                                        {
+                                            <tr>
+                                                <td>@sno</td>
+
+                                                @if (item.Url == null)
+                                                {
+                                                    <td>
+
+                                                        <a href="javascript:void(0);" class="ellipsis" title="" data-toggle="modal" data-target="#View_Notification_modal" onclick="UpdatePromotion('@item.Id');return false;">
+                                                            @item.Description
+                                                        </a>
+                                                    </td>
+                                                }
+                                                else
+                                                {
+                                                    <td>
+
+                                                        <a href="@item.Url" class="ellipsis" title="" >
+                                                            @item.Description
+                                                        </a>
+                                                    </td>
+                                                }
+                                              
+                                                <td>@item.CreatedDate</td>
+                                                @if (@item.Viewed == true)
+                                                {
+                                                    <td>@Resources.Languages.Viewed</td>
+                                                }
+                                                else
+                                                {
+                                                    <td>@Resources.Languages.Unviewed</td>
+
+                                                }
+
+                                            </tr>
+                                            sno++;
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                            @*<div class="text-center mt-15">
+                                    <a class="btn bg-orange" href="@Url.Action("ExistingCustomers","CustomerManagement")" title="Back"><i class="icon-arrow-left13 position-left"></i> Back </a>
+                                </div>*@
+                        </div>
+                        <!-- /customer investment details -->
+                    </div>
+                    <!-- /investments -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

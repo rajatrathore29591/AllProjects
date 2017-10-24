@@ -1,0 +1,1083 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email </value>
+  </data>
+  <data name="EnterRoleDetails" xml:space="preserve">
+    <value>Enter Role Details</value>
+  </data>
+  <data name="Enteryourcredentialbelow" xml:space="preserve">
+    <value>Enter your credentials below</value>
+  </data>
+  <data name="Enteryournewpasswordbelow" xml:space="preserve">
+    <value>Enter your new password below</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Forgot Password</value>
+  </data>
+  <data name="ForgotPasswordTitle" xml:space="preserve">
+    <value>We'll send you instructions in email</value>
+  </data>
+  <data name="GetPassword" xml:space="preserve">
+    <value>Get Password</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="ManageRole" xml:space="preserve">
+    <value>Manage Permission</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>New Password</value>
+  </data>
+  <data name="OldPassword" xml:space="preserve">
+    <value>Old Password</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="RoleTitle" xml:space="preserve">
+    <value>Role Title</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="AssignedMenus" xml:space="preserve">
+    <value>Assigned Menus</value>
+  </data>
+  <data name="SelectMenustoProvideAccess" xml:space="preserve">
+    <value>Select Menus to Provide Access</value>
+  </data>
+  <data name="ViewLog" xml:space="preserve">
+    <value>View Log</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Approve</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Reject</value>
+  </data>
+  <data name="Api_EmailSendedSuccessfully" xml:space="preserve">
+    <value>Email sent successfully.</value>
+  </data>
+  <data name="Api_Loginsuccessfully" xml:space="preserve">
+    <value>Login successfully</value>
+  </data>
+  <data name="Api_Tokennotfound" xml:space="preserve">
+    <value>Token not found</value>
+  </data>
+  <data name="Api_EmailAddressNotExist" xml:space="preserve">
+    <value>Email address not exist</value>
+  </data>
+  <data name="Api_EmailisEmpty" xml:space="preserve">
+    <value>Email is Empty</value>
+  </data>
+  <data name="Api_DataNotFound" xml:space="preserve">
+    <value>Data Not Found</value>
+  </data>
+  <data name="Api_Failed" xml:space="preserve">
+    <value>Failed</value>
+  </data>
+  <data name="Api_Penalty" xml:space="preserve">
+    <value>Penalty Data</value>
+  </data>
+  <data name="Api_TicketList" xml:space="preserve">
+    <value>Ticket List</value>
+  </data>
+  <data name="Api_PasswordIncorrect" xml:space="preserve">
+    <value>Please enter correct password</value>
+  </data>
+  <data name="Api_ProductDetails" xml:space="preserve">
+    <value>Product Details</value>
+  </data>
+  <data name="Api_ProductList" xml:space="preserve">
+    <value>Product List</value>
+  </data>
+  <data name="Api_SomethingWentWorng" xml:space="preserve">
+    <value>Somethinng went worng</value>
+  </data>
+  <data name="Api_Invalidlogin" xml:space="preserve">
+    <value>Invalid login credentials. Please try again.</value>
+  </data>
+  <data name="Api_DashbaordDetails" xml:space="preserve">
+    <value>Customer Dashboard Details</value>
+  </data>
+  <data name="Test" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="Description_CustomerLogin" xml:space="preserve">
+    <value>Welcome to the Split Deals ® System</value>
+  </data>
+  <data name="Api_InactiveUser" xml:space="preserve">
+    <value>Your account is inactive, please contact us</value>
+  </data>
+  <data name="Api_CustomerInsertedSuccessfully" xml:space="preserve">
+    <value>Customer has been inserted successfully</value>
+  </data>
+  <data name="Api_TicketInsertedSuccessfully" xml:space="preserve">
+    <value>Ticket has been raised successfully</value>
+  </data>
+  <data name="Api_MySaleCommission" xml:space="preserve">
+    <value>My sale commission list</value>
+  </data>
+  <data name="Api_MySales" xml:space="preserve">
+    <value>My sales list</value>
+  </data>
+  <data name="Api_InvestInProduct" xml:space="preserve">
+    <value>Purchase made successfully</value>
+  </data>
+  <data name="Api_MaxPrice" xml:space="preserve">
+    <value>The purchase can not be higher than the maximum price</value>
+  </data>
+  <data name="Api_MinPrice" xml:space="preserve">
+    <value>The purchase can not be less than the minimum price</value>
+  </data>
+  <data name="Api_MyInvestmentList" xml:space="preserve">
+    <value>My Campaign List</value>
+  </data>
+  <data name="CustomerLogin" xml:space="preserve">
+    <value>Customer Login</value>
+  </data>
+  <data name="Introduction" xml:space="preserve">
+    <value>Introduction</value>
+  </data>
+  <data name="Login_Descrption_Point" xml:space="preserve">
+    <value>Enter your email and password with the ones you registered.</value>
+  </data>
+  <data name="Login_Descrption_Point2" xml:space="preserve">
+    <value>If you need help you can always call our offices.</value>
+  </data>
+  <data name="Login_Descrption_Point3" xml:space="preserve">
+    <value>Si habla Español, puede cambiar el idioma en cualquier momento pulsando sobre el texto "ES" en la esquina superior derecha de esta casilla.</value>
+  </data>
+  <data name="TRADINGSYSTEM" xml:space="preserve">
+    <value>SPLIT DEALS</value>
+  </data>
+  <data name="AccountNumber" xml:space="preserve">
+    <value>Account Number</value>
+  </data>
+  <data name="Bank" xml:space="preserve">
+    <value>Bank</value>
+  </data>
+  <data name="BankDetailsOptional" xml:space="preserve">
+    <value>Bank Details (Optional)</value>
+  </data>
+  <data name="BeneficiaryName" xml:space="preserve">
+    <value>Beneficiary Name</value>
+  </data>
+  <data name="Birthdate" xml:space="preserve">
+    <value>Birth Date</value>
+  </data>
+  <data name="CLABE" xml:space="preserve">
+    <value>CLABE Number</value>
+  </data>
+  <data name="CLABENumber" xml:space="preserve">
+    <value>CLABE Number</value>
+  </data>
+  <data name="ComissionNote" xml:space="preserve">
+    <value>Note: Customer's overall sales comission will not exceed than max. % comission sale set out of his total investment.</value>
+  </data>
+  <data name="CommissionfromSalesReleased" xml:space="preserve">
+    <value>Released Sales Commission</value>
+  </data>
+  <data name="ConfirmEmail" xml:space="preserve">
+    <value>Confirm Email</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>Created Date</value>
+  </data>
+  <data name="CustomerName" xml:space="preserve">
+    <value>Customer Name</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="DNI" xml:space="preserve">
+    <value>DNI</value>
+  </data>
+  <data name="EarningbyInvestment" xml:space="preserve">
+    <value>Total Earning Withdraw</value>
+  </data>
+  <data name="EarningbySales" xml:space="preserve">
+    <value>Total Sales Earning Withdraw</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Email Address</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="Fieldsaremandatory" xml:space="preserve">
+    <value>Fields are mandatory</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="InvestmentName" xml:space="preserve">
+    <value>Campaign Name</value>
+  </data>
+  <data name="Investments" xml:space="preserve">
+    <value>Investments</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="LoginDetails" xml:space="preserve">
+    <value>Login Details</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="MaximumCommissionforSaleOutofTotalInvestment" xml:space="preserve">
+    <value>Maximum percentage of commission per sale out of total purchase</value>
+  </data>
+  <data name="MaxPerCommission" xml:space="preserve">
+    <value>Max. % Commission</value>
+  </data>
+  <data name="MiddleName" xml:space="preserve">
+    <value>Middle Name</value>
+  </data>
+  <data name="MotherLastName" xml:space="preserve">
+    <value>Mother's Last Name</value>
+  </data>
+  <data name="MyAccount" xml:space="preserve">
+    <value>My Account</value>
+  </data>
+  <data name="MyInvestments" xml:space="preserve">
+    <value>My Purchases</value>
+  </data>
+  <data name="MyProfile" xml:space="preserve">
+    <value>My Profile</value>
+  </data>
+  <data name="MySales" xml:space="preserve">
+    <value>My Sales</value>
+  </data>
+  <data name="NewInvestments" xml:space="preserve">
+    <value>New Purchases</value>
+  </data>
+  <data name="PendingtoWithdraw" xml:space="preserve">
+    <value>Pending to Withdraw</value>
+  </data>
+  <data name="PersonalInformation" xml:space="preserve">
+    <value>Personal Information</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="RegisteraNewUser" xml:space="preserve">
+    <value>My Investments</value>
+  </data>
+  <data name="RegisterNewUser" xml:space="preserve">
+    <value>Register A New User</value>
+  </data>
+  <data name="ReleasedDate" xml:space="preserve">
+    <value>Released Date</value>
+  </data>
+  <data name="RFCNumber" xml:space="preserve">
+    <value>RFC Number</value>
+  </data>
+  <data name="Sales" xml:space="preserve">
+    <value>Sales</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="Selectyourstate" xml:space="preserve">
+    <value>Select your state</value>
+  </data>
+  <data name="SNo" xml:space="preserve">
+    <value>S.No.</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="TotalEarningbySales" xml:space="preserve">
+    <value>Total Sales Earning Withdraw</value>
+  </data>
+  <data name="TotalEarningTillDate" xml:space="preserve">
+    <value>Total Earning Till Date</value>
+  </data>
+  <data name="TotalInvestment" xml:space="preserve">
+    <value>Total Investment</value>
+  </data>
+  <data name="TotalInvestments" xml:space="preserve">
+    <value>Total Investments</value>
+  </data>
+  <data name="TotalSales" xml:space="preserve">
+    <value>Total Sales</value>
+  </data>
+  <data name="VirtualWalletValue" xml:space="preserve">
+    <value>Virtual Wallet Value</value>
+  </data>
+  <data name="WithdrawAmount" xml:space="preserve">
+    <value>Withdraw Amount</value>
+  </data>
+  <data name="YourBirthdate" xml:space="preserve">
+    <value>Your Birth Date</value>
+  </data>
+  <data name="Yourcountry" xml:space="preserve">
+    <value>Your country</value>
+  </data>
+  <data name="YourDNI" xml:space="preserve">
+    <value>Your DNI</value>
+  </data>
+  <data name="YourEmailAddress" xml:space="preserve">
+    <value>Your Email Address</value>
+  </data>
+  <data name="YourLastName" xml:space="preserve">
+    <value>Your Last Name</value>
+  </data>
+  <data name="YourMiddleName" xml:space="preserve">
+    <value>Your Middle Name</value>
+  </data>
+  <data name="YourMotherLastName" xml:space="preserve">
+    <value>Your Mother's Last Name</value>
+  </data>
+  <data name="YourName" xml:space="preserve">
+    <value>Your Name</value>
+  </data>
+  <data name="YourPassword" xml:space="preserve">
+    <value>Your Password</value>
+  </data>
+  <data name="YourRFCNumber" xml:space="preserve">
+    <value>Your RFC Number</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="RegisterDate" xml:space="preserve">
+    <value>Register Date</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="AmountInvested" xml:space="preserve">
+    <value>Purchase amount</value>
+  </data>
+  <data name="Amountshouldbeequalorlessthanremainingamount" xml:space="preserve">
+    <value>Amount should be equal or less than remaining amount</value>
+  </data>
+  <data name="Belowishistoryofpreviousmonthswithdrawal" xml:space="preserve">
+    <value>Below is history of previous months withdrawal</value>
+  </data>
+  <data name="Cardnumber" xml:space="preserve">
+    <value>Card number</value>
+  </data>
+  <data name="CreditCard" xml:space="preserve">
+    <value>Credit Card</value>
+  </data>
+  <data name="CurrentWeekEarning" xml:space="preserve">
+    <value>Current Week Earning</value>
+  </data>
+  <data name="CVV" xml:space="preserve">
+    <value>CVV</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="DatetoWithdrawEarning" xml:space="preserve">
+    <value>Date to Withdraw Earning</value>
+  </data>
+  <data name="Datetowithdrawtheinvestment" xml:space="preserve">
+    <value>Date to refund the total value of the Purchase</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="Depositearningintobankaccount" xml:space="preserve">
+    <value>Deposit earning into bank account</value>
+  </data>
+  <data name="Depositearningintovirtualwallet" xml:space="preserve">
+    <value>Deposit earning into virtual wallet</value>
+  </data>
+  <data name="DepositIn" xml:space="preserve">
+    <value>Deposit In</value>
+  </data>
+  <data name="DeposittoMinimarket" xml:space="preserve">
+    <value>Deposit to Minimarket</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Earning" xml:space="preserve">
+    <value>Earning</value>
+  </data>
+  <data name="Earnings" xml:space="preserve">
+    <value>Earnings</value>
+  </data>
+  <data name="EnterAmounttoInvest" xml:space="preserve">
+    <value>Enter amount to invest</value>
+  </data>
+  <data name="Historic" xml:space="preserve">
+    <value>Historic</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="InvestementName" xml:space="preserve">
+    <value>Campaign Name</value>
+  </data>
+  <data name="Investment" xml:space="preserve">
+    <value>Campaign</value>
+  </data>
+  <data name="InvestmentAmount" xml:space="preserve">
+    <value>Purchase Amount</value>
+  </data>
+  <data name="MM" xml:space="preserve">
+    <value>MM</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="Nameoncard" xml:space="preserve">
+    <value>Name on card</value>
+  </data>
+  <data name="NewInvestment" xml:space="preserve">
+    <value>New Purchases</value>
+  </data>
+  <data name="Numbershouldbegreaterthan0" xml:space="preserve">
+    <value>Number should be greater than 0</value>
+  </data>
+  <data name="Onlynumbersareallowed" xml:space="preserve">
+    <value>Only numbers are allowed</value>
+  </data>
+  <data name="PaymentatOffice" xml:space="preserve">
+    <value>Payment at Office</value>
+  </data>
+  <data name="PaymentMethod" xml:space="preserve">
+    <value>Payment Method</value>
+  </data>
+  <data name="Pleasechooseoptiontomakepaymentforinvestment" xml:space="preserve">
+    <value>Please choose option to make payment for investment</value>
+  </data>
+  <data name="PreviousMonthWeeklyEarning" xml:space="preserve">
+    <value>Previous Month Weekly Earning</value>
+  </data>
+  <data name="SelectWithdrawalOption" xml:space="preserve">
+    <value>Select Withdrawal Option</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="Thisfieldisrequired" xml:space="preserve">
+    <value>This field is required</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="TotalWeeklyEarning" xml:space="preserve">
+    <value>Total Earning Withdraw</value>
+  </data>
+  <data name="WireTransfer" xml:space="preserve">
+    <value>Wire Transfer</value>
+  </data>
+  <data name="Withdraw" xml:space="preserve">
+    <value>Withdraw</value>
+  </data>
+  <data name="WithdrawDate" xml:space="preserve">
+    <value>Withdraw Date</value>
+  </data>
+  <data name="YYYY" xml:space="preserve">
+    <value>YYYY</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Api_Currentpasswordisincorrect" xml:space="preserve">
+    <value>Current password is incorrect</value>
+  </data>
+  <data name="Api_IDNotExistorPasswordnotmatched" xml:space="preserve">
+    <value>ID Not Exist or Password not matched</value>
+  </data>
+  <data name="Api_PasswordhasbeenSuccessfulyChanged" xml:space="preserve">
+    <value>Password has been Successfully Changed</value>
+  </data>
+  <data name="Customerisnotexist" xml:space="preserve">
+    <value>Customer is not exist</value>
+  </data>
+  <data name="Api_ProfilehasbeenSuccessfulyUpdated" xml:space="preserve">
+    <value>Profile has been successfuly updates</value>
+  </data>
+  <data name="Api_GetData" xml:space="preserve">
+    <value>Get all data</value>
+  </data>
+  <data name="Api_GetDataUnviewed" xml:space="preserve">
+    <value>Get all unview data</value>
+  </data>
+  <data name="Api_UpdatedSuccessfully" xml:space="preserve">
+    <value>The data has been viewed successfully</value>
+  </data>
+  <data name="Hi" xml:space="preserve">
+    <value>Hi</value>
+  </data>
+  <data name="NewReferralUser" xml:space="preserve">
+    <value>Refer a user</value>
+  </data>
+  <data name="Notifications" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="Unviewed" xml:space="preserve">
+    <value>Unviewed</value>
+  </data>
+  <data name="Viewed" xml:space="preserve">
+    <value>Viewed</value>
+  </data>
+  <data name="WithdrawInvestment" xml:space="preserve">
+    <value>Withdraw total purchase</value>
+  </data>
+  <data name="Api_Successfully" xml:space="preserve">
+    <value>Your request has been successfully sent to SplitDeals, soon you will be notified once amount is transferred into your bank account. </value>
+  </data>
+  <data name="Api_WalletDetails" xml:space="preserve">
+    <value>Wallet Details</value>
+  </data>
+  <data name="Api_WithrawAmountForWallet" xml:space="preserve">
+    <value>The withdraw amount should be less than to wallet amount</value>
+  </data>
+  <data name="Wallet" xml:space="preserve">
+    <value>Wallet</value>
+  </data>
+  <data name="Api_CustomerProductDetails" xml:space="preserve">
+    <value>Customer Product Details</value>
+  </data>
+  <data name="EnterAmount" xml:space="preserve">
+    <value>Enter amount</value>
+  </data>
+  <data name="EnterAmountTitle" xml:space="preserve">
+    <value>Enter amount to transfer into bank account</value>
+  </data>
+  <data name="Api_WalletAmountZero" xml:space="preserve">
+    <value>You can't withdraw the amount as wallet amount is zero.</value>
+  </data>
+  <data name="BarCodeDetails" xml:space="preserve">
+    <value>BarCode Details</value>
+  </data>
+  <data name="BarCodeNote" xml:space="preserve">
+    <value>If the scanner is unable to read the barcode, write the reference as shown.</value>
+  </data>
+  <data name="ChargeId" xml:space="preserve">
+    <value>Charge Id</value>
+  </data>
+  <data name="CustomerMail" xml:space="preserve">
+    <value>Customer Mail</value>
+  </data>
+  <data name="DateandTime" xml:space="preserve">
+    <value>Date and Time</value>
+  </data>
+  <data name="Instruction1" xml:space="preserve">
+    <value>Enter the Services Payment menu</value>
+  </data>
+  <data name="Instruction2" xml:space="preserve">
+    <value>Select Paynet</value>
+  </data>
+  <data name="Instruction3" xml:space="preserve">
+    <value>Scan the barcode or enter the number reference</value>
+  </data>
+  <data name="Instruction4" xml:space="preserve">
+    <value>Enter the total amount to be paid</value>
+  </data>
+  <data name="Instruction5" xml:space="preserve">
+    <value>Charge the customer the total amount plus the commission of $ 8 pesos</value>
+  </data>
+  <data name="Instruction6" xml:space="preserve">
+    <value>Confirm the transaction and deliver the ticket to the customer</value>
+  </data>
+  <data name="Instruction7" xml:space="preserve">
+    <value>For any questions about how to collect, please call 01 800 300 08 08 from 8am to 9pm from Monday to Sunday</value>
+  </data>
+  <data name="InstructionsForCashier" xml:space="preserve">
+    <value>Instructions for the cashier</value>
+  </data>
+  <data name="paymentStep1" xml:space="preserve">
+    <value>Go to any affiliate store</value>
+  </data>
+  <data name="paymentStep2" xml:space="preserve">
+    <value>Send the barcode to the cashier and mention that you will make a Paynet service payment</value>
+  </data>
+  <data name="paymentStep3" xml:space="preserve">
+    <value>Make cash payment for $ 260.00 MXN (plus $ 8 pesos per commission)</value>
+  </data>
+  <data name="paymentStep4" xml:space="preserve">
+    <value>Keep the ticket for any clarification</value>
+  </data>
+  <data name="paymentStep5" xml:space="preserve">
+    <value>If you have doubts, you can contact NAME SHOP by phone PHONE SHOP or by email MAIL SUPPORT STORE</value>
+  </data>
+  <data name="paymentStepTitle" xml:space="preserve">
+    <value>How to make payment</value>
+  </data>
+  <data name="PDF" xml:space="preserve">
+    <value>PDF</value>
+  </data>
+  <data name="PurchaseDetails" xml:space="preserve">
+    <value>Purchase Details</value>
+  </data>
+  <data name="RaiseTicket" xml:space="preserve">
+    <value>Raise Ticket</value>
+  </data>
+  <data name="Servicepayable" xml:space="preserve">
+    <value>Service payable</value>
+  </data>
+  <data name="ThankYou" xml:space="preserve">
+    <value>Thank You</value>
+  </data>
+  <data name="TicketID" xml:space="preserve">
+    <value>Ticket ID</value>
+  </data>
+  <data name="Totaltopay" xml:space="preserve">
+    <value>Total to pay</value>
+  </data>
+  <data name="TransactionCompleteMessage" xml:space="preserve">
+    <value>Transaction successfully completed</value>
+  </data>
+  <data name="ViewReceipt" xml:space="preserve">
+    <value>View Receipt</value>
+  </data>
+  <data name="Api_InvestmentAmountNotGreaterThanRemaining" xml:space="preserve">
+    <value>The total purchase can not be greater than the remainder</value>
+  </data>
+  <data name="Api_DepositeInVirtualWallet" xml:space="preserve">
+    <value>Deposited to virtual wallet successfully</value>
+  </data>
+  <data name="Api_DepsoiteAmount" xml:space="preserve">
+    <value>Deposited to bank account successfully</value>
+  </data>
+  <data name="NoData" xml:space="preserve">
+    <value>No Data</value>
+  </data>
+  <data name="NoNotification" xml:space="preserve">
+    <value>No unread notifications</value>
+  </data>
+  <data name="EmailAlreadyExist" xml:space="preserve">
+    <value>This email is already exist</value>
+  </data>
+  <data name="EmailDoesNotMatch" xml:space="preserve">
+    <value>The email address you provided does not match our records. Please try again</value>
+  </data>
+  <data name="EmailNConfirmedEmailNotMatched" xml:space="preserve">
+    <value>Email and Confirmed Email not matched</value>
+  </data>
+  <data name="OldPasswordIsNotCorrect" xml:space="preserve">
+    <value>Your old password is not correct.</value>
+  </data>
+  <data name="PasswordNConfirmedPasswordNotMatched" xml:space="preserve">
+    <value>Password and Confirmed Password not matched</value>
+  </data>
+  <data name="DepositeToBank" xml:space="preserve">
+    <value>Deposited to Bank</value>
+  </data>
+  <data name="DepositeToWallet" xml:space="preserve">
+    <value>Deposited to Wallet</value>
+  </data>
+  <data name="Clickhere" xml:space="preserve">
+    <value>Click here</value>
+  </data>
+  <data name="Datetowithdrawthemonthlyyield" xml:space="preserve">
+    <value>Date to withdraw the monthly yield</value>
+  </data>
+  <data name="Daystowithdrawtheyieldforsale" xml:space="preserve">
+    <value>Days to withdraw the yield for sale</value>
+  </data>
+  <data name="EarningbySale" xml:space="preserve">
+    <value>Earning by Sale</value>
+  </data>
+  <data name="EarningbyWeek" xml:space="preserve">
+    <value>Earning by Week</value>
+  </data>
+  <data name="InvestmentValue" xml:space="preserve">
+    <value>Total Campaign Value</value>
+  </data>
+  <data name="Max" xml:space="preserve">
+    <value>Max</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="PenaltyforPrematureWithdrawal" xml:space="preserve">
+    <value>Penalty for Premature Withdrawal</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="ValueRemainingtoInvest" xml:space="preserve">
+    <value>Value remaining to purchase</value>
+  </data>
+  <data name="MinimumConditionsforInvestment" xml:space="preserve">
+    <value>Minimum Conditions to buy</value>
+  </data>
+  <data name="OverallInvestmentShouldBe" xml:space="preserve">
+    <value>Total purchase must be $</value>
+  </data>
+  <data name="AlreadyHaving" xml:space="preserve">
+    <value>Already having</value>
+  </data>
+  <data name="CustomerCannotMakeInvestmentBeforefullfillingAboveConditions" xml:space="preserve">
+    <value>The customer can not make the purchase without fulfilling the conditions.</value>
+  </data>
+  <data name="DescriptionNotAvailable" xml:space="preserve">
+    <value>Description is not available</value>
+  </data>
+  <data name="Invest" xml:space="preserve">
+    <value>BUY</value>
+  </data>
+  <data name="InvestmentRunning" xml:space="preserve">
+    <value>Execution of purchases</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="OrMore" xml:space="preserve">
+    <value>or more</value>
+  </data>
+  <data name="OverallSalesShouldBe" xml:space="preserve">
+    <value>Overall sales should be </value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ReachedCommissionLimit" xml:space="preserve">
+    <value>Reached Commission Limit</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="AllMessages" xml:space="preserve">
+    <value>All Messages</value>
+  </data>
+  <data name="OfEachMonth" xml:space="preserve">
+    <value>days interval</value>
+  </data>
+  <data name="StartingFrom" xml:space="preserve">
+    <value>Starting from</value>
+  </data>
+  <data name="WalletAmount" xml:space="preserve">
+    <value>Wallet Amount</value>
+  </data>
+  <data name="CustomerManagement" xml:space="preserve">
+    <value>Customer Management</value>
+  </data>
+  <data name="FinanceManagement" xml:space="preserve">
+    <value>Finance Management</value>
+  </data>
+  <data name="MyTickets" xml:space="preserve">
+    <value>My Tickets</value>
+  </data>
+  <data name="RegisterNewUsers" xml:space="preserve">
+    <value>Register New User</value>
+  </data>
+  <data name="AllRightsReserved" xml:space="preserve">
+    <value>All Rights Reserved</value>
+  </data>
+  <data name="EditMyProfile" xml:space="preserve">
+    <value>Edit My Profile</value>
+  </data>
+  <data name="InvestmentWithdrawDate" xml:space="preserve">
+    <value>Purchase Withdraw Date</value>
+  </data>
+  <data name="MyInvestmentsDetails" xml:space="preserve">
+    <value>My Purchases Details</value>
+  </data>
+  <data name="NewInvestmentDetails" xml:space="preserve">
+    <value>New purchase details</value>
+  </data>
+  <data name="Payment" xml:space="preserve">
+    <value>Payment</value>
+  </data>
+  <data name="Promotion" xml:space="preserve">
+    <value>Promotion</value>
+  </data>
+  <data name="SplitDeals" xml:space="preserve">
+    <value>Split Deals ®</value>
+  </data>
+  <data name="WithdrawEarning" xml:space="preserve">
+    <value>Withdraw Earning</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="Monday" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="Sunday" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
+  <data name="Thursday" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="Tuesday" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
+  <data name="Wednesday" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
+  <data name="AndEvery" xml:space="preserve">
+    <value> and every</value>
+  </data>
+  <data name="Belowpenaltywillbeapplicableifcustomerwithdrawsprematureinvestment" xml:space="preserve">
+    <value>Below penalty will apply if client withdraws premature campaign</value>
+  </data>
+  <data name="CorrectRFC" xml:space="preserve">
+    <value>Please enter correct RFC</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>Days</value>
+  </data>
+  <data name="ExportToExcel" xml:space="preserve">
+    <value>Export to Excel</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="Pay" xml:space="preserve">
+    <value>Pay</value>
+  </data>
+  <data name="PenaltyChart" xml:space="preserve">
+    <value>Penalty Chart</value>
+  </data>
+  <data name="PenaltyofInvestment" xml:space="preserve">
+    <value>Penalty of Investment</value>
+  </data>
+  <data name="Receipt" xml:space="preserve">
+    <value>Receipt</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="ConditionMessage" xml:space="preserve">
+    <value>Sorry you can't purchase because you need to fulfil above conditions.</value>
+  </data>
+  <data name="MaximumPrice" xml:space="preserve">
+    <value>Maximum Price</value>
+  </data>
+  <data name="MinimumPrice" xml:space="preserve">
+    <value>Minimum Price</value>
+  </data>
+  <data name="RemainingValue" xml:space="preserve">
+    <value>Remaining Value</value>
+  </data>
+  <data name="ConditionCheck" xml:space="preserve">
+    <value>Sorry you can't purchase because you need to fulfill purchase Sorry you can't purchase because you need to fulfill purchase conditions</value>
+  </data>
+  <data name="InvestmentWithdrawMessage" xml:space="preserve">
+    <value>Request for purchase total amount withdraw has been successfully registered</value>
+  </data>
+  <data name="Youhavealreadyinvested" xml:space="preserve">
+    <value>You have already purchased</value>
+  </data>
+  <data name="LastRemainingInvestmentAmount" xml:space="preserve">
+    <value>Thank you for showing interest in the campaign. You can only buy the remainder of the campaign.</value>
+  </data>
+  <data name="String2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AdminExportToolTip" xml:space="preserve">
+    <value>By clicking the "Excel" icon you will download the detailed information here to an Excel spreadsheet that once it is on your computer you can format or edit it as required.</value>
+  </data>
+  <data name="AvailableVirtualWallet" xml:space="preserve">
+    <value>available from Virtual Wallet</value>
+  </data>
+  <data name="ExportToolTip" xml:space="preserve">
+    <value>By clicking the "Excel" icon you will download the detailed information here to an Excel spreadsheet that once it is on your computer you can format or edit it as required.</value>
+  </data>
+  <data name="Use" xml:space="preserve">
+    <value>Use</value>
+  </data>
+  <data name="String3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ChangeSalePercent" xml:space="preserve">
+    <value>Your sales commission percent change to </value>
+  </data>
+  <data name="DeActiveCustomer" xml:space="preserve">
+    <value>is deactivate</value>
+  </data>
+  <data name="IsDeactive" xml:space="preserve">
+    <value>is deactivate</value>
+  </data>
+  <data name="SalePercent" xml:space="preserve">
+    <value>Sale Percent Change</value>
+  </data>
+  <data name="YourReferal" xml:space="preserve">
+    <value>Your referral </value>
+  </data>
+  <data name="Api_AlreadyExisted" xml:space="preserve">
+    <value>You can not buy a product you already bought.</value>
+  </data>
+  <data name="InvestementE" xml:space="preserve">
+    <value>Investement</value>
+  </data>
+  <data name="InvestmentPlanE" xml:space="preserve">
+    <value>investment plan</value>
+  </data>
+  <data name="NewReferalE" xml:space="preserve">
+    <value>New Referal added by</value>
+  </data>
+  <data name="NewReferalSubE" xml:space="preserve">
+    <value>New Referal</value>
+  </data>
+  <data name="SuccessPurchaseE" xml:space="preserve">
+    <value>Successfully Purchased in</value>
+  </data>
+  <data name="WeeklyEarningAvailableE" xml:space="preserve">
+    <value>Weekly earning available to withdraw in</value>
+  </data>
+  <data name="InvestementS" xml:space="preserve">
+    <value>Campaign</value>
+  </data>
+  <data name="InvestmentPlanS" xml:space="preserve">
+    <value>Purchase Plan</value>
+  </data>
+</root>

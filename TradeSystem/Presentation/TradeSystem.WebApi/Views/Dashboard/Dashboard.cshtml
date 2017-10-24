@@ -1,0 +1,70 @@
+﻿@using System.Globalization;
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+}
+
+@*<h2>Dashboard Admin</h2>
+    <h3>Total Product</h3><h3> @ViewBag.CountProduct</h3>
+    <h3>Total Value of Investment</h3><h3>@ViewBag.totalProductValue</h3>
+    <h3>Total Customer</h3><h3>@ViewBag.CountCustomer</h3>
+    <h3>Total Amount</h3><h3>@ViewBag.totalCustomerValue</h3>*@
+<!-- Dashboard content -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel">
+            <!-- Total Investments boxes -->
+            <div class="row">
+                <div class="col-lg-6">
+
+                    <!-- Total investments -->
+                    <div class="panel bg-teal-400 border-radius text-center mt-40 no-margin-bottom">
+                        <div class="panel-body">
+                            <h3 class="no-margin text-underline"><a href="@Url.Action("Inventory","InventoryManagement")" class="text-white" title="Total Investments">Total Investments</a></h3>
+                            <div class="f-24x text-semibold">@ViewBag.CountProduct</div>
+                        </div>
+                    </div>
+                    <!-- /total investments -->
+                    <!-- Arrow -->
+                    <span class="connect-arrow text-center mt-15 mb-10">
+                        <i class="icon-arrow-down16"></i>
+                    </span>
+                    <!-- /arrow -->
+                    <!-- Total value -->
+                    <div class="panel bg-pink-400 border-radius text-center">
+                        <div class="panel-body">
+                            <h3 class="no-margin">Total Value</h3>
+                            <div class="f-24x text-semibold">@float.Parse(ViewBag.totalProductValue).ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</div>
+                        </div>
+                    </div>
+                    <!-- /total value -->
+                </div>
+                <div class="col-lg-6">
+                    <!-- Total customer -->
+                    <div class="panel bg-blue-400 border-radius text-center mt-40 no-margin-bottom">
+                        <div class="panel-body">
+                            <h3 class="no-margin text-underline"><a href="@Url.Action("ExistingCustomers","CustomerManagement")" class="text-white" title="Total Customer">Total Customer</a></h3>
+                            <div class="f-24x text-semibold">@ViewBag.CountCustomer</div>
+                        </div>
+                    </div>
+                    <!-- /total customer -->
+                    <!-- Arrow -->
+                    <span class="connect-arrow text-center mt-15 mb-10">
+                        <i class="icon-arrow-down16"></i>
+                    </span>
+                    <!-- /arrow -->
+                    <!-- Total Investment Amount -->
+                    <div class="panel bg-orange-400 border-radius text-center">
+                        <div class="panel-body">
+                            <h3 class="no-margin">Total Investment Amount</h3>
+                            <div class="f-24x text-semibold">@float.Parse(ViewBag.totalCustomerValue).ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</div>
+                        </div>
+                    </div>
+                    <!-- /total investment amount -->
+                </div>
+            </div>
+        </div>
+        <!-- /total investments boxes -->
+    </div>
+</div>
+<!-- /dashboard content -->

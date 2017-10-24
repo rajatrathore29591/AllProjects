@@ -1,0 +1,36 @@
+﻿<div ng-controller="CheckListCtrl as clCtrl">
+    <div class="text-right m-b20">
+        <a href="javascript:void(0);" ng-click="clCtrl.addCheckList()" class="btn btn-primary btn-i"><i class="fa fa-plus"></i>Add Check List</a>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="animate-panel bookinglist">
+                <div class="grid-tb-panel clearfix">
+                    <table ng-table="clCtrl.bcaTableParams" class="table table-stripped toggle-arrow-tiny table-hover" show-filter="true">
+                        <tr ng-repeat="checkList in $data"  ng-if="$data.length > 0">
+                            <td title="'Title'" filter="{ Title: 'text'}" sortable="'Title'" class="text-left">{{checkList.Title}}</td>
+
+                            <td title="'Action'" align="center" nowrap="true" width="1%">
+                                <div class="btn-group">
+                                    <a class="dropdown-toggle" id="dLabel" href="javascript:void(0);" data-toggle="dropdown">
+                                        <i class="fa pe-7s-more action-icon" aria-hidden="true"></i>
+                                    </a>
+                                    <ul class="dropdown-menu hdropdown notification dropdown-menu-right animated flipInX" role="menu">
+                                        <li><a href="javascript:void(0)" ng-click="clCtrl.editCheckList(checkList)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a></li>
+                                        <li><a href="javascript:void(0);" ng-click="clCtrl.deleteCheckList(checkList.DocketCheckListId);"><i class="fa pe-7s-trash" aria-hidden="true"></i> Delete</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr ng-if="$data.length <= 0 || $data.length ===''">
+                            <td colspan="2" class="text-center">Not records found</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="right-img"><img src="Content/images/checklist.png" alt="checklist" /></div>
+        </div>
+    </div>
+</div>

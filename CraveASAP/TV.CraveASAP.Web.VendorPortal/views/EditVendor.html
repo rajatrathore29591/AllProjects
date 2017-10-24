@@ -1,0 +1,348 @@
+﻿<div class="container edit" ng-controller="translationController">
+    <div class="white">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-md-12">
+                <h5 class="text-center cog">
+                    <i class="fa fa-cog " style="color: #777; font-size: 100px"></i>
+                </h5>
+            </div>
+        </div>
+        <!-- end of row -->
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-md-12">
+                <form class="form-horizontal form" ng-submit="update()">
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="{{translation.CompanyName}}" ng-model="vendor.companyName" required>
+                    </div>
+                    <!-- end of form-group -->
+                    <div class="form-group">
+                        <select class="select2_category form-control" ng-model="vendor.businessCategory" data-placeholder="{{translation.BusinessCategory}}" tabindex="1" required>
+                            <option ng-repeat="item in category" value="{{item.categoryId}}">{{item.categoryName}}</option>
+                        </select>
+                    </div>
+                    <!-- end of form-group -->
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="{{translation.ShortDescription}} " maxlength="150" ng-model="vendor.shortDescription" required></textarea>
+                    </div>
+                    <!-- end of form-group -->
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="{{translation.FullDescription}} " maxlength="250" ng-model="vendor.fullDescription" required></textarea>
+                    </div>
+                    <!-- end of form-group -->
+                    <div class="form-group">
+                        <input class="form-control" type="email" placeholder="{{translation.Email}}" ng-model="vendor.email">
+                    </div>
+                    <!-- end of form-group -->
+                    <div class="form-group">
+                        <input class="form-control" type="number" placeholder="{{translation.PhoneNumber}}" max="999999999999" ng-model="vendor.phoneNo" required>
+                    </div>
+                    <!-- end of form-group -->
+                    <div class="form-group">
+                        <input class="form-control location" type="text" placeholder="{{translation.Address}}" name="address" id="location" ng-model="vendor.streetName" required>
+                    </div>
+                    <!-- end of form-group -->
+                      <!-- end of form-group -->
+                    <div class="form-group">
+                        <input class=" btn btn-danger" type="button"  name="current"  ng-click="currentLocation()" value="{{translation.GrabMyLocation}}" >
+                    </div>
+                    <!-- end of form-group -->
+
+                    <input type="hidden" name="lat" value="{{vendor.latitude}}" id="lat" ng-model="vendor.latitude" />
+                    <input type="hidden" name="lang" value="{{vendor.longitude}} " id="lang" ng-model="vendor.longitude" />
+                    <h2 class="section title">{{translation.VenueLocation}}</h2>
+                    <div class="form-group">
+                        <div class="col-xs-12 pl0 pr0">
+                            <div id="venuemap">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of form-group -->
+                    <hr />
+                    <h2 class="section title">{{translation.OpeningHours}} <i style="margin-top: 6px; font-size: 18px;" class="fa fa-plus-circle fa-2x" ng-click="addInput()"></i></h2>
+                    <div ng-repeat="input in openinghours" ng-if="outcome.checked == false">
+                        <div class="form-group m-30">
+                            <div class="col-xs-12 col-sm-1 text-center">
+                                <i style="margin-top: 13px; font-size: 18px;" class="fa fa-minus-circle fa-2x " ng-click="removeInput($index)"></i>
+                            </div>
+                            <div class="col-xs-12 col-sm-2">
+                                <h4 class="title text-center">{{translation.From}}</h4>
+                            </div>
+                            <div class="col-xs-12 col-sm-3">
+                                <select class="form-control col-xs-12 col-sm-4" placeholder="Address" ng-model="input.startDay">
+                                    <option>MON</option>
+                                    <option>TUE</option>
+                                    <option>WED</option>
+                                    <option>THU</option>
+                                    <option>FRI</option>
+                                    <option>SAT</option>
+                                    <option>SUN</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12 col-sm-3">
+                                <select class="form-control col-xs-12 col-sm-4" placeholder="Address" ng-model="input.startTime">
+                                    <option >00:00</option>
+                                    <option >00:30</option>
+                                    <option >01:00</option>
+                                    <option >01:30</option>
+                                    <option >02:00</option>
+                                    <option >02:30</option>
+                                    <option >03:00</option>
+                                    <option >03:30</option>
+                                    <option >04:00</option>
+                                    <option >04:30</option>
+                                    <option >05:00</option>
+                                    <option >05:30</option>
+                                    <option >06:00</option>
+                                    <option >06:30</option>
+                                    <option >07:00</option>
+                                    <option >07:30</option>
+                                    <option >08:00</option>
+                                    <option >08:30</option>
+                                    <option >09:00</option>
+                                    <option >09:30</option>
+                                    <option >10:00</option>
+                                    <option >10:30</option>
+                                    <option >11:00</option>
+                                    <option >11:30</option>
+                                    <option >12:00</option>
+                                    <option >12:30</option>
+
+                                </select>
+                            </div>
+                            <div class="col-xs-12 col-sm-3">
+                                <select class="form-control" placeholder="Address" ng-model="input.startType">
+                                   
+                                    <option>AM</option>
+                                    <option>PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- end of form-group -->
+                        <div class="form-group m-30">
+                            <div class="col-xs-12 col-sm-1 text-center">
+                            </div>
+                            <div class="col-xs-12 col-sm-2">
+                                <h4 class="title text-center">{{translation.To}}</h4>
+                            </div>
+                            <div class="col-xs-12 col-sm-3">
+                                <select class="form-control col-xs-12 col-sm-4" placeholder="Address" ng-model="input.endDay">
+                                    <option>MON</option>
+                                    <option>TUE</option>
+                                    <option>WED</option>
+                                    <option>THU</option>
+                                    <option>FRI</option>
+                                    <option>SAT</option>
+                                    <option>SUN</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12 col-sm-3">
+                                <select class="form-control col-xs-12 col-sm-4" placeholder="Address" ng-model="input.endTime">
+                                    <option >00:00</option>
+                                    <option >00:30</option>
+                                    <option >01:00</option>
+                                    <option >01:30</option>
+                                    <option >02:00</option>
+                                    <option >02:30</option>
+                                    <option >03:00</option>
+                                    <option >03:30</option>
+                                    <option >04:00</option>
+                                    <option >04:30</option>
+                                    <option >05:00</option>
+                                    <option >05:30</option>
+                                    <option >06:00</option>
+                                    <option >06:30</option>
+                                    <option >07:00</option>
+                                    <option >07:30</option>
+                                    <option >08:00</option>
+                                    <option >08:30</option>
+                                    <option >09:00</option>
+                                    <option >09:30</option>
+                                    <option >10:00</option>
+                                    <option >10:30</option>
+                                    <option >11:00</option>
+                                    <option >11:30</option>
+                                    <option >12:00</option>
+                                    <option >12:30</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12 col-sm-3">
+                                <select class="form-control" placeholder="Time" ng-model="input.endType">
+                                    <option>AM</option>
+                                    <option>PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- end of form-group -->
+                    </div>
+                    <div class="form-group allhours">
+                        <input class="pull-left" type="checkbox" id="allhours" ng-model="outcome.checked"><label for="allhours">{{translation.Open24Hours}}</label>
+                    </div>
+                    <!-- end of form-group -->
+                    <hr />
+                    <h2 class="section title">{{translation.VenueImage}}</h2>
+                    <div class="form-group" id="vendorImages">
+                        <div class="col-xs-12">
+                            <input type="file" id="file1" name="files[]" class="upload clearData" onselect="test()"  onchange="angular.element(this).scope().fileChanged(event)" />
+                            <div class="venue-image">
+                                <div class="col-md-6 " id="output">
+                                    <p id="filename"></p>
+                                   <!-- <img ng-src="{{config.api}}/Pictures/{{vendor.logoImg}}" src="{{result}}" height="100px" width="100px" class="imageThumb" />-->
+                                    <div class="img-thumbnail">
+                                       <img ng-src="{{config.api}}/Pictures/{{vendor.logoImg}}" src="{{result}}" height="175px" width="450px" class="img-responsive width100p" />
+                                   </div>
+                                </div>
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+
+                                        if (window.File && window.FileList && window.FileReader) {
+                                            $("#files").on("change", function (e) {
+                                                $('.imageThumb').remove();
+                                                var files = e.target.files,
+                                                filesLength = files.length;
+                                                var f = files[0]
+                                                var fileReader = new FileReader();
+                                                fileReader.onload = (function (e) {
+                                                    var file = e.target;
+                                                    $("<img></img>", {
+                                                        class: "imageThumb",
+                                                        src: e.target.result,
+                                                        title: file.name
+                                                    }).appendTo("#output");
+                                                    $('.imageThumb').attr({ width: 100, height: 100 });
+                                                });
+                                                fileReader.readAsDataURL(f);
+                                            });
+                                        } else { alert("Your browser doesn't support to File API") }
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of form-group -->
+                    <div class="form-group">
+                        <div class="col-xs-12 clearfix">
+                            <div class="pull-right clearfix">
+                                <input type="submit" value="{{translation.Save}}" class="btn btn-primary" />
+                                <input type="reset" value="{{translation.Cancel}}" ng-click="manage()" class="btn btn-danger" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of form-group -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end if container -->
+<div id="loader" ng-show="showLoader">    <img src="images/loading.gif" /> 
+   </div>
+<div id="static" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+     <div class="modal-dialog">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                 <h4 class="modal-title">{{translation.Message}}</h4>
+             </div>
+             <div class="modal-body">
+                 <p>
+                     <!-- Would you like to continue with some arbitrary task?-->
+                     {{Message}}
+                 </p>
+             </div>
+             <div class="modal-footer">
+
+                 <button type="button" ng-click="redirect()" data-dismiss="modal" class="btn green">{{translation.Ok}}</button>
+             </div>
+         </div>
+     </div>
+ </div>
+
+<div id="cropm" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false" >
+    <div class="modal-dialog modallarge  edit-vendor-block" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">{{translation.ImageCropper}}</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="img-crop-block">
+                    <image-crop
+                        data-height="350"
+                        data-width="900"
+                        data-shape="square"
+                        data-step="imageCropStep"
+                        src="imgSrc"
+                        data-result="result"
+                        data-result-blob="resultBlob"
+                        crop="initCrop"
+                        padding="250"
+                        max-size="1024"></image-crop>
+                </div>
+
+                <div class="center-block cropbtns">
+                    <br />
+                    <button type="button" ng-click="clear()">{{translation.Cancel}}</button>
+                    <button type="button" ng-click="initCrop = true;" id="croop">{{translation.Crop}}</button>
+                </div>
+                <div class="hide">
+                    <h2>Result</h2>
+                    <p>The data-result-blob property is a Blob object, which is necessary in some upload libraries like <a href="https://github.com/nervgh/angular-file-upload" target="_blank">Angular File Upload</a></p>
+                    <p>Image using the data uri:</p>
+                    <img id="cropimage" ng-src="{{result}}"></img>
+                    <p>The Base64 String used in the image above:</p>
+                    <textarea class="result-datauri">{{ result }}</textarea>
+                    <button type="button" ng-click="clear()">Clear</button>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $('#croop').click(function () {
+
+        $('#cropm').modal('hide');
+    })
+</script>
+
+<script>
+    function loaderheight(){
+        var bodyheight = $('body').height();
+        $('#loader').css('height', bodyheight);
+    }
+    loaderheight();
+    angular.element(document).ready(function () {
+        $('#lati').on('change', function () {
+            init();
+        })
+        function init() {
+
+            var lati = $("#lat").val();
+            var long = $("#lang").val();
+            var myLatlng = new google.maps.LatLng(lati, long);
+
+            var mapProp = {
+                center: myLatlng,
+                zoom: 5,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("venuemap"), mapProp);
+        }
+
+        $('#location').keyup(function () {
+            var input = document.getElementById('location');
+
+            var options = {
+                componentRestrictions: { country: 'th' }
+            };
+            var autocomplete = new google.maps.places.Autocomplete(input, options);
+            locateMap();
+        })
+    });
+</script>

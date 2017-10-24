@@ -1,0 +1,162 @@
+﻿@model iCanSpeakAdminPortal.Models.VocabAssessmentQuestionsModel
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VocabularyAssessmentQuestions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+    <link href="~/Content/themes/fileinput.css" rel="stylesheet" />
+    <link href="~/Content/themes/style.css" rel="stylesheet" />
+    <script src="~/Scripts/fileinput.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
+</head>
+<body>
+
+    <div class="courses-page">
+        <div class="container">
+            <!------header section start------->
+
+            <!------header section end------->
+            <!------content section start------->
+            <div class="contant">
+                <div class="row">
+                    @using (Html.BeginForm("AddVocabAssessmentQuestions", "CourseContent", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {                     
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <header>
+                            <h2>Add Vocabulary Assessment Questions</h2>
+                            <a style="cursor:pointer; color:#3d3b3b; font-size:14pt;float:right;margin-top:-55px; font-weight:200;"href="@Url.Action("VocabAssessmentQuestions", "CourseContent", new { VocabularyId = Request.QueryString["VocabularyId"] })">Go To VocabularyQuestion List</a>
+                        </header>
+                        <input type="hidden" id="VocabularyId" name="VocabularyId" value="@Model.VocabularyId" />
+                        <input type="hidden" id="QuestionId" name="QuestionId" value="0" />
+                        <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                            <label style="color: red; width: 150%">
+                                @ViewBag.Result
+                            </label>
+                            <div class="form-group">
+                                <label>Set <span style="color: #FE2801;">*</span></label>
+                                <script type="text/javascript">
+                                    $("onload").ready(function () {
+                                        var WordCount = @ViewData["setword"]
+                                             WordCount = WordCount / 5;
+                                        var SelectSet = Math.ceil(WordCount);
+                                        var options = '';
+                                        var i;
+                                        for (i = 1; i <= SelectSet; i++) {
+                                            options += "<option>" + i + "</option>";
+                                        }
+                                        $('#Selectset').html(options);
+                                    });
+                                </script>
+                                <select class="form-control" id="Selectset" required name="SelectSet">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Image <span style="color: #FE2801;">*</span></label>
+                                <div class="form-group">
+                                    <input id="file-1a1" type="file" required multiple="true" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false" id="Image" name="Image">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Question <span style="color: #FE2801;">*</span></label>
+                                <input type="text" class="form-control" placeholder="Question" id="Question" required name="Question">
+                            </div>
+                            <div class="form-group">
+                                <table style="width: 100%;" border="0">
+                                    <tr>
+                                        <td style="width: 30%">
+                                            <label>Option A <span style="color: #FE2801;">*</span></label></td>
+                                        <td style="width: 70%">
+                                            <label>Insert Audio <span style="color: #FE2801;">*</span></label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-controlss" placeholder="Option A" required id="OptionsA" name="OptionsA"></td>
+                                        <td>
+                                            <input id="audio1" name="optaud1" type="file" multiple="true" required class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label>Option B <span style="color: #FE2801;">*</span></label></td>
+                                        <td>
+                                            <label>Insert Audio  <span style="color: #FE2801;">*</span></label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-controlss" placeholder="Option B" id="OptionsB" required name="OptionsB"></td>
+                                        <td>
+                                            <input id="audio2" name="optaud2" type="file" multiple="true" required class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label>Option C <span style="color: #FE2801;">*</span></label></td>
+                                        <td>
+                                            <label>Insert Audio <span style="color: #FE2801;">*</span></label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-controlss" placeholder="Option C" id="OptionsC" required name="OptionsC"></td>
+                                        <td>
+                                            <input id="audio3" name="optaud3" type="file" multiple="true" required class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label>Option D <span style="color: #FE2801;">*</span></label></td>
+                                        <td>
+                                            <label>Insert Audio <span style="color: #FE2801;">*</span></label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-controlss" placeholder="Option D" required id="OptionsD" name="OptionsD"></td>
+                                        <td>
+                                            <input id="audio4" name="optaud4" type="file" multiple="true" required class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="form-group">
+                                <label>Correct Answer <span style="color: #FE2801;">*</span></label>
+                                <select class="form-control" id="CorrectAnswer" required name="CorrectAnswer">
+                                    <option value="">Select</option>
+                                    <option value="1">Option A</option>
+                                    <option value="2">Option B</option>
+                                    <option value="3">Option C</option>
+                                    <option value="4">Option D</option>
+                                </select>
+                                @*  <input type="text" required class="form-control" placeholder="Correct Answer"  id="CorrectAnswer" name="CorrectAnswer">*@
+                            </div>
+                            <div class="form-group">
+
+                                <button type="submit" class="btn btn-info">Submit</button>
+                                <a href="../../Admin/CourseContent/VocabAssessmentQuestions?VocabularyId=@Model.VocabularyId">
+                                    <button type="button" class="btn btn-info">Cancel</button></a>
+                            </div>
+                        </div>                  
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $("#file-1").fileinput({
+            initialPreview: ["<img src='Desert.jpg' class='file-preview-image'>", "<img src='Jellyfish.jpg' class='file-preview-image'>"],
+            overwriteInitial: false,
+            maxFileSize: 100,
+            maxFilesNum: 10
+        });
+        $("#file-3").fileinput({
+            showCaption: false,
+            browseClass: "btn btn-primary btn-lg",
+            fileType: "any"
+        });
+        $(".btn-warning").on('click', function () {
+            if ($('#file-4').attr('disabled')) {
+                $('#file-4').fileinput('enable');
+            } else {
+                $('#file-4').fileinput('disable');
+            }
+        });
+    </script>
+</body>
+</html>

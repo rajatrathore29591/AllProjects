@@ -1,0 +1,410 @@
+﻿@{
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+}
+
+
+@model TradeSystem.Utils.Models.CustomerDataModel
+<!-- Form -->
+<div class="row">
+    <div class="col-md-12">
+        <!-- Customer Form -->
+        @*<form class="form-horizontal" action="#">*@
+        @using (Html.BeginForm("NewCutomerRegistration", "CustomerManagement", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-validate form-horizontal" }))
+        {
+            <div class="panel panel-flat">
+                <div class="panel-heading pb-10">
+                    <h5 class="panel-title"><span class="text-danger text-size-mini">* Fields are mandatory</span></h5>
+
+                </div>
+                <div class="panel-body">
+                    <!-- Personal Information -->
+                    <fieldset>
+                        <legend class="text-bold">
+                            <i class="icon-file-text2 position-left"></i>
+                            Personal Information
+                            <a class="control-arrow" data-toggle="collapse" data-target="#CM_personal_information">
+                                <i class="icon-circle-down2"></i>
+                            </a>
+                        </legend>
+                        <div class="collapse in" id="CM_personal_information">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">First Name<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <input type="text" name="FirstName" class="form-control" placeholder="Your Name" required="required" maxlength="50" value="@Model.FirstName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Middle Name<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <input type="text" name="MiddleName" class="form-control" placeholder="Your Middle Name" required="required" maxlength="50" value="@Model.MiddleName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Last Name<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <input type="text" name="LastName" class="form-control" placeholder="Your Last Name" required="required" maxlength="50" value="@Model.LastName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Mother's Last Name<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <input type="text" name="MotherLastName" class="form-control" placeholder="Your Mother's Last Name" required="required" maxlength="50" value="@Model.MotherLastName">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Birthdate<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            @*<input type="date" id="birthDate" name="BirthDate" class="form-control" placeholder="Your Birthdate" required="required" value="@Model.BirthDate">*@
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="icon-calendar"></i></span>
+                                                <input type="text"id="birthDate" class="form-control datepicker"  name="BirthDate" placeholder="Your Birthdate" value="@Model.BirthDate" required>
+                                            </div>
+                                            @*@Html.TextBoxFor(_item => _item.BirthDate, new
+                                                {
+                                                @selectedDate = Model.BirthDate,
+                                                @class = "form-control",
+                                                @type = "date",
+                                                @name = "BirthDate",
+                                                @Value = Model.BirthDate.ToString("MM/dd/yyyy")
+                                                })*@
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Your country:</label>
+                                        <div class="col-lg-7">
+                                            <select id="countryId" data-placeholder="Select your country" name="CountryId" onchange="GetAllState(this.value);" class="select form-control">
+                                                <option value="">Select</option>
+                                                @foreach (var country in ViewBag.Country)
+                                                {
+                                                    @*<option value="@country.Value">@country.Text</option>*@
+                                                if (Session["CountryId"].ToString() == country.Value)
+                                                {
+
+                                                    <option selected="selected" value="@country.Value">@country.Text</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@country.Value">@country.Text</option>
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Select your state:</label>
+                                        <div class="col-lg-7">
+                                            <select id="state_ddl" name="StateId" data-placeholder="Select your state" class="select form-control">
+                                                <option value="">Select</option>
+                                                @*<option value="@Model.CountryId">@Model</option>*@
+                                                @*<optgroup label="Alaskan/Hawaiian Time Zone">
+                                                        <option value="AK">Alaska</option>
+                                                        <option value="HI">Hawaii</option>
+                                                    </optgroup>
+                                                    <optgroup label="Pacific Time Zone">
+                                                        <option value="CA">California</option>
+                                                        <option value="NV">Nevada</option>
+                                                        <option value="WA">Washington</option>
+                                                    </optgroup>
+                                                    <optgroup label="Mountain Time Zone">
+                                                        <option value="AZ">Arizona</option>
+                                                        <option value="CO">Colorado</option>
+                                                        <option value="WY">Wyoming</option>
+                                                    </optgroup>
+                                                    <optgroup label="Central Time Zone">
+                                                        <option value="AL">Alabama</option>
+                                                        <option value="AR">Arkansas</option>
+                                                        <option value="KY">Kentucky</option>
+                                                    </optgroup>
+                                                    <optgroup label="Eastern Time Zone">
+                                                        <option value="CT">Connecticut</option>
+                                                        <option value="DE">Delaware</option>
+                                                        <option value="FL">Florida</option>
+                                                    </optgroup>*@
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div id="RFC" class="form-group" style="display:none">
+                                        <label class="col-lg-4 control-label">RFC Number<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <input type="text" id="RFCText" onblur="GenerateRFC()" name="RFC" class="form-control" placeholder="Your RFC Number" maxlength="10" value="@Model.RFC">
+                                            <span id="rfcErrorMessage" class="red text-center" style="display:none">Please enter correct RFC</span>
+                                        </div>
+                                    </div>
+                                    <div id="DNI" class="form-group">
+                                        <label class="col-lg-4 control-label">DNI<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <input type="text" id="DNIText" name="DNI" class="form-control" placeholder="Your DNI" maxlength="25" value="@Model.DNI" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- /personal information -->
+                    <!-- Login Details -->
+                    <fieldset>
+                        <legend class="text-bold">
+                            <i class="icon-reading position-left"></i>
+                            Login Details
+                            <a class="control-arrow" data-toggle="collapse" data-target="#CM_login_details">
+                                <i class="icon-circle-down2"></i>
+                            </a>
+                        </legend>
+                        <div class="collapse in" id="CM_login_details">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Username<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <input type="text" name="UserName" class="form-control" placeholder="Your Username" maxlength="50" required="required" value="@Model.UserName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Password<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <input type="password" data-parsley-password="" name="Password" class="form-control" placeholder="Your Password" required="required" value="@Model.Password">
+                                        </div>
+                                    </div>
+                                    @if (ViewBag.PasswordMessage != "")
+                                    {
+                                        <label class="red">@ViewBag.PasswordMessage</label>
+                                    }
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Confirm Password<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <input type="password" data-parsley-password="" name="ConfirmPassword" class="form-control" placeholder="Confirm Password" required="required" value="@Model.ConfirmPassword">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Email Address<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <input type="email" name="Email" class="form-control" placeholder="Your Email Address" required="required" value="@Model.Email">
+                                        </div>
+                                    </div>
+                                    @if (ViewBag.Message != "")
+                                    {
+                                        <label class="red">@ViewBag.Message</label>
+                                    }
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Confirm Email<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <input type="email" name="ConfirmEmail" class="form-control" placeholder="Confirm Email" required="required" value="@Model.ConfirmEmail">
+                                        </div>
+                                    </div>
+                                    @if (ViewBag.EmailMessage != "")
+                                    {
+                                        <label class="red">@ViewBag.EmailMessage</label>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- login details -->
+                    <!-- Bank Details (Optional) -->
+                    <fieldset>
+                        <legend class="text-bold">
+                            <i class="icon-cash4 position-left"></i>
+                            Bank Details (Optional)
+                            <a class="control-arrow" data-toggle="collapse" data-target="#CM_bank_details">
+                                <i class="icon-circle-down2"></i>
+                            </a>
+                        </legend>
+                        <div class="collapse in" id="CM_bank_details">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Select Bank:</label>
+                                        <div class="col-lg-7">
+
+                                            @*  @Html.DropDownListFor(model => model.BankId, Model., new { @class = "form-control" })*@
+                                            <select name="BankId" class="form-control">
+                                                <option value="">Select</option>
+                                                @foreach (var bank in ViewBag.Bank)
+                                                {
+                                                    if (Session["BankId"].ToString() == bank.Value)
+                                                    {
+                                                        <option selected="selected" value="@bank.Value">@bank.Text</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@bank.Value">@bank.Text</option>
+                                                    }
+                                                }
+                                                @*<option value="Bank">Bank</option>
+                                                    <option value="Bank 1">Bank 1</option>
+                                                    <option value="Bank 2">Bank 2</option>*@
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Account Number:</label>
+                                        <div class="col-lg-7">
+                                            <input data-parsley-type="number" name="BankAccount" maxlength="50" class="form-control" placeholder="Account Number" value="@Model.BankAccount">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">CLABE Number:</label>
+                                        <div class="col-lg-7">
+                                            <input data-parsley-type="number" name="Clabe" maxlength="50" class="form-control" placeholder="CLABE Number" value="@Model.Clabe">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Beneficiary Name:</label>
+                                        <div class="col-lg-7">
+                                            <input type="text" name="BenificiaryName" maxlength="50" class="form-control" placeholder="Beneficiary Name" value="@Model.BenificiaryName">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- /bank details (optional) -->
+                    <!-- Maximum% Commission for Sale Out of Total Investment -->
+                    <fieldset>
+                        <legend class="text-bold">
+                            <i class="icon-percent position-left"></i>
+                            Maximum% Commission for Sale Out of Total Investment
+                            <a class="control-arrow" data-toggle="collapse" data-target="#CM_maximum_commission">
+                                <i class="icon-circle-down2"></i>
+                            </a>
+                        </legend>
+                        <div class="collapse in" id="CM_maximum_commission">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Max. % Commission:</label>
+                                        <div class="col-lg-7">
+                                            <input data-parsley-type="number" name="Commission" class="form-control" maxlength="5" placeholder="Max. % Commission" value="@Model.Commission">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-lg-12 control-label text-danger">
+                                            Note: Customer's overall sales comission will not exceed
+                                            than max. % comission sale set out of his total investment.
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- /maximum% commission for sale out of total investment -->
+                    <div class="text-center">
+                        <button class="btn bg-orange" title="Back">Back <i class="icon-arrow-left13 position-right"></i></button>
+                        <button id="register" type="submit" class="btn btn-primary" title="Register">Register <i class="icon-arrow-right14 position-right"></i></button>
+                        @*<input type="submit" id="register" class="btn btn-primary"  />*@
+                    </div>
+                </div>
+            </div>
+            @*</form>*@
+        }
+        <!-- /customer form -->
+    </div>
+</div>
+@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>*@
+<!-- /form -->
+<script type="text/javascript">
+
+    if ('@Session["CountryId"].ToString()' != "") {
+        GetAllState('@Session["CountryId"].ToString()');
+    }
+    //function for call get all state list by country id
+    function GetAllState(countryid) {
+       
+        if ($('#countryId :selected').text().trim() == "Mexico") {
+            $('input[name=DNI]').val("");
+        } else {
+            $('input[name=RFC]').val("");
+        }
+      
+        //alert(countryid)
+        if ($('#countryId :selected').text().trim() == "Mexico") {
+            $('#RFC').show();
+            $('#RFCText').attr('required', 'required');
+            $('#DNIText').removeAttr('required');
+            $('#DNI').hide();
+
+        }
+        else {
+            $('#RFCText').removeAttr('required');
+            $('#DNIText').attr('required', 'required');
+            $('#RFC').hide();
+            $('#DNI').show();
+        }
+        //alert(document.getElementById("birthDate").value)
+        //if (document.getElementById("birthDate").value != '') {
+
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("GetAllState", "CustomerManagement")',
+            data: { id: countryid },
+            success: function (response) {
+                var appenddata;
+                var result = $.parseJSON(response);
+                //get state json to object format
+                $.each(result, function (k, v) {
+                    appenddata += "<option value = '" + v.Value + " '>" + v.Text + " </option>";
+
+
+                });
+                $('#state_ddl').html(appenddata);
+            }
+        });
+        //}
+        //else {
+        //    alert()
+        //    $('#dateErrorMessage').show();
+
+        //}
+    }
+
+    // funtion for generating RFC if country is mexico
+    function GenerateRFC() {
+
+        debugger;
+        var dob = $('#birthDate').val();
+        var formattedDate = new Date(dob);
+        var d = formattedDate.getDate().toString();
+        var dString = "";
+        for (var i = d.length - 1; i >= 0; i--) {
+            dString += d[i]; // or yString = yString + y[i];
+        }
+        var m = formattedDate.getMonth();
+        m += 1;  // JavaScript months are 0-11
+        month = m.toString()
+        var mString = "";
+        for (var i = month.length - 1; i >= 0; i--) {
+            mString += month[i]; // or yString = yString + y[i];
+        }
+        var y = formattedDate.getFullYear().toString().substr(2, 2);
+        var yString = "";
+        for (var i = y.length - 1; i >= 0; i--) {
+            yString += y[i]; // or yString = yString + y[i];
+        }
+
+        var formatDate = yString + "" + mString + "" + dString;
+        var rfc = $('#RFCText').val().match(/\d+/);
+        if (formatDate == rfc) {
+            $('#rfcErrorMessage').hide();
+            $('#register').prop("disabled", false);
+        }
+        else {
+            $('#rfcErrorMessage').show();
+            $('#register').prop("disabled", true);
+        }
+
+    }
+</script>
+

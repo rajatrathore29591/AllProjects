@@ -1,0 +1,356 @@
+﻿<div ng-controller="ManageJobBookingCtrl as mjbCtrl">
+    <div class="top-panel" ng-if="mjbCtrl.showFleetTable">
+        <h4><strong>Borg Civil Booking Number: {{mjbCtrl.attributes.BookingNumber}}</strong></h4>
+    </div>
+    <div>
+        <!--Tab Start-->
+        <div ng-controller="TabCtrl">
+            <uib-tabset active="active">
+                <uib-tab index="0" heading="General Details">
+                    <div>
+                        <!--General Details Content-->
+                        <div id="general-details">
+                            <form name="add_generaldetails_form" ng-submit="mjbCtrl.manageBooking(add_generaldetails_form.$valid)" novalidate>
+                                <div class="bc-panel-white m-t-lg" ng-controller="StartDatepickerCtrl">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>Calling Date &amp; Time<span class="text-danger">*</span></label>
+                                            <div class="form-group" ng-controller="DateTimePickerCtrl">
+                                                <div class="input-group date">
+                                                    <span class="input-group-addon" ng-click="openCalendar()">
+                                                        <span class="fa fa-calendar"></span>
+                                                    </span>
+                                                    <!--<input type="text" id="callingDate" ng-model="mjbCtrl.attributes.CallingDateTime" class="form-control" date-time-picker />-->
+
+                                                    <input type="text" tabindex="1" id="dateTime" name="appointment_date" class="form-control" ng-model="mjbCtrl.attributes.CallingDateTime" date-time-picker datetimepicker-options="{format:'DD-MM-YYYY hh:mm A' }" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div>
+                                                <label>Booking Start Date<span class="text-danger">*</span></label>
+                                                <div class="form-group">
+                                                    <div class="input-group date-picker">
+                                                        <span class="input-group-addon" ng-click="startDate()">
+                                                            <span class="fa fa-calendar"></span>
+                                                        </span>
+                                                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                                                               show-button-bar="false" ng-model="mjbCtrl.attributes.FleetBookingDateTime" is-open="popup1.opened" min-date="minDate"
+                                                               max-date="mjbCtrl.attributes.EndDate" datepicker-options="dateOptions"
+                                                               date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" ng-model-options="{timezone: 'UTC'}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div>
+                                                <label>Booking End Date<span class="text-danger">*</span></label>
+                                                <div class="form-group">
+                                                    <div class="input-group date-picker">
+                                                        <span class="input-group-addon" ng-click="endDate()">
+                                                            <span class="fa fa-calendar"></span>
+                                                        </span>
+                                                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                                                               show-button-bar="false" ng-model="mjbCtrl.attributes.EndDate" is-open="popup2.opened" min-date="mjbCtrl.attributes.FleetBookingDateTime"
+                                                               max-date="'2019-06-22'" datepicker-options="dateOptions"
+                                                               date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" ng-model-options="{timezone: 'UTC'}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Customer Name<span class="text-danger">*</span></label>
+                                                <select class="form-control" ng-model="mjbCtrl.attributes.CustomerId" ng-change="mjbCtrl.customerChange()" required>
+                                                    <option value="">Select</option>
+                                                    <option value="{{item.CustomerId}}" ng-repeat="item in mjbCtrl.customerDropdownList">{{item.CustomerName}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Site Location<span class="text-danger">*</span></label>
+                                                <select class="form-control" ng-model="mjbCtrl.attributes.SiteId" required>
+                                                    <option value="">Select</option>
+                                                    <option value="{{item.SiteId}}" ng-repeat="item in mjbCtrl.siteDropdownList">{{item.SiteName}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Work Type<span class="text-danger">*</span></label>
+                                                <select class="form-control" ng-model="mjbCtrl.attributes.WorktypeId" required>
+                                                    <option value="">Select</option>
+                                                    <option value="{{item.Value}}" ng-repeat="item in mjbCtrl.workTypeDropdownList">{{item.Text}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Notes For Allocator<span class="text-danger">*</span></label>
+                                                <textarea class="form-control" ng-model="mjbCtrl.attributes.AllocationNotes" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bc-panel-light-grey" ng-if="mjbCtrl.showFleetTable">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h3 class="sub-title" ng-if="mjbCtrl.attributes.BookingFleet.length > 0">Fleet Details</h3>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                            <div class="add-btn m-t0">
+                                                <a href="javascript:void(0)" class="btn btn-primary btn-i" title="Add Fleet" ng-click="mjbCtrl.addFleet('0')"><i class="fa fa-plus"></i> Add Fleet</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Fleet Grid Table Start-->
+                                    <div class="grid-tb-panel fleet-grid-tb-panel"  ng-if="mjbCtrl.attributes.BookingFleet.length > 0">
+                                        <table class="table table-stripped toggle-arrow-tiny table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Fleet</th>
+                                                    <th>Registration No./Description</th>
+                                                    <th>Driver</th>
+                                                    <th>Fleet Booking Date</th>
+                                                    <th>End Date</th>
+                                                    <th data-sort-ignore="true" class="th-action">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody ng-repeat="item in mjbCtrl.attributes.BookingFleet">
+                                                <tr>
+                                                    <td>{{item.FleetName}}</td>
+                                                    <td>
+                                                        <strong>Fleet Number:</strong>
+                                                        {{item.FleetNumber}}<br>
+                                                        <strong>Description:</strong>
+                                                        {{item.FleetDescription}}
+                                                    </td>
+                                                    <td>{{item.DriverName}}</td>
+                                                    <td class="text-center">{{item.FleetBookingDateTime | date :  "dd-MM-yyyy hh:mm tt"}}</td>
+                                                    <td class="text-center">{{item.FleetBookingEndDate | date :  "dd-MM-yyyy"}}</td>
+                                                    <td class="td-action">
+                                                        <span class="dropdown">
+                                                            <a class="dropdown-toggle" href="javascript:void(0);" data-toggle="dropdown">
+                                                                <i class="fa pe-7s-more" aria-hidden="true"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu hdropdown notification animated flipInX">
+                                                                <li><a href="javascript:void(0);" ng-click="mjbCtrl.addFleet(item.BookingFleetId)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a></li>
+                                                                <li><a href="javascript:void(0)" ng-click="mjbCtrl.deleteBookingFleet(item.BookingFleetId)" title="Delete"><i class="fa pe-7s-trash" aria-hidden="true"></i> Delete</a></li>
+                                                            </ul>
+                                                        </span>
+                                                    </td>
+                                                </tr>                                               
+                                            </tbody>
+                                            <tfoot>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <!--Fleet Grid Table End-->
+                                </div>
+                                <div  ng-if="mjbCtrl.showFleetTable == false" class="panel-footer text-right bc-panel-footer clearfix">
+                                    <!--<button type="button" title="Cancel" class="btn btn-default" ng-click="mjbCtrl.reset()">Cancel</button>-->
+                                    <button class="btn btn-primary continue" type="submit" title="Save">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!--General Details Content End-->
+                    </div>
+                </uib-tab>
+               <uib-tab index="1" heading="Site Details" ng-if="mjbCtrl.showFleetTable">
+                    <div ng-controller="ManageBookingSiteCtrl as mbsCtrl">
+                        <form ng-submit="mbsCtrl.manageBookingSite()">
+                            <!--Site Details Content-->
+                            <div id="site-details">
+                                <div class="bc-panel-white m-t-lg">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Site Name</label>
+                                                <input type="text" value="Ballymore stadium" readonly="readonly" class="form-control" ng-model="mbsCtrl.SiteName">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Customer Name</label>
+                                                <input type="text" value="2010 Debtors" readonly="readonly" class="form-control" ng-model="mbsCtrl.CustomerName">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-11">
+                                            <div class="form-group">
+                                                <label>Site Details</label>
+                                                <textarea class="form-control" readonly="readonly" ng-model="mbsCtrl.SiteDetail">91 Clyde Rd, Herston QLD 4006, Australia</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Add Supervisor-->
+                                    <div>
+
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Supervisor Name</label>
+                                                    <select class="form-control" name="select" id="select" ng-model="mbsCtrl.attributes" ng-options="item as item.Options for item in mbsCtrl.superVisor">
+                                                        <option value="">Select</option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Supervisor Email</label>
+                                                    <input class="form-control" readonly type="text" value="2" name="email" ng-model="mbsCtrl.attributes.SupervisorEmail" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Supervisor Moblie Number</label>
+                                                    <input class="form-control" readonly type="text" name="moblienumber" id="txt3" ng-model="mbsCtrl.attributes.SupervisorMobileNumber" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group add-btn">
+                                                    <button type="button" ng-click="mbsCtrl.addRow()" class="btn btn-primary btn-i" title="Add Supervisor">
+                                                        <i class="fa fa-plus"></i> Add Supervisor
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row" ng-show="mbsCtrl.addSupervisor.length>0">
+                                            <div class="col-md-12">
+                                                <div class="tab-content m-t-md">
+                                                    <div id="pending-tab" class="tab-pane active">
+                                                        <div class="grid-tb-panel">
+                                                            <table class="table table-stripped" data-page-size="8">
+                                                                <tr>
+                                                                    <th>Supervisor Name</th>
+                                                                    <th>Supervisor Email</th>
+                                                                    <th>Supervisor Moblie Number</th>
+                                                                    <th>Action</th>
+                                                                </tr>
+                                                                <tr ng-repeat="addSupervisor in mbsCtrl.addSupervisor">
+                                                                    <td>{{addSupervisor.SupervisorName}}</td>
+                                                                    <td>{{addSupervisor.SupervisorEmail}}</td>
+                                                                    <td class="text-center">{{addSupervisor.SupervisorMobileNumber}}</td>
+                                                                    <td class="delete-view">
+                                                                        <a type="button" href="javascript:void()" ng-click="mbsCtrl.removeRow($index)" title="Delete"><i class="fa pe-7s-trash"></i></a>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Gate Number</label>
+                                                <select class="form-control" name="select" id="select" ng-model="mbsCtrl.gate" ng-change="mbsCtrl.getContactDetail(mbsCtrl.gate.GateId)" ng-options="item as item.Option for item in mbsCtrl.gateList">
+
+                                                    <option value="">Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Registration No./Description</label>
+                                                <!--<input class="form-control" value="DAL87W, Hilux" readonly="readonly" type="text" ng-model="mjbCtrl.gate.RegistrationDescription">-->
+                                                <select class="form-control" name="select" id="select" ng-model="mbsCtrl.fleet" ng-options="item as item.RegistrationDescription for item in mbsCtrl.fleetList">
+                                                    <option value="">Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Contact Person Name {{mbsCtrl.gatelist}}</label>
+                                                <!--<input class="form-control" value="DAL87W, Hilux" readonly="readonly" type="text" ng-model="mjbCtrl.gate.RegistrationDescription">-->
+                                                <select class="form-control" name="select" id="select" ng-model="mbsCtrl.gate.contact" ng-options="item as item.ContactPerson for item in mbsCtrl.contactList"  ng-selected="item.IsDefault===true">
+                                                    <option value="">Select</option>
+                                                </select>
+                                                <!--<input type="text" class="form-control" ng-model="mbsCtrl.gate.ContactPerson">-->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input type="text" class="form-control" ng-model="mbsCtrl.gate.contact.Email" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Mobile Number</label>
+                                                <input type="text" class="form-control" ng-model="mbsCtrl.gate.contact.MobileNumber" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group add-gate-contact-btn text-right">
+                                                <!-- <button type="button" ng-click="mbsCtrl.addGateRow()" class="btn btn-primary btn-i" title="Add Gate">
+                                         <i class="fa fa-plus"></i> Add Gate
+                                     </button>-->
+                                                <a href="javascript:void(0)" title="Add Gate" class="btn btn-primary btn-i" ng-click="mbsCtrl.addGateRow()"><i class="fa fa-plus"></i> Add Gate</a>
+                                                <a href="javascript:void(0)" title="Add Contact" class="btn btn-primary btn-i" ng-click="mbsCtrl.bookingContactDetailModal(mbsCtrl.gate.contact.GateContactPersonId, mbsCtrl.gateList)" data-toggle="modal" data-target="#contact-details"><i class="fa fa-plus"></i> Add Contact</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" ng-show="mbsCtrl.addGate.length>0">
+                                        <div class="col-md-12">
+                                            <div class="tab-content m-t-md">
+                                                <div id="pending-tab" class="tab-pane active">
+                                                    <div class="grid-tb-panel">
+                                                        <table class="table table-stripped" data-page-size="8">
+                                                            <tr>
+                                                                <th>Gate Number</th>
+                                                                <th>Registration No./Description</th>
+                                                                <th>Contact Person Name</th>
+                                                                <th>Email</th>
+                                                                <th>Mobile Number</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                            <tr ng-repeat="addGate in mbsCtrl.addGate">
+                                                                <td>{{addGate.GateNumber}}</td>
+                                                                <td>{{addGate.Registration}}</td>
+                                                                <td>{{addGate.ContactPerson}}</td>
+                                                                <td>{{addGate.Email}}</td>
+                                                                <td class="text-center">{{addGate.MobileNumber}}</td>
+                                                                <td class="delete-view">
+                                                                    <a type="button" href="javascript:void(0);" ng-click="mbsCtrl.removeGateRow($index);" title="Delete"><i class="fa pe-7s-trash"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-11">
+                                            <div class="form-group">
+                                                <label>Notes For Site</label>
+                                                <textarea class="form-control" ng-model="mbsCtrl.SiteNote"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer text-right bc-panel-footer">
+                                    <!-- <button class="btn btn-primary back" href="javascript:void(0)" title="Previous">Previous</button>  -->
+                                    <button type="submit" class="btn btn-primary continue" title="Submit">Submit</button>
+                                </div>
+                            </div>
+                            <!--Site Details Content End-->
+                        </form>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+        <!--Tab End-->
+    </div>
+</div>

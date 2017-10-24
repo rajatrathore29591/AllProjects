@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "AllTutor";
+    Layout = "~/Views/Shared/_FAQLayout.cshtml";
+}
+
+<script src="@Url.Content("/Scripts/jquery.min.js")"></script>
+
+<div class="row accordian">
+    <div class="container container-height">
+        <div class="row">
+            @if (Model != null)
+            {
+                <header class="heading-grays1">
+                    <h2>All Tutors</h2>
+                </header>
+                foreach (var item in Model)
+                {
+                <div class="mid-content">
+                    <div class="col-md-6 tutor-wrap">
+                        <div class="col-md-4 tutor-pic">
+                            <div class="img-wrapper" style="height: 200px; width: 200px; overflow: hidden;">
+                                <img style="height:100%; width:100%;" src="@item.ProfilePicture"class="img-responsive img-thumbnail" >
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <h2 class="tutor-name">
+                                <img src="~/Content/img/online.png"><span style="font-size: 20px; font-weight: bold;">@item.FirstName @item.LastName </span></h2>                               
+                                <div class="tutor-info">
+                                    <h4 class="tutor-city-name"><span class=" blue">Experience - </span>@item.Experience Years</h4>
+                                    <h4 class="tutor-city-name"><span class=" blue">Education - </span>@item.Education</h4>
+                                    <h4 class="tutor-city-name"><span class=" blue">Expertise - </span>@item.Expertise</h4>
+                                    <h4 class="tutor-city-name"><span class=" blue">Contact No. - </span>@item.ContactNo</h4>
+                                    <h4 class="tutor-city-name"><span class=" blue">City - </span>@item.City</h4>
+                                    
+                                    
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                
+                }
+                <div class="col-lg-12">
+
+                    @*<ul class="pagination pagination-sm">
+                      <li class="disabled"><a href="#">«</a></li>
+                      <li class="active"><a href="#">1</a></li>
+                      <li class="disabled"><a href="#">»</a></li>
+                    </ul>*@
+                </div>
+            }
+            else
+            {
+                <div class="col-lg-12 tutor-wrap">
+                    <h2>No Tutor Available</h2>
+                </div>
+            }
+        </div>
+    </div>
+</div>

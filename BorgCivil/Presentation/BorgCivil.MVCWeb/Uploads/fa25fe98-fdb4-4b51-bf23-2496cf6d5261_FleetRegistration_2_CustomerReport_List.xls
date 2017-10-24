@@ -1,0 +1,15 @@
+<div>
+	<table cellspacing="0" rules="all" border="1" style="border-collapse:collapse;">
+		<tr>
+			<th scope="col">CustomerName</th><th scope="col">TotalValueOfInvestment</th><th scope="col">CountryName</th><th scope="col">StateName</th><th scope="col">CustomerCreatedDate</th>
+		</tr><tr>
+			<td>denny jos</td><td>110.0</td><td>Mexico</td><td>Aguascalientes</td><td>01-16-2017</td>
+		</tr><tr>
+			<td>jenny denail</td><td>0.0</td><td>Mexico</td><td>Aguascalientes</td><td>01-10-2017</td>
+		</tr><tr>
+			<td>John Bellhill</td><td>0.0</td><td>Mexico</td><td>Aguascalientes</td><td>01-10-2017</td>
+		</tr><tr>
+			<td>rajat rathore</td><td>290.0</td><td>Mexico</td><td>Aguascalientes</td><td>01-10-2017</td>
+		</tr>
+	</table>
+</div>

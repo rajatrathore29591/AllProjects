@@ -1,0 +1,208 @@
+﻿@model ICanSpeakWebsite.Models.SubscriptionModel
+@{
+    ViewBag.Title = "SubscriptionPlan";
+}
+
+@{
+    ViewBag.Title = "PremiumSubscription";
+}
+
+<link href="~/css/jquery.flipcountdown.css" rel="stylesheet" />
+<script src="@Url.Content("/Scripts/jquery.min.js")"></script>
+<script src="@Url.Content("/Scripts/jquery.flipcountdown.js")"></script>
+<script>
+    jQuery(function ($) {
+        var i = 1000;
+        $('#retroclockbox1').flipcountdown();
+        var i = 1;
+        $('#retroclockbox_counter').flipcountdown({
+            tick: function () {
+                return i++;
+            }
+        });
+        $('#retroclockbox2').flipcountdown({ showHour: false, showMinute: false, showSecond: true });
+        $('#retroclockbox3').flipcountdown({ tzoneOffset: 3, showSecond: false });
+        $('#retroclockbox4').flipcountdown({ am: true });
+        $('#retroclockbox5').flipcountdown({ speedFlip: 50 });
+        $('#retroclockbox6').flipcountdown({
+            tick: function () {
+                return new Date('5/10/2012 12:34:23');
+            }
+        });
+    });
+</script>
+
+        <div class="row">
+      	<div class="container ">
+        	<div class="col-lg-12 ">
+                <div class="col-md-3 user-profice-pic">
+                	<img src="@ViewBag.ProfilePicture" class="img-page">            	
+                </div>
+               	<div class="col-md-9 right">
+                <div class="col-md-2">
+                    <h2 class=" user-profile"><img src="~/Content/img/online.png">@ViewBag.Username</h2>
+                    <h4 class="tutor-city-name left">@ViewBag.Country</h4>
+                </div>
+                <div class="col-md-10 right-profile">
+                    <ul class="nav nav-pills view-profile">
+                        <li class="active" ><a href="../../Course/SubscriptionPlan">Subscription Plan</a></li> 
+                        <li ><a href="../../Course/NormalPlan">Normal Plan</a></li>                    
+                    </ul>
+                    <div class="clearfix"></div>	
+                    
+                   
+                </div>
+                    
+                    
+               </div>
+               
+               <div class="col-lg-2 blue-wrapper">
+                    <h2>My Score</h2>
+                    <h3>60/100 (details)</h3>
+                </div>
+                <div class="col-lg-2 blue-wrapper">
+                    <h2>Instructor Evaluation</h2>
+                    <h3>Great </h3>
+                </div>  
+                <div class="col-lg-2 blue-wrapper">
+                    <h2>Flashcards</h2>
+                    <h3>60/100 </h3>
+                </div>
+                <div class="col-lg-2 blue-wrapper">
+                    <h2>Days Remaining</h2>
+                    <div align="center">
+                    <div id="retroclockbox_sm"></div>
+                    </div>
+                    <script>
+                        jQuery(function ($) {
+                            //var NY = Math.round((new Date('1/01/2015 00:00:01')).getTime()/1000);
+                            $('#new_year').flipcountdown({
+                                size: 'lg',
+                                beforeDateTime: '1/01/2015 00:00:01'
+                                /*tick:function(){
+                                    var nol = function(h){
+                                        return h>9?h:'0'+h;
+                                    }
+                                    var	range  	= NY-Math.round((new Date()).getTime()/1000),
+                                        secday = 86400, sechour = 3600,
+                                        days 	= parseInt(range/secday),
+                                        hours	= parseInt((range%secday)/sechour),
+                                        min		= parseInt(((range%secday)%sechour)/60),
+                                        sec		= ((range%secday)%sechour)%60;
+                                    return nol(days)+' '+nol(hours)+' '+nol(min)+' '+nol(sec);
+                                }*/
+                            });
+                        });
+					</script>
+					<script>
+					    jQuery(function ($) {
+					        $('#retroclockbox_lg').flipcountdown({ size: 'lg' });
+					        $('#retroclockbox_md').flipcountdown({ size: 'md' });
+					        $('#retroclockbox_sm').flipcountdown({ size: 'sm' });
+					        $('#retroclockbox_xs').flipcountdown({ size: 'xs' });
+					    })
+				</script>
+                </div>   	
+               </div> 
+
+               <div class="clearfix"></div>
+            <br/>
+        <div class="col-lg-12 ">
+           <div class="bs-example">
+               <div class="row top">
+                <div class="col-md-4">
+                    <!-- Item table -->
+                    <div class="item_table option_pricing PD20 border">
+
+                        <div class="headsubcribe">
+                            <div >                               
+                                <h4 class="subheadtext">Subscription Plan A</h4>
+                               
+                            </div>
+                            <h4 class="points-nav subheadtext">100 <span> نقطة</span></h4>                        
+                        </div>
+
+                        <ul class="items">  
+                             <li><i class="fa fa-hdd-o"></i> #	Topic	<p style="float:right">Units</p></li>
+                            <li><i class="fa fa-building-o"></i>	Grammar	<b class="pull-right">@Model.grammerCount</b>	</li>
+                            <li><i class="fa fa-male"></i> 	Vocabulary	<b class="pull-right">@Model.vocabCount</b></li>
+                            <li><i class="fa fa-comment"></i>	Dialogue	<b class="pull-right">@Model.dialogCount</b></li>
+                            <li class="pull-right"><b class="line-through">total =$@Model.price</b></li>
+                             <div class="clearfix"></div> 
+                            <li class="pull-right PD20""><b>total =$@Model.price</b></li>                                 
+                         </ul> 
+
+                        <input type="submit" value="Subcribe now"  class="btn btn-info MT10 ML20">  
+
+                    </div>
+                    <!-- End Item table -->
+                </div>
+
+
+                <div class="col-md-4">
+                    <!-- Item table -->
+                    <div class="item_table option_pricing PD20 border">
+
+                        <div class="headsubcribe">
+                            <div >                               
+                                <h4 class="subheadtext">Subscription Plan B</h4>
+                               
+                            </div>
+                            <h4 class="points-nav subheadtext">100 <span> نقطة</span></h4>                        
+                        </div>
+
+                         <ul class="items">  
+                             <li><i class="fa fa-hdd-o"></i> #	Topic <p style="float:right">Units</p></li>
+                            <li><i class="fa fa-building-o"></i>	Grammar	<b class="pull-right">@Model.grammerCount1</b>	</li>
+                            <li><i class="fa fa-male"></i> 	Vocabulary	<b class="pull-right">@Model.vocabCount1</b></li>
+                            <li><i class="fa fa-comment"></i>	Dialogue	<b class="pull-right">@Model.dialogCount1</b></li>
+                             <li class="pull-right"><b class="line-through">total =$@Model.price1</b></li>
+                             <div class="clearfix"></div> 
+                             <li class="pull-right PD20""><b>total =$@Model.price1</b></li>                                  
+                         </ul> 
+
+                        <input type="submit" value="Subcribe now"  class="btn btn-info MT10 ML20">    
+
+                    </div>
+                    <!-- End Item table -->
+                </div>
+                  
+                <div class="col-md-4">
+                    <!-- Item table -->
+                    <div class="item_table option_pricing PD20 border">
+
+                        <div class="headsubcribe">
+                            <div >                               
+                                <h4 class="subheadtext">Subscription Plan C</h4>
+                               
+                            </div>
+                            <h4 class="points-nav subheadtext">100 <span> نقطة</span></h4>                        
+                        </div>
+
+                         <ul class="items">  
+                             <li><i class="fa fa-hdd-o"></i> #	Topic	<p style="float:right">Units</p></li>
+                            <li><i class="fa fa-building-o"></i>Grammar<b class="pull-right">@Model.grammerCount2</b></li>
+                            <li><i class="fa fa-male"></i> 	Vocabulary	<b class="pull-right">@Model.vocabCount</b></li>
+                            <li ><i class="fa fa-comment "></i>	Dialogue	<b class="pull-right">@Model.dialogCount2</b></li>
+                            <li class="pull-right"><b class="line-through">total =$@Model.price2</b></li>
+                             <div class="clearfix"></div> 
+                            <li class="pull-right PD20""><b>total =$@Model.price2</b></li>    
+                                                             
+                         </ul> 
+                        
+                        <input type="submit" value="Subcribe now"  class="btn btn-info MT10 ML20">    
+
+                    <!-- End Item table -->
+                </div>
+
+
+               
+                    <!-- End Item table -->
+                </div>
+            </div>
+    
+</div>
+        </div>
+
+        </div>
+       </div>

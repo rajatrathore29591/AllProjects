@@ -1,0 +1,102 @@
+/*Structure*/
+body{color:#333;}
+
+/*Header*/
+#logo{background-color:#000;}
+#logo span{color:#fff;}
+
+/*Margin & Paddings*/
+.icheckbox_square-green{margin-right:5px;}
+.p-l0{padding-left:0;}
+.m-t15{margin-top:15px;}
+.m-b10{margin-bottom:10px;}
+
+/*Common Views*/
+.link-forgot-password{margin-top:10px;text-align:right;padding-right:0}
+.btn-block{margin-top:10px;}
+#loginForm .checkbox{padding-left:0}
+body .login-container .hpanel .panel-body{padding-bottom:20px}
+
+/*Common*/
+.panel-heading{font-size:16px}
+.same-as-invoice-block{margin-top:-25px;width:100%;}
+label span.error{margin-left:0}
+
+/*Loader*/
+.spinner > div{background-color:#2283C4}
+.icheckbox_square-green,.iradio_square-green{background:url("img/blue.png") no-repeat;}
+.clear{clear:both;}
+.clear-l{clear:left;}
+.clear-r{clear:right;}
+
+/*color*/
+.lbl-red{color:red;}
+
+/*Buttons*/
+.button-block{margin-top:15px;}
+.button-block.right{text-align:right;}
+.btn-default{background-color:#fff;border-color:#e4e5e7;color:#6a6c6f;}
+.btn-success,.btn-success,.btn-success,.btn-success,.open .dropdown-toggle.btn-success{background-color:#3498DB;border-color:#3498DB;color:#fff;}
+.btn-success:hover,.btn-success:focus,.btn-success:active,.btn-success.active,.open .dropdown-toggle.btn-success{background-color:#2283C4;border-color:#2283C4;color:#fff;}
+
+/*Icons*/
+.table .dropdown-menu .fa:before{font-size:15px!important;margin-right:5px;color:#333;}
+.dropdown-menu > li > a{padding:5px 20px;}
+.table a{color:#3498DB;text-decoration:none;}
+.btn .fa{margin-right:6px;}
+
+/*form-horizontal css*/
+body label{font-weight:500;color:#333;font-size:14px;}
+body .panel-body .form-heading{color:#333;font-size:16px;font-weight:600;border-bottom:1px dotted #d5d5d5;padding-bottom:3px;margin-left:15px;}
+.small-text{font-size:12px;}
+.normalheader{padding:0px;}
+.normalheader .hpanel .panel-body{border:none;padding:14px 20px 8px;border-bottom:1px solid #e4e5e7;}
+.normalheader .hpanel .panel-body h2{float:left;font-size:18px;color:#444;font-weight:500;text-transform:uppercase;}
+.normalheader .hpanel .panel-body #hbreadcrumb,.normalheader .hpanel .panel-body .hbreadcrumb{margin-top:0px;}
+.icheck-heading label{margin-bottom:0px;}
+.icheck-heading label input[type="checkbox"]{position:relative;top:2px;margin:0;}
+body .content{padding:15px 15px 30px 15px;}
+.button-block{background-color:rgba(0,0,0,0.02);padding:12px;border-top:1px solid rgba(0,0,0,0.04);}
+body .hpanel .panel-body{padding:20px 15px 0 15px}
+.m-t20{margin-top:20px!important;}
+.panel-body,.hpanel .panel-body{background-color:#fff;border-top:2px solid #1D6FA5;border-radius:2px;}
+.table-bordered.table>thead>tr>th{background-color:#eaeaea;text-align:center;vertical-align:middle;font-size:14px;padding:5px;}
+.white-bg,body table.table>thead>tr.ng-table-filters th{background-color:#fff;}
+.form-control:focus{box-shadow:0 0 5px rgba(3,133,243,0.67);border:1px solid rgba(13,84,234,0.69);}
+body table.table>thead>tr.ng-table-filters th input{font-weight:500}
+.form-control{height:34px;}
+.p-t5{padding-top:5px!important;}
+.w-10{width:10%;float:left;}
+.p-l0{padding-left:0px!important;}
+
+/*Edit rsipl 260716*/
+.p-l15{padding-left:15px!important;}
+
+/*Model*/
+.modal-header{padding:7px 30px}
+.modal-header .close{margin-top:10px;color:#000;opacity:0.7;}
+
+/*Panel*/
+.field-box{border:1px solid #e4e5e7;padding:10px;margin:10px auto 30px;float:none;width:100%;}
+.field-box-title{background:white;top:-30px;display:inline-block;position:relative;margin:0;padding:0 10px;}
+.field-box-title h4{margin-bottom:0}
+
+/* for span grey text)*/
+.spanstyle {
+    font-style: italic;
+    color: gray;
+    font-size: 11px;
+}
+/*Remove webkit css*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+/* For Firefox*/
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+

@@ -1,0 +1,148 @@
+﻿@model TradeSystem.Utils.Models.CustomerProductDataModel
+@using System.Globalization;
+@{
+    ViewBag.Title = "Existing Account";
+    Layout = "~/Views/Shared/_CustomerLoggedInLayout.cshtml";
+}
+<div class="panel">
+    <div class="panel-body">
+        <!-- Invoice content -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-right">
+                    <button class="btn btn-primary" onclick="PDFCreated();">@Resources.Languages.PDF<i class="icon-file-pdf position-right"></i></button>
+
+                </div>
+                <!-- Invoice inner -->
+                <div class="whitepaper clearfix pb-20" id="receipt_pdf">
+                    <div class="invoice-header">
+                        <div class="row">
+                            <div class="col-sm-6 Logo_trading">
+                                <a class="navbar-brand text-slate-300 text-bold f-18x" href="~/CustomerManagement/Login" title="@Resources.Languages.TRADINGSYSTEM"> <img class="logo" src="~/Content/images/Logo-splitdeals.png" alt=""></a>
+                            </div>
+                            <div class="col-sm-6 Logo_paynet">
+                                <div>@Resources.Languages.Servicepayable</div>
+                                <img src="~/Content/images/paynet_logo.png" alt="Logo Paynet">
+                            </div>
+                        </div>
+                    </div><span class="clearfix"></span>
+                    <div class="trading-data">
+                        <div class="trading-data_bullet">
+                            <span></span>
+                        </div>
+                        <div class="col1">
+                            <h3>@Resources.Languages.BarCodeDetails</h3>
+                            <img width="300" src="@Url.Content(String.Format("~/Pictures/{0}",@Model.BarCode+".png"))" alt="Código de Barras">
+                            <span>@Model.BarCode</span>
+                            <small>@Resources.Languages.BarCodeNote</small>
+
+                        </div>
+                        <div class="col2">
+                            <h2>@Resources.Languages.Totaltopay</h2>
+                            <h1 class="f-22x">@Model.MiniMarketAmount.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</h1>
+                        </div>
+                    </div>
+                    <div class="clearfix mt-20 mb-20"></div>
+                    <div class="trading-data">
+                        <div class="trading-data_bullet">
+                            <span></span>
+                        </div>
+                        <div class="col1">
+                            <h3>@Resources.Languages.PurchaseDetails</h3>
+                        </div>
+                    </div>
+                    <div class="trading-table-data">
+                        <div class="trading-table-row color1">
+                            <div>@Resources.Languages.Description</div>
+                            <span class="table-description">@Model.Description</span>
+                        </div>
+                        <div class="trading-table-row color2">
+                            <div>@Resources.Languages.DateandTime</div>
+                            <span class="table-description">@Model.CreatedDate.ToString("MM-dd-yyyy HH:mm:ss tt")</span>
+                        </div>
+                        <div class="trading-table-row color1">
+                            <div>@Resources.Languages.CustomerMail</div>
+                            <span class="table-description">@Model.Email</span>
+                        </div>
+                        <div class="trading-table-row color2" style="display:none">
+                            <div>&nbsp;</div>
+                            <span>&nbsp;</span>
+                        </div>
+                        <div class="trading-table-row color1" style="display:none">
+                            <div>&nbsp;</div>
+                            <span>&nbsp;</span>
+                        </div>
+                    </div>
+                    <div class="clearfix mt-20 mb-20"></div>
+                    <div>
+                        <div class="trading-data_bullet">
+                            <span></span>
+                        </div>
+                        <div class="col1">
+                            <h3>@Resources.Languages.paymentStepTitle</h3>
+                            <ol>
+                                <li>@Resources.Languages.paymentStep1</li>
+                                <li>@Resources.Languages.paymentStep2</li>
+                                <li>@Resources.Languages.paymentStep3</li>
+                                <li>@Resources.Languages.paymentStep4</li>
+                            </ol>  
+                            <small>@Resources.Languages.paymentStep5</small>
+                        </div>
+                        <div class="col1">
+                            <h3>@Resources.Languages.InstructionsForCashier</h3>
+                            <ol>
+                                <li>@Resources.Languages.Instruction1</li>
+                                <li>@Resources.Languages.Instruction2</li>
+                                <li>@Resources.Languages.Instruction3</li>
+                                <li>@Resources.Languages.Instruction4</li>
+                                <li>@Resources.Languages.Instruction5</li>
+                                <li>@Resources.Languages.Instruction6</li>
+                            </ol>
+                            <small>@Resources.Languages.Instruction7</small>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- /invoice inner -->
+            </div>
+        </div>
+        <!-- /invoice content -->
+    </div>
+</div>
+<!-- /main content -->
+@*<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>*@
+<script type="text/javascript" src="//cdn.rawgit.com/MrRio/jsPDF/master/dist/jspdf.min.js"></script>
+<script type="text/javascript" src="//cdn.rawgit.com/niklasvh/html2canvas/0.5.0-alpha2/dist/html2canvas.min.js"></script>
+@*<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.0/semantic.min.css" />*@
+<script>
+    ///Function for created pdf from the html
+    function PDFCreated() {
+        createPDF();
+    };
+    function createPDF() {
+        getCanvas().then(function (canvas) {
+            var
+             img = canvas.toDataURL("image/png"),
+             doc = new jsPDF({
+                 unit: 'px',
+                 format: 'a4'
+             });
+            doc.addImage(img, 'JPEG', 10, 10, 420, 600);
+            doc.save('Investment-Receipt.pdf');
+            form.width(cache_width);
+        });
+    }
+    // create canvas object
+    function getCanvas() {
+        var
+         form = $('#receipt_pdf'),
+         cache_width = form.width(),
+         a4 = [595.28, 841.89];
+        form.width((a4[0] * 1.33333)).css('max-width', 'none');
+        return html2canvas(form, {
+            imageTimeout: 4000,
+            removeContainer: true
+        });
+    }
+</script>

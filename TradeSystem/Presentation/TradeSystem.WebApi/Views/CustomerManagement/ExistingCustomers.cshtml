@@ -1,0 +1,70 @@
+﻿@using System.Globalization;
+@{
+    ViewBag.Title = "Existing Customers";
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+}
+@model IEnumerable<TradeSystem.Utils.Models.CustomerListDataModel>
+
+
+<!-- Existing Customers -->
+<div class="panel panel-flat">
+    <div class="panel-body">
+        <div class="text-right">
+            <!--Change for export excel by datatable tool-->
+            <a href="@Url.Action("NewCustomerRegistration", "CustomerManagement")" class="btn btn-primary mr-20" title="Create New Account">Create New Customer <i class="icon-plus-circle2 position-right"></i></a>
+            <!--view export to excel-->
+            <!--Change for export excel by datatable tool-->
+            <span class="btn btn-primary pr-15 mr-60 visible-none"></span>
+            <div class="tooltip-section">
+                <button type="button" class="btn btn-primary btn-sm" data-popup="tooltip" title="<strong>@Resources.Languages.AdminExportToolTip</strong>" data-html="true"><i class="icon-question7"></i> </button>
+            </div>
+            @*<span class="btn btn-primary pr-15"> @Html.ActionLink("Export", "ExportToExcel", "CustomerManagement", (List<TradeSystem.Utils.Models.CustomerListDataModel>)Model, new { @class = "btn-primary", title = "Export to Excel", id = "btn-actionlink-export" })</span>*@
+        </div>
+
+        <div class="data-tbl-wrapper">
+            <table class="table table-bordered table-hover" id="tbCustomerChange">
+                <thead>
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Customer Name</th>
+                        <th>User Name</th>
+                        <th>Created Date <i class="icon-calendar"></i></th>
+                        <th>Status</th>
+                        <th>Total Money Invested</th>
+                        <th>Total Investments</th>
+                        <th>Total Sales</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{                       
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td></td>
+                                <td><a href="@Url.Action("GeneralDetails", "CustomerManagement",new { @id=@item.Id})">@item.CustomerName</a></td>
+                                <td><a href="@Url.Action("GeneralDetails", "CustomerManagement",new { @id=@item.Id})">@item.UserName</a></td>
+                                <td>@item.CreatedDate.ToString("MM-dd-yyyy")</td>
+                                @*<td><a href="javascript:void(0);" onclick="GetCustomerDetailsByCustomerId('@item.Id');">@item.UserName</a></td>*@
+                                <td>@item.Status</td>
+                                <td>@item.TotalInvestmentFloat.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
+                                <td>
+                                    <a href="~/CustomerManagement/InvestmentsList/@item.Id">@item.TotalInvestmentCount</a>
+                                </td>
+                                <td>
+                                    <a href="~/CustomerManagement/SalesList/@item.Id">@item.TotalSaleCount</a>
+                                </td>
+                            </tr>                           
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- /existing customers -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btn-actionlink-export').append('<i class="icon-file-excel position-right"></i>');
+    });
+
+</script>

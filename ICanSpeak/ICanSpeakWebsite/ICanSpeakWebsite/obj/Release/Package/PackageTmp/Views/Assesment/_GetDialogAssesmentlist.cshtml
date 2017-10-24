@@ -1,0 +1,298 @@
+﻿@model ICanSpeakWebsite.Models.DialogAssesment
+@{
+    Layout = null;
+}
+
+<script type="text/javascript" src="@Url.Content("/Scripts/jquery.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("/Scripts/mediaelement-and-player.min.js")"></script>
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        $('.nextQues').click(function () {
+            var status = 'false';
+            //-----------------------Video Call Ajax Section -----------------------------------------------------//
+            $.ajax({
+                url: '@Url.Action("NextDialogAssesmentlist", "Assesment")',
+                type: "POST",
+                data: { questionId: $('#questionID').val(), dialogId: $('#dialogID').val(), status: status },
+                success: function (data) {
+                    $("#dialogpartial").html(data);
+                },
+                error: function (result) {
+                    $("#lblLoginerror").css("display", "block");
+                }
+            });
+            //--------------------Video Call Ajax Section Ends -----------------------------------------------------//
+            return false;
+        });
+    });
+</script>*@
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".submitAns").click(function () {
+
+            if ($("#QuestionType").val() == "FillBlanks") {
+                var FillBlank = $("#FillBlanks").val();
+                var status;
+                if ($("#FillAnswerText").val() == FillBlank) {
+                    status = 'true';
+                }
+                else {
+                    status = 'false';
+                }
+            }
+
+            if ($("#QuestionType").val() == "TrueFalse") {
+                var TrueFalseAnswer = $("#TrueFalseAnswer").val();
+                var radio = $("input[name=quiz]:checked").attr("value");
+                var status;
+                if (radio == TrueFalseAnswer) {
+                    status = 'true';
+                }
+                else {
+                    status = 'false';
+                }
+            }
+
+            if ($("#QuestionType").val() == "Objective") {
+                var OptionCorrectAnswer = $("#OptionCorrectAnswer").val();
+                var radio = $("input[name=Objquiz]:checked").attr("value");
+                var status;
+                if (radio == OptionCorrectAnswer) {
+                    status = 'true';
+                }
+                else {
+                    status = 'false';
+                }
+            }
+            //----------------------- Ajax Section -----------------------------------------------------//
+            $.ajax({
+                url: '@Url.Action("NextDialogAssesmentlist", "Assesment")',
+                type: "POST",
+                data: { questionId: $('#questionID').val(), dialogId: $('#dialogID').val(), status: status },
+                success: function (data) {
+                    if (data == "No Data") {
+                        HTMLLabelElement = $('#unitid').val(data[0].Unitid);
+                    }
+                    else {
+                        $("#dialogpartial").html(data);
+                    }
+                },
+                error: function (result) {
+                    $("#lblLoginerror").css("display", "block");
+                }
+            });
+            //-------------------- Ajax Section Ends -----------------------------------------------------//
+            return false;
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#audio-player').mediaelementplayer({
+            alwaysShowControls: true,
+            features: ['playpause', 'volume', 'progress'],
+            audioVolume: 'horizontal',
+            audioWidth: 400,
+            audioHeight: 120
+        });
+
+        $('#audio1').click(function () {
+            var srcp = $('#audiosA').val();
+
+            $('audio').each(function () {
+                $(this).attr("src", srcp);
+                $(this)[0].play();
+            });
+        });
+        $('#audio2').click(function () {
+            var srcp = $('#audiosB').val();
+
+            $('audio').each(function () {
+                $(this).attr("src", srcp);
+                $(this)[0].play();
+            });
+        });
+        $('#audio3').click(function () {
+            var srcp = $('#audiosC').val();
+
+            $('audio').each(function () {
+                $(this).attr("src", srcp);
+                $(this)[0].play();
+            });
+        });
+    });
+
+</script>
+
+<link href="~/Content/css/jquery.countdown.timer.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.timeout.interval.idle.js"></script>
+<script src="~/Scripts/jquery.countdown.counter.js" type="text/javascript"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/fonts/fontawesome-webfont.woff
+" type="text/javascript"></script>
+
+<script type="text/javascript">
+    CounterInit();
+    
+</script>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+
+
+<div class="container">
+    <div class="col-lg-12">
+        
+        <input type="hidden" id="Dialog" value="Dialog" />
+
+        <input type="hidden" id="QuestionType" value="@ViewBag.QuestionType" />
+        <input type="hidden" id="questionID" value="@ViewBag.QuestionID"/>
+        <input type="hidden" id="dialogID" value="@ViewBag.DialogId"/>
+
+        <input type="hidden" id="audiosA" value="@ViewBag.OptionAudio1"/>
+        <input type="hidden" id="audiosB" value="@ViewBag.OptionAudio2"/>
+        <input type="hidden" id="audiosC" value="@ViewBag.OptionAudio3"/>
+        <input type="hidden" id="Text1" value="@ViewBag.OptionText1"/>
+        <input type="hidden" id="Text2" value="@ViewBag.OptionText2"/>
+        <input type="hidden" id="Text3" value="@ViewBag.OptionText3"/>
+
+        <input type="hidden" id="FillAnswerText" value="@ViewBag.FillAnswerText"/>
+        <input type="hidden" id="TrueFalseAnswer" value="@ViewBag.TrueFalseAnswer"/>
+        <input type="hidden" id="OptionCorrectAnswer" value="@ViewBag.OptionCorrectAnswer"/>
+        
+        <div class="audio-player">
+            <audio id="player2" src="" type="audio/mp3" controls="controls">
+            </audio>
+        </div>
+        <!--===" For TimerWatch"===-->
+        <div id="counter">
+            <div id="counter_item1" class="counter_item">
+                <div class="front"></div>
+                <div class="digit digit0"></div>
+            </div>
+            <div id="counter_item2" class="counter_item">
+                <div class="front"></div>
+                <div class="digit digit0"></div>
+            </div>
+            <div id="counter_item3" class="counter_item">
+                <div class="front"></div>
+                <div class="digit digit_colon"></div>
+            </div>
+            <div id="counter_item4" class="counter_item">
+                <div class="front"></div>
+                <div class="digit digit0"></div>
+            </div>
+            <div id="counter_item5" class="counter_item">
+                <div class="front"></div>
+                <div class="digit digit0"></div>
+            </div>
+        </div>
+        <!--===" For TimerWatch End"===-->
+        <!--===" For Objective"===-->
+        @if (ViewBag.QuestionType == "Objective")
+        {
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Question:-  @ViewBag.Question ?</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <!-- <div class="jumbotron">-->
+                        <div class="col-lg-8">
+                            <form class="ML20">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="Objquiz" id="OptionText1" value="1">@ViewBag.OptionText1</label><a class="ML20" id="" href="#"><i id="audio1" class="fa fa-volume-up"></i></a>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="Objquiz" id="OptionText2" value="2">@ViewBag.OptionText2</label><a class="ML20" id="" href="#"><i id="audio2" class="fa fa-volume-up"></i></a>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="Objquiz" id="OptionText3" value="3">@ViewBag.OptionText3</label><a class="ML20" id="" href="#"><i id="audio3" class="fa fa-volume-up"></i></a>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="pull-right MT-20 MR20">
+                        <button type="button" class="btn btn-info ML20 submitAns">Submit</button>
+                        @*<button type="button" class="btn btn-info ML20 nextQues">Next</button>*@
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="clearfix"></div>
+        <!--===" For True/False"===-->
+        @if (ViewBag.QuestionType == "TrueFalse")
+        {
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Question:-  @ViewBag.Question ?</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <!-- <div class="jumbotron">-->
+                        <div class="col-lg-8">
+                            <form class="ML20">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="quiz" id="True" value="true">True</label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="quiz" id="False" value="false">False</label>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="pull-right MT-20 MR20">
+                        <button type="button" class="btn btn-info ML20 submitAns">Submit</button>
+                        @*<button type="button" class="btn btn-info ML20 nextQues">Next</button>*@
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="clearfix"></div>
+        <!--===" For Fill In the Blanks"===-->
+        @if (ViewBag.QuestionType == "FillBlanks")
+        {
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Question:-  @ViewBag.Question ?</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <!-- <div class="jumbotron">-->
+                        <div class="col-lg-8">
+                            <input type="text" maxlength="499" id="FillBlanks" name="Englishtxt" class="form-control" placeholder="Correct Answer">
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="pull-right MT-20 MR20">
+                        <button type="button" class="btn btn-info ML20 submitAns">Submit</button>
+                        @*<button type="button" class="btn btn-info ML20 nextQues">Next</button>*@
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

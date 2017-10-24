@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{45845443-BF52-4B16-9F46-5AC3BCB820FA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BorgCivil.Service</RootNamespace>
+    <AssemblyName>BorgCivil.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.EntityFramework.2.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnonymousField\AnonymousFieldService.cs" />
+    <Compile Include="AnonymousField\IAnonymousFieldService.cs" />
+    <Compile Include="Attachments\AttachmentsService.cs" />
+    <Compile Include="Attachments\IAttachmentsService.cs" />
+    <Compile Include="DriverVocCard\DriverVocCardService.cs" />
+    <Compile Include="DriverVocCard\IDriverVocCardService.cs" />
+    <Compile Include="DriverInductionCard\DriverInductionCardService.cs" />
+    <Compile Include="DriverInductionCard\IDriverInductionCardService.cs" />
+    <Compile Include="DriverWhiteCard\DriverWhiteCardService.cs" />
+    <Compile Include="DriverWhiteCard\IDriverWhiteCardService.cs" />
+    <Compile Include="Country\CountryService.cs" />
+    <Compile Include="Country\ICountryService.cs" />
+    <Compile Include="DocketCheckboxList\DocketCheckboxListService.cs" />
+    <Compile Include="DocketCheckboxList\IDocketCheckboxListService.cs" />
+    <Compile Include="Email\EmailService.cs" />
+    <Compile Include="Email\IEmailService.cs" />
+    <Compile Include="Employee\EmployeeService.cs" />
+    <Compile Include="Employee\IEmployeeService.cs" />
+    <Compile Include="Document\DocumentService.cs" />
+    <Compile Include="Document\IDocumentService.cs" />
+    <Compile Include="EmploymentCategory\IEmploymentCategoryService.cs" />
+    <Compile Include="EmploymentCategory\EmploymentCategoryService.cs" />
+    <Compile Include="LicenseClass\LicenseClassService.cs" />
+    <Compile Include="LicenseClass\ILicenseClassService.cs" />
+    <Compile Include="LoadDocket\LoadDocketService.cs" />
+    <Compile Include="LoadDocket\ILoadDocketService.cs" />
+    <Compile Include="Docket\DocketService.cs" />
+    <Compile Include="Docket\IDocketService.cs" />
+    <Compile Include="BookingSiteGate\BookingSiteGateService.cs" />
+    <Compile Include="BookingSiteGate\IBookingSiteGateService.cs" />
+    <Compile Include="BookingSiteSupervisor\BookingSiteSupervisorService.cs" />
+    <Compile Include="BookingSiteSupervisor\IBookingSiteSupervisorService.cs" />
+    <Compile Include="BookingFleet\BookingFleetService.cs" />
+    <Compile Include="BookingFleet\IBookingFleetService.cs" />
+    <Compile Include="Common\BaseService.cs" />
+    <Compile Include="Common\IService.cs" />
+    <Compile Include="Booking\BookingService.cs" />
+    <Compile Include="Booking\IBookingService.cs" />
+    <Compile Include="Demo\DemoService.cs" />
+    <Compile Include="Demo\IDemoService.cs" />
+    <Compile Include="FleetsRegistration\FleetsRegistrationService.cs" />
+    <Compile Include="FleetsRegistration\IFleetsRegistrationService.cs" />
+    <Compile Include="Drivers\DriversService.cs" />
+    <Compile Include="Drivers\IDriversService.cs" />
+    <Compile Include="FleetHistory\FleetHistoryService.cs" />
+    <Compile Include="FleetHistory\IFleetHistoryService.cs" />
+    <Compile Include="GateContactPerson\GateContactPersonService.cs" />
+    <Compile Include="GateContactPerson\IGateContactPersonService.cs" />
+    <Compile Include="Gates\GatesService.cs" />
+    <Compile Include="Gates\IGatesService.cs" />
+    <Compile Include="Sites\SitesService.cs" />
+    <Compile Include="Sites\ISitesService.cs" />
+    <Compile Include="Subcontractor\ISubcontractorService.cs" />
+    <Compile Include="Subcontractor\SubcontractorService.cs" />
+    <Compile Include="State\IStateService.cs" />
+    <Compile Include="State\StateService.cs" />
+    <Compile Include="StatusLookup\IStatusLookupService.cs" />
+    <Compile Include="StatusLookup\StatusLookupService.cs" />
+    <Compile Include="Supervisor\SupervisorService.cs" />
+    <Compile Include="Supervisor\ISupervisorService.cs" />
+    <Compile Include="WorkTypes\WorkTypesService.cs" />
+    <Compile Include="WorkTypes\IWorkTypesService.cs" />
+    <Compile Include="FleetTypes\FleetTypesService.cs" />
+    <Compile Include="FleetTypes\IFleetTypesService.cs" />
+    <Compile Include="Customer\CustomerService.cs" />
+    <Compile Include="Customer\ICustomerService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\BorgCivil.Repositories\BorgCivil.Repositories.csproj">
+      <Project>{4494baff-b5ff-4d06-ab17-c6fb299beca7}</Project>
+      <Name>BorgCivil.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\BorgCivil.Framework\BorgCivil.Framework.csproj">
+      <Project>{00785902-1ea3-47be-ad19-ccc43e17c244}</Project>
+      <Name>BorgCivil.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\BorgCivil.Utils\BorgCivil.Utils.csproj">
+      <Project>{142584c5-62a3-4ec0-8fb1-c8d13cc929a3}</Project>
+      <Name>BorgCivil.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

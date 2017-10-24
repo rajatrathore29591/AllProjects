@@ -1,0 +1,82 @@
+﻿    <div class="inmodal fleetlistdetail">
+        <div class="modal-header text-center">
+            <!--<i class="fa fa-sliders color-success h-modal-icon"></i>-->
+            <h4 class="modal-title">MORE DETAILS</h4>
+            <div class="clostbtn">
+                <button type="button" ng-click="frlCtrl.cancel()" title="Close"><img src="Content/images/closebtn.png"></button>
+            </div>
+
+        </div>
+        <div class="modal-body">
+                <div class="row m-t-sm">
+                    <div class="col-md-12">
+                        <div class="grid-tb-panel">
+                            <table class="table table-stripped" id="vehicle_booking">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Plant No.</th>
+                                        <th class="text-center">Registration No.</th>
+                                        <th class="text-center">Engine No.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="table-row-clone" id="product_table_row_num_0">
+                                        <td class="text-center">
+                                           {{frlCtrl.fleetAttribute.BorgCivilPlantNumber}}
+                                        </td>
+                                        <td class="text-center">
+                                          {{frlCtrl.fleetAttribute.Registration}}
+                                        </td>
+                                        <td class="text-center">
+                                         {{frlCtrl.fleetAttribute.EngineNumber}}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-12 m-t-sm">
+                    <div class="form-group">
+                        <label>HVIS Type</label>
+                        <input class="form-control" readonly="readonly" name="" value="HVIAS" type="text" ng-model= "frlCtrl.fleetAttribute.HVISType">
+                    </div>
+                    </div>
+
+                    <div class="col-md-12 m-t-sm">
+                        <label>Attachements</label>
+                        <div class="form-group" ng-repeat="image in frlCtrl.fleetAttribute.images">                            
+                            <a download="" ng-href="frlCtrl.filePath+image" class="view-field"><i class="fa fa-file-pdf-o"></i>View Document</a>
+                        </div>
+                    </div>
+                      <!--<div class="col-md-12 m-t-sm">
+                    <div class="form-group">
+                 <div class="col-md-6 m-t-sm">
+                    <div class="form-group">
+                        <label>Registration</label>
+                        <a download="" href="../styles/pdf/imagetopdf.pdf" class="view-field"><i class="fa fa-file-pdf-o"></i>View Document</a>
+                    </div>
+                </div>
+                <div class="col-md-6 m-t-sm clearfix">
+                    <div class="form-group">
+                        <label>Service History</label>
+                        <a href="javascript:void(0)" class="view-field"><i class="fa fa-file-pdf-o"></i>View Document</a>
+                    </div>
+                </div>
+                 <div class="col-md-6 m-t-sm">
+                    <div class="form-group">
+                        <label>Plant Risk Assessment</label>
+                        <a href="javascript:void(0)" class="view-field"><i class="fa fa-file-pdf-o"></i>View Document</a>
+                    </div>
+                </div>
+                <div class="col-md-6 m-t-sm">
+                    <div class="form-group">
+                        <label>NHVR Compliance</label>
+                        <a href="javascript:void(0)" class="view-field"><i class="fa fa-file-pdf-o"></i>View Document</a>
+                    </div>
+                </div>
+                </div>
+            </div>-->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="frlCtrl.cancel()" title="Close">Close</button>
+        </div>
+    </div>

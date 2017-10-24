@@ -1,0 +1,166 @@
+body {
+	font: 14px "Trebuchet MS", sans-serif;
+	margin: 50px;
+}
+.ui-accordion .ui-accordion-header {
+	display: block;
+	cursor: pointer;
+	position: relative;
+	margin: 5px 0 0 0;
+	padding: .5em .5em .5em .7em;
+	min-height: 0; /* support: IE7 */
+	font-size: 100%;
+}
+.ui-accordion .ui-accordion-icons {
+	padding: 12px 10px;
+}
+.ui-accordion .ui-accordion-icons .ui-accordion-icons {
+	padding-left: 2.2em;
+}
+.ui-accordion .ui-accordion-header .ui-accordion-header-icon {
+	float: right;
+	margin-top: 2px;
+}
+.ui-accordion .ui-accordion-content {
+	padding: 10px 20px 10px 20px;
+	line-height: 25px;
+	border-top: 0;
+	overflow: auto;
+	text-align: justify;
+}
+.ui-autocomplete {
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: default;
+}
+/* Component containers
+----------------------------------*/
+.ui-widget {
+	font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+	font-size: 1.1em;
+}
+.ui-widget .ui-widget {
+	font-size: 1em;
+}
+.ui-widget-content {
+	border: 1px solid #dddddd;
+	background: #f8f8f8;
+	color: #333333;
+}
+.ui-widget-content a {
+	color: #333333;
+}
+/* Interaction states
+----------------------------------*/
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	border: 1px solid #ccc;
+	font-weight: bold;
+	color: #000;
+background: #eee;
+background-image: -o-linear-gradient(bottom, #eee 0%, #ddd 100%);
+background-image: -moz-linear-gradient(bottom, #eee 0%, #ddd 100%);
+background-image: -webkit-linear-gradient(bottom, #eee 0%, #ddd 100%);
+background-image: -ms-linear-gradient(bottom, #eee 0%, #ddd 100%);
+background-image: linear-gradient(to bottom, #eee 0%, #ddd 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eee', endColorstr='#ddd',GradientType=0 ); 
+}
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {
+	color: #1c94c4;
+	text-decoration: none;
+}
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+	border: 1px solid #00A2FD;
+	font-weight: bold;
+	color: #fff;
+background: #00A2FD;
+background-image: -o-linear-gradient(bottom, #00A2FD 0%, #008ede 100%);
+background-image: -moz-linear-gradient(bottom, #00A2FD 0%, #008ede 100%);
+background-image: -webkit-linear-gradient(bottom, #00A2FD 0%, #008ede 100%);
+background-image: -ms-linear-gradient(bottom, #00A2FD 0%, #008ede 100%);
+background-image: linear-gradient(to bottom, #00A2FD 0%, #008ede 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00A2FD', endColorstr='#008ede',GradientType=0 ); 
+}
+.ui-state-hover a, .ui-state-hover a:hover, .ui-state-hover a:link, .ui-state-hover a:visited, .ui-state-focus a, .ui-state-focus a:hover, .ui-state-focus a:link, .ui-state-focus a:visited {
+	color: #c77405;
+	text-decoration: none;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+	border: 1px solid #00A2FD;
+	font-weight: bold;
+	color: #00A2FD;
+background: #ffffff;
+background-image: -o-linear-gradient(bottom, #fff 0%, #F1F1FD 100%);
+background-image: -moz-linear-gradient(bottom, #fff 0%, #F1F1FD 100%);
+background-image: -webkit-linear-gradient(bottom, #fff 0%, #F1F1FD 100%);
+background-image: -ms-linear-gradient(bottom, #fff 0%, #F1F1FD 100%);
+background-image: linear-gradient(to bottom, #fff 0%, #F1F1FD 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#F1F1FD',GradientType=0 ); 
+}
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+	color: #eb8f00;
+	text-decoration: none;
+}
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.ui-icon {
+	width: 16px;
+	height: 16px;
+}
+.ui-icon, .ui-widget-content .ui-icon {
+	background-image: url(../images/ui-icons_222222_256x240.png);
+}
+.ui-widget-header .ui-icon {
+	background-image: url(../images/ui-icons_ffffff_256x240.png);
+}
+.ui-state-default .ui-icon {
+	background-image: url(../images/ui-icons_ef8c08_256x240.png);
+}
+.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {
+	background-image: url(../images/ui-icons_ef8c08_256x240.png);
+}
+.ui-state-active .ui-icon {
+	background-image: url(../images/ui-icons_ef8c08_256x240.png);
+}
+.ui-state-highlight .ui-icon {
+	background-image: url(../images/ui-icons_228ef1_256x240.png);
+}
+.ui-state-error .ui-icon, .ui-state-error-text .ui-icon {
+	background-image: url(../images/ui-icons_ffd27a_256x240.png);
+}
+/* positioning */
+.ui-icon-triangle-1-n {
+	background-position: 0 -16px;
+}
+.ui-icon-triangle-1-ne {
+	background-position: -16px -16px;
+}
+.ui-icon-triangle-1-e {
+	background-position: -254px -193px;
+}
+.ui-icon-triangle-1-s {
+	background-position: -270px -193px;
+}
+.ui-icon-triangle-1-se {
+	background-position: -270px -193px;
+}
+.ui-icon-triangle-1-sw {
+	background-position: -80px -16px;
+}
+.ui-icon-triangle-1-w {
+	background-position: -96px -16px;
+}
+.ui-icon-triangle-1-nw {
+	background-position: -112px -16px;
+}
+.ui-icon-triangle-2-n-s {
+	background-position: -128px -16px;
+}
+.ui-icon-triangle-2-e-w {
+	background-position: -144px -16px;
+}
+
+/* Misc visuals
+----------------------------------*/

@@ -1,0 +1,16 @@
+<div>
+	<table cellspacing="0" rules="all" border="1" style="border-collapse:collapse;">
+		<tr>
+			<th scope="col">BookingNumber</th><th scope="col">CustomerName</th><th scope="col">SiteDetail</th><th scope="col">WorkType</th><th scope="col">StatusTitle</th><th scope="col">FleetCount</th><th scope="col">FleetBookingDateTime</th><th scope="col">EndDate</th>
+		</tr><tr>
+			<td>1059</td><td>Absolute Civil Australia Pty Ltd</td><td>Major off-site (Cairns North facility) and on-site redevelopment of Cairns Hospital. </td><td>Floats</td><td>Pending</td><td>0</td><td>28-04-2017 00:00:00</td><td>28-04-2017 00:00:00</td>
+		</tr><tr>
+			<td>1058</td><td>Ages Build Pty Ltd
+</td><td>10 km road</td><td>Site Cut</td><td>Allocated</td><td>2</td><td>24-04-2017 00:00:00</td><td>26-04-2017 00:00:00</td>
+		</tr><tr>
+			<td>1057</td><td>Absolute Civil Australia Pty Ltd</td><td>Major Redevelopment of Roma Hospital</td><td>Dry Hire</td><td>Completed</td><td>1</td><td>14-04-2017 00:00:00</td><td>19-04-2017 00:00:00</td>
+		</tr><tr>
+			<td>1056</td><td>Absolute Civil Australia Pty Ltd</td><td>Major off-site (Cairns North facility) and on-site redevelopment of Cairns Hospital. </td><td>Floats</td><td>Allocated</td><td>0</td><td>12-04-2017 00:00:00</td><td>14-04-2017 00:00:00</td>
+		</tr>
+	</table>
+</div>

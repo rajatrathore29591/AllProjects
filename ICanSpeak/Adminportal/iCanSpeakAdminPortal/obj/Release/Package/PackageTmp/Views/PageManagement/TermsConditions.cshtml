@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "Terms & Conditions";
+}
+ <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <font color="44c9ff"> Terms & Conditions</font>
+                </h1>
+            </div>
+        </div>
+<table> 
+    <tr>
+        <td>
+            <div class="container-fluid">
+                <div class="row">
+                
+                    @*<div class="container">
+                        <div class="row">*@
+                            <div class="col-lg-12 nopadding">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Body Text</label>
+                                    @Html.Partial("CustomTextEditor")
+                                </div>
+                            </div>
+                        @*</div>
+                    </div>*@
+                    <input type="button" onclick="SubmitTerms()" class="btn btn-info" value="Update Terms & Conditions" style="margin-top: 15px;" /><br /><br />
+                    <label id="msg" style="color:green; display:none;">Terms & Conditions Text Updated Successfully</label>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            url: '@Url.Action("SaveTermsConditions", "PageManagement")',
+            type: "POST",
+            data: { message: " ", operation: "select" },
+            success: function (result) {
+                if (result == "LogIn") {
+                    window.location = "@Url.Action("Login","Account")";
+                }
+                CKEDITOR.instances.editor1.setData(result);
+            },
+            error: function (result) {
+            },
+        });       
+    });
+
+    function SubmitTerms() {
+        var s = CKEDITOR.instances.editor1.getData();
+        
+        var replacedata = "";
+        for (var i = 0; i < s.length; i++) {
+            var c = s.charAt(i).replace('"', '~#');
+            replacedata += c;
+        }
+        var newstring = "";
+        for (var i = 0; i < replacedata.length; i++) {
+            var c = replacedata.charAt(i).replace('<', '~!');
+            newstring += c;
+        }
+        var mystring = "";
+        for (var i = 0; i < newstring.length; i++) {
+            var c = newstring.charAt(i).replace('>', '!~');
+            mystring += c;
+        }
+
+        $.ajax({
+            url: '@Url.Action("SaveTermsConditions", "PageManagement")',
+                type: "POST",
+                data: { message: mystring, operation: "update" },
+                success: function (result) {
+                    if (result == "LogIn") {
+                        window.location = "@Url.Action("Login","Account")";
+                    }
+                    if (result == "Success") {
+                        $("#msg").css("display", "block");
+                        $("#msg").css("color", "green");
+                        $("#msg").text('Terms & Conditions Text Updated Successfully');
+                    }
+                    else {
+                        $("#msg").css("display", "block");
+                        $("#msg").css("color", "red");
+                        $("#msg").text('Failed to update Terms & Condition text, please try after some time later.');
+                    }
+                },
+                error: function (result) {
+                    $("#msg").css("display", "block");
+                    $("#msg").css("color", "red");
+                    $("#msg").text('Failed to update Terms & Condition text, please try after some time later.');
+                },
+            });
+        }
+
+</script>

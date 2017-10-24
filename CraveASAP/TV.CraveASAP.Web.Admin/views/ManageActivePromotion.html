@@ -1,0 +1,142 @@
+﻿<div class="page-content-wrapper">
+    <div class="page-content" style="min-height: 720px">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box green clearfix">
+                    <div class="portlet-title">
+                        <div class="caption bold btnwtit pull-left">
+                            <span>Manage Active Promocode &nbsp;<i class="fa fa-refresh fa-spin" ng-if="isbusy"></i></span>
+                        </div>
+                        <div class="caption  pull-right">
+                            <a ui-sref="Main.CreatePromotions({ id: 0})" class="margin-right-10  btn btn-danger">Create Promotions</a>
+                        </div>
+                    </div>
+                    <div class="portlet-body form ">
+                        <form action="#" class="form-horizontal">
+                            <div class="col-lg-12">
+                                <div class="form-body">
+                                    <div class=" table-responsive">
+                                        <div style="width: 20% !important; float: right">
+                                            <input type="text" ng-model="search" class="form-control" placeholder="Search" />
+                                        </div>
+                                        <table class="table table-striped table-bordered table-advance table-hover">
+                                            <thead>
+                                                <tr class="bold">
+                                                    <!-- <th class="bold">Id
+                                                </th>-->
+                                                    <th class="bold" ng-click="sort('code')">PromotionCode
+                                                    <span class="glyphicon sort-icon" ng-show="sortKey=='code'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                                    </th>
+                                                    <th class="bold">Vendor Name
+                                                    </th>
+                                                    <th class="bold">Description
+                                                    </th>
+                                                    <th class="bold">Create Date
+                                                    </th>
+                                                    <th class="bold">Expiry Date
+                                                    </th>
+                                                    <th class="bold">Category
+                                                    </th>
+                                                    <th class="bold">Price
+                                                    </th>
+                                                    <th class="bold"></th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <!--<tr dir-paginate="dats in item.PromotionCodes|orderBy:sortKey:reverse|filter:search|itemsPerPage:5">-->
+                                                <tr dir-paginate="item in getAllPromotion|orderBy:sortKey:reverse|filter:search|itemsPerPage:10">
+                                                    <!--<td class="highlight">
+                                                    <div class="success">
+                                                    </div>
+                                                    <a href="javascript:;">{{dats.code}} </a>
+                                                </td>-->
+                                                    <!--<td class ="hidden-xs">{{item.promotionCodeId}}</td>-->
+                                                    <td class="">{{item.code}}</td>
+                                                    <td class="">{{item.vendorName}}</td>
+                                                    <td class="">{{item.descriptionEnglish}}</td>
+                                                    <td class="">{{item.createdDate}}</td>
+                                                    <td class="">{{item.expiryDate}}</td>
+                                                    <td class="">{{item.categoryName}}</td>
+                                                    <td class="">{{item.price}}</td>
+                                                    <td ng-if="item.closure_status == 1">{{getClosureText(item.closure_status)}}</td>
+                                                    <td>
+                                                        <a ui-sref="Main.CreatePromotions({ id: item.promotionCodeId})" class="btn btn-primary">
+                                                            <i class="fa fa-edit"></i>Edit </a>
+                                                        <a href="javascript:;" class="btn btn-danger" ng-click="DeleteOld(item.promotionCodeId)">
+                                                            <i class="fa fa-trash-o"></i>Delete </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <dir-pagination-controls
+                                            max-size="5"
+                                            direction-links="true"
+                                            boundary-links="true">
+                                        </dir-pagination-controls>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div id='editor' contenteditable>
+                                </div>-->
+                            <div class="col-md-10 MT20">
+                                <!--<button type="submit" value="Submit" class="btn btn-danger pull-right">Submit</button>-->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+        </div>
+    </div>
+    <!-- END CONTENT -->
+
+</div>
+<div id="loader" ng-show="showLoader">
+    <div class="page-spinner-bar" ng-spinner-bar="">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+</div>
+<div id="static" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Message</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <!-- Would you like to continue with some arbitrary task?-->
+                    {{Message}}
+                </p>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" ng-click="redirect()" data-dismiss="modal" class="btn green">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="delete" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Confirmation</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <!-- Would you like to continue with some arbitrary task?-->
+                    {{Message1}}
+                </p>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" ng-click="sure()" data-dismiss="modal" class="btn green">Ok</button>
+                <button type="button" ng-click="cancel()" data-dismiss="modal" class="btn danger">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

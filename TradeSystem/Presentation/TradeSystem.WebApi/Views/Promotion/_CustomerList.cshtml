@@ -1,0 +1,129 @@
+﻿@{
+
+    Layout = null;
+}
+
+<!--Contain for show role title-->
+
+
+<label id="checkboxGroup" class="checkbox-inline mr-15"><input type="checkbox" name="checkbox" id="select_all"> Select All</label>
+<br />
+<div class="table-responsive mt-10 mb-10">
+    <table id="promotion_email_table" class="table table-bordered">
+        <tr>
+            <th>Select</th>
+            <th>Name</th>
+            <th>Email id</th>
+        </tr>
+        @foreach (var item in ViewBag.Customer)
+        {
+
+            <tr>
+                <td><input type="checkbox" id="@item.Email" class="checkbox styled" title="@item.Email" name="checkbox" value="@item.Id"></td>
+                <td>@item.UserName</td>
+                <td><span for="emailId">@item.Email</span></td>
+            </tr>
+
+            @*<div class="checkbox">
+                <label>
+                    @*<input type="checkbox" id="@item.Id" title="@item.UserName" name="checkbox" value="@item.UserName">
+                    <input type="checkbox" id="@item.Email" class="checkbox styled" title="@item.Email" name="checkbox" value="@item.Id">@item.UserName (<span for="emailId">@item.Email</span>)
+                </label>
+                <input type="hidden" value="@item.Id">
+            </div>*@
+        }
+        </table>
+    @*<div class="checkbox">
+        <label>
+            @*<input type="checkbox" id="@item.Id" title="@item.UserName" name="checkbox" value="@item.UserName">
+            <input type="checkbox" id="@item.Email" class="checkbox styled" title="@item.Email" name="checkbox" value="@item.Id">@item.UserName (<span for="emailId">@item.Email</span>)
+        </label>
+        <input type="hidden" value="@item.Id">
+    </div>*@
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        var strEmail = "";
+        var strCustomerId = "";
+
+        function UpdateCheckbox() {
+            var checkList = $(".checkbox");
+            if (checkList.length > 0) {
+                // Loop through the list of checkboxes
+                $.each(checkList, function (chechbox, index) {
+                    // split the values of localstorage and check with id of checkbox
+                    strEmail = localStorage.getItem('CustomerEmail');
+                    var array = strEmail.split(';');
+                    var matched = false;
+                    $.each(array, function (i) {
+                        if (array[i].trim() == checkList[chechbox].id.trim()) {
+                            matched = true;
+                        }
+                    });
+                    if (matched) {
+                        $(checkList[chechbox]).attr('checked', 'checked');
+                    }
+
+                });
+            }
+            strEmail = "";
+            strCustomerId = "";
+            localStorage.setItem('CustomerEmail', strEmail);
+            localStorage.setItem('CustomerId', strCustomerId);
+        }
+
+        /*select all check boxes*/
+        var select_all = document.getElementById("select_all"); //select all checkbox
+        var checkboxes = document.getElementsByClassName("checkbox"); //checkbox items
+
+        //select all checkboxes
+        select_all.addEventListener("change", function (e) {
+            for (i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = select_all.checked;
+            }
+        });
+
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].addEventListener('change', function (e) { //".checkbox" change
+                //uncheck "select all", if one of the listed checkbox item is unchecked
+                if (this.checked == false) {
+                    select_all.checked = false;
+                }
+                //check "select all" if all checkbox items are checked
+                if (document.querySelectorAll('.checkbox:checked').length == checkboxes.length) {
+                    select_all.checked = true;
+                }
+            });
+        }
+        /*End: select all check boxes*/
+
+        function getAllCustomer() {
+            $(':checkbox:checked').each(function (i) {
+                if (i == 0) {
+                    strCustomerId = $(this).val();
+                    strEmail = this.title;
+                    //var $label = $(this).closest('span');
+                    //strEmail = $label.text();
+                }
+                else {
+                    strCustomerId = strCustomerId + ";" + $(this).val();
+                    //var $label = $(this).next('span');
+                    if (strEmail != '') {
+                        strEmail = strEmail + ";" + this.title;
+                    }
+                    else {
+                        strEmail = this.title;
+                    }
+                }
+            });
+            localStorage.setItem('CustomerEmail', strEmail);
+            localStorage.setItem('CustomerId', strCustomerId);
+            $("#Email_Ids").val(localStorage.getItem('CustomerEmail'));
+            $("#To").val(localStorage.getItem('CustomerId'));
+            $("#customer_selected_list").html("");
+            $('#close_model').modal('hide');
+        }
+    </script>

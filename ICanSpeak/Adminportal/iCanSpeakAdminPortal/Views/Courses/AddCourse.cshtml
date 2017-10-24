@@ -1,0 +1,344 @@
+﻿@model iCanSpeakAdminPortal.Models.CourseModel
+@{
+    ViewBag.Title = "AddCourse";   
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Add Courses</title>
+
+    <link href="~/Content/themes/fileinput.css" rel="stylesheet" />
+    <link href="~/Content/themes/style.css" rel="stylesheet" />
+    <script src="~/Scripts/fileinput.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+//===========================================================================//
+           
+            var coursetypevalue = $('#CourseType').val();
+            if (coursetypevalue == 'grammer')
+            {
+                $('#videodiv').show();
+            }
+            if (coursetypevalue == 'dialog') {
+                $('#videodiv').show();
+            }
+            if (coursetypevalue == 'vocabulary') {
+                $('#audiodiv').show();
+                $('#imagediv').show();
+            }
+//==========================================================================//
+            $('#CourseType').change(function () {
+               
+                $('#audiodiv').hide();
+                $('#imagediv').hide();
+                $('#videodiv').hide();
+                if ($(this).val() == 'grammer')
+                {
+                    //$('#mainform').append('<div class="form-group"><label>Audio <span style="color:#FE2801;">*</span></label><div class="form-group"><input id="file-1a" type="file" multiple="true" class="file" required data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false" id="Audio" name="Audio"></div></div>');
+                    $('#videodiv').show();
+                }
+                if ($(this).val() == 'dialog') {
+                    //$('#mainform').append('<div class="form-group"><label>Audio <span style="color:#FE2801;">*</span></label><div class="form-group"><input id="file-1a" type="file" multiple="true" class="file" required data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false" id="Audio" name="Audio"></div></div>');
+                    $('#videodiv').show();
+                }
+                if ($(this).val() == 'vocabulary') {
+                    $('#audiodiv').show();
+                    $('#imagediv').show(); 
+                }
+            })
+        });
+    </script>
+    <script type="text/javascript">
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+        function isNumberDecimal(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode != 45 && (charCode != 46 || $(this).val().indexOf('.') != -1) &&
+                    (charCode < 48 || charCode > 57))
+                return false;
+
+            return true;
+        }
+
+        
+    </script>
+</head>
+<body>
+     @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="courses-page">
+        <div class="container">
+            <!------header section start------->
+            <header>
+              
+                <h2>Add Courses</h2>
+                 <a style="cursor:pointer; color:#3d3b3b; font-size:14pt;float:right;margin-top:-55px; font-weight:200;" href="@Url.Action("CourseList", "Courses")">Go To Courses List</a>
+            </header>
+            <!------header section end------->
+            <!------content section start------->
+            <div class="contant">
+                <div class="row">
+
+                    @using (Html.BeginForm("AddCourse", "Courses", FormMethod.Post, new { enctype = "multipart/form-data", novalidate = "true" }))
+                    {
+
+
+                        if (Model != null)
+                        {
+                        <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                           
+                                <input type="hidden" id="CourseId" name="CourseId" value="@Model.CourseId" />
+                                <div class="form-group">
+                                    <label>Course Name <span style="color:#FE2801;">*</span></label>                                    
+                                    <input  type="text"  class="form-control" placeholder="Course Name" required value="@Model.CourseName" id="CourseName" name="CourseName" maxlength="30">
+                                </div>
+                                <div class="form-group">
+                                    <label>Course Description <span style="color:#FE2801;">*</span></label>
+                                    <textarea class="form-control" placeholder="Course Description" required id="CourseDescription" name="CourseDescription" maxlength="10">@Model.CourseDescription</textarea>
+                                    @* <input type="text" class="form-control" placeholder="Course Description">*@
+                                </div>
+                                <div class="form-group">
+                                    <label>Course Type <span style="color:#FE2801;">*</span></label>
+                                    @*<input type="text" class="form-control" placeholder="Course Type">*@
+                                    <select class="form-control" id="CourseType" required name="CourseType">
+                                        <option value="">Course Type</option>
+                                        @if (Model.CourseType == "grammer")
+                                        {
+                                            <option value="grammer" selected="selected">Grammar</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="grammer">Grammer</option>
+                                        }
+                                        @if (Model.CourseType == "dialog")
+                                        {
+                                             <option value="dialog" selected="selected">Dialog</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="dialog">Dialog</option>
+                                        }
+                                        @if (Model.CourseType == "vocabulary")
+                                        {
+                                             <option value="vocabulary" selected="selected">Vocabulary</option>   
+                                        }
+                                        else
+                                        {
+                                            <option value="vocabulary">Vocabulary</option>   
+                                        }
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Duration <span style="color:#FE2801;">*</span></label>
+                                    <input type="text" class="form-control" required onkeypress="return isNumber(event)" placeholder="2 Months" value="@Model.Duration" id="Duration" name="Duration">
+                                </div> 
+                                <div class="form-group">
+                                    <label>Reward Point <span style="color:#FE2801;">*</span></label>
+                                    <input type="text" class="form-control" required onkeypress="return isNumber(event)"  placeholder="Reward Point" value="@Model.RewardPoints" id="RewardPoints" name="RewardPoints">
+                                </div>
+                                <div class="form-group">
+                                    <label>Price <span style="color:#FE2801;">*</span></label>
+                                    <input type="text" class="form-control" required placeholder="Price"  onkeypress="return isNumberDecimal(event)"  value="@Model.Price" id="Price" name="Price">
+                                </div> 
+                                <div class="form-group">
+                                    <label>Max Score <span style="color:#FE2801;">*</span></label>
+                                    <input type="text" class="form-control" onkeypress="return isNumber(event)" required placeholder="Max Score" value="@Model.MaxScore" id="MaxScore" name="MaxScore">
+                                </div>
+                                <div class="form-group">
+                                    <label>Is Free <span style="color:#FE2801;">*</span></label>
+                                    @if (Model.IsFree == true)
+                                    {
+                                    <select class="form-control" id="IsFree" required name="IsFree">
+                                        <option selected="selected" value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    }
+                                    else
+                                    {
+                                        <select class="form-control" id="IsFree" required name="IsFree">
+                                        <option value="Yes">Yes</option>
+                                        <option selected="selected" value="No">No</option>
+                                    </select>
+                                    }
+                                </div>
+                                <div class="form-group">
+                                    <label>Unit <span style="color:#FE2801;">*</span></label>
+                                    <input type="text" onkeypress="return  isNumber(event)" maxlength="2" class="form-control" placeholder="Unit" onkeypress="return isNumber(event)" required id="Unit" name="Unit" value="@Model.Unit">
+                                </div>
+                                <div id="audiodiv" class="form-group" style="display:none">
+                                    <label>Audio <span style="color:#FE2801;">*</span></label>
+                                    <div class="form-group">
+                                       
+                                         <input  type="file" multiple="true" class="file" required data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false" id="Audio" name="Audio">
+                                                    <label style="color:red;float: right;margin-right: -10px;margin-top: -20px;font-size:20px;">  @Html.ValidationMessageFor(x => x.Audio)</label>
+                                    </div>
+                                    </div>
+                                <div id="videodiv" class="form-group" style="display:none">
+                                    <label>Video <span style="color:#FE2801;">*</span></label>
+                                    <div class="form-group">
+                                       
+                                         <input  type="file" multiple="true" class="file" required data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false" id="Audio" name="Video">
+                                                    <label style="color:red;float: right;margin-right: -10px;margin-top: -20px;font-size:20px;">  @Html.ValidationMessageFor(x => x.Audio)</label>
+                                    </div>
+                                    </div>
+                                   <div id="imagediv" class="form-group" style="display:none">
+                                    <label>Image Url <span style="color:#FE2801;">*</span></label>
+                                    @*<input type="text" class="form-control" placeholder="Image Url">*@
+                                    <input  type="file" multiple="true" required class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false" id="Image" name="Image">
+                                    <label style="color:red;float: right;margin-right: -10px;margin-top: -20px;font-size:20px;">  @Html.ValidationMessageFor(x => x.Image)</label>
+                                    </div>
+                                <div class="form-group">
+                                    
+                                    <button type="submit" class="btn btn-info">Submit</button>
+                                   @* <button type="button" class="btn btn-info">Cancel</button>*@
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                       <input type="hidden" id="CourseId" name="CourseId" value="0" />
+                        <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                            <form action="" method="post" role="form">
+                               <div id="mainform">
+                                <div class="form-group">
+                                    <div style="width:115%">
+                                   <label style="color: red; font-size: 16pt; font-weight: 200;">
+                                   @ViewBag.tabledata
+                                  </label>
+                                        </div>
+                                    <label>Course Name <span style="color:#FE2801;">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Course Name" id="CourseName" name="CourseName" maxlength="30" required >
+                                </div>
+                                  
+                                <div class="form-group">
+                                    <label>Course Description <span style="color:#FE2801;">*</span></label>
+                                    <textarea class="form-control" placeholder="Course Description" id="CourseDescription" name="CourseDescription" maxlength="50" required></textarea>
+                                    @* <input type="text" class="form-control" placeholder="Course Description">*@
+                                </div>
+                                <div class="form-group">
+                                    <label>Course Type <span style="color:#FE2801;">*</span></label>
+                                    @*<input type="text" class="form-control" placeholder="Course Type">*@
+                                    <select class="form-control" id="CourseType" name="CourseType" required>
+                                        <option value="">Course Type</option>
+                                        <option value="grammer">Grammar</option>
+                                        <option value="dialog">Dialog</option>
+                                        <option value="vocabulary">Vocabulary</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Duration(in months) <span style="color:#FE2801;">*</span></label>
+                                    <input type="text" class="form-control" placeholder="2 Months" required id="Duration" name="Duration" maxlength="2"  onkeypress="return isNumber(event)">
+                                </div>
+                                <div class="form-group">
+                                    <label>Reward Point <span style="color:#FE2801;">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Reward Point" required maxlength="5"  id="RewardPoints" name="RewardPoints" onkeypress="return isNumber(event)">
+                                </div>
+                                <div class="form-group">
+                                    <label>Price(in dollar) <span style="color:#FE2801;">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Price" required id="Price" name="Price" onkeypress="return isNumberDecimal(event)" maxlength="5">
+                                </div>
+                                <div class="form-group">
+                                    <label>Max Score <span style="color:#FE2801;">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Max Score" required maxlength="4" id="MaxScore" name="MaxScore" onkeypress="return isNumber(event)">
+                                </div>
+                                <div class="form-group">
+                                    <label>Is Free <span style="color:#FE2801;">*</span></label>
+                                    <select class="form-control" id="IsFree" required name="IsFree">
+                                        <option value="No">No</option>
+                                        <option value="Yes">Yes</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Unit <span style="color:#FE2801;">*</span></label>
+                                    <input type="text" onkeypress="return isNumber(event)" maxlength="2" class="form-control" required placeholder="Unit" id="Unit" name="Unit" />
+                                </div>
+                                 </div>
+                                <div id="audiodiv" class="form-group" style="display:none">
+                                    <label>Audio <span style="color:#FE2801;">*</span></label>
+                                    <div class="form-group">
+                                       
+                                         <input  type="file" multiple="true" class="file" required data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false" id="Audio" name="Audio">
+                                                    <label style="color:red;float: right;margin-right: -10px;margin-top: -20px;font-size:20px;">  @Html.ValidationMessageFor(x => x.Audio)</label>
+                                    </div>
+                                    </div>
+                                <div id="videodiv" class="form-group" style="display:none">
+                                    <label>Video <span style="color:#FE2801;">*</span></label>
+                                    <div class="form-group">
+                                       
+                                         <input  type="file" multiple="true" class="file" required data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false" id="Video" name="Video">
+                                                    <label style="color:red;float: right;margin-right: -10px;margin-top: -20px;font-size:20px;">  @Html.ValidationMessageFor(x => x.Audio)</label>
+                                    </div>
+                                    </div>
+                                <div id="imagediv" class="form-group" style="display:none">
+                                    <label>Image Url <span style="color:#FE2801;">*</span></label>
+                                    @*<input type="text" class="form-control" placeholder="Image Url">*@
+                                    <input  type="file" multiple="true" required class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false" id="Image" name="Image">
+                                    <label style="color:red;float: right;margin-right: -10px;margin-top: -20px;font-size:20px;">  @Html.ValidationMessageFor(x => x.Image)</label>
+                                    </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-info">Submit</button>
+                                  <a href="../../Admin/Courses/CourseList" ><button type="button" class="btn btn-info">Cancel</button></a>
+                                </div>
+
+                            </form>
+                        </div>
+                        }
+                    }
+                   
+                </div>
+
+            </div>
+            <!------content section end------->
+        </div>
+    </div>
+    <script>
+        $('#Audio').change(function () {
+
+            var val = $(this).val();
+            switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+                case 'mp3':
+                    break;
+                default:
+                    $(this).val('');
+
+                    alert("Audio must be of mp3 format.");
+                    break;
+            }
+        });
+
+        $('#Video').change(function () {
+            var val = $(this).val();
+            switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+                case 'mp4':
+                    break;
+                default:
+                    $(this).val('');
+
+                    alert("Video must be of mp4 format.");
+                    break;
+            }
+        });
+
+        $('#Image').change(function () {
+            var val = $(this).val();
+            switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+                case 'jpeg': case 'png': case 'jpg':
+                    break;
+                default:
+                    $(this).val('');
+
+                    alert("Image must be of jpg, jpeg, png format.");
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+﻿<div class="container" ng-controller="translationController">
+    <div class="sap_tabs">
+        <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+            <ul class="resp-tabs-list">
+                <a href="#/Main/CreatePromotion/0/Edit">
+                <li class="resp-tab-item" ng-click="onClickTab(1)" ng-class="{active: selectedTab===1}"><span>{{translation.Create}}</span>
+
+                </li>
+                <a href="#/Main/Track">
+                    <li class="resp-tab-item" ng-click="onClickTab(2)" ng-class="{active: selectedTab===2}"><span>{{translation.Track}}</span>
+
+                    </li>
+                </a>
+                <a href="#/Main/Manage">
+                    <li class="resp-tab-item" ng-click="onClickTab(3)" ng-class="{active: selectedTab===3}"><span>{{translation.Manage}}</span>
+
+                    </li>
+                </a>
+
+                <div class="clear"></div>
+            </ul>
+
+            <div class="resp-tabs-container">
+                <form ng-submit="CreatNew()">
+                    <div ng-show="selectedTab==1" style="background-color: white; overflow: auto; padding-bottom: 40px">
+                        <div class="col-lg-12">
+                            <div class="form-group clearfix" id="promotionImages">
+                                <label class=" control-label col-lg-12" for="focusedInput">{{translation.PromotionImage}}</label>
+                                <input type="file" id="file1" name="files[]" class="upload col-lg-6" onchange="angular.element(this).scope().fileChanged(event)" />
+                                <div class="col-md-6  pull-right" id="output">
+                                    <p id="filename"></p>
+                                    <img ng-src="{{config.api}}/Pictures/{{image}}" src="{{result}}" height="100px" width="100px" class="imageThumb" />
+                                </div>
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+                                        if (window.File && window.FileList && window.FileReader) {
+
+                                            $("#files").on("change", function (e) {
+                                                $('.imageThumb').remove();
+                                                console.log('removed');
+                                                var files = e.target.files,
+                                                filesLength = files.length;
+                                                var f = files[0]
+                                                var fileReader = new FileReader();
+                                                fileReader.onload = (function (e) {
+                                                    var file = e.target;
+                                                    $("<img></img>", {
+                                                        class: "imageThumb",
+                                                        src: e.target.result,
+                                                        title: file.name
+                                                    }).appendTo("#output");
+                                                    $('.imageThumb').attr({ width: 100, height: 100 });
+
+                                                });
+                                                fileReader.readAsDataURL(f);
+                                                
+                                            });
+                                        } else { alert("Your browser doesn't support to File API") }
+                                    });
+
+
+                                </script>
+                            </div>
+                            <div class="form-group clearfix">
+                                <div class="col-lg-12">
+                                    <label for="textArea" class=" control-label">{{translation.PromotionDescription}} ({{translation.English}})</label>
+                                </div>
+                                <div class="col-lg-12">
+                                    <textarea class="form-control" rows="3" ng-model="promotion.descriptionEnglish" id="textArea" maxlength="250" placeholder="Write a description about your promotion" ></textarea>
+
+                                </div>
+                            </div>
+                            <div class="form-group clearfix">
+                                <div class="col-lg-12">
+                                    <label for="textArea" class=" control-label">{{translation.PromotionDescription}} ({{translation.Thai}})</label>
+                                </div>
+                                <div class="col-lg-12">
+                                    <textarea class="form-control" rows="3" ng-model="promotion.descriptionThai" id="textArea1" maxlength="250" placeholder="เขียนรายละเอียดเกี่ยวกับโปรโมชั่นของคุณ"></textarea>
+
+                                </div>
+                            </div>
+                            <div class="form-group clearfix">
+                                <div class="col-lg-12">
+                                    <label class="control-label" for="focusedInput">{{translation.PromotionStartDate}}</label>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class=' input-group date '>
+                                        <input type='text' class="form-control datepicker startDate" id="createdDate" value="{{createdDate | date: 'yyyy-MM-dd hh:ii:ss'}}"  readonly required />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-remove clear"></span>
+                                            <span class="glyphicon glyphicon-calendar "></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group clearfix">
+                                <div class="col-lg-12">
+                                    <label class="control-label" for="focusedInput">{{translation.PromotionEndDate}}</label>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class=' input-group date '>
+                                        <input type='text' class="form-control datepicker endDate" id="expiryDate" value="{{expiryDate | date: 'yyyy-MM-dd hh:ii:ss'}}" readonly />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-remove clear1"></span>
+                                            <span class="glyphicon glyphicon-calendar "></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group clearfix">
+
+                                <label class="text-center col-lg-12">
+                                    <h3>{{translation.OR}}</h3>
+                                </label>
+
+                            </div>
+                            <div class="form-group clearfix">
+                                <div class="col-lg-12">
+                                    <label class="control-label" for="focusedInput">{{translation.LimitbyQuantity}}</label>
+                                </div>
+                                <div class="col-lg-12">
+                                    <input class="form-control" type="number" min="1" ng-model="promotion.quantity" max="9999" />
+                                </div>
+                            </div>
+                            <div class="form-group clearfix">
+                                <div class="col-lg-12">
+                                    <label class="control-label" for="focusedInput">{{translation.PromotionPrice}}</label>
+                                </div>
+                                <div class="col-lg-12">
+                                    <input class="form-control" type="number" min="1" ng-model="promotion.price"  max="99999"  required />
+                                </div>
+                            </div>
+                            <div class="form-group clearfix">
+                                <div class="col-lg-12">
+                                    <label class="control-label" for="focusedInput">{{translation.Category}}</label>
+                                </div>
+                                <div class="col-lg-12">
+                                         <select class="form-control" id="select2" ng-model="categorySelect"  ng-change="CategoryClick(categorySelect)">
+                                        <option ng-repeat="item in category" value="{{item.categoryId}}"  ng-selected="categorySelect == item.categoryId">{{item.categoryName}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group clearfix">
+                                <div class="col-lg-12">
+                                    <label class="control-label" for="focusedInput">{{translation.SubCategory}}</label>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class=' input-group  '>
+                                        <select class="form-control subCategoryClear" id="select1" ng-model="subCategorySelect"  ng-change="SubCategoryClick(subCategorySelect)">
+                                            <option ng-repeat="item in subCategory" ng-selected="subCategorySelect == item.subCategoryId" value="{{item.subCategoryId}}">{{item.subCategoryName}}</option>
+                                        </select>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-remove clearSub"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group clearfix">
+                                <div class="col-lg-12">
+                                    <label class="control-label" for="focusedInput">{{translation.OptionalCategory}}</label>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class=' input-group  '>
+                                         <select class="form-control optCategoryClear" id="select2" ng-model="optionalCategorySelect" ng-change="OptCategoryClick(optionalCategorySelect)">
+                                            <option ng-repeat="item in optionalCategory" value="{{item.optCategoryId}}">{{item.optCategoryName}}</option>
+                                        </select>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-remove clearOpt"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group pull-right">
+                                <label class="control-label"></label>
+                                <div class="col-lg-12">
+                                    <button type="submit" class="btn btn-primary">{{createUpdate}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="loader" ng-show="showLoader">
+      <img src="images/loading.gif" /> 
+</div>
+<div id="static" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">{{translation.Message}}</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                   
+                    {{Message}}
+                </p>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" ng-click="redirect()" data-dismiss="modal" class="btn green">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="cropm" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false" >
+    <div class="modal-dialog modallarge" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">{{translation.ImageCropper}}</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="img-crop-block">
+                    <image-crop
+                        data-height="350"
+                        data-width="350"
+                        data-shape="square"
+                        data-step="imageCropStep"
+                        src="imgSrc"
+                        data-result="result"
+                        data-result-blob="resultBlob"
+                        crop="initCrop"
+                        padding="250"
+                        max-size="1024"></image-crop>
+                </div>
+
+                <div class="center-block cropbtns">
+                    <br />
+                    <button type="button" ng-click="clear()">{{translation.Cancel}}</button>
+                    <button type="button" ng-click="initCrop = true;" id="croop">{{translation.Crop}}</button>
+                </div>
+                <div class="hide">
+
+                    <h2>Result</h2>
+                    <p>The data-result-blob property is a Blob object, which is necessary in some upload libraries like <a href="https://github.com/nervgh/angular-file-upload" target="_blank">Angular File Upload</a></p>
+                    <p>Image using the data uri:</p>
+                    <img id="cropimage" ng-src="{{result}}"></img>
+                    <p>The Base64 String used in the image above:</p>
+                    <textarea class="result-datauri">{{ result }}</textarea>
+                    <button type="button" ng-click="clear()">Clear</button>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+           
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#croop').click(function () {
+        $('#cropm').modal('hide');
+    })
+    function loaderheight() {
+        var bodyheight = $('body').height();
+        $('#loader').css('height', bodyheight);
+    }
+    loaderheight();
+</script>

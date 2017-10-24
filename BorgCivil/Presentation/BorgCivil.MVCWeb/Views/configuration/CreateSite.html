@@ -1,0 +1,114 @@
+﻿<div ng-controller="ManageSiteCtrl as msCtrl" class="customer-register">
+    <!--Site Details Start-->
+    <form name="add_sitedetail_form" ng-submit="msCtrl.updateDetails(add_sitedetail_form.$valid)" novalidate>
+        <!--Site Details Content Start-->
+        <div id="site-details-tab" class="tab-pane">
+            <div class="bc-panel-white m-b-none">
+                <h3 class="sub-title">Site Details</h3>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Site Name <span class="text-danger"> *</span></label>
+                            <input type="text" class="form-control" ng-model="msCtrl.attributes.SiteName" ng-minlength="2" ng-maxlength="30" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>PO # </label>
+                                    <input type="text" class="form-control" ng-model="msCtrl.attributes.PoNumber" ng-minlength="2" ng-maxlength="30">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Site Details</label>
+                            <textarea class="form-control" ng-model="msCtrl.attributes.SiteDetail"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Fuel Included </label>
+                            <ul class="list-inline">
+                                <li>
+                                    <div class="checkbox"><label class="p-l0"> <input icheck type="radio" ng-value="true" ng-model="msCtrl.attributes.FuelIncluded" name="fuel" class="i-checks" ng-checked="msCtrl.attributes.FuelIncluded === true"> Yes </label></div>
+                                </li>
+                                <li>
+                                    <div class="checkbox"><label> <input icheck type="radio" name="fuel" ng-value="false" ng-model="msCtrl.attributes.FuelIncluded" class="i-checks" ng-checked="msCtrl.attributes.FuelIncluded === false"> No </label></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Tolls Included </label>
+                            <ul class="list-inline">
+                                <li>
+                                    <div class="checkbox"><label class="p-l0"> <input icheck  type="radio" ng-value="true" ng-model="msCtrl.attributes.TollTax" name="toll" class="i-checks" ng-checked="msCtrl.attributes.TollTax === true"> Yes </label></div>
+                                </li>
+                                <li>
+                                    <div class="checkbox"><label> <input icheck type="radio" ng-value="false" ng-model="msCtrl.attributes.TollTax" name="toll" class="i-checks" ng-checked="msCtrl.attributes.TollTax === false"> No </label></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Credit Terms Agreed <span class="text-danger"> *</span></label>
+                            <select ng-model="msCtrl.attributes.CreditTermAgreed" name="customer" class="form-control" ng-required="true" ng-options="item for item in msCtrl.CreditTermAgreedList">
+                                <option>Select</option>                              
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 p-r0">
+                        <div class="form-group">
+                            <h4 class="upload-heading">Attachment </h4>
+                            <!--<div class="no-img"><img id="previewId" ng-src="{{msCtrl.Image}}" width="100" height="100" /></div>
+                            <p class="image-preview-filename" id="fileName"></p>-->
+                            <div class="input-group image-preview">
+                                <!--<input type="text" class="form-control image-preview-filename" id="fileName">--> <!-- don't give a name === doesn't send on POST/GET -->
+                                <span class="input-group-btn">
+                                    <!-- image-preview-clear button -->
+                                    <!--<button type="button" id="clearImageId" ng-click="mftCtrl.clearImage();" class="btn btn-default image-preview-clear">
+                            <span class="glyphicon glyphicon-remove"></span> Clear
+                        </button>-->
+                                    <!-- image-preview-input -->
+                                    <div class="btn btn-default image-preview-input">
+                                        <span class="glyphicon glyphicon-folder-open"></span>
+                                        <span class="image-preview-input-title">Choose File</span>
+                                        <input type="file" ngf-select ng-model="picFile" name="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" ngf-max-size="2MB" ngf-model-invalid="errorFile" class="btn btn-default" id="inputFileToLoad" ng-change="msCtrl.loadImageFileAsURL();"><!-- rename it -->
+                                    </div>                                  
+                                </span>
+
+                            </div><!-- /input-group image-preview [TO HERE]-->                          
+                            <br />
+                            <span>{{msCtrl.attributes.Image}}</span>
+                            <!-- /input-group image-preview [TO HERE]-->
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+          
+            <div class="bc-panel-white">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" title="Close" ng-click="msCtrl.cancel()">Close</button>
+                        <button type="submit" class="btn btn btn-primary" data-dismiss="modal" title="Save">Save</button>
+                     
+                    </div>
+                </div>
+            </div>         
+        </div>
+        <!--Site Details Content End-->
+    </form>
+    <!--Site Details End-->
+</div>

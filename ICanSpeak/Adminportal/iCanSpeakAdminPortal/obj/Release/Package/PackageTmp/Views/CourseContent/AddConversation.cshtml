@@ -1,0 +1,141 @@
+﻿@{
+    ViewBag.Title = "AddConversation";
+}
+<link href="@Url.Content("/Content/themes/fileinput.css")" rel="stylesheet" />
+<link href="@Url.Content("/Content/themes/style.css")" rel="stylesheet" />
+<script type="text/javascript" src="@Url.Content("/Scripts/jquery.min.js")"></script>
+<script src="@Url.Content("/Scripts/fileinput.js")"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btnaddtxt').click(function () {
+            $('#englishdiv').append('<div class="br"><br /></div><input type="text" maxlength="499" required name="oneengtxt" class="form-control"  placeholder="English Text"><div class="br"><br /></div><input type="text" maxlength="499" required name="onearbtxt" class="form-control"  placeholder="Arabic Text">');
+            $('#arabicdiv').append('<div class="br"><br /></div><input type="text" required maxlength="499" name="twoengtxt" class="form-control"  placeholder="English Text"><div class="br"><br /></div><input type="text" maxlength="499" required name="twoarbtxt" class="form-control" placeholder="Arabic Text">');
+            $('#btnremovetxt').show();
+        });
+
+        $('#btnremovetxt').click(function () {
+            if ($("#englishdiv .form-control").length != 1) {
+                $("#englishdiv .form-control:last").remove();
+                $("#englishdiv .form-control:last").remove();
+                $("#arabicdiv .form-control:last").remove();
+                $("#arabicdiv .form-control:last").remove();
+                $("#englishdiv .br:last").remove();
+                $("#arabicdiv .br:last").remove();
+                $("#englishdiv .br:last").remove();
+                $("#arabicdiv .br:last").remove();
+            }
+            if ($("#englishdiv .form-control").length == 2) {
+                $('#btnremovetxt').hide();
+            }
+            return false;
+        });
+
+        @*$('#sbmtbtn').click(function () {
+
+            var englishtxt = "";
+            var arabictxt = "";
+            var finalstring = "";
+            $("#englishdiv .form-control").each(function () {
+                englishtxt = englishtxt + $(this).val() + ";"
+            });
+            $("#arabicdiv .form-control").each(function () {
+                arabictxt = arabictxt + $(this).val() + ";"
+            });
+            englishtxt = englishtxt.substr(0, englishtxt.length - 1);
+            arabictxt = arabictxt.substr(0, arabictxt.length - 1);
+            var array1 = englishtxt.split(";");
+            var array2 = arabictxt.split(";");
+            $.each(array1, function (i) {
+                finalstring = finalstring + array1[i] + "``" + array2[i] + "||"
+            });
+            finalstring = finalstring.substr(0, finalstring.length - 2);
+
+            $.ajax({
+                url: '@Url.Action("AddConversations", "CourseContent")',
+                type: "POST",
+                data: { dialogid: $('#dialogid').val(), conversationtxt: finalstring },
+                success: function (result) {
+                    window.location = "@Url.Action("ConversationList", "CourseContent")?dialogid=" + $('#dialogid').val();
+                },
+                error: function (result) {
+                },
+            });
+        });*@
+    });
+</script>
+@using (Html.BeginForm("AddConversations", "CourseContent", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        <font color="44c9ff">Add Conversation</font>
+                    </h1>
+                </div>
+            </div>
+            <!--Edit Table start-->
+            <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2  col-sm-6 col-sm-offset-2 col-xs-12">
+                <div class="row">
+                    <label id="msg" style="font-size: 16pt;"></label>
+                    <div>
+                        <input id="btnaddtxt" class="btn btn-info" type="button" value="Add New Conversation" />
+                        <input id="btnremovetxt" class="btn btn-info" type="button" style="display: none" value="Remove Last Conversation" />
+                    </div>
+                    <br />
+                    <input id="dialogid" type="hidden" value="@TempData["DialogId"]" />
+                    <input type="hidden" value="@TempData["gender"]" name="gender" />
+                    <table style="width: 100%">
+                        <tr>
+                            <td>
+                                @if (TempData["gender"].ToString() == "male")
+                                {
+                                    <label style="color: black" for="exampleInputEmail1">Sami Text <span style="color: #FE2801;">*</span></label>
+                                }
+                                else
+                                {
+                                    <label style="color: black" for="exampleInputEmail1">Sara Text <span style="color: #FE2801;">*</span></label>
+                                }
+                            </td>
+                            <td>
+                                <label style="color: black" for="exampleInputPassword1">Persone Two Text <span style="color: #FE2801;">*</span></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <div id="englishdiv">
+                                        <input type="text" maxlength="499" name="oneengtxt" class="form-control" placeholder="English Text" required><br />
+                                        <input type="text" maxlength="499" name="onearbtxt" class="form-control" placeholder="Arabic Text" required>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <div id="arabicdiv">
+                                        <input type="text" maxlength="499" name="twoengtxt" class="form-control" placeholder="English Text" required><br />
+                                        <input type="text" maxlength="499" name="twoarbtxt" class="form-control" placeholder="Arabic Text" required>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <div class="form-group">
+                        <input type="hidden" name="dialogid" value="@Request["dialogid"]" />
+                        <button type="submit" id="submit" class="btn btn-info">Submit</button>&nbsp;&nbsp;
+                        <a href="../../Admin/CourseContent/ConversationList?dialogid=@Request["dialogid"]&gender=@Request["gender"]">
+                        <input type="button" class="btn btn-info" value="Cancel" /></a>
+                    </div>
+                    <div>
+                        <h1 style="font-size: 25px; color: red;">@TempData["Message"]</h1>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <!--edit table end here-->
+        </div>
+    </div>
+}
+

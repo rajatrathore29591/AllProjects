@@ -1,0 +1,121 @@
+﻿    <div class="page-content-wrapper">
+        <div class="page-content" style="min-height: 740px">
+           
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- BEGIN EXTRAS PORTLET-->
+                        <div class="portlet box green">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="fa fa-gift"></i>Privacy & Policy <span>&nbsp;<i class="fa fa-refresh fa-spin" ng-if="isbusy"></i></span>
+                                </div>
+                            </div>
+                            <div class="portlet-body form">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <!-- BEGIN FORM-->
+                                <form action="#" class="form-horizontal">
+                                    <div class="p-20">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Content For</label>
+                                                <div class=" col-sm-10 ">
+                                                    <select class="bs-select form-control input-small" ng-model="content.contentFor" ng-change="select()" data-style="blue" style="display: inline;">
+                                                        <option>Vendor App</option>
+                                                        <option>User App</option>
+                                                        <option>Website</option>
+                                                    </select>
+                                                 </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Language</label>
+                                                <div class="col-md-10">
+                                                    <div class="input-group pull-left">
+                                                        <div class="icheck-inline ">
+                                                            <label>
+                                                                <input type="radio" name="radio1" ng-model="content.language" ng-change="radioChange()" value="English" checked="" class="icheck" data-radio="iradio_flat-grey">
+                                                                English
+                                                            </label>
+                                                            <label>
+                                                                <input type="radio" name="radio1" ng-model="content.languagae" ng-change="radioChange()" value="Thai" class="icheck" ng-checked="{{checked}}" data-radio="iradio_flat-grey">
+                                                                Thai
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class=" table-responsive">
+                                                <table class="table table-striped table-bordered table-advance table-hover margin-top-70">
+                                                    <thead>
+                                                        <tr class="bold">
+                                                            <th class="bold">ContentId
+                                                            </th>
+                                                            <th class="bold">PageName
+                                                            </th>
+                                                            <th class="bold">Language
+                                                            </th>
+                                                            <th class="bold">PageContent
+                                                            </th>
+                                                            <th class="bold">ContentFor
+                                                            </th>
+                                                            <th class="bold"></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!--  <tr ng-repeat="item in privacy">-->
+                                                        <tr dir-paginate="item in privacy|orderBy:sortKey:reverse|filter:search|itemsPerPage:2">
+                                                            <td>{{item.Id}}</td>
+                                                            <td>{{item.pageName}}</td>
+                                                            <td>{{item.language}}</td>
+                                                            <td>
+                                                                <div ng-bind-html="deliberatelyTrustDangerousSnippet(item.pageContent)"></div>
+                                                            </td>
+                                                            <td>{{item.contentFor}}</td>
+                                                            <td>
+                                                                <a ui-sref="Main.UpdatePrivacyPolicy({ id: item.Id})" class="btn btn-primary">
+                                                                    <i class="fa fa-edit"></i>Edit </a>
+<!--                                                                <i class="fa fa-trash-o"></i>Delete </a>-->
+                                                            </td>
+
+                                                        </tr>
+                                                </tbody>
+                                            </table>
+                                            <dir-pagination-controls
+                                            max-size="5"
+                                            direction-links="true"
+                                            boundary-links="true">
+                                            </dir-pagination-controls>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </form>
+                                <!-- END FORM-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END EXTRAS PORTLET-->
+            </div>
+        </div>
+        <!-- END PAGE CONTENT-->
+    </div>
+
+    <!-- END CONTENT -->
+</div>
+<div id="loader" ng-show="showLoader">
+    <div class="page-spinner-bar" ng-spinner-bar="">
+		<div class="bounce1"></div>
+		<div class="bounce2"></div>
+		<div class="bounce3"></div>
+	</div>
+
+</div>
+
+
+
+

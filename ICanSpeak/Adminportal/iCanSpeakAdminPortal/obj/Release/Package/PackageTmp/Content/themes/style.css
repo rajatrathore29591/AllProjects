@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/* CSS Document */
+header h2 {
+	margin: 0 0 20px 0;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 15px;
+	font-size: 36px;
+	color: #44c9ff;
+}
+audio {
+	width: 100%;
+}
+.btn-file {
+	position: relative;
+	overflow: hidden;
+}
+.btn-file input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	min-width: 100%;
+	min-height: 100%;
+	text-align: right;
+	filter: alpha(opacity=0);
+	opacity: 0;
+	background: red;
+	cursor: inherit;
+	display: block;
+}
+input[readonly] {
+	background-color: white !important;
+	cursor: text !important;
+}
+.addslot {
+margin-top: 50px;
+}
+.header {
+border: 1px solid #eee;
+margin-bottom: 30px;
+padding: 15px 0px 0px 20px;
+}

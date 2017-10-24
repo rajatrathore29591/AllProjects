@@ -1,0 +1,17 @@
+Write a simple code snippet for Singleton pattern.
+
+What is the difference between String, StringBuffer & Stringbuilder classes?
+
+What is the difference between web server & application server?
+
+What do you mean by static?
+
+Explain multithreading.
+
+What is deadlock?
+
+What is the difference between a thread & a process?
+
+What is CLR? How it will work?
+
+careersintl@aptaracorp.com?Subject=Software Developer - Web

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<TradeSystem.Utils.Models.CustomerProductDataModel>
+@{
+    ViewBag.Title = "My Sales";
+    Layout = "~/Views/Shared/_CustomerLoggedInLayout.cshtml";
+}
+@using System.Globalization;
+
+<!-- Existing Customers -->
+<div class="panel panel-flat">
+    <div class="panel-body">
+        <div class="text-right">
+            <a href="@Url.Action("RegisterNewUser", "Sale")" class="btn btn-primary mr-25" title="@Resources.Languages.RegisterNewUser">@Resources.Languages.RegisterNewUser<i class="icon-plus-circle2 position-right"></i></a>
+            <!--Change for export excel by datatable tool-->
+            <span class="btn btn-primary pr-15 mr-60 visible-none"></span>
+            <div class="tooltip-section">
+                <button type="button" class="btn btn-primary btn-sm" data-popup="tooltip" title="<strong>@Resources.Languages.ExportToolTip</strong>" data-html="true"><i class="icon-question7"></i> </button>
+            </div>
+            @*<span class="btn btn-primary pr-15"> @Html.ActionLink(@Resources.Languages.Export, "ExportToExcel", "Sale", (List<TradeSystem.Utils.Models.CustomerProductDataModel>)Model, new { @class = "btn-primary", title = @Resources.Languages.ExportToExcel, id = "btn-actionlink-export" })</span>*@
+        </div>
+        <div class="data-tbl-wrapper">
+            <table class="table table-bordered table-hover" id="investment_data_table">
+                <thead>
+                    <tr>
+                        <th>@Resources.Languages.SNo.</th>
+                        <th>@Resources.Languages.CustomerName</th>
+                        <th>@Resources.Languages.RegisterDate</th>
+                        <th>@Resources.Languages.TotalInvestment</th>
+                        <th>@Resources.Languages.TotalEarningbySales</th>
+                        <th>@Resources.Languages.Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td></td>
+                            <td>@item.CustomerName</td>
+                            <td>@item.CreatedDate.ToString("MM-dd-yyyy")</td>
+                            <td class="text-right">@item.InvestmentCustomer.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
+                            <td class="text-right"> @item.SaleEarningCustomer.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
+
+                            @*<td class="text-right">@float.Parse(item.Investment).ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
+                            <td class="text-right"> @string.Format("{0:C}", float.Parse(item.SaleEarning))</td>*@                            
+                            @*<td class="text-right">@float.Parse(item.SaleEarning).ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>*@    
+                            @if (item.Status == "true")
+                            {
+                                <td class="text-center"><span class="label label-success">@Resources.Languages.Active</span></td>
+                            }
+                            else
+                            {
+                                <td class="text-center"><span class="label label-danger">@Resources.Languages.Inactive</span></td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- /existing customers -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Code for icon excel is linkable
+        $('#btn-actionlink-export').append('<i class="icon-file-excel position-right"></i>');
+    });
+
+</script>

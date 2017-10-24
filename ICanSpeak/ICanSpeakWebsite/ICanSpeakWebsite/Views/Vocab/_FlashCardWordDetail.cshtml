@@ -1,0 +1,202 @@
+﻿@{
+    Layout = null;
+}
+
+<script src="@Url.Content("/Scripts/jquery.min.js")"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#next').click(function () {
+            //-----------------------Video Call Ajax Section -----------------------------------------------------//
+            $.ajax({
+                url: '@Url.Action("NextFlahWordDetail", "Vocab")',
+                type: "POST",
+                data: { id: $('#wordid').val(), vocab: $('#VocabularyId').val(), flash: $('#flashCardId').val() },
+                success: function (data) {
+                    $("#FlashCardpartial").html(data);
+                    //$('#wordid').val(data[0].WordId);
+                    //$('#flashCardId').val(data[0].FlashCardId);
+                    ////$('#VocabularyId').val(data[0].VocabularyId);
+                    //$('#wordeng').text(data[0].EnglishText);
+                    //$('#wordarb').text(data[0].ArabicText);
+                    //$('#img').attr('src', data[0].PictureUrl);
+                    //$('#audio').attr('src', data[0].AudioUrl);
+                },
+                error: function (result) {
+                    $("#lblLoginerror").css("display", "block");
+                }
+            });
+            //--------------------Video Call Ajax Section Ends -----------------------------------------------------//
+            return false;
+        });
+
+        $('#previous').click(function () {
+            //-----------------------Video Call Ajax Section -----------------------------------------------------//
+            $.ajax({
+                url: '@Url.Action("BackFlashWordDetail", "Vocab")',
+                type: "POST",
+                data: { id: $('#wordid').val(), vocab: $('#VocabularyId').val(), flash: $('#flashCardId').val() },
+                success: function (data) {
+                    $("#FlashCardpartial").html(data);
+                    //$('#wordid').val(data[0].WordId);
+                    //$('#flashCardId').val(data[0].FlashCardId);
+                    ////$('#VocabularyId').val(data[0].VocabularyId);
+                    //$('#wordeng').text(data[0].EnglishText);
+                    //$('#wordarb').text(data[0].ArabicText);
+                    //$('#img').attr('src', data[0].PictureUrl);
+                    //$('#audio').attr('src', data[0].AudioUrl);
+                },
+                error: function (result) {
+                    $("#lblLoginerror").css("display", "block");
+                }
+            });
+            //--------------------Video Call Ajax Section Ends -----------------------------------------------------//
+            return false;
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        @*$("#addflashWord").click(function () {
+            alert($('#wordid').val());
+            //-----------------------Video Call Ajax Section -----------------------------------------------------//
+            $.ajax({
+                url: '@Url.Action("AddFlashCardWords", "Vocab")',
+                type: "POST",
+                data: { wordid: $('#wordid').val() },
+                success: function (data) {
+                    alert("Sucssess");
+                },
+                error: function (result) {
+                    $("#lblLoginerror").css("display", "block");
+                }
+            });
+        });*@
+
+        $("#removeflashWord").click(function () {
+            $.ajax({
+                url: '@Url.Action("RemoveFlashCardWords", "Vocab")',
+                type: "POST",
+                data: { wordid: $('#wordid').val() },
+                success: function (data) {
+
+                    alert("Word Succcessfully Deleted");
+                },
+                error: function (result) {
+                    $("#lblLoginerror").css("display", "block");
+                }
+            });
+
+        });
+    });
+</script>
+
+<div class="container ">
+    <input type="hidden" id="flashCardId" value="@Model.FlashCardId" />
+    <input type="hidden" id="userid" value="@Model.UserId" />
+    <input type="hidden" id="wordid" value="@Model.WordId" />
+    <input type="hidden" id="VocabularyId" value="@Model.VocabularyId" />
+    <div class="col-lg-12">
+        <div class="heading-grays">
+            <span class="btn cursor-none">@Model.Vocab</span>
+            <span class="unit-box">@Model.SubCategory</span>
+            <div class="pull-right">
+                @if (Model.EnglishText == null)
+                {
+                    <a class="btn" id="removeflashWord" style="visibility: hidden;" href="#" title="Remove Flash Word"><i class="fa fa-minus fa-1x"></i></a>
+                    <a class="btn" id="showflashWord" href="../../Vocab/FlashCardWordList" title="Show Flash Words"><i class="fa fa-book fa-1x"></i></a>
+                }
+                else
+                {
+                    <a class="btn" id="removeflashWord" href="#" title="Remove Flash Word"><i class="fa fa-minus fa-1x"></i></a>
+                    <a class="btn" id="showflashWord" href="../../Vocab/FlashCardWordList" title="Show Flash Words"><i class="fa fa-book fa-1x"></i></a>
+                }
+            </div>
+
+
+        </div>
+        <div class="vocab-wrapper">
+            <div class="col-lg-4">
+                @if (Model.PictureUrl == null)
+                {
+                    <h2 style="margin-top: 40px" class="header" align="center" valign="center">No Record Available</h2>
+                }
+                else
+                { 
+                    <div class="img-thumbnail MT20">
+                        <img id="img" class="img-responsive" src="@Model.PictureUrl" />
+                    </div>
+                }
+                <div class="">
+                    @if (ViewBag.isLastData == "NxtBack")
+                    {
+                        <input type="button" class="pre-btn" value="" id="previous" />
+                        <input type="button" class="next-btn" value="" id="next" />
+                    }
+                    @if (ViewBag.isLastData == "Back")
+                    {
+                        <input type="button" class="pre-btn" value="" id="previous" />
+                        
+                    }
+                    @if (ViewBag.isLastData == "Nxt")
+                    {
+                        <input type="button" class="next-btn" value="" id="next" />
+                    }
+
+                </div>
+            </div>
+            <div class="col col-lg-8">
+                <!-- <div class="js-video [vimeo, widescreen]" align="center">
+                    <iframe width="500" height="300px"  src="media/Asking a Question about Electricity Bill.mp4" frameborder="0" allowfullscreen ></iframe>
+                    </div>-->
+                @if (Model.EnglishText == null)
+                {
+                    <h2 style="margin-top: 40px" class="header" align="center" valign="center"></h2>
+                }
+                else
+                {
+                    <div class="col-lg-6  text-center MT-20 ">
+                        <label class="PD20"></label>
+                        <label class="PD-10">
+                            <h3 id="wordeng">@Model.EnglishText</h3>
+                        </label>
+                    </div>
+                    <div class="col-lg-6  text-center MT-20 ">
+                        <label class="PD20"></label>
+                        <label class="PD-10">
+                            <h3 id="wordarb">@Model.ArabicText</h3>
+                        </label>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="text-center MT-20 ">
+                        <div class="audioplayer audioplayer-stopped top10">
+                            <audio id="audio" preload="auto" controls="">
+                                <source src="@Model.AudioUrl">
+                            </audio>
+                        </div>
+                    </div>
+                }
+                @*<div class="pull-right MT-20">
+                    @if (ViewBag.isLastData == "NxtBack")
+                    {
+                        <input type="button" class="btn btn-info" value="Previous" id="previous" />
+                        <input type="button" class="btn btn-info ML20" value="Next" id="next" />
+                    }
+                    @if (ViewBag.isLastData == "Back")
+                    {
+                        <input type="button" class="btn btn-info" value="Previous" id="previous" />
+                        
+                    }
+                    @if (ViewBag.isLastData == "Nxt")
+                    {
+                        <input type="button" class="btn btn-info ML20" value="Next" id="next" />
+                    }
+
+                </div>*@
+            </div>
+        </div>
+    </div>
+</div>

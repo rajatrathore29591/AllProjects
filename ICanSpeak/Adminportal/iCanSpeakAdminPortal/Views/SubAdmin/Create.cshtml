@@ -1,0 +1,373 @@
+﻿@model iCanSpeakAdminPortal.Models.SubAdminModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/themes/fileinput.css" rel="stylesheet" />
+<link href="~/Content/themes/style.css" rel="stylesheet" />
+<script src="~/Scripts/fileinput.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var files = e.files;
+                var filePath = input.value;
+
+                var ext = filePath.substring(filePath.lastIndexOf('.') + 1).toLowerCase();
+                if ($.inArray(ext, ['jpg', 'png', 'jpeg']) == -1) {
+                    alert('You can only upload .jpg,.png, .jpeg files');
+                    input.value = '';
+                    e.preventDefault();
+                    return false;
+                }
+                $("#imagebase64").val(e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementsByName("dob")[0].setAttribute('max', today);
+
+    function textonly(e) {
+        if (e.keyCode == 45) {
+            return false;
+        }
+        var code;
+        if (!e) var e = window.event;
+        if (e.keyCode) code = e.keyCode;
+        else if (e.which) code = e.which;
+        var character = String.fromCharCode(code);
+        var AllowRegex = /^[\ba-zA-Z\s-]$/;
+        if (AllowRegex.test(character)) return true;
+        return false;
+    }
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#addtype').change(function () {
+            $('#divDescription').show();
+            $('#divEducation').show();
+            $('#divExperience').show();
+            $('#divExpertise').show();
+            $('#divCity').show();
+            $('#divZipcode').show();
+
+            if ($(this).val() == 'tutor' || $(this).val() == 'subtutor') {
+                $('#divDescription').show();
+                $('#divEducation').show();
+                $('#divExperience').show();
+                $('#divExpertise').show();
+                $('#divCity').show();
+                $('#divZipcode').show();
+            }
+            else {              
+                $('#divDescription').hide();
+                $('#divEducation').hide();
+                $('#divExperience').hide();
+                $('#divExpertise').hide();
+                $('#divCity').hide();
+                $('#divZipcode').hide();               
+            }
+        });
+        $('#submit').click(function () {
+            if ($('#addtype').val() == 'subadmin') {
+                               
+                $('#Description').removeAttr("required"); 
+                $('#Education').removeAttr("required");
+                $('#Experience').removeAttr("required");
+                $('#Expertise').removeAttr("required");
+                $('#City').removeAttr("required");
+                $('#ZipCode').removeAttr("required");
+            }
+        });
+    });
+</script>
+
+
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+        @using (Html.BeginForm("Create", "SubAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <!-- Page Heading -->
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        <font color="44c9ff"> Create New Sub Admin / Tutor</font>
+                    </h1>
+                </div>
+                <a style="cursor: pointer; color: #3d3b3b; font-size: 14pt; margin-left: -260px; float: right; position: absolute; margin-top: 55px; font-weight: 200;" href="../../Admin/SubAdmin/UserList/">Go To Sub Admin / Tutor List</a>
+
+            </div>
+
+            <!--Edit Table start-->
+
+            <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2  col-sm-6 col-sm-offset-2 col-xs-12">
+                <div class="row">
+                    <label id="msg" style="font-size: 16pt;"></label>
+
+
+                    <div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">User Type <span style="color: #FE2801;">*</span></label>
+                            <select id="addtype" class="form-control" name="Tutortype" required>
+                                <option value="subadmin">Sub Admin</option>
+                                <option value="tutor">Tutor</option>
+                                <option value="subtutor">Sub Tutor</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Full Name <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" name="FirstName" onkeypress="return textonly(event);" required id="firstName" placeholder="Full Name" pattern=".{3,}" title="Full Name is minimum 3 character">
+                        </div>
+                        @*  <div class="form-group">
+                            <label for="exampleInputPassword1">Last Name <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" name="LastName" onkeypress="return textonly(event);" required id="lastName" placeholder="Last Name" pattern="\w{3}" title="Last Name is minimum 3 character" >
+                        </div>*@
+                        <div class="form-group">
+                            <label>Image <span style="color: #FE2801;">*</span></label>
+                            @*<input type="text" class="form-control" placeholder="Image Url">*@
+                            <input id="file-1a" name="Image" required type="file" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false" onchange="readURL(this);">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Email Id <span style="color: #FE2801;">*</span></label>
+                            <input type="email" class="form-control" name="Email" required id="emailId" placeholder="Email Id" required="required" title="Please enter the valid email address">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password <span style="color: #FE2801;">*</span></label>
+                            <input type="password" class="form-control" name="Password" required id="password" placeholder="Password " maxlength="10" pattern="(.){06,10}" title="Password should be atleast 6 character">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Confirm Password <span style="color: #FE2801;">*</span></label>
+                            <input type="password" class="form-control" name="Confirm Password" required id="confirm_password" placeholder="Confirm Password" maxlength="10" pattern="(.){06,10}" onblur="UserInput()">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">DOB <span style="color: #FE2801;">*</span></label>
+                            <input type="date" class="form-control" name="DOB" required id="dob" placeholder="date" onblur="isFutureDate()">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Gender <span style="color: #FE2801;">*</span></label>
+                            <select class="form-control" name="Gender" required id="gender">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" style="display: none" id="divEducation">
+                            <label for="exampleInputPassword1">Education <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" name="Education" onkeypress="return textonly(event)" required id="Education" placeholder="Education">
+                        </div>
+                        <div class="form-group" style="display: none" id="divExperience">
+                            <label for="exampleInputPassword1">Experience <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" name="Experience" required id="Experience" onkeypress="return isNumber(event)" placeholder="Experience" title="Experience in years">
+                        </div>
+                        <div class="form-group" style="display: none" id="divExpertise">
+                            <label for="exampleInputPassword1">Expertise <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" name="Expertise" onkeypress="return textonly(event)" required id="Expertise" placeholder="Expertise">
+                        </div>
+                        <div style="display: none" class="form-group" id="divDescription">
+                            <label for="exampleInputPassword1">Description <span style="color: #FE2801;">*</span></label>
+                            <textarea class="form-control" id="Description" name="Description" placeholder="500 characters only" required maxlength="500" rows="3"></textarea>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Contact No. <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" name="ContactNo" required id="contactNo" onkeypress="return isNumber(event)" maxlength="10" pattern="(.){10,10}" placeholder="Contact No." title="Contact No. should be in 10 digits">
+                        </div>
+                        <div class="form-group" style="display: none" id="divCity">
+                            <label for="exampleInputPassword1">City <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" onkeypress="return textonly(event);" name="City" required id="City" placeholder="City">
+                        </div>
+                        <div class="form-group" style="display: none" id="divZipcode">
+                            <label for="exampleInputPassword1">Zip Code <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" name="ZipCode" onkeypress="return isNumber(event)" maxlength="06" pattern="(.){06,06}" required id="ZipCode" placeholder="Zip Code" title="Zip Code should be 6 digits">
+                        </div>
+
+                        <div class="form-group">
+                            <button id="submit" class="btn btn-info" onclick="validateUserInput()">Submit</button>&nbsp;&nbsp;
+                        <input type="button" class="btn btn-info" value="Reset" onclick="ResetFormValues()" />&nbsp;&nbsp;
+                      <a href="../../Admin/SubAdmin/UserList">
+                          <input type="button" class="btn btn-info" value="Cancel" /></a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /.row -->
+            <!--edit table end here-->
+        }
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+
+<script type="text/javascript">
+    //$("#usertype").change(function () {
+    //    if ($("#usertype").val() == "tutor") {
+    //        $("#education").val('');
+    //        $("#experience").val('');
+    //        $("#expertise").val('');
+    //        $("#divEducation").css("display", "block");
+    //        $("#divExperience").css("display", "block");
+    //        $("#divExpertise").css("display", "block");
+    //    } else {
+    //        $("#divEducation").css("display", "none");
+    //        $("#divExperience").css("display", "none");
+    //        $("#divExpertise").css("display", "none");
+    //    }
+    //});
+    @*function CreateSubAdmin() {
+        
+        if ($("#usertype").val() == "subadmin") {
+
+            $("#Education").val('sub admin');
+            $("#Experience").val('sub admin');
+            $("#Expertise").val('sub admin');
+            $("#City").val('sub admin');
+            $("#Zipcode").val('sub admin');
+
+            var result = validateUserInput();
+            if (result != false) {
+                $.ajax({
+                    url: '@Url.Action("Create", "SubAdmin")',
+                    type: "POST",
+                    data: { firstName: $("#firstName").val(), lastName: $("#lastName").val(), emailId: $("#emailId").val(), password: $("#password").val(), dob: $("#dob").val(), contactNo: $("#contactNo").val(), city: $("#city").val(), state: $("#state").val(), zipCode: $("#zipCode").val(), gender: $("#gender").val(), profilepicture: $('#imagebase64').val() },
+                    success: function (result) {
+                        if (result == "Success") {
+                            window.location.href = "../../Admin/SubAdmin/UserList/"
+                        }
+                        else {
+                            $("#msg").text("An error occured , please try again.");
+                            $("#msg").css("color", "red");
+                        }
+                        $("#msg").focus();
+                        $(document).scrollTop(0);
+                    },
+                    error: function (result) {
+                    }
+                });
+            }
+        }
+        else {
+            var result = validateUserInput();
+            if (result != false) {
+                $.ajax({
+                    url: '@Url.Action("Create", "SubAdmin")',
+                    type: "POST",
+                    data: { firstName: $("#firstName").val(), lastName: $("#lastName").val(), emailId: $("#emailId").val(), password: $("#password").val(), dob: $("#dob").val(), education: $("#education").val(), exprience: $("#exprience").val(), experience: $("#experience").val(), contactNo: $("#contactNo").val(), city: $("#city").val(), state: $("#state").val(), zipCode: $("#zipCode").val(), gender: $("#gender").val(), profilepicture: $('#imagebase64').val() },
+                    success: function (result) {
+                        if (result == "Success") {
+                            window.location.href = "../../Admin/SubAdmin/UserList/"
+                        }
+                        else {
+                            $("#msg").text("An error occured , please try again.");
+                            $("#msg").css("color", "red");
+                        }
+                        $("#msg").focus();
+                        $(document).scrollTop(0);
+                    },
+                    error: function (result) {
+                    }
+                });
+            }
+        }
+    }*@
+
+    function ResetFormValues() {
+        $("#firstName").val(''); $("#lastName").val(''); $("#emailId").val(''); $("#password").val(''); $("#confirmPassword").val(''); $("#dob").val('');
+        $("#education").val(''); $("#experience").val(''); $("#expertise").val(''); $("#contactNo").val(''); $("#city").val(''); $("#state").val('');
+        $("#zipCode").val('');
+    }
+
+    function UserInput() {
+        var password = $("#password").val();
+        var confirm_password = $("#confirm_password").val();
+        if (password != confirm_password) {
+            alert("Password and Confirm Password donot Match");
+        } else { }
+    }
+</script>
+<script type="text/javascript">
+    function isFutureDate() {
+        var from = $("#dob").val()
+        var f = Date(from[0], from[1], from[2]);
+        var arrDate = from.split("-");
+        var today = new Date();
+        useDate = new Date(arrDate[0], arrDate[1] - 1, arrDate[2]);
+        if (useDate > today) {
+            alert("Date of birth should be less than current date");
+            $("#dob").focus();
+            return false;
+        } else return true;
+    }
+</script>
+@*  var firstname = $("#firstName").val();
+        if ($.trim(firstname) == "") {
+            $("#firstName").focus();
+            alert('First Name Field Required');
+            return false;
+        }
+        var lastName = $("#lastName").val();
+        if ($.trim(lastName) == "") {
+            $("#lastName").focus();
+            alert('Last Name Field Required');
+            return false;
+        }
+        var password = $("#password").val();
+        if ($.trim(password) == "") {
+            $("#password").focus();
+            alert('Password Field Required');
+            return false;
+        }
+        var confirmPassword = $("#confirmPassword").val();
+        if ($.trim(confirmPassword) == "") {
+            $("#confirmPassword").focus();
+            alert('Confirm Password Field Required');
+            return false;
+        }
+        
+        }
+        var dob = $("#dob").val();
+        if ($.trim(dob) == "") {
+            $("#dob").focus();
+            alert('DOB Field Required');
+            return false;
+        }
+        var education = $("#education").val();
+        if ($.trim(education) == "") {
+            $("#education").focus();
+            alert('Education Field Required');
+            return false;
+        }
+        var experience = $("#experience").val();
+        if ($.trim(experience) == "") {
+            $("#experience").focus();
+            alert('Experience Field Required');
+            return false;
+        }
+        var education = $("#education").val();
+        if ($.trim(education) == "") {
+            $("#education").focus();
+            alert('Education Field Required');
+            return false;
+        }*@
+
+
+

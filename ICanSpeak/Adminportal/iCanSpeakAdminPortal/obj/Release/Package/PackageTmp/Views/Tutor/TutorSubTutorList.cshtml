@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "TutorSubTutorList";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myDataTable').dataTable({
+            "bJQueryUI": true,
+            "aaSorting": [],
+            "sPaginationType": "full_numbers",
+            "aoColumns": [
+                { "sName": "Email", "bSearchable": true, "bSortable": true },
+                { "sName": "Full Name", "bSearchable": true, "bSortable": true },
+                { "sName": "Gender", "bSearchable": true, "bSortable": true },
+                 { "sName": "City", "bSearchable": true, "bSortable": true },
+                { "sName": "Registered On", "bSearchable": true, "bSortable": true },
+                { "sName": "Status", "bSearchable": false, "bSortable": false },
+                { "sName": "IsSuggested", "bSearchable": false, "bSortable": false },
+                { "sName": "Operations", "bSearchable": false, "bSortable": false }
+            ]
+        }).makeEditable({
+            fnStartProcessingMode: function () {
+                $("#processing_message").dialog();
+            },
+            fnEndProcessingMode: function () {
+                $("#processing_message").dialog("close");
+            }
+        });
+    });
+</script>
+<style type="text/css">
+    .operationIcons {
+        height: 25px;
+        width: 25px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #e2f3ff;
+    }
+</style>
+
+
+
+ <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <font color="44c9ff">Tutor List</font>
+                </h1>               
+                 <span style="float:right; color:#3d3b3b;font-size:16pt; margin-top:-50px;">
+                   <img src="~/Images/add_icon.png" class="operationIcons" />
+                     <a style="cursor:pointer; color:#3d3b3b; text-decoration:none; font-weight:200" href="@Url.Action("Create","SubAdmin")">Add New Sub Admin / Tutor</a>
+                </span>
+            </div>
+        </div>
+
+
+
+<table id="myDataTable" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Full Name</th>
+            <th>Gender</th>
+            <th>City</th>
+            <th>Registered On</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            
+            <tr>
+                <td><span>@item.Email</span></td>
+                <td><span>@item.FirstName @item.LastName</span></td>
+                <td style="width: 90px;"><span>@item.Gender</span></td>
+                <td style="width: 120px;"><span>@item.ContactNo</span></td>
+                <td><span>@item.CreatedDate</span></td>
+                <td>
+                    @if (item.IsActive == true)
+                    {
+                        <input type="button" value="Active" style="color:white; background-color:green; border:none;" id="btnStatus-@item.UserId" onclick="ManageUserStatus(@item.UserId)" />
+                    }
+                    else
+                    {
+                        <input type="button" value="Inactive" style="color:white; background-color:red; border:none;" id="btnStatus-@item.UserId" onclick="ManageUserStatus(@item.UserId)" />
+                    }
+                </td>
+                <td>
+                    @if (item.RoleId == 3)
+                    {
+                        <label>Tutor</label>
+                        @*<input type="button" value="Tutor" style="color:white; width:50px; background-color:green; border:none;" id="btnSuggested-@item.UserId" onclick="ManageUserSuggested('@item.UserId','1')" />*@
+                    }
+                    else
+                    {
+                        <label>Sub Admin</label>
+                        @*<input type="button" value="No" style="color:white; width:50px; background-color:red; border:none;" id="btnSuggested-@item.UserId" onclick="ManageUserSuggested('@item.UserId','0')" />*@
+                    }
+                </td>
+
+                <td>
+                    <img src="~/Images/delete_icon.png" class="operationIcons"  onclick="DeleteUSerPermanentaly(@item.UserId)" title="Delete Permanentaly" />&nbsp;&nbsp;
+                    @*<img src="~/Images/detail_icon.png" class="operationIcons"  />&nbsp;&nbsp;*@
+                    <img src="~/Images/edit_icon.png" class="operationIcons" title="Edit Information" onclick="window.location.href= '@Url.Action("UpdateProfile", "SubAdmin", new { userid=item.UserId})'" />&nbsp;&nbsp;
+                    <img src="~/Images/u[date_icon.png" class="operationIcons" title="Set Access Rights" onclick="window.location.href= '@Url.Action("SetAccess", "SubAdmin", new { userid=item.UserId})'" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

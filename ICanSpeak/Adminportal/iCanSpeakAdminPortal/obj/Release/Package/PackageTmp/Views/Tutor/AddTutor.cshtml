@@ -1,0 +1,65 @@
+﻿@model iCanSpeakAdminPortal.Models.TutorModel
+@{
+    ViewBag.Title = "AddTutor";
+}
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="~/Content/themes/fileinput.css" rel="stylesheet" />
+<link href="~/Content/themes/style.css" rel="stylesheet" />
+<script src="~/Scripts/fileinput.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
+<script src="@Url.Content("~/Content/jAlert/jquery.alerts.js")" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/jAlert/jquery.alerts.css")" rel="stylesheet" type="text/css" />
+
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true)
+<div class="courses-page">
+    <div class="container">
+        <header>
+            <h2>Add Tutor</h2>
+        </header>
+
+        <!------header section start------->
+
+        <!------header section end------->
+        <!------content section start------->
+        <div class="contant">
+            <div class="row">
+                @if (TempData["Alert"] != null)
+                {
+                    <script type="text/javascript">
+                        alert('This student already associate with this Tutor!');
+                    </script>
+                    @TempData["Alert"]
+                }
+                else
+                {
+                    using (Html.BeginForm("AddTutor", "Tutor", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                    <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                        @Html.TextBoxFor(m => m.studentid, new { @Value = ViewBag.StudentID, style = "display:none" })
+                        <div class="form-group" aria-selected="false">
+                            <label>Tutor</label>
+                            @Html.DropDownListFor(m => m.TutorID, ViewData["TutorNames"] as SelectListItem[], new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Sub Tutor</label>
+                            @Html.ListBoxFor(m => m.SelectItems, ViewData["SubTutorNames"] as SelectListItem[], new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-info">Submit</button>
+                            <a href="../../Admin/UserAccounts/UsersList">
+                                <input type="button" value="Cancel" class="btn btn-info"></a>
+                             <a href="../../Admin/UserAccounts/UsersList">
+                        </div>
+                    </div>   
+                    }
+                }
+            </div>
+        </div>
+        <!------content section end------->
+    </div>
+</div>
+
+
+
+

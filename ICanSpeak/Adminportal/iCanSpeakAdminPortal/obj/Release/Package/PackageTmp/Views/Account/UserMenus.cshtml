@@ -1,0 +1,84 @@
+﻿@model List<iCanSpeakAdminPortal.Models.SubAdminAccessPermissionDisplayNamesModel>
+@{
+    Layout = null;
+}
+
+
+@if (Model.Count > 0)
+{
+    <ul class="nav navbar-nav side-nav">
+        <li id="test">
+            <a href="@Url.Action("Dashboard", "Account")">Dashboard</a>
+        </li>
+        @foreach (var item in Model)
+        {
+            if (item.DisplayName != "Page Management" && item.DisplayName != "Manage Course Content")
+            {    
+            <li>
+                <a  href="@item.URL">@item.DisplayName</a>
+            </li>
+            }
+            else
+            {
+                if (item.DisplayName == "Page Management")
+                {    
+            <li>
+                <a href="javascript:;" data-toggle="collapse" data-target="#demo">Content Management</a>
+                <ul id="demo" class="collapse">
+                    <li>
+                        <a href="@Url.Action("About", "PageManagement")">About</a>
+                    @*</li>*@
+                    <li>
+                        <a href="@Url.Action("TermsConditions", "PageManagement")">Terms & Conditions</a>
+                    </li>
+                    <li>
+                        @*<a href="@Url.Action("FAQ", "PageManagement")">FAQ</a>*@
+                        <a href="@Url.Action("FAQList", "PageManagement")">FAQ</a>
+                        @*  <a href="/PageManagement/FAQ">FAQ</a>*@
+                    </li>
+                    <li>
+                        <a href="@Url.Action("SuccessStoryList", "PageManagement")">Success Story</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("NewsLetter", "PageManagement")">News Letter</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Help", "PageManagement")">Help</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Welcome", "PageManagement")">Welcome</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("DemoVideo", "PageManagement")">Add Video</a>
+                    </li>
+                </ul>
+            </li>
+                }
+                if (item.DisplayName == "Manage Course Content")
+                {
+            <li>
+                <a href="javascript:;" data-toggle="collapse" data-target="#demoCourse">Manage Course Content</a>
+                <ul id="demoCourse" class="collapse">
+                    <li>
+                        <a href="@Url.Action("VocabularyList", "CourseContent")">Vocabulary List</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("DialogList", "CourseContent")">Dialogue</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("GrammerList", "CourseContent")">Grammar List</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("GetSubscriptionDetail", "Subscription")">Subscription Plan</a>
+                    </li>
+                </ul>
+            </li>
+                }
+            }
+        }
+        <li>
+            <a href="@Url.Action("ChangePassword", "Account")">Change Password</a>
+        </li>
+    </ul>
+}
+

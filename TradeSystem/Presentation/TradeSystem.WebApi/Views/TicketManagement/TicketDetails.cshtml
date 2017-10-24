@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "Ticket Details";
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+}
+@model TradeSystem.Utils.Models.TicketDataModel
+
+<!-- Form -->
+<div class="row">
+    <div class="col-md-12">
+        @*@using (Html.BeginForm("TicketDetails", "TicketManagement", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-validate form-horizontal" }))
+            {*@
+        <!--Ticket Details Form -->
+        @*<form class="form-horizontal" action="#">*@
+        <div class="panel panel-flat">
+            <div class="panel-body">
+                <!-- Ticket Details -->
+                <fieldset>
+                    <legend class="text-bold">
+                        <i class="icon-file-text2 position-left"></i>
+                        Details
+                    </legend>
+
+                    <div class="collapse in" id="AM_personal_information">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-lg-4 control-label">Customer Name:</label>
+                                    <div class="col-lg-7">
+                                        @Model.CustomerName
+                                    </div><span class="clearfix"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-4 control-label">Ticket ID:</label>
+                                    <div class="col-lg-7">
+                                        TID : @Model.AutoIncrementedNo
+                                    </div><span class="clearfix"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-4 control-label">Ticket Title:</label>
+                                    <div class="col-lg-7">
+                                        @Model.Title
+                                    </div><span class="clearfix"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-lg-4 control-label">Created Date:</label>
+                                    <div class="col-lg-7">
+                                        @Model.CreatedDate.ToString("MM-dd-yyyy")
+                                    </div><span class="clearfix"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-4 control-label">Status:</label>
+                                    <div class="col-lg-7">
+                                        <label class="radio-inline display-inline-block">
+                                            <input type="radio" id="process" class="styled" name="Process" value="In-Process" checked="@Model.Process">
+                                            In-Process
+                                        </label>
+                                        <label class="radio-inline display-inline-block">
+                                            <input type="radio" id="completed" class="styled" name="Process" value="Completed" checked="@Model.Completed">
+                                            Completed
+                                        </label>
+                                    </div><span class="clearfix"></span>
+                                </div>
+                            </div>
+                            <span class="clearfix"></span>
+                            <div class="col-lg-12">
+                             <div class="form-group">
+                                    <label class="col-lg-2 control-label">Description:</label>
+                                    <div class="col-lg-9">
+                                    <div class="ticket-comment-box">
+                                        @Model.Description
+                                        </div>
+                                    </div><span class="clearfix"></span>
+                                </div>
+                                </div>
+                            <div class="text-center mt-15 mb-15">
+                                @*<button type="button" class="btn bg-orange" title="Back"><i class="icon-arrow-left13 position-left"></i>Back</button>*@
+                                <a class="btn bg-orange" href="@Url.Action("CustomerSupport","TicketManagement")" title="Back"><i class="icon-arrow-left13 position-left"></i> Back </a>
+                                <button type="button" class="btn btn-primary" id="update" title="Update">Update <i class="icon-arrow-right14 position-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <!-- /ticket details -->
+            </div>
+        </div>
+        @*</form>*@
+        @*}*@
+        <!-- /ticket details form -->
+    </div>
+</div>
+<!-- /form -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#update").click(function () {
+            //-----------------------Video Call Ajax Section -----------------------------------------------------//
+            $.ajax({
+                url: '@Url.Action("TicketDetails", "TicketManagement")',
+                type: "POST",
+                data: { Process: $('#process').prop('checked'), Completed: $('#completed').prop('checked') },
+                success: function (data) {
+                    window.location.href = '@Url.Action("CustomerSupport", "TicketManagement")';
+                },
+                error: function (result) {
+                    $("#lblLoginerror").css("display", "block");
+                }
+            });
+        });
+
+        //monthly change event
+        $('#process').change(function () {
+
+            if ($(this).is(":checked")) {
+                $('#process').prop('checked', true);
+                $('#completed').prop('checked', false);
+                return;
+            }
+        });
+
+        //weekly change event
+        $('#completed').change(function () {
+            if ($(this).is(":checked")) {
+                $('#process').prop('checked', false);
+                $('#completed').prop('checked', true);
+                return;
+            }
+
+        });
+    });
+</script>

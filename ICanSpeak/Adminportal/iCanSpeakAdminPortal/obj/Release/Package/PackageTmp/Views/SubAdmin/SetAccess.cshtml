@@ -1,0 +1,147 @@
+﻿@{
+    ViewBag.Title = "SetAccess";
+}
+
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <font color="44c9ff"> Set Account Access</font>
+                </h1>
+
+            </div>
+        </div>
+
+        <!--Edit Table start-->
+
+        <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2  col-sm-6 col-sm-offset-2 col-xs-12">
+            <div class="row">
+                <div class="contant">
+                    <div class="user-pannel">
+                        <label id="msg" style="font-size:16pt;"></label>
+                        <div class="form-group">                            
+                            <label>User Email Id</label>
+                            <select class="form-control" id="emailids" disabled="disabled">
+                                @foreach (var item in Model)
+                                {
+                                    if (Convert.ToInt32(Request.QueryString["userid"]) == item.UserId)
+                                    { 
+                                      <option selected="selected" value="@item.UserId">@item.Email</option>
+                                    }
+                                    else
+                                    {
+                                     <option value="@item.UserId">@item.Email</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6  col-sm-6 col-xs-12">
+                            <input type="checkbox" id="CheckAll" value="" /> All Permissions
+                            @foreach(var item in ViewBag.Menus)
+                            {
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="@item.MenuId" id="chk-@item.MenuId" class="clsAccess" />
+                                    @item.DisplayName
+                                </label>
+                            </div>
+                            }
+                            <br />
+                            <div class="form-group">
+                                <button type="button" class="btn btn-info" onclick="UpdateDetails()">Done</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!--edit table end here-->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            url: '@Url.Action("GetUserAccessRights","SubAdmin")',
+         type: "POST",
+         data: { userid: $("#emailids").val()},
+         success: function (result) {
+            // $(".clsAccess").prop("checked", false);
+             $.each(result, function (i, e) {
+                 var id = "chk-" + e.MenuId;
+                 $("#" + id).attr("checked", true);
+             });
+         },
+         error: function (result) {
+         },
+        });
+    });
+
+    $("#CheckAll").change(function () {
+        if ($(this).is(":checked") == true) {
+            $('.clsAccess').prop("checked", true);
+        }
+        else {
+            $('.clsAccess').prop("checked", false);
+        }
+    });
+    $('.clsAccess').change(function () {
+        $("#CheckAll").prop("checked", false);
+    });
+    $("#emailids").change(function () {
+        $.ajax({
+            url: '@Url.Action("GetUserAccessRights","SubAdmin")',
+                type: "POST",
+                data: { userid: $("#emailids").val() },
+                success: function (result) {
+                    
+                    $('input[type=checkbox]:checked').each(function () {
+                        $(this).attr("checked",false);
+                    });
+
+                    $.each(result, function (i, e) {
+                        var id = "chk-" + e.MenuId;
+                        $("#" + id).attr("checked", true);
+                    });
+                },
+                error: function (result) {
+                    alert('error');
+                },
+            });
+     });
+
+    function UpdateDetails() {
+        var ids = "";
+        $('input[type=checkbox]:checked').each(function () {
+            ids=ids+","+$(this).val();
+        });
+        $.ajax({
+            url: '@Url.Action("SaveAccessRights","SubAdmin")',
+            type: "POST",
+            data: { userid: $("#emailids").val(), menuids: ids },
+            success: function (result) {
+                if (result == "Success") {
+                    $("#msg").text('Information Updated Successfully');
+                    $("#msg").css("color", "green");
+                }
+                else {
+                    $("#msg").text(result);
+                    $("#msg").css("color", "red");
+                }
+                $("#msg").focus();
+                $(document).scrollTop(0);
+            },
+            error: function (result) {
+            },
+        });
+    }
+
+</script>

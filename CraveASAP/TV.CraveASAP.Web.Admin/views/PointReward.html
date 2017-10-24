@@ -1,0 +1,133 @@
+﻿<div class="page-content-wrapper">
+    <div class="page-content" style="min-height: 720px">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="portlet box green">
+                    <div class="portlet-title">
+                        <div class="caption pagename bold pull-left">
+                            <span>Points and Rewards</span>
+                        </div>
+                        <div class="caption path pull-right">
+
+                            <div class=""><span class="margin-right-10">Path</span> <i class="fa fa-angle-right margin-right-10"></i><span>Points and Rewards</span></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="portlet-body form ">
+
+
+                        <form name="myForm1" id="point" class="form-horizontal" ng-submit="Update()">
+                            <div class="margin-top-20">
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <label class="col-xs-12 col-sm-3 bold"></label>
+                                        <div class="col-sm-3 col-xs-6">
+                                            <label class="bold">No. of Points</label>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-6">
+                                            <label class="bold">Max Limit per day</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-xs-12 col-sm-3 control-label">To share the App with friends</label>
+                                        <div class="col-xs-6 col-sm-3">
+                                            <input type="text" pattern="\d+" oninvalid="InvalidMsg(this);" class="form-control" ng-model="point[0].pointsEarned" required>
+                                            <!--<span ng-show="myForm1.app.$error.pattern"><font color="red">Numeric characters only!</font></span>-->
+                                        </div>
+                                        <div class="col-xs-6 col-sm-3">
+                                            <input type="text" pattern="\d+" oninvalid="InvalidMsg(this);" ng-model="point[0].limit" class="form-control " required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-xs-12 col-sm-3 control-label">To share the Deals with friends</label>
+                                        <div class="col-xs-6 col-sm-3">
+                                            <input type="text" pattern="\d+" oninvalid="InvalidMsg(this);" ng-model="point[1].pointsEarned" class="form-control " required>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-3">
+                                            <input type="text" pattern="\d+" oninvalid="InvalidMsg(this);" ng-model="point[1].limit" class="form-control " required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-xs-12 col-sm-3 control-label">To Use the App-Recommend Coupons</label>
+                                        <div class="col-xs-6 col-sm-3">
+                                            <input type="text" pattern="\d+" oninvalid="InvalidMsg(this);" ng-model="point[2].pointsEarned" class="form-control " required>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-3">
+                                            <input type="text" pattern="\d+" oninvalid="InvalidMsg(this);" ng-model="point[2].limit" class="form-control " required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-xs-12 col-sm-3 control-label">TO Use the App-Get my promocode</label>
+                                        <div class="col-xs-6 col-sm-3">
+                                            <input type="text" pattern="\d+" oninvalid="InvalidMsg(this);" ng-model="point[3].pointsEarned" class="form-control " required>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-6 ">
+                                            <input type="text" pattern="\d+" oninvalid="InvalidMsg(this);" ng-model="point[3].limit" id="" class="form-control " required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-xs-12 col-sm-3 control-label">To sign in with Facebook</label>
+                                        <div class="col-xs-6 col-sm-3">
+                                            <input type="text" pattern="\d+" oninvalid="InvalidMsg(this);" ng-model="point[4].pointsEarned" class="form-control " required>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-3">
+                                            <input type="text" pattern="\d+" oninvalid="InvalidMsg(this);" ng-model="point[4].limit" class="form-control " required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-9">
+                                            <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!--<div id='editor' contenteditable>
+                                </div>-->
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+        </div>
+    </div>
+    <!-- END CONTENT -->
+
+</div>
+
+<div id="loader" ng-show="showLoader">
+    <div class="page-spinner-bar" ng-spinner-bar="">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+
+</div>
+
+<script>
+    function InvalidMsg(textbox) {
+        var t = Number(textbox.value);
+        //if (textbox.value == '')
+        //{
+        //    textbox.setCustomValidity('required field');
+        //}
+         if (t < 0) {
+                return false;
+                textbox.setCustomValidity('please enter only positive numbers');
+        }
+        //else {
+        //    //$('#point').submit();
+        //    textbox.setCustomValidity('');
+
+        //}
+        return true;
+    }
+
+</script>
+
+

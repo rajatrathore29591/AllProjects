@@ -1,0 +1,151 @@
+﻿@{
+    ViewBag.Title = "Investment Details";
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+}
+@model TradeSystem.Utils.Models.ProductDataModel
+@using System.Globalization;
+
+<!-- Inventory Details -->
+<div class="col-lg-12">
+
+    <!-- Task overview -->
+    <div class="panel panel-flat">
+        <div class="panel-heading mt-5">
+            <h5 class="panel-title f-24x">@Model.Name</h5>
+        </div>
+
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <span class="display-block mb-15 inventory-img customer-inventory-img"><img class="img-responsive" src="@Model.ImageUrl" alt=""></span>
+                </div>
+                <div class="col-lg-6">
+                    <p class="content-group f-18x mt-10">
+                        <input type="hidden" name="Status" value="Pending" />
+                        <span class="display-inline-block mr-20">
+                            <strong>
+                                Title:
+                            </strong> @Model.Name
+                        </span>
+                        <span class="display-inline-block">
+                            <strong>
+                                Investment Value:
+                            </strong>@Model.TotalValueOfInvestment.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))
+                        </span>
+                    </p>
+                    <p class="content-group">
+                        <strong>
+                            Value remaining to Invest:
+                        </strong> @Model.RemainingValueOfInvestment.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))
+                    </p>
+                    <p class="content-group">
+                        <strong>
+                            Price:
+                        </strong>@Model.MinPrice.ToString("C", CultureInfo.CreateSpecificCulture("en-US")) (Min.) - @Model.MaxPrice.ToString("C", CultureInfo.CreateSpecificCulture("en-US")) (Max.)
+                    </p>
+                    <p class="content-group">
+                        <span class="display-inline-block mr-20">
+                            <strong>
+                                % Earning by Week:
+                            </strong> @Model.PercentWeeklyEarning%
+                        </span>
+                        <span class="display-inline-block">
+                            <strong>
+                                % Earning by Sale:
+                            </strong> @Model.PercentSaleEarning%
+                        </span>
+                    </p>
+                    <p class="content-group">
+                        <strong>
+                            Date to withdraw the monthly yield:
+                        </strong>
+                        @Resources.Languages.StartingFrom @Model.WeeklyFromWithdrawDay@Resources.Languages.AndEvery @Model.WeeklyToWithdrawDay @Resources.Languages.OfEachMonth
+                        @*@Model.WeeklyFromWithdrawDay @Resources.Languages.thto @Model.WeeklyToWithdrawDay @Resources.Languages.thdateofeverymonth*@
+                    </p>
+                    <p class="content-group">
+                        <strong>
+                            Days to withdraw the yield for sale:
+                        </strong>@Model.SaleWithdrawDay
+                    </p>
+                    <p class="content-group">
+                        <strong>
+                            Date to withdraw the investment:
+                        </strong> @Model.InvestmentWithdrawDate
+                    </p>
+                    <p class="content-group">
+                        <strong>
+                            % Penalty for Premature Withdrawal:
+                        </strong>
+
+                        <!-- Penalty modal -->
+
+                        <a href="#" data-toggle="modal" data-target="#penalty_modal" title="Click here" onclick="GetAllPenalty('@Model.Id','@Model.TotalDaysOfInvestment');">Click here</a>
+                        <!-- /penalty modal -->
+                        <!--Model open using partial view and bind-->
+                        <div id="penalty_chart_detail"></div>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-body alert-primary">
+                        <p class="content-group mb-10">
+                            <strong>
+                                Description:
+                            </strong>
+                            @if (Model.Description != null && Model.Description != "")
+                            {
+                                @Model.Description
+                            }
+                            else
+                            {
+                                <span>Description is not available</span>
+                            }
+                        </p>
+                    </div>
+                    <p class="content-group mb-5 text-danger">
+                        <strong>
+                            Minimum Conditions for Investment:
+                        </strong>
+                    </p>
+                    <ol class="text-danger text-size-large">
+                        <li>@Resources.Languages.OverallInvestmentShouldBe $@Model.Condition1 @Resources.Languages.OrMore</li>
+                        <li>@Resources.Languages.OverallSalesShouldBe @Model.Condition2 @Resources.Languages.OrMore</li>
+                        @if (Model.Condition3 != "0")
+                        {
+                            <li>@Resources.Languages.AlreadyHaving @Model.Condition3 @Resources.Languages.InvestmentRunning</li>
+                        }
+                    </ol>
+                    <p class="content-group text-danger text-size-large">
+                        <strong>
+                            @Resources.Languages.Note:
+                        </strong> @Resources.Languages.CustomerCannotMakeInvestmentBeforefullfillingAboveConditions
+                    </p>
+                </div>             
+            </div>
+        </div>
+    </div>
+    <!-- /task overview -->
+</div>
+<!-- /inventory details -->
+
+<script type="text/javascript">
+    //function for get particular company user details and open model
+    function GetAllPenalty(id, totalDaysofInvestment) {
+        //html empty for bind new response
+        $("#penalty_chart_detail").html("");
+        //ajax call for open model with customer details
+        $.ajax({
+            type: "Get",
+            url: '@Url.Action("_PenaltyChartPartial", "InventoryManagement")',
+            data: { id: id, totalDaysofInvestment: totalDaysofInvestment },
+            success: function (response) {
+                //bind response by partial view
+                $("#penalty_chart_detail").html(response);
+                $("#penalty_modal").modal('toggle');
+            }
+        });
+    }
+</script>

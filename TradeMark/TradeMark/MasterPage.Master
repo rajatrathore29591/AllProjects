@@ -1,0 +1,221 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="TradeMark.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=no" />
+
+    <!-- Page title set in pageTitle directive -->
+
+    <!--CDN CSS -->
+    <script src="scripts/jquery.min.js"></script>
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <%--<script type="text/javascript" src="Scripts/common.js"></script>--%>
+    
+    <script src="Scripts/chosen.jquery.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="Css/chosen.css" rel="stylesheet" />
+    <link href="Css/chosen.css" rel="stylesheet" />
+
+    <!-- endbuild -->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="hide-sidebar">
+
+
+
+    <!--Header Start-->
+    <div id="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1 col-sm-2 navbar-default">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                    <a href="Home.aspx" title="BOB" class="innerlogo">
+                        <img src="Images/inner-logo.png" alt="inner-logo"/></a>
+                </div>
+                <div class="col-md-11">
+                    <div class="navbar navbar-default top-navbar pull-right">
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                          <%--      <li> <a href="Pricing.aspx" class="dropdown-toggle">Pricing</a>
+                           </li>
+                           <li> <a href="WhySearch.aspx" class="dropdown-toggle">Why Search?</a>
+                           </li>
+                           <li> <a href="WhyBob.aspx" class="dropdown-toggle">Why Bob? </a>
+                           </li>
+                           <li> <a href="HowBobHelp.aspx" class="dropdown-toggle">How Can Bob Help? </a>
+                           </li>
+                           <li> <a href="HowBobWorks.aspx" class="dropdown-toggle">How Bob Works?</a>
+                           </li>
+                           <li> <a href="TalkTrademarkAttorney.aspx" class="dropdown-toggle" >Talk To A Trademark Attorney</a>
+                           </li>--%>
+                           <%--<li> <a href="Login.aspx" class="dropdown-toggle" ><i class="fa fa-user-circle-o"></i> Login </a></li>--%>
+                                <%if (Session["UserId"] != null)
+                                    { %>
+                                <li>
+                                    <asp:Label ID="lblUserCredits" runat="server"></asp:Label>
+                                    <a class="dropdown-toggle login-user" type="button" data-toggle="dropdown"><i class="fa fa-user"></i>
+                                        <asp:Label ID="lblUserName1" runat="server" class="menu-lable"></asp:Label>
+
+                                        <span class="caret"></span></a>
+
+                                    <ul class="hdropdown notification animated flipInX dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <li><a href="EditProfile.aspx"><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
+                                        <li><a href="ChangePassword.aspx"><i class="fa fa-key" aria-hidden="true"></i>Change Password</a></li>
+                                        <%if (IsAdminUser)
+                                            {%>
+                                        <li><a href="AdminSettings.aspx"><i class="fa fa-cog" aria-hidden="true"></i>Admin Setting</a></li>
+                                        <%} %>
+                                        <li><a href="Login.aspx?logout='yes'"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+                                    </ul>
+                                </li>
+                                <%} %>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Header End-->
+
+    <!-- Secondry Nav Start-->
+    <div class="dark-blue-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="navbar navbar-default top-navbar">
+                        <div class="navbar-header">
+                            <h4 style="display: none">Menu</h4>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <%if (Session["UserId"] != null)
+                            { %>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                            <ul class="nav navbar-nav">
+                                <li>
+                                    <a href="Search.aspx" class="dropdown-toggle"><i class="fa fa-search" aria-hidden="true"></i><span data-toggle="tooltip" title="You can perform search !">SEARCH</span></a>
+                                    
+                                </li>
+                                <li><a href="History.aspx" class="dropdown-toggle"><i class="fa fa-history" aria-hidden="true"></i><span data-toggle="tooltip" title="You can see your searches.">HISTORY</span></a>
+                                                                      
+                                </li>
+
+                                 <%if (userCredits<=1 &&  isUserTrans)
+                                     {%>
+                                <li id="liAutoreload"><a href="autoreload.aspx" class="dropdown-toggle"><i class="fa fa-history" aria-hidden="true"></i><span data-toggle="tooltip" title="No need to enter card details, it reloads credits">AUTO RELOAD</span></a></li>
+                                
+                                <%} else {%>
+                                <li id="liAutoreload" style="display:none;"><a href="autoreload.aspx" class="dropdown-toggle"><i class="fa fa-history" aria-hidden="true"></i><span data-toggle="tooltip" title="No need to enter card details, it reloads credits">AUTO RELOAD</span></a></li>
+                                <%}%>
+
+                                <%if (IsAdminUser)
+                                    {%>
+                                
+                                <li><a href="SearchLogReport.aspx" class="dropdown-toggle"><i class="fa fa-file-text-o" aria-hidden="true"></i><span data-toggle="tooltip" title="You can see your all users search log.">Search Log</span></a>
+                                </li>
+                                <%--<li><a href="Users.aspx" class="dropdown-toggle"><i class="fa fa-history" aria-hidden="true"></i>Users List</a>
+                                </li>
+                               
+                                <li><a href="Addusclass.aspx" class="dropdown-toggle"><i class="fa fa-history" aria-hidden="true"></i>Add US-Class</a>
+                                </li>--%>
+                                <% }%>
+                            </ul>
+                        </div>
+                        <%} %>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Secondry Nav End-->
+
+    <section class="inner-content">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </section>
+
+    <!-- footer -->
+        <footer>
+         <div class="container">
+                        <div class="row row-flex row-flex-none">
+               <div class="col-md-4 col-sm-4 col-xs-12">
+                  <p><img src="Images/bob-footer-logo.png" alt="footer-logo"/></p>
+                  <div class="address">
+                  	<p class="first-child">Address:</p>
+                  	<p>2156 Cedar Grove Trail, St. Paul,<br/> MN 55122</p>
+                    <div class="clearfix">&nbsp;</div>
+                  	<p class="first-child">Phone:</p>
+                  	<p> </p>
+                     <div class="clearfix">&nbsp;</div>
+                  	<p class="first-child">Email:</p>
+                  	<p><a href="mailto:bob@trademarkbob.com">bob@trademarkbob.com</a></p>
+                  </div>
+
+               </div>
+               <div class="col-md-8 col-sm-8 contact-info col-xs-12">
+                  <div class="footer-link pull-right">
+                  	<h3>QUICK LINKS</h3>
+                     <div class="col-md-3 col-sm-3 p-l0">
+                        <ul>
+                           <li><a href="Home.aspx">Home</a></li>
+                           <li><a href="Pricing.aspx">Pricing </a></li>
+                           <li><a href="WhySearch.aspx">Why Search</a></li>
+                        </ul>
+                     </div>
+                     <div class="col-md-4 col-sm-4 m-p-l0">
+                        <ul>
+                           <li><a href="WhyBob.aspx">Why Bob</a></li>
+                           <%--<li><a href="WhyBob.aspx">How Can Bob Help</a></li>--%>
+                           <li><a href="HowBobWorks.aspx">How Bob Works</a></li>
+                        </ul>
+                     </div>
+                      <div class="col-md-5 col-sm-5 m-p-l0">
+                        <ul>
+                           <li><a href="TalkTrademarkAttorney.aspx">Talk To A Trademark Attorney</a></li>
+                           <li><a href="Login.aspx">Login</a></li>
+                        </ul>
+                     </div>
+                     <div class="clearfix"></div>
+                    <div class="footer-nav">
+                         <hr class="hr bg-gray m-b30" />
+                        <a href="https://trademarkbob.wordpress.com/" target="_blank"class="p-l0">Bob&rsquo;s Blog</a><a href="PrivacyPolicy.aspx">Privacy Policy</a><a href="Termscondition.aspx">Terms & Conditions</a><a href="Disclaimer.aspx">Disclaimer</a><a href="AboutUs.aspx">About Us</a><a href="ContactUs.aspx">Contact Us</a> <a href="Sitemap.aspx">Sitemap</a>
+                            
+                        <p>&copy; 2017 EGW Solutions, LLC  </p>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+         </div>
+      </footer>
+
+    <%-- <script type="text/javascript" src="Scripts/bootstrap.min.js"></script> 
+
+      <script src="Scripts/jquery-1.10.2.js"></script>
+      <script src="Scripts/jquery-1.10.2.min.js"></script>
+      <script src="Scripts/chosen.jquery.js"></script>--%>
+    <!-- slick slider -->
+    <%--<script type="text/javascript" src="Scripts/slick.js"></script>--%>
+     
+    <script src="scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip("show");
+            $(".tooltip.fade.top").remove();
+        });
+    </script>
+</body>
+</html>

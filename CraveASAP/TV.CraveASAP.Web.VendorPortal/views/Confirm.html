@@ -1,0 +1,111 @@
+﻿<div class="container" ng-init="confirmInit()" ng-controller="translationController">
+    <div class="sap_tabs">
+        <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+            <ul class="resp-tabs-list">
+
+                <a href="#/Main/CreatePromotion/0/Edit">
+                <li class="resp-tab-item" ng-click="onClickTab(1)" ng-class="{active: selectedTab===1}"><span>{{translation.Create}}</span>
+
+                </li>
+                <a href="#/Main/Track">
+                    <li class="resp-tab-item" ng-click="onClickTab(2)" ng-class="{active: selectedTab===2}"><span>{{translation.Track}}</span>
+
+                    </li>
+                </a>
+                <a href="#/Main/Manage">
+                    <li class="resp-tab-item" ng-click="onClickTab(3)" ng-class="{active: selectedTab===3}"><span>{{translation.Manage}}</span>
+
+                    </li>
+                </a>
+
+                <div class="clear"></div>
+            </ul>
+            <div class="resp-tabs-container">
+                <form ng-submit="Confirm()">
+                    <div style="background-color: white; overflow: auto; padding-bottom: 40px">
+                        <div class="col-lg-12 confirm">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h2 class="confirm-heading">{{translation.Confirm}}</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <p class="promodescr" ng-if="confirm.descriptionEnglish != ''">{{confirm.descriptionEnglish}}</p>
+                                    <p class="promodescr" ng-if="confirm.descriptionEnglish == ''">{{confirm.descriptionThai}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <label class="promoprice text-center label-warning pull-right"><i class="fa fa-btc"></i>{{confirm.price}}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class=" col-lg-12">
+                                    <div class="img-thumbnail width100p">
+                                        <img class="img-responsive width100p center-block" src="{{config.api}}/Pictures/{{vendorImg}}" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="clearfix promooptions">
+                                        <div class="col-sm-4 col-xs-4 likes ">
+                                            <label class="text-center">0 {{translation.Like}}</label>
+                                        </div>
+                                        <div class="  col-sm-4 col-xs-2 quantity ">
+                                            <label class="text-center">{{DateQuantity}}</label>
+                                        </div>
+                                        <div class="col-sm-4  col-xs-6 time">
+                                            <label class="text-center"><i class="fa fa-map-marker far5"></i>0 <span class="visible-xs-inline">min</span><span class="hidden-xs">{{translation.minutes}}</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class=" col-lg-12">
+                                    <div class="promobox">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <p class="dscrption">{{vendorShort}}</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="img-thumbnail confirm350 pull-right">
+                                                    <img class="img-responsive confirm350 center-block" src="{{confirm.imggggg}}" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="map" id="confirmmap">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row action clearfix">
+                                <div class=" col-xs-4  text-left">
+                                    <a href="" class="btn btn-warning confirm" ng-click="back()" ng-model="ID">{{translation.Edit}} </a>
+                                </div>
+                                <div class="pull-right col-xs-4 text-right">
+                                    <button type="submit" class="btn btn-primary">{{btnLabel}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="loader" ng-show="showLoader">
+    <img src="images/loading.gif" />
+</div>
+<script>
+    function loaderheight() {
+        var bodyheight = $('html').height();
+        $('#loader').css('height', '1650px');
+    }
+    loaderheight();
+</script>

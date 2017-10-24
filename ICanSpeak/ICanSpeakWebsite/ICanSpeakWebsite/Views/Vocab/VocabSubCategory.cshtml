@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "VocabSubCategory";
+}
+
+<script src="@Url.Content("/Scripts/jquery.min.js")"></script>
+
+
+<div class="row accordian">
+    <div class="container">
+        <div class="col-lg-12 ">
+            <h2 class="header">Vocabulary Sub Category</h2>
+
+
+        </div>
+        <div class="col-lg-12">
+            <div class="heading-grays">
+                <a href="../Vocab/VocabList"><span class="btn btn-info">@ViewBag.CategoryName</span></a>
+                 <div class="pull-right"> <span class= "pdspace">(
+                                                @ViewBag.WordCount
+                                                )
+                                            </span></div>
+            </div>
+            
+        </div>
+       @* <a href="../Home/MyCourse">
+            <div class="col-lg-2 grey-wrapper">
+                <h2>Grammar</h2>
+            </div>
+        </a>
+        <a href="../Vocab/VocabList">
+            <div class="col-lg-2 blue-wrapper2">
+                <h2>Vocabulary</h2>
+            </div>
+        </a>
+        <a href="../Dialog/DialogList">
+            <div class="col-lg-2 grey-wrapper">
+                <h2>Dialogue</h2>
+            </div>
+        </a>*@
+
+        <div class="clearfix"></div>
+        @if (ViewBag.VocabSubCategory != null)
+        {
+            <div class="col-lg-12">
+
+                <div class="vocab-wrapper">
+
+                    <div class="col-lg-12">
+                        <div class="tab-pane ">
+                            @foreach (var subcategory in ViewBag.VocabSubCategory)
+                            {
+                                if (Convert.ToInt32(@subcategory["RowIndex"]) % 2 != 0)
+                                {
+                                <div class="panel panel-default panel-bottom">
+                                    <a href="../../Vocab/VocabSubCategoryWords?id=@subcategory["VacabularySubId"]">
+                                        <div class="panel-body panel-body-Padding unit-tab">
+                                            @subcategory["SubCategoryName"]
+
+                                           <i class="fa fa-arrow-circle-right course-size" style="cursor: pointer;"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                }
+                                else
+                                {
+                                <div class="panel panel-default panel-bottom">
+                                    <a href="../../Vocab/VocabSubCategoryWords?id=@subcategory["VacabularySubId"]">
+                                        <div class="panel-body panel-body-Padding unit-tab2">
+                                            @subcategory["SubCategoryName"]
+                                            <i class="fa fa-arrow-circle-right course-size" style="cursor: pointer;"></i>
+                                        </div>
+                                    </a>
+                                </div> 
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        }
+        else
+        { 
+            <div class="col-lg-12">
+                <div class="alert alert-dismissible alert-info">
+                    <p>
+                        <h4>No Sub Category Available</h4>
+                    </p>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

@@ -1,0 +1,169 @@
+﻿@{
+    ViewBag.Title = "Add Grammar Assessment Question Slots";
+}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"> </script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btnaddtxt').click(function () {
+            $('#englishdiv').append('<div class="br"><br /></div><input type="text" required maxlength="4" onkeypress="return isNumberDecimal(event)" name="slotvaluearray" class="form-control" id="firstName" placeholder="Example 2.50">');
+            $('#arabicdiv').append('<div class="br"><br /></div><input type="text" required maxlength="50" name="answerarray" class="form-control" id="lastName" placeholder="Example Cold">');
+            $('#btnremovetxt').show();
+        });
+
+        $('#btnremovetxt').click(function () {
+
+            if ($("#englishdiv .form-control").length != 1) {
+                $("#englishdiv .form-control:last").remove();
+                $("#arabicdiv .form-control:last").remove();
+                $("#englishdiv .br:last").remove();
+                $("#arabicdiv .br:last").remove();
+            }
+            if ($("#englishdiv .form-control").length == 1) {
+                $('#btnremovetxt').hide();
+            }
+        });
+
+        @*$('#sbmtbtn').click(function () {
+            var slot = "";
+            var canswer = "";
+            var finalstring = "";
+            $("#englishdiv .form-control").each(function () {
+                if ($(this).val() == '')
+                {
+                    alert('Please enter slot point value')
+                    return false;
+                }
+                slot = slot + $(this).val() + ";"
+            });
+            $("#arabicdiv .form-control").each(function () {
+                if ($(this).val() == '') {
+                    alert('Please enter answer.')
+                }
+                canswer = canswer + $(this).val() + ";"
+            });
+            slot = slot.substr(0, slot.length - 1);
+            canswer = canswer.substr(0, canswer.length - 1);
+            var array1 = slot.split(";");
+            var array2 = canswer.split(";");
+            $.each(array1, function (i) {
+                finalstring = finalstring + array1[i] + "``" + array2[i] + "||"
+            });
+            finalstring = finalstring.substr(0, finalstring.length - 2);
+
+            $.ajax({
+                url: '@Url.Action("SaveGrammerAssessmentSlotsByUnitId", "CourseContent")',
+                type: "POST",
+                data: { unitId: $('#unitId').val(), slotvalues: finalstring },
+                success: function (result) {
+                    window.location = "@Url.Action("GetAllSlots", "CourseContent")?unitId=" + $('#unitId').val();
+                },
+                error: function (result) {
+                },
+            });
+        });*@
+    });
+</script>
+
+<script type="text/javascript">
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+    function isNumberDecimal(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode != 45 && (charCode != 46 || $(this).val().indexOf('.') != -1) &&
+                (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+</script>
+
+
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <font color="44c9ff">Add Grammar Assessment Question Slots</font>
+                </h1>
+            </div>
+        </div>
+
+        <!--Edit Table start-->
+        <div class="form-group" style="margin-left: 17%">
+            <input id="btnaddtxt" type="button" class="btn btn-info" value="Add New Slot" />
+            <input id="btnremovetxt" type="button" class="btn btn-info" style="display: none" value="Remove Last Slot" />
+        </div>
+        @using (Html.BeginForm("AddGrammerAssessmentQuestionSlots", "CourseContent", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2  col-sm-6 col-sm-offset-2 col-xs-12">
+                <div class="row">
+                    <label id="msg" style="font-size: 16pt;"></label>
+                    <table style="width: 100%">
+                        <tr>
+                            <td>
+                                <label style="color: black" for="exampleInputEmail1">Slot Point Value <span style="color: #FE2801;">*</span></label>
+                            </td>
+                            <td>
+                                <label style="color: black" for="exampleInputPassword1">Answer <span style="color: #FE2801;">*</span></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <div id="englishdiv">
+                                        <input type="text" required name="slotvaluearray" required class="form-control" onkeypress="return isNumberDecimal(event)" id="firstName" maxlength="4" placeholder="Example 2.50">
+                                    </div>
+
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <div id="arabicdiv">
+                                        <input type="text" required name="answerarray" required class="form-control" id="lastName" maxlength="50" placeholder="Example Cold">
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <div class="form-group">
+                        <input id="unitId" name="UnitId" type="hidden" value="@Request.QueryString["unitId"]" />
+                        <button id="sbmtbtn" class="btn btn-info" type="submit">Submit</button>&nbsp;&nbsp;<input type="button" class="btn btn-info" value="Reset" onclick="ResetFormValues()" />
+                        &nbsp;&nbsp; <a href="../../Admin/CourseContent/GetAllSlots?unitId=@Request.QueryString["unitId"]">
+                            <input type="button" class="btn btn-info" value="Cancel" /></a>
+                    </div>
+                    <div>
+                        <h1 style="font-size: 25px; color: red;">@TempData["Message"]</h1>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+    function ResetFormValues() {
+        window.location = "@Url.Action("AddGrammerAssessmentQuestionSlots", "CourseContent")";
+    }
+</script>
+
+<script type="text/javascript">
+    function disableBackButton() {
+        window.history.forward()
+    }
+    disableBackButton();
+    window.onload = disableBackButton();
+    window.onpageshow = function (evt) { if (evt.persisted) disableBackButton() }
+    window.onunload = function () { void (0) }
+</script>

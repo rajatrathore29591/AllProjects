@@ -1,0 +1,5 @@
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Shared\TradeSystem.Utils\bin\Debug\TradeSystem.Utils.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Shared\TradeSystem.Utils\bin\Debug\TradeSystem.Utils.pdb
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Shared\TradeSystem.Utils\obj\Debug\TradeSystem.Utils.dll
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Shared\TradeSystem.Utils\obj\Debug\TradeSystem.Utils.pdb
+D:\Working Project\TradeSystem\Trunk\TradeSystem\Shared\TradeSystem.Utils\obj\Debug\TradeSystem.Utils.csprojResolveAssemblyReference.cache

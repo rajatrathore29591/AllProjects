@@ -1,0 +1,41 @@
+﻿<div class="tab-right-btn text-right">
+    <a href="javascript:void(0);" ui-sref="configuration.AddFleetRegistration()" class="btn btn-primary btn-i"><i class="fa fa-plus"></i>Add Fleet Registration</a>
+</div>
+<br />
+<br />
+<br />
+<div ng-controller="FleetRegistrationListCtrl as frlCtrl">
+            <div class="grid-tb-panel clearfix">
+               <table ng-table="frlCtrl.bcaTableParams" class="table table-stripped toggle-arrow-tiny table-hover" show-filter="true">
+                  <tr ng-repeat="fleetlist in $data" ng-if="$data.length > 0">
+                     <td title="'Plant Number'" filter="{ BorgCivilPlantNumber: 'text'}" sortable="'BorgCivilPlantNumber'"><a href="javascript:void(0);" ng-click="frlCtrl.viewFleetRegistration(fleetlist);">{{fleetlist.BorgCivilPlantNumber}}</a></td>
+
+                     <td title="'Make/Model/Year '" filter="{ MakeModelYear : 'text'}" sortable="'MakeModelYear'">{{fleetlist.MakeModelYear}}</td>
+
+                     <td title="'VIN/Engine Number'" filter="{ VinEngineNumber: 'text'}" sortable="'VinEngineNumber'">{{fleetlist.VinEngineNumber}}</td>
+
+                     <td title="'Insurance Date'" filter="{ InsuranceDate: 'text'}" sortable="'InsuranceDate'">{{fleetlist.InsuranceDate| date: "dd-MM-yyyy"}}</td>
+
+                     <td title="'Asset Type'" filter="{ Fleet: 'text'}" sortable="'Fleet'">{{fleetlist.Fleet}}</td>
+
+                     <td title="'Service Interval'" filter="{ ServiceInterval: 'text'}" sortable="'ServiceInterval'">{{fleetlist.ServiceInterval}}</td>
+
+
+                     <td title="'Action'" align="center" nowrap="true" width="1%">
+                        <div class="btn-group">
+                           <a class="dropdown-toggle" id="dLabel" href="javascript:void(0);" data-toggle="dropdown">
+                           <i class="fa pe-7s-more action-icon" aria-hidden="true"></i>
+                           </a>
+                           <ul class="dropdown-menu hdropdown notification dropdown-menu-right animated flipInX" role="menu">                             
+                              <li><a href="javascript:void(0)" ui-sref="configuration.EditFleetRegistration({FleetRegistrationId: fleetlist.FleetRegistrationId})"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a></li>
+                              <li><a href="javascript:void(0)" ng-click="frlCtrl.deleteFleetRegistration(fleetlist.FleetRegistrationId);"><i class="fa pe-7s-trash" aria-hidden="true"></i> Delete</a></li>
+                           </ul>
+                        </div>
+                     </td>
+                  </tr>
+                   <tr ng-if="$data.length <= 0 || $data.length ===''">
+                       <td colspan="7" class="text-center">Not records found</td>
+                   </tr>
+               </table>
+            </div>
+         </div>

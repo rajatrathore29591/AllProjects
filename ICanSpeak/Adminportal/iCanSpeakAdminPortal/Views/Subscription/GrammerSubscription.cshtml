@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "GrammerSubscription";
+}
+
+
+<link href="@Url.Content("/Content/themes/fileinput.css")" rel="stylesheet" />
+<link href="@Url.Content("/Content/themes/style.css")" rel="stylesheet" />
+<script type="text/javascript" src="@Url.Content("/Scripts/jquery.min.js")"></script>
+
+
+
+@using (Html.BeginForm("AddGrammerSubscription", "Subscription", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        <font color="44c9ff">Grammer Subscription</font>
+                    </h1>
+                </div>
+            </div>
+
+            <!--Edit Table start-->
+
+            <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2  col-sm-6 col-sm-offset-2 col-xs-12">
+                <div class="row">
+                    <label id="msg" style="font-size: 16pt;"></label>
+                    <div class="form-group">
+                    </div>
+                    <div class="form-group">
+
+                        <div id="subcategorytxtdiv">
+
+                            <table style="width: 100%">
+                                <tr>
+                                    <td>
+                                        <label for="exampleInputPassword1">Subscription Name:-<span style="color: #FE2801;"></span></label>
+
+                                    </td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <div id="englishdiv">
+                                                <input type="text" readonly maxlength="499" name="Marks" class="form-control" value="@ViewBag.PlanName" placeholder="Student Marks">
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="exampleInputPassword1">Grammer Name:-<span style="color: #FE2801;"></span></label>
+
+                                    </td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <div id="englishdiv">
+                                                <select class="form-control" id="QuestionType" required name="CourseId">
+                                                    @foreach (var item in ViewBag.GrammerDetail)
+                                                    {
+                                                        <option id="" value="@item["UnitId"]">@item["UnitNameEnglish"]</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="hidden" id="SubscriptionId" name="SubscriptionId" value="@ViewBag.SubscriptionId" />
+                        <input type="hidden" id="Grammer" name="CourseType" value="Grammer" />
+                        <button class="btn btn-info" type="submit">Submit</button>&nbsp;&nbsp;
+                        
+                    </div>
+                    <div>
+                        <h1 style="font-size: 25px; color: red;">@TempData["Message"]</h1>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <!--edit table end here-->
+        </div>
+    </div>
+}

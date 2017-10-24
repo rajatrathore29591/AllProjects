@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BorgCivil.Presentation", "BorgCivil.Presentation", "{A453E2F1-3D34-4E0E-BB70-E3A954A27B6C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BorgCivil.Data", "BorgCivil.Data", "{A17771C7-0E8C-42EA-B39F-BCF9DA5930D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BorgCivil.MVCWeb", "Presentation\BorgCivil.MVCWeb\BorgCivil.MVCWeb.csproj", "{DCE84F37-D8FF-4DAC-8B69-51D13CAE0BCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BorgCivil.Repositories", "Data\BorgCivil.Repositories\BorgCivil.Repositories.csproj", "{4494BAFF-B5FF-4D06-AB17-C6FB299BECA7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BorgCivil.Business", "BorgCivil.Business", "{E05B2087-771C-4612-8ACB-8FC6816C9054}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BorgCivil.Service", "Business\BorgCivil.Service\BorgCivil.Service.csproj", "{45845443-BF52-4B16-9F46-5AC3BCB820FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BorgCivil.Shared", "BorgCivil.Shared", "{2996C472-A5DB-4600-8990-C096C4E92549}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BorgCivil.Framework", "Shared\BorgCivil.Framework\BorgCivil.Framework.csproj", "{00785902-1EA3-47BE-AD19-CCC43E17C244}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BorgCivil.Utils", "Shared\BorgCivil.Utils\BorgCivil.Utils.csproj", "{142584C5-62A3-4EC0-8FB1-C8D13CC929A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCE84F37-D8FF-4DAC-8B69-51D13CAE0BCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCE84F37-D8FF-4DAC-8B69-51D13CAE0BCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCE84F37-D8FF-4DAC-8B69-51D13CAE0BCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCE84F37-D8FF-4DAC-8B69-51D13CAE0BCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4494BAFF-B5FF-4D06-AB17-C6FB299BECA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4494BAFF-B5FF-4D06-AB17-C6FB299BECA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4494BAFF-B5FF-4D06-AB17-C6FB299BECA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4494BAFF-B5FF-4D06-AB17-C6FB299BECA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45845443-BF52-4B16-9F46-5AC3BCB820FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45845443-BF52-4B16-9F46-5AC3BCB820FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45845443-BF52-4B16-9F46-5AC3BCB820FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45845443-BF52-4B16-9F46-5AC3BCB820FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00785902-1EA3-47BE-AD19-CCC43E17C244}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00785902-1EA3-47BE-AD19-CCC43E17C244}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00785902-1EA3-47BE-AD19-CCC43E17C244}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00785902-1EA3-47BE-AD19-CCC43E17C244}.Release|Any CPU.Build.0 = Release|Any CPU
+		{142584C5-62A3-4EC0-8FB1-C8D13CC929A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{142584C5-62A3-4EC0-8FB1-C8D13CC929A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{142584C5-62A3-4EC0-8FB1-C8D13CC929A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{142584C5-62A3-4EC0-8FB1-C8D13CC929A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DCE84F37-D8FF-4DAC-8B69-51D13CAE0BCB} = {A453E2F1-3D34-4E0E-BB70-E3A954A27B6C}
+		{4494BAFF-B5FF-4D06-AB17-C6FB299BECA7} = {A17771C7-0E8C-42EA-B39F-BCF9DA5930D5}
+		{45845443-BF52-4B16-9F46-5AC3BCB820FA} = {E05B2087-771C-4612-8ACB-8FC6816C9054}
+		{00785902-1EA3-47BE-AD19-CCC43E17C244} = {2996C472-A5DB-4600-8990-C096C4E92549}
+		{142584C5-62A3-4EC0-8FB1-C8D13CC929A3} = {2996C472-A5DB-4600-8990-C096C4E92549}
+	EndGlobalSection
+EndGlobal

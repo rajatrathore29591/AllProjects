@@ -1,0 +1,675 @@
+﻿@using System.Globalization;
+@using TradeSystem.WebApi.Helpers;
+
+@{
+    var lang = "";
+    HttpCookie langCookie = Request.Cookies["culture"];
+    if (langCookie != null)
+    {
+        lang = langCookie.Value;
+    }
+
+    string actionName = ViewContext.RouteData.Values["action"].ToString();
+    string controllerName = ViewContext.RouteData.Values["Controller"].ToString();
+    var separatedactioncontrollerName = string.Empty;
+    var separatedactionName = string.Empty;
+
+
+    switch (controllerName)
+    {
+        case "Dashboard":
+            // Use the case for change breadcrumb for spanish langugae
+            separatedactioncontrollerName = Resources.Languages.Dashboard;
+            break;  // Always break each case
+        case "Investment":
+            separatedactioncontrollerName = Resources.Languages.Investments;
+            break;
+        case "Sale":
+            separatedactioncontrollerName = Resources.Languages.Sales;
+            break;
+        case "Support":
+            separatedactioncontrollerName = Resources.Languages.Support;
+            break;
+        case "CustomerManagement":
+            separatedactioncontrollerName = Resources.Languages.CustomerManagement;
+            break;
+        case "FinanceManagement":
+            separatedactioncontrollerName = Resources.Languages.FinanceManagement;
+            break;
+        case "Promotion":
+            separatedactioncontrollerName = Resources.Languages.Promotion;
+            break;
+        default:
+            break;
+    }
+    switch (actionName)
+    {
+        case "CustomerDashboard":
+            // Use the case for change breadcrumb for spanish langugae
+            separatedactionName = Resources.Languages.Dashboard;
+            break;  // Always break each case
+        case "NewInvestment":
+            separatedactionName = Resources.Languages.NewInvestments;
+            break;
+        case "MyInvestmentsList":
+            separatedactionName = Resources.Languages.MyInvestments;
+            break;
+        case "RegisterNewUser":
+            separatedactionName = Resources.Languages.RegisterNewUsers;
+            break;
+        case "MySales":
+            separatedactionName = Resources.Languages.MySales;
+            break;
+        case "CommissionFromSalesReleased":
+            separatedactionName = Resources.Languages.CommissionfromSalesReleased;
+            break;
+        case "MyTickets":
+            separatedactionName = Resources.Languages.MyTickets;
+            break;
+        case "RaiseTicket":
+            separatedactionName = Resources.Languages.RaiseTicket;
+            break;
+        case "ChangePassword":
+            separatedactionName = Resources.Languages.ChangePassword;
+            break;
+        case "EditMyProfile":
+            separatedactionName = Resources.Languages.EditMyProfile;
+            break;
+        case "MyInvestmentsDetails":
+            separatedactionName = Resources.Languages.MyInvestmentsDetails;
+            break;
+        case "WithdrawEarning":
+            separatedactionName = Resources.Languages.WithdrawEarning;
+            break;
+        case "NewInvestmentDetails":
+            separatedactionName = Resources.Languages.NewInvestmentDetails;
+            break;
+        case "Payment":
+            separatedactionName = Resources.Languages.Payment;
+            break;
+        default:
+            break;
+    }
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Split Deals - @ViewBag.Title</title>
+
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/css/core.css" rel="stylesheet" type="text/css">
+
+    <!-- /global stylesheets -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+    <script type="text/javascript" src="~/Content/js/bootstrap.min.js"></script>
+
+</head>
+<body class="navbar-bottom @(lang == "es"?"es-body":"")">
+    <!-- Main navbar -->
+    <div class="navbar navbar-inverse bg-indigo">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="~/CustomerManagement/Login" title="@Resources.Languages.TRADINGSYSTEM"> <img class="logo" src="~/Content/images/Logo-splitdeals.png" alt=""></a>
+
+            <ul class="nav navbar-nav pull-right visible-xs-block">
+                <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+                <li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navbar-mobile">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a class="sidebar-control sidebar-main-toggle hidden-xs">
+                        <i class="icon-paragraph-justify3"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="text-size-base">
+                    @{
+                        var virtualWalletAmount = Session["VirtualWalletAmount"].ToString();
+                        if (virtualWalletAmount == "0")
+                        {
+                            <a href="javascript:void(0);"><i class="icon-wallet icon-wallet mr-5"></i><span>@Resources.Languages.Wallet</span> @float.Parse(virtualWalletAmount).ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</a>
+                        }
+                        else
+                        {
+                            <a href="javascript:void(0);" data-toggle="modal" data-target="#Wallet_modal"><i class="icon-wallet icon-wallet mr-5"></i>@Resources.Languages.Wallet <span id="span_wallet_amount">@float.Parse(virtualWalletAmount).ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</span></a>
+                        }
+                    }
+                </li>
+                <li class="text-size-base"><a href="@Url.Action("RegisterNewUser", "Sale")"><i class="icon-user-plus"></i> @Resources.Languages.NewReferralUser</a></li>
+                @{
+                    List<TradeSystem.Utils.Models.PromotionDataModel> listPromotionItems = (List<TradeSystem.Utils.Models.PromotionDataModel>)Session["PromotionListDetails"];
+
+                    <li class="dropdown">
+                        @{ var viewCount = 0;
+                            foreach (var item in listPromotionItems)
+                            {
+                                if (item.Viewed == false)
+                                {
+                                    viewCount++;
+
+                                }
+                            }
+
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="icon-bell2"></i>
+                                <span class="visible-xs-inline-block position-right">Messages</span>
+                                @if (viewCount != 0)
+                                {
+                                    <span class="badge bg-warning-400">@viewCount</span>
+                                }
+
+                            </a>
+
+                        }
+                        <div class="dropdown-menu dropdown-content width-350">
+                            <div class="dropdown-content-heading">
+                                @Resources.Languages.Notifications
+                                @*<ul class="icons-list">
+                                        <li><a href="#"><i class="icon-compose"></i></a></li>
+                                    </ul>*@
+                            </div>
+
+                            <ul class="media-list dropdown-content-body">
+                                @{
+                                    var count = 0;
+                                    if (listPromotionItems != null)
+                                    {
+                                        foreach (var item in listPromotionItems)
+                                        {
+                                            if (item.Viewed == false)
+                                            {
+                                                <li class="media">
+                                                    <div class="media-left">
+                                                        @*<img src="~/Content/images/placeholder.jpg" class="img-circle img-sm" alt="">*@
+                                                        @*<span class="badge bg-danger-400 media-badge">5</span> *@
+                                                    </div>
+                                                    @if (lang == "en")
+                                                    {
+                                                        if (item.Url == null)
+                                                        {
+                                                            <div class="media-body">
+                                                                <a href="javascript:void(0);" data-toggle="modal" data-target="#View_Notification_modal" class="media-heading" onclick="UpdatePromotion('@item.Id');">
+                                                                    <span class="text-muted ellipsis">@item.Description</span>
+                                                                </a>
+                                                            </div>
+                                                        }
+                                                        else
+                                                        {
+                                                            <div class="media-body">
+                                                                <a href="@item.Url" class="media-heading" onclick="UpdatePromotion('@item.Id');">
+                                                                    <span class="text-muted ellipsis">@item.Description</span>
+                                                                </a>
+                                                            </div>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        if (item.Url == null)
+                                                        {
+                                                            <div class="media-body">
+                                                                <a href="javascript:void(0);" data-toggle="modal" data-target="#View_Notification_modal" class="media-heading" onclick="UpdatePromotion('@item.Id');">
+                                                                    <span class="text-muted ellipsis">@item.DescriptionSpanish</span>
+                                                                </a>
+                                                            </div>
+                                                        }
+                                                        else
+                                                        {
+                                                            <div class="media-body">
+                                                                <a href="@item.Url" class="media-heading" onclick="UpdatePromotion('@item.Id');">
+                                                                    <span class="text-muted ellipsis">@item.DescriptionSpanish</span>
+                                                                </a>
+                                                            </div>
+                                                        }
+                                                    }
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                count++;
+                                            }
+                                        }
+                                        if (listPromotionItems.Count == count)
+                                        {
+                                            <li class="media ellipsis">@Resources.Languages.NoNotification</li>
+                                        }
+                                    }
+                                }
+
+                            </ul>
+
+                            <div class="dropdown-content-footer">
+                                <a href="@Url.Action("Notifications","Promotion")" data-popup="tooltip" title="@Resources.Languages.AllMessages"><i class="icon-menu display-block"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                }
+                <li class="dropdown dropdown-user">
+                    <a class="dropdown-toggle no-padding-right" data-toggle="dropdown">
+                        @*<img src="~/Content/images/placeholder.jpg" alt="">*@
+                        <span class="text-size-base">@Resources.Languages.Hi, @Session["ClientLoginUserName"]</span>
+                        <i class="caret"></i>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="~/CustomerManagement/EditMyProfile/@Session["ClientUserId"]"><i class="icon-user-plus"></i>@Resources.Languages.MyProfile</a></li>
+                        <li><a href="~/CustomerManagement/ChangePassword"><i class="icon-lock2"></i>@Resources.Languages.ChangePassword</a></li>
+                        @*
+                            <li><a href="#"><span class="badge badge-warning pull-right">58</span> <i class="icon-comment-discussion"></i> Messages</a></li>*@
+                        @*
+                            <li class="divider"></li>*@
+                        @*
+                            <li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>*@
+                        <li><a href="~/CustomerManagement/Logout"><i class="icon-switch2"></i>@Resources.Languages.Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /main navbar -->
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="breadcrumb-line">
+            <ul class="breadcrumb">
+                @if (controllerName != null && actionName != null)
+                {
+                    <li>
+                        <i class="icon-home2 position-left"></i>
+                        <a href="@Url.Action("CustomerDashboard","Dashboard")">@Resources.Languages.Home</a>
+                    </li>
+                    if (controllerName != "Dashboard")
+                    {
+                        <li>
+                            <a href="@Url.Action(actionName, controllerName)">@separatedactioncontrollerName</a>
+                        </li>
+                                        <li class="active">
+                                            @separatedactionName
+                                        </li>                                     
+                    }
+                }
+
+            </ul>
+            <div class="pull-right">
+                @{
+                    var langCount = 1;
+                    {
+                        foreach (var i in TradeSystem.MVCWeb.SiteLanguages.AvailableLanguages)
+                        {
+                            @Html.ActionLink(i.LangFullName, "ChangeLanguage", "CustomerManagement", new { lang = i.LangCultureName, url = Request.Url.AbsoluteUri }, new { @class = "text-indigo text-size-base", @id = "lang-img-" + langCount })<text>&nbsp;</text>
+                            langCount++;
+                        }
+                        langCount = 1;
+                    }
+                }
+            </div>            
+        </div>
+        <div class="page-header-content">
+            <div class="page-title">
+
+            </div>
+        </div>
+    </div>
+    <!-- /page header -->
+    <!-- Page container -->
+    <div class="page-container">
+
+        <!-- Page content -->
+        <div class="page-content">
+
+            <!-- Left sidebar -->
+            <div class="sidebar sidebar-main sidebar-default">
+                <div class="sidebar-content">
+
+                    <!-- Main navigation -->
+                    <div class="sidebar-category sidebar-category-visible">
+                        <div class="sidebar-user-material mb-10">
+                            <div class="category-content">
+                                <div class="sidebar-user-material-content">
+                                    <a href="" class="legitRipple"></a>
+                                    <h6></h6>
+                                    <span class="text-size-small">@Session["ClientLoginUserName"]</span>
+                                </div>
+
+                                <div class="sidebar-user-material-menu">
+                                    <a href="#user-nav" data-toggle="collapse"><span>@Resources.Languages.MyAccount</span> <i class="caret"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="navigation-wrapper collapse" id="user-nav">
+                                <ul class="navigation">
+                                    <li><a href="~/CustomerManagement/EditMyProfile/@Session["ClientUserId"]"><i class="icon-user-plus"></i> <span>@Resources.Languages.MyProfile</span></a></li>
+                                    @*
+                                        <li><a href="#"><i class="icon-coins"></i> <span>My balance</span></a></li>
+                                        <li><a href="#"><i class="icon-comment-discussion"></i> <span><span class="badge bg-teal-400 pull-right">58</span> Messages</span></a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#"><i class="icon-cog5"></i> <span>Account settings</span></a></li>*@
+                                    <li><a href="~/CustomerManagement/Logout"><i class="icon-switch2"></i> <span>@Resources.Languages.Logout</span></a></li>
+                                    @*
+                                        <li>
+                                            @Html.Action("Logout", "Account")
+                                            <span>Logout</span>
+                                        </li>*@
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="category-content no-padding">
+                            <ul class="navigation navigation-main navigation-accordion">
+
+                                <!-- Main -->
+                                <!-- start for section show for customer after login-->
+                                <li class="@Html.IsActive(actionName == "CustomerDashboard" && controllerName == "Dashboard")">
+                                    <a href="~/Dashboard/CustomerDashboard"><i class="icon-home4"></i> <span>@Resources.Languages.Dashboard</span></a>
+                                </li>
+                                <li>
+                                    <a><i class="icon-notebook"></i> <span>@Resources.Languages.Investments</span></a>
+                                    <ul>
+                                        <li class="@Html.IsActive(actionName == "NewInvestment" && controllerName == "Investment")">
+                                            <a href="@Url.Action("NewInvestment","Investment")"><i class="icon-price-tags"></i> <span>@Resources.Languages.NewInvestments</span></a>
+                                        </li>
+                                        <li class="@Html.IsActive(actionName == "MyInvestmentsList" && controllerName == "Investment")">
+                                            <a href="@Url.Action("MyInvestmentsList","Investment")"><i class="icon-price-tags"></i> <span>@Resources.Languages.MyInvestments</span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="icon-notebook"></i><span>@Resources.Languages.Sales</span></a>
+                                    <ul>
+                                        <li class="@Html.IsActive(actionName == "RegisterNewUser" && controllerName == "Sale")">
+                                            <a href="@Url.Action("RegisterNewUser","Sale")"><i class="icon-price-tags"></i><span>@Resources.Languages.RegisterNewUser</span></a>
+                                        </li>
+                                        <li class="@Html.IsActive(actionName == "MySales" && controllerName == "Sale")">
+                                            <a href="@Url.Action("MySales","Sale")"><i class="icon-price-tags"></i> <span>@Resources.Languages.MySales</span></a>
+                                        </li>
+                                        <li class="@Html.IsActive(actionName == "CommissionFromSalesReleased" && controllerName == "Sale")">
+                                            <a href="@Url.Action("CommissionFromSalesReleased","Sale")">
+                                                <i class="icon-price-tags"></i><span>@Resources.Languages.CommissionfromSalesReleased</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+
+                                <li class="@Html.IsActive(actionName == "MyTickets" && controllerName == "Support")">
+                                    <a href="@Url.Action("MyTickets","Support")"><i class="icon-lifebuoy"></i><span>@Resources.Languages.Support</span></a>
+                                </li>
+
+                                <!-- End for section show for customer after login-->
+                                <!-- /main -->
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /main navigation -->
+                </div>
+            </div>
+            <!-- /Left sidebar -->
+
+
+            <div class="content-wrapper">
+                @RenderBody()
+
+
+            </div>
+            <!-- /main content -->
+
+        </div>
+        <!-- /page content -->
+
+    </div>
+    <!-- /page container -->
+    <!-- Footer -->
+    <div class="navbar navbar-default navbar-fixed-bottom footer">
+        <ul class="nav navbar-nav visible-xs-block">
+            <li><a class="text-center collapsed" data-toggle="collapse" data-target="#footer"><i class="icon-circle-up2"></i></a></li>
+        </ul>
+
+        <div class="navbar-collapse collapse" id="footer">
+            <div class="navbar-text text-center">
+                &copy; 2017 @Resources.Languages.SplitDeals | @Resources.Languages.AllRightsReserved
+            </div>
+        </div>
+    </div>
+    <div id="divNewAddressPartial">
+
+    </div>
+    <!-- Notification modal for deatis -->
+    <div id="View_Notification_modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h5 class="modal-title">@Resources.Languages.Notifications :</h5>
+                </div>
+
+                <div class="modal-body">
+                    <div class="pre-scrollable" style="max-height:230px;">
+                        <div>
+                            <pre id="div_add_description"></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /Notification modal detials -->
+    <!-- Wallet modal for deatis -->
+    <div id="Wallet_modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h5 class="modal-title">@Resources.Languages.EnterAmount</h5>
+                </div>
+                <!--Show respone after submittion-->
+                <div class="modal-body">
+                    <div class="table-responsive pre-scrollable" style="max-height:230px;">
+                        <p class="mb-20">@Resources.Languages.EnterAmountTitle</p>
+                        <div id="div_add_description"></div>
+                        <input type="text" id="withdrawAmount" class="form-control mb-10" placeholder="@Resources.Languages.WalletAmount" maxlength="10" min="1" name="WithdrawAmount" value="" required onkeypress="return isNumberDecimalKey(event)">
+                        <span id="span_error" class="red" style="display:none;">@Resources.Languages.Thisfieldisrequired</span>
+                        <div id="div_wallet_response"></div>
+                        <div class="text-center mt-10">
+                            <button type="button" class="btn btn-primary" onclick="WithdrawAmountFromWallet();" title="@Resources.Languages.Withdraw">@Resources.Languages.Withdraw<i class="icon-arrow-right14 position-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /Wallet modal for deatis -->
+    <!-- /footer -->
+    <!-- Core JS files -->
+    <!--External js files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js"></script>
+
+    @if (lang == "es")
+    {
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.6.0/parsley.min.js"></script>
+                        <script src="~/Content/js/es_validate.min.js"></script>
+    }
+    else
+    {
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.6.0/parsley.min.js"></script>
+    }
+    <!--JS for datatable-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
+    <!--js datatable js files -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wysihtml5/0.3.0/wysihtml5.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+
+
+    <script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"></script>
+    <link href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css">
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/wysihtml5/0.3.0/wysihtml5.min.js"></script>*@
+    <!-- Core JS files -->
+    <script type="text/javascript" src="~/Content/js/plugins.js"></script>
+    <!-- /core JS files -->
+    <!-- Theme JS files -->
+    @if (lang == "es")
+    {
+        <script type="text/javascript" src="~/Content/js/es_site.js"></script>
+    }
+    else
+    {
+        <script type="text/javascript" src="~/Content/js/site.js"></script>
+    }
+    <!-- /theme JS files -->
+
+
+    <script type="text/javascript">
+        console.log("enter");
+        // Parsley Validation
+
+        $(document).ready(function () {
+            //Add a class on selected language to indentify
+            readCookie("culture") == "en" ? $('#lang-img-1').hide() : $('#lang-img-2').hide();
+
+            //function for add img of lang country flag
+            $('#lang-img-1').addClass('lang-en');
+            $('#lang-img-2').addClass('lang-es');
+            $('.form-validate').parsley();
+
+            //for image validation
+            // Validate parsley image fields.
+            // data-parsley-image=""
+            window.Parsley.addValidator('image', {
+                requirementType: 'string',
+                validateString: function (value, requirement) {
+                    var allowedFiles = [".png", ".jpg", ".gif", ".jpeg"];
+                    var regex = new RegExp("([a-zA-Z0-9\(\)\s_\\.\-:])+(" + allowedFiles.join('|') + ")$");
+                    return (value !== "" && regex.test(value.toLowerCase()));
+                },
+                messages: {
+                    en: 'Please select valid image file.',
+                    es: 'Por favor seleccione imagen válida'
+                }
+            });
+
+            // Validate file size.
+            // data-parsley-max-file-size="42"
+            window.Parsley.addValidator('maxFileSize', {
+                validateString: function (_value, maxSize, parsleyInstance) {
+                    if (!window.FormData) {
+                        return true;
+                    }
+                    var files = parsleyInstance.$element[0].files;
+                    return files.length != 1 || files[0].size <= maxSize * 1024 * 1024;
+                },
+                requirementType: 'integer',
+                messages: {
+                    en: 'File size should not be larger than %s Mb'
+                }
+            });
+
+            //ajax call for notification and wallet update
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("NotificationsUpdate", "Dashboard")',
+                success: function (response) {
+                    $("#span_wallet_amount").text(response);
+                }
+            });
+        });
+
+
+
+        // Validate parsley password fields.
+        // data-parsley-password=""
+        window.Parsley.addValidator('password', {
+            requirementType: 'string',
+            validateString: function (value, requirement) {
+                return new RegExp("(?=^.{8,}$)(?=.*?\\d)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[^a-zA-Z\\d])").test(value);
+            },
+            messages: {
+                en: 'The password should contain combination of upper, lower, numeric and non-alphanumeric',
+                es: 'La contraseña debe contener una combinación de letras mayúsculas, minúsculas, números y símbolos especiales'
+            }
+        });
+
+        //function for get value of current culture from the cookie
+        function readCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        //Update view option in database
+        function UpdatePromotion(promotionId) {
+            //$("#div_add_description").html('hello world');
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("_EditPromotion", "Promotion")',
+                data: { promotionId: promotionId },
+                success: function (response) {
+                    $("#div_add_description").html(response);
+                }
+            });
+        }
+        $('#View_Notification_modal').on('hidden.bs.modal', function () {
+            location.reload();
+        });
+
+        function WithdrawAmountFromWallet() {
+            var withdrawAmount = $("#withdrawAmount").val();
+            if (withdrawAmount != "") {
+                $("#span_error").hide();
+                $.ajax({
+                    type: "Post",
+                    url: '@Url.Action("WithdrawAmountFromWallet", "FinanceManagement")',
+                    data: { withdrawAmount: withdrawAmount },
+                    success: function (response) {
+                        var result = response;
+                        if (!Boolean(result.Succeeded)) {
+                            $("#div_wallet_response").removeClass('text-success').addClass('text-danger');
+                            $("#div_wallet_response").html(result.Message);
+                        }
+                        else {
+                            $("#withdrawAmount").val("");
+                            $("#div_wallet_response").removeClass('text-danger').addClass('text-success');
+                            $("#div_wallet_response").html(result.Message);
+                        }
+                    }
+                });
+            }
+            else {
+                $("#div_wallet_response").html('');
+                $("#span_error").show();
+            }
+        }
+
+        $('#Wallet_modal').on('hidden.bs.modal', function () {
+            location.reload();
+        });
+        //for Decimal
+        function isNumberDecimalKey(e) {
+            if (e.which != 8 && e.which != 0 && e.which != 46 && (e.which < 48 || e.which > 57)) {
+                e.preventDefault();
+            }
+        }
+    </script>
+</body>
+</html>

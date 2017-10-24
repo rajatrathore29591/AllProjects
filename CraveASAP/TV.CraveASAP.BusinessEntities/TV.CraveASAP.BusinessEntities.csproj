@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{99D1E789-85C7-4E83-A582-A2DAA79D67A3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TV.CraveASAP.BusinessEntities</RootNamespace>
+    <AssemblyName>TV.CraveASAP.BusinessEntities</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssignedVendorEntity.cs" />
+    <Compile Include="BannersEntity.cs" />
+    <Compile Include="CategoryEntity.cs" />
+    <Compile Include="AppDefaultLandingPageEntity.cs" />
+    <Compile Include="CategoryMapEntity.cs" />
+    <Compile Include="ConfigurationEntity.cs" />
+    <Compile Include="ContentManagementEntity.cs" />
+    <Compile Include="VendorListEntity.cs" />
+    <Compile Include="PromotionListEntity.cs" />
+    <Compile Include="DeviceEntity.cs" />
+    <Compile Include="GetResponseEntity.cs" />
+    <Compile Include="PointEntity.cs" />
+    <Compile Include="PredictiveNotificationEntity.cs" />
+    <Compile Include="PushNotificationsResponse.cs" />
+    <Compile Include="RewardEntity.cs" />
+    <Compile Include="StaticMessages.cs" />
+    <Compile Include="SuperAdminLoginEntity.cs" />
+    <Compile Include="UserAppEntity.cs" />
+    <Compile Include="UserPointEntity.cs" />
+    <Compile Include="UserRewardMappedEntity.cs" />
+    <Compile Include="UserFavouriteEntity.cs" />
+    <Compile Include="VendorCategoryEntity.cs" />
+    <Compile Include="OpeningHourEntity.cs" />
+    <Compile Include="OptionalCategoryEntity.cs" />
+    <Compile Include="PointsConfigurationEntity.cs" />
+    <Compile Include="DynamicHTMLContentEntity.cs" />
+    <Compile Include="LocationEntity.cs" />
+    <Compile Include="PromotionsUserEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResponseEntity.cs" />
+    <Compile Include="ResponseLoginVendorEntity.cs" />
+    <Compile Include="SubCategoryEntity.cs" />
+    <Compile Include="SubscribeEntity.cs" />
+    <Compile Include="UserEntity.cs" />
+    <Compile Include="UserLocationEntity.cs" />
+    <Compile Include="UserPrefrencesEntity.cs" />
+    <Compile Include="UserPromotionEntity.cs" />
+    <Compile Include="UserRewardEntity.cs" />
+    <Compile Include="VendorBranchEntity.cs" />
+    <Compile Include="VendorEntity.cs" />
+    <Compile Include="PromotionCodeEntity.cs" />
+    <Compile Include="VendorPromotionEntity.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

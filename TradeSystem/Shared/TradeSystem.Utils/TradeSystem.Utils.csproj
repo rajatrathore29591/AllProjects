@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{142584C5-62A3-4EC0-8FB1-C8D13CC929A3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TradeSystem.Utils</RootNamespace>
+    <AssemblyName>TradeSystem.Utils</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppHelper.cs" />
+    <Compile Include="Email\EmailTemplatesHelper.cs" />
+    <Compile Include="Email\SendEmailHelper.cs" />
+    <Compile Include="Encrypt_Decrypt.cs" />
+    <Compile Include="Enum\ETaskStatus.cs" />
+    <Compile Include="Enum\EMonth.cs" />
+    <Compile Include="Enum\EWeekDays.cs" />
+    <Compile Include="ExportExcel.cs" />
+    <Compile Include="LogHelper.cs" />
+    <Compile Include="Models\AccessTokenModel.cs" />
+    <Compile Include="Models\ActivityLogDataModel.cs" />
+    <Compile Include="Models\BankDataModel.cs" />
+    <Compile Include="Models\BaseResponseDataModel.cs" />
+    <Compile Include="Models\CardChargeDataModel.cs" />
+    <Compile Include="Models\CompanyUserDataModel.cs" />
+    <Compile Include="Models\CustomerDataModel.cs" />
+    <Compile Include="Models\CustomerProductDataModel.cs" />
+    <Compile Include="Models\CustomerReportDataModel.cs" />
+    <Compile Include="Models\CustomerTransactionDataModel.cs" />
+    <Compile Include="Models\DashboardDataModel.cs" />
+    <Compile Include="Models\DocumentDataModel.cs" />
+    <Compile Include="Models\LoginDataModel.cs" />
+    <Compile Include="Models\LoginResponseDataModel.cs" />
+    <Compile Include="Models\PaymentDataModel.cs" />
+    <Compile Include="Models\PenaltyDataModel.cs" />
+    <Compile Include="Models\ProductDataModel.cs" />
+    <Compile Include="Models\PromotionDataModel.cs" />
+    <Compile Include="Models\RoleSideMenuDataModel.cs" />
+    <Compile Include="Models\RoleDataModel.cs" />
+    <Compile Include="Models\SideMenuDataModel.cs" />
+    <Compile Include="Models\TicketDataModel.cs" />
+    <Compile Include="Models\WeeklyPercentDataModel.cs" />
+    <Compile Include="Models\WithdrawDataModel.cs" />
+    <Compile Include="PasswordGenrator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecurityHelper.cs" />
+    <Compile Include="ServiceHelper.cs" />
+    <Compile Include="UploadImage.cs" />
+    <Compile Include="WebApiHelper.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

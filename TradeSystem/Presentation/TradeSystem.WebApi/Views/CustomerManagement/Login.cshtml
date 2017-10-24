@@ -1,0 +1,148 @@
+﻿
+@{
+    ViewBag.Title = Resources.Languages.CustomerLogin;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+@model TradeSystem.MVCWeb.Models.LoginModel
+
+@using (Html.BeginForm("CustomerLogin", "CustomerManagement", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-validate" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="login-container">
+        <!-- Page container -->
+        <div class="page-container " style="min-height:312px">          
+
+            <!-- Page content -->
+            <div class="page-content">
+
+                <!-- Main content -->
+                <div class="content-wrapper">
+                    <!-- Login form -->
+                    <form action="index.html" class="form-validate" novalidate="">
+                        <div class="login-form customer-login-form">
+                            <div class="panel panel-body">
+                                <div class="clearfix text-slate-300 mb-20">
+                                    <div class="pull-right">
+                                        @{var langCount = 1;
+                                            {
+                                                foreach (var i in TradeSystem.MVCWeb.SiteLanguages.AvailableLanguages)
+                                                {
+                                                    @Html.ActionLink(i.LangFullName, "ChangeLanguage", "CustomerManagement", new { lang = i.LangCultureName, url = Request.Url.AbsoluteUri }, new { @class = "text-indigo", @id = "lang-img-" + langCount })<text>&nbsp;</text>
+                                                    langCount++;
+                                                }
+                                                langCount = 1;
+                                            }
+                                        }
+                                    </div>
+                                <a class="text-slate-300 text-bold f-18x" href="~/CustomerManagement/Login" title="@Resources.Languages.TRADINGSYSTEM"> <img class="logo" src="~/Content/images/Logo-splitdeals.png" alt=""></a></div>
+                                
+                                  <!-- Trading Introduction -->                              
+                                 <div class="col-md-5 mr-10 display-inline-block valign-top pl-25 pt-20 pb-10">
+                                    <div class="text-left">
+                                        <h5 class="content-group mt-5 mb-10 f-20x text-indigo text-uppercase">@Resources.Languages.Introduction</h5>
+                                        <hr class="mt-5 mb-10">
+                                    </div>
+
+                                    <div class="form-group mb-5 text-muted text-size-base">
+                                        <p class="mb-15 text-size-base">@Resources.Languages.Description_CustomerLogin</p>
+                                        <ul class="text-size-base list-square mb-15">
+                                            <li>@Resources.Languages.Login_Descrption_Point</li>
+                                            <li>@Resources.Languages.Login_Descrption_Point2</li>
+                                            <li>@Resources.Languages.Login_Descrption_Point3</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- /trading introduction -->
+                                <div class="col-md-1">
+                                    <span class="login-sep border-left border-default display-block"></span>
+                                </div>
+                                <!-- Login Form Details -->
+                                <div class="col-md-5 display-inline-block pl-10 pr-10 pb-10">
+                                    <div class="text-left">
+
+                                        <h5 class="content-group mt-28 mb-25 f-18x text-indigo"><span class="text-uppercase">@Resources.Languages.Login</span> <hr class="mt-5 mb-10"> <small class="display-block text-muted"> @Resources.Languages.Enteryourcredentialbelow</small>
+                                                 @if (TempData["TempChangePasswordSuccess"] != null)
+                                {
+                                    <label class="text-success">@TempData["TempChangePasswordSuccess"]</label>
+
+                                }
+                                        </h5>
+                                    </div>
+
+                                    <div class="form-group has-feedback has-feedback-left">
+                                        <input type="email" class="form-control" id="email" name="Email" value="@Model.Email" placeholder="@Resources.Languages.Email" required="required" maxlength="50">
+                                        <div class="form-control-feedback">
+                                            <i class="icon-mail5 text-muted"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group has-feedback has-feedback-left">
+                                        <input type="password" class="form-control" name="Password" value="@Model.Password" placeholder="@Resources.Languages.Password" required="required" maxlength="20" minlength="6">
+                                        <div class="form-control-feedback">
+                                            <i class="icon-lock2 text-muted"></i>
+                                        </div>
+                                        @if (TempData["Message"] != "")
+                                        {
+                                            <label class="error-red" >@TempData["Message"]</label>
+                                        }                                      
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button type="submit" id="login" class="btn btn-primary btn-block" title="@Resources.Languages.Login">@Resources.Languages.Login <i class="icon-circle-right2 position-right"></i></button>
+                                    </div>
+
+                                    <div class="text-center text-size-large">
+                                        <a href="~/CustomerManagement/CustomerForgotPassword" title="@Resources.Languages.ForgotPassword?">@Resources.Languages.ForgotPassword</a>
+                                    </div>
+                                </div>
+                                <!-- /login form details -->
+                            </div>
+                        </div>
+                    </form>
+                    <!-- /login form -->
+
+                </div>
+                <!-- /main content -->
+
+            </div>
+            <!-- /page content -->
+
+        </div>
+        <!-- /page container -->
+    </div>
+                    }
+  <script type="text/javascript">
+        // Parsley Validation
+      $(document).ready(function () {
+          $("#email").keypress(function () {
+              if (event.keyCode == 32) {
+                  event.returnValue = false;
+                  return false;
+              }
+          });
+
+          
+
+          //Add a class on selected language to indentify
+          readCookie("culture") == "en" ? $('#lang-img-1').hide() : $('#lang-img-2').hide();
+
+          //function for add img of lang country flag
+          $('#lang-img-1').addClass('lang-en');
+          $('#lang-img-2').addClass('lang-es');
+      });
+      
+      //function for get value of current culture from the cookie 
+      function readCookie(name) {
+          var nameEQ = name + "=";
+          var ca = document.cookie.split(';');
+          for (var i = 0; i < ca.length; i++) {
+              var c = ca[i];
+              while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+              if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+          }
+          return null;
+      }
+</script>

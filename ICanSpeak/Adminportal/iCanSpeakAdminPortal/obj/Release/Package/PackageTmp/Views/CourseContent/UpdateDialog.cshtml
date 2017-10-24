@@ -1,0 +1,332 @@
+﻿@{
+    ViewBag.Title = "UpdateDialog";
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".valid").keypress(function (e) {
+            if (e.which < 97 || e.which > 122) {
+                e.preventDefault();
+            }
+        });
+    });
+</script>
+<style>
+        .fileUpload {
+            position: relative;
+            overflow: hidden;
+            margin: 10px;
+        }
+
+            .fileUpload input.upload {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin: 0;
+                padding: 0px 10px;
+                font-size: 20px;
+                cursor: pointer;
+                opacity: 0;
+                filter: alpha(opacity=0);
+            }
+        .box1 {border:1px solid #ccc;
+              margin:10px 0px;
+              padding:20px;
+              border-radius:8px;
+        }
+    </style>
+
+<script type="text/javascript">
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+        function isNumberDecimal(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode != 45 && (charCode != 46 || $(this).val().indexOf('.') != -1) &&
+                    (charCode < 48 || charCode > 57))
+                return false;
+
+            return true;
+        }
+    </script>
+
+<div class="dialog-page">
+        <header>
+            <h2>Update Dialog</h2>
+        </header>
+        <div class="contant">
+            @using (Html.BeginForm("UpdateDialog", "CourseContent", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            { @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                if (Model != null)
+                {
+                    
+            <div class="row">
+             <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+            <div class="form-group">
+              <label>English Name <span style="color:#FE2801;">*</span></label>
+               <input class="form-control" required name="EnglishName" value="@Model.EnglishName"  maxlength="30" title="" type="text" />
+            </div>
+            <div class="form-group">
+              <label>English Story <span style="color:#FE2801;">*</span></label>
+              <textarea class="form-control" rows="3" id="StoryEnglish" required name="StoryEnglish">@Model.StoryEnglish</textarea>
+              
+            </div>
+                 <div class="form-group">
+                     <label>English Description <span style="color: #FE2801;">*</span></label>
+                     <textarea class="form-control" required name="DescriptionEngilsh" rows="3">@Model.DescriptionEngilsh</textarea>
+                 </div>
+                 <div class="form-group">
+              <label>Arabic Name <span style="color:#FE2801;">*</span></label>
+               <input class="form-control" required name="ArabicName" value="@Model.ArabicName"  maxlength="30" title="" type="text" />
+            </div>
+            <div class="form-group">
+              <label>Arabic Story <span style="color:#FE2801;">*</span></label>
+              <textarea class="form-control" rows="3" required name="StoryArabic">@Model.StoryArabic</textarea>
+              
+            </div>
+            <div class="form-group">
+              <label>Arabic Description <span style="color:#FE2801;">*</span></label>
+              <textarea class="form-control" required name="DescriptionArabic" rows="3">@Model.DescriptionArabic</textarea>
+            </div>
+            
+            
+                               <div class="form-group">
+              <label>Dialog Gender <span style="color:#FE2801;">*</span></label>
+                <select class="form-control" id="DialogGender" name="DialogGender">
+                                @if (Model.DialogGender == "male")
+                                {
+                                    <option value="male" selected="selected">Male</option>
+                                }
+                                else
+                                {
+                                    <option value="male">Male</option>
+                                }
+                                @if (Model.DialogGender == "female")
+                                {
+                                    <option value="female" selected="selected">Female</option>
+                                }
+                                else
+                                {
+                                    <option value="female">Female</option>
+                                    
+                                }
+                            </select>
+             </div>
+                               <div class="form-group">
+                                    <label>Duration(in days) <span style="color:#FE2801;">*</span></label>
+                                    <input type="text" class="form-control" required onkeypress="return isNumber(event)"  value="@Model.Duration" id="Duration" name="Duration">
+                                </div> 
+                                <div class="form-group">
+                                    <label>Reward Point <span style="color:#FE2801;">*</span></label>
+                                    <input type="text" class="form-control" required onkeypress="return isNumber(event)"   value="@Model.RewardPoints" id="RewardPoints" name="RewardPoints">
+                                </div>
+                                <div class="form-group">
+                                    <label>Price(in saudi riyal) <span style="color:#FE2801;">*</span></label>
+                                    <input type="text" class="form-control" required   onkeypress="return isNumberDecimal(event)"  value="@Model.Price" id="Price" name="Price">
+                                </div> 
+                                <div class="form-group">
+                                    <label>Max Score <span style="color:#FE2801;">*</span></label>
+                                    <input type="text" class="form-control" onkeypress="return isNumber(event)" required  value="@Model.MaxScore" id="MaxScore" name="MaxScore">
+                                </div>
+                                <div class="form-group">
+                                    <label>Is Free <span style="color:#FE2801;">*</span></label>
+                                    @if (Model.IsFree == true)
+                                    {
+                                    <select class="form-control" id="IsFree" required name="IsFree">
+                                        <option selected="selected" value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    }
+                                    else
+                                    {
+                                        <select class="form-control" id="IsFree" required name="IsFree">
+                                        <option value="Yes">Yes</option>
+                                        <option selected="selected" value="No">No</option>
+                                    </select>
+                                    }
+                                </div>
+
+                                <div class="form-group">
+                        <label>Full Audio</label>
+                       <div class="box1">
+                                <div class="row">
+
+                                    <audio   controls="" style="width: 100%">
+                                        <source src="@Model.AudioUrl" type="audio/mpeg" />
+                                    </audio>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="fileUpload btn btn-primary">
+                                        <span>Change Audio</span>
+                                        <input id="audio1"  type="file" class="upload" name="Audio1" accept="audio/*"/>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                 <div class="form-group">
+                     <label>Raw Audio</label>
+                     <div class="box1">
+                         <div class="row">
+
+                             <audio controls="" style="width: 100%">
+                                 <source src="@Model.AudioUrl" type="audio/mpeg" />
+                             </audio>
+
+                         </div>
+
+                         <div class="row">
+                             <div class="fileUpload btn btn-primary">
+                                 <span>Change Audio</span>
+                                 <input id="audio2" type="file" class="upload" name="Audio2" accept="audio/*" />
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="form-group">
+                     <label>Video</label>
+                     <div class="box1">
+                         <div class="row">
+                             <video controls style="width: 100%" poster="poster.png">
+                                 <source src="@Model.VideoUrl" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+                             </video>
+                         </div>
+
+                         <div class="row">
+                             <div class="fileUpload btn btn-primary">
+                                 <span>Change Video</span>
+                                 <input id="video" type="file" class="upload" name="Video" accept="video/*" />
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                  <div class="form-group">
+                     <label>English Subtitle</label>
+                     <div class="box1">
+                         <div class="row">
+
+                             <audio controls="" style="width: 100%">
+                                 <source src="@Model.EnglishSubtitleUrl" type="srt" />
+                             </audio>
+
+                         </div>
+
+                         <div class="row">
+                             <div class="fileUpload btn btn-primary">
+                                 <span>Change English Subtitle</span>
+                                 <input id="EnglishSubtitleUrl" type="file" class="upload" name="EnglishSubtitle" accept="srt/*" />
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                  <div class="form-group">
+                     <label>Arabic Subtitle</label>
+                     <div class="box1">
+                         <div class="row">
+
+                             <audio controls="" style="width: 100%">
+                                 <source src="@Model.ArabicSubtitleUrl" type="vtt" />
+                             </audio>
+
+                         </div>
+
+                         <div class="row">
+                             <div class="fileUpload btn btn-primary">
+                                 <span>Change Arabic Subtitle</span>
+                                 <input id="ArabicSubtitleUrl" type="file" class="upload" name="ArabicSubtitle" accept="vtt/*" />
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                  <div class="form-group">
+                     <label>Both Subtitle</label>
+                     <div class="box1">
+                         <div class="row">
+
+                             <audio controls="" style="width: 100%">
+                                 <source src="@Model.BothSubtitleUrl" type="vtt" />
+                             </audio>
+
+                         </div>
+
+                         <div class="row">
+                             <div class="fileUpload btn btn-primary">
+                                 <span>Change Both Subtitle</span>
+                                 <input id="BothSubtitleUrl" type="file" class="upload" name="BothSubtitle" accept="vtt/*" />
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+            <div class="form-group">
+              <input type="hidden" id="DialogId" name="DialogId" value="@Model.DialogId" />
+                        <input type="submit" class="btn btn-info" value="Update Now" />&nbsp;&nbsp;
+                 <a href="../../Admin/CourseContent/DialogList">
+                <input type="button" class="btn btn-info" value="Cancel"  /></a>
+            </div>
+                 <div class="form-group">
+                     <input type="hidden" name="AudioUrl" value="@Model.AudioUrl" />
+                     <input type="hidden" name="Audio2Url" value="@Model.Audio2Url" />
+                     <input type="hidden" name="VideoUrl" value="@Model.VideoUrl" />
+                     <input type="hidden" name="EnglishSubtitleUrl" value="@Model.EnglishSubtitleUrl" />
+                     <input type="hidden" name="ArabicSubtitleUrl" value="@Model.ArabicSubtitleUrl" />
+                     <input type="hidden" name="BothSubtitleUrl" value="@Model.BothSubtitleUrl" />
+              <label style="color:red;font-size:15px">@Model.errormsg</label>
+            </div>
+             </div>
+      </div>
+               
+                }
+                
+            }
+        </div>
+        <!------content section end------->
+    </div>
+
+<script>
+    $('#audio1').change(function () {
+
+        var val = $(this).val();
+        switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'mp3': case 'wav':
+                break;
+            default:
+                $(this).val('');
+
+                alert("Audio must be of mp3 format.");
+                break;
+        }
+    });
+
+    $('#audio2').change(function () {
+        var val = $(this).val();
+        switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'mp3': case 'wav':
+                break;
+            default:
+                $(this).val('');
+
+                alert("Audio must be of mp3 format.");
+                break;
+        }
+    });
+
+    $('#video').change(function () {
+        var val = $(this).val();
+        switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'mp4':
+                break;
+            default:
+                $(this).val('');
+
+                alert("Video must be of mp4 format.");
+                break;
+        }
+    });
+    </script>

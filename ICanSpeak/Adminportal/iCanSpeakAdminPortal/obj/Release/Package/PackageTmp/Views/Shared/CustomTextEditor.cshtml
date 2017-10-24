@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+@*    <script src="../ckeditor.js"></script>
+    <link rel="stylesheet" href="sample.css">*@
+    <script src="~/Content/CK_Editor_Full/ckeditor.js"></script>
+    <script src="~/Content/CK_Editor_Full/samples/sample.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="section1">
+        <script>
+            CKEDITOR.appendTo('section1',
+				null,
+				'<p></p>'
+			);
+        </script>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    function ShowData() {
+        alert(CKEDITOR.instances.editor1.getData());
+    }
+    function setValues() {
+        CKEDITOR.instances.editor1.setData("<p>dgjfjgkjf</p>");
+    }
+</script>

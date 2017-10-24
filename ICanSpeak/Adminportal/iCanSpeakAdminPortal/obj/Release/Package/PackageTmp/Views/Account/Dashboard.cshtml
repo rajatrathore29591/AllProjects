@@ -1,0 +1,257 @@
+﻿@model iCanSpeakAdminPortal.Models.DashBoardModel
+@{
+    ViewBag.Title = "Dashboard";
+}
+<html lang=''>
+<head>
+    <title>Dashboard</title>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/Content/styles.css" rel="stylesheet" />
+    @* <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>*@
+    <script src="~/Scripts/script.js"></script>
+    @* <script type="text/javascript">
+        function preventBack() {
+            window.history.forward();
+        }
+        preventBack();
+    </script>*@
+    @*  <script type="text/javascript">
+        function DisableBackButton() {
+            window.history.forward();
+        }
+        DisableBackButton();
+        window.onload = DisableBackButton;
+        window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton() }
+        window.onunload = function () { void (0) }
+    </script>*@
+
+    @* <script type="text/javascript">
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>*@
+
+
+</head>
+<body onload="expandAccordion()">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                <font color="44c9ff">Welcome to i Can Speak Admin Portal</font>
+            </h1>
+            <span style="float: right; color: #3d3b3b; font-size: 16pt; margin-top: -50px;">
+                @*<img src="~/Images/add_icon.png" class="operationIcons" />
+                     <a style="cursor:pointer; color:#3d3b3b; text-decoration:none; font-weight:200" href="/CourseContent/AddVocabularySubCategoryName?vocabid=@Request["vocabid"]&subcatid=0">Add New Sub Category Name</a>*@
+            </span>
+        </div>
+    </div>
+    <div class="content white">
+        <div id='cssmenu'>
+            <ul>
+                <li class='has-sub active' id="defaultli"><a href='#'><span>User Details</span></a>
+                    <ul style="display: block;">
+                        <li>
+                            <p>
+                                Total Register Users : @Model.userCount
+                                <br />
+                                No. of Active Users :  @Model.activeUserCount
+                                <br />
+                                No. of Inactive Users : @Model.inactiveUserCount
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+                <li class='has-sub'><a href='#'><span>Course Details</span></a>
+                    <ul>
+                        <li>
+                            <p>
+                                Total No. of Vocabulary Courses : @Model.totalVocabCount
+                                <br />
+                                Total No. of Dialogue Courses : @Model.totalGrammerCount
+                                <br />
+                                Total No. of Grammer Courses : @Model.totalDialogCount
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class='has-sub'><a href='#'><span>Payment Details</span></a>
+                    <ul>
+                        <li>
+                            <p>
+                                Total No. of Transactions : @Model.totalPaymentCount
+                                <br />
+                                Total Amount Paid By Users : @Model.totalPaidAmount
+                                <br />                              
+                                Total Approved Payments : @Model.totalPaidAmount
+                                <br />                              
+                                Total Panding Payments : @Model.totalPaidAmount
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class='has-sub'><a href='#'><span>Tutor Details</span></a>
+                    <ul>
+                        <li>
+                            <p>
+                                Total No. of Tutor : @Model.totaltutorcount
+                                <br />
+                                No. of Active Tutor :  @Model.activetutorCount
+                                <br />
+                                No. of Inactive Tutor : @Model.inactivetutorCount
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+                <li class='has-sub'><a href='#'><span>Vocabulary Details</span></a>
+                    <ul>
+                        <li>
+                            <table style="width: 100%;" border="0">
+                                <tr>
+                                    <td>
+                                        <b><font color="44c9ff">Vocabulary</font></b>
+                                        <br />
+                                        Total No. of Vocabulary : @Model.totalVocabCount
+                                        <br />
+                                        No. of Active Vocabulary : @Model.activeVocabCount
+                                        <br />
+                                        No. of Inactive Vocabulary : @Model.inactiveVocabCount
+                                        <br />
+                                        No. of Paid Vocabulary : @Model.totalVocabPaidCount
+                                        <br />
+                                        No. of Free Vocabulary : @Model.totalVocabFreeCount
+                                    </td>
+                                    <td>
+                                        <b><font color="44c9ff">Vocabulary Sub Category</font></b>
+                                        <br />
+                                        Total No. of Sub Category : @Model.totalVocabSubCount
+                                        <br />
+                                        No. of Active Sub Category : @Model.activeVocabSubCount
+                                        <br />
+                                        No. of Inactive Sub Category : @Model.inactiveVocabSubCount
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b><font color="44c9ff">Vocabulary Word</font></b>
+                                        <br />
+                                        Total No. of Word: @Model.totalWordCount
+                                        <br />
+                                        No. of Active Word : @Model.activeWordCount
+                                        <br />
+                                        No. of Inactive Word : @Model.inactiveWordCount
+                                    </td>
+                                    <td>
+                                        <b><font color="44c9ff">Vocabulary Question</font></b>
+                                        <br />
+                                        Total No. of Question: @Model.totalVocabQueCount
+                                        <br />
+                                        No. of Active Question : @Model.activeVocabQueCount
+                                        <br />
+                                        No. of Inactive Question : @Model.inactiveVocabQueCount
+                                    </td>
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </li>
+                <li class='has-sub'><a href='#'><span>Grammer Details</span></a>
+                    <ul>
+                        <li>
+                            <table style="width: 100%;" border="0">
+                                <tr>
+                                    <td>
+                                        <b><font color="44c9ff">Grammer Unit</font></b>
+                                        <br />
+                                        Total No. of Grammer Unit : @Model.totalGrammerCount
+                                        <br />
+                                        No. of Active Grammer Unit : @Model.activeGrammerCount
+                                        <br />
+                                        No. of Inactive Grammer Unit : @Model.inactiveGrammerCount
+                                        <br />
+                                        No. of Paid Grammer Unit : @Model.totalGrammerPaidCount
+                                        <br />
+                                        No. of Free Grammer Unit : @Model.totalGrammerFreeCount
+                                    </td>
+                                    <td>
+                                        <b><font color="44c9ff">Grammer Assisment Question</font></b>
+                                        <br />
+                                        Total No. of Question : @Model.totalGrammerQueCount
+                                        <br />
+                                        No. of Active Question : @Model.activeGrammerQueCount
+                                        <br />
+                                        No. of Inactive Question : @Model.inactiveGrammerQueCount
+                                    </td>
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </li>
+                <li class='has-sub'><a href='#'><span>Dialog Details</span></a>
+                    <ul>
+                        <li>
+                            <table style="width: 100%;" border="0">
+                                <tr>
+                                    <td>
+                                        <b><font color="44c9ff">Dialogs</font></b>
+                                        <br />
+                                        Total No. of Dialog : @Model.totalDialogCount
+                                        <br />
+                                        No. of Active Dialog : @Model.activeDialogCount
+                                        <br />
+                                        No. of Inactive Dialog : @Model.inactiveDialogCount
+                                        <br />
+                                        No. of Paid Dialog : @Model.totalDialogPaidCount
+                                        <br />
+                                        No. of Free Dialog : @Model.totalDialogFreeCount
+                                    </td>
+                                    <td>
+                                        <b><font color="44c9ff">Dialog Key Phrases </font></b>
+                                        <br />
+                                        Total No. of Key Phrases : @Model.totalKeyPhrasesCount
+                                        <br />
+                                        No. of Active Key Phrases : @Model.activeKeyPhrasesCount
+                                        <br />
+                                        No. of Inactive Key Phrases : @Model.inactiveKeyPhrasesCount
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b><font color="44c9ff">Conversation</font></b>
+                                        <br />
+                                        Total No. of Conversations : @Model.totalConversationCount
+                                        <br />
+                                        No. of Active Conversation : @Model.activeConversationCount
+                                        <br />
+                                        No. of Inactive Conversation : @Model.inactiveConversationCount
+                                    </td>
+                                    <td>
+                                        <b><font color="44c9ff">Dialog Assessment Question</font></b>
+                                        <br />
+                                        Total No. of Question: @Model.totalDialogAssiQueCount
+                                        <br />
+                                        No. of Active Question : @Model.activeDialogAssiQueCount
+                                        <br />
+                                        No. of Inactive Question : @Model.inactiveDialogAssiQueCount
+                                    </td>
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+@*<script type="text/javascript">
+        function expandAccordion() {
+            $("#defaultli").attr("class", "has-sub active");
+        }
+    </script> *@
+

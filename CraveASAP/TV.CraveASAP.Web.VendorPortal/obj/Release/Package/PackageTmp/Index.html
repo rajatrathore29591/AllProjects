@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html ng-app="myVendorApp">
+
+<head>
+   
+    <title>Vendor Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="bundles/jsFile"></script>
+    <!--<script src="Scripts/angular.js"></script>-->
+
+    <script src="js/angular-ui-router.js"></script>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/login.css" rel="stylesheet" />
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/ngStorage.min.js"></script>
+
+    <!--<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js'></script>-->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.1/angular-cookies.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-resource.min.js"></script>-->
+    <script src="js/angular-resource.min.js"></script>
+
+    <link href="css/image-crop-styles.css" rel="stylesheet" />
+    <script src="js/image-crop.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/createPromotionController.js"></script>
+    <script src="controllers/editVendorController.js"></script>
+    <script src="controllers/termConditionController.js"></script>
+    <script src="controllers/trackController.js"></script>
+    <script src="controllers/loginController.js"></script>
+    <script src="controllers/trackController.js"></script>
+    <script src="controllers/aboutController.js"></script>
+    <script src="controllers/howItsWorkController.js"></script>
+    <script src="controllers/manageController.js"></script>
+    <script src="controllers/privacyPolicyController.js"></script>
+    <script src="controllers/howItsWorkController.js"></script>
+    <script src="controllers/translationController.js"></script>
+    <script src="services/loginServices.js"></script>
+    <script src="services/aboutService.js"></script>
+    <script src="services/privacyService.js"></script>
+    <script src="services/termService.js"></script>
+    <script src="services/manageActivePromotionService.js"></script>
+    <script src="services/editVendorService.js"></script>
+    <script src="services/howItWorkService.js"></script>
+    <script src="services/translationService.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion           
+                width: 'auto', //auto or any width like 600px
+                fit: true   // 100% fit in a container
+            });
+            $('input[type=file]').bootstrapFileInput();
+            $('.file-inputs').bootstrapFileInput();
+
+        });
+        $(document).ready(function () {
+
+            $('#ddlCars').multiselect();
+
+        });
+
+    </script>
+
+    <link href="css/bootstrap-multiselect.css" rel="stylesheet" />
+    <script src="js/bootstrap-multiselect.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600,700,200italic,300italic,400italic,600italic|Lora:400,700,400italic,700italic|Raleway:400,500,300,600,700,200,100' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="css/bootstrap-datetimepicker.css" rel="stylesheet" />
+    <link href="css/owl.carousel.css" rel="stylesheet" />
+    <link href="css/owl.theme.css" rel="stylesheet" />
+    <link href="css/owl.transitions.css" rel="stylesheet" />
+    <script src="js/owl.carousel.min.js"></script>
+    <link href="css/custom.css" rel="stylesheet" />
+    <!--//webfonts-->
+</head>
+<body>
+
+    <div ng-controller="mainController">
+        <div ui-view>
+        </div>
+    </div>
+
+    <div id="changepwd" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="POST" role="form" class="form-horizontal" ng-submit="change()">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title">{{translation.ChangePassword}}&nbsp;<i class="fa fa-circle-o-notch fa-spin m-l-10" ng-show="isbusy"></i></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="pwd" class="col-sm-4 control-label dark">{{translation.OldPassword}}</label>
+                            <div class="col-sm-8">
+                                <input type="password" ng-model="password" class="form-control" id="pwd" name="" placeholder="{{translation.OldPassword}}" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="npwd" class="col-sm-4 control-label dark">{{translation.NewPassword}}</label>
+                            <div class="col-sm-8">
+                                <input type="password" ng-model="newPassword" class="form-control" id="npwd" name="" placeholder="{{translation.NewPassword}}" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rpwd" class="col-sm-4 control-label dark">{{translation.ConfirmPassword}}</label>
+                            <div class="col-sm-8">
+                                <input type="password" ng-model="reTypePassword" class="form-control" id="rpwd" name="" placeholder="{{translation.ConfirmPassword}}" required>
+                            </div>
+                        </div>
+
+                        {{Message}}
+                    </div>
+                    <div class="modal-footer">
+                        <div class="pull-right">
+                            <button type="submit" class="btn btn-warning">{{translation.ChangePassword}}</button>
+                            <button type="button" class="btn btn-danger" ng-click="cancel()" data-dismiss="modal">{{translation.Cancel}}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="js/bootstrap.file-input.js"></script>
+<script src="js/easyResponsiveTabs.js"></script>
+<script src="js/textAngular-sanitize.min.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/bootstrap-datetimepicker.js"></script>
+<!--<script src="js/bootstrap-datepicker.min.js"></script>-->
+    
+</html>

@@ -1,0 +1,72 @@
+﻿
+@model List<TradeSystem.Utils.Models.RoleDataModel>
+
+<!-- Role Table -->
+<table id="tblRoleList" class="table datatable-basic table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>@Resources.Languages.Roles</th>
+            <th>@Resources.Languages.Description</th>
+            <th class="text-center">@Resources.Languages.Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>@item.Description</td>
+                <td class="text-center">
+                    <ul class="icons-list">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="icon-menu9"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a title="Edit" href="@Url.Action("GetRoleByRoleId", "AccountManagement", new { id=item.Id})"><i class="icon-database-edit2"></i> @Resources.Languages.Edit</a></li>
+                                <li><a title="Delete" href="javascript.void(0);" data-toggle="modal" data-target="#role_delete_model" onclick="DeleteRoleById('@item.Id');"><i class="icon-trash"></i> Delete</a></li>
+                                <li><a title="Manage Role" href="@Url.Action("ManageRole", "AccountManagement", new { id=item.Id,name=item.Name})"><i class="icon-task"></i> @Resources.Languages.ManageRole</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<!-- /role table -->
+
+<!-- Delete confirmation modal-->
+<div id="role_delete_model" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body" id="modelViewlog">
+                <p class="text-center" id="viewLogDetail">
+                   Do you want to delete role?
+                </p>
+                <div class="text-center mt-20">
+                    <a href="" id="btn_delete" class="btn btn-primary" title="Delete">Delete </a>
+                    <button title="Cancel" class="btn bg-orange" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    //function for get particular company user open model for delete confirm
+    function DeleteRoleById(id) {
+        //Change logo name 
+        //$('#btn_delete').attr("href", "/tradingsystem/AccountManagement/DeleteRole/" + id);
+        $('#btn_delete').attr("href", "~/AccountManagement/DeleteRole/" + id);
+        $("#role_delete_model").modal('#role_delete_model').show();
+    }
+</script>

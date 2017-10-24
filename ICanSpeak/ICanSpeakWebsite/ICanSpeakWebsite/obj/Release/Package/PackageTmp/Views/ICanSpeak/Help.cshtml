@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Help";
+    Layout = "~/Views/Shared/_FAQLayout.cshtml";
+}
+
+<style type="text/css">
+    .nav li a {
+        background-color: white;
+        color: #464646;
+    }
+</style>
+<script src="@Url.Content("/Scripts/jquery.min.js")"></script>
+<div class="row accordian">
+    <div class="container container-height">
+        <div class="col-lg-12 ">
+            <header class="heading-grays1">
+                <h2>Help</h2>
+            </header>
+            <div class="col-lg-12 PD0">
+                <div class="col-lg-3 PD0">
+                    <!-- required for floating -->
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs tabs-left">
+                        <li class="active"><a href="#privacy" data-toggle="tab">Signup and login</a></li>
+                        <li><a href="#subscription" data-toggle="tab">Practice &amp; Review</a></li>
+                        <li><a href="#notifications" data-toggle="tab">Make Freinds</a></li>
+                        <li><a href="#language" data-toggle="tab">Payment</a></li>
+                        <li><a href="#reset" data-toggle="tab">Tutors</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-9 PD0">
+                    <!-- Tab panes -->
+                    <div class="tab-content settings-content">
+                        <div class="tab-pane active" id="privacy">
+                            <h3>Signup and login</h3>
+                            <p>@Html.Raw(@Model.Signup)</p>
+                        </div>
+                        <div class="tab-pane" id="subscription">
+                            <h3>Practice &amp; Review</h3>
+                            <p>@Html.Raw(@Model.Practice)</p>
+                        </div>
+                        <div class="tab-pane" id="notifications">
+                            <h3>Make Freinds</h3>
+                            <p>@Html.Raw(@Model.Friends)</p>
+                        </div>
+                        <div class="tab-pane" id="language">
+                            <h3>Payments</h3>
+                            <p>@Html.Raw(@Model.Payment)</p>
+                        </div>
+                        <div class="tab-pane" id="reset">
+                            <h3>Tutors</h3>
+                            <p>@Html.Raw(@Model.Tutors)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

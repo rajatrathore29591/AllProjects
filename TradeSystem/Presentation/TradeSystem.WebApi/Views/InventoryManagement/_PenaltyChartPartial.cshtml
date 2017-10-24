@@ -1,0 +1,40 @@
+﻿@model IEnumerable<TradeSystem.Utils.Models.PenaltyDataModel>
+
+
+<!-- Penalty modal -->
+<div id="penalty_modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">% @Resources.Languages.PenaltyChart</h5>
+            </div>
+
+            <div class="modal-body">
+                <p>@Resources.Languages.Belowpenaltywillbeapplicableifcustomerwithdrawsprematureinvestment</p>
+                <div class="table-responsive pre-scrollable" style="max-height:230px;">
+                    <table class="table datatable-basic table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>@Resources.Languages.From [@Resources.Languages.Days]</th>
+                                <th>@Resources.Languages.To [@Resources.Languages.Days]</th>
+                                <th>% @Resources.Languages.PenaltyofInvestment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.PenaltyFrom</td>
+                                    <td>@item.PenaltyTo</td>
+                                    <td>@item.PenaltyPercent</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /penalty modal -->

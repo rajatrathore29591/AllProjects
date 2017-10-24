@@ -1,0 +1,771 @@
+﻿<div class="animate-panel driver-registration" ng-controller="ManageDriverCtrl as drCtrl">
+    <form role="form" id="form" name="add_driverregistration_form" ng-submit="drCtrl.updateDetails(add_driverregistration_form)" novalidate>
+        <div class="bc-panel-white">
+            <div class="row">              
+                <!--BEGIN: Image Upload Section-->
+                <div class="col-md-2 p-r0">
+                    <div class="image-profile text-center">
+                        <div class="form-group">
+                            <h4 class="upload-heading">Upload Image</h4>
+                            <img id="previewId" ng-src="{{drCtrl.ProficPic}}" alt="user-img" width="100" height="100">
+                            <p class="image-preview-filename" id="fileName"></p>
+                            <div class="btn btn-default image-preview-input">
+                                <span class="glyphicon glyphicon-folder-open"></span>
+                                <span class="image-preview-input-title">Choose File</span>
+                                <input type="file" ngf-select ng-model="drCtrl.ProficPic" name="file" accept="image/*" ngf-max-size="2MB" ngf-model-invalid="errorFile" class="btn btn-default" id="inputFileToLoad" ng-change="drCtrl.loadImageFileAsURL();"><!-- rename it -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" id="imageBase64" />
+                <!--END: Image Upload Section-->               
+                <div class="col-md-10">                    
+                        <div>
+                            <span class="has-error" ng-if="drCtrl.tabError.personInformation===true">Few required fields are missing into tab : Person Information<br /></span>
+                            <span class="has-error" ng-if="drCtrl.tabError.sensitiveInformation===true">Few required fields are missing into tab : Sensitive Information</span>
+                        </div>
+                    
+                    <!--Tab Start-->
+                    <div ng-controller="TabCtrl">                        
+                        <uib-tabset active="active">
+                            <uib-tab index="0" heading="Person Information" ng-attr-active="drCtrl.tabs[0].active">
+                                <div>                                   
+                                    <!--Person Information Content-->                                  
+                                    <div id="person-details">
+                                        <h5 class="sub-title m-t-sm">Driver Type</h5>
+                                        <div class="row">
+                                            <div class="col-md-12 p-r0">
+                                                <div class="form-group">
+                                                    <ul class="list-inline inline-form-element">
+                                                        <li>
+                                                            <div class="checkbox"><label class="p-l0"> <input type="radio" icheck name="radioshift" ng-model="drCtrl.isSubcontractor" value="BCADriver" ng-checked="true"> BCA Driver</label></div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="checkbox"><label class="p-l0"> <input type="radio" icheck name="radioshift" ng-model="drCtrl.isSubcontractor" value="BCAOperator"> BCA Operator</label></div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="checkbox"><label class="p-l0"> <input type="radio" icheck name="radioshift" ng-model="drCtrl.isSubcontractor" value="subcontractorDriver" ng-checked="true"> Subcontractor Driver</label></div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="checkbox"><label class="p-l0"> <input type="radio" icheck name="radioshift" ng-model="drCtrl.isSubcontractor" value="subcontractorOperator"> Subcontractor Operator</label></div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!--<div class="col-md-3 p-r0">
+                                                <div class="form-group">
+                                                    <select ng-model="mfrCtrl.subcontractor" name="fleetType" class="form-control" ng-required="true" ng-if="drCtrl.isSubcontractor === 'subcontractorDriver' || drCtrl.isSubcontractor === 'subcontractorOperator' ">
+                                                        <option value="">Select</option>
+                                                        <option value="">Subcontractor1</option>
+                                                        <option value="">Subcontractor2</option>
+                                                        <option value="">Subcontractor3</option>
+                                                        <option value="">Subcontractor4</option>
+                                                    </select>
+                                                </div>
+                                            </div>-->                                            
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4 p-r0" ng-controller="StartDatepickerCtrl">
+                                                <div class="form-group">
+                                                    <label>From Date</label>
+                                                    <div class="input-group date-picker">
+                                                        <span class="input-group-addon" ng-click="startDate()">
+                                                            <span class="fa fa-calendar"></span>
+                                                        </span>
+                                                        <input placeholder="DD-MM-YYYY" type="text" name="expiryDate" class="form-control" uib-datepicker-popup="{{format}}"
+                                                               show-button-bar="false" ng-model="drCtrl.attributes.TypeFromDate" is-open="popup1.opened" min-date="minDate"
+                                                               max-date="'2019-06-22'" datepicker-options="dateOptions"
+                                                               date-disabled="disabled(date, mode)" close-text="Close" ng-model-options="{timezone: 'UTC'}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 p-r0" ng-controller="StartDatepickerCtrl">
+                                                <div class="form-group">
+                                                    <label>To Date</label>
+                                                    <div class="input-group date-picker">
+                                                        <span class="input-group-addon" ng-click="startDate()">
+                                                            <span class="fa fa-calendar"></span>
+                                                        </span>
+                                                        <input placeholder="DD-MM-YYYY" type="text" name="expiryDate" class="form-control" uib-datepicker-popup="{{format}}"
+                                                               show-button-bar="false" ng-model="drCtrl.attributes.TypeToDate" is-open="popup1.opened" min-date="drCtrl.attributes.TypeFromDate"
+                                                               max-date="'2019-06-22'" datepicker-options="dateOptions"
+                                                               date-disabled="disabled(date, mode)" close-text="Close" ng-model-options="{timezone: 'UTC'}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Notes</label>
+                                                    <textarea class="form-control" rows="5" id="comment" ng-model="drCtrl.attributes.TypeNote"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-3 p-r0">
+                                                <div class="form-group">
+                                                    <label>First Name<span class="text-danger"> *</span></label>
+                                                    <input class="form-control" type="text" name="firstName" ng-model="drCtrl.attributes.FirstName" ng-minlength="2" ng-maxlength="30" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 p-r0">
+                                                <div class="form-group">
+                                                    <label>Last Name<span class="text-danger"> *</span></label>
+                                                    <input class="form-control" type="text" name="lastName" ng-model="drCtrl.attributes.LastName" ng-minlength="2" ng-maxlength="30" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 p-r0">
+                                                <div class="form-group">
+                                                    <label>Email Address<span class="text-danger"> *</span></label>
+                                                    <input class="form-control" type="email"  name="email" ng-model="drCtrl.attributes.Email" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Contact Number<span class="text-danger"> *</span></label>
+                                                    <input class="form-control" type="number" name="mobileNumber" ng-model="drCtrl.attributes.MobileNumber" ng-minlength="10" ng-maxlength="10" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h4 class="sub-title m-t-sm">Address</h4>
+                                        <div class="row">
+                                            <div class="col-md-6 p-r0">
+                                                <div class="form-group">
+                                                    <label>Address Line 1</label>
+                                                    <input class="form-control" type="text" ng-model="drCtrl.attributes.AddressLine1">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Address Line 2</label>
+                                                    <input class="form-control" type="text" ng-model="drCtrl.attributes.AddressLine2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3 p-r0">
+                                                <div class="form-group">                                                   
+                                                    <label>Country <span class="text-danger"> *</span></label>
+                                                    <select ng-model="drCtrl.country" name="country" ng-change="drCtrl.getStates(drCtrl.country.Value)" ng-options="item.Text for item in drCtrl.countries track by item.Value" class="form-control sub-select" required>
+                                                        <option value="">Select</option>
+                                                    </select>                                                    
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 p-r0">
+                                                <div class="form-group">
+                                                    <label>State <span class="text-danger"> *</span></label>
+                                                    <select ng-model="drCtrl.state" name="state" ng-options="item.Text for item in drCtrl.states track by item.Value" class="form-control sub-select" required>
+                                                        <option value="">Select</option>
+                                                    </select>                                                  
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 p-r0">
+                                                <div class="form-group">
+                                                    <label>City</label>
+                                                    <input class="form-control" type="text" ng-model="drCtrl.attributes.City" ng-maxlength="50">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Zip Code</label>
+                                                    <input class="form-control" type="number" ng-model="drCtrl.attributes.ZipCode" ng-maxlength="6">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h4 class="sub-title m-t-sm">Other Information</h4>
+                                        <div class="row">
+                                            <div class="col-md-4 p-r0">
+                                                <div class="form-group">
+                                                    <label>Employment Category <span class="text-danger"> *</span></label>                                                   
+                                                    <select ng-model="drCtrl.employmentCategory" name="employmentCategory" ng-options="item.Category for item in drCtrl.employeeCategoriesList track by item.EmploymentCategoryId" class="form-control sub-select" required>
+                                                        <option value="">Select</option>EmploymentCategoryId
+                                                    </select>                                                   
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 p-r0">
+                                                <div class="form-group">
+                                                    <label>Employment Status <span class="text-danger"> *</span></label>                                                  
+                                                    <select ng-model="drCtrl.employmentStatus" name="employmentStatus" ng-options="item.Status for item in drCtrl.statusLookupList track by item.StatusId" class="form-control sub-select" required>
+                                                        <option value="">Select</option>
+                                                    </select> 
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 p-r0">
+                                                <div class="form-group">
+                                                    <label>Card No.</label>
+                                                    <input class="form-control" type="number" ng-model="drCtrl.attributes.CardNumber">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>License No.<span class="text-danger"> *</span></label>
+                                                    <input class="form-control" type="number" name="licenseNumber" ng-model="drCtrl.attributes.LicenseNumber" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 p-r0">
+                                                <div class="form-group">
+                                                    <label>License Class <span class="text-danger"> *</span></label>                                                   
+                                                    <select ng-model="drCtrl.licenseClass" name="licenseClass" ng-options="item.LicenseClass for item in drCtrl.getLicenseClassList track by item.LicenseClassId" class="form-control sub-select" required>
+                                                        <option value="">Select</option>
+                                                    </select> 
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 p-r0" ng-controller="StartDatepickerCtrl">
+                                                <div class="form-group">
+                                                    <label>Expiry Date <span class="text-danger"> *</span></label>
+                                                    <div class="input-group date-picker">
+                                                        <span class="input-group-addon" ng-click="startDate()">
+                                                            <span class="fa fa-calendar"></span>
+                                                        </span>
+                                                        <input placeholder="DD-MM-YYYY" type="text" name="expiryDate" class="form-control" uib-datepicker-popup="{{format}}"
+                                                               show-button-bar="false" ng-model="drCtrl.attributes.ExpiryDate" is-open="popup1.opened" min-date="minDate"
+                                                               max-date="'2019-06-22'" datepicker-options="dateOptions"
+                                                               date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" ng-model-options="{timezone: 'UTC'}"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Annual Leave Balance<span class="text-danger"> *</span></label>
+                                                    <input type="number" class="form-control" name="annualLeaveBalance" ng-model="drCtrl.attributes.AnnualLeaveBalance" min="1" max="365" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Sick Leave Balance<span class="text-danger"> *</span></label>
+                                                    <input type="number" class="form-control" name="sickLeaveBalance" ng-model="drCtrl.attributes.SickLeaveBalance" min="1" max="365" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h5 class="sub-title m-t-sm">Leave Period</h5>
+                                        <div class="row">
+                                            <div class="col-md-4 p-r0" ng-controller="StartDatepickerCtrl">
+                                                <div class="form-group">
+                                                    <label>From Date</label>
+                                                    <div class="input-group date-picker">
+                                                        <span class="input-group-addon" ng-click="startDate()">
+                                                            <span class="fa fa-calendar"></span>
+                                                        </span>
+                                                        <input placeholder="DD-MM-YYYY" type="text" name="expiryDate" class="form-control" uib-datepicker-popup="{{format}}"
+                                                               show-button-bar="false" ng-model="drCtrl.attributes.LeaveFromDate" is-open="popup1.opened" min-date="minDate"
+                                                               max-date="'2019-06-22'" datepicker-options="dateOptions"
+                                                               date-disabled="disabled(date, mode)"  close-text="Close" ng-model-options="{timezone: 'UTC'}" />
+                                                    </div>
+                                                </div>
+                                             </div>
+                                             <div class="col-md-4 p-r0" ng-controller="StartDatepickerCtrl">
+                                                <div class="form-group">
+                                                    <label>To Date</label>
+                                                    <div class="input-group date-picker">
+                                                        <span class="input-group-addon" ng-click="startDate()">
+                                                            <span class="fa fa-calendar"></span>
+                                                        </span>
+                                                        <input placeholder="DD-MM-YYYY" type="text" name="expiryDate" class="form-control" uib-datepicker-popup="{{format}}"
+                                                               show-button-bar="false" ng-model="drCtrl.attributes.LeaveToDate" is-open="popup1.opened" min-date="drCtrl.attributes.LeaveFromDate"
+                                                               max-date="'2019-06-22'" datepicker-options="dateOptions"
+                                                               date-disabled="disabled(date, mode)" close-text="Close" ng-model-options="{timezone: 'UTC'}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Notes</label>
+                                                    <textarea class="form-control" rows="5" id="comment" ng-model="drCtrl.attributes.LeaveNote"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Person Information Content End-->
+                                    <div class="panel-footer text-right bc-panel-footer">                                      
+                                        <a class="btn btn-primary" ng-click="drCtrl.goNextTab(0)">Next</a>
+                                    </div>
+                                </div>
+                            </uib-tab>
+                            <uib-tab index="1" heading="Sensitive Information" ng-attr-active="drCtrl.tabs[1].active">
+                                <div>
+                                    <!--Sensitive Information Content-->
+                                    <div id="sensitive-details">
+                                        <div class="row">
+                                            <div class="col-md-4 p-r0">
+                                                <div class="form-group">
+                                                    <label>Base Rate<span class="text-danger"> *</span></label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon ">
+                                                            <span class="fa fa-usd"></span>
+                                                        </span>
+                                                        <input class="form-control" type="number" name="baseRate" ng-model="drCtrl.attributes.BaseRate" ng-pattern="/^([0-9]{1,3})+(\.[0-9]{1,2})?$/" step="0.01" required>
+                                                      
+                                                     </div>
+                                                    <div ng-if="add_driverregistration_form.BaseRate.$invalid && !add_driverregistration_form.BaseRate.$pristine">
+                                                        <span class="has-error"> This field is invalid.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 p-r0">
+                                                <div class="form-group">
+                                                    <label>Shift<span class="text-danger"> *</span></label>
+                                                    <input class="form-control" type="text" name="shift" ng-model="drCtrl.attributes.Shift" ng-maxlength="100" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Awards</label>
+                                                    <input class="form-control" type="text" ng-model="drCtrl.attributes.Awards">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Sensitive Information Content End-->
+                                    <div class="panel-footer text-right bc-panel-footer">
+                                        <a class="btn btn-primary" ng-click="drCtrl.goPreviousTab(1)">Prev</a>
+                                        <a class="btn btn-primary" ng-click="drCtrl.goNextTab(1)">Next</a>
+                                    </div>
+                                </div>
+                            </uib-tab>
+                            <uib-tab index="2" heading="License/ Cards" ng-attr-active="drCtrl.tabs[2].active">
+                                <div>
+                                    <!--License Content-->
+                                    <div id="license-details">
+                                        <div class="row">
+                                            <div class="col-md-12 p-l0">
+                                                <div class="col-md-11">
+                                                    <h5 class="m-t-sm m-b-sm"><b>White Cards</b></h5>
+                                                </div>
+                                                <div class="col-md-4" ng-controller="StartDatepickerCtrl">
+                                                    <div class="form-group">
+                                                        <label>Issue Date <span class="text-danger"> *</span></label>
+                                                        <div class="input-group date-picker">
+                                                            <span class="input-group-addon" ng-click="startDate()">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span>
+                                                            <input placeholder="DD-MM-YYYY" type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                                                                   show-button-bar="false" ng-model="drCtrl.whiteCardsRow.issueDate" is-open="popup1.opened" min-date="minDate"
+                                                                   max-date="'2019-06-22'" datepicker-options="dateOptions"
+                                                                   date-disabled="disabled(date, mode)" close-text="Close" ng-model-options="{timezone: 'UTC'}" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Card Number <span class="text-danger"> *</span></label>
+                                                        <input type="number" class="form-control only-float" ng-minlength="16" ng-maxlength="16" ng-model="drCtrl.whiteCardsRow.cardNumber">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Notes</label>
+                                                        <textarea class="form-control" rows="5" id="comment" ng-model="drCtrl.whiteCardsRow.note"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 text-right">
+                                                    <div class="form-group add-btn">
+                                                        <a href="javascript:void(0)" class="btn btn-primary btn-i" title="Add More" ng-click="drCtrl.addWhiteCardRow()"><i class="fa fa-plus"></i> Add More</a>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="grid-tb-panel inductioncards" ng-if="drCtrl.whiteCards.length > 0">
+                                                    <div class="col-md-12 ">
+                                                        <table class="table table-stripped" data-page-size="8">
+                                                            <tr>                                                               
+                                                                <th>
+                                                                    Issue Date
+                                                                </th>
+                                                                <th>
+                                                                    Card Number
+                                                                </th>                                                               
+                                                                <th>
+                                                                    Notes
+                                                                </th>
+                                                                <th>
+                                                                    Action
+                                                                </th>
+                                                            </tr>
+                                                            <tr ng-repeat="whiteCard in drCtrl.whiteCards">
+                                                               
+                                                                <td class="text-left">
+                                                                    {{whiteCard.IssueDate | date :  "dd-MM-y"}}
+                                                                </td>
+                                                                <td class="text-right">
+                                                                    {{whiteCard.CardNumber}}
+                                                                </td>                                                              
+                                                                <td class="text-left">
+                                                                    {{whiteCard.Notes}}
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <a type="button" href="javascript:void(0);" ng-click="drCtrl.removeWhiteCardRow($index);" title="Delete"><i class="fa pe-7s-trash"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="col-md-11">
+                                                    <h5 class="m-t-sm m-b-sm"><b>Induction Cards </b></h5>
+                                                </div>
+                                                
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Site/ Cost <span class="text-danger"> *</span></label>
+                                                        <input type="text" class="form-control" name="name"
+                                                               ng-model="drCtrl.inductionRow.siteCost" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3" ng-controller="StartDatepickerCtrl">
+                                                    <div class="form-group">
+                                                        <label>Issue Date <span class="text-danger"> *</span></label>
+                                                        <div class="input-group date-picker">
+                                                            <span class="input-group-addon" ng-click="startDate()">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span>
+                                                            <input placeholder="DD-MM-YYYY" type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                                                                   show-button-bar="false" ng-model="drCtrl.inductionRow.issueDate" is-open="popup1.opened" min-date="minDate"
+                                                                   max-date="'2019-06-22'" datepicker-options="dateOptions"
+                                                                   date-disabled="disabled(date, mode)" close-text="Close" ng-model-options="{timezone: 'UTC'}" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Card Number <span class="text-danger"> *</span></label>
+                                                        <input type="number" class="form-control" ng-minlength="16" ng-maxlength="16" ng-model="drCtrl.inductionRow.cardNumber"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3" ng-controller="StartDatepickerCtrl">
+                                                    <div class="form-group">
+                                                        <label>Expiry Date <span class="text-danger"> *</span></label>
+                                                        <div class="input-group date-picker">
+                                                            <span class="input-group-addon" ng-click="startDate()">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span>
+                                                            <input placeholder="DD-MM-YYYY" type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                                                                   show-button-bar="false" ng-model="drCtrl.inductionRow.expiryDate" is-open="popup1.opened" min-date="minDate"
+                                                                   max-date="'2019-06-22'" datepicker-options="dateOptions"
+                                                                   date-disabled="disabled(date, mode)" close-text="Close" ng-model-options="{timezone: 'UTC'}" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Notes</label>
+                                                        <textarea class="form-control" rows="5" id="comment" ng-model="drCtrl.inductionRow.note "></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 text-right">
+                                                    <div class="form-group add-btn">
+                                                        <a href="javascript:void(0)" class="btn btn-primary btn-i" title="Add More" ng-click="drCtrl.addInductionRow()"><i class="fa fa-plus"></i> Add More</a>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="grid-tb-panel inductioncards" ng-if="drCtrl.inductionCards.length > 0">
+                                                    <div class="col-md-12 ">
+                                                        <table class="table table-stripped" data-page-size="8">
+                                                            <tr>
+                                                                <th>
+                                                                    Site/ Cost
+                                                                </th>
+                                                                <th>
+                                                                    Issue Date
+                                                                </th>
+                                                                <th>
+                                                                    Card Number
+                                                                </th>
+                                                                <th>
+                                                                    Expiry Date
+                                                                </th>
+                                                                <th>
+                                                                    Notes
+                                                                </th>
+                                                                <th>
+                                                                    Action
+                                                                </th>
+                                                            </tr>
+                                                            <tr ng-repeat="inductionCard in drCtrl.inductionCards">
+                                                                <td class="text-right">
+                                                                    {{inductionCard.SiteCost}}
+                                                                </td>
+                                                                <td class="text-left">
+                                                                    {{inductionCard.IssueDate | date :  "dd-MM-y"}}
+                                                                </td>
+                                                                <td class="text-right">
+                                                                    {{inductionCard.CardNumber }}
+                                                                </td>
+                                                                <td class="text-left">
+                                                                    {{inductionCard.ExpiryDate| date :  "dd-MM-y" }}
+                                                                </td>
+                                                                <td class="text-left">
+                                                                    {{inductionCard.Notes }}
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <a type="button" href="javascript:void(0);" ng-click="drCtrl.removeInductionRow($index);" title="Delete"><i class="fa pe-7s-trash"></i></a>
+                                                                   
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="col-md-11">
+                                                    <h5 class="m-t-sm m-b-sm"><b>VOC Cards</b></h5>
+                                                </div>
+                                                <div class="col-md-4" ng-controller="StartDatepickerCtrl">
+                                                    <div class="form-group">
+                                                        <label>Issue Date <span class="text-danger"> *</span></label>
+                                                        <div class="input-group date-picker">
+                                                            <span class="input-group-addon" ng-click="startDate()">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span>
+                                                            <input placeholder="DD-MM-YYYY" type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                                                                   show-button-bar="false" ng-model="drCtrl.vocRow.issueDate" is-open="popup1.opened" min-date="minDate"
+                                                                   max-date="'2019-06-22'" datepicker-options="dateOptions"
+                                                                   date-disabled="disabled(date, mode)" close-text="Close" ng-model-options="{timezone: 'UTC'}" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Card Number <span class="text-danger"> *</span></label>
+                                                        <input type="number" class="form-control only-float" ng-minlength="16" ng-maxlength="16" ng-model="drCtrl.vocRow.cardNumber">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>RTO Number <span class="text-danger"> *</span></label>
+                                                        <input type="text" class="form-control only-float" ng-minlength="16" ng-maxlength="16" ng-model="drCtrl.vocRow.rtoNumber">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Notes</label>
+                                                        <textarea class="form-control" rows="5" id="comment" ng-model="drCtrl.vocRow.note"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 text-right">
+                                                    <div class="form-group add-btn">
+                                                        <a href="javascript:void(0)" class="btn btn-primary btn-i" title="Add More" ng-click="drCtrl.vocAddRow();"><i class="fa fa-plus"></i> Add More</a>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                   
+                                                <div class="grid-tb-panel inductioncards" ng-if="drCtrl.vocCards.length > 0">
+                                                    <div class="col-md-12 ">
+                                                        <table class="table table-stripped" data-page-size="8">
+                                                            <tr>
+                                                  
+                                                                <th>
+                                                                    Issue Date
+                                                                </th>
+                                                                <th>
+                                                                    Card Number
+                                                                </th>
+                                                                <th>
+                                                                    RTO Number
+                                                                </th>
+                                                                <th>
+                                                                    Notes
+                                                                </th>
+                                                                <th>
+                                                                    Action
+                                                                </th>
+                                                            </tr>
+                                                            <tr ng-repeat="vocCard in drCtrl.vocCards">
+                                                                <td class="text-left">
+                                                                    {{vocCard.IssueDate| date :  "dd-MM-y"}}
+                                                                </td>
+                                                                <td class="text-right">
+                                                                    {{vocCard.CardNumber}}
+                                                                </td>
+                                                                <td class="text-right">
+                                                                    {{vocCard.RTONumber}}
+                                                                </td>
+                                                                <td class="text-left">
+                                                                    {{vocCard.Notes}}
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <a type="button" href="javascript:void(0);" ng-click="drCtrl.removeVocRow($index);" title="Delete"><i class="fa pe-7s-trash"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <label>Attachment </label>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <div class="input-group image-preview">
+                                                            <input type="text" class="form-control image-preview-filename"> <!-- don't give a name === doesn't send on POST/GET -->
+                                                            <span class="input-group-btn">
+                                                                <div class="btn btn-default image-preview-input">
+                                                                    <span class="glyphicon glyphicon-folder-open"></span>
+                                                                    <span class="image-preview-input-title">Choose File</span>
+                                                                    <input type="file" id="inputAttachmentFileToLoad" multiple ngf-select ng-model="drCtrl.Attachments" name="file" accept="image/*" ngf-max-size="2MB" ngf-model-invalid="errorFile" class="btn btn-default" ng-change="drCtrl.loadAttachmentFile();"><!-- rename it -->
+                                                                </div>
+                                                            </span>
+                                                        </div><!-- /input-group image-preview [TO HERE]-->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- List of existing attachments -->
+                                            <div ng-repeat="file in drCtrl.licenseImage">{{file}}</div>                                           
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <div ng-repeat="files in drCtrl.licenseImageSelected">{{files.name}}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--License Content End-->
+                                    <div class="panel-footer text-right bc-panel-footer">
+                                        <a class="btn btn-primary" ng-click="drCtrl.goPreviousTab(2)">Prev</a>
+                                        <a class="btn btn-primary" ng-click="drCtrl.goNextTab(2)">Next</a>
+                                    </div>
+                                </div>
+                            </uib-tab>
+                            <uib-tab index="3" heading="Anonymous Fields" ng-attr-active="drCtrl.tabs[3].active">
+                                <div>
+                                    <!--Anonymous Content-->
+                                    <div id="snonymous-details">
+                                        <div class="row">
+                                            <div class="col-md-4" ng-controller="StartDatepickerCtrl">
+                                                <div class="form-group">
+                                                    <label>Issue Date <span class="text-danger"> *</span></label>
+                                                    <div class="input-group date-picker">
+                                                        <span class="input-group-addon" ng-click="startDate()">
+                                                            <span class="fa fa-calendar"></span>
+                                                        </span>
+                                                        <input placeholder="DD-MM-YYYY" type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                                                               show-button-bar="false" ng-model="drCtrl.anonymousFieldRow.issueDate" is-open="popup1.opened" min-date="minDate"
+                                                               max-date="'2019-06-22'" datepicker-options="dateOptions"
+                                                               date-disabled="disabled(date, mode)" ng-required="false" close-text="Close" ng-model-options="{timezone: 'UTC'}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4" ng-controller="StartDatepickerCtrl">
+                                                <div class="form-group">
+                                                    <label>Expiry Date <span class="text-danger"> *</span></label>
+                                                    <div class="input-group date-picker">
+                                                        <span class="input-group-addon" ng-click="startDate()">
+                                                            <span class="fa fa-calendar"></span>
+                                                        </span>
+                                                        <input placeholder="DD-MM-YYYY" type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                                                               show-button-bar="false" ng-model="drCtrl.anonymousFieldRow.expiryDate" is-open="popup1.opened" min-date="minDate"
+                                                               max-date="'2019-06-22'" datepicker-options="dateOptions"
+                                                               date-disabled="disabled(date, mode)" ng-required="false" close-text="Close" ng-model-options="{timezone: 'UTC'}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Title <span class="text-danger"> *</span></label>
+                                                    <input type="text" class="form-control only-float" ng-maxlength="50" ng-model="drCtrl.anonymousFieldRow.title">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Other 1 <span class="text-danger"> *</span></label>
+                                                    <input type="text" class="form-control only-float" ng-maxlength="50" ng-model="drCtrl.anonymousFieldRow.otherOne">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Other 2 <span class="text-danger"> *</span></label>
+                                                    <input type="text" class="form-control only-float" ng-maxlength="50" ng-model="drCtrl.anonymousFieldRow.otherTwo">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Notes</label>
+                                                    <textarea class="form-control" rows="5" id="comment" ng-model="drCtrl.anonymousFieldRow.note"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 text-right">
+                                                <div class="form-group add-btn">
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-i" title="Add More" ng-click="drCtrl.anonymousFieldAddRow()">
+                                                        <i class="fa fa-plus"></i> Add More
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="clearfix"></div>
+                                            <div class="grid-tb-panel inductioncards" ng-if="drCtrl.anonymousFields.length > 0">
+                                                <div class="col-md-12 ">
+                                                    <table class="table table-stripped" data-page-size="8">
+                                                        <tr>
+                                                            <th>
+                                                                Issue Date
+                                                            </th>
+                                                            <th>
+                                                                Expiry Date
+                                                            </th>
+                                                            <th>
+                                                                Title
+                                                            </th>
+                                                            <th>
+                                                                Other 1
+                                                            </th>
+                                                            <th>
+                                                                Other 2
+                                                            </th>
+                                                            <th>
+                                                                Notes
+                                                            </th>
+                                                            <th>
+                                                                Action
+                                                            </th>
+                                                        </tr>
+                                                        <tr ng-repeat="anonymousField in drCtrl.anonymousFields">
+                                                            <td class="text-left">
+                                                                {{anonymousField.IssueDate| date :  "dd-MM-y"}}
+                                                            </td>
+                                                            <td class="text-center">
+                                                                {{anonymousField.ExpiryDate| date :  "dd-MM-y" }}
+                                                            </td>
+                                                            <td class="text-left">
+                                                                {{anonymousField.Title }}
+                                                            </td>
+                                                            <td class="text-left">
+                                                                {{anonymousField.OtherOne }}
+                                                            </td>
+                                                            <td class="text-left">
+                                                                {{anonymousField.OtherTwo }}
+                                                            </td>
+                                                            <td class="text-left">
+                                                                {{anonymousField.Notes}}
+                                                            </td>                                                           
+                                                            <td class="text-center">
+                                                                <a type="button" href="javascript:void(0);" ng-click="drCtrl.removeAnonymousFieldRow($index);" title="Delete"><i class="fa pe-7s-trash"></i></a>
+                                                            </td>
+                                                            
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Anonymous Content End-->
+                                    <div class="panel-footer text-right bc-panel-footer">
+                                        <a class="btn btn-primary" ng-click="drCtrl.goPreviousTab(3)">Prev</a>                                      
+                                    </div>
+                                </div>
+                                <div class="panel-footer text-right bc-panel-footer">
+                                    <button class="btn btn-default" ng-click="drCtrl.goDriverList();" title="Cancel">Cancel</button>
+                                    <button class="btn btn-primary" type="submit" ng-click="drCtrl.checkFormValidation(add_driverregistration_form);" >Submit</button>
+                                </div>
+                            </uib-tab>
+                        </uib-tabset>
+                    </div>
+                    <!--Tab End-->
+                </div>
+            </div>
+        </div>
+      
+    </form>
+</div>

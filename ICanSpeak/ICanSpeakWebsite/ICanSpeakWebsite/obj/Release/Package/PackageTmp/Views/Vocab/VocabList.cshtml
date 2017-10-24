@@ -1,0 +1,218 @@
+﻿@{
+    ViewBag.Title = "VocabList";
+}
+<link href="~/css/jquery.flipcountdown.css" rel="stylesheet" />
+<script src="@Url.Content("/Scripts/jquery.min.js")"></script>
+<script src="@Url.Content("/Scripts/jquery.flipcountdown.js")"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //$("#click_btn").click(function(){
+        $("#myModal").modal('show');
+        //});
+    });
+</script>
+<style>
+    .pdspace {margin-left:4px;color:#27AAE1 !important;}
+      .pdspace:hover {margin-left:4px;color:#fff !important;}
+</style>
+<div class="row accordian">
+    <div class="container">
+         @if (ViewBag.VocabularyBookmark != "")
+        {
+            <div id="myModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <div class="modal-header btn-info">
+
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Confirmation</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Do you want to redirect on saved bookmark</p>
+                            <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+                        </div>
+                        <div class="modal-footer">
+                            @*<a href="#" class="btn btn-info">Save changes</a>*@
+                            <a href="../../Vocab/WordDetail?id=@ViewBag.VocabularyBookmark&VocabularyId=@ViewBag.VocabId"  class="btn btn-info" id="grammerBookmark">Vocabulary Bookmark</a>
+                            <a href="#" class="btn btn-danger" data-dismiss="modal">Close</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>​
+        }
+        <div class="col-lg-12">
+
+            <div class="col-md-3 user-profice-pic">
+                <img src="@ViewBag.ProfilePicture"  class="img-page">
+            </div>
+            <div class="col-md-9">
+                <div class="col-md-4">
+                    <h2 class=" user-profile">@ViewBag.Username</h2>
+
+                    <h4 class="tutor-city-name">@ViewBag.Country</h4>
+                </div>
+                <div class="col-lg-5 col-lg-push-3">
+                    <!--<ul class="nav nav-pills view-profile">
+                        <li class="active"><a href="#">Subscription</a></li>
+                        <li><a href="#">Normal</a></li>                      
+                    </ul>
+                   -->
+                </div>
+            </div>
+
+            <div class="col-lg-2 blue-wrapper">
+                <h2>My Score</h2>
+                <h3>@ViewBag.MyScore / @ViewBag.TotalScore</h3>
+            </div>
+            <div class="col-lg-2 blue-wrapper">
+                <h2>Instructor Evaluation</h2>
+                <h3>Great </h3>
+            </div>
+            <div class="col-lg-2 blue-wrapper">
+               <a href="../../Vocab/FlashCardWordList"> <h2>Flashcards</h2></a>
+                <h3>@ViewBag.FlashCard</h3>
+            </div>
+            <div class="col-lg-2 blue-wrapper">
+                <h2>Days Remaining</h2>
+                <div align="center">
+                    <div id="retroclockbox_sm"></div>
+                </div>
+                <script>
+                    jQuery(function ($) {
+                        //var NY = Math.round((new Date('1/01/2015 00:00:01')).getTime()/1000);
+                        $('#new_year').flipcountdown({
+                            size: 'lg',
+                            beforeDateTime: '1/01/2015 00:00:01'
+
+                        });
+                    });
+                </script>
+                <script>
+                    jQuery(function ($) {
+                        $('#retroclockbox_lg').flipcountdown({ size: 'lg' });
+                        $('#retroclockbox_md').flipcountdown({ size: 'md' });
+                        $('#retroclockbox_sm').flipcountdown({ size: 'sm' });
+                        $('#retroclockbox_xs').flipcountdown({ size: 'xs' });
+                    })
+                </script>
+            </div>
+        </div>
+        <div class="col-lg-12 ">
+            <h2 class="header">Vocabulary</h2>
+        </div>
+
+        <a href="../Home/MyCourse">
+            <div class="col-lg-2 grey-wrapper">
+                <h2>Grammar</h2>
+            </div>
+        </a>
+        <a href="../Vocab/VocabList">
+            <div class="col-lg-2 blue-wrapper2">
+                <h2>Vocabulary</h2>
+            </div>
+        </a>
+        <a href="../Dialog/DialogList">
+            <div class="col-lg-2 grey-wrapper">
+                <h2>Dialogue</h2>
+            </div>
+        </a>
+        <!--<div class="col-lg-2 grey-wrapper">
+                    <h2>Course Duration</h2>
+                    
+                </div>-->
+        <span class=" right-part">
+            <a href="../../Course/SubscriptionPlan">
+                <button type="button" class="btn btn-info"><i class="fa fa-plus-circle"></i>&nbsp;Add New course</button></a>
+        </span>
+        <div class="clearfix"></div>
+        <div class="col-lg-12">
+
+            <div class="vocab-wrapper">
+
+                <div class="col-lg-12">
+                    <div class="tab-pane ">
+                        @foreach (var vocab in ViewBag.Vocab)
+                        {
+                            if (Convert.ToInt32(@vocab["RowIndex"]) % 2 != 0)
+                            {
+                            <div class="panel panel-default panel-bottom">
+                                @if (@vocab["IsSubCategory"] == "true")
+                                {
+                                    <a href="../../Vocab/VocabSubCategory?id=@vocab["VocabularyId"]">
+                                        <div class="panel-body panel-body-Padding unit-tab">
+
+                                            @vocab["VocabEnglish"]
+                                            
+                                            
+                                            <span class= "pdspace">(
+                                                @vocab["SubCategoryCount"]
+                                                )
+                                            </span>
+
+                                            <i class="fa fa-arrow-circle-right course-size" style="cursor: pointer;"></i>
+                                        </div>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="#">
+                                        <div id="@vocab["VocabularyId"]" class="panel-body panel-body-Padding unit-tab">
+                                            @vocab["VocabEnglish"]
+
+                                             <span class= "pdspace">(
+                                                @vocab["SubCategoryCount"]
+                                                )
+                                            </span>
+
+                                            <i class="fa fa-arrow-circle-right course-size" style="cursor: pointer;"></i>
+                                        </div>
+                                    </a>       
+                                }
+
+                            </div>
+                            }
+                            else
+                            {
+                            <div class="panel panel-default panel-bottom">
+                                @if (@vocab["IsSubCategory"] == "true")
+                                {
+                                    <a href="../../Vocab/VocabCategoryWords?id=@vocab["VocabularyId"]">
+                                        <div class="panel-body panel-body-Padding unit-tab2">
+                                            @vocab["VocabEnglish"]
+
+                                              <span class= "pdspace">(
+                                                @vocab["SubCategoryCount"]
+                                                )
+                                            </span>
+
+                                            <i class="fa fa-arrow-circle-right course-size" style="cursor: pointer;"></i>
+                                        </div>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="../../Vocab/VocabCategoryWords?id=@vocab["VocabularyId"]">
+                                        <div class="panel-body panel-body-Padding unit-tab2">
+                                            @vocab["VocabEnglish"]
+
+                                              <span class= "pdspace">(
+                                                @vocab["SubCategoryCount"]
+                                                )
+                                            </span>
+
+                                            <i class="fa fa-arrow-circle-right course-size" style="cursor: pointer;"></i>
+                                        </div>
+                                    </a>    
+                                }
+                            </div> 
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,110 @@
+C:\Users\Rajat Sharma\Desktop\New folder\WCF\craveasap.tv.net\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.Net4.dll
+C:\Users\Rajat Sharma\Desktop\New folder\WCF\craveasap.tv.net\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.BusinessServices.dll
+C:\Users\Rajat Sharma\Desktop\New folder\WCF\craveasap.tv.net\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.BusinessServices.pdb
+C:\Users\Rajat Sharma\Desktop\New folder\WCF\craveasap.tv.net\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.dll
+C:\Users\Rajat Sharma\Desktop\New folder\WCF\craveasap.tv.net\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.BusinessEntities.dll
+C:\Users\Rajat Sharma\Desktop\New folder\WCF\craveasap.tv.net\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.DataModel.dll
+C:\Users\Rajat Sharma\Desktop\New folder\WCF\craveasap.tv.net\TV.CraveASAP.BusinessServices\bin\Release\EntityFramework.dll
+C:\Users\Rajat Sharma\Desktop\New folder\WCF\craveasap.tv.net\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.BusinessEntities.pdb
+C:\Users\Rajat Sharma\Desktop\New folder\WCF\craveasap.tv.net\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.DataModel.pdb
+C:\Users\Rajat Sharma\Desktop\New folder\WCF\craveasap.tv.net\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.pdb
+C:\Users\Rajat Sharma\Desktop\New folder\WCF\craveasap.tv.net\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.xml
+C:\Users\Rajat Sharma\Desktop\New folder\WCF\craveasap.tv.net\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.Net4.pdb
+C:\Users\Rajat Sharma\Desktop\New folder\WCF\craveasap.tv.net\TV.CraveASAP.BusinessServices\bin\Release\EntityFramework.xml
+C:\Users\Rajat Sharma\Desktop\New folder\WCF\craveasap.tv.net\TV.CraveASAP.BusinessServices\obj\Release\TV.CraveASAP.BusinessServices.csprojResolveAssemblyReference.cache
+C:\Users\Rajat Sharma\Desktop\New folder\WCF\craveasap.tv.net\TV.CraveASAP.BusinessServices\obj\Release\TV.CraveASAP.BusinessServices.dll
+C:\Users\Rajat Sharma\Desktop\New folder\WCF\craveasap.tv.net\TV.CraveASAP.BusinessServices\obj\Release\TV.CraveASAP.BusinessServices.pdb
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.Net4.dll
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.BusinessServices.dll
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.BusinessServices.pdb
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.dll
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\Newtonsoft.Json.dll
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\PushSharp.Android.dll
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\PushSharp.Apple.dll
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\PushSharp.Core.dll
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\PushSharp.Windows.dll
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\PushSharp.WindowsPhone.dll
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.BusinessEntities.dll
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.DataModel.dll
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\EntityFramework.dll
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.BusinessEntities.pdb
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.DataModel.pdb
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.pdb
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.xml
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.Net4.pdb
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\Newtonsoft.Json.xml
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\EntityFramework.xml
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\obj\Release\TV.CraveASAP.BusinessServices.csprojResolveAssemblyReference.cache
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\obj\Release\TV.CraveASAP.BusinessServices.dll
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessServices\obj\Release\TV.CraveASAP.BusinessServices.pdb
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.Net4.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.BusinessServices.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.BusinessServices.pdb
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\Newtonsoft.Json.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\PushSharp.Android.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\PushSharp.Apple.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\PushSharp.Core.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\PushSharp.Windows.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\PushSharp.WindowsPhone.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.BusinessEntities.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.DataModel.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\EntityFramework.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.BusinessEntities.pdb
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.DataModel.pdb
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.pdb
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.Net4.pdb
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\Newtonsoft.Json.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\EntityFramework.xml
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\obj\Release\TV.CraveASAP.BusinessServices.csprojResolveAssemblyReference.cache
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\obj\Release\TV.CraveASAP.BusinessServices.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessServices\obj\Release\TV.CraveASAP.BusinessServices.pdb
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.Net4.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.BusinessServices.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.BusinessServices.pdb
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\Newtonsoft.Json.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\PushSharp.Android.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\PushSharp.Apple.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\PushSharp.Core.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\PushSharp.Windows.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\PushSharp.WindowsPhone.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.BusinessEntities.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.DataModel.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\EntityFramework.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.BusinessEntities.pdb
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.DataModel.pdb
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.pdb
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.Net4.pdb
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\Newtonsoft.Json.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\EntityFramework.xml
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\obj\Release\TV.CraveASAP.BusinessServices.csprojResolveAssemblyReference.cache
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\obj\Release\TV.CraveASAP.BusinessServices.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessServices\obj\Release\TV.CraveASAP.BusinessServices.pdb
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.Net4.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.BusinessServices.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.BusinessServices.pdb
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\Newtonsoft.Json.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\PushSharp.Android.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\PushSharp.Apple.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\PushSharp.Core.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\PushSharp.Windows.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\PushSharp.WindowsPhone.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.BusinessEntities.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.DataModel.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\EntityFramework.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.BusinessEntities.pdb
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\TV.CraveASAP.DataModel.pdb
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.pdb
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\AutoMapper.Net4.pdb
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\Newtonsoft.Json.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\bin\Release\EntityFramework.xml
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\obj\Release\TV.CraveASAP.BusinessServices.csprojResolveAssemblyReference.cache
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\obj\Release\TV.CraveASAP.BusinessServices.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\obj\Release\TV.CraveASAP.BusinessServices.pdb
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\obj\Release\TV.CraveASAP.BusinessServices.EddeeResource.resources
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessServices\obj\Release\TV.CraveASAP.BusinessServices.csproj.GenerateResource.Cache

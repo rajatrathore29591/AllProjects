@@ -1,0 +1,67 @@
+﻿@model ICanSpeakWebsite.Models.Login
+
+@{
+   
+    Layout = "~/Views/Shared/_UnLoginLayout.cshtml";
+}
+
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+{
+    <div class="row">
+        <div class="container">
+            <div class="col-lg-12 error_page top10">
+                <div class="inner_box">
+                    <div class="alert alert-dismissable alert-danger">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <h4>Incorrect Email!</h4>
+                        <p>The email you entered does not belong to any account. You may try clearing your browser's cache and cookies by following, <a href="#" class="alert-link">these instructions</a>.</p>
+                        <p>You can login using any email, username  assoiciated with your account. Make sure that it is typed correctly.</p>
+                    </div>
+                    <form class="form-horizontal">
+                        <fieldset>
+
+                            <div class="form-group text-center col-lg-12">
+
+                                @*<div class="col-lg-6 col-offset-3">
+                                    @Html.TextBoxFor(m => m.Email, new { @placeholder = "Email", @class = "form-control" })
+                                </div>*@
+                                <div class="col-lg-6 col-lg-push-3">
+                                    @Html.TextBoxFor(m => m.Email, new { @placeholder = "Email", @class = "form-control" })
+                                </div>
+
+                                <br />
+                                <br />
+                                @* <div class="col-lg-6 col-offset-3">
+                                    @Html.PasswordFor(m => m.Password, new { @placeholder = "Password", @class = "form-control" })
+                                </div>*@
+                                <div class="col-lg-6 col-lg-push-3">
+                                    @Html.PasswordFor(m => m.Password, new { @placeholder = "Password", @class = "form-control" })
+                                </div>
+
+
+                                <br />
+                                <br />
+                                <div class="col-lg-6 col-lg-push-3">
+                                    <div class="col-lg-12 text-left MT10">
+                                        <button class="btn btn-info" type="submit" id="btnLogin">Login</button>
+                                    </div>
+                                    <div class=" col-lg-12 text-left MT10">
+                                        <span><font color="gray">Login With: </font></span>
+                                        <a class="ML20" href="#">
+                                            <img src="../Images/fb_icon.png" class="inline-image"></a>
+                                        <a href="#">
+                                            <img src="../Images/twitter_icon.png" class="inline-image"></a>
+                                        <a href="#">
+                                            <img src="../Images/google_icon.png" class="inline-image"></a>
+                                        <div class="clearfix"></div>
+                                        <a href="../Login/ForgotPassword" class="pull-left MT10"><font color="gray">Forgot-password ?</font></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}

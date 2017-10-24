@@ -1,0 +1,321 @@
+﻿@model iCanSpeakAdminPortal.Models.SubAdminModel
+@{
+    ViewBag.Title = "Update Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+    
+}
+<link href="~/Content/themes/fileinput.css" rel="stylesheet" />
+<link href="~/Content/themes/style.css" rel="stylesheet" />
+<script src="~/Scripts/fileinput.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var files = e.files;
+                var filePath = input.value;
+
+                var ext = filePath.substring(filePath.lastIndexOf('.') + 1).toLowerCase();
+                if ($.inArray(ext, ['jpg', 'png', 'jpeg']) == -1) {
+                    alert('You can only upload .jpg,.png, .jpeg files');
+                    input.value = '';
+                    e.preventDefault();
+                    return false;
+                }
+                $("#imagebase64").val(e.target.result);
+
+
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementsByName("dob")[0].setAttribute('max', today);
+
+    function textonly(e) {
+        if (e.keyCode == 45) {
+            return false;
+        }
+        var code;
+        if (!e) var e = window.event;
+        if (e.keyCode) code = e.keyCode;
+        else if (e.which) code = e.which;
+        var character = String.fromCharCode(code);
+        var AllowRegex = /^[\ba-zA-Z\s-]$/;
+        if (AllowRegex.test(character)) return true;
+        return false;
+    }
+</script>
+
+
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <font color="44c9ff"> Update Sub Admin / Tutor Profile</font>
+                </h1>
+
+            </div>
+        </div>
+
+        <!--Edit Table start-->
+
+        <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2  col-sm-6 col-sm-offset-2 col-xs-12">
+            <div class="row">
+                <label id="msg" style="font-size: 16pt;"></label>
+                <form role="form">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">User Type <span style="color: #FE2801;">*</span></label>
+                        <select id="usertype" class="form-control">
+                            @if (Model.RoleId == 2)
+                            {
+                                              
+                                <option value="subadmin" selected="selected">Sub Admin</option>
+                                <option value="tutor">Tutor</option>
+                                <option value="subtutor">Subtutor</option>                          
+                            }
+                            @if (Model.RoleId == 3)
+                            {                            
+                                <option value="subadmin">Sub Admin</option>
+                                <option value="tutor" selected="selected">Tutor</option>
+                                <option value="subtutor">Subtutor</option>
+                            }
+                            @if (Model.RoleId == 6)
+                            {                           
+                                <option value="subadmin">Sub Admin</option>
+                                <option value="tutor">Tutor</option>
+                                <option value="subtutor" selected="selected">Subtutor</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Full Name <span style="color: #FE2801;">*</span></label>
+                        <input type="text" class="form-control" id="firstName" value="@Model.FirstName" onkeypress="return textonly(event);" placeholder="First Name" pattern=".{3,}" title="First Name is minimum 3 character">
+                    </div>
+                    @*<div class="form-group">
+                        <label for="exampleInputPassword1">Last Name <span style="color: #FE2801;">*</span></label>
+                        <input type="text" class="form-control" id="lastName" value="@Model.LastName" onkeypress="return textonly(event);" placeholder="Last Name" pattern=".{3,}" title="Last Name is minimum 3 character">
+                    </div>*@
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Email Id <span style="color: #FE2801;">*</span></label>
+                        <input type="email" class="form-control" id="emailId" value="@Model.Email" placeholder="Email Id" title="Please enter the valid email address">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password <span style="color: #FE2801;">*</span></label>
+                        <input type="password" class="form-control" id="password" value="@Model.Password" placeholder="Password" placeholder="Password" maxlength="10"  pattern="(.){06,10}" title="Password should be atleast 6 to 10 character">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">DOB <span style="color: #FE2801;">*</span></label>
+                        <input type="date" class="form-control" id="dob" placeholder="date" value="@Model.DOB" onblur="isFutureDate()">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Gender <span style="color: #FE2801;">*</span></label>
+                        <select id="gender" class="form-control">
+                            @if (Model.Gender == "female")
+                            {
+                          
+                                <option value="female" selected="selected">Female</option>
+                                <option value="male">Male</option>
+                            
+                            }
+                            else
+                            {
+                                <option value="female">Female</option>
+                                <option value="male" selected="selected">Male</option>
+                           
+                            }
+                        </select>
+
+                    </div>
+                    @if (Model.RoleId == 6 || Model.RoleId == 3)
+                    {
+                        <div class="form-group" id="divEducation" style="display: block;">
+                            <label for="exampleInputPassword1">Education <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" value="@Model.Education" onkeypress="return textonly(event);" id="education" placeholder="Education" >
+                        </div>
+                        <div class="form-group" id="divExperience" style="display: block;">
+                            <label for="exampleInputPassword1">Experience <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control"  value="@Model.Experience" onkeypress="return isNumber(event)"  id="experience" placeholder="Experience" title="Experience in years">
+                        </div>
+                        <div class="form-group" id="divExpertise" style="display: block;">
+                            <label for="exampleInputPassword1">Expertise <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control"  value="@Model.Expertise" onkeypress="return textonly(event);" id="expertise" placeholder="Expertise">
+                        </div>
+                        <div class="form-group" id="divCity" style="display: block;">
+                            <label for="exampleInputPassword1">City <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" id="city" value="@Model.City" onkeypress="return textonly(event);" placeholder="City">
+                        </div>
+                        <div class="form-group" id="divzipCode" style="display: block;">
+                            <label for="exampleInputPassword1">Zip Code <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" id="zipCode" value="@Model.ZipCode" onkeypress="return isNumber(event)" placeholder="Zip Code"maxlength="06" pattern="(.){06,06}" title="Password should be atleast 6 character">
+                        </div>
+                    }
+                    else
+                    {
+                        
+@* <div class="form-group" id="divEducation" style="display: none;">
+                            <label for="exampleInputPassword1">Education <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" value="" id="education" placeholder="Education">
+                        </div>
+                        <div class="form-group" id="divExperience" style="display: none;">
+                            <label for="exampleInputPassword1">Experience <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" value="" id="experience" placeholder="Experience">
+                        </div>
+                        <div class="form-group" id="divExpertise" style="display: none;">
+                            <label for="exampleInputPassword1">Expertise <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" value="" id="expertise" placeholder="Expertise">
+                        </div>*@
+                    }
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Contact No. <span style="color: #FE2801;">*</span></label>
+                        <input type="text" class="form-control" id="contactNo" value="@Model.ContactNo" onkeypress="return isNumber(event)" placeholder="Contact No." maxlength="10" pattern="(.){10,10}" placeholder="Contact No." title="Contact No. should be in 10 digits">
+                    </div>
+                    <div class="form-group">
+                        <button id="submit" class="btn btn-info" onclick="UpdateSubAdmin(@Model.UserId,@Model.RoleId)">Submit</button>&nbsp;&nbsp;<input type="button" class="btn btn-info" value="Reset" onclick="ResetFormValues()" />
+                        <a href="../../Admin/SubAdmin/UserList">
+                            <input type="button" class="btn btn-info" value="Cancel" /></a>
+                    </div>
+                    <input type="hidden" value="@Model.UserId" id="userId" name="userId" />
+                </form>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!--edit table end here-->
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+<script type="text/javascript">
+    $("#usertype").change(function () {
+        if ($("#usertype").val() == "tutor") {
+            $("#education").val('');
+            $("#experience").val('');
+            $("#expertise").val('');
+            $("#divEducation").css("display", "block");
+            $("#divExperience").css("display", "block");
+            $("#divExpertise").css("display", "block");
+            $("#divCity").css("display", "block");
+            $("#divzipCode").css("display", "block");
+        } else {
+            $("#divEducation").css("display", "none");
+            $("#divExperience").css("display", "none");
+            $("#divExpertise").css("display", "none");
+            $("#divCity").css("display", "none");
+            $("#divzipCode").css("display", "none");
+        }
+    });
+
+
+    function UpdateSubAdmin(userid, roleids) {        
+        var result = validateUserInput(roleids);
+        if (result != false) {
+
+            $.ajax({
+                url: '@Url.Action("SaveUpdateProfile", "SubAdmin")',
+                type: "POST",
+                data: { userid: userid, usertype: $("#usertype").val(), firstName: $("#firstName").val(), lastName: $("#lastName").val(), emailId: $("#emailId").val(), password: $("#password").val(), gender: $("#gender").val(), dob: $("#dob").val(), education: $("#education").val(), experience: $("#experience").val(), expertise: $("#expertise").val(), contactNo: $("#contactNo").val(), city: $("#city").val(), state: $("#state").val(), zipCode: $("#zipCode").val(), gender: $("#gender").val() },
+                success: function (result) {
+                    alert();
+                    window.location.href = "../../Admin/SubAdmin/UserList/";
+                },
+                error: function (result) {
+                    $("#msg").text(result);
+                    $("#msg").css("color", "red");
+                    $("#msg").focus();
+                }
+            });
+        }
+    }
+    function ResetFormValues() {
+        $("#firstName").val(''); $("#lastName").val(''); $("#emailId").val(''); $("#password").val(''); $("#confirmPassword").val(''); $("#dob").val('');
+        $("#education").val(''); $("#experience").val(''); $("#expertise").val(''); $("#contactNo").val(''); $("#city").val(''); $("#gender").val(''); $("#state").val('');
+        $("#zipCode").val('');
+    }
+
+    function validateUserInput(roleid) {
+        var firstname = $("#firstName").val();
+        if ($.trim(firstname) == "") {
+            $("#firstName").focus();
+            alert('First Name Field Required');
+            return false;
+        }
+        //var lastName = $("#lastName").val();
+        //if ($.trim(lastName) == "") {
+        //    $("#lastName").focus();
+        //    alert('Last Name Field Required');
+        //    return false;
+        //}
+        var password = $("#password").val();
+        if ($.trim(password) == "") {
+            $("#password").focus();
+            alert('Password Field Required');
+            return false;
+        }
+        //var zipCode = $("#zipCode").val();
+        //if ($.trim(zipCode) == "") {
+        //    $("#zipCode").focus();
+        //    alert('Zip Code Field Required');
+        //    return false;
+        //}
+
+
+        //var dob = $("#dob").val();
+        //if ($.trim(dob) == "") {
+        //    $("#dob").focus();
+        //    alert('DOB Field Required');
+        //    return false;
+        //}
+
+        if (roleid != 2) {
+            var education = $("#education").val();
+            if ($.trim(education) == "") {
+                $("#education").focus();
+                alert('Education Field Required');
+                return false;
+            }
+            var experience = $("#experience").val();
+            if ($.trim(experience) == "") {
+                $("#experience").focus();
+                alert('Experience Field Required');
+                return false;
+            }
+            var education = $("#education").val();
+            if ($.trim(education) == "") {
+                $("#education").focus();
+                alert('Education Field Required');
+                return false;
+            }
+        }
+    }
+
+</script>
+<script type="text/javascript">
+    function isFutureDate() {
+        var from = $("#dob").val()
+        var f = Date(from[0], from[1], from[2]);
+        var arrDate = from.split("-");
+        var today = new Date();
+        useDate = new Date(arrDate[0], arrDate[1] - 1, arrDate[2]);
+        if (useDate > today) {
+            alert("Date of birth should be less than current date");
+            $("#dob").focus();
+            return false;
+        } else return true;
+    }
+</script>

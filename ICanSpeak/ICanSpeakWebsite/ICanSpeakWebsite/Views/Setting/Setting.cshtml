@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Setting";
+}
+
+<script src="@Url.Content("/Scripts/jquery.min.js")"></script>
+
+<div class="col-md-12">
+                <section class="task-panel tasks-widget">
+                    <div class="panel-heading MB20">
+                        <div class="pull-left colorblue">
+                            <h3 ><i class="fa fa-cogs"></i><span class="settinghead">Setting</span> </h3>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="panel-body">
+                        <div class="task-content">
+                            <ul id="sortable" class="task-list ui-sortable">
+                                <li class="list-primary">
+                                    <div class="task-title">
+                                        <a href="#"> <span class="task-title-sp">Change Password</span></a>
+                                      
+                                        <div class="pull-right hidden-phone">
+                                           <a href="#"><img class="fixsize" src="~/Images/arrows.png" /></a>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="list-danger">
+                                  
+
+                                    <div class="task-title">
+                                         <a href="#"> <span class="task-title-sp">Make me private</span></a>
+                                      
+                                        <div class="pull-right hidden-phone">
+                                           <div class="onoffswitch">
+                                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                                                <label class="onoffswitch-label" for="myonoffswitch">
+                                                    <span class="onoffswitch-inner"></span>
+                                                    <span class="onoffswitch-switch"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-success">
+                                 
+
+                                    <div class="task-title">
+                                      <a href="#"> <span class="task-title-sp">Language</span></a>
+                                    
+                                        <div class="pull-right hidden-phone">
+                                              <a href="#"><img class="fixsize" src="~/Images/arrows.png" /></a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-warning">
+                                   
+
+                                    <div class="task-title">
+                                       <a href="#"> <span class="task-title-sp">Notification</span></a>
+                                     
+                                        <div class="pull-right hidden-phone top">
+                                            <div class="onoffswitch">
+                                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch1" checked>
+                                                <label class="onoffswitch-label" for="myonoffswitch">
+                                                    <span class="onoffswitch-inner"></span>
+                                                    <span class="onoffswitch-switch"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class=" add-task-row">
+                            <a class="btn btn-info btn-sm pull-right" href="todo_list.html#">Save Setting</a>
+                        </div>
+                    </div>
+                </section>
+            </div>

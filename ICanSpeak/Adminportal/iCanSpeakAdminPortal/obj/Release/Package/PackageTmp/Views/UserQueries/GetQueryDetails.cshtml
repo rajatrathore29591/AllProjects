@@ -1,0 +1,158 @@
+﻿@model iCanSpeakAdminPortal.Models.UserQueriesModel
+@{
+    ViewBag.Title = "Query Details";
+}
+
+<html>
+<head>
+    <title>User Query Details</title>
+    @*    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />*@
+    
+    <style type="text/css">
+        label
+        {
+            font-size: 16px;
+font-weight: bold;
+
+color: black;
+        }
+    </style>
+</head>
+<body >
+    <div class="dialog-page">
+        <header>
+            <h2>User Details</h2>
+        </header>
+
+        <div class="contant">
+            <table style="border:none !important;margin-left: auto;margin-right: auto;">
+                <tr>
+                    <td width="150px;">
+                        <label>Name :</label>
+                    </td>
+                    <td width="500px;">
+                          <span>@Model.Name</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Email Id :</label>
+                    </td>
+                    <td>
+                         <span>@Model.EmailId</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Contact No :</label>
+                    </td>
+                    <td>
+                         <span>@Model.ContactNo</span>
+                    </td>
+                </tr>
+              @*   <tr>
+                    <td>
+                         <label>Subject :</label>
+                    </td>
+                    <td>
+                         <span>@Model.Subject</span>
+                    </td>
+                </tr>*@
+
+                <tr>
+                    <td>
+                         <label>Message :</label>
+                    </td>
+                    <td>
+                          <span>@Model.Message</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                         <label>Submitted Date :</label>
+                    </td>
+                    <td>
+                         <span>@Model.CreatedDate</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                         <label>Read Status :</label>
+                    </td>
+                    <td>
+                          @if (Model.IsRead == true)
+                    {
+                        <span>Yes</span>
+                    }
+                    else
+                    {
+                        <span>No</span>
+                    }
+
+                    </td>
+                </tr>
+
+
+            </table>
+           @* <div class="form-group required">
+                <label class="col-md-2 control-label">Name :</label>
+                <div class="col-md-4">
+                    <span>@Model.Name</span>
+                </div>
+            </div>
+
+            <div class="form-group required">
+                <label class="col-md-2 control-label">Email Id :</label>
+                <div class="col-md-4">
+                    <span>@Model.EmailId</span>
+                </div>
+            </div>
+
+            <div class="form-group required">
+                <label class="col-md-2 control-label">Contact No :</label>
+                <div class="col-md-4">
+                    <span>@Model.ContactNo</span>
+                </div>
+            </div>
+
+            <div class="form-group required">
+                <label class="col-md-2 control-label">Subject :</label>
+                <div class="col-md-4">
+                    <span>@Model.Subject</span>
+                </div>
+            </div>
+
+            <div class="form-group required">
+                <label class="col-md-2 control-label">Message :</label>
+                <div class="col-md-4">
+                    <span>@Model.Message</span>
+                </div>
+            </div>
+
+            <div class="form-group required">
+                <label class="col-md-2 control-label">Submitted Date :</label>
+                <div class="col-md-4">
+                    <span>@Model.CreatedDate</span>
+                </div>
+            </div>
+
+            <div class="form-group required">
+                <label class="col-md-2 control-label">Read Status :</label>
+                <div class="col-md-4">
+                    @if (Model.IsRead == true)
+                    {
+                        <span>Yes</span>
+                    }
+                    else
+                    {
+                        <span>No</span>
+                    }
+
+                </div>
+            </div>*@
+        </div>
+    </div>
+</body>
+</html>

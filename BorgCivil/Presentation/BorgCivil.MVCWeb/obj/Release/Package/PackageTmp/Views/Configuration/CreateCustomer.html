@@ -1,0 +1,451 @@
+﻿<div ng-controller="ManageCustomerCtrl as mgcCtrl" class="customer-register">
+   <!--Tab Start-->
+   <div ng-controller="TabCtrl">
+      <uib-tabset active="active">
+         <!--Customer Info Start-->
+         <uib-tab index="0" heading="Customer Info"  ng-attr-active="mgcCtrl.tabs[0].active">
+            <form name="add_customerinfo_form" ng-submit="mgcCtrl.updateDetails(add_customerinfo_form.$valid)" novalidate>
+               <!--Customer Info Content Start-->
+               <div id="customer-info-tab">
+                  <div class="bc-panel-white">
+                     <div class="row">
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Customer Name <span class="text-danger"> *</span></label>
+                              <input type="text" class="form-control" ng-model="mgcCtrl.attributes.CustomerName" required ng-minlength="2" ng-maxlength="100">
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>ABN/ ACN Number <span class="text-danger"> *</span></label>
+                              <input type="number" class="form-control only-float" ng-model="mgcCtrl.attributes.ABN" required ng-minlength="9" ng-maxlength="11">
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Contact Name <span class="text-danger"> *</span></label>
+                              <input type="text" class="form-control only-float" ng-model="mgcCtrl.attributes.ContactName" required ng-minlength="2" ng-maxlength="50">
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Contact #</label>
+                              <input type="number" class="form-control only-float" ng-model="mgcCtrl.attributes.ContactNumber" ng-minlength="10" ng-maxlength="10">
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Account Contact <span class="text-danger"> *</span></label>
+                              <input type="text" class="form-control only-float" ng-model="mgcCtrl.attributes.AccountsContact" required  ng-minlength="2" ng-maxlength="50">
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Account # <span class="text-danger"> *</span></label>
+                              <input type="number" class="form-control only-float" ng-model="mgcCtrl.attributes.AccountsNumber"  required ng-minlength="8" ng-maxlength="16"> 
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Phone #1</label>
+                              <input type="number" class="form-control only-float" ng-model="mgcCtrl.attributes.PhoneNumber1" ng-minlength="10" ng-maxlength="10">
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Phone #2</label>
+                              <input type="number" class="form-control only-float" ng-model="mgcCtrl.attributes.PhoneNumber2" ng-minlength="10" ng-maxlength="10">
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Mobile #1</label> 
+                              <input type="number" class="form-control only-float" ng-model="mgcCtrl.attributes.MobileNumber1" ng-minlength="10" ng-maxlength="10">
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Mobile #2</label>
+                              <input type="number" class="form-control only-float"ng-model="mgcCtrl.attributes.MobileNumber2" ng-minlength="10" ng-maxlength="10">
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Fax #</label>
+                              <input type="number" class="form-control only-float" ng-model="mgcCtrl.attributes.Fax" ng-minlength="10" ng-maxlength="10">
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Email Address For Invoices <span class="text-danger"> *</span></label>
+                              <input type="Email" class="form-control" ng-model="mgcCtrl.attributes.EmailForInvoices" required>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="bc-panel-light-grey">
+                     <h3 class="sub-title">Office Address</h3>
+                     <div class="row">
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Street <span class="text-danger"> *</span></label>
+                              <input type="text" class="form-control" ng-model="mgcCtrl.attributes.OfficeStreet" required ng-minlength="2" ng-maxlength="30">
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Suburb</label>
+                              <input type="text" class="form-control" ng-model="mgcCtrl.attributes.OfficeSuburb" ng-minlength="2" ng-maxlength="30">
+                           </div>
+                        </div>
+                        <div class="col-md-2">
+                           <div class="form-group">
+                              <label>State</label>
+                              <input type="text" class="form-control" ng-model="mgcCtrl.attributes.OfficeState" ng-minlength="2" ng-maxlength="30">
+                           </div>
+                        </div>
+                        <div class="col-md-2">
+                           <div class="form-group">
+                              <label>Postcode</label>
+                              <input type="number" class="form-control only-float" ng-model="mgcCtrl.attributes.OfficePostalCode" ng-minlength="4" ng-maxlength="7" >
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="bc-panel-white">
+                     <h3 class="sub-title">Postal Address</h3>
+                     <div class="row">
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Street/PO Box <span class="text-danger"> *</span></label>
+                              <input type="text" class="form-control only-float" ng-model="mgcCtrl.attributes.PostalStreetPoBox" required ng-minlength="2" ng-maxlength="30">
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label>Suburb</label>
+                              <input type="text" class="form-control"  ng-model="mgcCtrl.attributes.PostalSuburb" ng-minlength="2" ng-maxlength="30">
+                           </div>
+                        </div>
+                        <div class="col-md-2">
+                           <div class="form-group">
+                              <label>State</label>
+                              <input type="text" class="form-control"  ng-model="mgcCtrl.attributes.PostalState" ng-minlength="2" ng-maxlength="30">
+                           </div>
+                        </div>
+                        <div class="col-md-2">
+                           <div class="form-group">
+                              <label>Postcode</label>
+                              <input type="number" class="form-control only-float"  ng-model="mgcCtrl.attributes.PostalPostCode" ng-minlength="4" ng-maxlength="7" >
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="panel-footer text-right bc-panel-footer">
+                     <button class="btn btn-default" ng-click="mgcCtrl.goCustomerList();" title="Cancel">Cancel</button> 
+                     <button class="btn btn-primary continue" type="submit" title="Save" ng-if="mgcCtrl.hideTab">Save</button>
+                     <button class="btn btn-primary continue" type="submit" title="Save &amp; Next" ng-if="!mgcCtrl.hideTab">Save &amp; Next</button>
+                  </div>
+               </div>
+               <!--Customer Info Content End-->
+            </form>
+         </uib-tab>
+         <!--Customer Info End-->
+         <!--Site Details Start-->
+         <uib-tab index="1" heading="Site Details" ng-attr-active="mgcCtrl.tabs[1].active" disable="mgcCtrl.siteTabDisabled" ng-hide="mgcCtrl.hideTab">
+          <form name="add_sitedetail_form" ng-submit="mgcCtrl.updateSiteDetails(add_sitedetail_form.$valid)" novalidate>
+            <!--Site Details Content Start-->
+            <div id="site-details-tab" class="tab-pane">
+               <div class="bc-panel-white m-b-none">
+                  <h3 class="sub-title">Site Details</h3>
+                  <div class="row">
+                     <div class="col-md-4">
+                        <div class="form-group">
+                           <label>Site Name <span class="text-danger"> *</span></label>
+                           <input type="text" class="form-control" ng-model="mgcCtrl.siteDetails.SiteName" ng-minlength="2" ng-maxlength="50" required>
+                        </div>
+                     </div>
+                      <div class="col-md-4">
+                          <div class="form-group">
+                              <label>PO #</label>
+                              <input type="number" class="form-control" ng-model="mgcCtrl.siteDetails.PoNumber" ng-minlength="10" ng-maxlength="10">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="form-group">
+                           <label>Site Details</label>
+                           <textarea class="form-control" ng-model="mgcCtrl.siteDetails.SiteDetails"></textarea>
+                        </div>
+                     </div>
+                  </div>                 
+                  <div class="row clearfix">
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label>Fuel Included </label>
+                           <ul class="list-inline" >
+                              <li>
+                                 <div class="checkbox"><label class="p-l0"> <input icheck type="radio" ng-model="mgcCtrl.siteDetails.FuelIncluded" ng-value="true" name="fuel" class="i-checks" > Yes </label></div>
+                              </li>
+                              <li>
+                                 <div class="checkbox"><label> <input icheck type="radio" name="fuel" ng-model="mgcCtrl.siteDetails.FuelIncluded" ng-value="false" class="i-checks"> No </label></div>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label>Tolls Included </label>
+                           <ul class="list-inline">
+                              <li>
+                                 <div class="checkbox"><label class="p-l0"> <input icheck ng-model="mgcCtrl.siteDetails.TollsIncluded" ng-value="true" type="radio" name="toll" class="i-checks"> Yes </label></div>
+                              </li>
+                              <li>
+                                 <div class="checkbox"><label> <input icheck type="radio" ng-model="mgcCtrl.siteDetails.TollsIncluded" ng-value="false" name="toll" class="i-checks"> No </label></div>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                      <div class="col-md-3">
+                          <div class="form-group">
+                              <label>Credit Terms Agreed <span class="text-danger"> *</span></label>
+                              <select ng-model="mgcCtrl.siteDetails.CreditTermsAgreed" name="customer" class="form-control" ng-options="item for item in mgcCtrl.creditTermAgreedList" required>
+                                  <option value="">Select</option>
+                              </select>
+                          </div>
+                      </div>
+                  </div>
+                   <div class="row">
+                       <div class="col-md-12">
+                           <div class="form-group">
+                               <label>Attachment </label>
+                                <span class="input-group-btn">
+                                    <!-- image-preview-input -->
+                                    <div class="btn btn-default image-preview-input">
+                                        <span class="glyphicon glyphicon-folder-open"></span>
+                                        <span class="image-preview-input-title">Choose File</span>
+                                        <input type="file" ngf-select ng-model="picFile" name="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" ngf-max-size="2MB" ngf-model-invalid="errorFile" class="btn btn-default" id="inputFileToLoad" ng-change="mgcCtrl.loadImageFileAsURL();"><!-- rename it -->
+                                    </div>
+                                </span>
+                                <br />
+                                <span>{{mgcCtrl.filesSelected[0].name}}</span>
+                                <!-- /input-group image-preview [TO HERE]-->
+                            </div>
+                       </div>
+                   </div>  
+                  <div class="row clearfix add-supervisor">
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label>Supervisor Name <span class="text-danger"> *</span></label>
+                           <input type="text" ng-model="mgcCtrl.supervisorRow.supervisorName" class="form-control" ng-minlength="2" ng-maxlength="30">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label>Supervisor Email <span class="text-danger"> *</span></label>
+                           <input type="Email" ng-model="mgcCtrl.supervisorRow.supervisorEmail"  class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label>Supervisor Mobile No. <span class="text-danger"> *</span></label>
+                           <input type="number" ng-model="mgcCtrl.supervisorRow.supervisorMobile" class="form-control only-float" minlength="10" maxlength="10">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group add-btn">                          
+                            <a href="javascript:void(0);" class="btn btn-primary btn-i" title="Add Supervisor" ng-click="mgcCtrl.addSupervisorRow()"><i class="fa fa-plus"></i> Add Supervisor</a>
+                        </div>
+                     </div>
+                     <div class="col-md-12" ng-if="mgcCtrl.supervisors.length>0">
+                        <div class="grid-tb-panel">
+                           <table class="table table-stripped table-hover">
+                              <thead>
+                                 <tr>
+                                    <th>Supervisor Name</th>
+                                    <th>Supervisor Email</th>
+                                    <th>Supervisor Mobile No.</th>
+                                    <th>Action</th>
+                                 </tr>
+                              </thead>
+                              <tr ng-repeat="supervisor in mgcCtrl.supervisors">
+                                 <td>{{supervisor.SupervisorName }}</td>
+                                 <td>{{ supervisor.SupervisorEmail }}</td>
+                                 <td class="text-center">{{ supervisor.SupervisorMobile }}</td>
+                                 <td><a type="button" href="javascript:void(0);" ng-click="mgcCtrl.removeSupervisorRow($index);" title="Delete"><i class="fa pe-7s-trash"></i></a></td>
+                              </tr>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="bc-panel-light-grey m-b-none">
+                  <h3 class="sub-title">Gate Details</h3>
+                  <div class="row">
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label>Gate Number <span class="text-danger"> *</span></label>
+                           <input type="number" class="form-control only-float" ng-model="mgcCtrl.gateRow.gateNumber" ng-minlength="2" ng-maxlength="10">
+                        </div>
+                     </div>
+                     <!--<div class="col-md-3">
+                        <div class="form-group">
+                           <label>Equipment Type</label>
+                           <select class="form-control">
+                              <option >Select</option>
+                              <option value="CLient1">Equipment-1</option>
+                              <option value="CLient3">Equipment-2</option>
+                           </select>
+                        </div>
+                     </div>-->
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label>Tip Off Rate <span class="text-danger"> *</span></label>
+                           <div class="input-group date">
+                              <span class="input-group-addon">
+                              <span class="fa fa-usd"></span>
+                              </span>
+                              <input type="number" name="TipOffRate" class="form-control only-float" ng-model="mgcCtrl.gateRow.tipOffRate" ng-pattern="/^([0-9]{1,5})(([.]{1})([0-9]{1,2}))?$/">
+                           </div>
+                            <div ng-if="add_sitedetail_form.TipOffRate.$invalid && !add_sitedetail_form.TipOffRate.$pristine">
+                                <span class="has-error"> This field is invalid.</span>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group">
+                           <label>Tipping Site <span class="text-danger"> *</span></label>
+                           <input type="text" class="form-control"  ng-model="mgcCtrl.gateRow.tippingSite" ng-minlength="2" ng-maxlength="30">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <!--<div class="col-md-3" style="">
+                        <div class="form-group">
+                           <label>Contact Person Name</label>
+                           <input class="form-control" type="text"  ng-model="mgcCtrl.contactPersonRow.contactPersonName">
+                        </div>
+                     </div>
+                     <div class="col-md-3" style="">
+                        <div class="form-group">
+                           <label>Contact Person Email</label>
+                           <input class="form-control" type="Email" ng-model="mgcCtrl.contactPersonRow.contactPersonEmail">
+                        </div>
+                     </div>
+                     <div class="col-md-3" style="">
+                        <div class="form-group">
+                           <label>Contact Person Mobile No.</label>
+                           <input type="number" class="form-control only-float" minlength="10" maxlength="10" ng-model="mgcCtrl.contactPersonRow.contactPersonMobile">
+                        </div>
+                     </div>
+                     <div class="col-md-3" style="">
+                        <div class="form-group add-btn"> 
+                            <a href="javascript:void(0);" class="btn btn-primary btn-i" title="Add Contact Person" ng-click="mgcCtrl.addContactPersonRow()"><i class="fa fa-plus"></i> Add Contact Person</a> 
+                        </div>
+                     </div>-->
+                      <div class="col-md-12" ng-if="mgcCtrl.gates.length>0">
+                          <div class="grid-tb-panel">
+                              <table class="table table-stripped table-hover">
+                                  <thead>
+                                      <tr>
+                                          <th>Gate Number</th>
+                                          <th>Tip Off Rate</th>
+                                          <th>Tipping Site</th>
+                                          <th>Action</th>
+                                      </tr>
+                                  </thead>
+                                  <tr ng-repeat="gate in mgcCtrl.gates">
+                                      <td>{{ gate.GateNumber }}</td>
+                                      <td>{{ gate.TipOffRate }}</td>
+                                      <td class="text-center">{{gate.TippingSite }}</td>
+                                      <td><a type="button" href="javascript:void(0);" ng-click="mgcCtrl.removeGateRow($index);" title="Delete"><i class="fa pe-7s-trash"></i></a></td>
+                                  </tr>
+                              </table>
+                          </div>
+                      </div>
+                      <!--<div class="col-md-12" ng-if="mgcCtrl.contactPersons.length>0">
+                          <div class="grid-tb-panel">
+                              <table class="table table-stripped table-hover">
+                                  <thead>
+                                      <tr>
+                                          <th>Contact Person Name</th>
+                                          <th>Contact Person Email</th>
+                                          <th>Contact Person Mobile No.</th>
+                                          <th>Action</th>
+                                      </tr>
+                                  </thead>
+                                  <tr ng-repeat="contactPerson in mgcCtrl.contactPersons">
+                                      <td>{{ contactPerson.ContactPersonName }}</td>
+                                      <td>{{ contactPerson.ContactPersonEmail }}</td>
+                                      <td class="text-center">{{ contactPerson.ContactPersonMobile }}</td>
+                                      <td><a type="button" href="javascript:void(0);" ng-click="mgcCtrl.removeContactPersonRow($index);" title="Delete"><i class="fa pe-7s-trash"></i></a></td>
+                                  </tr>
+                              </table>
+                          </div>
+                      </div>-->
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12 text-right m-t-sm">
+                         <a href="javascript:void(0);" class="btn btn-primary btn-i" title="Add Gate" ng-click="mgcCtrl.addGateRow()"><i class="fa fa-plus"></i>Add Gate</a>
+                     </div>
+                  </div>
+               </div>
+
+               <!--<div class="bc-panel-white">
+                  <div class="row">
+                     <div class="col-md-12 text-right"> 
+                         <a href="javascript:void(0);" class="btn btn-primary btn-i" title="Add Site" ng-click="mgcCtrl.addSiteDetailRow()"><i class="fa fa-plus"></i>Add Site</a>
+                     </div>
+                      <div class="col-md-12" ng-if="mgcCtrl.siteDetails.length>0">
+                          <div class="grid-tb-panel">
+                              <table class="table table-stripped table-hover">
+                                  <thead>
+                                      <tr>
+                                          <th>Site Name</th>
+                                          <th>PO #</th>
+                                          <th>Site Details</th>
+                                          <th>Fuel Included</th>
+                                          <th>Tolls Included</th>
+                                          <th>Credit Terms Agreed</th>
+                                          <th>Action</th>
+                                        </tr>
+                                  </thead>
+                                  <tr ng-repeat="siteDetail in mgcCtrl.siteDetails">
+                                      <td>{{ siteDetail.SiteName }}</td>
+                                      <td>{{ siteDetail.PoNumber }}</td>
+                                      <td>{{ siteDetail.SiteDetails }}</td>
+                                      <td>{{ siteDetail.FuelIncluded }}</td>
+                                      <td>{{ siteDetail.TollsIncluded }}</td>                                     
+                                      <td class="text-center">{{ siteDetail.CreditTermsAgreed }}</td>
+                                      <td><a type="button" href="javascript:void(0);" ng-click="mgcCtrl.removeSiteDetailRow($index);" title="Delete"><i class="fa pe-7s-trash"></i></a></td>
+
+                                  </tr>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+               </div>-->               
+               
+               <div class="panel-footer text-right bc-panel-footer">     
+                   <div ng-if="add_sitedetail_form.$valid && !mgcCtrl.customerId" class="text-left">
+                       <span class="has-error">Please save Customer Information first.</span>
+                   </div>  
+                   <button class="btn btn-default" ng-click="mgcCtrl.goCustomerList();" title="Cancel">Cancel</button>        
+                   <button class="btn btn-primary" type="submit" title="Save" ng-disabled="add_sitedetail_form.$valid && !mgcCtrl.customerId">Save</button>       
+               </div>
+            </div>
+            <!--Site Details Content End-->
+            </form>
+         </uib-tab>
+         <!--Site Details End-->
+       </uib-tabset>
+   </div>
+   <!--Tab End-->
+</div>

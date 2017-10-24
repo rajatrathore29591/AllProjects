@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "DialogDetail";
+}
+<h1 class="page-header">
+    <font color="44c9ff"> Dialog Detail </font>
+    
+</h1>
+@if (@Model.DialogId != null)
+                        {
+                     
+                        <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                           
+                                <input type="hidden" id="CourseId" name="CourseId" value="@Model.DialogId" />
+                                <div class="form-group">
+                                    <label>Dialog Name </label>                                    
+                                    <input readonly  type="text"   class="form-control" placeholder="Course Name" required value="@Model.EnglishName" >
+                                </div>
+                                <div class="form-group">
+                                    <label>Dialog Description</label>
+                                    <textarea readonly class="form-control" id="DescriptionEnglish" name="DescriptionEnglish" rows="3">@Model.DescriptionEngilsh</textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Duration</label>
+                                    <input readonly type="text"  class="form-control"  value="@Model.Duration">
+                                </div> 
+                                <div class="form-group">
+                                    <label>Reward Point</label>
+                                    <input readonly type="text"  class="form-control"  value="@Model.RewardPoints" >
+                                </div>
+                                <div class="form-group">
+                                    <label>Price</label>
+                                    <input readonly class="form-control"type="text" value="@Model.Price" >
+                                </div> 
+                                <div class="form-group">
+                                    <label>Max Score</label>
+                                    <input type="text" readonly class="form-control"  value="@Model.MaxScore" >
+                                </div>
+                                <div class="form-group">
+                                    <label>Is Free</label>
+                                    @if (Model.IsFree == true)
+                                    {
+                                    <select class="form-control" disabled>
+                                        <option selected="selected" value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    }
+                                    else
+                                    {
+                                        <select class="form-control" disabled>
+                                        <option value="Yes">Yes</option>
+                                        <option selected="selected" value="No">No</option>
+                                    </select>
+                                    }
+                                </div>
+                                
+                                
+                                
+                                   
+                               
+                            </div>
+                        
+                        }
+                       

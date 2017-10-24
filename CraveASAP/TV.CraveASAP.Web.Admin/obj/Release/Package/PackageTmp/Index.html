@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myAdminApp">
+<head>
+    <title>Eddee Super Admin</title>
+    
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+    <script src="plugins/jQuery-2.1.4.min.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/angular-ui-router.js"></script>
+    <!--<script src="Scripts/angular-ui-router.min.js"></script>-->
+
+    
+
+    <script src="js/plugins/scripts/dirPagination.js"></script>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>-->
+
+
+
+    <!--<link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css' />-->
+    <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css' />
+
+    <!--<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js'></script>-->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.1/angular-cookies.min.js"></script>
+    <script src="js/editor/textAngular-sanitize.min.js"></script>
+    <script src="js/editor/textAngular.min.js"></script>
+    <!--    <script src='http://cdnjs.cloudflare.com/ajax/libs/textAngular/1.2.0/textAngular-sanitize.min.js'></script>-->
+    <!--<script src='http://cdnjs.cloudflare.com/ajax/libs/textAngular/1.2.0/textAngular.min.js'></script>-->
+    <script src="js/plugins/angular-base64-upload.js"></script>
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>-->
+    <link href="css/admin/image-crop-styles.css" rel="stylesheet" />
+    <script src="js/plugins/image-crop.js"></script>
+    <script src="js/plugins/angular-cookies.js"></script>
+
+
+
+    <script src="app.js"></script>
+     <script src="controllers/masterController.js"></script>
+    <script src="controllers/homeController.js"></script>
+    <script src="controllers/aboutController.js"></script>
+    <script src="controllers/vendorController.js"></script>
+    <script src="controllers/vendorListController.js"></script>
+    <script src="services/subscriptionService.js"></script>
+    <script src="controllers/privacyPolicyController.js"></script>
+    <script src="controllers/termConditionController.js"></script>
+    <script src="controllers/manageActivePromotionController.js"></script>
+    <script src="controllers/pointRewardController.js"></script>
+    <script src="controllers/landingPageController.js"></script>
+    <script src="controllers/howItWorkController.js"></script>
+    <script src="controllers/flashBannerController.js"></script>
+    <script src="controllers/testController.js"></script>
+    <script src="controllers/analytics_TrackUsageController.js"></script>
+    <script src="controllers/analytics_TrackUsageCategoryController.js"></script>
+    <script src="controllers/analytics_MultipleUsageController.js"></script>
+    <script src="controllers/notificationController.js"></script>
+    <script src="controllers/analytics_SocialMediaTrackingController.js"></script>
+    <script src="controllers/Analytic_UserPerDayUseController.js"></script>
+    <script src="controllers/updateAboutController.js"></script>
+    <script src="controllers/updatePrivacyPolicyController.js"></script>
+    <script src="controllers/updateTermConditionController.js"></script>
+    <script src="controllers/createPromotionsController.js"></script>
+    <script src="controllers/loginController.js"></script>
+   
+    <script src="controllers/dashBoardController.js"></script>
+    <script src="controllers/platinumMemberController.js"></script>
+    <script src="controllers/goldMemberController.js"></script>
+    <script src="controllers/goldMemberListController.js"></script>
+    
+    
+    <script src="controllers/analytics_ActivePromotionController.js"></script>
+    <script src="controllers/addOptionalCategoryController.js"></script>
+    <script src="controllers/addOptionalCategoryListController.js"></script>
+    <script src="controllers/addSubCategoryController.js"></script>
+    <script src="controllers/addSubCategoryListController.js"></script>
+    
+    <script src="services/privacyService.js"></script>
+    <script src="services/aboutService.js"></script>
+    <script src="services/termService.js"></script>
+    <script src="services/homeService.js"></script>
+    <script src="services/manageActivePromotionService.js"></script>
+    <script src="services/landingService.js"></script>
+    <script src="services/vendorServices.js"></script>
+    <script src="services/pointRewardServices.js"></script>
+    <script src="services/howItWorkService.js"></script>
+    <script src="services/goldMemberService.js"></script>
+    <script src="services/platinumMemberService.js"></script>
+    <script src="services/loginService.js"></script>
+    <script src="services/notificationService.js"></script>
+    <script src="services/flashBannerService.js"></script>
+    <script src="services/categoryService.js"></script>
+    <script src="services/analytics_TrackUsageService.js"></script>
+    <script src="services/analytics_ActivePromotionService.js"></script>
+    <script src="services/analytics_MultipleUsageService.js"></script>
+    <script src="services/analytics_SocialMediaTrackingService.js"></script>
+    <script src="services/Analytic_UserPerDayUseService.js"></script>
+    <script src="controllers/platinumMemberListController.js"></script>
+    <script src="controllers/predictiveNotificationController.js"></script>
+    <!----------------------------------------------------Vendor Start---------------------------------------------------------------->
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+
+    
+    <!--<link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" />-->
+    <link href="plugins/jquery.simple-dtpicker.css" rel="stylesheet" />
+    <!--<link href="css/font-awesome/css/font-awesome.css" rel="stylesheet" />-->
+    <!--<link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" />-->
+    <link href="css/plugins/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="css/plugins/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/plugins/uniform.default.css" rel="stylesheet" />
+    <link href="css/plugins/bootstrap-switch.min.css" rel="stylesheet" />
+
+    <link href="css/plugins/fullcalendar.min.css" rel="stylesheet" />
+    <!--<link href="css/plugins/jqvmap.css" rel="stylesheet" />-->
+    <link href="css/plugins/tasks.css" rel="stylesheet" />
+    <link href="css/plugins/components.css" rel="stylesheet" />
+    <link href="css/plugins/plugins.css" rel="stylesheet" />
+    <link href="css/admin/layout.css" rel="stylesheet" />
+    <link href="css/admin/darkblue.css" rel="stylesheet" />
+    
+    <link href="css/datadatble/bootstrap-datetimepicker.css" rel="stylesheet" />
+    <link href="css/plugins/daterangepicker-bs3.css" rel="stylesheet" />
+    <script src="Scripts/underscore-min.js"></script>
+    <script type="text/javascript" src="Scripts/canvasjs.min.js"></script>
+
+    <!-- login start -->
+    <link href="css/plugins/login.css" rel="stylesheet" />
+    <!-- login end -->
+    <link href="css/admin/custom.css" rel="stylesheet" />
+
+
+    
+
+    <!----------------------------------------------------Vendor End------------------------------------------------------------------->
+
+
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content page-sidebar-closed-hide-logo page-container-bg-solid login1" ng-controller="mainController">
+
+     <div class="page-container">
+    <!-- BEGIN CONTAINER -->
+      <div class="content-wrapper" >
+    
+            <div ui-view>
+          </div>
+    </div>
+ </div>
+    <!-- BEGIN FOOTER -->
+    
+    <!-- END FOOTER -->
+
+
+    <div id="static" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Message</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <!-- Would you like to continue with some arbitrary task?-->
+                        {{Message}}
+                    </p>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" ng-click="redirect()" data-dismiss="modal" class="btn green">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ChangePassword Popup -->
+
+    <div id="changepwd" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="POST" role="form" class="form-horizontal" ng-submit="change()">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title">Change Password<i class="fa fa-circle-o-notch fa-spin m-l-10" ng-show="isbusy"></i></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="pwd" class="col-sm-4 control-label">Current Password</label>
+                            <div class="col-sm-8">
+                                <input type="password" ng-model="password" class="form-control" id="pwd" name="" placeholder="Current Password">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="npwd" class="col-sm-4 control-label">New Password</label>
+                            <div class="col-sm-8">
+                                <input type="password" ng-model="newPassword" class="form-control" id="npwd" name="" placeholder="New Password">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rpwd" class="col-sm-4 control-label">Retype Password</label>
+                            <div class="col-sm-8">
+                                <input type="password" ng-model="reTypePassword" class="form-control" id="rpwd" name="" placeholder="Retype Password">
+                            </div>
+                        </div>
+
+                        {{Message}}
+                    </div>
+                    <div class="modal-footer">
+                        <div class="pull-right">
+                            <button type="submit" class="btn btn-success">Change Password</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- End ChangePassword Popup -->
+
+
+
+    <!--animated preloader-->
+  <!--  <script>
+        jQuery(document).ready(function () {
+
+
+            
+        });
+    </script>-->
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            setTimeout(function () { $(document).click() }, 1000);
+            $(document).on("click", function (event) {
+                $('[name=datetimepkr]').each(function (k, input) {
+                    if ($(input) && $(input).data('pickerId') === undefined && $(input).is('[readonly]') == false) {
+                        $(input).appendDtpicker();
+                        $(input).on('focus', function () {
+                            fnUpdateInput($(this));
+                        });
+                        $(input).on('change', function () {
+                            fnUpdateInput($(this));
+                        });
+                    }
+                });
+            });
+        });
+
+        function fnUpdateInput(input) {
+            var model = $(input).attr('ng-model');
+            var val = $(input).val();
+            var scope = angular.element($("div.content")).scope();
+            if (scope) {
+                eval("scope." + model + " = '" + val + "';");
+            }
+        }
+    </script>
+
+    <!--<script src="assets/js/html5fileupload.minc0a6.js"></script>
+    <script src="assets/js/notify.js"></script>-->
+
+    <script src="js/plugins/jquery.min.js"></script>
+    <script src="js/plugins/jquery-migrate.min.js"></script>
+    <script src="js/plugins/jquery-ui.min.js"></script>
+    <script src="js/plugins/bootstrap.min.js"></script>
+    <script src="js/plugins/bootstrap-hover-dropdown.min.js"></script>
+
+    <script src="js/plugins/jquery.slimscroll.min.js"></script>
+    <script src="js/plugins/jquery.blockui.min.js"></script>
+    <script src="js/plugins/jquery.cokie.min.js"></script>
+    <script src="js/plugins/jquery.uniform.min.js"></script>
+    <script src="js/plugins/bootstrap-switch.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/0.1.0/js/footable.min.js"></script>
+
+
+    <!-- <script src="js/plugins/jquery.vmap.js"></script>
+    <script src="js/plugins/jquery.vmap.russia.js"></script>
+    <script src="js/plugins/jquery.vmap.world.js"></script>
+    <script src="js/plugins/jquery.vmap.europe.js"></script>
+    <script src="js/plugins/jquery.vmap.germany.js"></script>
+    <script src="js/plugins/jquery.vmap.usa.js"></script>
+    <script src="js/plugins/jquery.vmap.sampledata.js"></script>-->
+
+    <script src="css/datadatble/select2.js"></script>
+    <script src="css/datadatble/jquery.dataTables.min.js"></script>
+    <script src="css/datadatble/dataTables.bootstrap.js"></script>
+
+    <script src="js/plugins/jquery.flot.min.js"></script>
+    <script src="js/plugins/jquery.flot.resize.min.js"></script>
+    <script src="js/plugins/jquery.flot.categories.min.js"></script>
+    <script src="js/plugins/jquery.pulsate.min.js"></script>
+    <script src="js/plugins/moment.min.js"></script>
+
+    <script src="js/plugins/fullcalendar.min.js"></script>
+    <script src="js/plugins/jquery.easypiechart.min.js"></script>
+    <script src="js/plugins/jquery.sparkline.min.js"></script>
+    <script src="js/plugins/metronic.js"></script>
+    <script src="js/plugins/datatable.js"></script>
+    <script src="js/plugins/scripts/layout.js"></script>
+    <script src="js/plugins/scripts/quick-sidebar.js"></script>
+    <script src="js/plugins/scripts/demo.js"></script>
+    <script src="js/plugins/daterangepicker.js"></script>
+    <script src="js/plugins/scripts/index.js"></script>
+    <script src="js/plugins/scripts/tasks.js"></script>
+    <link href="css/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="plugins/jquery.simple-dtpicker.js"></script>
+
+    <!--<script src="js/plugins/jquery.min.js"></script>-->
+    <script src="js/plugins/jquery-migrate.min.js"></script>
+    <!-- <script src="js/plugins/bootstrap.min.js"></script> -->
+    <script src="js/plugins/jquery.uniform.min.js"></script>
+    <!--<script src="js/plugins/scripts/jquery.validate.min.js"></script>-->
+    <script src="js/plugins/metronic.js"></script>
+    <script src="js/plugins/scripts/layout.js"></script>
+    <script src="js/plugins/scripts/demo.js"></script>
+    <!--<script src="js/plugins/scripts/login.js"></script>-->
+
+    <script src="js/moment.js"></script>
+    <script src="js/bootstrap-datetimepicker.js"></script>
+    <!--<script src="js/jquery.validate.min.js"></script>-->
+
+    <script src="Scripts/Chart.js"></script>
+    <script src="js/plugins/scripts/custom.js"></script>
+    <link href="js/editor/font-awesome.css" rel="stylesheet" />
+       <script src="js/plugins/scripts/bootstrap-datepicker.min.js"></script>
+
+</body>
+</html>

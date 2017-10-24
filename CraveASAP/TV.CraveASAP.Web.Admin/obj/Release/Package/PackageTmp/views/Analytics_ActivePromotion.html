@@ -1,0 +1,317 @@
+﻿<div class="page-content-wrapper">
+    <div class="page-content clearfix">
+        <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+        <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        Widget settings form goes here
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn blue">Save changes</button>
+                        <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+        <!-- BEGIN PAGE HEADER-->
+        <div class="col-md-12">
+            <div class="panel panel-green">
+                <div class="panel-heading clearfix">
+                    <div class="panel-title">
+                        <div class="caption bold pull-left">
+                            <span>Active Promotion</span>
+                        </div>
+                        <div class="caption  pull-right">
+                            <div class=""><span class="margin-right-10">Path</span> <i class="fa fa-angle-right margin-right-10"></i><span>Analytics/Track</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body clearfix">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <form action="#" class="form-horizontal">
+
+                                <div class="col-md-12 border-top">
+                                    <div class="row">
+                                        <div class="col-sm-6 ">
+                                            <div class="form-group">
+                                                <label class=" col-md-12 label-custom">From Day</label>
+                                                <div class="col-md-12">
+
+                                                    <div class='input-group'>
+                                                        <input type="text" class="datepicker form-control pull-right ng-pristine ng-valid " id="fromDate" value="{{date | date:'yyyy-MM-dd'}}" >
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 ">
+                                            <div class="form-group">
+                                                <label class=" col-md-12 label-custom">To Day</label>
+                                                <div class="col-md-12">
+                                                    <div class='input-group'>
+                                                        <input type="text"  class="datepicker form-control pull-right ng-pristine ng-valid" id="toDate" value="{{date | date:'yyyy-MM-dd'}}" >
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 ">
+                                            <div class="form-group">
+                                                <label class=" col-md-12 label-custom">Vendor Name</label>
+                                                <div class="col-md-12">
+                                                    <select ng-model="vendor_name" ng-change="VendorClick(vendor_name)" class="form-control" ng-options="item.Vendor for item in GetAllVendors">
+
+                                                        <!--  <option ng-repeat="item in GetAllVendors" ng-selected="true" value="{{item.vendorId}}"  >{{item.companyName}}</option>-->
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 ">
+                                            <div class="form-group">
+                                                <label class=" col-md-12 label-custom">Category</label>
+                                                <div class="col-md-12">
+
+                                                    <select class="form-control" ng-model="categorySelect" ng-change="CategoryClick(categorySelect)" ng-options="item for item in category"></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 ">
+                                            <div class="form-group">
+                                                <label class=" col-xs-12 label-custom">Time Period</label>
+                                                <div ng-repeat="contact in contacts" class="col-xs-12 col-sm-12 col-lg-4">
+                                                    <input type="radio" name="{{contact.type}}" ng-model="contactTypes[contact.type].default" ng-value="contact.value" class="block-m-r-5" />
+                                                    <label>{{contact.value}}</label>
+                                                </div>
+                                                <!-- <div class="col-md-4">
+                                    <input id="Weekly" name="group1" type="radio" name="Weekly" checked />Weekly
+                                                
+                                                      
+                                </div>
+                                <div class="col-md-4">
+                                    <input id="Monthly" type="radio" name="group1" />Monthly
+                                                
+                                                      
+                                </div>
+                                <div class="col-md-4">
+                                    <input id="Yearly" type="radio" name="group1" />Yearly
+                                                
+                                                      
+                                </div>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class=" col-md-12">
+                                            <div class=" table-responsive">
+
+                                                <input type="text" ng-model="search" class="form-control pull-right" placeholder="Search" style="width: 20%">
+                                                <table id="excelDataTable" name="excelDataTable" class="table table-striped table-bordered table-condensed table-hover">
+                                                    <thead>
+                                                        <tr class="bold">
+                                                            <!--  <th class="bold" ng-repeat="item in sp_data">{{item}}</th>-->
+
+                                                            <th class="bold" ng-repeat="item in Hader">{{item}}</th>
+
+                                                            <!--<th class="bold" ng-click="sort('vendorId')">Vendor
+                                                        <span class="glyphicon sort-icon" ng-show="sortKey=='CompanyName'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                            </th>
+                                            <th class="bold" ng-click="sort('companyName')">Restaurant  
+                                                        <span class="glyphicon sort-icon" ng-show="sortKey=='companyName'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                            </th>
+                                            <th class="bold" ng-click="sort('businessCategory')">Café
+                                                        <span class="glyphicon sort-icon" ng-show="sortKey=='businessCategory'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                            </th>
+                                            <th class="bold" ng-click="sort('businessCategory')">Desert
+                                                        <span class="glyphicon sort-icon" ng-show="sortKey=='businessCategory'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                            </th>
+                                            <th class="bold" ng-click="sort('businessCategory')">Total
+                                                        <span class="glyphicon sort-icon" ng-show="sortKey=='businessCategory'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                            </th>
+                                        </tr>-->
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr dir-paginate="item in sp_data|orderBy:sortKey:reverse|filter:search|itemsPerPage:5">
+
+
+
+                                                            <td ng-if="item.Vendor!=='Total'">{{item.Vendor}}</td>
+                                                            <td ng-if="item.Vendor!=='Total'"><a ng-click="ShowMap(item,'1')"><span ng-if="!item.Restaurant">  --</span>{{item.Restaurant}}</a></td>
+                                                            <td ng-if="item.Vendor!=='Total'"><a ng-click="ShowMap(item,'2')"><span ng-if="!item.Cafe">  --</span>{{item.Cafe}}</a></td>
+                                                            <td ng-if="item.Vendor!=='Total'"><a ng-click="ShowMap(item,'3')"><span ng-if="!item.Dessert">  --</span>{{item.Dessert}}</a></td>
+                                                            <td ng-if="item.Vendor!=='Total'"><a ng-click="LineChartShowTotal(item)"><span ng-if="!item.Total">  --</span>{{item.Total}}</a></td>
+                                                            <td ng-if="item.Vendor==='Total'">{{item.Vendor}}</td>
+                                                            <td ng-if="item.Vendor==='Total'"><a ng-click="ShowDoughnutChart('Restaurant')">{{item.Restaurant}}</a></td>
+                                                            <td ng-if="item.Vendor==='Total'"><a ng-click="ShowDoughnutChart('Cafe')">{{item.Cafe}}</a></td>
+                                                            <td ng-if="item.Vendor==='Total'"><a ng-click="ShowDoughnutChart('Dessert')">{{item.Dessert}}</a></td>
+                                                            <td ng-if="item.Vendor==='Total'"><a ng-click="ShowMapTotal(item)">{{item.Total}}</a></td>
+
+                                                        </tr>
+
+
+                                                    </tbody>
+
+                                                </table>
+                                                <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true">
+                                </dir-pagination-controls>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class=" col-md-5 pull-right m-b-20">
+
+                                                    <input type="button" id="btnExport" class="btn btn-success pull-right " value="To Excel" />
+                                                    <input type="button" class="btn btn-success pull-right m-r-10" value="Plot" ng-click="ShowMapPlot()" />
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                            </form>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div ng-show="Chart">
+                                <div id="chartContainer" class="border-top" style="height: 300px; width: 100%;">
+                                </div>
+                            </div>
+                           
+
+                        </div>
+
+
+                        <div ng-hide="Chart" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            
+                            <div id="canvascontainer" class="border-top">
+
+                                <canvas id="canvas" height="" width=""></canvas>
+
+                            </div>
+                            <div style="text-align: center"><b>{{VendorNameShow}} </b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../Scripts/canvasjs.min.js"></script>
+<!-- END DASHBOARD STATS -->
+<div class="clearfix">
+</div>
+
+<!--<script type="text/javascript">
+    window.onload = function () {
+        alert("Hello")
+        var chart = new CanvasJS.Chart("chartContainer",
+        {
+            title: {
+                text: "Coal Reserves of Countries"
+            },
+            data: [
+          {
+              type: "stackedColumn",
+              dataPoints: [
+              { y: 111338, label: "USA" },
+              { y: 49088, label: "Russia" },
+              { y: 62200, label: "China" },
+              { y: 90085, label: "India" },
+              { y: 38600, label: "Australia" },
+              { y: 48750, label: "SA" }
+
+              ]
+          }, {
+              type: "stackedColumn",
+              dataPoints: [
+             { y: 135305, label: "USA" },
+             { y: 107922, label: "Russia" },
+             { y: 52300, label: "China" },
+             { y: 3360, label: "India" },
+             { y: 39900, label: "Australia" },
+             { y: 0, label: "SA" }
+
+              ]
+          }
+            ]
+        });
+
+        chart.render();
+    }
+  </script>-->
+
+<!--   <script src="../Scripts/canvasjs.min.js"></script>-->
+
+<div class="clearfix">
+</div>
+
+
+<!-- END REGIONAL STATS PORTLET-->
+
+<div class="clearfix">
+</div>
+
+</div>
+<div id="loader" ng-show="showLoader">
+    <div class="page-spinner-bar" ng-spinner-bar="">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#btnExport").click(function (e) {
+
+            //getting values of current time for generating the file name
+            var dt = new Date();
+            var day = dt.getDate();
+            var month = dt.getMonth() + 1;
+            var year = dt.getFullYear();
+            var hour = dt.getHours();
+            var mins = dt.getMinutes();
+            var postfix = day + "." + month + "." + year + "_" + hour + "." + mins;
+            //creating a temporary HTML link element (they support setting file names)
+            var a = document.createElement('a');
+            //getting data from our div that contains the HTML table
+            var data_type = 'data:application/vnd.ms-excel';
+            var table_div = document.getElementById('excelDataTable');
+            var table_html = table_div.outerHTML.replace(/ /g, '%20');
+            a.href = data_type + ', ' + table_html;
+            //setting the file name
+            a.download = 'Eddee' + postfix + '.xls';
+            //triggering the function
+            a.click();
+            //just in case, prevent default behaviour
+            e.preventDefault();
+        });
+    });
+
+
+</script>
+
+<!doctype html>

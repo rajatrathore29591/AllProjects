@@ -1,0 +1,55 @@
+﻿<div class="lang">
+    <span class="eng">
+        <img src="images/english.png" alt="English" /><a href="#" ng-click="tempEngLang()">English</a></span><span class="th"><img src="images/thai.png" alt="Thai" /><a href="#" ng-click="tempThaiLang()">ไทย</a></span>
+</div>
+<h1>
+    <img src="images/logo.png"></h1>
+<div class="login-form">
+    <form ng-submit="login()">
+        <input type="text" class="text text_box" required value="Username" ng-model="loginName" placeholder="{{translation.Username}}">
+        <!--onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}"-->
+        <div class="key">
+            <input type="password" class="text_password" required value="Password" ng-model="password" placeholder="{{translation.Password}}">
+            <!--onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"-->
+        </div>
+        <div class="chk_box">
+        </div>
+        <div class="signin">
+            <input type="submit" value="{{translation.Login}}">
+        </div>
+    </form>
+</div>
+<div class="text-center forgotpass"><a href="#" ng-click="forgetPassword()">{{translation.ForgotPassword}}</a></div>
+<div id="loader" ng-show="showLoader">
+    <img src="images/loading.gif" />
+</div>
+<div id="forgetpwd" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="POST" role="form" class="form-horizontal" ng-submit="forget()">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">{{translation.ForgotPassword}}&nbsp;<i class="fa fa-circle-o-notch fa-spin m-l-10" ng-show="isbusy"></i></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="pwd" class="col-sm-4 control-label dark">{{translation.Email}}</label>
+                        <div class="col-sm-8">
+                            <input type="text" ng-model="email" class="form-control" id="pwd" name="" placeholder="{{translation.Email}}" required>
+                        </div>
+                    </div>
+                    {{Message}}
+                </div>
+                <div class="modal-footer">
+                    <span style="padding-right: 12px; padding-top: 4px;" ng-show="Loader">
+                        <img src="images/forgetloading.gif" />
+                    </span>
+                    <div class="pull-right">
+                        <button type="submit" class="btn btn-warning">{{translation.Sendpassword}}</button>
+                        <button type="button" class="btn btn-danger" ng-click="cancel()" data-dismiss="modal">{{translation.Cancel}}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

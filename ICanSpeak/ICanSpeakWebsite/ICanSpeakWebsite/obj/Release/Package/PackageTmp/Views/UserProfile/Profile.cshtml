@@ -1,0 +1,170 @@
+﻿@{
+    ViewBag.Title = "Profile";
+}
+
+<link href="~/css/jquery.flipcountdown.css" rel="stylesheet" />
+<script src="@Url.Content("/Scripts/jquery.min.js")"></script>
+<script src="@Url.Content("/Scripts/jquery.flipcountdown.js")"></script>
+<script>
+    jQuery(function ($) {
+        var i = 1000;
+        $('#retroclockbox1').flipcountdown();
+        var i = 1;
+        $('#retroclockbox_counter').flipcountdown({
+            tick: function () {
+                return i++;
+            }
+        });
+        $('#retroclockbox2').flipcountdown({ showHour: false, showMinute: false, showSecond: true });
+        $('#retroclockbox3').flipcountdown({ tzoneOffset: 3, showSecond: false });
+        $('#retroclockbox4').flipcountdown({ am: true });
+        $('#retroclockbox5').flipcountdown({ speedFlip: 50 });
+        $('#retroclockbox6').flipcountdown({
+            tick: function () {
+                return new Date('5/10/2012 12:34:23');
+            }
+        });
+    })
+</script>
+
+
+<div class="row">
+      	<div class="container">
+        	<div class="col-lg-12">
+                <div class="col-md-3 user-profice-pic">
+                	<img src="@Model.ProfilePicture" class="img-thumbnail">            	
+                </div>
+               	<div class="col-md-9 right">
+                <div class="col-md-2">
+                    <h2 class=" user-profile"><img src="~/Content/img/online.png">@Model.Username</h2>
+                    <h4 class="tutor-city-name left">@Model.Country</h4>
+                </div>
+                <div class="col-md-10 right-profile">
+                    <ul class="nav nav-pills view-profile">
+                        <li class="active"><a href="../../Notification/Notifications">Notifications (@Model.NotificationCount)</a></li>
+                        <li><a href="../../Message/Messages">Messages (@Model.Message)</a></li>                      
+                    </ul>
+                    <div class="clearfix"></div>	
+                    <ul class="nav nav-pills view-profile view	">
+                        <li class="active"><a href="#">View Profile</a></li>
+                        <li><a href="../../UserProfile/UpdatesProfile">Edit Profile</a></li>                      
+                    </ul>
+                   
+                </div>
+                    
+                    
+               </div>
+               
+               <div class="col-lg-2 blue-wrapper">
+                    <h2>My Score</h2>
+                    <h3>60/100 (details)</h3>
+                </div>
+                <div class="col-lg-2 blue-wrapper">
+                    <h2>Instructor Evaluation</h2>
+                    <h3>Great </h3>
+                </div>  
+                <div class="col-lg-2 blue-wrapper">
+                    <h2>Flashcards</h2>
+                    <h3>60/100 </h3>
+                </div>
+                <div class="col-lg-2 blue-wrapper">
+                    <h2>Days Remaining</h2>
+                    <div align="center">
+                    <div id="retroclockbox_sm"></div>
+                    </div>
+                    <script>
+					jQuery(function($){
+						//var NY = Math.round((new Date('1/01/2015 00:00:01')).getTime()/1000);
+						$('#new_year').flipcountdown({
+							size:'lg',
+							beforeDateTime:'1/01/2015 00:00:01'
+							/*tick:function(){
+								var nol = function(h){
+									return h>9?h:'0'+h;
+								}
+								var	range  	= NY-Math.round((new Date()).getTime()/1000),
+									secday = 86400, sechour = 3600,
+									days 	= parseInt(range/secday),
+									hours	= parseInt((range%secday)/sechour),
+									min		= parseInt(((range%secday)%sechour)/60),
+									sec		= ((range%secday)%sechour)%60;
+								return nol(days)+' '+nol(hours)+' '+nol(min)+' '+nol(sec);
+							}*/
+						});
+					});
+					</script>
+					<script>
+				jQuery(function($){
+					$('#retroclockbox_lg').flipcountdown({size:'lg'});
+					$('#retroclockbox_md').flipcountdown({size:'md'});
+					$('#retroclockbox_sm').flipcountdown({size:'sm'});
+					$('#retroclockbox_xs').flipcountdown({size:'xs'});
+				})
+				</script>
+                </div>   	
+               </div> 
+                	
+   	
+ 	<div class="col-lg-12">
+    	<div class="col-lg-6 ">
+        	<h2 class="introduction-heading">Introduction</h2>
+            <ul class="introduction">
+                @if(@Model.CourseType==null)
+                {
+                <li><strong>Courses Started</strong> : </li>
+                }
+                else
+                {
+                <li><strong>Courses Started</strong> : @Model.CourseStartDate</li>
+                }
+            	
+                <li><strong>Subscription Type</strong>  :  @Model.CourseType</li>
+                <li><strong>Progress</strong>:
+                	<div class="progress progress-bg">
+                      <div class="progress-bar " style="width: 40%;"></div>
+                    </div> 
+                </li>
+                @if (@Model.CourseDuration == null)
+                { 
+                <Li><strong>Course Duration</strong> : </Li>
+                }
+                else
+                {
+                <Li><strong>Course Duration</strong> : @Model.CourseDuration Days</Li>
+                }
+                
+                <li><strong>Days Left:</strong> 30 Days</li>
+            </ul>
+        </div>
+        <div class="col-lg-6">
+        	<h2 class="introduction-heading">Personal Information</h2>
+            <ul class="introduction">
+            	<li>Date of Birth: @Model.DOB</li>
+                <li>Gender: @Model.Gender</li>
+                <Li>Email : @Model.Email</Li>
+                <li>About me: </li>
+                <li>
+                    <audio controls
+                    data-info-album-art="http://farm5.staticflickr.com/4050/4353986539_ec89b52698_d.jpg"
+                    data-info-album-title="8874"
+                    data-info-artist="Billy Murray"
+                    data-info-title="Come, take a trip in my air-ship"
+                    data-info-label="Edison Gold Moulded Record"
+                    data-info-year="1905"
+                    data-info-att="University of California, Santa Barbara Library."
+                    data-info-att-link="http://cylinders.library.ucsb.edu/search.php?query=8874">
+                    <source src="@Model.AboutMeUrl" type="audio/mp3" />
+                    </audio>
+			</li>
+            </ul>
+        </div>
+    </div>
+   	       
+      </div>
+       
+        <!--Tutor start-->
+        
+         
+        <!--Tutor end-->  
+
+</div>

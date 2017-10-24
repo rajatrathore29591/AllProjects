@@ -1,0 +1,372 @@
+﻿<div class="page-content-wrapper">
+    <head runat="server">
+        <title></title>
+        <head>
+
+            <script type="text/javascript">
+                function uploadBlobOrFile(blobOrFile) {
+                    var path = document.getElementById("path").value;
+                    var type = $('input[name=website]:checked').val();
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', path + '/CraveServices.svc/Upload/' + type, true);
+
+                    xhr.setRequestHeader('Content-length', blobOrFile.size);
+
+                    xhr.onload = function (e) {
+                        progressBar.value = 0;
+                        progressBar.textContent = progressBar.value;
+                    };
+
+                    // Listen to the upload progress.
+                    var progressBar = document.querySelector('progress');
+                    xhr.upload.onprogress = function (e) {
+                        if (e.lengthComputable) {
+                            progressBar.value = (e.loaded / e.total) * 100;
+                            progressBar.textContent = progressBar.value; // Fallback.
+                        }
+                    };
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState == 4 && xhr.status == 200) {
+                           // alert(xhr.responseText);
+                          
+                            alert("Upload Video Successfully !!!");
+                        }
+                    };
+
+                    xhr.send(blobOrFile);
+                }
+
+
+            </script>
+        </head>
+
+
+    </head>
+
+
+    <div class="page-content" style="min-height: 605px">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="portlet box green">
+                    <div class="portlet-title">
+                        <div class="caption pagename pull-left">
+                            <span>How Its Works - {{title}}</span>
+
+                        </div>
+                        <div class="caption path  pull-right">
+
+                            <div class=""><span class="margin-right-10">Content Management</span> <i class="fa fa-angle-right margin-right-10"></i><span>How Its Works</span></div>
+                        </div>
+                    </div>
+                    <div class="portlet-body form ">
+                        <div class="form-horizontal">
+                            <!--action="#"-->
+                            <input id="path" type="hidden" value="{{config.api}}" />
+                            <div class="row p-20">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Application</label>
+                                        <div class="col-sm-6">
+                                            <select class="bs-select form-control input-small apptype" ng-change="select()" ng-model="platform" data-style="blue">
+                                                <option id="va">Vendor App</option>
+                                                <option id="ua">User App</option>
+                                                <option id="w">Website</option>
+                                            </select>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="form-group va all">
+                                        <label class="col-sm-2 control-label">Language</label>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <div class="icheck-inline">
+                                                    <label>
+                                                        <input type="radio" ng-change="radioChange()" ng-model="language" value="English" name="radio1" ng-checked="{{checked}}" class="icheck" data-radio="iradio_flat-grey">
+                                                        English
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" ng-change="radioChange()" ng-model="language" value="Thai" name="radio1" class="icheck" data-radio="iradio_flat-grey">
+                                                        Thai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ua all">
+                                        <label class="col-sm-2 control-label">Language</label>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <div class="icheck-inline">
+                                                    <label>
+                                                        <input type="radio" ng-change="radioChange()" ng-model="language" value="English" name="radio2" ng-checked="{{checked}}" class="icheck" data-radio="iradio_flat-grey">
+                                                        English
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" ng-change="radioChange()" ng-model="language" value="Thai" name="radio2" class="icheck" data-radio="iradio_flat-grey">
+                                                        Thai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group w all">
+
+                                        <label class="col-sm-2 control-label">App Type</label>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <div class="icheck-inline">
+                                                    <label>
+                                                        <input type="radio" value="User" name="website" checked="true">
+                                                        User
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" " value="Business" name="website" class="icheck">
+                                                        Business 
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group w all">
+
+                                        <label class="col-sm-2 control-label">Upload Video</label>
+                                        <div class="col-sm-6">
+                                            <input id="filePicker" type="file" name="Package" accept="video/*" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group w all">
+                                        <label class="col-sm-2 control-label">Uploaded Video</label>
+                                        <div class="col-sm-6">
+                                            <div class="img-thumbnail">
+
+
+                                                <progress min="0" max="100" value="0">0% complete</progress>
+
+                                                <button title="upload" class="btn btn-success"
+                                                    onclick="if (filePicker.files[0]) uploadBlobOrFile(filePicker.files[0])">
+
+                                                    <span>Upload</span>
+                                                </button>
+                                                <!-- <img src="#" class="img-responsive" alt="Alternate Text" />-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group va all">
+                                        <label class="col-sm-2 control-label">Upload Images</label>
+                                        <div class="col-sm-6">
+                                            <input type="file" name="vaimages[]" multiple id="file2" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group va all" id="howItsWorkImagesVendor">
+                                        <label class="col-sm-2 control-label">Uploaded Images</label>
+                                        <div class="col-sm-6">
+                                            <div id="bannerImages">
+                                                <div class="imgcont" ng-repeat="item in howitWork">
+                                                    <div class="image-thumbnail">
+
+                                                        <img class="imageThumb" src="{{config.api}}/Pictures/{{item.imageURL}}"> </img>
+                                                    </div>
+                                                    <i ng-click="delete(item.bannerId)" class="fa fa-minus del"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ua all">
+                                        <label class="col-sm-2 control-label">Upload Images</label>
+                                        <div class="col-sm-6">
+                                            <input type="file" name="uaimages[]" multiple id="file1" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ua all" id="howItsWorkImagesUser">
+                                        <label class="col-sm-2 control-label">Uploaded Images</label>
+                                        <div class="col-sm-6">
+                                            <div id="uaimages">
+                                                <div class="imgcont" ng-repeat="item in howitWork">
+                                                    <div class="image-thumbnail">
+                                                        <img class="imageThumb" src="{{config.api}}/Pictures/{{item.imageURL}}"> </img>
+                                                    </div>
+                                                    <i ng-click="delete(item.bannerId)" class="fa fa-minus del"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-8 col-sm-offset-2 MT20" ng-hide="hide">
+                                        <button type="button" value="Submit" ng-click="save()" class="btn btn-primary">Submit</button>
+                                    </div>
+
+                                </div>
+                                <!-- end of col ( form-min-col )-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+        </div>
+    </div>
+    <!-- END CONTENT -->
+</div>
+
+<div id="cropm" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Message</h4>
+            </div>
+            <div class="modal-body">
+
+                <div>
+                    <image-crop
+                        data-height="200"
+                        data-width="150"
+                        data-shape="square"
+                        data-step="imageCropStep"
+                        src="imgSrc"
+                        data-result="result"
+                        data-result-blob="resultBlob"
+                        crop="initCrop"
+                        padding="250"
+                        max-size="1024"></image-crop>
+                </div>
+
+                <div class="center-block cropbtns">
+                    <br />
+                    <button type="button" ng-click="clear()">Cancel</button>
+                    <button type="button" ng-click="initCrop = true;" id="croop">Crop</button>
+                </div>
+
+                <div class="hide">
+
+                    <h2>Result</h2>
+
+                    <p>The data-result-blob property is a Blob object, which is necessary in some upload libraries like <a href="https://github.com/nervgh/angular-file-upload" target="_blank">Angular File Upload</a></p>
+                    <p>Image using the data uri:</p>
+                    <img id="cropimage" ng-src="{{result}}"></img>
+                    <p>The Base64 String used in the image above:</p>
+                    <textarea class="result-datauri">{{ result }}</textarea>
+                    <button type="button" ng-click="clear()">Clear</button>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+
+                <!--                <button type="button" ng-click="redirect()" data-dismiss="modal" class="btn green">Ok</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+<div id="loader" ng-show="showLoader">
+    <div class="page-spinner-bar" ng-spinner-bar="">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+
+</div>
+<div id="static" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Message</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <!-- Would you like to continue with some arbitrary task?-->
+                    {{Message}}
+                </p>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" ng-click="redirect()" data-dismiss="modal" class="btn green">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- END CONTENT -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        magic();
+
+
+        function magic() {
+            var v = $(".apptype option:selected").attr('id');
+            $('.all').hide();
+            $("." + v).show();
+        }
+
+        $(".apptype").on("change", function (e) {
+            magic();
+        })
+
+
+        if (window.File && window.FileList && window.FileReader) {
+            $("#file2").on("change", function (e) {
+                var files = e.target.files,
+                filesLength = files.length;
+                for (var i = 0; i < filesLength ; i++) {
+                    var f = files[i]
+                    var fileReader = new FileReader();
+                    fileReader.onload = (function (e) {
+                        var file = e.target;
+                        var h = "<div class='imgcont'><img src='" + e.target.result + "' title = '" + file.name + "' class='imageThumb'><i class='fa fa-minus del'></i></div>";
+                        $("#bannerImages").append(h);
+                    });
+                    fileReader.readAsDataURL(f);
+                }
+            });
+
+            $("#file1").on("change", function (e) {
+                var files = e.target.files,
+                filesLength = files.length;
+                for (var i = 0; i < filesLength ; i++) {
+                    var f = files[i]
+                    var fileReader = new FileReader();
+                    fileReader.onload = (function (e) {
+                        var file = e.target;
+                        /* $("<img></img>", {
+                             class: "imageThumb",
+                             src: e.target.result,
+                             title: file.name
+                         }).insertAfter("#output");*/
+                        var h = "<div class='imgcont'><img src='" + e.target.result + "' title = '" + file.name + "' class='imageThumb'><i class='fa fa-minus del'></i></div>";
+                        $("#uaimages").append(h);
+                    });
+                    fileReader.readAsDataURL(f);
+                }
+            });
+        }
+        else { alert("Your browser doesn't support to File API") }
+
+
+        $('body').on('click', '.del', function () {
+            $(this).parent().remove();
+        })
+
+
+    });
+
+    $('#croop').click(function () {
+
+        setTimeout(function () {
+
+            var i = $('.result-datauri').text();
+            $('.imageThumb').attr('src', i);
+            $('#cropm').modal('hide');
+        }, 10)
+
+
+    })
+
+
+</script>

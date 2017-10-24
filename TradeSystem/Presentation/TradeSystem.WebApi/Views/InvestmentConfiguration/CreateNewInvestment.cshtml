@@ -1,0 +1,920 @@
+﻿@{
+    ViewBag.Title = "Create New Investment";
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+}
+
+@model TradeSystem.Utils.Models.ProductDataModel
+
+<!-- Form -->
+<div class="row">
+    <div class="col-md-12">
+        <!-- Customer Form -->
+        @*<form class="form-horizontal" action="#">*@
+        @using (Html.BeginForm("CreateNewInvestment", "InvestmentConfiguration", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-validate form-horizontal" }))
+        {
+            <div class="panel panel-flat">
+                <!-- <div class="panel-heading pb-10">
+                    <h5 class="panel-title"><span class="text-danger text-size-mini">* Fields are mandatory</span></h5>
+                </div> -->
+                <div class="panel-body">
+                    <!-- General Details -->
+                    <fieldset>
+                        <legend class="text-bold">
+                            <i class="icon-file-text2 position-left"></i>
+                            General Details
+
+                        </legend>
+
+                        <input type="hidden" name="CompanyUserId" value="@Session["UserId"]" />
+
+
+
+                        <input type="hidden" name="CompanyUserId" value="@Session["UserId"]" />
+
+                        <div class="collapse in" id="IM_general_details">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Title<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <input type="text" class="form-control" placeholder="Your Title" maxlength="50" name="Name" value="@Model.Name" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Image (475px X 358px):</label>
+                                        <div class="col-lg-7">
+                                            @*<input data-parsley-dimensions="true" data-parsley-dimensions-options='{"height": "100"}' type="file" class="form-control input-sm" id="inputFileDimensionsHeight" placeholder="Value">*@
+                                            <input type="file" class="file-styled fileImage" name="file" data-parsley-image="" data-parsley-max-file-size="2">
+                                            @*<label class="control-label">Note: Image size ratio should be 475 * 358</label>*@
+                                            <span id="spanfile" style="display:none;" class="errorSpanMessage">Dimension should be 152 x 114 px </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label"> Total value of investment<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            @if (Model.TotalValueOfInvestment > 0)
+                                            {
+                                                <input data-parsley-type="number" class="form-control" placeholder="Total Value of Investment" min="1" maxlength="10" name="TotalValueOfInvestment" value="@Model.TotalValueOfInvestment" required onkeypress="InvestmentCheck();" onkeyup="InvestmentCheck();">
+                                            }
+                                            else
+                                            {
+                                                <input data-parsley-type="number" class="form-control" placeholder="Total Value of Investment" id="total_investment_value" min="1" maxlength="10" name="TotalValueOfInvestment" value="" required onkeypress="InvestmentCheck();" onkeyup="InvestmentCheck();">
+                                            }
+                                            <span id="investment_zero_errormessage" class="red" style="display:none;">Value can't be zero</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Price (min-max)<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-3">
+                                            @if (Model.MinPrice > 0)
+                                            {
+                                                <input data-parsley-type="number" id="min_value" class="form-control" min="1" maxlength="10" placeholder="Min. value" value="@Model.MinPrice" name="MinPrice" required onkeypress="InvestmentCheck();" onkeyup="InvestmentCheck();">
+                                            }
+                                            else
+                                            {
+                                                <input data-parsley-type="number" class="form-control" min="1" maxlength="10" id="min_investment_value" placeholder="Min. value" value="" name="MinPrice" required onkeypress="InvestmentCheck();" onblur="MinLessThanMax();"  onkeyup="InvestmentCheck();">
+                                            }
+                                            <span id="minprice_zero_errormessage" class="red" style="display:none;">Value can't be zero</span>
+                                            <span id="minprice_maxprice_errormessage" class="red" style="display:none;">Minimum value should be less than maximum value</span>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            @if (Model.MinPrice > 0)
+                                            {
+                                                <input data-parsley-type="number" class="form-control" min="1" maxlength="10" id="max_investment_value1" placeholder="Max. value" value="@Model.MaxPrice" name="MaxPrice" required onkeypress="InvestmentCheck();" onkeyup="InvestmentCheck();">
+                                            }
+                                            else
+                                            {
+                                                <input data-parsley-type="number" class="form-control" min="1" id="max_investment_value" maxlength="10" placeholder="Max. value" value="" name="MaxPrice" required onkeypress="InvestmentCheck();" onblur="MinLessThanMax();" onkeyup="InvestmentCheck();">
+                                            }
+                                            <span id="max_errormessage" class="red" style="display:none;">You can't select more than total investment value</span>
+                                            <span id="maxprice_zero_errormessage" class="red" style="display:none;">Value can't be zero</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Description:</label>
+                                        <div class="col-lg-7">
+                                            <textarea class="form-control" rows="3" cols="5" name="Description" placeholder="Your Investment Description" maxlength="400">@Model.Description</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">% of earnings by week<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <input data-parsley-type="number" class="form-control" id="earnings_week" placeholder="% of earnings by week" min="1" maxlength="5" name="PercentWeeklyEarning" required onkeypress="InvestmentCheck();" onkeyup="InvestmentCheck();" value="@Model.PercentWeeklyEarning">
+                                            <span id="earnings_week_zero_errormessage" class="red" style="display:none;">Value can't be zero</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">% of earnings by sales<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <input data-parsley-type="number" class="form-control" placeholder="% of earnings by sales" id="earning_sales" min="1" maxlength="5" required onkeypress="InvestmentCheck();" onkeyup="InvestmentCheck();" name="PercentSaleEarning" value="@Model.PercentSaleEarning">
+                                            <span id="earning_by_sales" class="red" style="display:none;">Value can't be zero</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Date to withdraw the weekly yield<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <div class="form-group">
+                                                <label class="radio-inline">
+                                                    <input type="radio" id="MonthlyControl" name="@Model.DurationWithdraw" class="styled" value="Monthly" checked="checked">
+                                                    Monthly
+                                                </label>
+
+                                                <label class="radio-inline">
+                                                    <input type="radio" id="WeeklyControl" name="@Model.DurationWithdraw" class="styled" value="Weekly">
+                                                    Weekly
+                                                </label>
+                                            </div>
+                                            <div class="form-group" id="MonthlyDiv">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="icon-calendar"></i></span>
+                                                    <input type="text" id="MonthlyInput" class="form-control datepicker" name="MonthlyToWithdrawDay" placeholder="Select Month Date" value="@Model.WeeklyFromWithdrawDay" required>
+                                                    <span class="clearfix"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" style="display:none" id="WeeklyDiv">
+                                                <select name="WeeklyFromWithdrawDay" class="form-control" id="WeeklySelect">
+                                                    <option value="" disabled selected>Select Number of Weeks</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <select name="WeeklyToWithdrawDay" class="form-control" required>
+                                                    <option value="" disabled selected>Days (Available to withdraw)</option>
+                                                    <option value="5">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="15">15</option>
+                                                    <option value="20">20</option>
+                                                    <option value="25">25</option>
+                                                    <option value="30">30</option>
+                                                    <option value="35">35</option>
+                                                    <option value="40">40</option>
+                                                    <option value="45">45</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Days to withdraw the yield for sale<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <input data-parsley-type="number" name="SaleWithdrawDay" id="withdraw_sale" class="form-control" placeholder="Days to withdraw the yield for sale" value="@Model.SaleWithdrawDay" min="1" maxlength="3" required onkeypress="InvestmentCheck();" onkeyup="InvestmentCheck();">
+                                            <span id="Withdraw_sales_zero_errormessage" class="red" style="display:none;">Value can't be zero</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group withdraw-investment">
+                                        <label class="col-lg-4 control-label">Date to withdraw the investment<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="icon-calendar"></i></span>
+                                                <input type="text" id="investmentWithdrawDate" class="form-control datepicker" name="InvestmentWithdrawDate" placeholder="Select Month Date" value="@Model.InvestmentWithdrawDate" required onkeypress="InvestmentCheck();" onkeyup="InvestmentCheck();">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </fieldset>
+                    <!-- /general details -->
+                    <!-- Penalty Configuration Details -->
+                    <fieldset>
+                        <legend class="text-bold">
+                            <i class="icon-calculator3 position-left"></i>
+                            Penalty Configuration
+                        </legend>
+
+                        <input type="hidden" name="CompanyUserId" value="@Session["UserId"]" />
+                        <input type="hidden" name="CompanyUserId" value="@Session["UserId"]" />
+
+                        <div class="collapse in" id="IM_general_details">
+                            <span style="display:none;" id="penaltyErrorMessage" class="red">All fields are required</span>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group penalty-configuration">
+                                        <label class="col-lg-3 control-label">Days<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-4">
+                                            <input data-parsley-type="number" onkeypress="return isNumberDecimalKey(event)" onkeyup="PenaltyCheck()" class="form-control mr-10 display-inline-block" id="penalty_from" placeholder="From" value="" maxlength="3" readonly>
+                                            <span id="penalty_from_zero_errormessage" class="red" style="display:none;">This value should be greater than or equal to 1.</span>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <input data-parsley-type="number" onkeypress="return isNumberDecimalKey(event)" onkeyup="PenaltyCheck()" class="form-control display-inline-block" id="penalty_to" placeholder="To" value="" maxlength="3">
+                                            <span id="penalty_to_zero_errormessage" class="red" style="display:none;">This value should be greater than or equal to 1.</span>
+                                            <span id="penalty_to_condition" class="red" style="display:none;">This value should be greater than "From" days value</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group penalty-configuration">
+                                        <label class="control-label col-lg-3">% Penalty<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <input data-parsley-type="number" onkeypress="return isNumberDecimalKey(event)" onkeyup="PenaltyCheck()" class="form-control mr-10 display-inline-block add-penaltypercent" placeholder="% Penalty" id="penalty_percentage" value="" maxlength="5">
+                                            <span id="penalty_percentage_zero_errormessage" class="red" style="display:none;">This value should be greater than or equal to 1.</span>
+                                            <span id="limit_over_errormessage" class="red" style="display:none;">Penalty days should not be greater than investment withdraw days </span>
+                                            <span id="investment_withdrawdate_first" class="red" style="display:none;">Fill date to withdraw the investment to set penalty</span>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <a class="mt-10 buttons" href='javascript:void(0);' title="Add" onclick="return AddPenalty(this);" id="add_penalty"><i class="icon-add"></i></a>
+                                            @*<i class="icon-add"></i>*@
+                                            <a class="mt-10 buttons" href='javascript:void(0);' id="edit_penalty" style="display:none;" onclick="EditPenalty(this.title)"><i class="icon-pencil7"></i></a>
+                                            @*<i class="icon-add"></i>*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group penalty-configuration">
+                                        <div class="col-lg-11">
+                                            <!-- Penalty Configuration Table -->
+                                            <div class="mh-150 pre-scrollable">
+                                                <table class="table table-bordered table-hover dataTable pre-scrollable" id="table_penalty">
+                                                    <tr>
+                                                        <th>From<br>(Days)</th>
+                                                        <th>To<br>(Days)</th>
+                                                        <th>% Penalty</th>
+                                                        <th class="text-center">Action</th>
+                                                    </tr>
+                                                </table>
+                                                @Html.HiddenFor(m => m.TableJson)
+                                                <input id="checkPenaltyData" style="display:none;" type="text" required value="@Model.TableJson" />
+                                            </div>
+                                            <!-- /penalty configuration table -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </fieldset>
+                    <!-- /penalty configuration details -->
+                    <!-- Conditions -->
+                    <fieldset>
+                        <legend class="text-bold">
+                            <i class="icon-reading position-left"></i>
+                            Conditions
+
+                        </legend>
+
+                        <div class="collapse in" id="IM_conditions_details">
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Minimum money invested:</label>
+                                        <div class="col-lg-7">
+                                            <input type="text" name="Condition1" value="@Model.Condition1" id="min_money" class="form-control" placeholder="Minimum money invested" maxlength="10" onkeypress="InvestmentCheck();" onkeyup="InvestmentCheck();">
+                                            <span id="min_money_zero_errormessage" class="red" style="display:none;">Value can't be zero</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Minimum sales done:</label>
+                                        <div class="col-lg-7">
+                                            <input type="text" name="Condition2" value="@Model.Condition2" id="min_sales" class="form-control" placeholder="Minimum sales done" maxlength="10" onkeypress="InvestmentCheck();" onkeyup="InvestmentCheck();">
+                                            <span id="min_sales_zero_errormessage" class="red" style="display:none;">Value can't be zero</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Active investments:</label>
+                                        <div class="col-lg-8">
+                                            <div class="">
+                                                <select class="multiselect" id="multiselect-investment" multiple="multiple" name="">
+                                                    @*<option value="Choose from Existing Investments">Choose from Existing Investments</option>*@
+                                                    @foreach (var investment in ViewBag.Investments)
+                                                    {
+                                                        <option value="@investment.Value">@investment.Text</option>
+                                                    }
+                                                </select>
+                                                <input type="hidden" id="lbl-investment-list" name="Condition3" value="@Model.Condition3" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">More options:</label>
+                                        <div class="col-lg-7 mt-10">
+                                            <label>
+                                                <input type="checkbox" class="styled" id="MoreOptionControl">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="display:none" id="MoreOptionDiv">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Username:</label>
+                                        <div class="col-lg-7">
+                                            <select name="ByUserName" class="form-control">
+                                                <option value="">
+                                                    Select
+                                                </option>
+                                                @foreach (var user in ViewBag.UserName)
+                                                {
+                                                    if (Session["ByUserName"].ToString() == user.Value)
+                                                    {
+                                                        <option selected="selected" value="@user.Value">@user.Text</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@user.Value">@user.Text</option>
+                                                    }
+                                                }
+                                                @*<option value="Username1">
+                                                        Username1
+                                                    </option>
+                                                    <option value="Username2">
+                                                        Username2
+                                                    </option>*@
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Country:</label>
+                                        <div class="col-lg-7">
+                                            <select name="ByCountry" onchange="GetAllState(this.value);" class="form-control">
+                                                <option value="">
+                                                    Select
+                                                </option>
+                                                @foreach (var country in ViewBag.Country)
+                                                {
+                                                    @*<option value="@country.Value">@country.Text</option>*@
+                                                if (Session["ByCountry"].ToString() == country.Value)
+                                                {
+
+                                                    <option selected="selected" value="@country.Value">@country.Text</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@country.Value">@country.Text</option>
+                                                    }
+                                                }
+                                                @*<option value="Country1">
+                                                        Country1
+                                                    </option>
+                                                    <option value="Country2">
+                                                        Country2
+                                                    </option>*@
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">State:</label>
+                                        <div class="col-lg-7">
+                                            <select id="state_ddl" name="ByState" class="form-control">
+                                                <option value="">
+                                                    Select
+                                                </option>
+                                                @*<option value="State1">
+                                                        State1
+                                                    </option>
+                                                    <option value="State2">
+                                                        State2
+                                                    </option>*@
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="clearfix"></span>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Amount of money invested:</label>
+                                        <div class="col-lg-7">
+                                            <div class="row">
+                                                <div class="form-group col-lg-6">
+                                                    <input type="text" id="investedby" name="ByFromAmount" min="1" maxlength="25" value="@Model.ByFromAmount" class="form-control" placeholder="From" onkeypress="InvestmentCheck();" onkeyup="InvestmentCheck();">
+                                                    <span id="investedby_zero_errormessage" class="red" style="display:none;">Value can't be zero</span>
+                                                </div>
+                                                <div class="form-group col-lg-6">
+                                                    <input type="text" name="ByToAmount" id="investedto" min="1" maxlength="25" value="@Model.ByToAmount" class="form-control" placeholder="To" onkeypress="InvestmentCheck();" onkeyup="InvestmentCheck();">
+                                                    <span id="investedto_zero_errormessage" class="red" style="display:none;">Value can't be zero</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Amount of sales:</label>
+                                        <div class="col-lg-7">
+                                            <div class="row">
+                                                <div class="form-group col-lg-6">
+                                                    <input type="text" id="salesfrom" name="ByFromSale" min="1" maxlength="25" value="@Model.ByFromSale" class="form-control" placeholder="From" onkeypress="InvestmentCheck();" onkeyup="InvestmentCheck();">
+                                                    <span id="sales_from_zero_errormessage" class="red" style="display:none;">Value can't be zero</span>
+                                                </div>
+                                                <div class="form-group col-lg-6">
+                                                    <input type="text" id="salesto" name="ByToSale" min="1" maxlength="25" value="@Model.ByToSale" class="form-control" placeholder="To" onkeypress="InvestmentCheck();" onkeyup="InvestmentCheck();">
+                                                    <span id="sales_to_zero_errormessage" class="red" style="display:none;">Value can't be zero</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- /conditions -->
+
+                    <div class="text-center">
+                        @*<button class="btn bg-orange" title="Back"><i class="icon-arrow-left13 position-left"></i> Back </button>*@
+                        <a class="btn bg-orange" href="@Url.Action("Inventory", "InventoryManagement")" title="Back"><i class="icon-arrow-left13 position-left"></i> Back </a>
+                        <button type="submit" id="submit_investment" class="btn btn-primary" title="Submit" onclick="getSelectedInvestments();">Submit <i class="icon-arrow-right14 position-right"></i></button>
+
+                    </div>
+                </div>
+            </div>
+            @*</form>*@
+        }
+        <!-- /customer form -->
+    </div>
+</div>
+<!-- /Form -->
+
+
+<script type="text/javascript">
+    //variable for check conditon for inavestment is not greater than max price
+    var checkMaxInvestment = false;
+    //Created array for get json in array format
+    var jsonData = [];
+    // start function for call get all state list by country id
+    if ('@Session["ByCountry"].ToString()' != "") {
+        GetAllState('@Session["ByCountry"].ToString()');
+    }
+    //function for call get all state list by country id
+    function GetAllState(countryid) {
+        $.ajax({
+            type: "Post",
+            // calling customer controller for getall state and country
+            url: '@Url.Action("GetAllState","CustomerManagement")',
+            data: { id: countryid },
+            success: function (response) {
+                var appenddata;
+                var result = $.parseJSON(response);
+                //get state json to object format
+                $.each(result, function (k, v) {
+                    appenddata += "<option value = '" + v.Value + " '>" + v.Text + " </option>";
+                });
+                $('#state_ddl').html(appenddata);
+            }
+        });
+    }
+    // ends function for call get all state list by country id
+
+    //More Options Change Event
+    $('#MoreOptionControl').change(function () {
+        if ($(this).is(":checked")) {
+            //'checked' event code
+            $('#MoreOptionDiv').show();
+            return;
+        }
+        //'unchecked' event code
+        $('#MoreOptionDiv').hide();
+
+    });
+
+    //monthly change event
+    $('#MonthlyControl').change(function () {
+        if ($(this).is(":checked")) {
+            $('#MonthlyControl').prop('checked', true);
+            $('#WeeklyControl').prop('checked', false);
+            //'checked' event code
+            $('#WeeklyDiv').hide();
+            $('#MonthlyDiv').show();
+            $('#MonthlyInput').attr('required', 'required');
+            $('#WeeklySelect').removeAttr('required');
+            return;
+        }
+    });
+
+    //weekly change event
+    $('#WeeklyControl').change(function () {
+        if ($(this).is(":checked")) {
+            $('#MonthlyControl').prop('checked', false);
+            $('#WeeklyControl').prop('checked', true);
+            //'checked' event code
+            $('#MonthlyDiv').hide();
+            $('#WeeklyDiv').show();
+            $('#MonthlyInput').removeAttr('required');
+            $('#WeeklySelect').attr('required', 'required');
+            return;
+        }
+
+    });
+
+
+    $(document).ready(function () {
+        //fill value in penaly "from" field
+        $("#penalty_from").val(1);
+    });
+
+    var i = 0;
+    //Function for penalty table bind
+    function AddPenalty(e) {
+        var checkPenalty = PenaltyCheck();
+        if (checkPenalty) {
+            e.preventDefault;
+            return false;
+        }
+        var checkFromToConditon = PenaltyCheckForFromToCondition();
+        if (checkFromToConditon) {
+            e.preventDefault;
+            return false;
+        }
+
+        //get all value from the penalty inputs contorls
+        var from = parseInt($("#penalty_from").val()), to = parseInt($("#penalty_to").val()), penalty = parseFloat($("#penalty_percentage").val());
+
+        if ($("#penalty_from").val() == "" || $("#penalty_to").val() == "" || $("#penalty_percentage").val() == "") {
+            $("#penaltyErrorMessage").show();
+        }
+        else {
+            $("#penaltyErrorMessage").hide();
+            if ($("#investmentWithdrawDate").val() != "") {
+                //call checkValidDayForPenalty fuction for check investment day with penalty to days
+                var getValidDay = checkValidDayForPenalty(to);
+
+                if (getValidDay) {
+                    $("#limit_over_errormessage").hide();
+                    //append new row in penalty table
+                    $("#table_penalty").append("<tr id='" + i + "'><td id='penaltyForm_" + i + "'>" + from + "</td><td id='penaltyTo_" + i + "'>" + to + "</td><td id='penaltyPercentage_" + i + "'>" + penalty + "</td><td><a id='" + i + "' onclick='Edit(this.id)';>Edit</a></td></tr>");
+                    //for add 1 in penaltyfrom value
+                    var val = $("#penalty_from").val(to + 1);
+
+                    //Created new string json and bind column value in this json
+                    var str = {};
+                    str.Id = "";
+                    str.ProductId = "";
+                    str.PenaltyPercent = penalty;
+                    str.CreatedDate = "";
+                    str.PenaltyFrom = from;
+                    str.PenaltyTo = to;
+
+                    //String data to convert in json format (created new global json for array json)
+                    jsonData.push(JSON.stringify(str));
+                    //Bind json data in "TableJson" object
+                    $("#TableJson").val(jsonData);
+                    $("#checkPenaltyData").val(jsonData);
+                    if ($("#checkPenaltyData").val() == "") {
+                        $("#checkPenaltyData").hide();
+                        $("#checkPenaltyData").addAttr("required");
+                    } else {
+                        $("#checkPenaltyData").removeAttr("required");
+                        $("#parsley-id-42").hide();
+                        $("#checkPenaltyData").hide();
+                    }
+
+                    // Reset controls
+                    $("#penalty_to").val("");
+                    $("#penalty_percentage").val("");
+                    i++;
+                }
+                else {
+                    $("#limit_over_errormessage").show();
+                }
+            } else {
+                $("#investment_withdrawdate_first").show();
+            }
+        }
+        return true;
+    }
+
+    //for Decimal
+    function isNumberDecimalKey(e) {
+        if (e.which != 8 && e.which != 0 && e.which != 46 && (e.which < 48 || e.which > 57)) {
+            e.preventDefault();
+        }
+    }
+
+    var penaltyValue;
+    function Edit(id) {
+        // Reset controls
+        $("#penalty_from").val($("#penaltyForm_" + id).text());
+        $("#penalty_to").val($("#penaltyTo_" + id).text());
+        $("#penalty_percentage").val($("#penaltyPercentage_" + id).text());
+        $("#add_penalty").hide();
+        $("#edit_penalty").show();
+        $("#edit_penalty").attr('title', id);
+        penaltyValue = $("#penalty_to").val();
+        $("#limit_over_errormessage").hide();
+    }
+
+    function EditPenalty(title) {
+        var lastValueOfTable;
+        var checkPenalty = PenaltyCheck();
+        if (checkPenalty) {
+            e.preventDefault;
+            return false;
+        }
+        var checkFromToConditon = PenaltyCheckForFromToCondition();
+        if (checkFromToConditon) {
+            e.preventDefault;
+            return false;
+        }
+        //get all value from the penalty inputs contorls
+        var id = title;
+        var from = $("#penalty_from").val(), to = $("#penalty_to").val(), penalty = $("#penalty_percentage").val();
+
+        if ($("#penalty_from").val() == "" || $("#penalty_to").val() == "" || $("#penalty_percentage").val() == "") {
+            $("#penaltyErrorMessage").show();
+        }
+        else {
+            $("#penaltyErrorMessage").hide();
+            debugger;
+            $("#penaltyPercentage_" + id).text(penalty);
+            var changeObj = JSON.parse(jsonData[id]);
+            changeObj.PenaltyPercent = $("#penaltyPercentage_" + id).text();
+            jsonData[id] = JSON.stringify(changeObj);
+            //jsonData[id].PenaltyPercent = penalty;
+            //Change for penalty 02_10_2017
+            diffrence = to - penaltyValue;
+            diffrence = parseInt(diffrence);
+            var firstFromValueCheck = true;
+            //for assign value in last from field
+            var penltyToValue;
+            var lastPenaltyTo;
+            console.log(jsonData);
+            var keys = Object.keys(jsonData);
+            var last = keys[keys.length - 1];
+            lastPenaltyTo = $.parseJSON(jsonData[last]);
+            lastPenaltyTo = lastPenaltyTo["PenaltyTo"];
+
+            if (diffrence != 0) {
+                //call checkValidDayForPenalty fuction for check investment day with penalty to days
+                var getValidDay = checkValidDayForPenalty(parseInt(lastPenaltyTo) + diffrence);
+
+                if (getValidDay) {
+                    $("#limit_over_errormessage").hide();
+                    for (check = id; check < jsonData.length; check++) {
+                        var penltyFromValue = $("#penaltyForm_" + id).text();
+                        penltyToValue = $("#penaltyTo_" + id).text();
+                        var checkIDForFirstFromValue = id;
+                        if (firstFromValueCheck) {
+                            firstFromValueCheck = false;
+                        }
+                        else {
+                            $("#penaltyForm_" + id).text(parseInt(penltyFromValue) + diffrence);
+                            jsonData[id].PenaltyFrom = parseInt(penltyFromValue) + diffrence;
+                            penltyFromValue = parseInt(penltyFromValue);
+                        }
+                        penltyToValue = parseInt(penltyToValue);
+                        $("#penaltyTo_" + id).text(penltyToValue + diffrence);
+                        jsonData[id].PenaltyTo = penltyToValue + diffrence;
+
+                        if (id == jsonData.length - 1) {
+                            lastValueOfTable = $("#penaltyTo_" + id).text();
+                        }
+                        //final json of array
+                        var changeObject = JSON.parse(jsonData[id]);
+                        changeObject.PenaltyTo = $("#penaltyTo_" + id).text();
+                        changeObject.PenaltyFrom = $("#penaltyForm_" + id).text();
+                        changeObject.PenaltyPercent = $("#penaltyPercentage_" + id).text();
+                        jsonData[id] = JSON.stringify(changeObject);
+                        id++;
+                    }
+                }
+                else {
+                    $("#limit_over_errormessage").show();
+                    lastValueOfTable = null;
+                }
+            }
+            else {
+                //update on json
+                jsonData[id].PenaltyFrom = from;
+                jsonData[id].PenaltyTo = to;
+            }
+
+            // Reset controls
+            if (lastValueOfTable != null) {
+                $("#penalty_from").val(parseInt(lastValueOfTable) + 1);
+            }
+            else {
+                $("#penalty_from").val("");
+            }
+            //Bind json data in "TableJson" object
+            $("#TableJson").val(jsonData);
+            $("#penalty_to").val("");
+            $("#penalty_percentage").val("");
+            $("#edit_penalty").hide();
+            $("#add_penalty").show();
+        }
+    }
+    ///call function for checkValidDayForPenalty with investment withraw days
+    function checkValidDayForPenalty(to) {
+        $("#investment_withdrawdate_first").hide();
+
+        //Check for investment days with penalty to field
+        var dateInvestmentWithdraw = $("#investmentWithdrawDate").val();
+        var splitedList = dateInvestmentWithdraw.split('/');
+        var newDate = splitedList[1] + "/" + splitedList[0] + "/" + splitedList[2];
+
+        //get today date
+        var today = new Date();
+        var newdate = new Date(today);
+
+        newdate.setDate(newdate.getDate() + to);
+
+        var dd = newdate.getDate();
+        var mm = newdate.getMonth() + 1; //January is 0!
+        var yyyy = newdate.getFullYear();
+
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+        today = mm + '/' + dd + '/' + yyyy;
+        if (new Date(today) <= new Date(newDate)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    //function for select all multiple value with comma spreated
+    var strCustomerId = "";
+    function getSelectedInvestments() {
+        var checkInvestment = InvestmentCheck();
+        checkInvestment == true ? $('#submit_investment').prop("disabled", true) : $('#submit_investment').prop("disabled", false);
+        if (checkInvestment) return false;
+        if ($("#checkPenaltyData").val() == "") {
+            $("#checkPenaltyData").hide();
+        } else {
+            $("#checkPenaltyData").hide();
+            $("#checkPenaltyData").removeAttr("required");
+        }
+        $('#multiselect-investment option:selected').each(function (i) {
+            if (i == 0) {
+                strCustomerId = $(this).val();
+            }
+            else {
+                strCustomerId = strCustomerId + "," + $(this).val();
+            }
+        });
+        $("#lbl-investment-list").val(strCustomerId);
+        return true;
+    }
+
+    ////function for disable future date
+    $(function () {
+        $("#MonthlyInput").datepicker(
+        {
+            todayBtn: "linked",
+            format: "dd/mm/yyyy",
+            startDate: new Date(),
+            autoclose: true,
+        })
+        .change(dateChanged)
+   .on('changeDate', dateChanged);
+    });
+    function dateChanged(ev) {
+        $('#parsley-id-26').hide();
+        if ($('#MonthlyInput').val() == '') {
+            $('#parsley-id-26').show();
+        } else {
+            $('#period').text("-");
+        }
+    }
+
+    ////function for disable future date
+    $(function () {
+        var tomorrow = new Date();
+        var a = tomorrow.setDate(tomorrow.getDate() + 1);
+        var date = ConvertJsonDateString(a);
+        $("#investmentWithdrawDate").datepicker(
+        {
+            todayBtn: "linked",
+            format: "dd/mm/yyyy",
+            //startDate: new Date(),
+            startDate: date,
+            autoclose: true,
+        }).change(dateInvestmentChanged)
+   .on('changeDate', dateInvestmentChanged);
+    });
+    function dateInvestmentChanged(ev1) {
+        $('#parsley-id-34').hide();
+        if ($('#investmentWithdrawDate').val() == '') {
+            $('#parsley-id-34').show();
+        } else {
+            $('#period').text("-");
+            $("#investment_withdrawdate_first").hide();
+        }
+    }
+    //function for convert into date format
+    function ConvertJsonDateString(jsonDate) {
+        var shortDate = null;
+        if (jsonDate) {
+            var regex = /-?\d+/;
+            var matches = regex.exec(jsonDate);
+            var dt = new Date(parseInt(matches[0]));
+            var month = dt.getMonth() + 1;
+            var monthString = month > 9 ? month : '0' + month;
+            var day = dt.getDate();
+            var dayString = day > 9 ? day : '0' + day;
+            var year = dt.getFullYear();
+            shortDate = dayString + '/' + monthString + '/' + year;
+        }
+        return shortDate;
+    };
+
+    //function for check max value is not greater than total investment value
+    function InvestmentCheck() {
+        var isValid = false;
+        var count = 0;
+        var TotalInvestmentValue = parseFloat($("#total_investment_value").val().trim());
+        var MaxInvestmentValue = parseFloat($("#max_investment_value").val().trim());
+        var MinInvestmentValue = parseFloat($("#min_investment_value").val().trim());
+
+
+        if (parseFloat(MaxInvestmentValue) > parseFloat(TotalInvestmentValue)) {
+            $('#max_errormessage').show();
+            return checkMaxInvestment = true;
+        }
+
+        else {
+            $('#max_errormessage').hide();
+            $('#submit_investment').prop("disabled", false)
+            return checkMaxInvestment = false;
+        }
+    }
+
+    function MinLessThanMax() {
+        debugger;
+        var MaxInvestmentValue1 = parseFloat($("#max_investment_value").val().trim());
+        var MinInvestmentValue1 = parseFloat($("#min_investment_value").val().trim());
+        if (parseFloat(MaxInvestmentValue1) < parseFloat(MinInvestmentValue1)) {
+            $('#minprice_maxprice_errormessage').show();
+            $('#submit_investment').prop("disabled", true)
+            return checkMaxInvestment = true;
+        }
+        else
+        {
+            $('#submit_investment').prop("disabled", false)
+            $('#minprice_maxprice_errormessage').hide();
+        }
+    }
+
+    ///Function for check penalty can not be zero
+    function PenaltyCheck() {
+        var checkPenalty = 0;
+        var Penalty_from = parseInt($("#penalty_from").val().trim());
+        var Penalty_to = parseInt($("#penalty_to").val().trim());
+        var Penalty_percentage = parseFloat($("#penalty_percentage").val().trim());
+
+        if (Penalty_from == 0) {
+            $('#penalty_from_zero_errormessage').show();
+            checkPenalty++;
+        }
+        else if ($("#penalty_from").val() != "") {
+            $('#penalty_from_zero_errormessage').hide();
+        }
+        if (Penalty_to == 0) {
+            $('#penalty_to_zero_errormessage').show();
+            $('#penalty_to_condition').hide();
+            checkPenalty++;
+        }
+        else if ($("#penalty_to").val() != "") {
+            $('#penalty_to_zero_errormessage').hide();
+        }
+        if (Penalty_percentage == 0) {
+            $('#penalty_percentage_zero_errormessage').show();
+            checkPenalty++;
+        }
+        else if ($("#penalty_percentage").val() != "") {
+            $('#penalty_percentage_zero_errormessage').hide();
+        }
+        if (checkPenalty > 0) {
+            return true;
+        }
+        else { return false; }
+    }
+
+
+    //function for check condition From value to To value
+    //function for check max value is not greater than total investment value
+    function PenaltyCheckForFromToCondition() {
+        var isCheck = false;
+        var Penalty_from = parseInt($("#penalty_from").val().trim());
+        var Penalty_to = parseInt($("#penalty_to").val().trim());
+
+        if (Penalty_from > Penalty_to) {
+            $('#penalty_to_condition').show();
+            return isCheck = true;
+        }
+        else {
+            $('#penalty_to_condition').hide();
+            return isCheck = false;
+        }
+    }
+</script>

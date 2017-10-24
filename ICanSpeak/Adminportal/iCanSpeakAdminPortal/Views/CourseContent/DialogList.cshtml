@@ -1,0 +1,168 @@
+﻿@{
+    ViewBag.Title = "DialogList";
+}
+<script src="@Url.Content("~/Content/jAlert/jquery.alerts.js")" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/jAlert/jquery.alerts.css")" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myDataTable').dataTable({
+            "bJQueryUI": true,
+            "aaSorting": [],
+            "sPaginationType": "full_numbers",
+            "aoColumns": [
+                { "sName": "Email", "bSearchable": true, "bSortable": true },
+                { "sName": "Full Name", "bSearchable": true, "bSortable": true },
+                { "sName": "Gender", "bSearchable": true, "bSortable": true },
+                 { "sName": "City", "bSearchable": true, "bSortable": true },
+                { "sName": "Status", "bSearchable": false, "bSortable": false },
+               
+                { "sName": "Operations", "bSearchable": false, "bSortable": false }
+            ]
+        }).makeEditable({
+            fnStartProcessingMode: function () {
+                $("#processing_message").dialog();
+            },
+            fnEndProcessingMode: function () {
+                $("#processing_message").dialog("close");
+            }
+        });
+    });
+</script>
+<style type="text/css">
+    .operationIcons {
+        height: 25px;
+        width: 25px;
+    }
+    tr:nth-child(even){background-color: #e2f3ff}
+</style>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <font color="44c9ff"> Dialogue Course </font>
+        </h1>
+        <span style="float: right; color: #3d3b3b; font-size: 16pt; margin-top: -50px;">
+            <img src="~/Images/add_icon.png" class="operationIcons" />
+            <a style="cursor:pointer; color:#3d3b3b; text-decoration:none; font-weight:200" href="@Url.Action("AddDialog", "CourseContent")">Add new dialog</a>
+        </span>
+    </div>
+</div>
+<table id="myDataTable" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Dialog Gender</th>
+            <th>Create Date and Time</th>
+            <th>Status</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            
+            <tr>
+                <td><span>@item.EnglishName</span></td>
+                <td width="100px"><span>@item.Price</span></td>
+                <td><span>@item.DialogGender</span></td>
+                <td><span>@item.CreateDate</span></td>
+                <td>
+                    @if (item.IsActive == true)
+                    {
+                        <input type="button" value="Active" style="color:white; background-color:green; border:none;" id="btnStatus-@item.DialogId" onclick="ManageDialogStatus(@item.DialogId)" />
+                    }
+                    else
+                    {
+                        <input type="button" value="Inactive" style="color:white; background-color:red; border:none;" id="btnStatus-@item.DialogId" onclick="ManageDialogStatus(@item.DialogId)" />
+                    }
+                </td>
+
+                <td width="215px">
+                    @*<img src="~/Images/add_icon.png" class="operationIcons" />
+                    &nbsp;*@
+                    <img src="~/Images/delete_icon.png" class="operationIcons"  onclick="DeleteDialogPermanentaly(@item.DialogId)" title="Delete" />&nbsp;&nbsp;
+                    <a href="../CourseContent/UpdateDialog?dialogid=@item.DialogId"><img src="~/Images/edit_icon.png" class="operationIcons" title="Edit Information"/></a>&nbsp;&nbsp;
+                    <a href="../CourseContent/DialogDetail?dialogid=@item.DialogId"><img src="~/Images/detail_icon.png" class="operationIcons" title="View Details"/></a>&nbsp;&nbsp;
+                    <img src="~/Images/keyphrase.png" class="operationIcons" title="View Key Phrase" onclick="ViewKeyPhrase(@item.DialogId)" />&nbsp;&nbsp;
+                    <a href="../CourseContent/ConversationList?dialogid=@item.DialogId&gender=@item.DialogGender"><img src="~/Images/conversation_icon.png" class="operationIcons" title="View Conversation" /></a>&nbsp;&nbsp;
+                    <img src="~/Images/question.jpg" class="operationIcons" title="View Assessment Question" onclick="DialogAssessmentQuestions(@item.DialogId)"/>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<script type="text/ecmascript">
+    function DialogAssessmentQuestions(dialogid)
+    {   
+        window.location.href="@Url.Action("DialogAssessmentQuestions", "CourseContent")?dialogid="+dialogid;
+      }
+
+    function ViewKeyPhrase(dialogid)
+    {   
+        window.location.href="@Url.Action("KeyPhraseList", "CourseContent")?dialogid="+dialogid;
+    }
+
+    function ViewConversation(dialogid)
+    {
+        alert(gender);
+        window.location.href="@Url.Action("ConversationList", "CourseContent")?dialogid="+dialogid+"&gender="+gender;
+    }
+
+    function ManageDialogStatus(dialogid)
+    {
+
+        $.ajax({
+            url:'@Url.Action("ManageDialogStatus", "CourseContent")',
+               type:"POST",
+               data:{DialogId:dialogid, softDelete:"true"},
+               success:function(result){
+                   if (result.indexOf("Dear user your session expired please") >= 0)
+                   {
+                       window.location="@Url.Action("Login","Account")";
+                   }
+                   var id="btnStatus-"+dialogid;
+                   var btnText=$("#"+id).val();
+                   if(btnText=="Active")
+                   {
+                       $("#"+id).val('Inactive');
+                       $("#"+id).css("background-color","red");
+                   }
+                   else
+                   {
+                       $("#"+id).val('Active');
+                       $("#"+id).css("background-color","green");
+                   }
+               },
+               error:function(result){
+               },
+           });
+       }
+
+    function DeleteDialogPermanentaly(dialogid)
+       {
+        var result=confirm("Do you want to delete this record.");
+           if(result==true)
+           {
+               $.ajax({
+                   url:'@Url.Action("DeleteDialogByDialogId", "CourseContent")',
+                type:"POST",
+                data:{dialogid:dialogid},
+                success:function(result){
+                    if (result.indexOf("Dear user your session expired please") >= 0)
+                    {
+                        window.location="@Url.Action("Login","Account")";
+                    }
+                    window.location="@Url.Action("DialogList", "CourseContent")";
+                },
+                error:function(result){
+                },
+            });
+            }
+        }
+
+ 
+</script>

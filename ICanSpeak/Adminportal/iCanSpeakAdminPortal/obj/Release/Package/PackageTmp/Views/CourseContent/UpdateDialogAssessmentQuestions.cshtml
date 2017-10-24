@@ -1,0 +1,249 @@
+﻿@{
+    ViewBag.Title = "UpdateDialogAssessmentQuestions";
+}
+
+<style>
+    .fileUpload {
+        position: relative;
+        overflow: hidden;
+        margin: 10px;
+    }
+
+        .fileUpload input.upload {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0px 10px;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+    .box1 {
+        border: 1px solid #ccc;
+        margin: 10px 0px;
+        padding: 20px;
+        border-radius: 8px;
+    }
+</style>
+
+<div class="dialog-page">
+    <div class="container">
+        @using (Html.BeginForm("UpdateDialogAssessmentQuestions", "CourseContent", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <input type="hidden" value="@Model.QuestionId"  name="QuestionId" />
+            <input type="hidden" value="@Model.DialogId" name="DialogId" />
+            <header>
+                <h2>Edit Dialog Assessment Question</h2>
+            </header>
+                   
+            <div class="contant">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                        <div class="form-group required">
+                            <label style="color: red !important; font-size: 16px;">
+                                @ViewBag.errormsg
+                            </label>
+                            <input type="hidden" value="@Model.OptionAudioUrl1" name="OptionAudioUrl1" />
+                            <input type="hidden" value="@Model.OptionAudioUrl2" name="OptionAudioUrl2" />
+                            <input type="hidden" value="@Model.OptionAudioUrl3" name="OptionAudioUrl3" />
+                        </div>
+                        <div class="form-group">
+                            <label>Question <span style="color: #FE2801;">*</span></label>
+                            <input class="form-control" required name="Question"  value="@Model.Question"  title="" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>Question Type </label>
+                            <input class="form-control" readonly name="QuestionType"  value="@Model.QuestionType"  title="" type="text" />
+                        </div>
+                        @if (Model.QuestionType == "FillBlanks")
+                        { 
+                            <div class="form-group">
+                                <label>Correct Answer <span style="color: #FE2801;">*</span></label>
+                                <input class="form-control" required name="FillAnsText"  value="@Model.FillAnsText"  title="" type="text" />
+                            </div> 
+                        }
+                        @if (Model.QuestionType == "TrueFalse")
+                        { 
+                            <div class="form-group">
+                                <label>Selected Answer  <span style="color: #FE2801;">*</span></label>
+                                @if (Model.TrueFalseTypes == "True")
+                                {
+                                    <select class="form-control" name="TrueFalseType">
+                                        <option value="True" selected>True</option>
+                                        <option value="False">False</option>
+                                    </select>  
+                                }
+                                else
+                                {
+                                    <select class="form-control" name="TrueFalseType">
+                                        <option value="True">True</option>
+                                        <option value="False" selected>False</option>
+                                    </select> 
+                                }
+                            </div>
+                        }
+                        @if (Model.QuestionType == "Objective")
+                        { 
+@*<div class="form-group">
+                                <label>Correct Answer<span style="color: #FE2801;">*</span></label>
+                                <input class="form-control" required name="ObjOpt1txt"  value="@Model.OptionCorrectAnswer"  title="" type="text" />
+                            </div>*@
+                            <div class="form-group">
+                                <label>Correct Option <span style="color: #FE2801;">*</span></label>
+                                @if (Model.OptionCorrectAnswer == "1")
+                                {
+                                    <select class="form-control" required name="OptionCorrectAnswer">
+                                        <option value="">Select</option>
+                                        <option value="1" selected>Option 1</option>
+                                        <option value="2">Option 2</option>
+                                        <option value="3">Option 3</option>
+                                    </select>
+                                }
+                                @if (Model.OptionCorrectAnswer == "2")
+                                {
+                                    <select class="form-control" required name="OptionCorrectAnswer">
+                                        <option value="">Select</option>
+                                        <option value="1">Option 1</option>
+                                        <option value="2" selected>Option 2</option>
+                                        <option value="3">Option 3</option>
+                                    </select>
+                                }
+                                @if (Model.OptionCorrectAnswer == "3")
+                                {
+                                    <select class="form-control" required name="OptionCorrectAnswer">
+                                        <option value="">Select</option>
+                                        <option value="1">Option 1</option>
+                                        <option value="2">Option 2</option>
+                                        <option value="3" selected>Option 3</option>
+                                    </select>
+                                }
+                            </div>
+                            <div class="form-group">
+                                <label>Option 1 Text <span style="color: #FE2801;">*</span></label>
+                                <input class="form-control" required name="ObjOpt1txt"  value="@Model.ObjOpt1txt"  title="" type="text" />
+                            </div>
+                            <div class="form-group">
+                                <label>Option 2 Text <span style="color: #FE2801;">*</span></label>
+                                <input class="form-control" required name="ObjOpt2txt"  value="@Model.ObjOpt2txt"  title="" type="text" />
+                            </div>
+                            <div class="form-group">
+                                <label>Option 3 Text <span style="color: #FE2801;">*</span></label>
+                                <input class="form-control" required name="ObjOpt3txt"  value="@Model.ObjOpt3txt"  title="" type="text" />
+                            </div>
+                            <div class="form-group">
+                                <label>Option 1 Audio </label>
+                                <div class="box1">
+                                    <div class="row">
+                                        <audio id="audio_preview" controls="" style="width: 100%">
+                                            <source src="@Model.OptionAudio1" type="audio/mpeg" />
+                                        </audio>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="fileUpload btn btn-primary">
+                                            <span>Change Audio</span>
+                                            <input id="audio1" type="file" class="upload" name="OptionAudioUrl1" accept="audio/*" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Option 2 Audio </label>
+                                <div class="box1">
+                                    <div class="row">
+                                        <audio controls="" style="width: 100%">
+                                            <source src="@Model.OptionAudio2" type="audio/mpeg" />
+                                        </audio>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="fileUpload btn btn-primary">
+                                            <span>Change Audio</span>
+                                            <input id="audio2" type="file" class="upload" name="OptionAudioUrl2" accept="audio/*" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Option 3 Audio </label>
+                                <div class="box1">
+                                    <div class="row">
+                                        <audio controls="" style="width: 100%">
+                                            <source src="@Model.OptionAudio3" type="audio/mpeg" />
+                                        </audio>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="fileUpload btn btn-primary">
+                                            <span>Change Audio</span>
+                                            <input id="audio3" type="file" class="upload" name="OptionAudioUrl3" accept="audio/*" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-info" value="Update" />&nbsp;&nbsp;
+                            <a href="../../Admin/CourseContent/DialogAssessmentQuestions?dialogId=@Model.DialogId">
+                            <input type="button" class="btn btn-info" value="Cancel"  /></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>  
+                  
+        }
+    </div>
+</div>
+<script type="text/javascript">
+    function ResetFormValues() {
+        window.location = "@Url.Action("AddGrammerUnit", "CourseContent")";
+    }
+
+
+</script>
+<script>
+    $('#audio1').change(function () {
+        var val = $(this).val();
+        switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'mp3':
+                break;
+            default:
+                $(this).val('');
+
+                alert("Audio must be of mp3 format.");
+                break;
+        }
+    });
+    $('#audio2').change(function () {
+        var val = $(this).val();
+        switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'mp3':
+                break;
+            default:
+                $(this).val('');
+
+                alert("Audio must be of mp3 format.");
+                break;
+        }
+    });
+    $('#audio3').change(function () {
+        var val = $(this).val();
+        switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'mp3':
+                break;
+            default:
+                $(this).val('');
+
+                alert("Audio must be of mp3 format.");
+                break;
+        S
+    });
+</script>
+

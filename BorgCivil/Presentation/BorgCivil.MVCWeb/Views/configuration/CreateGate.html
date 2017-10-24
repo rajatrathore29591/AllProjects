@@ -1,0 +1,122 @@
+﻿<div ng-controller="ManageGateCtrl as mgCtrl" class="customer-register">
+    <!--Site Details Start-->
+    <form name="add_gate_detail_form" ng-submit="mgCtrl.updateDetails(add_gate_detail_form.$valid)" novalidate>
+        <!--Site Details Content Start-->
+        <div id="site-details-tab" class="tab-pane">
+            <div class="bc-panel-white m-b-none">
+                <h3 class="sub-title">Site Details</h3>
+
+                <!-- Gate Form -->
+                <form name="add_gate_detail_form" ng-submit="mgCtrl.updateGateDetails(add_gate_detail_form.$valid)" novalidate>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Gate Number <span class="text-danger"> *</span></label>
+                                <input type="text" class="form-control" ng-model="mgCtrl.attributes.GateNumber" ng-maxlength="30" ng-minlength="2" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Tip Off Rate <span class="text-danger"> *</span></label>
+                                        <div class="input-group date">
+                                            <span class="input-group-addon">
+                                                <span class="fa fa-usd"></span>
+                                            </span>
+                                            <input type="number" class="form-control" ng-model="mgCtrl.attributes.TipOffRate" ng-pattern="/^([0-9]{1,5})(([.]{1})([0-9]{1,2}))?$/" name="TipOffRate">
+                                            <div ng-if="add_gate_detail_form.TipOffRate.$invalid && !add_gate_detail_form.TipOffRate.$pristine">
+                                                <span class="has-error"> This field is invalid.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Tipping Site <span class="text-danger"> *</span></label>
+                                <input type="text" class="form-control" ng-model="mgCtrl.attributes.TippingSite" ng-maxlength="30" ng-minlength="2" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+                    <div class="bc-panel-white">
+                        <div class="row">
+                            <div class="col-md-12 text-right">
+                                <button type="button" class="btn btn-default" data-dismiss="modal" title="Close" ng-click="mgCtrl.cancelGate()">Close</button>
+                                <button type="submit" class="btn btn btn-primary" data-dismiss="modal" title="Save">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                  
+                    <div class="row">
+                        <div class="form-group add-btn">
+                            <div class="row">                                
+                                <div class="col-md-12 text-right">
+                                    <button type="button" ng-click="mgCtrl.addContactModal()" class="btn btn-primary btn-i" title="Add Contact">
+                                        <i class="fa fa-plus"></i> Add Contact
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                 <!-- Contact Form --> 
+                <form name="add_contact_detail_form" ng-submit="mgCtrl.updateContactDetails(add_contact_detail_form.$valid)" novalidate>
+                    <div class="row" ng-show="mgCtrl.addContact.length>0">
+                        <div class="col-md-12">
+                            <div class="tab-content m-t-md">
+                                <div id="pending-tab" class="tab-pane active">
+                                    <div class="grid-tb-panel">
+                                        <table class="table table-stripped" data-page-size="8">
+                                            <tr>
+                                                <th>Contact Person Name</th>
+                                                <th>Email</th>
+                                                <th>Mobile Number</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            <tr ng-repeat="contact in mgCtrl.addContact">
+                                                <td>{{contact.ContactPerson}}</td>
+                                                <td>{{contact.Email}}</td>
+                                                <td class="text-center">{{contact.MobileNumber}}</td>
+                                                <td class="delete-view">
+                                                    <!--<a type="button" href="javascript:void(0);" ng-click="mgCtrl.removeContactRow($index);" title="Delete"><i class="fa pe-7s-trash"></i></a>-->
+                                                    <a type="button" href="javascript:void(0);" ng-click="mgCtrl.editContactModal(contact);" title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="bc-panel-white">
+                        <div class="row">
+                            <div class="col-md-12 text-right">                                
+                                <button type="submit" class="btn btn btn-primary" data-dismiss="modal" title="Save">Save</button>
+                            </div>
+                        </div>
+                    </div>-->
+                </form>
+            </div>
+
+            <!--<div class="bc-panel-white">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" title="Close" ng-click="mgCtrl.hideCancel()">Close</button>
+                        <button type="submit" class="btn btn btn-primary" data-dismiss="modal" title="Save">Save</button>
+
+                    </div>
+                </div>
+            </div>-->
+        </div>
+        <!--Site Details Content End-->
+    </form>
+    <!--Site Details End-->
+</div>

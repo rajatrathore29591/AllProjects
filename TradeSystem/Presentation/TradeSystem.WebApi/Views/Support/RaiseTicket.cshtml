@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Raise Ticket";
+    Layout = "~/Views/Shared/_CustomerLoggedInLayout.cshtml";
+}
+@model TradeSystem.Utils.Models.TicketDataModel
+
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("RaiseTicket", "Support", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-validate form-horizontal" }))
+        {
+
+            <!-- Promotion Form -->
+            <div class="panel panel-flat">
+                <div class="panel-heading pb-10">
+                    <h5 class="panel-title"><span class="text-danger text-size-mini">* @Resources.Languages.Fieldsaremandatory</span></h5>
+                                   
+                </div>
+
+                <div class="panel-body">
+                    <!-- Promotion Information -->
+                    <fieldset>
+                        <legend class="text-bold">
+                            <i class="icon-file-text2 position-left"></i>
+                            @Resources.Languages.RaiseTicket
+                        </legend>
+                        @if (ViewBag.Success == "true")
+                        {
+                            <label class="green">@ViewBag.Message</label>
+                        }
+                        @if (ViewBag.Success == "false")
+                        {
+                            if (ViewBag.Message != null)
+                            {
+                                <label class="red">@ViewBag.Message</label>
+                            }
+                        }
+                        <div class="collapse in" id="AM_personal_information">
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">@Resources.Languages.Title<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <input type="text" name="Title" value="@Model.Title" placeholder="@Resources.Languages.Title" class="form-control" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">@Resources.Languages.Description<span class="text-danger">*</span>:</label>
+                                        <div class="col-lg-7">
+                                            <div>
+                                                <textarea cols="18" rows="10" id="description" class="form-control" name="Description" value="@Model.Description" placeholder="@Resources.Languages.Description" required="required"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- /personal information -->
+                    <div class="text-center mt-15 mb-10">
+                        <a class="btn bg-orange" href='@Url.Action("MyTickets","Support")' title="@Resources.Languages.Back"><i class="icon-arrow-left13 position-left"></i>@Resources.Languages.Back</a>
+                        <button type="submit" class="btn btn-primary" title="@Resources.Languages.Submit">@Resources.Languages.Submit<i class="icon-arrow-right14 position-right"></i></button>
+                    </div><span class="clearfix"></span>
+                </div>
+            </div>
+
+            <!-- /customer form -->
+        }
+    </div>
+</div>
+<!-- /form -->

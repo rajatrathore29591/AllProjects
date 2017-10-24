@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "New Investment";
+    Layout = "~/Views/Shared/_CustomerLoggedInLayout.cshtml";
+
+}
+@model TradeSystem.Utils.Models.WithdrawDataModel
+
+<!-- Form -->
+<div class="row">
+    <div class="col-md-12">
+        <!-- Customer Form -->
+        <div class="panel panel-flat">
+            @if (TempData["WithdrawInvestmentMessage"] == null)
+            {
+                using (Html.BeginForm("WithdrawEarning", "Investment", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-validate" }))
+                {
+                    <div class="panel-body">
+
+                        <!-- Payment Information -->
+                        <fieldset>
+                            <legend class="text-bold">
+                                @Resources.Languages.SelectWithdrawalOption:
+                            </legend>
+
+                            <div class="collapse in" id="AM_personal_information">
+                                <div class="row">
+                                    <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            <div class="col-lg-11 no-padding-left">
+                                                <div class="check">
+                                                    <input id="wallet" type="radio" name="IsWalletOrBank" value="Deposit earning into virtual wallet" checked="true">
+                                                    <label class="valign-top">
+                                                        @Resources.Languages.Depositearningintovirtualwallet
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-11">
+                                            <div class="check">
+                                                <input id="bank" type="radio" name="IsWalletOrBank" value="Deposit earning into bank account">
+                                                <label class="valign-top">
+                                                    @Resources.Languages.Depositearningintobankaccount
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                <!-- /payment information -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary mb-20" title="@Resources.Languages.Submit">@Resources.Languages.Submit <i class="icon-arrow-right14 position-right"></i></button>
+                    </div>
+                }
+            }
+            else if (TempData["WithdrawInvestmentMessage"] != null)
+            {
+                <label class="green">@Resources.Languages.InvestmentWithdrawMessage</label>
+            }
+
+        </div>
+    </div>
+    <!-- /customer form -->
+</div>
+
+
+
+<script type="text/javascript">
+    //monthly change event
+    $('#wallet').change(function () {
+        if ($(this).is(":checked")) {
+            $('#wallet').prop('checked', true);
+            $('#bank').prop('checked', false);
+            return;
+        }
+    });
+
+    //weekly change event
+    $('#bank').change(function () {
+        if ($(this).is(":checked")) {
+            $('#wallet').prop('checked', false);
+            $('#bank').prop('checked', true);
+            return;
+        }
+
+    });
+
+    // stop browser back funtionality
+    history.pushState(null, null, document.title);
+    window.addEventListener('popstate', function () {
+        history.pushState(null, null, document.title);
+    });
+</script>

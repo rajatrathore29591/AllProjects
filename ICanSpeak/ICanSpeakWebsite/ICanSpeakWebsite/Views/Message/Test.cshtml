@@ -1,0 +1,52 @@
+﻿@{
+    Layout = null;
+}
+
+@{
+    ViewBag.Title = "Test";
+}
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"
+type = "text/javascript"></script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"
+type = "text/javascript"></script> 
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
+rel = "Stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#txtSearch").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("GetUserName", "Message")',
+                    data: "{ 'prefix': '" + request.term + "'}",
+                    dataType: "json",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            
+                            return {
+                                label: item.split('-')[0],
+                                val: item.split('-')[1]
+                            }
+                        }))
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            },
+            select: function (e, i) {
+                $("#<%=hfCustomerId.ClientID %>").val(i.item.val);
+            },
+            minLength: 1
+        });
+
+    });
+</script>
+
+<input type="text"  id="txtSearch" >
+

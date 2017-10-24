@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+@model TradeSystem.Utils.Models.CompanyActivityListDataModel
+<!-- Viewlog modal -->
+<div id="view_log" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body" id="modelViewlog">
+                <p id="viewLogDetail">
+                    <span class="display-block"><strong class="text-semibold">Username:</strong> @Model.CompanyUser.UserName</span>
+                    <span class="display-block"><strong class="text-semibold">Full Name:</strong> @Model.CompanyUser.FirstName @Model.CompanyUser.LastName</span>
+                    <span class="display-block"><strong class="text-semibold">Role Type:</strong> @Model.CompanyUser.Role</span>
+                </p>
+                <p class="text-danger text-underline">Recent Activity:</p>
+                <ol class="pre-scrollable viewlog-lists text-size-large">
+                    @if (Model.Activity  != null)
+                    {
+                        foreach (var item in Model.Activity)
+                        {
+                            <li>@item.Description</li>
+                        }
+                    }
+                    else
+                    {
+                        <span>No Record Found</span>
+                    }
+                    @*<li>Added new customer </li>
+                        <li>Approved new customer registration</li>
+                        <li>Rejected new customer registration</li>
+                        <li>Update customer percentage for new customer</li>*@
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>

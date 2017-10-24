@@ -1,0 +1,226 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="StaticPagesMaster.master.cs" Inherits="TradeMark.StaticPagesMaster" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    
+        <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=no" />
+    <!-- Page title set in pageTitle directive -->
+    <!--CDN CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="Css/chosen.css" rel="stylesheet" />
+    <!-- endbuild -->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <!--Header Start-->
+    <div id="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1 col-sm-2 navbar-default">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                    <a href="Home.aspx" title="BOB" class="innerlogo">
+                        <img src="Images/inner-logo.png" alt="inner-logo"></a>
+                    
+                </div>
+                <div class="col-md-11 col-sm-10 primary-static-top-navbar">
+                    <div class="navbar navbar-default top-navbar pull-right">
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li><a href="Pricing.aspx" class="dropdown-toggle">Pricing</a>
+                                </li>
+                                <li><a href="WhySearch.aspx" class="dropdown-toggle">Why Search?</a>
+                                </li>
+                                <li><a href="WhyBob.aspx" class="dropdown-toggle">Why Bob? </a>
+                                </li>
+                               <%-- <li><a href="WhyBob.aspx" class="dropdown-toggle">How Can Bob Help? </a> </li>--%>
+                               
+                                <li><a href="HowBobWorks.aspx" class="dropdown-toggle">How Bob Works?</a>
+                                </li>
+                                <li><a href="TalkTrademarkAttorney.aspx" class="dropdown-toggle">Talk To A Trademark Attorney</a>
+                                </li>
+                                <%if (Session["UserId"] != null)
+                                    { %>
+                                <li>
+                                    <asp:Label ID="lblUserCredits" runat="server"></asp:Label>
+                                    <a class="dropdown-toggle login-user" type="button" data-toggle="dropdown"><i class="fa fa-user"></i>
+                                        <asp:Label ID="lblUserName1" runat="server" class="menu-lable"></asp:Label>
+
+                                        <span class="caret"></span></a>
+
+                                    <ul class="hdropdown notification animated flipInX dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <li><a href="EditProfile.aspx"><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
+                                        <li><a href="ChangePassword.aspx"><i class="fa fa-key" aria-hidden="true"></i>Change Password</a></li>
+                                        <li><a href="AdminSettings.aspx"><i class="fa fa-cog" aria-hidden="true"></i>Admin Setting</a></li>
+                                        <li><a href="Login.aspx?logout='yes'"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+                                    </ul>
+                                </li>
+                                <%}
+                                else {%>
+                                <li><a href="Login.aspx" class="dropdown-toggle"><i class="fa fa-user-circle-o"></i>Login </a>
+                                </li>
+                                <%} %>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Header End-->
+    <!-- Secondry Nav Start-->
+    <div class="dark-blue-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="navbar navbar-default top-navbar">
+                       
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <%if (Session["UserId"] != null)
+                            { %>
+                         <div class="navbar-header">
+                  
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                            <ul class="nav navbar-nav">
+                                <li>
+                                    <a href="Search.aspx" class="dropdown-toggle"><i class="fa fa-search" aria-hidden="true"></i>SEARCH</a>
+                                </li>
+                                <li><a href="History.aspx" class="dropdown-toggle"><i class="fa fa-history" aria-hidden="true"></i>HISTORY</a>
+                                </li>
+                                 <%if (userCredits<=1 && isUserTrans)
+                                     {%>
+                                <li id="liAutoreload"><a href="autoreload.aspx" class="dropdown-toggle"><i class="fa fa-history" aria-hidden="true"></i><span data-toggle="tooltip" title="No need to enter card details, it reloads credits">AUTO RELOAD</span></a></li>
+                                
+                                <%} else {%>
+                                <li id="liAutoreload" style="display:none;"><a href="autoreload.aspx" class="dropdown-toggle"><i class="fa fa-history" aria-hidden="true"></i><span data-toggle="tooltip" title="No need to enter card details, it reloads credits">AUTO RELOAD</span></a></li>
+                                <%}%>
+
+                                <%if (IsAdminUser)
+                                    {%>
+
+                                <li><a href="SearchLogReport.aspx" class="dropdown-toggle"><i class="fa fa-file-text-o" aria-hidden="true"></i>Search Log</a>
+                                </li>
+                                <%--<li><a href="Users.aspx" class="dropdown-toggle"><i class="fa fa-history" aria-hidden="true"></i>Users List</a>
+                                </li>
+                               
+                                <li><a href="Addusclass.aspx" class="dropdown-toggle"><i class="fa fa-history" aria-hidden="true"></i>Add US-Class</a>
+                                </li>--%>
+                                <% }%>
+                            </ul>
+                        </div>
+                        <%} %>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Secondry Nav End-->
+
+
+   <section class="inner-content inner-content-white">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <%--<form id="form1" runat="server">   </form>--%>
+        </asp:ContentPlaceHolder>
+    </section>
+    <!-- footer -->
+         <footer style="border-top: #999 1px dashed;">
+         <div class="container">
+                        <div class="row row-flex row-flex-none">
+               <div class="col-md-4 col-sm-4 col-xs-12">
+                  <p><img src="Images/bob-footer-logo.png" alt="footer-logo"/></p>
+                  <div class="address clearfix">
+                  	<p class="first-child">Address:</p>
+                  	<p>2156 Cedar Grove Trail, St. Paul,<br/> MN 55122</p>
+                    <div class="clearfix">&nbsp;</div>
+                  	<p class="first-child">Phone:</p>
+                  	<p> </p>
+                     <div class="clearfix">&nbsp;</div>
+                  	<p class="first-child">Email:</p>
+                  	<p><a href="mailto:bob@trademarkbob.com">bob@trademarkbob.com</a></p>
+                  </div>
+
+                   <div class="social-icon-box">                    
+					<a href="javascript:viod(0)" class="social-icon fb-icon" title="Facebook">
+						<i class="fa fa-facebook"></i>
+					</a>
+					<a href="javascript:viod(0)" class="social-icon tw-icon" title="Twitter">
+						<i class="fa fa-twitter"></i>
+					</a>
+					<a href="javascript:viod(0)" class="social-icon gp-icon" title="Google Plus">
+						<i class="fa fa-google-plus"></i>
+					</a>
+					<a href="javascript:viod(0)" class="social-icon in-icon" title="linkedin">
+						<i class="fa fa-linkedin"></i>
+					</a>
+										
+				</div>
+
+               </div>
+               <div class="col-md-8 col-sm-8 contact-info col-xs-12">
+                  <div class="footer-link pull-right">
+                  	<h3>QUICK LINKS</h3>
+                     <div class="col-md-3 col-sm-3 p-l0">
+                        <ul>
+                           <li><a href="Home.aspx">Home</a></li>
+                           <li><a href="Pricing.aspx">Pricing </a></li>
+                           <li><a href="WhySearch.aspx">Why Search</a></li>
+                        </ul>
+                     </div>
+                     <div class="col-md-4 col-sm-4 m-p-l0">
+                        <ul>
+                           <li><a href="WhyBob.aspx">Why Bob</a></li>
+                           <%--<li><a href="WhyBob.aspx">How Can Bob Help</a></li>--%>
+                           <li><a href="HowBobWorks.aspx">How Bob Works</a></li>
+                        </ul>
+                     </div>
+                      <div class="col-md-5 col-sm-5 m-p-l0">
+                        <ul>
+                           <li><a href="TalkTrademarkAttorney.aspx">Talk To A Trademark Attorney</a></li>
+                           <li><a href="Login.aspx">Login</a></li>
+                        </ul>
+                     </div>
+                     <div class="clearfix"></div>
+                    <div class="footer-nav">
+                         <hr class="hr bg-gray m-b30" />
+                        <a href="https://trademarkbob.wordpress.com/" target="_blank" class="p-l0">Bob&rsquo;s Blog</a><a href="PrivacyPolicy.aspx">Privacy Policy</a><a href="Termscondition.aspx">Terms & Conditions</a><a href="Disclaimer.aspx">Disclaimer</a><a href="AboutUs.aspx">About Us</a><a href="ContactUs.aspx">Contact Us</a> <a href="Sitemap.aspx">Sitemap</a>
+                            
+                        <p>&copy; 2017 EGW Solutions, LLC  </p>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+         </div>
+      </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip({
+                placement: 'bottom'
+            });
+            $(".tooltip.fade.top").remove();
+
+ 
+           
+        });
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

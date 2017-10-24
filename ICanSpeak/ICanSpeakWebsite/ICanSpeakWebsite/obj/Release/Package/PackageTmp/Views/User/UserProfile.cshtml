@@ -1,0 +1,235 @@
+﻿@{
+    ViewBag.Title = "UserProfile";
+}
+<div class="col-lg-12">
+    <div class="col-md-3 user-profice-pic">
+        <img src="~/Images/user.png" class="img-thumbnail">
+    </div>
+    <div class="col-md-9 right">
+        <div class="col-md-6">
+            <h2 class=" user-profile">
+                <img src="~/Images/online.png" />@Model.Username</h2>
+            <h4 class="tutor-city-name left">@Model.Country</h4>
+        </div>
+        <div class="col-md-3 col-md-push-4">
+            <h4 class="notification">Notifications (@Model.NotificationCount)</h4>
+
+        </div>
+        <div class="col-lg-4 col-lg-push-3">
+            <ul class="nav nav-pills view-profile">
+                <li class="active"><a href="#">View Profile</a></li>
+                <li><a href="#">Edit Profile</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="col-lg-2 blue-wrapper">
+        <h2>My Score</h2>
+        <h3>60/100 (details)</h3>
+    </div>
+    <div class="col-lg-2 blue-wrapper">
+        <h2>Instructor Evaluation</h2>
+        <h3>Great </h3>
+    </div>
+    <div class="col-lg-2 blue-wrapper">
+        <h2>Flashcards</h2>
+        <h3>60/100 </h3>
+    </div>
+    <div class="col-lg-2 blue-wrapper">
+        <h2>Days Remaining</h2>
+        <div align="center">
+            <div id="retroclockbox_sm"></div>
+        </div>
+        <script>
+            jQuery(function ($) {
+                //var NY = Math.round((new Date('1/01/2015 00:00:01')).getTime()/1000);
+                $('#new_year').flipcountdown({
+                    size: 'lg',
+                    beforeDateTime: '1/01/2015 00:00:01'
+                    /*tick:function(){
+                        var nol = function(h){
+                            return h>9?h:'0'+h;
+                        }
+                        var	range  	= NY-Math.round((new Date()).getTime()/1000),
+                            secday = 86400, sechour = 3600,
+                            days 	= parseInt(range/secday),
+                            hours	= parseInt((range%secday)/sechour),
+                            min		= parseInt(((range%secday)%sechour)/60),
+                            sec		= ((range%secday)%sechour)%60;
+                        return nol(days)+' '+nol(hours)+' '+nol(min)+' '+nol(sec);
+                    }*/
+                });
+            });
+        </script>
+        <script>
+            jQuery(function ($) {
+                $('#retroclockbox_lg').flipcountdown({ size: 'lg' });
+                $('#retroclockbox_md').flipcountdown({ size: 'md' });
+                $('#retroclockbox_sm').flipcountdown({ size: 'sm' });
+                $('#retroclockbox_xs').flipcountdown({ size: 'xs' });
+            })
+        </script>
+    </div>
+
+    <div class="col-lg-12">
+        <div class="col-lg-6">
+            <h2 class="introduction-heading">Introduction</h2>
+            <ul class="introduction">
+                @if (@Model.CourseType == null)
+                {
+                    <li><strong>Courses Started</strong> : </li>
+                }
+                else
+                {
+                    <li><strong>Courses Started</strong> : @Model.CourseStartDate</li>
+                }
+
+                <li><strong>Subscription Type</strong>  :  @Model.CourseType</li>
+                <li><strong>Progress</strong>:
+                	<div class="progress progress-bg">
+                        <div class="progress-bar " style="width: 40%;"></div>
+                    </div>
+                </li>
+                @if (@Model.CourseDuration == null)
+                { 
+                    <li><strong>Course Duration</strong> : </li>
+                }
+                else
+                {
+                    <li><strong>Course Duration</strong> : @Model.CourseDuration Days</li>
+                }
+
+                <li><strong>Days Left:</strong> 30 Days</li>
+            </ul>
+        </div>
+        <div class="col-lg-5 col-lg-push-1">
+            <h2 class="introduction-heading">Introduction</h2>
+            <ul class="introduction">
+                <li><strong>Date of Birth</strong>: @Model.DOB</li>
+                <li><strong>Gender</strong>: @Model.Gender</li>
+                <li><strong>Country</strong>: @Model.Country</li>
+                <li><strong>Email</strong> : @Model.Email</li>
+                <li><strong>About me:</strong> @Model.AboutMeUrl</li>
+                <li>
+                    <audio controls
+                        data-info-album-art="http://farm5.staticflickr.com/4050/4353986539_ec89b52698_d.jpg"
+                        data-info-album-title="8874"
+                        data-info-artist="Billy Murray"
+                        data-info-title="Come, take a trip in my air-ship"
+                        data-info-label="Edison Gold Moulded Record"
+                        data-info-year="1905"
+                        data-info-att="University of California, Santa Barbara Library."
+                        data-info-att-link="http://cylinders.library.ucsb.edu/search.php?query=8874">
+                        <source src="/bootstrap-player/media/cusb-cyl2985d.ogg" type="audio/ogg" />
+                        <source src="/bootstrap-player/media/cusb-cyl2985d.mp3" type="audio/mpeg" />
+                        <a href="/bootstrap-player/media/cusb-cyl2985d.mp3">cusb_cyl2985d</a>
+                    </audio>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+@*	<div class="col-lg-12">
+                <div class="col-md-3 user-profice-pic">
+                	<img class="img-thumbnail" src="/images/user.png">            	
+                </div>
+               	<div class="col-md-9 right">
+                <div class="col-md-4">
+                    <h2 class=" user-profile"><img src="/images/online.png">Username</h2>
+                    <h4 class="tutor-city-name left">New York</h4>
+                </div>
+                <div class="col-lg-5 col-lg-push-5">
+                    	
+                    <ul class="nav nav-pills view-profile view	">
+                        <li class="active"><a href="#">View Profile</a></li>
+                        <li><a href="#">Edit Profile</a></li>                      
+                    </ul>
+                   
+                </div>
+                    
+                    
+               </div>
+               
+               <div class="col-lg-2 blue-wrapper">
+                    <h2>My Score</h2>
+                    <h3>60/100 (details)</h3>
+                </div>
+                <div class="col-lg-2 blue-wrapper">
+                    <h2>Instructor Evaluation</h2>
+                    <h3>Great </h3>
+                </div>  
+                <div class="col-lg-2 blue-wrapper">
+                    <h2>Flashcards</h2>
+                    <h3>60/100 </h3>
+                </div>
+                <div class="col-lg-2 blue-wrapper">
+                    <h2>Days Remaining</h2>
+                    <div align="center">
+                    <div id="retroclockbox_sm" class="xdsoft"><div class="xdsoft_flipcountdown xdsoft_size_sm"><div class="xdsoft_digit" style="background-position: 0px -421px;"></div><div class="xdsoft_digit" style="background-position: 0px -631px;"></div><div class="xdsoft_digit xdsoft_separator"></div><div class="xdsoft_digit" style="background-position: 0px -1051px;"></div><div class="xdsoft_digit" style="background-position: 0px -1891px;"></div><div class="xdsoft_digit xdsoft_separator"></div><div class="xdsoft_digit" style="background-position: 0px -841px;"></div><div class="xdsoft_digit" style="background-position: 0px -1261px;"></div><div class="xdsoft_clearex"></div></div></div>
+                    </div>
+                    <script>
+
+                        $(document).ready(function(){
+						//var NY = Math.round((new Date('1/01/2015 00:00:01')).getTime()/1000);
+						$('#new_year').flipcountdown({
+							size:'lg',
+							beforeDateTime:'1/01/2015 00:00:01'
+							/*tick:function(){
+								var nol = function(h){
+									return h&gt;9?h:'0'+h;
+								}
+								var	range  	= NY-Math.round((new Date()).getTime()/1000),
+									secday = 86400, sechour = 3600,
+									days 	= parseInt(range/secday),
+									hours	= parseInt((range%secday)/sechour),
+									min		= parseInt(((range%secday)%sechour)/60),
+									sec		= ((range%secday)%sechour)%60;
+								return nol(days)+' '+nol(hours)+' '+nol(min)+' '+nol(sec);
+							}*/
+						});
+					});
+					</script>
+					<script>
+				jQuery(function($){
+					$('#retroclockbox_lg').flipcountdown({size:'lg'});
+					$('#retroclockbox_md').flipcountdown({size:'md'});
+					$('#retroclockbox_sm').flipcountdown({size:'sm'});
+					$('#retroclockbox_xs').flipcountdown({size:'xs'});
+				})
+				</script>
+                </div>   	
+               </div> 
+                	
+   	
+ 	<div class="col-lg-12">
+    	<div class="col-lg-6 ">
+        	<h2 class="introduction-heading">Introduction</h2>
+            <ul class="introduction">
+            	<li>Courses Started: 16/Jan/2014</li>
+                <li>Subscription Type:  English (Beginner)</li>
+                <li>Progress:
+                	<div style="margin-top:18px;" class="progress progress-bg">
+                      <div style="width: 40%;" class="progress-bar"></div>
+                    </div> 
+                </li>
+                <li>Course Duration: 90 Days</li>
+                <li>Days Left:30 Days</li>
+            </ul>
+        </div>
+        <div class="col-lg-6">
+        	<h2 class="introduction-heading">Personal Information</h2>
+            <ul class="introduction">
+            	<li>Date of Birth: 20/Jan/1985</li>
+                <li>Gender: Male/Female/Other</li>
+                <li>City/Country:Newyork</li>
+                <li>Email :username@ics.com</li>
+                <li>About me: Recording name</li>
+                <li><audio data-info-att-link="http://cylinders.library.ucsb.edu/search.php?query=8874" data-info-att="University of California, Santa Barbara Library." data-info-year="1905" data-info-label="Edison Gold Moulded Record" data-info-title="Come, take a trip in my air-ship" data-info-artist="Billy Murray" data-info-album-title="8874" data-info-album-art="http://farm5.staticflickr.com/4050/4353986539_ec89b52698_d.jpg" controls="">
+	<source type="audio/ogg" src="/bootstrap-player/media/cusb-cyl2985d.ogg"></source>
+	<source type="audio/mpeg" src="/bootstrap-player/media/cusb-cyl2985d.mp3"></source>
+	<a href="/bootstrap-player/media/cusb-cyl2985d.mp3">cusb_cyl2985d</a>
+</audio></li>
+            </ul>
+        </div>
+    </div>*@

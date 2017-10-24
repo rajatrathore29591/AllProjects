@@ -1,0 +1,60 @@
+﻿@model iCanSpeakAdminPortal.Models.SuccessStoryModel
+@{
+    ViewBag.Title = "ViewStory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <font color="44c9ff"> Update Story</font>
+                </h1>
+            </div>
+
+            <a style="cursor:pointer; color:#3d3b3b; font-size:14pt;margin-left: -155px; float:right;position: absolute; margin-top:55px; font-weight:200;" href="@Url.Action("SuccessStoryList", "PageManagement")"]">Go To Story List</a>
+        </div>
+
+        <!--Edit Table start-->
+        <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2  col-sm-6 col-sm-offset-2 col-xs-12">
+            <div class="row">
+                @using (Html.BeginForm("UpdateStory", "PageManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)                   
+                    <div class="form-group">
+                        <label>Client Name <span style="color: #FE2801;">*</span></label>
+                        <input  type="text"  class="form-control" id="name" value="@Model.ClientName"  required name="EnglishText" maxlength="30" readonly="true">
+                        <input type="hidden" id="sotryId" name="sotryId" value="@Model.StoryId" />
+                    </div>
+                    <div class="form-group">
+                        <label>Client Story <span style="color: #FE2801;">*</span></label>
+                        <textarea class="form-control" name="EnglishText" id="story" placeholder="250 characters only" required maxlength="250" rows="3" readonly="true">@Model.ClientStory</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Client Image</label>
+                        <div class="box1">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="file-preview">
+                                        <div class="file-preview-thumbnails">
+                                            <div class="file-preview-frame" id="preview">
+                                                <img id="image" style="width: 250px; height: 250px" src="@Model.ClientImageUrl" class="file-preview-image" title="logo_symbol.png" alt="logo_symbol.png" readonly="true">
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="file-preview-status text-center text-success"></div>
+                                    </div>
+                                </div>
+                            </div>                           
+                        </div>
+                    </div>                              
+                }
+            </div>
+        </div>
+    </div>
+</div>

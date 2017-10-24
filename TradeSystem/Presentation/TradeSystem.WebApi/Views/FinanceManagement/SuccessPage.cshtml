@@ -1,0 +1,66 @@
+﻿@model TradeSystem.Utils.Models.CardChargeDataModel
+@{
+    ViewBag.Title = "Success Page";
+}
+<!-- Page container -->
+<div class="page-container">
+
+    <!-- Page content -->
+    <div class="page-content">
+
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <!-- Success title -->
+            <div class="text-center content-group">
+                <h1 class="error-title text-success f-42x text-bold">@Resources.Languages.TransactionCompleteMessage</h1>
+            </div>
+            <!-- /success title -->
+            <!-- Success content -->
+            @if (Model.chargeid != null)
+            {
+                <div class="row">
+                    <div class="col-lg-4 col-lg-offset-4 col-sm-6 col-sm-offset-3">
+
+                        <div class="text-center mt-20">
+                            <p class="text-center f-18x">
+                                <label class="text-bold f-18x">@Resources.Languages.ChargeId:</label>
+                                @Model.chargeid
+                            </p>
+                            <p class="text-center f-18x"><label class="text-bold f-18x">@Resources.Languages.Status:</label> @Model.status</p>
+                            @if (@Model.barCodeUrl != null)
+                            {
+                                <a class="btn btn-primary" href="@Url.Action("Receipt", "FinanceManagement", new { @id = Model.productId})">@Resources.Languages.ViewReceipt</a>
+
+                            }
+                            <div class="text-center mt-10">
+                                <a class="btn btn-primary" href="@Url.Action("NewInvestment", "Investment")">@Resources.Languages.Home</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            }
+            else
+            {
+                <div class="text-center mt-10">
+                    <a class="btn btn-primary" href="@Url.Action("NewInvestment", "Investment")">@Resources.Languages.Home</a>
+                </div>
+            }
+            <!-- /success content -->
+        </div>
+        <!-- /main content -->
+
+    </div>
+    <!-- /page content -->
+
+</div>
+<!-- /page container -->
+
+<script type="text/javascript">
+    // stop browser back funtionality
+    history.pushState(null, null, document.title);
+    window.addEventListener('popstate', function () {
+        history.pushState(null, null, document.title);
+    });
+</script>
+

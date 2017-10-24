@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "Manage Role";
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+}
+
+@using TradeSystem.Utils.Models
+@model RoleDataModel
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        GetAllRoleDescription("@Model.Id");
+    });
+    function GetAllRoleDescription(id) {
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("_ManageRoleTitlePartial", "AccountManagement")',
+            data: { roleId: id},
+            success: function (response) {
+                $("#divManageRoleTitle").html(response);
+            }
+        });
+    }
+</script>
+<!-- Form -->
+<div class="row">
+    <div class="col-md-12">
+
+        <!-- Customer Form -->
+        @*<form class="form-horizontal" action="#">*@
+        @using (Html.BeginForm("ManageRole", "AccountManagement", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
+        {
+            <div class="panel panel-flat">
+
+                <div class="panel-body">
+                    <!-- Personal Information -->
+                    <fieldset>
+                        <legend class="text-bold">
+                            <i class="icon-file-text2 position-left"></i>
+                            @Resources.Languages.SelectMenustoProvideAccess
+                        </legend>
+                        <div class="collapse in" id="AM_select_menus_to_provideaccess">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">@Resources.Languages.RoleTitle:</label>
+                                        <div class="col-lg-6 pt-10">
+                                            @Model.Name
+                                          @{ TempData["RoleId"] = @Model.Id;}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">Assigned Menus:</label>
+                                        <div class="col-lg-6">
+                                            <div class="row" id="divManageRoleTitle">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                </div><span class="clearfix"></span>
+                                <div class="text-center mb-15">
+                                    @* <button type="submit" class="btn bg-orange" title="Back"><i class="icon-arrow-left13 position-left"></i> Back </button>*@
+                                    <a href="@Url.Action("ManageRolePermission","AccountManagement")" class="btn bg-orange" title="@Resources.Languages.Back"><i class="icon-arrow-left13 position-left"></i> @Resources.Languages.Back</a>
+                                    <button type="submit" class="btn btn-primary" title="@Resources.Languages.Submit">@Resources.Languages.Submit <i class="icon-arrow-right14 position-right"></i></button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- /enter role details -->
+                </div>
+            </div>
+            @*</form>*@
+        }
+        <!-- /customer form -->
+
+    </div>
+</div>
+<!-- /form -->

@@ -1,0 +1,90 @@
+@import "variables";
+@import "mixins";
+
+#loading-mask {
+  //  define preloader mask
+  background: @preloader-background-color;
+  height: 100%;
+  left: 0;
+  opacity: 1;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 999999999;
+}
+
+.spinner {
+  //  cube container
+  margin: -15px auto 0 -30px;
+  height: 100%;
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  width: 100%;
+}
+
+[class^="cube"] {
+  //  single preloader cube style
+  background-color: @preloader-color;
+  width: @preloader-cube-size;
+  height: @preloader-cube-size;
+  position: absolute;
+  top: 0;
+  left: 0;
+  outline: 1px solid transparent;
+  -webkit-backface-visibility: hidden;
+
+  .animation(cubemove @preloader-cube-step-duration*4 infinite ease-in-out);
+}
+
+.cube2 {
+  .animation-delay(-@preloader-cube-step-duration);
+}
+
+.cube3 {
+  .animation-delay(-2*@preloader-cube-step-duration);
+
+}
+
+.cube4 {
+  .animation-delay(-3*@preloader-cube-step-duration);
+}
+
+@-webkit-keyframes cubemove {
+  25% {
+    -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5)
+  }
+  50% {
+    -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg)
+  }
+  75% {
+    -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5)
+  }
+  100% {
+    -webkit-transform: rotate(-360deg)
+  }
+}
+
+@keyframes cubemove {
+  25% {
+    transform: translateX(42px) rotate(-90deg) scale(0.5);
+    -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+  }
+  50% {
+    transform: translateX(42px) translateY(42px) rotate(-179deg);
+    -webkit-transform: translateX(42px) translateY(42px) rotate(-179deg);
+  }
+  50.1% {
+    transform: translateX(42px) translateY(42px) rotate(-180deg);
+    -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+  }
+  75% {
+    transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+    -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+  }
+  100% {
+    transform: rotate(-360deg);
+    -webkit-transform: rotate(-360deg);
+  }
+}

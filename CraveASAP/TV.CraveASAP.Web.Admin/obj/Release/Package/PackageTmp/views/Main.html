@@ -1,0 +1,208 @@
+﻿<script src="js/plugins/bootstrap.min.js"></script>
+<div class="page-header navbar navbar-fixed-top">
+    <div class="page-header-inner">
+        <!-- BEGIN LOGO -->
+        <div class="page-logo">
+            <!--<a href="index.html">-->
+            <img src="images/logo.png" alt="logo" class="logo-default" />
+            <!--</a>-->
+            <div class="menu-toggler sidebar-toggler hide">
+            </div>
+        </div>
+        <!-- END LOGO -->
+        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"></a>
+        <!-- END RESPONSIVE MENU TOGGLER -->
+        <!-- BEGIN TOP NAVIGATION MENU -->
+        <div class="top-menu">
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown dropdown-user">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <!-- <img alt="" class="img-circle" src="">-->
+                        <span class="username username-hide-on-mobile">{{UserName}}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-default">
+                        <li>
+                            <a ng-click="changePassword()">
+                                <i class="icon-key"></i>Change Password</a>
+                        </li>
+                        <li>
+                            <a ng-click="logout()">
+                                <i class="fa fa-sign-out fa-2x"></i>Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- END TOP NAVIGATION MENU -->
+    </div>
+</div>
+
+<div class="page-sidebar-wrapper">
+
+    <div class="page-sidebar navbar-collapse collapse">
+        <ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+
+            <li class="sidebar-toggler-wrapper">
+
+                <div class="sidebar-toggler">
+                </div>
+
+            </li>
+            <li ng-class="active==='dashboard'? 'start active open' : ''">
+                <a ui-sref="Main.Dashboard">
+                    <i class="fa fa-tachometer"></i>
+                    <span class="title">Dashboard</span>
+                    <span class="selected"></span>
+                    <!-- <span class="arrow open"></span>-->
+                </a>
+            </li>
+            <li ng-class="active==='VendorList'? 'start active open' : ''">
+                <a ui-sref="Main.VendorList">
+                    <i class="fa fa-user"></i>
+
+                    <span class="title">Vendor</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li ng-class="active==='Analytics'? 'start active open' : ''">
+                <a href="javascript:;">
+                    <i class="fa fa-bar-chart"></i>
+                    <span class="title">Analytics/Track</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li ng-class="active1==='ActivePromotion'? ' active ' : ''">
+                        <a ui-sref="Main.Analytics_ActivePromotion">
+                            <i class="icon-home"></i>
+                            Active Promotions</a>
+                    </li>
+                    <li ng-class="active1==='TrackUsage'? ' active ' : ''">
+                        <a ui-sref="Main.Analytics_TrackUsage">
+                            <i class="icon-home"></i>
+                            Active User</a>
+                    </li>
+
+                    <li ng-class="active1==='TrackUsageCategory'? ' active ' : ''">
+                        <a ui-sref="Main.Analytics_TrackUsageCategory">
+                            <i class="icon-pencil"></i>
+                            Track Category</a>
+                    </li>
+
+                    <li ng-class="active1==='MultipleUsage'? ' active ' : ''">
+                        <a ui-sref="Main.Analytics_MultipleUsage">
+                            <i class="icon-pencil"></i>
+                            Multiple usage</a>
+                    </li>
+
+
+                    <li ng-class="active1==='SocialMediaTracking'? ' active ' : ''">
+                        <a ui-sref="Main.Analytics_SocialMediaTracking">
+                            <i class="icon-pencil"></i>
+                            Social Media Track</a>
+                    </li>
+                    <li ng-class="active1==='UserPerDayUse'? ' active ' : ''">
+                        <a ui-sref="Main.Analytic_UserPerDayUse">
+                            <i class="icon-pencil"></i>
+                            Multiple Usage Per Day</a>
+                    </li>
+                </ul>
+            </li>
+            <li ng-class="active==='ManageApplication'? 'start active open' : ''">
+                <a href="javascript:;">
+                    <i class="fa fa-cogs"></i>
+                    <span class="title">Manage Application</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li ng-class="active1==='Landing'? ' active ' : ''">
+                        <a ui-sref="Main.LandingPage">Landing Page</a>
+                    </li>
+                    <!-- <li>
+                                <a href="#/PointReward" data-toggle="tab">ASAP Point & Rewards</a>
+                            </li>-->
+                    <li ng-class="active1==='Banner'? ' active ' : ''">
+                        <a ui-sref="Main.FlashBanner">Flash Banners</a>
+                    </li>
+                    <li ng-class="active1==='Promotion'? ' active ' : ''">
+                        <a ui-sref="Main.ManageActivePromotion">Manage Active Promotions</a>
+                    </li>
+
+                </ul>
+            </li>
+            <li ng-class="active==='PointReward'? 'start active open' : ''">
+                <a href="javascript:;">
+                    <i class="fa fa-diamond"></i>
+                    <span class="title">Point & Rewards</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li ng-class="active1==='Point'? ' active ' : ''">
+                        <a ui-sref="Main.PointReward">Eddee Point </a>
+                    </li>
+                    <li ng-class="active1==='Premium'? ' active ' : ''">
+                        <a ui-sref="Main.PlatinumRewardList">Premium-Reward</a>
+                    </li>
+                    <li ng-class="active1==='Gold'? ' active ' : ''">
+                        <a ui-sref="Main.GoldRewardList">Gold-Reward</a>
+                    </li>
+
+
+                </ul>
+            </li>
+
+            <li ng-class="active==='ContentManagement'? 'start active open' : ''">
+                <a href="javascript:;">
+                    <i class="fa fa-cog"></i>
+                    <span class="title">Content Management</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li ng-class="active1==='About'? ' active ' : ''"><a ui-sref="Main.About">About Us</a></li>
+                    <li ng-class="active1==='Term'? ' active ' : ''"><a ui-sref="Main.TermCondition">Terms & Conditions</a></li>
+                    <li ng-class="active1==='Privacy'? ' active ' : ''"><a ui-sref="Main.PrivacyPolicy">Privacy Policy</a></li>
+                    <li ng-class="active1==='howItsWork'? ' active ' : ''"><a ui-sref="Main.HowItWork">How Its Works</a></li>
+
+                </ul>
+            </li>
+            <li ng-class="active==='Notification'? 'start active open' : ''">
+                <a href="javascript:;">
+                    <i class="fa fa-bell"></i>
+                    <span class="title">Notification</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a ui-sref="Main.Manual_Notification">Manual  Notification</a></li>
+                    <li><a ui-sref="Main.Predictive_Notification">Predictive Notification</a></li>
+
+
+                </ul>
+            </li>
+            <li ng-class="active==='ManageCategories'? 'start active open' : ''">
+                <a href="javascript:;">
+                    <i class="fa fa-cog"></i>
+                    <span class="title">Manage Categories</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li ng-class="active1==='addsubcat'? ' active ' : ''"><a ui-sref="Main.AddSubCategoryList">Add Sub Category</a></li>
+                    <li ng-class="active1==='addoptcat'? ' active ' : ''"><a ui-sref="Main.AddOptionalCategoryList">Add Optional Category</a></li>
+
+                </ul>
+            </li>
+        </ul>
+        <!-- END SIDEBAR MENU -->
+    </div>
+</div>
+
+<div ui-view>
+</div>
+
+<div class="page-footer">
+    <div class="page-footer-inner">
+        2015 &copy; Crave ASAP 
+    </div>
+    <div class="scroll-to-top">
+        <i class="icon-arrow-up"></i>
+    </div>
+</div>

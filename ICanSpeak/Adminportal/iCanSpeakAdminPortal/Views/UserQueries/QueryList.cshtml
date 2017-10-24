@@ -1,0 +1,135 @@
+﻿@{
+    ViewBag.Title = "QueryList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>User Queries List</h2>
+
+<script src="@Url.Content("~/Content/jAlert/jquery.alerts.js")" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/jAlert/jquery.alerts.css")" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myDataTable').dataTable({
+            "bJQueryUI": true,
+            "aaSorting": [],
+            "sPaginationType": "full_numbers",
+            "aoColumns": [
+                { "sName": "Email", "bSearchable": true, "bSortable": true },
+                { "sName": "Full Name", "bSearchable": true, "bSortable": true },
+                { "sName": "Gender", "bSearchable": true, "bSortable": true },
+                 
+                { "sName": "Registered On", "bSearchable": true, "bSortable": true },
+                { "sName": "Status", "bSearchable": false, "bSortable": false },
+                { "sName": "IsSuggested", "bSearchable": false, "bSortable": false },
+                { "sName": "Operations", "bSearchable": false, "bSortable": false }
+            ]
+        }).makeEditable({
+            fnStartProcessingMode: function () {
+                $("#processing_message").dialog();
+            },
+            fnEndProcessingMode: function () {
+                $("#processing_message").dialog("close");
+            }
+        });
+    });
+</script>
+<style type="text/css">
+    .operationIcons {
+        height: 25px;
+        width: 25px;
+    }
+</style>
+<table id="myDataTable" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email Id</th>
+            <th>Contact No</th>
+            @*<th>Subject</th>*@
+            <th>Message</th>
+            <th>Submitted On</th>
+            <th>Read Status</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            
+            <tr>
+                <td><span>@item.Name</span></td>
+                <td><span>@item.EmailId</span></td>
+                <td style="width: 90px;"><span>@item.ContactNo</span></td>
+                @*<td style="width: 120px;"><span>@item.Subject</span></td>*@
+                <td><span>@item.Message</span></td>
+                <td><span>@item.CreatedDate</span></td>
+                @*  <td>
+                    @if (item.IsRead == true)
+                    {
+                        <input type="button" value="Active" style="color:white; background-color:green; border:none;" id="btnStatus-@item.UserId" onclick="ManageUserStatus(@item.UserId)" />
+                    }
+                    else
+                    {
+                        <input type="button" value="Active" style="color:white; background-color:red; border:none;" id="btnStatus-@item.UserId" onclick="ManageUserStatus(@item.UserId)" />
+                    }
+                </td>*@
+                <td>
+                    @if (item.IsRead == true)
+                    {
+                        <input type="button" value="Yes" style="color:white; width:50px; background-color:green; border:none;" disabled="disabled" id="btnStatus-@item.QueryId" />
+                    }
+                    else
+                    {                        
+                        <input type="button" value="No" style="color:white; width:50px; background-color:red; border:none;" disabled="disabled" id="btnStatus-@item.QueryId" />
+                    }
+                </td>
+
+                <td>
+                    <img src="~/Images/delete_icon.png" title="Delete Permanently" class="operationIcons" onclick="DeleteQuery(@item.QueryId)" />&nbsp;&nbsp;
+                    <img src="~/Images/detail_icon.png" title="View Details" class="operationIcons" onclick="GetQueryDetails(@item.QueryId)" />&nbsp;&nbsp;
+                </td>
+            </tr>
+        }
+    </tbody>
+    
+</table>
+@*<input type="text" value="" id="myt" />*@
+<script type="text/ecmascript">
+    function GetQueryDetails(QueryId)
+    {
+        var id = "btnStatus-" + QueryId;
+        $("#" + id).css("background", "green");
+        $("#" + id).val("Yes");
+
+        var myurl = "@Url.Action("GetQueryDetails","UserQueries")?QueryId=" + QueryId;
+        window.open(myurl,"_blank");
+    }
+    function DeleteQuery(QueryId)
+    {
+        var result = confirm("Are you sure to delete this query ?");
+        if (result == true) {
+            $.ajax({
+                url: '@Url.Action("DeleteQueryByQueryId", "UserQueries")',
+                type: "POST",
+                data: { QueryId: QueryId },
+                success: function (result) {
+                   // $("#myt").val(result);
+                    //alert(result);
+                    if (result.indexOf("Dear user your session expired please") >= 0)
+                    {
+                        window.location = "@Url.Action("Login","Account")";
+                    }                    
+                    if (result == "Success") {
+                        window.location = "@Url.Action("QueryList","UserQueries")";
+                    }
+                    else {
+                        alert('Error Occured');
+                    }
+                },
+                error: function (result) {
+                },
+            });
+        }
+    }
+</script>

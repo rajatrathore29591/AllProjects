@@ -1,0 +1,4 @@
+﻿2016-12-23 06:24:48,740 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-23 06:24:48,762 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-23 06:25:43,447 [6] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-23 06:25:43,447 [6] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN

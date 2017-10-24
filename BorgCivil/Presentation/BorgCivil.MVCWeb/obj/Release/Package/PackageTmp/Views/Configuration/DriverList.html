@@ -1,0 +1,53 @@
+﻿<div class="text-right m-b20">
+    <a href="javascript:void(0);" ui-sref="configuration.AddDriver()" class="btn btn-primary btn-i"><i class="fa fa-plus"></i>Add Driver</a>
+</div>
+
+<div class="animate-panel bookinglist" ng-controller="DriverListCtrl as dlCtrl">
+
+    <div class="grid-tb-panel clearfix">
+        <table ng-table="dlCtrl.bcaTableParams" class="table table-stripped toggle-arrow-tiny table-hover" show-filter="true">
+            <tr ng-repeat="driver in $data" ng-if="$data.length > 0">
+                <td title="'No.'" class="text-center">{{$index+1}}</td>
+                <td title="'Name'" filter="{ FirstName: 'text'}" sortable="'FirstName'" class="text-center">
+                    <div class="driver-user">
+                        <div class="driver-img">
+                            <img ng-src="{{(driver.Image !== '')?(dlCtrl.imagePath+driver.Image):(dlCtrl.defaultImg)}}" height="50" width="50">
+                        </div>
+                        <div class="driver-name">
+                            {{driver.FirstName}}
+                        </div>
+                    </div>
+                </td>
+
+                <td title="'Employment Info'" filter="{ EmploymentInfo : 'text'}" sortable="'EmploymentInfo'">{{driver.EmploymentInfo}}</td>
+
+                <td title="'License Info'" filter="{ LicenseInfo: 'text'}" sortable="'LicenseInfo'" class="text-center">{{driver.LicenseInfo}}</td>
+
+                <td title="'Card Info'" filter="{ CardInfo: 'text'}" sortable="'CardInfo'" class="text-center">{{driver.CardInfo}}</td>
+
+                <td title="'Awards'" filter="{ Awards: 'text'}" sortable="'Awards'" class="text-center">{{driver.Awards}}</td>
+
+                <td title="'Base Rate'" filter="{ BaseRate: 'text'}" sortable="'BaseRate'" class="text-center">{{driver.BaseRate}}</td>
+                
+                <td title="'Shift'" filter="{ Shift: 'text'}" sortable="'Shift'" class="text-center">{{driver.Shift}}</td>
+
+                <td title="'Action'" align="center" nowrap="true" width="1%">
+                    <div class="btn-group">
+                        <a class="dropdown-toggle" id="dLabel" href="javascript:void(0);" data-toggle="dropdown">
+                            <i class="fa pe-7s-more action-icon" aria-hidden="true"></i>
+                        </a>
+                        <ul class="dropdown-menu hdropdown notification dropdown-menu-right animated flipInX" role="menu">                           
+                            <li><a href="javascript:void(0)"><i class="fa fa-bus" aria-hidden="true"></i> Assign To Vehicle</a></li>
+                            <li><a href="javascript:void(0)" ui-sref="configuration.EditDriver({DriverId: driver.DriverId})"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Driver</a></li>
+                            <li><a href="javascript:void(0)"><i class="fa pe-7s-user" aria-hidden="true"></i> Manage Driver</a></li>
+                            <!--<li><a href="javascript:void(0)" ng-click="dlCtrl.deleteDriver(driver.DriverId);" ><i class="fa pe-7s-trash" aria-hidden="true"></i> Delete Driver</a></li>-->
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr ng-if="$data.length <= 0 || $data.length ===''">
+                <td colspan="9" class="text-center">Not records found</td>
+            </tr>
+        </table>
+    </div>
+</div>

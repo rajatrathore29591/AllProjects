@@ -1,0 +1,208 @@
+﻿<!--Tab Start-->
+<div ng-controller="TabCtrl" class="workallocation">
+    <!--Search Filter-->
+    <div ng-controller="WorkAllocationCtrl as waCtrl">
+        <div class="row right-btn-group clearfix">
+            <div class="col-md-12" ng-if="waCtrl.stateParamBookingId =='' || waCtrl.stateParamBookingId =='undefined'">
+                <div class="btn-group pull-right ">                   
+                    <button type="button" class="btn btn-default" title="PDF" ng-click="waCtrl.savePDF(waCtrl.bcaTableParams.data)"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</button>
+                    <button type="button" class="btn btn-default" title="Excel" ng-click="waCtrl.downloadExcelBookingList(waCtrl.bcaTableParams.data)"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Excel</button>
+                    <button type="button" class="btn btn-default" title="Print" ng-click="waCtrl.downloadPrintBookingList(waCtrl.bcaTableParams.data)"><i class="fa fa-print" aria-hidden="true"></i> Print</button>
+                    <button type="button" class="btn btn-default" title="Email" ng-click=""><i class="fa fa-envelope" aria-hidden="true"></i> Email</button>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!--Search Filter-->
+        <div>
+            <div ng-if="waCtrl.stateParamBookingId !==''">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="booking-details left-heading p-t10 p-b10">
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                                <td><b>Booking Number:</b> {{waCtrl.waListData.BookingNumber}}</td>
+                                                <td><b>Fleet:</b> {{waCtrl.waListData.FleetName}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Customer Name:</b> {{waCtrl.waListData.CustomerName}}</td>
+                                                <td><b>Fleet Number/Description:</b> {{waCtrl.waListData.RegistrationDescription}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Booking Start Date:</b> {{waCtrl.waListData.BookingFleetStartDate | date : "dd-MM-yyyy"}}</td>
+                                                <td><b>Booking End Date:</b> {{waCtrl.waListData.BookingFleetEndDate | date : "dd-MM-yyyy"}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-right-btn text-right">
+                    <a href="javascript:void(0);" ng-click="waCtrl.fleetAllocation(waCtrl.waListData, 'new');" class="btn btn-primary btn-i"><i class="fa fa-plus"></i>Add Fleet</a>
+                </div>
+            </div>
+            <uib-tabset active="active">
+                <uib-tab index="0" heading="Booked-In" ng-click="waCtrl.tabClick('Pending')">
+                    <!--Pending Details Content-->
+                    <div>
+                        <div class="grid-tb-panel clearfix">
+                            <table ng-table="waCtrl.bcaTableParams" class="table table-stripped toggle-arrow-tiny table-hover" show-filter="true">
+                                <tr ng-repeat="item in $data" ng-if="$data.length > 0">
+                                    <td title="'Booking Number'" filter="{ BookingNumber: 'text'}" sortable="'BookingNumber'" class="text-center">{{item.BookingNumber}}</td>
+                                    <td title="'Fleet Booking Date &amp;Time'" filter="{ FleetBookingDateTime: 'text'}" sortable="'FleetBookingDateTime'" class="text-center">{{item.FleetBookingDateTime | date :  "dd-MM-yyyy"}}</td>
+                                    <td title="'Customer Name'" filter="{ CustomerName: 'text'}" sortable="'CustomerName'"><a href="javascript:void(0);" ng-click="waCtrl.bookingCustomerDetail(item)" class="ng-binding">{{item.CustomerName}}</a></td>
+                                    <td title="'Site Details'" filter="{ SiteDetail: 'text'}" sortable="'SiteDetail'">{{item.SiteDetail}}</td>
+                                    <td title="'Start Date'" filter="{ CallingDateTime: 'text'}" sortable="'CallingDateTime'" class="text-center">{{item.CallingDateTime | date :  "dd-MM-yyyy"}}</td>
+                                    <td title="'End Date'" filter="{ EndDate: 'text'}" sortable="'EndDate'" class="text-center">{{item.EndDate | date :  "dd-MM-yyyy"}}</td>
+                                    <td title="'Action'" align="center" nowrap="true" width="1%">
+                                        <div class="btn-group">
+                                            <a class="dropdown-toggle" id="dLabel" href="javascript:void(0);" data-toggle="dropdown">
+                                                <i class="fa pe-7s-more action-icon" aria-hidden="true"></i>
+                                            </a>
+                                            <ul class="dropdown-menu hdropdown notification dropdown-menu-right" role="menu">
+                                                <li> <a href="javascript:void(0)" ng-click="waCtrl.fleetAllocation(item,'pending');"><i class="fa pe-7s-look" aria-hidden="true"></i> Allocation</a></li>
+                                                <li><a href="javascript:void(0)" ng-click="waCtrl.deleteBookingFleet(item.BookingFleetId);"><i class="fa pe-7s-trash" aria-hidden="true"></i> Delete</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr ng-if="$data.length <= 0">
+                                    <td colspan="7" class="text-center">Not records found</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <!--Pending Details Content End-->
+                </uib-tab>
+                <uib-tab index="1" heading="Allocated" ng-click="waCtrl.tabClick('Allocated')">
+                    <!--Allocated  Details Content-->
+                    <!--<h1>Allocated Gird Content</h1>-->
+                    <div>
+                        <div class="grid-tb-panel clearfix">
+                            <table ng-table="waCtrl.bcaTableParams" class="table table-stripped toggle-arrow-tiny table-hover" show-filter="true">
+                                <tr ng-repeat="item in $data" ng-if="$data.length > 0">
+                                    <td title="'Booking Number'" filter="{ BookingNumber: 'number'}" sortable="'BookingNumber'" class="text-center">{{item.BookingNumber}}</td>
+                                    <td title="'Fleet Booking Date &amp;Time'" filter="{ FleetBookingDateTime: 'text'}" sortable="'FleetBookingDateTime'" class="text-center fleetbookingdate">{{item.FleetBookingDateTime | date :  "dd-MM-yyyy"}}</td>
+                                    <td title="'Fleet Number/Description'" filter="{ FleetDetail: 'text'}" sortable="'FleetDetail'">{{item.FleetDetail}}</td>
+                                    <td title="'Customer Name'" filter="{ CustomerName: 'text'}" sortable="'CustomerName'"><a href="javascript:void(0);" ng-click="waCtrl.bookingCustomerDetail(item)" class="custmername">{{item.CustomerName}}</a></td>
+                                    <td title="'Driver Name'" filter="{ DriverName: 'text'}" sortable="'DriverName'">{{item.DriverName}}</td>
+                                    <td title="'Site Details'" filter="{ SiteDetail: 'text'}" sortable="'SiteDetail'">{{item.SiteDetail}}</td>
+                                    <td title="'Dockets'" filter="{ Dockets: 'text'}" sortable="'Dockets'" class="text-center"><a href="javascript:void(0);" ui-sref="booking.DocketList({BookingFleetId: item.BookingFleetId})">{{item.Dockets}}</a></td>
+                                    <td title="'Start Date'" filter="{ CallingDateTime: 'text'}" sortable="'CallingDateTime'" class="text-center">{{item.CallingDateTime | date :  "dd-MM-yyyy"}}</td>
+                                    <td title="'End Date'" filter="{ EndDate: 'text'}" sortable="'EndDate'" class="text-center">{{item.EndDate | date :  "dd-MM-yyyy"}}</td>
+                                    <td title="'Action'" align="center" nowrap="true" width="1%">
+                                        <div class="btn-group">
+                                            <a class="dropdown-toggle" id="dLabel" href="javascript:void(0);" data-toggle="dropdown">
+                                                <i class="fa pe-7s-more action-icon" aria-hidden="true"></i>
+                                            </a>
+                                            <ul class="dropdown-menu hdropdown notification dropdown-menu-right animated flipInX" role="menu">
+                                                <li><a href="javascript:void(0);" ui-sref="booking.CreateDocket({BookingFleetId: item.BookingFleetId})"><i class="fa pe-7s-file" aria-hidden="true"></i> Add Docket</a></li>
+                                                <li><a href="javascript:void(0);" ng-click="waCtrl.fleetComplete(item.BookingFleetId);"><i class="fa pe-7s-bookmarks" aria-hidden="true"></i>Marked As completed</a></li>
+                                                <li><a href="javascript:void(0)" ui-sref="booking.FleetHistory({BookingFleetId: item.BookingFleetId, BookingId: item.BookingId})"><i class="fa fa-history fa-icon" aria-hidden="true"></i>  Fleet History</a></li>
+                                                <li><a href="javascript:void(0);" role="button" ng-click="waCtrl.fleetAllocation(item, 'reallocation');"><i class="fa pe-7s-refresh" aria-hidden="true"></i>  Re-Allocation</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr ng-if="$data.length <= 0">
+                                    <td colspan="10" class="text-center">Not records found</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <!--Allocated  Details Content End-->
+                </uib-tab>
+                <uib-tab index="2" heading="Completed" ng-click="waCtrl.tabClick('Completed')">
+                    <!--Completed Details Content-->
+                    <!--<h1>Completed Gird Content</h1>-->
+                    <div>
+                        <div class="grid-tb-panel clearfix">
+                            <table ng-table="waCtrl.bcaTableParams" class="table table-stripped toggle-arrow-tiny table-hover" show-filter="true">
+                                <tr ng-repeat="item in $data" ng-if="$data.length > 0">
+                                    <td title="'Booking Number'" filter="{ BookingNumber: 'number'}" sortable="'BookingNumber'" class="text-center">{{item.BookingNumber}}</td>
+                                    <td title="'Fleet Booking Date &amp;Time'" filter="{ FleetBookingDateTime: 'text'}" sortable="'FleetBookingDateTime'" class="text-center">{{item.FleetBookingDateTime | date :  "dd-MM-yyyy"}}</td>
+                                    <td title="'Fleet Number/Description'" filter="{ FleetDetail: 'text'}" sortable="'FleetDetail'">{{item.FleetDetail}}</td>
+                                    <td title="'Customer Name'" filter="{ CustomerName: 'text'}" sortable="'CustomerName'"><a href="javascript:void(0);" ng-click="waCtrl.bookingCustomerDetail(item)">{{item.CustomerName}}</a></td>
+                                    <td title="'Driver Name'" filter="{ DriverName: 'text'}" sortable="'DriverName'">{{item.DriverName}}</td>
+                                    <td title="'Site Details'" filter="{ SiteDetail: 'text'}" sortable="'SiteDetail'">{{item.SiteDetail}}</td>
+                                    <td title="'Dockets'" filter="{ Dockets: 'text'}" sortable="'Dockets'" class="text-center"><a href="javascript:void(0);" ui-sref="booking.DocketList({BookingFleetId: item.BookingFleetId})">{{item.Dockets}}</a></td>
+                                    <td title="'Start Date'" filter="{ CallingDateTime: 'text'}" sortable="'CallingDateTime'" class="text-center">{{item.CallingDateTime | date :  "dd-MM-yyyy"}}</td>
+                                    <td title="'End Date'" filter="{ EndDate: 'text'}" sortable="'EndDate'" class="text-center">{{item.EndDate | date :  "dd-MM-yyyy"}}</td>
+                                    <!--<td title="'Action'" align="center" nowrap="true" width="1%">
+                                        <div class="btn-group">
+                                            <a class="dropdown-toggle" id="dLabel" href="javascript:void(0);" data-toggle="dropdown">
+                                                <i class="fa pe-7s-more action-icon" aria-hidden="true"></i>
+                                            </a>
+                                            <ul class="dropdown-menu hdropdown notification dropdown-menu-right" role="menu">
+                                                <li><a href="javascript:void(0)"><i class="fa fa-history fa-icon" aria-hidden="true"></i>  Fleet History</a></li>
+                                                <li><a href="javascript:void(0)"><i class="fa pe-7s-look" aria-hidden="true"></i> View</a></li>
+                                                <li><a href="javascript:void(0)"><i class="fa pe-7s-trash" aria-hidden="true"></i> Delete</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>-->
+                                </tr>
+                                <tr ng-if="$data.length <= 0">
+                                    <td colspan="9" class="text-center">Not records found</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <!--Completed Details Content End-->
+                </uib-tab>
+            </uib-tabset>
+            <div class="modal fade" id="customer-details" tabindex="-1" role="dialog" style="display: none;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header text-center">
+                            <h4 class="modal-title">Customer Details</h4>
+                            <div class="clostbtn">
+                                <button type="button" data-dismiss="modal" aria-label="Close"><img src="../images/closebtn.png"></button>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Customer Name</label>
+                                        <input class="form-control" readonly="readonly" name="" value="2010 Debtors" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>ABN/ ACN Number</label>
+                                        <input class="form-control only-float" readonly="readonly" name="" value="19150704331" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Email Address</label>
+                                        <input class="form-control only-float" readonly="readonly" name="" value="accounts@cbbgroup.com.au" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Contact Number</label>
+                                        <input class="form-control" readonly="readonly" name="" value="02 9621 4433" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Tab End-->

@@ -1,0 +1,63 @@
+﻿<div class="text-right m-b20">
+    <!--<a href="javascript:void(0);" ui-sref="configuration.AddSite()" class="btn btn-primary btn-i"><i class="fa fa-plus"></i>Add Site</a>-->
+</div>
+<div ng-controller="SupervisorCtrl as sCtrl">
+    <div class="clearfix">
+        <div class="bc-panel-white clearfix">
+            <div class="col-md-5 p-l0">
+                <div class="row">
+                    <div class="col-md-5">
+                        <label>Customer</label>
+                        <div class="form-group">                            
+                            <select ng-model="sCtrl.customer" name="customer" class="form-control" ng-required="true" ng-options="item.CustomerName for item in sCtrl.customerList track by item.CustomerId" ng-change="sCtrl.changeCustomer(sCtrl.customer.CustomerId);">
+                                <option value="">Select</option>
+                            </select>                           
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <label>Site</label>
+                        <div class="form-group">                            
+                            <select ng-model="sCtrl.site" name="site" class="form-control" ng-required="true" ng-options="item.SiteName for item in sCtrl.siteList track by item.SiteId" ng-change="sCtrl.changeSite(sCtrl.site.SiteId);">
+                                <option value="">Select</option>
+                            </select>                            
+                        </div>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="animate-panel bookinglist">
+
+        <div class="grid-tb-panel clearfix">
+            <table ng-table="sCtrl.bcaTableParams" class="table table-stripped toggle-arrow-tiny table-hover" show-filter="true">
+                <tr ng-repeat="supervisor in $data" ng-if="$data.length > 0">
+                    <td title="'Customer Name'" filter="{ CustomerName: 'text'}" sortable="'CustomerName'" class="text-center">{{supervisor.CustomerName}}</td>
+
+                    <td title="'Site Name'" filter="{ SiteName: 'text'}" sortable="'SiteName'" class="text-center">{{supervisor.SiteName}}</td>
+
+                    <td title="'Supervisor Name'" filter="{ SupervisorName: 'text'}" sortable="'SupervisorName'" class="text-center">{{supervisor.SupervisorName}}</td>
+
+                    <td title="'Supervisor Email'" filter="{ Email : 'text'}" sortable="'Email'">{{supervisor.Email}}</td>
+
+                    <td title="'Supervisor Mobile No.'" filter="{ MobileNumber: 'text'}" sortable="'MobileNumber'" class="text-center">{{supervisor.MobileNumber}}</td>
+                
+                    <td title="'Action'" align="center" nowrap="true" width="1%">
+                        <div class="btn-group">
+                            <a class="dropdown-toggle" id="dLabel" href="javascript:void(0);" data-toggle="dropdown">
+                                <i class="fa pe-7s-more action-icon" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu hdropdown notification dropdown-menu-right animated flipInX" role="menu">
+                                <li><a href="javascript:void(0);" ng-click="sCtrl.editSupervisor(supervisor);"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a></li>
+                                <!--<li><a href="javascript:void(0);" ng-click="sCtrl.deleteSupervisor(supervisor.SupervisorId);"><i class="fa pe-7s-trash" aria-hidden="true"></i> Delete</a></li>-->
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr ng-if="$data.length <= 0 || $data.length ===''">
+                    <td colspan="8" class="text-center">Not records found</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

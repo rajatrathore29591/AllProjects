@@ -1,0 +1,267 @@
+<!-- This is content container for nested view in UI-Router-->
+<!-- Header -->
+<div id="header" ng-controller="LoginCtrl as lCtrl" ng-init="lCtrl.initLoginId()">
+   <div class="color-line"></div>
+   <div id="logo" class="light-version">
+      <span>
+      <a ui-sref="booking.BookingList" title="Borgcivil"><img src="Content/images/logo.png"></a>
+      </span>
+   </div>
+   <div class="page-heading">
+      <h2 class="font-light m-b0 m-t0">
+         {{ $state.current.data.pageTitle }}
+      </h2>
+   </div>
+   <nav role="navigation">
+      <minimaliza-menu class="hidden-md-up"></minimaliza-menu>
+      <div class="small-logo">
+         <span class="text-primary"><a href="javascript:void(0)" title="Borgcivil"><img src="Content/images/logo.png"></a></span>
+      </div>
+      <div class="mobile-menu">
+         <button type="button" class="navbar-toggle mobile-menu-toggle" data-toggle="collapse" data-target="#mobile-collapse">
+         <i class="fa fa-chevron-down"></i>
+         </button>
+          <toaster-container></toaster-container>
+         <div class="collapse mobile-navbar" id="mobile-collapse">
+            <ul class="nav navbar-nav">
+               <li>
+                  <a ui-sref="common.login">Login</a>
+               </li>
+               <li>
+                  <a ng-click="lCtrl.logOut()">Logout</a>
+               </li>
+               <li>
+                  <a ui-sref="configuration.EditUser({UserId: LoginUserId})">Profile</a>
+               </li>
+            </ul>
+         </div>
+      </div>
+      <div class="navigation">
+         <div class="navbar-right">
+            <ul class="nav navbar-nav no-borders header-nav-icon">
+               <li id="calander_dropdown" class="dropdown" ng-controller="StartDatepickerCtrl">
+                  <a class="dropdown-toggle icon" href="javascript:void(0)" data-toggle="dropdown" aria-expanded="false" >
+                  <span class="fa fa-calendar"></span>
+                  </a>
+                  <div class="dropdown-menu hdropdown notification animated flipInX" style="display:none;">
+                     <div ng-controller="StartDatepickerCtrl" >
+                        <div class="form-group">
+                           <div class="input-group date-picker">
+                              <span class="input-group-addon">
+                              <span class="fa fa-calendar" ng-click="open($event)"></span>
+                              </span>
+                              <input type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                                 show-button-bar="false" ng-model="dt" is-open="opened" min-date="minDate"
+                                 max-date="'2019-06-22'" datepicker-options="dateOptions"
+                                 date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               <li class="dropdown bell-toggle">
+                  <a class="dropdown-toggle icon" href="javascript:void(0)" data-toggle="dropdown" aria-expanded="false">
+                  <i class="pe-7s-bell"></i>
+                  </a>
+                  <ul class="dropdown-menu hdropdown notification animated flipInX">
+                     <li>
+                        <a>
+                        <span class="label label-success">NEW</span> It is a long established.
+                        </a>
+                     </li>
+                     <li>
+                        <a>
+                        <span class="label label-warning">WAR</span> There are many variations.
+                        </a>
+                     </li>
+                     <li>
+                        <a>
+                        <span class="label label-danger">ERR</span> Contrary to popular belief.
+                        </a>
+                     </li>
+                     <li class="summary"><a href="javascript:void(0)">See all notifications</a></li>
+                  </ul>
+               </li>
+               <li class="dropdown user-login" >
+                  <a class="dropdown-toggle icon user user-pic" href="javascript:void(0)" data-toggle="dropdown" aria-expanded="false">
+                  <img src="{{Image}}">
+                  </a>
+                  <ul class="dropdown-menu hdropdown notification animated flipInX">
+                     <li>
+                        <a ui-sref="configuration.EditUser({UserId: LoginUserId})">
+                        <i class="pe-7s-user"></i>My Profile
+                        </a>
+                     </li>
+                      <li>
+                          <a href="javascript:void(0)" ui-sref="configuration.ChangePassword">
+                              <i class="pe-7s-user"></i>Change Password
+                          </a>
+                      </li>
+                     <li>
+                        <a href="javascript:void(0)" ng-click="lCtrl.logOut()">
+                        <i class="pe-7s-power"></i>Logout
+                        </a>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </div>
+      </div>
+   </nav>
+</div>
+<!-- Main Menu -->
+<div class="clearfix"></div>
+<div class="main-menu">
+   <div class="navbar-header">
+      <!-- Toggle Button -->      
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+   </div>
+   <div class="navbar-collapse collapse clearfix">
+      <ul class="navigation">
+         <li>
+            <a href="javascript:void(0)">
+            <span class="nav-label"> Dashboard</span>
+            </a>
+         </li>
+         <li class="dropdown">
+            <a href="javascript:void(0)" data-toggle="dropdown" class="dropdown-toggle">
+            <span class="nav-label">Booking</span>
+            <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+               <li ui-sref-active="active"><a ui-sref="booking.BookingDashboard">Booking Dashboard</a></li>
+               <li ui-sref-active="active"><a ui-sref="booking.JobBooking({BookingId: 0})">Job Booking</a></li>
+               <li ui-sref-active="active"><a ui-sref="booking.WorkAllocation">Work Allocation</a></li>
+               <li ui-sref-active="active"><a ui-sref="booking.BookingList">Booking List</a></li>
+               <li ui-sref-active="active"><a ui-sref="booking.CreateDocket">Create Docket</a></li>
+            </ul>
+         </li>
+         <li class="dropdown">
+            <a href="javascript:void(0)">
+            <span class="nav-label">Configuration</span><span class="caret"></span> </a>
+            <ul class="dropdown-menu">
+               <li><a href="javascript:void(0)">Shift Time</a></li>
+               <li ui-sref-active="active"><a ui-sref="configuration.UserList">Users</a></li>
+               <li><a href="javascript:void(0)">Role &amp; Permission</a></li>
+               <!--<li><a href="javascript:void(0)">Plant / Truck M</a></li>-->
+               <li><a ui-sref="configuration.DriverList">Drivers</a></li>
+               <li><a href="javascript:void(0);" ui-sref="configuration.FleetTypeList">Fleet Type</a></li>
+               <!--<li><a href="../configuration/asset-info.php">Asset Info</a></li>
+                <li><a href="../configuration/asset-rate.php">Asset Rate List</a></li>-->
+               <li><a ui-sref="configuration.WorkTypeList">Work Type</a></li>
+               <li><a ui-sref="configuration.CheckList">Check List</a></li>
+               <li><a ui-sref="configuration.FleetRegistrationList">Fleet Registration</a></li>  
+               <li><a ui-sref="configuration.CustomerList">Customer Registration</a></li>  
+               <li><a ui-sref="configuration.SiteList">Site</a></li>  
+               <li><a ui-sref="configuration.SupervisorList">Supervisor</a></li>  
+                <li><a ui-sref="configuration.GateList">Gate</a></li>         
+            </ul>
+         </li>
+         <!--<li class="dropdown">
+            <a href="javascript:void(0)">
+            <span class="nav-label">customers</span><span class="caret"></span> </a>
+            <ul class="nav nav-second-level">
+               <li><a href="javascript:void(0)">customer detail</a></li>
+               <li><a ui-sref="customer.customerregistration">customer registration</a></li>
+               <li><a href="javascript:void(0)">site detail</a></li>
+               <li><a href="javascript:void(0)">supervisor</a></li>
+               <li><a href="javascript:void(0)">agreement details</a></li>
+               <li><a href="javascript:void(0)">cancellation</a></li>
+            </ul>
+         </li>-->
+         <!--<li class="dropdown">
+            <a href="javascript:void(0)">
+            <span class="nav-label">Fleet</span><span class="caret"></span> </a>
+            <ul class="nav nav-second-level">
+               <li><a ui-sref="configuration.FleetRegistration" target="_black">Fleet Registration</a></li>
+               <li><a ui-sref="configuration.FleetRegistrationList">Fleet List</a></li>
+               <li><a href="javascript:void(0)">Equip</a></li>
+               <li><a href="javascript:void(0)">History</a></li>
+               <li><a href="javascript:void(0)">Maintenance Details</a></li>
+               <li><a href="javascript:void(0)">Safety Doc Status</a></li>
+            </ul>
+         </li>-->
+         <!--<li class="dropdown">
+            <a href="javascript:void(0)">
+            <span class="nav-label">Invoice</span><span class="caret"></span> </a>
+            <ul class="nav nav-second-level">
+               <li><a href="javascript:void(0)">Rate Card</a></li>
+               <li><a href="javascript:void(0)">Completed Doc</a></li>
+            </ul>
+         </li>-->
+         <!--<li class="dropdown">
+            <a href="javascript:void(0)">
+            <span class="nav-label">Payroll</span><span class="caret"></span> </a>
+            <ul class="nav nav-second-level">
+               <li><a href="javascript:void(0)">Timesheet</a></li>
+               <li><a href="javascript:void(0)">Pay Slip</a></li>
+               <li><a href="javascript:void(0)">Leave</a></li>
+            </ul>
+         </li>-->
+         <!--<li class="dropdown">
+            <a href="javascript:void(0)">
+            <span class="nav-label">Sub Contractor</span><span class="caret"></span> </a>
+            <ul class="nav nav-second-level">
+               <li><a href="javascript:void(0)">Contractors</a></li>
+               <li><a href="javascript:void(0)">Job Order</a></li>
+            </ul>
+         </li>-->
+         <!--<li class="dropdown">
+            <a href="javascript:void(0)">
+            <span class="nav-label">Maintenance </span><span class="caret"></span> </a>
+            <ul class="nav nav-second-level">
+               <li><a href="javascript:void(0)">Service And Repair</a></li>
+               <li><a href="javascript:void(0)">Workshop</a></li>
+               <li><a href="javascript:void(0)">Checklist Parameters</a></li>
+               <li><a href="javascript:void(0)">Consumable Spares</a></li>
+               <li><a href="javascript:void(0)">NVHR Crediation</a></li>
+            </ul>
+         </li>-->
+         <!--<li class="dropdown">
+            <a href="javascript:void(0)">
+            <span class="nav-label">Reports</span><span class="caret"></span> </a>
+            <ul class="nav nav-second-level">
+               <li><a href="javascript:void(0)">Trip Report</a></li>
+               <li><a href="javascript:void(0)">Docket</a></li>
+            </ul>
+         </li>-->
+         <!--<li class="dropdown">
+            <a href="javascript:void(0)">
+            <span class="nav-label">Docket</span><span class="caret"></span> </a>
+            <ul class="nav nav-second-level">
+               <li><a href="javascript:void(0)">Plant Daily Dayworks</a></li>
+               <li><a href="javascript:void(0)">Hire From One</a></li>
+               <li><a href="javascript:void(0)">Hire From Two</a></li>
+            </ul>
+         </li>-->
+      </ul>
+   </div>
+</div>
+<!-- Main Menu End--> 
+<!-- Main Wrapper -->
+<div id="wrapper">
+   <div small-header class="normalheader transition">
+      <div class="hpanel" tour-step order="1" title="Page header" content="Place your page title and breadcrumb. Select small or large header or give the user choice to change the size." placement="bottom">
+         <div class="panel-body">
+            <small> {{ $state.current.data.pageDesc }}</small>
+         </div>
+      </div>
+   </div>
+   <div class="content">
+      <div ui-view animate-panel></div>
+   </div>
+</div>
+<script type="text/javascript">
+   $('ul.navigation li.dropdown').hover(function() {
+   
+   $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(400);
+   }, function() {
+   $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(400);
+   });
+   
+   
+</script>

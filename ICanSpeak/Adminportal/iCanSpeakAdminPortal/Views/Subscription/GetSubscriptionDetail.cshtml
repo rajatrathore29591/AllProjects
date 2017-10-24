@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "GetSubscriptionDetail";
+}
+
+<script src="@Url.Content("~/Content/jAlert/jquery.alerts.js")" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/jAlert/jquery.alerts.css")" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myDataTable').dataTable({
+            "bJQueryUI": true,
+            "aaSorting": [],
+            "sPaginationType": "full_numbers",
+            "aoColumns": [
+                { "sName": "Name", "bSearchable": true, "bSortable": true },
+                { "sName": "Price", "bSearchable": true, "bSortable": true },
+                { "sName": "Grammer", "bSearchable": true, "bSortable": true },
+                { "sName": "Vocab", "bSearchable": true, "bSortable": true },
+                { "sName": "Dialog", "bSearchable": true, "bSortable": true },
+                { "sName": "Registered On", "bSearchable": true, "bSortable": true },
+                { "sName": "Operations", "bSearchable": false, "bSortable": false }
+            ]
+        }).makeEditable({
+            fnStartProcessingMode: function () {
+                $("#processing_message").dialog();
+            },
+            fnEndProcessingMode: function () {
+                $("#processing_message").dialog("close");
+            }
+        });
+    });
+</script>
+<style type="text/css">
+    .operationIcons {
+        height: 25px;
+        width: 25px;
+    }
+    
+    tr:nth-child(even){background-color: #e2f3ff}
+</style>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <font color="44c9ff">Subscription Detail</font>
+        </h1>
+        <span style="float: right; color: #3d3b3b; font-size: 16pt; margin-top: -50px;"></span>
+    </div>
+</div>
+
+
+<table id="myDataTable" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Grammer Count</th>
+            <th>Vocab Count</th>
+            <th>Dialog Count</th>
+            <th>Registered On</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.SubscriptionList)
+        {
+            <tr>
+                <td><span>@item["SubscriptionName"]</span></td>
+                <td><span>@item["Price"]</span></td>
+                <td><span>@item["GrammerCount"]</span></td>
+                <td><span>@item["VocabCount"]</span></td>
+                <td><span>@item["DialogCount"]</span></td>
+                <td><span>@item["CreatedDate"]</span></td>
+
+
+                <td>
+                    <a href="../Subscription/GrammerCount?premiumSubscriptionId=@item["PremiumSubscriptionId"]">
+                        <img src="~/Images/g.png" class="operationIcons" title="Grammer Details" /></a>&nbsp;&nbsp;
+                     <a href="../Subscription/VocabCount?premiumSubscriptionId=@item["PremiumSubscriptionId"]">
+                         <img src="~/Images/v.png" class="operationIcons" title="Vocab Details" /></a>&nbsp;&nbsp;                     
+                     <a href="../Subscription/DialogCount?premiumSubscriptionId=@item["PremiumSubscriptionId"]">
+                         <img src="~/Images/d.png" class="operationIcons" title="Dialog Details" /></a>&nbsp;&nbsp;
+                </td>
+            </tr>
+            <input type="hidden" name="Studentid" value="@item["PremiumSubscriptionId"]" />
+        }
+    </tbody>
+</table>

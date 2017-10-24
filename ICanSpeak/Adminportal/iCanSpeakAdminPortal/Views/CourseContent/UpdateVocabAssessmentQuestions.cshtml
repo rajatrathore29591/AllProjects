@@ -1,0 +1,311 @@
+﻿@{
+    ViewBag.Title = "UpdateVocabAssessmentQuestions";
+}
+
+<style>
+    .fileUpload {
+        position: relative;
+        overflow: hidden;
+        margin: 10px;
+    }
+
+        .fileUpload input.upload {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0px 10px;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+    .box1 {
+        border: 1px solid #ccc;
+        margin: 10px 0px;
+        padding: 20px;
+        border-radius: 8px;
+    }
+</style>
+
+<div class="dialog-page">
+    <div class="container">
+        @using (Html.BeginForm("UpdateVocabAssessmentQuestions", "CourseContent", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <input type="hidden" value="@Model.VocabularyId" name="VocabularyId" />
+            <input type="hidden" value="@Model.QuestionId"  name="QuestionId" />
+            
+            <header>
+                <h2>Edit Vocab Assessment Question</h2>
+            </header>
+                   
+            <div class="contant">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                        <div class="form-group required">
+                            <label style="color: red !important; font-size: 16px;">
+                                @ViewBag.errormsg
+                            </label>
+                            <input type="hidden" value="@Model.Option1AudioUrl" name="Option1AudioUrl" />
+                            <input type="hidden" value="@Model.Option2AudioUrl" name="Option2AudioUrl" />
+                            <input type="hidden" value="@Model.Option3AudioUrl" name="Option3AudioUrl" />
+                            <input type="hidden" value="@Model.Option4AudioUrl" name="Option4AudioUrl" />
+                        </div>
+                        <div class="form-group">
+                            <label>Set </label>
+                            <input class="form-control" required name="SelectSet"  value="@Model.SelectSet"  title="" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>Question </label>
+                            <input class="form-control" required name="Question"  value="@Model.Question"  title="" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>Correct Answer <span style="color: #FE2801;">*</span></label>
+                            @*<input class="form-control" required name="CorrectAnswer"  value="@Model.CorrectAnswer"  title="" type="text" />*@
+                            @if (Model.CorrectAnswer == "1")
+                            {
+                                <select class="form-control" id="CorrectAnswer" required name="CorrectAnswer">
+                                    <option value="">Select</option>
+                                    <option value="1" selected>Option A</option>
+                                    <option value="2">Option B</option>
+                                    <option value="3">Option C</option>
+                                    <option value="4">Option D</option>
+                                </select>
+                            }
+                            @if (Model.CorrectAnswer == "2")
+                            {
+                                <select class="form-control" id="CorrectAnswer" required name="CorrectAnswer">
+                                    <option value="">Select</option>
+                                    <option value="1">Option A</option>
+                                    <option value="2" selected>Option B</option>
+                                    <option value="3">Option C</option>
+                                    <option value="4">Option D</option>
+                                </select>
+                            }
+                            @if (Model.CorrectAnswer == "3")
+                            {
+                                <select class="form-control" id="CorrectAnswer" required name="CorrectAnswer">
+                                    <option value="">Select</option>
+                                    <option value="1">Option A</option>
+                                    <option value="2">Option B</option>
+                                    <option value="3" selected>Option C</option>
+                                    <option value="4">Option D</option>
+                                </select>
+                            }
+                            @if (Model.CorrectAnswer == "4")
+                            {
+                                <select class="form-control" id="CorrectAnswer" required name="CorrectAnswer">
+                                    <option value="">Select</option>
+                                    <option value="1">Option A</option>
+                                    <option value="2">Option B</option>
+                                    <option value="3">Option C</option>
+                                    <option value="4" selected>Option D</option>
+                                </select>
+                            }
+                        </div>
+                        <div class="form-group">
+                            <label>Options A <span style="color: #FE2801;">*</span></label>
+                            <input class="form-control" required name="OptionsA"  value="@Model.OptionsA"  title="" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>Option B <span style="color: #FE2801;">*</span></label>
+                            <input class="form-control" required name="OptionsB"  value="@Model.OptionsB"  title="" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>Option C <span style="color: #FE2801;">*</span></label>
+                            <input class="form-control" required name="OptionsC"  value="@Model.OptionsC"  title="" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>Option D <span style="color: #FE2801;">*</span></label>
+                            <input class="form-control" required name="OptionsD"  value="@Model.OptionsD"  title="" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>Image</label>
+                            <div class="box1">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="file-preview">
+                                            <div class="file-preview-thumbnails">
+                                                <div class="file-preview-frame" id="preview">
+                                                    <img id="image" style="width: 150px; height: 150px" src="@Model.ImageURL" class="file-preview-image" title="logo_symbol.png" alt="logo_symbol.png">
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div class="file-preview-status text-center text-success"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="fileUpload btn btn-primary">
+                                        <span>Change Image</span>
+                                        <input id="imgfile" type="file" class="upload" onchange="readURL(this);" name="Image" />
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Option A Audio </label>
+                            <div class="box1">
+                                <div class="row">
+                                    <audio controls="" style="width: 100%">
+                                        <source src="@Model.Option1AudioUrl" type="audio/mpeg" />
+                                    </audio>
+                                </div>
+
+                                <div class="row">
+                                    <div class="fileUpload btn btn-primary">
+                                        <span>Change Audio</span>
+                                        <input id="audio1" type="file" class="upload" name="optaud1" accept="audio/*" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Option B Audio </label>
+                            <div class="box1">
+                                <div class="row">
+                                    <audio controls="" style="width: 100%">
+                                        <source src="@Model.Option2AudioUrl" type="audio/mpeg" />
+                                    </audio>
+                                </div>
+                                <div class="row">
+                                    <div class="fileUpload btn btn-primary">
+                                        <span>Change Audio</span>
+                                        <input id="audio2" type="file" class="upload" name="optaud2" accept="audio/*" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Option C Audio </label>
+                            <div class="box1">
+                                <div class="row">
+                                    <audio controls="" style="width: 100%">
+                                        <source src="@Model.Option3AudioUrl" type="audio/mpeg" />
+                                    </audio>
+                                </div>
+
+                                <div class="row">
+                                    <div class="fileUpload btn btn-primary">
+                                        <span>Change Audio</span>
+                                        <input id="audio3" type="file" class="upload" name="optaud3" accept="audio/*" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Option A Audio </label>
+                            <div class="box1">
+                                <div class="row">
+                                    <audio controls="" style="width: 100%">
+                                        <source src="@Model.Option4AudioUrl" type="audio/mpeg" />
+                                    </audio>
+                                </div>
+
+                                <div class="row">
+                                    <div class="fileUpload btn btn-primary">
+                                        <span>Change Audio</span>
+                                        <input id="audio4" type="file" class="upload" name="optaud4" accept="audio/*" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-info" value="Update" />&nbsp;&nbsp;
+                            <a href="../../Admin/CourseContent/VocabAssessmentQuestions?VocabularyId=@Model.VocabularyId">
+                            <input type="button" class="btn btn-info" value="Cancel"  /></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>  
+                  
+        }
+    </div>
+</div>
+<script type="text/javascript">
+    function ResetFormValues() {
+        window.location = "@Url.Action("VocabAssessmentQuestions", "CourseContent")";
+    }
+
+
+</script>
+<script>
+    $('#audio1').change(function () {
+        var val = $(this).val();
+        switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'mp3':
+                break;
+            default:
+                $(this).val('');
+
+                alert("Audio must be of mp3 format.");
+                break;
+        }
+    });
+    $('#audio2').change(function () {
+        var val = $(this).val();
+        switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'mp3':
+                break;
+            default:
+                $(this).val('');
+
+                alert("Audio must be of mp3 format.");
+                break;
+        }
+    });
+    $('#audio3').change(function () {
+        var val = $(this).val();
+        switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'mp3':
+                break;
+            default:
+                $(this).val('');
+
+                alert("Audio must be of mp3 format.");
+                break;
+        }
+    });
+    $('#audio4').change(function () {
+        var val = $(this).val();
+        switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'mp3':
+                break;
+            default:
+                $(this).val('');
+
+                alert("Audio must be of mp3 format.");
+                break;
+        }
+    });
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var files = e.files;
+                var filePath = input.value;
+
+                var ext = filePath.substring(filePath.lastIndexOf('.') + 1).toLowerCase();
+                if ($.inArray(ext, ['jpg', 'png', 'jpeg']) == -1) {
+                    alert('You can only upload .jpg,.png, .jpeg files');
+                    input.value = '';
+                    e.preventDefault();
+                    return false;
+                }
+                $("#image").attr('src', e.target.result);
+
+
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+

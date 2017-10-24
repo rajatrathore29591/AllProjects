@@ -1,0 +1,58 @@
+﻿<div class="text-right m-b20">
+    <!--<a href="javascript:void(0);" ui-sref="configuration.AddSite()" class="btn btn-primary btn-i"><i class="fa fa-plus"></i>Add Site</a>-->
+</div>
+<div ng-controller="SiteListCtrl as slCtrl">
+    <div class="clearfix">
+        <div class="bc-panel-white clearfix">
+            <div class="col-md-5 p-l0">
+                <div class="row">
+                    <div class="col-md-5">
+                        <label>Select Customer</label>
+                        <div class="form-group">                                                                                                                   
+                                <select ng-model="slCtrl.customer" name="customer" class="form-control" ng-required="true" ng-options="item.CustomerName for item in slCtrl.customerList track by item.CustomerId" ng-change="slCtrl.changeCustomer(slCtrl.customer.CustomerId);">
+                                    <option value="">Default All</option>
+                                </select>
+                        </div>
+                    </div>                  
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="animate-panel bookinglist">
+        <div class="grid-tb-panel clearfix">
+            <table ng-table="slCtrl.bcaTableParams" class="table table-stripped toggle-arrow-tiny table-hover" show-filter="true">               
+                <tr ng-repeat="site in $data" ng-if="$data.length > 0">
+                    <td title="'Customer Name'" filter="{ CustomerName: 'text'}" sortable="'CustomerName'" class="text-center">{{site.CustomerName}}</td>
+
+                    <td title="'Site name'" filter="{ SiteName : 'text'}" sortable="'SiteName'">{{site.SiteName}}</td>
+
+                    <td title="'PO#'" filter="{ PoNumber: 'text'}" sortable="'PoNumber'" class="text-center">{{site.PoNumber}}</td>
+
+                    <td title="'Site details'" filter="{ SiteDetail: 'text'}" sortable="'SiteDetail'" class="text-center">{{site.SiteDetail}}</td>
+
+                    <td title="'Fuel include'" filter="{ FuelIncluded: 'text'}" sortable="'FuelIncluded'" class="text-center">{{(site.FuelIncluded)?'Yes':'No'}}</td>
+
+                    <td title="'Tolls included'" filter="{ TollTax: 'text'}" sortable="'TollTax'" class="text-center">{{(site.TollTax)?'Yes':'No'}}</td>
+
+                    <td title="'Creedit term agreed'" filter="{ CreditTermAgreed: 'text'}" sortable="'CreditTermAgreed'" class="text-center">{{site.CreditTermAgreed}}</td>
+
+                    <td title="'Action'" align="center" nowrap="true" width="1%">
+                        <div class="btn-group">
+                            <a class="dropdown-toggle" id="dLabel" href="javascript:void(0);" data-toggle="dropdown">
+                                <i class="fa pe-7s-more action-icon" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu hdropdown notification dropdown-menu-right animated flipInX" role="menu">
+                                <li><a href="javascript:void(0)" ui-sref="configuration.EditSite({SiteId: site.SiteId})"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a></li>
+                                <!--<li><a href="javascript:void(0);" ng-click="slCtrl.deleteSite(site.SiteId);"><i class="fa pe-7s-trash" aria-hidden="true"></i> Delete</a></li>-->
+                            </ul>
+                        </div>
+                    </td>
+                </tr> 
+                <tr ng-if="$data.length <= 0 || $data.length ===''">
+                    <td colspan="8" class="text-center">Not records found</td>
+                </tr>             
+            </table>
+        </div>
+    </div>
+</div>

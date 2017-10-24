@@ -1,0 +1,140 @@
+﻿<div class="animate-panel add-user" ng-controller="ManageUserCtrl as auCtrl">
+<form role="form" id="form" name="add_user_form" ng-submit="auCtrl.updateDetails(add_user_form.$valid)" novalidate>
+	<div class="bc-panel-white">
+		<div class="row">
+			<!--BEGIN: Image Upload Section-->
+			<div class="col-md-2 p-r0">
+				<div class="image-profile text-center">
+                    <div class="form-group">     
+                        <h4 class="upload-heading">Upload Image </h4> 
+                        <img id="previewId" ng-src="{{auCtrl.Image}}" width="100" height="100" /> 
+                        <p class="image-preview-filename" id="fileName"></p>                
+                        <div class="input-group image-preview">
+                            <!--<input type="text" class="form-control image-preview-filename" id="fileName">--> <!-- don't give a name === doesn't send on POST/GET -->
+                            <span class="input-group-btn">  
+                                <!-- image-preview-clear button -->
+                                <!--<button type="button" id="clearImageId" ng-click="auCtrl.clearImage();" class="btn btn-default image-preview-clear">
+                                    <span class="glyphicon glyphicon-remove"></span> Clear
+                                </button>-->                            
+                                <!-- image-preview-input -->
+                                <div class="btn btn-default image-preview-input">
+                                    <span class="glyphicon glyphicon-upload"></span>
+                                    <span class="image-preview-input-title">Choose File</span>
+                                    <input type="file" ngf-select ng-model="picFile" name="file" accept="image/*" ngf-max-size="2MB" ngf-model-invalid="errorFile" class="btn btn-default" id="inputFileToLoad" ng-change="auCtrl.loadImageFileAsURL();"><!-- rename it -->
+                                </div>
+                            </span>
+                      
+                        </div><!-- /input-group image-preview [TO HERE]-->
+                        <input type="hidden" id="imageBase64" />                                             
+
+                        <!-- /input-group image-preview [TO HERE]-->
+                    </div>	
+					<!--<img id="previewId"  alt="user-img"  width="100px;" height="100px;"/>
+                    <input type="file" name="file" accept="image/*" class="btn btn-primary" ngf-max-size="2MB" id="inputFileToLoad" onchange="loadImageFileAsURL();">-->
+					<!--<a class="btn btn-primary" href="javascript:void(0);"><i class="fa fa-cloud-upload append-icon"></i> Upload</a>-->
+				</div>
+			</div>
+			<!--END: Image Upload Section-->
+			<div class="col-md-10">
+				<h4 class="sub-title m-t-sm m-t-none">Person Information</h4>
+				<div class="row">
+
+					<div class="col-md-3 p-r0">
+						<div class="form-group">
+							<label>Job Title <span class="text-danger"> *</span></label>                            
+                                <select class="form-control" ng-model="auCtrl.role" required>
+                                    <option value="">Select</option>
+                                    <option value="{{item.Id}}" ng-repeat="item in auCtrl.roles">{{item.Name}}</option>
+                                </select>
+
+</div>
+					</div>
+					<div class="col-md-2 p-r0">
+						<div class="form-group">
+							<label>First Name <span class="text-danger"> *</span></label>
+							<input class="form-control" type="text" ng-model="auCtrl.attributes.FirstName" ng-minlength="2" ng-maxlength="30" required>
+						</div>
+					</div>
+					<div class="col-md-2 p-r0">
+						<div class="form-group">
+							<label>Last Name <span class="text-danger"> *</span></label>
+							<input value="" class="form-control" type="text" ng-model="auCtrl.attributes.SurName" ng-minlength="2" ng-maxlength="30" required>
+						</div>
+					</div>
+					<div class="col-md-3 p-r0">
+						<div class="form-group">
+							<label>Email Address <span class="text-danger"> *</span></label>
+							<input value="" class="form-control" type="email" ng-model="auCtrl.attributes.Email" required>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="form-group">
+							<label>Contact Number</label>
+							<input value="" name="ContactNumber " class="form-control only-float" type="number" ng-model="auCtrl.attributes.ContactNumber" ng-minlength="10" ng-maxlength="10">
+                           
+						</div>
+					</div>
+				</div>
+				<h4 class="sub-title m-t-sm">Address</h4>
+				<div class="row">
+					<div class="col-md-6 p-r0">
+						<div class="form-group">
+							<label>Address Line 1 <span class="text-danger"> *</span></label>
+							<input type="text" class="form-control" ng-model="auCtrl.attributes.Address1" required>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Address Line 2 <span class="text-danger"> *</span></label>
+							<input type="text" class="form-control" ng-model="auCtrl.attributes.Address2" required>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 p-r0">
+						<div class="form-group">
+							<label>Country <span class="text-danger"> *</span></label>
+                            <select ng-model="auCtrl.country" ng-change="auCtrl.getStates(auCtrl.country.Value)" ng-options="item.Text for item in auCtrl.countries track by item.Value" class="form-control" required>
+                                <option value="">Select</option>
+                            </select>                          
+							<!--<select class="form-control sub-select" ng-model="auCtrl.attributes.CountryId" ng-change="auCtrl.getStates(auCtrl.attributes.CountryId)">
+								<option>Select</option>
+                                <option ng-repeat="item in auCtrl.countries" ng-value="item.Value">{{item.Text}}</option>
+							</select>-->
+						</div>
+					</div>
+					<div class="col-md-3 p-r0">
+						<div class="form-group">
+							<label>State <span class="text-danger"> *</span></label>
+
+                            <select ng-model="auCtrl.state" ng-options="item.Text for item in auCtrl.states track by item.Value" class="form-control" required>
+                                <option value="">Select</option>
+                            </select>
+							<!--<select class="form-control sub-select" ng-model="auCtrl.attributes.StateId">
+								<option>Select</option>
+                                <option ng-repeat="item in auCtrl.states" ng-value="item.Value">{{item.Text}}</option>
+							</select>-->
+						</div>
+					</div>
+					<div class="col-md-3 p-r0">
+						<div class="form-group">
+							<label>City</label>
+							<input type="text" class="form-control" ng-model="auCtrl.attributes.City" ng-minlength="2" ng-maxlength="50">
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label>Zip Code <span class="text-danger"> *</span></label>
+							<input type="number" class="form-control" ng-model="auCtrl.attributes.ZipCode" ng-minlength="4" ng-maxlength="7" required>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-footer text-right bc-panel-footer">
+        <a ui-sref="configuration.UserList()"><button type="button" class="btn btn-default">Close</button></a>
+		<button class="btn btn-primary" type="submit">Submit</button>
+	</div>
+	</form>
+</div>

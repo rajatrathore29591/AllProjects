@@ -1,0 +1,3 @@
+﻿2016-12-26 05:40:44,768 [31] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log on invertory
+2016-12-26 05:49:06,614 [20] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log on invertory
+2016-12-26 05:50:07,271 [19] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log on invertory

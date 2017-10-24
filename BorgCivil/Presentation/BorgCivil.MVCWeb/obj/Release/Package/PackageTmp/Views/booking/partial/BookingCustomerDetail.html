@@ -1,0 +1,44 @@
+﻿    <div class="inmodal customerdetails">
+        <div class="modal-header text-center">
+            <!--<i class="fa fa-sliders color-success h-modal-icon"></i>-->
+            <h4 class="modal-title">Customer Details</h4>
+            <div class="clostbtn">
+                <button type="button" ng-click="blCtrl.hideCustomer()" title="Close"><img src="Content/images/closebtn.png"></button>
+            </div>
+
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td><label>Name</label></td>
+                                <td>{{CustomerName}}</td>
+                            </tr>
+                            <tr>
+                                <td><label>ABN/ ACN Number</label></td>
+                                <td>{{ABN}}</td>
+                            </tr>
+                            <tr>
+                                <td><label>Email Address</label></td>
+                                <td>{{EmailForInvoices}}</td>
+                            </tr>
+                            <tr>
+                                <td><label>Contact Number</label></td>
+                                <td>{{ContactNumber}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+           
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="blCtrl.hideCustomer()" title="Close">Close</button>
+
+        </div>
+    </div>
+

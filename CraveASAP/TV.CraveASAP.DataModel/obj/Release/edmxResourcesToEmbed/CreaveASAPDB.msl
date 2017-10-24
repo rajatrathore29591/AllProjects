@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CraveASAPDBModelStoreContainer" CdmEntityContainer="DB_9D9221_eddeeEntities">
+    <EntitySetMapping Name="AdminVendors">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.AdminVendor">
+        <MappingFragment StoreEntitySet="AdminVendor">
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="adminVendorName" ColumnName="adminVendorName" />
+          <ScalarProperty Name="adminVendorId" ColumnName="adminVendorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppDefaultLandingPages">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.AppDefaultLandingPage">
+        <MappingFragment StoreEntitySet="AppDefaultLandingPage">
+          <ScalarProperty Name="categoryStatus" ColumnName="categoryStatus" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="toTime" ColumnName="toTime" />
+          <ScalarProperty Name="fromTime" ColumnName="fromTime" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="landingPageId" ColumnName="landingPageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Banners">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.Banner">
+        <MappingFragment StoreEntitySet="Banners">
+          <ScalarProperty Name="delay" ColumnName="delay" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="reference" ColumnName="reference" />
+          <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="platform" ColumnName="platform" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="bannerId" ColumnName="bannerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Configurations">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.Configuration">
+        <MappingFragment StoreEntitySet="Configuration">
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="configId" ColumnName="configId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentManagements">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.ContentManagement">
+        <MappingFragment StoreEntitySet="ContentManagement">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="contentLink" ColumnName="contentLink" />
+          <ScalarProperty Name="contentName" ColumnName="contentName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DefaultPromotionCodeBanners">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.DefaultPromotionCodeBanner">
+        <MappingFragment StoreEntitySet="DefaultPromotionCodeBanner">
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="platform" ColumnName="platform" />
+          <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+          <ScalarProperty Name="bannerUrl" ColumnName="bannerUrl" />
+          <ScalarProperty Name="promotionCodeBannerName" ColumnName="promotionCodeBannerName" />
+          <ScalarProperty Name="promotionCodeBannerId" ColumnName="promotionCodeBannerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DynamicHTMLContents">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.DynamicHTMLContent">
+        <MappingFragment StoreEntitySet="DynamicHTMLContent">
+          <ScalarProperty Name="contentFor" ColumnName="contentFor" />
+          <ScalarProperty Name="plainText" ColumnName="plainText" />
+          <ScalarProperty Name="pageContent" ColumnName="pageContent" />
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="pageName" ColumnName="pageName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.Location">
+        <MappingFragment StoreEntitySet="Location">
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="region" ColumnName="region" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="locationName" ColumnName="locationName" />
+          <ScalarProperty Name="locationId" ColumnName="locationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OAuths">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.OAuth">
+        <MappingFragment StoreEntitySet="OAuth">
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="OAuthToken" ColumnName="OAuthToken" />
+          <ScalarProperty Name="appType" ColumnName="appType" />
+          <ScalarProperty Name="loginId" ColumnName="loginId" />
+          <ScalarProperty Name="oAuthId" ColumnName="oAuthId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OpeningHours">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.OpeningHour">
+        <MappingFragment StoreEntitySet="OpeningHours">
+          <ScalarProperty Name="fkvendorId" ColumnName="fkvendorId" />
+          <ScalarProperty Name="totime" ColumnName="totime" />
+          <ScalarProperty Name="fromtime" ColumnName="fromtime" />
+          <ScalarProperty Name="today" ColumnName="today" />
+          <ScalarProperty Name="fromday" ColumnName="fromday" />
+          <ScalarProperty Name="openingHoursId" ColumnName="openingHoursId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Points">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.Point">
+        <MappingFragment StoreEntitySet="Points">
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="pointId" ColumnName="pointId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PointsConfigurations">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.PointsConfiguration">
+        <MappingFragment StoreEntitySet="PointsConfiguration">
+          <ScalarProperty Name="pointsEarned" ColumnName="pointsEarned" />
+          <ScalarProperty Name="limit" ColumnName="limit" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="ptConfigurationId" ColumnName="ptConfigurationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PredictiveNotifications">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.PredictiveNotification">
+        <MappingFragment StoreEntitySet="PredictiveNotifications">
+          <ScalarProperty Name="reSendTime" ColumnName="reSendTime" />
+          <ScalarProperty Name="sendTime" ColumnName="sendTime" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="promotionCodeId" ColumnName="promotionCodeId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="preId" ColumnName="preId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rewards">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.Reward">
+        <MappingFragment StoreEntitySet="Rewards">
+          <ScalarProperty Name="point" ColumnName="point" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="usedCount" ColumnName="usedCount" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="nextAvailability" ColumnName="nextAvailability" />
+          <ScalarProperty Name="isSpecial" ColumnName="isSpecial" />
+          <ScalarProperty Name="expiryHours" ColumnName="expiryHours" />
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="platform" ColumnName="platform" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="rewardName" ColumnName="rewardName" />
+          <ScalarProperty Name="rewardId" ColumnName="rewardId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subscribes">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.Subscribe">
+        <MappingFragment StoreEntitySet="Subscribe">
+          <ScalarProperty Name="isSubscribe" ColumnName="isSubscribe" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="subscribeId" ColumnName="subscribeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SuperAdminLogins">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.SuperAdminLogin">
+        <MappingFragment StoreEntitySet="SuperAdminLogin">
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="loginName" ColumnName="loginName" />
+          <ScalarProperty Name="loginId" ColumnName="loginId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserFavourites">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.UserFavourite">
+        <MappingFragment StoreEntitySet="UserFavourite">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+          <ScalarProperty Name="favoriteRestaurantId" ColumnName="favoriteRestaurantId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserPrefrences">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.UserPrefrence">
+        <MappingFragment StoreEntitySet="UserPrefrences">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="prefrencesId" ColumnName="prefrencesId" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRewards">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.UserReward">
+        <MappingFragment StoreEntitySet="UserRewards">
+          <ScalarProperty Name="useTime" ColumnName="useTime" />
+          <ScalarProperty Name="isUsed" ColumnName="isUsed" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="rewardId" ColumnName="rewardId" />
+          <ScalarProperty Name="userRewardId" ColumnName="userRewardId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VendorBranches">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.VendorBranch">
+        <MappingFragment StoreEntitySet="VendorBranch">
+          <ScalarProperty Name="branchCode" ColumnName="branchCode" />
+          <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="defaultBranch" ColumnName="defaultBranch" />
+          <ScalarProperty Name="additionalInfo" ColumnName="additionalInfo" />
+          <ScalarProperty Name="contactPerson" ColumnName="contactPerson" />
+          <ScalarProperty Name="phoneNo" ColumnName="phoneNo" />
+          <ScalarProperty Name="deliveryAddress" ColumnName="deliveryAddress" />
+          <ScalarProperty Name="fullAddress" ColumnName="fullAddress" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="taxId" ColumnName="taxId" />
+          <ScalarProperty Name="businessName" ColumnName="businessName" />
+          <ScalarProperty Name="vendorBranchId" ColumnName="vendorBranchId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_Analytics" FunctionName="CraveASAPDBModel.Store.usp_Analytics">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CraveASAPDBModel.usp_Analytics_Result">
+          <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+          <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+          <ScalarProperty Name="Restaurant" ColumnName="Restaurant" />
+          <ScalarProperty Name="Cafe" ColumnName="Cafe" />
+          <ScalarProperty Name="Dessert" ColumnName="Dessert" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_AnalyticsByVendorID" FunctionName="CraveASAPDBModel.Store.usp_AnalyticsByVendorID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CraveASAPDBModel.usp_AnalyticsByVendorID_Result">
+          <ScalarProperty Name="promotionCodeId" ColumnName="promotionCodeId" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="descriptionEnglish" ColumnName="descriptionEnglish" />
+          <ScalarProperty Name="descriptionThai" ColumnName="descriptionThai" />
+          <ScalarProperty Name="promotionCreatedDate" ColumnName="promotionCreatedDate" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="expiryDate" ColumnName="expiryDate" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifyDate" ColumnName="modifyDate" />
+          <ScalarProperty Name="isRelaunch" ColumnName="isRelaunch" />
+          <ScalarProperty Name="lastRelaunchDate" ColumnName="lastRelaunchDate" />
+          <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="recommendation" ColumnName="recommendation" />
+          <ScalarProperty Name="isPinned" ColumnName="isPinned" />
+          <ScalarProperty Name="PinnedDate" ColumnName="PinnedDate" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="subCategoryId" ColumnName="subCategoryId" />
+          <ScalarProperty Name="optCategoryId" ColumnName="optCategoryId" />
+          <ScalarProperty Name="shareFacebookCount" ColumnName="shareFacebookCount" />
+          <ScalarProperty Name="shareInstagramCount" ColumnName="shareInstagramCount" />
+          <ScalarProperty Name="shareTwitterCount" ColumnName="shareTwitterCount" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="useCount" ColumnName="useCount" />
+          <ScalarProperty Name="viewCount" ColumnName="viewCount" />
+          <ScalarProperty Name="recommendationCount" ColumnName="recommendationCount" />
+          <ScalarProperty Name="promotionImage" ColumnName="promotionImage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_AnalyticsPromotion" FunctionName="CraveASAPDBModel.Store.usp_AnalyticsPromotion">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CraveASAPDBModel.usp_AnalyticsPromotion_Result">
+          <ScalarProperty Name="companyName" ColumnName="companyName" />
+          <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="promotionCodeId" ColumnName="promotionCodeId" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="expiryDate" ColumnName="expiryDate" />
+          <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_AnalyticsSocialMedia" FunctionName="CraveASAPDBModel.Store.usp_AnalyticsSocialMedia">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CraveASAPDBModel.usp_AnalyticsSocialMedia_Result">
+          <ScalarProperty Name="Users" ColumnName="Users" />
+          <ScalarProperty Name="FaceBook" ColumnName="FaceBook" />
+          <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_AnalyticsTrackUsage" FunctionName="CraveASAPDBModel.Store.usp_AnalyticsTrackUsage">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CraveASAPDBModel.usp_AnalyticsTrackUsage_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Morning" ColumnName="Morning" />
+          <ScalarProperty Name="Evening" ColumnName="Evening" />
+          <ScalarProperty Name="Midday" ColumnName="Midday" />
+          <ScalarProperty Name="Lunch" ColumnName="Lunch" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_AnalyticsUsagePerDay" FunctionName="CraveASAPDBModel.Store.usp_AnalyticsUsagePerDay" />
+    <FunctionImportMapping FunctionImportName="usp_AnalyticsUserPerDayUseCategory" FunctionName="CraveASAPDBModel.Store.usp_AnalyticsUserPerDayUseCategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CraveASAPDBModel.usp_AnalyticsUserPerDayUseCategory_Result">
+          <ScalarProperty Name="Rest_Cafe" ColumnName="Rest_Cafe" />
+          <ScalarProperty Name="Cafe_Dess" ColumnName="Cafe_Dess" />
+          <ScalarProperty Name="Rest_Dess" ColumnName="Rest_Dess" />
+          <ScalarProperty Name="Rest_Rest" ColumnName="Rest_Rest" />
+          <ScalarProperty Name="Cafe_Cafe" ColumnName="Cafe_Cafe" />
+          <ScalarProperty Name="Dess_Dess" ColumnName="Dess_Dess" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="SubCategories">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.SubCategory">
+        <MappingFragment StoreEntitySet="SubCategory">
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="subCategoryName" ColumnName="subCategoryName" />
+          <ScalarProperty Name="subCategoryId" ColumnName="subCategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OptionalCategories">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.OptionalCategory">
+        <MappingFragment StoreEntitySet="OptionalCategory">
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="subCategoryId" ColumnName="subCategoryId" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="optCategoryName" ColumnName="optCategoryName" />
+          <ScalarProperty Name="optCategoryId" ColumnName="optCategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="associatedVendors" ColumnName="associatedVendors" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="phoneNo" ColumnName="phoneNo" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="adminName" ColumnName="adminName" />
+          <ScalarProperty Name="adminId" ColumnName="adminId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserPromotions">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.UserPromotion">
+        <MappingFragment StoreEntitySet="UserPromotion">
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="useDate" ColumnName="useDate" />
+          <ScalarProperty Name="userTime" ColumnName="userTime" />
+          <ScalarProperty Name="isUsed" ColumnName="isUsed" />
+          <ScalarProperty Name="isViewed" ColumnName="isViewed" />
+          <ScalarProperty Name="isShareInstagram" ColumnName="isShareInstagram" />
+          <ScalarProperty Name="isShareTwitter" ColumnName="isShareTwitter" />
+          <ScalarProperty Name="isShareFacebook" ColumnName="isShareFacebook" />
+          <ScalarProperty Name="isRecommended" ColumnName="isRecommended" />
+          <ScalarProperty Name="promotionId" ColumnName="promotionId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="userPromotionId" ColumnName="userPromotionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserPromotionSkips">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.UserPromotionSkip">
+        <MappingFragment StoreEntitySet="UserPromotionSkip">
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="devicePlatform" ColumnName="devicePlatform" />
+          <ScalarProperty Name="deviceToken" ColumnName="deviceToken" />
+          <ScalarProperty Name="useDate" ColumnName="useDate" />
+          <ScalarProperty Name="userTime" ColumnName="userTime" />
+          <ScalarProperty Name="isUsed" ColumnName="isUsed" />
+          <ScalarProperty Name="isViewed" ColumnName="isViewed" />
+          <ScalarProperty Name="isShareInstagram" ColumnName="isShareInstagram" />
+          <ScalarProperty Name="isShareTwitter" ColumnName="isShareTwitter" />
+          <ScalarProperty Name="isShareFacebook" ColumnName="isShareFacebook" />
+          <ScalarProperty Name="isRecommended" ColumnName="isRecommended" />
+          <ScalarProperty Name="promotionId" ColumnName="promotionId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="userPromotionId" ColumnName="userPromotionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PromotionCodes">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.PromotionCode">
+        <MappingFragment StoreEntitySet="PromotionCode">
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="promotionImage" ColumnName="promotionImage" />
+          <ScalarProperty Name="recommendationCount" ColumnName="recommendationCount" />
+          <ScalarProperty Name="viewCount" ColumnName="viewCount" />
+          <ScalarProperty Name="useCount" ColumnName="useCount" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="shareTwitterCount" ColumnName="shareTwitterCount" />
+          <ScalarProperty Name="shareInstagramCount" ColumnName="shareInstagramCount" />
+          <ScalarProperty Name="shareFacebookCount" ColumnName="shareFacebookCount" />
+          <ScalarProperty Name="optCategoryId" ColumnName="optCategoryId" />
+          <ScalarProperty Name="subCategoryId" ColumnName="subCategoryId" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="PinnedDate" ColumnName="PinnedDate" />
+          <ScalarProperty Name="isPinned" ColumnName="isPinned" />
+          <ScalarProperty Name="recommendation" ColumnName="recommendation" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+          <ScalarProperty Name="lastRelaunchDate" ColumnName="lastRelaunchDate" />
+          <ScalarProperty Name="isRelaunch" ColumnName="isRelaunch" />
+          <ScalarProperty Name="modifyDate" ColumnName="modifyDate" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="expiryDate" ColumnName="expiryDate" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="promotionCreatedDate" ColumnName="promotionCreatedDate" />
+          <ScalarProperty Name="descriptionThai" ColumnName="descriptionThai" />
+          <ScalarProperty Name="descriptionEnglish" ColumnName="descriptionEnglish" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="promotionCodeId" ColumnName="promotionCodeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLocations">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.UserLocation">
+        <MappingFragment StoreEntitySet="UserLocations">
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="visitedDatetime" ColumnName="visitedDatetime" />
+          <ScalarProperty Name="isCurrent" ColumnName="isCurrent" />
+          <ScalarProperty Name="locationLong" ColumnName="locationLong" />
+          <ScalarProperty Name="locationLat" ColumnName="locationLat" />
+          <ScalarProperty Name="locationAddress" ColumnName="locationAddress" />
+          <ScalarProperty Name="mealTime" ColumnName="mealTime" />
+          <ScalarProperty Name="isDefault" ColumnName="isDefault" />
+          <ScalarProperty Name="fkUser" ColumnName="fkUser" />
+          <ScalarProperty Name="userLocationId" ColumnName="userLocationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="likeCount" ColumnName="likeCount" />
+          <ScalarProperty Name="likePromoDate" ColumnName="likePromoDate" />
+          <ScalarProperty Name="useCount" ColumnName="useCount" />
+          <ScalarProperty Name="usePromoDate" ColumnName="usePromoDate" />
+          <ScalarProperty Name="devicePlatform" ColumnName="devicePlatform" />
+          <ScalarProperty Name="deviceToken" ColumnName="deviceToken" />
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="dealTwitterInviteCount" ColumnName="dealTwitterInviteCount" />
+          <ScalarProperty Name="dealTwitterInviteDate" ColumnName="dealTwitterInviteDate" />
+          <ScalarProperty Name="dealInstagramInviteCount" ColumnName="dealInstagramInviteCount" />
+          <ScalarProperty Name="dealInstagramInviteDate" ColumnName="dealInstagramInviteDate" />
+          <ScalarProperty Name="dealFacebookInviteCount" ColumnName="dealFacebookInviteCount" />
+          <ScalarProperty Name="dealFacebookInviteDate" ColumnName="dealFacebookInviteDate" />
+          <ScalarProperty Name="twitterInviteCount" ColumnName="twitterInviteCount" />
+          <ScalarProperty Name="twitterInviteDate" ColumnName="twitterInviteDate" />
+          <ScalarProperty Name="instagramInviteCount" ColumnName="instagramInviteCount" />
+          <ScalarProperty Name="instagramInviteDate" ColumnName="instagramInviteDate" />
+          <ScalarProperty Name="facebookInviteCount" ColumnName="facebookInviteCount" />
+          <ScalarProperty Name="facebookInviteDate" ColumnName="facebookInviteDate" />
+          <ScalarProperty Name="facebookId" ColumnName="facebookId" />
+          <ScalarProperty Name="points" ColumnName="points" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="profilePicture" ColumnName="profilePicture" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendors">
+      <EntityTypeMapping TypeName="CraveASAPDBModel.Vendor">
+        <MappingFragment StoreEntitySet="Vendor">
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="devicePlatform" ColumnName="devicePlatform" />
+          <ScalarProperty Name="deviceToken" ColumnName="deviceToken" />
+          <ScalarProperty Name="logoImg" ColumnName="logoImg" />
+          <ScalarProperty Name="taxId" ColumnName="taxId" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="area" ColumnName="area" />
+          <ScalarProperty Name="floor" ColumnName="floor" />
+          <ScalarProperty Name="buildingName" ColumnName="buildingName" />
+          <ScalarProperty Name="postCode" ColumnName="postCode" />
+          <ScalarProperty Name="streetName" ColumnName="streetName" />
+          <ScalarProperty Name="contactEmail" ColumnName="contactEmail" />
+          <ScalarProperty Name="contactPhoneNo" ColumnName="contactPhoneNo" />
+          <ScalarProperty Name="contactPerson" ColumnName="contactPerson" />
+          <ScalarProperty Name="phoneNo" ColumnName="phoneNo" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="fullDescription" ColumnName="fullDescription" />
+          <ScalarProperty Name="shortDescription" ColumnName="shortDescription" />
+          <ScalarProperty Name="businessCategory" ColumnName="businessCategory" />
+          <ScalarProperty Name="companyName" ColumnName="companyName" />
+          <ScalarProperty Name="loginVendorName" ColumnName="loginVendorName" />
+          <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

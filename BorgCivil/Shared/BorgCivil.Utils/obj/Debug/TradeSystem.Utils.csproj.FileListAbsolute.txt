@@ -1,0 +1,5 @@
+D:\Working\Trade System Final\TradingSystem\Trunk\BorgCivil\Shared\BorgCivil.Utils\bin\Debug\BorgCivil.Utils.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\BorgCivil\Shared\BorgCivil.Utils\bin\Debug\BorgCivil.Utils.pdb
+D:\Working\Trade System Final\TradingSystem\Trunk\BorgCivil\Shared\BorgCivil.Utils\obj\Debug\BorgCivil.Utils.csprojResolveAssemblyReference.cache
+D:\Working\Trade System Final\TradingSystem\Trunk\BorgCivil\Shared\BorgCivil.Utils\obj\Debug\BorgCivil.Utils.dll
+D:\Working\Trade System Final\TradingSystem\Trunk\BorgCivil\Shared\BorgCivil.Utils\obj\Debug\BorgCivil.Utils.pdb

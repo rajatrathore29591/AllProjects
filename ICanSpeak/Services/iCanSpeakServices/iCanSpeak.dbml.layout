@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 23.875, 53" name="iCanSpeak">
+  <DataContextMoniker Name="/iCanSpeakDataContext" />
+  <nestedChildShapes>
+    <classShape Id="75e432ce-02e1-4d65-a488-65e3f958f5b6" absoluteBounds="5.5, 1.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/iCanSpeakDataContext/Role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a4b21b5e-17ab-4452-a73b-6d9b6d40f03f" absoluteBounds="5.515, 1.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7a3f143a-28cd-48a6-afa3-6d8af889b796" absoluteBounds="10.75, 4.75, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/iCanSpeakDataContext/Unit" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b4d6059d-971c-45b8-89ea-a860c2ac7aa7" absoluteBounds="10.765, 5.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="680b526f-d7d1-46f6-8916-20c837218d2b" absoluteBounds="10.75, 8.75, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/iCanSpeakDataContext/TopicScore" />
+      <nestedChildShapes>
+        <elementListCompartment Id="30cd18f1-977b-49a8-b0f8-0e94c6d71357" absoluteBounds="10.765, 9.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0bbc1ca4-8010-40d7-b3c4-6cdbc92be5d7" absoluteBounds="9.875, 11.75, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/iCanSpeakDataContext/RecentActivity" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b3d4e10b-dc94-45d8-a77a-e656d5b6e2ef" absoluteBounds="9.89, 12.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="beb97008-1dca-4a79-8f28-1dd4a0c4eae3" absoluteBounds="13.75, 8.75, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/iCanSpeakDataContext/NotificationSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="96a296fb-8165-4f50-881d-8cd1a54c3232" absoluteBounds="13.765, 9.21, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d9f59d72-91fd-46e6-af3f-3c1c92360e2d" absoluteBounds="10.875, 1, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/iCanSpeakDataContext/DialogAssessmentAnswer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3f57f91e-15c3-41c3-84d8-92a8f5d21557" absoluteBounds="10.89, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="856a028f-fe6e-4dbe-8369-519a4eccbe73" absoluteBounds="16.75, 8.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/iCanSpeakDataContext/AccountDelete" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d6cf76dd-cd26-4b72-802f-65e20274827e" absoluteBounds="16.765, 9.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f9c53305-e074-4497-9cf7-a56390138c19" absoluteBounds="2.75, 5.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/iCanSpeakDataContext/RX_Log" />
+      <nestedChildShapes>
+        <elementListCompartment Id="333a06c6-08c4-40a4-aeb2-4d3fa6685b0f" absoluteBounds="2.7649999999999997, 5.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1f53dc01-0b7f-4ecf-a7dd-214498162ecf" absoluteBounds="3.25, 0.5, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/iCanSpeakDataContext/ContactUs" />
+      <nestedChildShapes>
+        <elementListCompartment Id="24ba137d-4159-4bb0-b35d-32d53e5dc006" absoluteBounds="3.2650000000000006, 0.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4f0f6679-e6f5-47d5-b157-bc420cb087e2" absoluteBounds="0.5, 6.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/iCanSpeakDataContext/Welcome" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b039cc65-fe28-4c9a-bc85-f2aa861b26fa" absoluteBounds="0.51500000000000012, 7.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8d5ef530-82cd-4aa0-831e-b612ef8846ce" absoluteBounds="0.75, 1.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/iCanSpeakDataContext/About" />
+      <nestedChildShapes>
+        <elementListCompartment Id="41f16b6d-013a-4633-b3d9-bffbf54a976f" absoluteBounds="0.76500000000000012, 2.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cf0a5200-24b3-47e8-ac0e-29e060017dbf" absoluteBounds="6.375, 3.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/iCanSpeakDataContext/NewsLatter" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d08945aa-f71d-46e9-9a01-d78cea2111b5" absoluteBounds="6.39, 3.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5cf5a1f2-25f5-4730-acd7-7639a1c4fd84" absoluteBounds="0.5, 8.875, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/iCanSpeakDataContext/Menu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b7d2e79e-9d8a-41ef-91ee-f9ff8dd10051" absoluteBounds="0.515, 9.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c33afcb6-15e6-4712-82cb-a5bd63f820d3" absoluteBounds="0.5, 11.125, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/iCanSpeakDataContext/RoleMapper" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fd21aab3-2f6b-4f11-a188-30a427b7ee2e" absoluteBounds="0.515, 11.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6811203b-786e-4a3b-a103-f0df3577adbe" absoluteBounds="6.25, 26.5, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/iCanSpeakDataContext/iCanSpeakCourse" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f50d618a-b3eb-4260-897b-5e3f69cb819a" absoluteBounds="6.265, 26.96, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f1188ed6-ce76-4189-9dd4-71a4feb1d7ad" absoluteBounds="14.125, 4.875, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/iCanSpeakDataContext/PaymentDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="be8b59f6-7021-410d-8d1c-9a1a883236bd" absoluteBounds="14.14, 5.335, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c930f210-30ca-47eb-a2b4-7ce930d83d6b" absoluteBounds="20, 0.5, 2, 2.5401025390625">
+      <DataClassMoniker Name="/iCanSpeakDataContext/GrammerAssessmentQuestion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="09ee7857-fade-4894-bbc4-c5e709a3a07d" absoluteBounds="20.015, 0.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="42baff7a-d17c-4f2b-9a5b-03d1fea61c04" absoluteBounds="20, 3.125, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/iCanSpeakDataContext/GrammerAssessmentAnswer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="382ae569-1f19-490a-bf2c-74170c144886" absoluteBounds="20.015, 3.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(21 : 3.0401025390625); (21 : 3.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iCanSpeakDataContext/GrammerAssessmentQuestion/GrammerAssessmentQuestion_GrammerAssessmentAnswer" />
+      <nodes>
+        <classShapeMoniker Id="c930f210-30ca-47eb-a2b4-7ce930d83d6b" />
+        <classShapeMoniker Id="42baff7a-d17c-4f2b-9a5b-03d1fea61c04" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="de0c0af3-ffb2-458f-849b-3f3a30b60715" absoluteBounds="20, 5.625, 2, 2.5401025390624987">
+      <DataClassMoniker Name="/iCanSpeakDataContext/GrammerAssessmentScore" />
+      <nestedChildShapes>
+        <elementListCompartment Id="938cd6a0-d3ca-4f08-b753-acf363cfb333" absoluteBounds="20.015, 6.0850000000000009, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6ab1d036-56ef-481f-8d16-fcb376a52fe9" absoluteBounds="4, 20, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/iCanSpeakDataContext/TermsCondition" />
+      <nestedChildShapes>
+        <elementListCompartment Id="92197d1b-4210-49c3-9cbc-94f369cb3036" absoluteBounds="4.015, 20.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="266a48ae-7f01-4e34-a11f-9a457b00f559" absoluteBounds="8.5, 1.625, 2, 2.5401025390625">
+      <DataClassMoniker Name="/iCanSpeakDataContext/Course" />
+      <nestedChildShapes>
+        <elementListCompartment Id="37070b99-0d64-4f7c-9fc1-c7d1ae6830bd" absoluteBounds="8.515, 2.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 28.4431062825521); (9.125 : 28.4431062825521); (9.125 : 4.5401025390625); (9.5 : 4.5401025390625); (9.5 : 4.1651025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iCanSpeakDataContext/iCanSpeakCourse/iCanSpeakCourse_Course" />
+      <nodes>
+        <classShapeMoniker Id="6811203b-786e-4a3b-a103-f0df3577adbe" />
+        <classShapeMoniker Id="266a48ae-7f01-4e34-a11f-9a457b00f559" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="45a0af06-3e89-4de0-8885-9231db0d4e4b" absoluteBounds="4.125, 23, 2, 1.3862939453125">
+      <DataClassMoniker Name="/iCanSpeakDataContext/SubTutor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8c788856-0596-4e0a-b725-52500296c567" absoluteBounds="4.1400000000000006, 23.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8a4ac118-26a9-4ad2-9bd3-501e0d6ff087" absoluteBounds="1.5, 22.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/iCanSpeakDataContext/Tutor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8d97c66c-3dac-408a-a5f1-74424fc65d35" absoluteBounds="1.5150000000000001, 22.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="42afd623-d381-47db-b356-cb553e51f4dd" absoluteBounds="17.625, 19.25, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/iCanSpeakDataContext/VocabularyWord" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1fec4c2d-c761-4b6f-a3c2-bc8452fc6994" absoluteBounds="17.64, 19.71, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c03eb42a-9cfe-4a66-8928-b82fbc73cc75" absoluteBounds="4.125, 30.25, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/iCanSpeakDataContext/GrammerUnit" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fcb4fbbc-4cca-4526-9fc6-80d1ca8cefa6" absoluteBounds="4.14, 30.71, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.125 : 33.4192688574219); (14.7916666666667 : 33.4192688574219 : JumpStart); (14.9583333333333 : 33.4192688574219 : JumpEnd); (19.984375 : 33.4192688574219); (19.984375 : 3.0635400390625); (21 : 3.0635400390625); (21 : 3.0401025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iCanSpeakDataContext/GrammerUnit/GrammerUnit_GrammerAssessmentQuestion" />
+      <nodes>
+        <classShapeMoniker Id="c03eb42a-9cfe-4a66-8928-b82fbc73cc75" />
+        <classShapeMoniker Id="c930f210-30ca-47eb-a2b4-7ce930d83d6b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.125 : 31.5702965722656); (19.875 : 31.5702965722656); (19.875 : 5.56655110677083); (21 : 5.56655110677083); (21 : 5.47280110677083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iCanSpeakDataContext/GrammerUnit/GrammerUnit_GrammerAssessmentAnswer" />
+      <nodes>
+        <classShapeMoniker Id="c03eb42a-9cfe-4a66-8928-b82fbc73cc75" />
+        <classShapeMoniker Id="42baff7a-d17c-4f2b-9a5b-03d1fea61c04" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.125 : 32.4947827148438); (14.7916666666667 : 32.4947827148438 : JumpStart); (14.9583333333333 : 32.4947827148438 : JumpEnd); (18.125 : 32.4947827148438); (18.125 : 29.125); (19.7916666666667 : 29.125 : JumpStart); (20.0677083333333 : 29.125 : JumpEnd); (20.7812505 : 29.125); (20.7812505 : 8.1651025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iCanSpeakDataContext/GrammerUnit/GrammerUnit_GrammerAssessmentScore" />
+      <nodes>
+        <classShapeMoniker Id="c03eb42a-9cfe-4a66-8928-b82fbc73cc75" />
+        <classShapeMoniker Id="de0c0af3-ffb2-458f-849b-3f3a30b60715" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="4473af8f-4b99-43e4-b611-d14040f6a1c1" absoluteBounds="9.375, 6.5, 2, 2.5401025390625">
+      <DataClassMoniker Name="/iCanSpeakDataContext/DialogKeyPhrase" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a60836a9-8801-405e-9861-0b037b6f3e1b" absoluteBounds="9.39, 6.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a6ffe14e-c9d0-48b4-991d-e7868f78a4f8" absoluteBounds="14, 0.5, 2, 4.2708154296875">
+      <DataClassMoniker Name="/iCanSpeakDataContext/Vocabulary" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ccc9602a-c109-4503-b0dd-519cce4b5402" absoluteBounds="14.015, 0.96, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0c2da46a-d5c1-44af-8c25-1dd041618399" absoluteBounds="21.625, 20.125, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/iCanSpeakDataContext/VocabularySubCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="acab0fc2-fc9a-4d65-9a5f-506612aefb34" absoluteBounds="21.64, 20.585, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(16 : 2.63540771484375); (16.2916666666667 : 2.63540771484375 : JumpStart); (16.4583333333333 : 2.63540771484375 : JumpEnd); (16.9375 : 2.63540771484375); (16.9375 : 5.53530110677083); (19.9010416666667 : 5.53530110677083 : JumpStart); (20.0677083333333 : 5.53530110677083 : JumpEnd); (22.8437495 : 5.53530110677083); (22.8437495 : 20.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iCanSpeakDataContext/Vocabulary/Vocabulary_VocabularySubCategory" />
+      <nodes>
+        <classShapeMoniker Id="a6ffe14e-c9d0-48b4-991d-e7868f78a4f8" />
+        <classShapeMoniker Id="0c2da46a-d5c1-44af-8c25-1dd041618399" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="500852b7-a7c6-41b0-b678-a0faddc7ba3e" absoluteBounds="6.625, 9.5, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/iCanSpeakDataContext/DialogConversation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1a9fd1cb-f7ed-459e-ab3d-072c5f87c1ab" absoluteBounds="6.64, 9.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2e4476b6-aafd-43a7-9677-5236e5e9fe8e" absoluteBounds="5.5, 37.375, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/iCanSpeakDataContext/Message" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8b9c89c9-19ed-4fb5-9889-b178e7d9bda8" absoluteBounds="5.515, 37.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5506a808-0f0d-4629-8aad-dbdaaaf35f6b" absoluteBounds="0.5, 3.875, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/iCanSpeakDataContext/Help" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7a3796f1-b819-4de2-8ce0-f3b29ee96178" absoluteBounds="0.51499999999999968, 4.335, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f34f531b-97f5-41b2-8f3e-48ac2a4e9538" absoluteBounds="0.5, 36.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/iCanSpeakDataContext/Notification" />
+      <nestedChildShapes>
+        <elementListCompartment Id="88eee8eb-d2d6-480a-b74f-eeed1b1b50d2" absoluteBounds="0.51500000000000012, 37.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bc999743-521c-4e52-9544-539b2c4bfc91" absoluteBounds="4.75, 41.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/iCanSpeakDataContext/FlashCard" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b8974910-15d7-4f31-95f5-b0d004b60a8b" absoluteBounds="4.765, 41.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8245d529-d555-4218-a7d9-78c6ceea8013" absoluteBounds="1.25, 17.625, 2, 4.0785139973958326">
+      <DataClassMoniker Name="/iCanSpeakDataContext/DialogAssessmentQuestion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="551daf03-4e5d-44c4-a83c-afcf1599d372" absoluteBounds="1.2650000000000001, 18.085, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c91fec43-fb90-40e8-95c1-abc3d1f1e385" absoluteBounds="4.75, 16.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/iCanSpeakDataContext/Friend" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a2e3d0c7-666f-4ba7-ae74-de5a4649baa4" absoluteBounds="4.765, 17.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="56ca5466-9dd2-445f-b767-a533e2596abe" absoluteBounds="1.125, 25.625, 2, 5.2323225911458326">
+      <DataClassMoniker Name="/iCanSpeakDataContext/SubAdmin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="96787820-7afd-4aca-b36f-f3c1d5445ab8" absoluteBounds="1.1400000000000001, 26.085, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.5 : 2.82859537760417); (6.5 : 3.25); (6.125 : 3.25); (6.125 : 16.5); (3.75 : 16.5); (3.75 : 28.2411612955729); (3.125 : 28.2411612955729)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/iCanSpeakDataContext/Role/Role_SubAdmin" />
+      <nodes>
+        <classShapeMoniker Id="75e432ce-02e1-4d65-a488-65e3f958f5b6" />
+        <classShapeMoniker Id="56ca5466-9dd2-445f-b767-a533e2596abe" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="12311152-7aa1-469c-baf8-336c58205b0c" absoluteBounds="5.375, 50.25, 2, 2.5401025390625">
+      <DataClassMoniker Name="/iCanSpeakDataContext/PremiumSubscription" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e775bffa-2084-4899-800d-27f83d6f98af" absoluteBounds="5.39, 50.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="95855488-1b12-4d7f-b93f-7c9afdcf8f3a" absoluteBounds="9.375, 49.375, 2, 1.9631982421875">
+      <DataClassMoniker Name="/iCanSpeakDataContext/MappingSubscription" />
+      <nestedChildShapes>
+        <elementListCompartment Id="eb33b27b-0b5e-45f0-ac7f-b63ff6d8ea59" absoluteBounds="9.39, 49.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3838e40c-81ca-4486-a7a7-ee56d22486dd" absoluteBounds="4.875, 47.375, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/iCanSpeakDataContext/Mark" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5fd2f457-4adb-4ac3-9ed4-b817ea0ab0f4" absoluteBounds="4.89, 47.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ca2480d0-e715-4ba1-b9a8-31a1b336f2e4" absoluteBounds="3.25, 3.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/iCanSpeakDataContext/Subscribe" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c6575aba-6fb3-407b-be63-39ea1f840ca7" absoluteBounds="3.2649999999999997, 4.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="91c83fee-272d-44fc-8d6b-f75891bb3d45" absoluteBounds="2.625, 38.875, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/iCanSpeakDataContext/BookMark" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2db29e19-6249-481e-b3ee-b735b9d9ca16" absoluteBounds="2.64, 39.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8c1f894b-dece-4ca2-9fc0-183d08be8d30" absoluteBounds="13.875, 34.375, 2, 9.8475569661458326">
+      <DataClassMoniker Name="/iCanSpeakDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7050fd60-83ac-47a4-9baf-0bad74ffbddb" absoluteBounds="13.89, 34.835, 1.9700000000000002, 9.2875569661458321" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(15.406252 : 34.375); (15.406252 : 12.3093082682292); (15.7291666666667 : 12.3093082682292 : JumpStart); (15.8958333333333 : 12.3093082682292 : JumpEnd); (16.2916666666667 : 12.3093082682292 : JumpStart); (16.4583333333333 : 12.3093082682292 : JumpEnd); (19.625 : 12.3093082682292); (19.625 : 4.29890055338542); (20 : 4.29890055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iCanSpeakDataContext/User/User_GrammerAssessmentAnswer" />
+      <nodes>
+        <classShapeMoniker Id="8c1f894b-dece-4ca2-9fc0-183d08be8d30" />
+        <classShapeMoniker Id="42baff7a-d17c-4f2b-9a5b-03d1fea61c04" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(15.875 : 39.2987784830729); (20.35937275 : 39.2987784830729); (20.35937275 : 8.1651025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iCanSpeakDataContext/User/User_GrammerAssessmentScore" />
+      <nodes>
+        <classShapeMoniker Id="8c1f894b-dece-4ca2-9fc0-183d08be8d30" />
+        <classShapeMoniker Id="de0c0af3-ffb2-458f-849b-3f3a30b60715" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.875 : 39.2987784830729); (8.90625 : 39.2987784830729); (8.90625 : 4.1651025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iCanSpeakDataContext/User/User_Course" />
+      <nodes>
+        <classShapeMoniker Id="8c1f894b-dece-4ca2-9fc0-183d08be8d30" />
+        <classShapeMoniker Id="266a48ae-7f01-4e34-a11f-9a457b00f559" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.5 : 2.03929768880208); (8.4375 : 2.03929768880208); (8.4375 : 4.2276025390625); (13.9375 : 4.2276025390625); (13.9375 : 8.6875); (15.8125 : 8.6875); (15.8125 : 34.28125); (14.9583333333333 : 34.28125 : JumpStart); (14.7916666666667 : 34.28125 : JumpEnd); (14.343748 : 34.28125); (14.343748 : 34.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iCanSpeakDataContext/Role/Role_User" />
+      <nodes>
+        <classShapeMoniker Id="75e432ce-02e1-4d65-a488-65e3f958f5b6" />
+        <classShapeMoniker Id="8c1f894b-dece-4ca2-9fc0-183d08be8d30" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2c3e3003-640a-451c-9a36-f60c93720104" absoluteBounds="6.75, 44.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/iCanSpeakDataContext/MyActivity" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7fd85535-d065-493c-88eb-199fdc93d504" absoluteBounds="6.765, 45.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c71a2314-976f-4446-b791-fe84e6550072" absoluteBounds="6.625, 13, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/iCanSpeakDataContext/DialogAssessmentScore" />
+      <nestedChildShapes>
+        <elementListCompartment Id="028f589f-198e-44aa-8e82-ea95fbb44e52" absoluteBounds="6.64, 13.46, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="df9b2316-605f-40b1-9a3e-f98182de1fc7" absoluteBounds="17, 1.125, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/iCanSpeakDataContext/VocabAssessmentScore" />
+      <nestedChildShapes>
+        <elementListCompartment Id="19cfa723-0406-448f-8de6-1587364275fb" absoluteBounds="17.015, 1.585, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(14.875 : 34.375); (14.875 : 12.5593082682292); (16.375 : 12.5593082682292); (16.375 : 1.88020435742187); (17 : 1.88020435742187)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iCanSpeakDataContext/User/User_VocabAssessmentScore" />
+      <nodes>
+        <classShapeMoniker Id="8c1f894b-dece-4ca2-9fc0-183d08be8d30" />
+        <classShapeMoniker Id="df9b2316-605f-40b1-9a3e-f98182de1fc7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(16 : 3.18488564355469); (17 : 3.18488564355469)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iCanSpeakDataContext/Vocabulary/Vocabulary_VocabAssessmentScore" />
+      <nodes>
+        <classShapeMoniker Id="a6ffe14e-c9d0-48b4-991d-e7868f78a4f8" />
+        <classShapeMoniker Id="df9b2316-605f-40b1-9a3e-f98182de1fc7" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e795e7e0-75b4-40d8-a466-5bc57b8db0d2" absoluteBounds="2.5, 43.875, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/iCanSpeakDataContext/AssessmentScore" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7423e5c4-cf9b-45b6-a368-5c0bec613a7a" absoluteBounds="2.515, 44.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6923fe44-0692-41fb-bcab-bbdea1c1608a" absoluteBounds="9.875, 26.375, 2, 4.2708154296875">
+      <DataClassMoniker Name="/iCanSpeakDataContext/VocabQuestion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a35b7d7b-461d-44b2-aa6d-3c84fe13b73a" absoluteBounds="9.89, 26.835, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(15 : 4.7708154296875); (15 : 4.8125); (13.6875 : 4.8125); (13.6875 : 28.5104077148438); (11.875 : 28.5104077148438)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iCanSpeakDataContext/Vocabulary/Vocabulary_VocabQuestion" />
+      <nodes>
+        <classShapeMoniker Id="a6ffe14e-c9d0-48b4-991d-e7868f78a4f8" />
+        <classShapeMoniker Id="6923fe44-0692-41fb-bcab-bbdea1c1608a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="192ed215-7d9f-41ff-8741-1b8fdebfdc89" absoluteBounds="11.125, 20, 2, 5.2323225911458326">
+      <DataClassMoniker Name="/iCanSpeakDataContext/Dialog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b8bddb87-0dbe-4852-a18d-008682f2ec74" absoluteBounds="11.14, 20.46, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(12.96875 : 20); (12.96875 : 8.11620198567708); (11.375 : 8.11620198567708)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iCanSpeakDataContext/Dialog/Dialog_DialogKeyPhrase" />
+      <nodes>
+        <classShapeMoniker Id="192ed215-7d9f-41ff-8741-1b8fdebfdc89" />
+        <classShapeMoniker Id="4473af8f-4b99-43e4-b611-d14040f6a1c1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(12.8593725 : 20); (12.8593725 : 11.4239005533854); (9.20833333333333 : 11.4239005533854 : JumpStart); (9.04166666666667 : 11.4239005533854 : JumpEnd); (8.98958333333333 : 11.4239005533854 : JumpStart); (8.82291666666667 : 11.4239005533854 : JumpEnd); (8.625 : 11.4239005533854)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iCanSpeakDataContext/Dialog/Dialog_DialogConversation" />
+      <nodes>
+        <classShapeMoniker Id="192ed215-7d9f-41ff-8741-1b8fdebfdc89" />
+        <classShapeMoniker Id="500852b7-a7c6-41b0-b678-a0faddc7ba3e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.9922266259732 : 20); (11.9922266259732 : 15.0425032552083); (8.625 : 15.0425032552083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iCanSpeakDataContext/Dialog/Dialog_DialogAssessmentScore" />
+      <nodes>
+        <classShapeMoniker Id="192ed215-7d9f-41ff-8741-1b8fdebfdc89" />
+        <classShapeMoniker Id="c71a2314-976f-4446-b791-fe84e6550072" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="bb2bc01e-8195-4f39-96f2-8b3db7f67cd6" absoluteBounds="1, 31.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/iCanSpeakDataContext/TutorSubTutorMapping" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9a423592-4ee5-4f46-8109-fe45830fb055" absoluteBounds="1.0150000000000001, 32.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6a3201ed-d26e-4492-9905-d77833056bd2" absoluteBounds="4.125, 24.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/iCanSpeakDataContext/Faq" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9726b915-ebfb-478d-8e5c-9d4e645d2441" absoluteBounds="4.14, 25.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="00cc380f-5c30-4be5-abc4-7f8e8122c563" absoluteBounds="2.875, 12.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/iCanSpeakDataContext/SuccessStory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="df570442-1c13-4ba7-8800-d14b45c51e5a" absoluteBounds="2.89, 12.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ca8dfdfe-e1b9-4a9c-89dc-21912f0891ae" absoluteBounds="1, 15.375, 2, 1.3862939453125">
+      <DataClassMoniker Name="/iCanSpeakDataContext/DemoVideo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="59885e1e-9a56-4339-958f-113d2ac3b9e0" absoluteBounds="1.0150000000000001, 15.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

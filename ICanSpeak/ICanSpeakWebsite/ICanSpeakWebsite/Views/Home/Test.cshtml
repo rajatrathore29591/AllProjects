@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Test";
+}
+
+<script src="@Url.Content("/Scripts/jquery.min.js")"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.fbconnect_login_button').find('img').attr('src', '../Images/fb_icon.png');
+        $('#img').click(function () {
+            alert("Hello");
+            $('#auth-loggedin').click();
+        });
+    });
+
+    </script>
+   
+
+<img id="img" src="../Images/fb_icon.png" class="inline-image" />
+<div id="fblogin" class="fb-login-button" autologoutlink="true" scope="email,user_checkins"></div>
+

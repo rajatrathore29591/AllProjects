@@ -1,0 +1,159 @@
+﻿@{
+    ViewBag.Title = "ConversationList";
+}
+
+<script src="@Url.Content("~/Content/jAlert/jquery.alerts.js")" type="text/javascript"></script>
+<link href="@Url.Content("~/Content/jAlert/jquery.alerts.css")" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myDataTable').dataTable({
+            "bJQueryUI": true,
+            "aaSorting": [],
+            "sPaginationType": "full_numbers",
+            "aoColumns": [
+                 { "sName": "Email", "bSearchable": true, "bSortable": true },
+                { "sName": "Email", "bSearchable": true, "bSortable": true },
+                 { "sName": "Email", "bSearchable": true, "bSortable": true },
+                  { "sName": "Email", "bSearchable": true, "bSortable": true },
+                { "sName": "Full Name", "bSearchable": true, "bSortable": true },
+                { "sName": "Gender", "bSearchable": true, "bSortable": true },
+                { "sName": "IsSuggested", "bSearchable": false, "bSortable": false },
+                { "sName": "Operations", "bSearchable": false, "bSortable": false }
+            ]
+        }).makeEditable({
+            fnStartProcessingMode: function () {
+                $("#processing_message").dialog();
+            },
+            fnEndProcessingMode: function () {
+                $("#processing_message").dialog("close");
+            }
+        });
+    });
+</script>
+<style type="text/css">
+    tr:nth-child(even){background-color: #e2f3ff}
+</style>
+<script type="text/javascript">
+    function DeleteConversation(conversationid,t)
+    {
+       
+        var result=confirm("Are you sure want to delete this conversation.");
+        if(result==true)
+        {
+            $.ajax({
+                url:'@Url.Action("DeleteConversation", "CourseContent")',
+                    type:"POST",
+                    data:{conversationid:conversationid,status:"false"},
+                    success:function(result){
+                        if (result.indexOf("Dear user your session expired please") >= 0)
+                        {
+                            window.location="@Url.Action("Login","Account")";
+                        }
+                        var row = t.parentNode.parentNode; 
+                        document.getElementById("myDataTable").deleteRow(row.rowIndex);
+                         
+                    },
+                    error:function(result){
+                    },
+                });
+            }
+    }
+
+    function ManageConversationActiveStatus(conversationid,t)
+    {
+        $.ajax({
+                url:'@Url.Action("DeleteConversation", "CourseContent")',
+                type:"POST",
+                data:{conversationid:conversationid,status:"true"},
+                success:function(result){
+                    if (result.indexOf("Dear user your session expired please") >= 0)
+                    {
+                        window.location="@Url.Action("Login","Account")";
+                    }
+                    var id = 'btnStatus-'+conversationid;
+                    
+                    if($(t).val()=='Active')
+                    {
+                        $('#'+id).css("background-color","red");
+                        $('#'+id).val('Inactive');
+                    }
+                    else
+                    {
+                        $('#'+id).css("background-color","green");
+                        $('#'+id).val('Active');
+                    }
+                       
+                       
+                },
+                error:function(result){
+                },
+            });
+       
+    }
+</script>
+<style type="text/css">
+    .operationIcons {
+        height: 25px;
+        width: 25px;
+    }
+</style>
+
+
+<div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <font color="44c9ff"> Conversation list </font>
+                </h1>               
+                 <span style="float:right; color:#3d3b3b;font-size:16pt; margin-top:-50px;">
+                   <img src="~/Images/add_icon.png" class="operationIcons" />
+                     <a style="cursor:pointer; color:#3d3b3b; text-decoration:none; font-weight:200" href="@Url.Action("AddConversation","CourseContent")?dialogid=@Request["dialogid"]&gender=@Request["gender"]">Add new conversation</a>
+                </span>
+            </div>
+        </div>
+<table id="myDataTable" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>Dialog Name</th>
+            <th>Person One Text</th>
+            <th>Person One Arabic Text</th>
+            <th>Person Two Text</th>
+            <th>Person Two Arabic Text</th>
+            <th>Create Date and Time</th>
+            <th>Status</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            
+            <tr>
+                <td><span>@item.DialogName </span></td>
+                <td><span>@item.Person1Text </span></td>
+                <td><span>@item.Person1ArabicText </span></td>
+                <td><span>@item.Person2Text </span></td>
+                <td><span>@item.Person2ArabicText </span></td>
+                <td><span>@item.CreateDate</span></td>
+                <td>
+                    @if (item.IsActive == true)
+                    {
+                        <input type="button" value="Active" style="color:white; background-color:green; border:none;" id="btnStatus-@item.ConversationId" onclick="ManageConversationActiveStatus(@item.ConversationId,this)" />
+                    }
+                    else
+                    {
+                        <input type="button" value="Inactive" style="color:white; background-color:red; border:none;" id="btnStatus-@item.ConversationId" onclick="ManageConversationActiveStatus(@item.ConversationId,this)" />
+                    }
+                </td>
+
+                <td>
+                    @*<img src="~/Images/add_icon.png" class="operationIcons" />
+                    &nbsp;*@
+                    <img  src="~/Images/delete_icon.png" class="operationIcons" title="Delete"  onclick="DeleteConversation(@item.ConversationId,this)" />&nbsp;&nbsp;
+                    <a href="@Url.Action("EditConversation","CourseContent")?conversationid=@item.ConversationId&gender=@Request["gender"]"><img src="~/Images/edit_icon.png" class="operationIcons" title="Edit"/></a>&nbsp;&nbsp;
+                
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

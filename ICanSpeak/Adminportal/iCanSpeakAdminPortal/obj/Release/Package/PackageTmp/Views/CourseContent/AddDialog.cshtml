@@ -1,0 +1,359 @@
+﻿@model iCanSpeakAdminPortal.Models.DialogsModel
+@{
+    ViewBag.Title = "AddDialogs";
+   
+}
+<html>
+<head>
+    <title>AddDialogs</title>
+    @*    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />*@
+    <link href="~/Content/themes/fileinput.css" rel="stylesheet" />
+    <link href="~/Content/themes/style.css" rel="stylesheet" />
+    <script src="~/Scripts/fileinput.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".valid").keypress(function (e) {
+                if (e.which < 97 || e.which > 122) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+        function isNumberDecimal(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode != 45 && (charCode != 46 || $(this).val().indexOf('.') != -1) &&
+                    (charCode < 48 || charCode > 57))
+                return false;
+
+            return true;
+        }
+
+
+    </script>
+</head>
+<body>
+    <div class="dialog-page">
+        <header>
+            <h2>Add New Dialog</h2>
+        </header>
+        <div class="contant">
+            @using (Html.BeginForm("AddDialog", "CourseContent", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            { @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                if (Model != null)
+                {
+                    
+                <div class="row">
+                    <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label>English Name <span style="color: #FE2801;">*</span></label>
+                            <input class="form-control" id="EnglishName" required name="EnglishName"  maxlength="30" value="@Model.EnglishName" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>English Story <span style="color: #FE2801;">*</span></label>
+                            <textarea class="form-control" rows="3" id="StoryEnglish" required name="StoryEnglish">@Model.StoryEnglish</textarea>
+
+                        </div>
+                        <div class="form-group">
+                            <label>English Description <span style="color: #FE2801;">*</span></label>
+                            <textarea class="form-control" id="DescriptionEnglish" required name="DescriptionEnglish" rows="3">@Model.DescriptionEngilsh</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Arabic Name <span style="color: #FE2801;">*</span></label>
+                            <input class="form-control" required name="ArabicName" maxlength="30" value="@Model.ArabicName" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>Arabic Story <span style="color: #FE2801;">*</span></label>
+                            <textarea class="form-control" id="StoryArabic" required name="StoryArabic" rows="3">@Model.StoryArabic</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Arabic Description <span style="color: #FE2801;">*</span></label>
+                            <textarea class="form-control" rows="3" id="DescriptionArabic" required name="DescriptionArabic">@Model.DescriptionArabic</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Dialog Gender <span style="color: #FE2801;">*</span></label>
+                            <select class="form-control" id="DialogGender" required name="DialogGender">
+                                @if (Model.DialogGender == "male")
+                                {
+                                    <option value="male" selected="selected">Male</option>
+                                }
+                                else
+                                {
+                                    <option value="male">Male</option>
+                                }
+                                @if (Model.DialogGender == "female")
+                                {
+                                    <option value="female" selected="selected">Female</option>
+                                }
+                                else
+                                {
+                                    <option value="female">Female</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Duration(in days) <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" required onkeypress="return isNumber(event)"  value="@Model.Duration" id="Duration" name="Duration">
+                        </div>
+                        <div class="form-group">
+                            <label>Reward Point <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" required onkeypress="return isNumber(event)" value="@Model.RewardPoints" id="RewardPoints" name="RewardPoints">
+                        </div>
+                        <div class="form-group">
+                            <label>Price(in saudi riyal) <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" required   onkeypress="return isNumberDecimal(event)"  value="@Model.Price" id="Price" name="Price">
+                        </div>
+                        <div class="form-group">
+                            <label>Max Score <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" onkeypress="return isNumber(event)" required  value="@Model.MaxScore" id="MaxScore" name="MaxScore">
+                        </div>
+                        <div class="form-group">
+                            <label>Is Free <span style="color: #FE2801;">*</span></label>
+                            @if (Model.IsFree == true)
+                            {
+                                <select class="form-control" id="IsFree" required name="IsFree">
+                                    <option selected="selected" value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            }
+                            else
+                            {
+                                <select class="form-control" id="IsFree" required name="IsFree">
+                                    <option value="Yes">Yes</option>
+                                    <option selected="selected" value="No">No</option>
+                                </select>
+                            }
+                        </div>
+                        <div class="form-group">
+                            <label>Full Audio <span style="color: #FE2801;">*</span></label>
+                            <div class="form-group">
+                                <input id="audio1" required name="Audio1" type="file" multiple="true" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Raw Audio <span style="color: #FE2801;">*</span></label>
+                            <div class="form-group">
+                                <input id="audio2" required name="Audio2" type="file" multiple="true" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Video <span style="color: #FE2801;">*</span></label>
+                            <div class="form-group">
+                                <input id="file-1a" required name="Video" type="file" multiple="true" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>English Subtitle <span style="color: #FE2801;">*</span></label>
+                            <div class="form-group">
+                                <input id="EnglishSubtitle" required name="EnglishSubtitle" type="file" multiple="true" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Arabic Subtitle <span style="color: #FE2801;">*</span></label>
+                            <div class="form-group">
+                                <input id="ArabicSubtitle" required name="ArabicSubtitle" type="file" multiple="true" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Both Subtitle <span style="color: #FE2801;">*</span></label>
+                            <div class="form-group">
+                                <input id="BothSubtitle" required name="BothSubtitle" type="file" multiple="true" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <input type="hidden" id="DialogId" name="DialogId" value="@Model.DialogId" />
+                            <input type="submit" class="btn btn-info" value="Create Now" />&nbsp;&nbsp;<input type="button" class="btn btn-info" value="Reset" onclick="ResetFormValues()" />
+                        </div>
+                    </div>
+                </div>
+               
+                }
+                else
+                {
+                    
+                <div class="row">
+                    <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label>English Name <span style="color: #FE2801;">*</span></label>
+                            <input class="form-control" maxlength="30" required name="EnglishName" placeholder="English Name" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>English Story <span style="color: #FE2801;">*</span></label>
+                            <textarea class="form-control" rows="3" id="StoryEnglish" placeholder="English Story" required name="StoryEnglish"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>English Description <span style="color: #FE2801;">*</span></label>
+                            <textarea class="form-control" rows="3" id="textArea" name="DescriptionEngilsh" placeholder="English Description" required data-bv-notempty-message="invalid course description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Arabic Name <span style="color: #FE2801;">*</span></label>
+                            <input class="form-control" maxlength="30" placeholder="Arabic Name" required name="ArabicName" title="" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>Arabic Story <span style="color: #FE2801;">*</span></label>
+                            <textarea class="form-control" id="StoryArabic" placeholder="Arabic Story" required name="StoryArabic" rows="3"></textarea>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Arabic Description <span style="color: #FE2801;">*</span></label>
+                            <textarea class="form-control" rows="3" id="DescriptionArabic" placeholder="Arabic Description" required name="DescriptionArabic"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Dialog Gender <span style="color: #FE2801;">*</span></label>
+                            <select class="form-control" id="DialogGender" required name="DialogGender">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Duration(in days) <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" required id="Duration"  placeholder="Duration(in days)" name="Duration" maxlength="2" onkeypress="return isNumber(event)">
+                        </div>
+                        <div class="form-group">
+                            <label>Reward Point <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" required maxlength="5" placeholder="Reward Point" id="RewardPoints" name="RewardPoints" onkeypress="return isNumber(event)">
+                        </div>
+                        <div class="form-group">
+                            <label>Price(in saudi riyal) <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" required id="Price" name="Price" placeholder="Price(in saudi riyal)" onkeypress="return isNumberDecimal(event)" maxlength="5">
+                        </div>
+                        <div class="form-group">
+                            <label>Max Score <span style="color: #FE2801;">*</span></label>
+                            <input type="text" class="form-control" required maxlength="4" id="MaxScore" placeholder="Max Score"  name="MaxScore" onkeypress="return isNumber(event)">
+                        </div>
+                        <div class="form-group">
+                            <label>Is Free <span style="color: #FE2801;">*</span></label>
+                            <select class="form-control" id="IsFree" required name="IsFree">
+                                <option value="No">No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Full Audio <span style="color: #FE2801;">*</span></label>
+                            <div class="form-group">
+                                <input id="audio1" required name="Audio1" type="file" multiple="true" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Raw Audio <span style="color: #FE2801;">*</span></label>
+                            <div class="form-group">
+                                <input id="audio2" required name="Audio2" type="file" multiple="true" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Video <span style="color: #FE2801;">*</span></label>
+                            <div class="form-group">
+                                <input id="file-1a" required name="Video" type="file" multiple="true" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label> English Subtitle <span style="color: #FE2801;">*</span></label>
+                            <div class="form-group">
+                                <input id="EnglishSubtitle" required name="EnglishSubtitle" type="file" multiple="true" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Arabic Subtitle <span style="color: #FE2801;">*</span></label>
+                            <div class="form-group">
+                                <input id="ArabicSubtitle" required name="ArabicSubtitle" type="file" multiple="true" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Both Subtitle <span style="color: #FE2801;">*</span></label>
+                            <div class="form-group">
+                                <input id="BothSubtitle" required name="BothSubtitle" type="file" multiple="true" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-info" value="Create Now" />&nbsp;&nbsp;
+            <a href="../../Admin/CourseContent/DialogList">
+                <input type="button" class="btn btn-info" value="Cancel"  /></a>
+                        </div>
+
+                    </div>
+                </div>              
+                }
+            }
+        </div>
+        <!------content section end------->
+    </div>
+
+    <script>
+        $('#audio1').change(function () {
+
+            var val = $(this).val();
+            switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+                case 'mp3': case 'wav':
+                    break;
+                default:
+                    $(this).val('');
+
+                    alert("Audio must be of mp3 format.");
+                    break;
+            }
+        });
+
+        $('#audio2').change(function () {
+
+            var val = $(this).val();
+            switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+                case 'mp3': case 'wav':
+                    break;
+                default:
+                    $(this).val('');
+
+                    alert("Audio must be of mp3 format.");
+                    break;
+            }
+        });
+
+        $('#file-1a').change(function () {
+            var val = $(this).val();
+            switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+                case 'mp4':
+                    break;
+                default:
+                    $(this).val('');
+
+                    alert("Video must be of mp4 format.");
+                    break;
+            }
+        });
+
+        $("#file-1").fileinput({
+            fileType: "mp3",
+            initialPreview: ["<img src='Desert.jpg' class='file-preview-image'>", "<img src='Jellyfish.jpg' class='file-preview-image'>"],
+            overwriteInitial: false,
+            maxFileSize: 100,
+            maxFilesNum: 10
+        });
+        $("#file-3").fileinput({
+            showCaption: false,
+            browseClass: "btn btn-primary btn-lg",
+            fileType: "any"
+        });
+        $(".btn-warning").on('click', function () {
+            if ($('#file-4').attr('disabled')) {
+                $('#file-4').fileinput('enable');
+            } else {
+                $('#file-4').fileinput('disable');
+            }
+        });
+    </script>
+</body>
+</html>
+
+

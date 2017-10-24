@@ -1,0 +1,346 @@
+﻿@model iCanSpeakAdminPortal.Models.VocabularyModel
+@{
+    ViewBag.Title = "AddVocabularyCategoryName";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //$("#Text").keypress(function (e) {
+        //    if (e.which < 97 || e.which > 122) {
+        //        e.preventDefault();
+        //    }
+        //});
+        $(".valid").keypress(function (e) {
+            if (e.which < 97 || e.which > 122) {
+                e.preventDefault();
+            }
+        });
+        $('#subselect').change(function () {
+            if ($(this).val() == '1') {
+                $('#subcategorydiv').show();
+            }
+            else {
+                $('#subcategorydiv').hide();
+            }
+        });
+        $('#btnsubcategory').click(function () {
+            $('#btnremovesubcategory').show();
+            $('#subcategorytxtdiv').append('<div class="br"><br /></div><input type="text" maxlength="30" class="form-control" placeholder="Sub Category Name"  required>');
+            return false;
+        })
+
+
+        $('#btnremovesubcategory').click(function () {
+            if ($("#subcategorytxtdiv .form-control").length != 1) {
+                $("#subcategorytxtdiv .form-control:last").remove();
+                $("#subcategorytxtdiv .br:last").remove();
+            }
+            if ($("#subcategorytxtdiv .form-control").length == 1) {
+                $('#btnremovesubcategory').hide();
+            }
+            // $('#subcategorytxtdiv').append('<br /><input type="text" class="form-control" placeholder="Sub Category Name" name="subcategory" required="">');
+            return false;
+        })
+
+        $('#submtform').click(function () {
+            var subcategory = '';
+            var savetype = $('#savetype').val();
+            if (savetype == 'edit') {
+                if ($('#subselect').val() == '0') {
+                    var result = confirm("Are you sure want to remove all sub category.");
+                    if (result == false) {
+                        return false;
+                    }
+                }
+            }
+            $("#subcategorytxtdiv .form-control").each(function () {
+                subcategory = subcategory + $(this).val() + "|||"
+            });
+            subcategory = subcategory.substr(0, subcategory.length - 3);
+
+            $('#subctgryval').val(subcategory);
+
+        });
+
+    });
+</script>
+<script type="text/javascript">
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+    function isNumberDecimal(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode != 45 && (charCode != 46 || $(this).val().indexOf('.') != -1) &&
+                (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+    function textonly(e) {
+        if (e.keyCode == 45) {
+            return false;
+        }
+        var code;
+        if (!e) var e = window.event;
+        if (e.keyCode) code = e.keyCode;
+        else if (e.which) code = e.which;
+        var character = String.fromCharCode(code);
+        var AllowRegex = /^[\ba-zA-Z\s-]$/;
+        if (AllowRegex.test(character)) return true;
+        return false;
+    }
+
+</script>
+
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+
+                    @if (@Model.Text == null)
+                    {
+                        <font color="44c9ff">  Add Vocabulary Category Name </font>
+                    }
+                    else
+                    {
+                        <font color="44c9ff"> Update Vocabulary Category Name </font>
+                    }
+
+                </h1>
+            </div>
+            <a style="cursor:pointer; color:#3d3b3b; font-size:14pt;margin-left: -185px; float:right;position: absolute; margin-top:55px; font-weight:200;" href="@Url.Action("VocabularyList", "CourseContent")">Go To Category List</a>
+        </div>
+
+        <!--Edit Table start-->
+
+        <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2  col-sm-6 col-sm-offset-2 col-xs-12">
+            <div class="row">
+
+                @using (Html.BeginForm("AddVocabularyCategoryName", "CourseContent", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Category English Name <span style="color: #FE2801;">*</span></label>
+                        <input type="text" class="form-control"   id="Text" maxlength="30" name="Text" required placeholder="Category English Name" value="@Model.Text">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Category Arabic Name  <span style="color: #FE2801;">*</span></label>
+                        <input type="text"  class="form-control" id="Arabictext" maxlength="30" name="Arabictext" required placeholder="Category Arabic Name" value="@Model.ArabicText">
+                    </div>@*
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Picture <span style="color:#FE2801;">*</span><span style="color:#FE2801;">*</span></label>
+                        <input type="file"  class="form-control" id="Image" name="Image" required value="@Model.ImageUrl" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Audio <span style="color:#FE2801;">*</span></label>
+                        <input type="file"  class="form-control" id="Audio" name="Audio" required value="@Model.AudioUrl" />
+                    </div>*@
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Description <span style="color: #FE2801;">*</span></label>
+                        <textarea required id="SampleSentance" class="form-control" style="height: 115px !important;"  name="SampleSentance" placeholder="Description">@Model.SampleSentance</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Duration(in days) <span style="color: #FE2801;">*</span></label>
+                        <input type="text" class="form-control"  required id="Duration" value="@Model.Duration" name="Duration" maxlength="2" placeholder="Duration (in Days)"  onkeypress="return isNumber(event)">
+                    </div>
+                    <div class="form-group">
+                        <label>Reward Point <span style="color: #FE2801;">*</span></label>
+                        <input type="text" class="form-control"  required maxlength="5" value="@Model.RewardPoints"  id="Reward Points" placeholder="RewardPoints" name="RewardPoints" onkeypress="return isNumber(event)">
+                    </div>
+                    <div class="form-group">
+                        <label>Price(in saudi riyal) <span style="color: #FE2801;">*</span></label>
+                        <input type="text" class="form-control"  required id="Price" name="Price" placeholder="Price" value="@Model.Price" onkeypress="return isNumberDecimal(event)" maxlength="5">
+                    </div>
+                    <div class="form-group">
+                        <label>Max Score <span style="color: #FE2801;">*</span></label>
+                        <input type="text" class="form-control"  required maxlength="4" id="MaxScore" placeholder="Max Score" value="@Model.MaxScore" name="MaxScore" onkeypress="return isNumber(event)">
+                    </div>
+                    <div class="form-group">
+                        <label>Is Free <span style="color: #FE2801;">*</span></label>
+                        @if (Model.IsFree == true)
+                        {
+                            <select class="form-control" id="IsFree" required name="IsFree">
+                                <option selected="selected" value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        }
+                        else
+                        {
+                            <select class="form-control" id="IsFree" required name="IsFree">
+                                <option value="Yes">Yes</option>
+                                <option selected="selected" value="No">No</option>
+                            </select>
+                        }
+                    </div>
+                    <div>
+                        @if (Model.VocabularyId == 0)
+                        {
+                            <div class="form-group">
+                                <label>Is Subcategory <span style="color: #FE2801;">*</span></label>
+
+                                <select class="form-control" id="subselect" name="issubcategory">
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </div>
+                            <div id="subcategorydiv" style="display: none">
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-info" id="btnsubcategory" value="Add New Subcategory" />&nbsp;&nbsp;
+                                    <input type="submit" class="btn btn-info" id="btnremovesubcategory" value="Remove Last Subcategory" style="display: none" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Sub Category Name <span style="color: #FE2801;">*</span></label>
+                                    <div id="subcategorytxtdiv">
+                                        <input type="text" class="form-control" required maxlength="30" placeholder="Sub Category Name">
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+@*<div>
+                                 @if (Model.issubcategory == "True")
+                                 {
+                                 <div class="form-group">
+                                    <label>Is Subcategory <span style="color:#FE2801;">*</span></label>
+                                   
+                                    <select class="form-control" id="subselect" name="issubcategory" >
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+                                 <div id="subcategorydiv" >
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-info"  id="btnsubcategory" value="Add New Subcategory" />&nbsp;&nbsp; <input type="submit" class="btn btn-info"  id="btnremovesubcategory" value="Remove Last Subcategory" style="display:none" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Sub Category Name <span style="color:#FE2801;">*</span></label>
+                        <div id="subcategorytxtdiv">
+                        <input type="text"  class="form-control" placeholder="Sub Category Name"    >
+                        </div>
+                        </div>
+                    </div>
+                                 }
+                                 else
+                                 {
+                                 <div class="form-group">
+                                    <label>Is Subcategory <span style="color:#FE2801;">*</span></label>
+                                   
+                                    <select class="form-control" id="subselect" name="issubcategory" >
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                      </div>
+                                 <div id="subcategorydiv" style="display:none">
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-info"  id="btnsubcategory" value="Add New Subcategory" />&nbsp;&nbsp; <input type="submit" class="btn btn-info"  id="btnremovesubcategory" value="Remove Last Subcategory" style="display:none" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Sub Category Name <span style="color:#FE2801;">*</span></label>
+                        <div id="subcategorytxtdiv">
+                        <input type="text"  class="form-control" placeholder="Sub Category Name"    >
+                        </div>
+                        </div>
+                    </div>
+                                 }
+                                  
+                                </div>*@
+                    
+                    <input type="hidden" id="VocabularyId" name="VocabularyId" value="@Request.QueryString["vocabid"]" />
+                    <input type="hidden" id="subctgryval" name="subcategory" />
+                   
+                   
+                    <div class="form-group">
+                        @if (Model.VocabularyId == 0)
+                        {
+                            <input type="submit" id="submtform" class="btn btn-info" value="Add Now" />
+                            <a href="../../Admin/CourseContent/VocabularyList">
+                                <input style="margin-left: 7px;" type="button" class="btn btn-info" value="Cancel" onclick="" /></a>
+                        }
+                        else
+                        {
+                            <input type="submit" id="submtform" class="btn btn-info" value="Update Now" />
+                            <a href="../../Admin/CourseContent/VocabularyList">
+                                <input type="button" style="margin-left: 7px;" class="btn btn-info" value="Cancel" /></a>
+                        }
+
+                    </div>
+                    <div class="form-group">
+                        @if (ViewBag.Result == "Success")
+                        {
+                            <label style="color: green; font-size: 16pt; font-weight: 200;">
+                                Vocabulary Category Information Updated Successfully
+                            </label>
+                        }
+                        else
+                        {
+                            <label style="color: red; font-size: 16pt; font-weight: 200;">
+                                @ViewBag.Result
+                            </label>
+                        }
+                    </div>
+                    
+                    <div>
+                        @if (Model.VocabularyId != 0)
+                        {
+                            <input type="hidden" value="edit" id="savetype" />
+                        }
+                        else
+                        {
+                            <input type="hidden" value="save" id="savetype" />
+                        }
+                    </div>
+                }
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@Scripts.Render("~/bundles/jquery")
+
+
+<script type="text/javascript">
+    function ResetFormValues() {
+
+    }
+    $('#Audio').change(function () {
+
+        var val = $(this).val();
+        switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'mp3':
+                break;
+            default:
+                $(this).val('');
+
+                alert("Audio must be of mp3 format.");
+                break;
+        }
+    });
+
+    $('#Image').change(function () {
+        var val = $(this).val();
+        switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'jpeg': case 'jpg': case 'png':
+                break;
+            default:
+                $(this).val('');
+
+                alert("Image must be of jpeg, jpg, png format.");
+                break;
+        }
+    });
+</script>

@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "MessageDetail";
+}
+<script src="@Url.Content("/Scripts/jquery.min.js")"></script>
+
+
+<div class="accordian">
+    <div class="container">
+        <div>
+            <div class="col-md-8">
+                <h2 class=" user-profile">
+                    <img src="~/Content/img/online.png" />@ViewBag.Username</h2>
+                <h4 class="tutor-city-name left">@ViewBag.Country</h4>
+            </div>
+            <div class="col-md-4">
+                <ul class="nav nav-pills view-profile">
+                    <li><a href="../../Notification/Notifications">Notification (@ViewBag.BatchCount)</a></li>
+                    <li><a href="../../Message/Messages">Messages(@ViewBag.Messages)</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-lg-12">
+
+            <section class="panel">
+                <header class="panel-heading wht-bg">
+                    <h4 class="gen-case">Message Detail
+                           <div action="#" class="pull-right mail-src-position">
+                               <div class="input-append">
+                                   <div class="compose-btn pull-right">
+                                       <a href="../../Message/MessageForward?id=@Model.SenderId&&subject=@Model.Subject&&messagebody=@Model.DetailMessage" class="btn btn-sm btn-theme"><i class="fa fa-reply"></i>Forward</a>
+                                       <a href="../../Message/MessageReply?id=@Model.SenderId&&username=@Model.Username" class="btn btn-sm btn-theme"><i class="fa fa-reply"></i>Reply</a>
+                                       <button class="btn btn-sm tooltips" data-original-title="Trash" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-trash-o"></i></button>
+                                   </div>
+                               </div>
+                           </div>
+                    </h4>
+                </header>
+                <div class="panel-body ">
+
+                    <div class="mail-header row">
+                        <div class="col-md-8">
+                            <h4 class="pull-left">@Model.Subject</h4>
+                        </div>
+
+                    </div>
+                    <div class="mail-sender">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <img src="@Model.ProfilePicture" alt="">
+                                <strong>@Model.Username</strong>
+                                <span>[@Model.Email]</span>
+                                to
+                                    <strong>me</strong>
+                            </div>
+                            <div class="col-md-4">
+                                <p class="date">@Model.Date</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="view-mail">
+                        <p>@Model.DetailMessage</p>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+</div>

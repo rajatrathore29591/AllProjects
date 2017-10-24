@@ -1,0 +1,192 @@
+﻿@model iCanSpeakAdminPortal.Models.GrammerModel
+@{
+    ViewBag.Title = "Add Grammer Unit";
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Add Grammer Unit</title>
+    <link href="~/Content/themes/fileinput.css" rel="stylesheet" />
+    <link href="~/Content/themes/style.css" rel="stylesheet" />
+    <script src="~/Scripts/fileinput.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".valid").keypress(function (e) {
+                if (e.which < 97 || e.which > 122) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+        function isNumberDecimal(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode != 45 && (charCode != 46 || $(this).val().indexOf('.') != -1) &&
+                    (charCode < 48 || charCode > 57))
+                return false;
+
+            return true;
+        }
+    </script>
+
+</head>
+<body>
+
+    <div class="dialog-page">
+        <div class="container">
+
+
+            @using (Html.BeginForm("AddGrammerUnit", "CourseContent", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                
+               
+                <header>
+                    <h2>Add Grammer Unit</h2>
+                </header>
+               
+                
+                <div class="contant">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label>Unit Name English <span style="color: #FE2801;">*</span></label>
+                                <input class="form-control" maxlength="30" placeholder="Unit Name English" required name="UnitNameEnglish" id="UnitNameEnglish" type="text" />
+
+                            </div>
+                            <div class="form-group">
+                                <label>Description English <span style="color: #FE2801;">*</span></label>
+                                <textarea class="form-control" required name="DescriptionEnglish" placeholder="Description English" id="DescriptionEnglish"></textarea>
+
+
+                            </div>
+                            <div class="form-group">
+                                <label>Unit Name Arabic <span style="color: #FE2801;">*</span></label>
+                                <input class="form-control" maxlength="30" placeholder="Unit Name Arabic" required name="UnitNameArabic" id="UnitNameArabic" type="text" />
+
+                            </div>
+                            <div class="form-group">
+                                <label>Description Arabic <span style="color: #FE2801;">*</span></label>
+                                <textarea class="form-control" required placeholder="Description Arabic"  name="DescriptionArabic" id="DescriptionArabic"></textarea>
+
+                            </div>
+                            <div class="form-group">
+                                <label>Duration(in days) <span style="color: #FE2801;">*</span></label>
+                                <input type="text" class="form-control" required id="Duration" name="Duration" placeholder="Duration(in days)" maxlength="2" onkeypress="return isNumber(event)">
+                            </div>
+                            <div class="form-group">
+                                <label>Reward Point <span style="color: #FE2801;">*</span></label>
+                                <input type="text" class="form-control" required maxlength="5" id="RewardPoints" placeholder="Reward Point" name="RewardPoints" onkeypress="return isNumber(event)">
+                            </div>
+                            <div class="form-group">
+                                <label>Price(in saudi riyal) <span style="color: #FE2801;">*</span></label>
+                                <input type="text" class="form-control" required id="Price" name="Price" placeholder="Price(in saudi riyal)" onkeypress="return isNumberDecimal(event)" maxlength="5">
+                            </div>
+                            <div class="form-group">
+                                <label>Max Score <span style="color: #FE2801;">*</span></label>
+                                <input type="text" class="form-control" required maxlength="4" placeholder="Max Score" id="MaxScore" name="MaxScore" onkeypress="return isNumber(event)">
+                            </div>
+                            <div class="form-group">
+                                <label>Is Free <span style="color: #FE2801;">*</span></label>
+
+                                <select class="form-control" id="IsFree" required name="IsFree">
+                                    <option value="No">No</option>
+                                    <option value="Yes">Yes</option>
+                                </select>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>PPT <span style="color: #FE2801;">*</span></label>
+                                <div class="form-group">
+                                    <input required id="ppt" name="PPT" accept="application/vnd.openxmlformats-officedocument.presentationml.presentation" type="file" multiple="true" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>High Resolution Video  <span style="color: #FE2801;">*</span></label>
+                                <div class="form-group">
+                                    <input id="video1" required type="file" name="Video" multiple="true" accept="video/*" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Low Resolution Video  <span style="color: #FE2801;">*</span></label>
+                                <div class="form-group">
+                                    <input id="video2" required name="Video2" accept="video/*" type="file" multiple="true" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-info2" value="Submit" />&nbsp;&nbsp;<input type="button" class="btn btn-info2" value="Reset" onclick="ResetFormValues()" />
+                                &nbsp;&nbsp;<a href="../../Admin/CourseContent/GrammerList"> <input type="button" class="btn btn-info2" value="Cancel" /> </a>
+                            </div>
+                            <div class="form-group required">
+                                <label class="col-md-2 control-label" style="color: green !important">
+                                    @ViewBag.Result
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+                  
+            }
+        </div>
+    </div>
+    <script type="text/javascript">
+        function ResetFormValues() {
+            window.location = "@Url.Action("AddGrammerUnit", "CourseContent")";
+        }
+    </script>
+</body>
+<script type="text/javascript">
+
+    $('#video1').change(function () {
+
+        var val = $(this).val();
+        switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'mp4':
+                break;
+            default:
+                $(this).val('');
+
+                alert("Video must be of mp4 format.");
+                break;
+        }
+    });
+
+    $('#video2').change(function () {
+        var val = $(this).val();
+        switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'mp4':
+                break;
+            default:
+                $(this).val('');
+
+                alert("Video must be of mp4 format.");
+                break;
+        }
+    });
+
+    $('#ppt').change(function () {
+        var val = $(this).val();
+        switch (val.substring(val.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'pdf': case 'ppt':
+                break;
+            default:
+                $(this).val('');
+
+                alert("File must be of pdf or ppt format.");
+                break;
+        }
+    });
+</script>
+</html>

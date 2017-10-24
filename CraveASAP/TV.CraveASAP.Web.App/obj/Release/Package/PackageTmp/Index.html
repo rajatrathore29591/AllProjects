@@ -1,0 +1,948 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp" ng-controller="mainController">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Eddee | Website</title>
+      <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="bundles/jsFile"></script>
+<!--    <script src="Scripts/angular.js"></script>-->
+    <script src="Scripts/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/indexDealController.js"></script>
+    <script src="controllers/indexMapController.js"></script>
+    <script src="controllers/indexController.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--Favorite Icons-->
+    <link rel="shortcut icon" href="img/favicon-96x96.png" type="image/x-icon" />
+     <link rel="icon" href="img/favicon-96x96.png" type="image/x-icon" />
+    <meta name="msapplication-TileColor" content="#00aba9" />
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
+    <!--Fonts  -->
+    <link rel="stylesheet" href="css/titilium-web.css" />
+    <link rel="stylesheet" href="css/icon-font.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <!-- Css -->
+    <link rel="stylesheet" href="css/animate.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.css" />
+    <link rel="stylesheet" href="css/owl.theme.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/video.js.min.css" />
+    <!--Required javascript in head-->
+    <script src="js/modernizr.custom.js"></script>
+    <!--DEMO ONLY-->
+    <link rel="stylesheet" href="css/colpick.min.css" type="text/css" />
+    <link rel="stylesheet/less" id="less:src-styles" type="text/css" href="src/styles.less" />
+    <link rel="stylesheet/less" id="less:src-demo-styles" type="text/css" href="src/demo-styles.less" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="css/custom.css" rel="stylesheet" />
+    <div id="fb-root"></div>
+     <!--facebook-->
+
+    <!--twitter-->
+     <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+
+</head>
+<body ng-controller="indexController">
+
+    <!--animated preloader-->
+    <!--<div id="loading-mask">
+        <div class="spinner">
+        </div>
+    </div>-->
+   
+    <section id="home" class="parallax">
+        <div></div>
+        <div class="sequence container">
+            <div class="row v-center">
+                <div class="title-container col-xs-12 col-md-12">
+                  
+                </div>
+            </div>
+                <input type="hidden" id="tempData" name="tempData" value="{{landingBanner}}" />
+        </div>
+
+        <div id="prevthumb"></div>
+        <div id="nextthumb"></div>
+        <a id="prevslide" class="load-item"></a>
+        <a id="nextslide" class="load-item"></a>
+        <div id="thumb-tray" class="load-item">
+            <div id="thumb-back"></div>
+            <div id="thumb-forward"></div>
+        </div>
+    </section>
+
+    <nav id="header" class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-2">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-logo" href="index.html#home" >
+                            <img src="img/logo/logo_navigation.png" />
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="navbar-collapse">
+                        <ul class="nav navigation-effect navbar-nav">
+                            <li><a href="index.html#home" data-scroll="home">
+                                <span data-hover="Home">Home</span></a>
+                            </li>
+                          <li><a href="index.html#features" data-scroll="features">
+                                <span data-hover="All Around You">All Around You</span></a></li>
+                            <li><a href="index.html#screenshots" data-scroll="screenshots">
+                                <span data-hover="Social Media">Social Media</span></a></li>
+                            <li><a href="index.html#changelog" data-scroll="changelog">
+                                <span data-hover="How It Works">How It Works</span></a></li>
+                          <!--  <li><a href="index.html#how-eddee-works" data-scroll="how-eddee-works">
+                                <span data-hover="For Your Business">For Your Business</span></a></li>-->
+                           
+                            <li><a href="index.html#download-app-section" data-scroll="download-app-section">
+                                <span data-hover="Download!">Download</span></a></li>
+
+                             <li><a href="index.html#subscribe-section" data-scroll="subscribe-section">
+                                <span data-hover="Subscribe">Subscribe</span></a></li>
+
+                             <li><a href="http://eddee.cloudapp.net/eddeevendor" target="_blank" >
+                                <span data-hover="Login">Login</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section style="display: none">
+        <div class="container">
+            <header class="section-header">
+                <h2 class="heading">Updates History</h2>
+
+                <p class="lead">
+                    Take an overview on how to explore app sections, try app features and configure settings.
+                </p>
+            </header>
+            <div class="row">
+                <div class="col-sm-12 col-md-6 history-block">
+                    <div class="row history-row">
+                        <div class="col-xs-12 col-sm-3">
+                            <div class="rhombus_middle rhombus_style active">
+                                <div class="rhombus_border">
+                                    <p class="version">1.0.1</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-9 content">
+                            <h3 class="feature-header">February 17, 2014</h3>
+                            <ul>
+                                <li>
+                                    <p>Initial release</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row history-row">
+                        <div class="col-xs-12 col-sm-3">
+                            <div class="rhombus_middle rhombus_style active">
+                                <div class="rhombus_border">
+                                    <p class="version">1.0.2</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-9 content">
+                            <h3 class="feature-header">april 06, 2014</h3>
+                            <ul>
+                                <li>
+                                    <p>
+                                        <span class="tag">new:</span>Pulchritudine trabems, tanquam raptus parma. Menss sunt
+                                    liberis de noster bubo.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p><span class="tag">new:</span>Solitudos credere in varius alta muta!</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row history-row">
+                        <div class="col-xs-12 col-sm-3">
+                            <div class="rhombus_middle rhombus_style active">
+                                <div class="rhombus_border">
+                                    <p class="version">1.0.3</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-9 content">
+                            <h3 class="feature-header">april 22, 2014</h3>
+                            <ul>
+                                <li>
+                                    <p>
+                                        <span class="tag">fix:</span> Cum demolitione unda, omnes imberes tractare velox,
+                                    mirabilis specieses.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <span class="tag">fix:</span> Pol, talis vox! Fluctui de clemens heuretes, promissio
+                                    amor! Trabem cito ducunt ad emeritis fortis.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <span class="tag">fix:</span> Heu. Ortum tandem ducunt ad fortis cannabis. Primus,
+                                    regius racanas una transferre de fortis, camerarius galatae.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p><span class="tag">new:</span> Zeta de bi-color hippotoxota, carpseris deus!</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mockup-content">
+                        <div class="morph-button morph-button-modal morph-button-modal-1 morph-button-fixed">
+                            <button type="button" class="btn btn-primary-color btn-style">show changelog</button>
+                            <div class="morph-content">
+                                <div>
+                                    <span class="icon-close">&times;</span>
+
+                                    <div class="content-style-text">
+                                        <div class="content">
+                                            <p class="version">1.0.3</p>
+
+                                            <h3 class="feature-header">april 22, 2014</h3>
+                                            <ul>
+                                                <li>
+                                                    <p>
+                                                        <span class="tag">fix:</span> Cum demolitione unda, omnes imberes
+                                                    tractare velox,
+                                                    mirabilis specieses.
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        <span class="tag">fix:</span> Pol, talis vox! Fluctui de clemens
+                                                    heuretes, promissio
+                                                    amor! Trabem cito ducunt ad emeritis fortis.
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        <span class="tag">fix:</span> Heu. Ortum tandem ducunt ad fortis
+                                                    cannabis. Primus,
+                                                    regius racanas una transferre de fortis, camerarius galatae.
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        <span class="tag">new:</span> Zeta de bi-color hippotoxota, carpseris
+                                                    deus!
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="content">
+                                            <p class="version">1.0.2</p>
+
+                                            <h3 class="feature-header">april 06, 2014</h3>
+                                            <ul>
+                                                <li>
+                                                    <p>
+                                                        <span class="tag">new:</span>Pulchritudine trabems, tanquam raptus
+                                                    parma. Menss sunt
+                                                    liberis de noster bubo.
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        <span class="tag">new:</span>Solitudos credere in varius alta muta!
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="content">
+                                            <p class="version">1.0.1</p>
+
+                                            <h3 class="feature-header">march 17, 2014</h3>
+                                            <ul>
+                                                <li>
+                                                    <p>
+                                                        <span class="tag">new:</span>Solitudos credere in varius alta muta!
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="content">
+                                            <p class="version">1.0.0</p>
+
+                                            <h3 class="feature-header">February 2, 2014</h3>
+                                            <ul>
+                                                <li>
+                                                    <p>Initial release</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="hidden-xs hidden-sm col-md-6 perspective-block">
+                    <div ">
+                        <img class="perspective img-1 wow fadeInRight lazy"
+                            src="img/1px.png" data-original="img/changelog/Screen_persp_1.png"
+                            alt="Screen_persp_1" />
+                        <img class="perspective img-2 wow fadeInRight lazy"
+                            src="img/1px.png" data-original="img/changelog/Screen_persp_2.png" alt="Screen_persp_2"
+                            data-wow-delay="0.8s" />
+                        <img class="perspective img-3 wow fadeInRight lazy"
+                            src="img/1px.png" data-original="img/changelog/Screen_persp_3.png" alt="Screen_persp_3"
+                            data-wow-delay="1.6s" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="features">
+      
+        <div class="container subscribe-block" ng-controller="indexControllerDeal" >
+            <div class="row">
+                <div class="col-xs-12">
+                    <header class="section-header">
+                        <h2 class="heading">Discover Great Promotions All Around You</h2>
+                        <div class=" col-md-12 lead jqheight">
+                            <div class="col-md-4">
+                                <div class="panel panel-default shadow">
+                                    <div class="panel-heading">
+                                        <h4 class="text-center">Restaurant</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                          <div  ng-repeat="item in landingDeal">
+                                    <div ng-if="item.categoryId===1" class="img-thumbnail MR0Auto">
+                                <div class="col-lg-12">
+                                    <div class="pull-left row col-xs-9 text-left">
+                                        <label class="row pull-left" style="font-size:15px !important; font-weight:normal !important; width: 300px !important;" >{{item.descriptionEnglish | limitTo: 16 }}<span ng-if="16 < item.descriptionEnglish.length">..</span></label></div>
+                                   <div class="pull-right row col-lg-3 trapezium_left">
+                                        <label class="text-center" style="white-space:nowrap; font-weight:normal; font-size:13px; color:#fff"><i class="fa fa-btc"></i>{{item.price}}</label>
+
+                                    </div>
+
+                                    </div>
+                                <div class="clearfix">
+                                    <img style="height:60px;width:100%" class="img-responsive" ng-src="{{path}}{{item.logoimg}}" />
+                                </div>
+                                <div class="MRT20" >
+                                    <div class="col-xs-4  text-left trapezium" >
+                                        <label class="" style="font-size:13px !important; font-weight:normal !important; margin-left:-8px;white-space: nowrap; color:#fff">{{item.recommendationCount}} Likes</label>
+                                    </div>
+                                    <div class="col-xs-3 text-center " style="border-bottom:1px solid #ff6700">
+                                        <label class=" " style="font-size:13px !important; font-weight:normal !important;white-space: nowrap">{{item.expiryDate}} </label>
+                                    </div>
+                                    <div class="col-xs-5   text-right" style="border-bottom:1px solid #ff6700">
+                                        <label class="" style="font-size:13px !important; font-weight:normal !important;white-space: nowrap"><i class="m-r-0"></i></label>
+                                    </div>
+                                </div>
+                            </div></div>
+                                          </div>
+                                    <div class="panel-footer">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="panel panel-default shadow">
+                                    <div class="panel-heading">
+                                        <h4 class="text-center">Cafe</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                          <div  ng-repeat="item in landingDeal">
+                                    <div ng-if="item.categoryId===2" class="img-thumbnail MR0Auto">
+                                <div class="col-lg-12">
+                                    <div class="pull-left row col-xs-9 text-left">
+                                        <label class="row pull-left" style="font-size:15px !important; font-weight:normal !important; width: 300px !important;">{{item.descriptionEnglish | limitTo: 16 }}<span ng-if="16 < item.descriptionEnglish.length">..</span></label></div>
+                                   <div class="pull-right row col-lg-3 trapezium_left">
+                                        <label class="text-center" style="white-space:nowrap; font-weight:normal; font-size:13px; color:#fff"><i class="fa fa-btc"></i>{{item.price}}</label>
+                                    </div>
+                                    </div>
+                                <div class="clearfix" >
+                                    <img ng-if="item.promotionImage!==''" style="height:60px;width:100%" class="img-responsive" ng-src="{{path}}{{item.logoimg}}" />
+                                    <img ng-if="item.promotionImage===''" style="height:60px;width:100%" class="imgoogleapisg-responsive " ng-src="{{path}}default.jpg" />
+                                </div>
+                                <div class="MRT20" >
+                                    <div class="col-xs-4  text-left trapezium" >
+                                        <label class="" style="font-size:13px !important; font-weight:normal !important; margin-left:-8px;white-space: nowrap; color:#fff">{{item.recommendationCount}} Likes</label>
+                                    </div>
+                                    <div class="col-xs-3 text-center " style="border-bottom:1px solid #ff6700">
+                                        <label class=" " style="font-size:13px !important; font-weight:normal !important;white-space: nowrap">{{item.expiryDate}} </label>
+                                    </div>
+                                    <div class="col-xs-5   text-right" style="border-bottom:1px solid #ff6700">
+                                        <label class="" style="font-size:13px !important; font-weight:normal !important;white-space: nowrap"><i class="m-r-0"></i></label>
+                                    </div>
+                                </div>
+                            </div></div>
+                                          </div>
+                                    <div class="panel-footer">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="panel panel-default shadow">
+                                    <div class="panel-heading">
+                                        <h4 class="text-center">Desserts</h4>
+                                    </div>
+                                      <div class="panel-body">
+                                          <div  ng-repeat="item in landingDeal">
+                                    <div ng-if="item.categoryId===3" class="img-thumbnail MR0Auto">
+                                <div class="col-lg-12">
+                                    <div class="pull-left row col-xs-9 text-left">
+                                        <label class="row pull-left" style="font-size:15px !important; font-weight:normal !important; width: 300px !important;">{{item.descriptionEnglish | limitTo: 16 }}<span ng-if="16 < item.descriptionEnglish.length">..</span></label></div>
+                                   <div class="pull-right row col-lg-3 trapezium_left">
+                                        <label class="text-center" style="white-space:nowrap; font-weight:normal; font-size:13px; color:#fff"><i class="fa fa-btc"></i>{{item.price}}</label>
+                                    </div>
+                                    </div>
+                                <div class="clearfix" >
+                                    <img style="height:60px;width:100%" class="img-responsive" ng-src="{{path}}{{item.logoimg}}" />
+                                </div>
+                                <div class="MRT20" >
+                                    <div class="col-xs-4  text-left trapezium" >
+                                        <label class="" style="font-size:13px !important; font-weight:normal !important; margin-left:-8px;white-space: nowrap; color:#fff">{{item.recommendationCount}} Likes</label>
+                                    </div>
+                                    <div class="col-xs-3 text-center " style="border-bottom:1px solid #ff6700">
+                                        <label class=" " style="font-size:13px !important; font-weight:normal !important;white-space: nowrap">{{item.expiryDate}} </label>
+                                    </div>
+                                    <div class="col-xs-5   text-right" style="border-bottom:1px solid #ff6700">
+                                        <label class="" style="font-size:13px !important; font-weight:normal !important;white-space: nowrap"><i class="m-r-0"></i></label>
+                                    </div>
+                                </div>
+                            </div></div>
+                                          </div>
+                                    <div class="panel-footer">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+            </div>
+
+
+        </div>
+
+    </section>
+    <section id="how-it-works" class="text-center"  ng-controller="indexMapController">
+      <input type="hidden" value="{{MapLocation}}" name="maploaction" id="maploaction" />
+        <div class="top-icon subscribe-morph-button wow zoomIn animated" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s;">
+            <div class="rhombus rhombus_style active">
+                <div class="rhombus_border">
+                    <div class="fa fa-map-marker fa-3x"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <header class="section-header">
+                <h2 class="heading">Where Are You?</h2>
+                <!-- <h3>Exicting offers everyday</h3>-->
+            </header>
+
+            <div class="row">
+                <div class="col-lg-12 ">
+    <div style="width: 100%; height: 700px; overflow: hidden; border: none">
+    <div id="gmap" style="width: 100%; min-height: 100%; margin-bottom: 8px; overflow: hidden !important; border: 2px solid #fff;">
+    </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Social Media Feed-->
+    <section id="screenshots" class="text-center" >
+        <div class="top-icon subscribe-morph-button wow zoomIn animated" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s;">
+            <div class="rhombus rhombus_style active">
+                <div class="rhombus_border">
+                    <div class="fa fa-rss fa-3x"></div>
+                </div>
+            </div>
+        </div>
+        <div class="screenshots-container container">
+
+            <!-- SECTION HEADER -->
+            <header class="section-header">
+                <h2 class="heading">Social Media Feed</h2>
+                <h3></h3>
+            </header>
+            <!-- /END SECTION HEADER -->
+
+            <div class="row social">
+                <div class="col-md-4">
+                    <div class="panel panel-default shadow">
+                        <div class="panel-heading">
+                            <h4 class="text-center">
+                                <img class="img-responsive img-center" src="img/fb.png" /></h4>
+                        </div>
+                        <div class="panel-body">
+                          <!--  <div class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div></div>
+                          -->  
+                            <iframe name="f15c5ccb0c" width="300px" height="380px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like_box Facebook Social Plugin" src="http://www.facebook.com/v2.0/plugins/like_box.php?app_id=706707989418419&amp;channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2F6brUqVNoWO3.js%3Fversion%3D41%23cb%3Df2d864f7bc%26domain%3Dwww.vivahrekhamatrimony.com%26origin%3Dhttp%253A%252F%252Fwww.vivahrekhamatrimony.com%252Ff293f4257c%26relation%3Dparent.parent&amp;color_scheme=light&amp;container_width=2&amp;header=true&amp;height=380&amp;href=https%3A%2F%2Fwww.facebook.com%2Fpages%2Feddeeit%2F823195651121768&amp;locale=en_US&amp;sdk=joey&amp;show_border=true&amp;show_faces=true&amp;stream=true&amp;width=300" style="border: none; visibility: visible; width: 300px; height: 380px;" class=""></iframe>
+                        </div>
+                        <div class="panel-footer">
+                            <ul>
+                                <li>
+                                    <p>
+                                        <label class="gray_color">Follow me </label>
+                                        <label class="red_color">@Eddee</label>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-default shadow">
+                        <div class="panel-heading">
+                            <h4 class="text-center">
+                                <img class="img-responsive img-center" src="img/tw.png" /></h4>
+                        </div>
+                        <div class="panel-body text-center">
+                                        <a class="twitter-timeline"  href="https://twitter.com/eddee123" data-widget-id="629531245530083328">Tweets by @eddee123</a>
+                        </div>
+                        <div class="panel-footer">
+                            <ul>
+                                <li>
+                                    <p>
+                                        <label class="gray_color">Follow me </label>
+                                        <label class="red_color">@Eddee</label>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-default shadow">
+                        <div class="panel-heading">
+                            <h4 class="text-center">
+                                <img class="img-responsive img-center" src="img/ins.png" /></h4>
+                        </div>
+                        <div class="panel-body">
+                              <!--<div class="ig-root 2j4528 clearfix"> </div>-->
+                             <iframe src="http://snapwidget.com/in/?u=ZWRkZWVhcHB8aW58MTUwfDJ8M3x8bm98NXxub25lfG9uU3RhcnR8eWVzfG5v&ve=201115" title="Instagram Widget" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:310px; height:465px"></iframe>                        <!--<script src="//instansive.com/widget/js/instansive.js"></script><iframe src="//instansive.com/widgets/dadb3a6345d86c98a5a0b62318d36a9247245163.html" id="instansive_dadb3a6345" name="instansive_dadb3a6345"  scrolling="no" allowtransparency="true" class="instansive-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>                 <!-- <div class="ig-root 2j4528 clearfix"> </div>-->
+
+                    
+                        </div>
+                        <div class="panel-footer">
+                            <ul>
+                                <li>
+                                    <p>
+                                        <label class="gray_color">Follow me </label>
+                                        <label class="red_color">@Eddee</label>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div  ng-controller="indexControllerVideo" >
+    <section id="changelog" class="text-center" >
+        <div class="top-icon subscribe-morph-button wow zoomIn animated" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s;">
+            <div class="rhombus rhombus_style active">
+                <div class="rhombus_border">
+                      <div class="fa fa-briefcase fa-3x"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <header class="section-header">
+                <div >
+                <h2 class="heading" >How Eddee Works For You </h2>
+             </div>
+            </header>
+          </div>
+        <input type="hidden" id="Video" value="{{landingVideo}}" />
+       
+        <div id="UserVideo" class="embed-responsive embed-responsive-16by9" style="padding-bottom:56%">
+  </div> 
+    </section>
+    <section id="how-eddee-works" class="text-center" style="background:#fff" >
+        <div class="top-icon subscribe-morph-button wow zoomIn animated" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s;">
+            <div class="rhombus rhombus_style active">
+                <div class="rhombus_border">
+                    <div class="fa fa-user fa-3x"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <header class="section-header">
+                <h2 class="heading"> How Eddee Works For Your Business</h2>
+            </header>
+        </div>
+ <div id="BusinessVideo" class="embed-responsive embed-responsive-16by9" style="padding-bottom:56%">
+  </div> 
+    </section>
+    </div>
+    <section id="subscribe-section" class="text-center">
+       <div class="top-icon subscribe-morph-button wow zoomIn animated" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s;">
+            <div class="rhombus rhombus_style active">
+                <div class="rhombus_border">
+                    <div class="icon icon-basic-mail-open-text"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container subscribe-block sub-block">
+            <div class="row">
+                <div class="col-xs-12" style="margin-top: 100px;">
+                    <header class="section-header">
+                        <h1 class="heading " style="text-transform:uppercase">
+We Are Small But Growing, Subscribe To Our News Letter - We Will Be In Your Area Soon!</h1>
+                        <p class="lead">
+                            We promise, we won't send you any spam.
+                        </p>
+                    </header>
+                </div>
+            </div>
+            <div class="row row-centered">
+                <form>
+                    <div class="col-md-6 col-md-offset-2">
+                        <input type="email" name="email" ng-model="email"  class="form-control" placeholder="YOUR EMAIL ADDRESS" />
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" ng-click="sendMail()" id="subscribe-btn" class="btn btn-primary-color btn-style">
+                            subscribe me
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <div  ng-controller="indexMapController">
+
+     <!--   <input type="text" value="{{MapLocation}}" name="maploaction" id="maploaction" />-->
+    </div>
+    <section id="follow-us" ng-controller="indexMapController">
+        <div class="container">
+            <header class="section-header">
+
+             
+                <h2 class="heading">follow us</h2>
+            </header>
+                <div class="row btn-row">
+                <div class=" col-md-2 col-md-offset-2">
+                    <a href="{{ConfigData[13].value}}" target="_blank" class="btn btn-primary-color btn-style" >
+                        <span class="fa fa-facebook"></span>
+                       <span class="content">facebook</span>
+                    </a>
+                </div>
+                <div class=" col-md-2">
+                    <a href="{{ConfigData[14].value}}" target="_blank"  class="btn btn-primary-color btn-style">
+                        <span class="fa fa-twitter"></span>
+                        <span class="content">twitter</span>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="{{ConfigData[15].value}}" target="_blank" class="btn btn-primary-color btn-style">
+                        <span class="fa fa-instagram"></span>
+                        <span class="content">Instagram</span>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="{{ConfigData[16].value}}" target="_blank" class="btn btn-primary-color btn-style">
+                        <!--<span class="fa fa-instagram"></span>-->
+                        <span class="content">Blog</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="download-app-section" class="parallax" style="background:#fff" ng-controller="indexMapController">
+          <div class="top-icon subscribe-morph-button wow zoomIn animated" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; text-align:center">
+            <div class="rhombus rhombus_style active">
+                <div class="rhombus_border">
+                    <div class="fa fa-download fa-3x"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <header class="section-header">
+
+
+                <h2 class="heading">Download App</h2>
+
+                <p class="lead">
+                   <!-- Available User & Vendor Versions-->
+                </p>
+            </header>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col-xs-12  col-sm-6 ">
+                         <a href="{{ConfigData[12].value}}" target="_blank" class="btn btn-primary-color btn-style" >
+                            <span class="fa fa-apple"></span>
+                            <span class="preface">Eddee is Now Available on</span>
+                            <br />
+                            <span class="content">App Store</span>
+                        </a>
+                    <!--   <a href="{{ConfigData[13].value}}" target="_blank" class="btn btn-primary-color btn-style" >
+                            <span class="fa fa-apple"></span>
+                            <span class="preface">Eddee is Now Available on</span>
+                            <br />
+                            <span class="content">App Store</span>
+                        </a>-->
+                    </div>
+                    <div class="col-xs-12  col-sm-6">
+                        <a href="{{ConfigData[14].value}}" target="_blank" class="btn btn-primary-color btn-style" >
+                            <span class="fa fa-android"></span>
+                            <span class="preface">Eddee is Now Available on</span>
+                            <br />
+                            <span class="content">google play</span>
+                        </a>
+
+                      <!--  <a href="" target="_blank" class="btn btn-primary-color btn-style" >
+                            <span class="fa fa-android"></span>
+                            <span class="preface">Eddee is Now Available on</span>
+                            <br />
+                            <span class="content">google play</span>
+                        </a>-->
+                    </div>
+                </div>
+                <div class="row">
+                <div class="copyright-block">
+                    <p class="copyright" style="text-align:center">©2015 Eddee. All Rights Reserved</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+    </section>
+  
+    <script src="js/jquery.lazyload.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.easypiechart.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/jquery.hc-sticky.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/uiMorphingButton_fixed.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="js/colpick.min.js"></script>
+    <script src="js/fileSaver.min.js"></script>
+    <link href="layer-slider/css/supersized.css" rel="stylesheet" />
+    <link href="layer-slider/theme/supersized.shutter.css" rel="stylesheet" />
+     <script src="layer-slider/js/jquery.easing.min.js"></script>
+    <script src="layer-slider/js/supersized.3.2.7.min.js"></script>
+    <script src="layer-slider/theme/supersized.shutter.min.js"></script>
+      <script>
+          videojs.options.flash.swf = "video-js.swf";
+
+     </script>
+
+    <script type="text/javascript">
+        <!-- Slider Jquery -->
+    $(document).ready(function () {
+        function explode() {
+            var temp = [];
+
+            var GetData = $("#tempData").val();
+            var slide_intervalset = 500;
+            var data = JSON.parse(GetData);
+            for (var i = 0; i < data.length; i++) {
+                temp[i] = { image: "http://eddee.cloudapp.net/eddee/Pictures/" + data[i].imageURL, title: data[i].imageURL, thumb: "http://eddee.cloudapp.net/eddee/Pictures/" + data[i].imageURL, url: data[i].reference };
+                //temp[i] = { image: "http://localhost:3338/Pictures/" + data[i].imageURL, title: data[i].imageURL, thumb: "http://localhost:3338/Pictures/" + data[i].imageURL, url: data[i].reference };
+            }
+            jQuery(function ($) {
+
+
+
+                $.supersized({
+
+                    // Functionality
+                    slideshow: 1,			// Slideshow on/off
+                    autoplay: 1,			// Slideshow starts playing automatically
+                    start_slide: 1,			// Start slide (0 is random)
+                    stop_loop: 0,			// Pauses slideshow on last slide
+                    random: 0,			// Randomize slide order (Ignores start slide)
+                    slide_interval: slide_intervalset,// Length between transitions
+                    transition: 6, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+                    transition_speed: 1000,		// Speed of transition
+                    new_window: 1,			// Image links open in new window/tab
+                    pause_hover: 0,			// Pause slideshow on hover
+                    keyboard_nav: 1,			// Keyboard navigation on/off
+                    performance: 1,			// 0-Normal, 1-Hybrid speed/quality, 2-Optimizes image quality, 3-Optimizes transition speed // (Only works for Firefox/IE, not Webkit)
+                    image_protect: 1,			// Disables image dragging and right click with Javascript
+
+                    // Size & Position						   
+                    min_width: 0,			// Min width allowed (in pixels)
+                    min_height: 0,			// Min height allowed (in pixels)
+                    vertical_center: 1,			// Vertically center background
+                    horizontal_center: 1,			// Horizontally center background
+                    fit_always: 0,			// Image will never exceed browser width or height (Ignores min. dimensions)
+                    fit_portrait: 1,			// Portrait images will not exceed browser height
+                    fit_landscape: 0,			// Landscape images will not exceed browser width
+
+                    // Components							
+                    slide_links: 'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+                    thumb_links: 1,			// Individual thumb links for each slide
+                    thumbnail_navigation: 0,			// Thumbnail navigation
+                    //slides: [			// Slideshow Images
+                    //                           { image: 'img/bg/555174-1920x1200.jpg', title: 'Image Credit: Maria Kazvan', thumb: 'img/bg/555174-1920x1200.jpg', url: '' },
+                    //                           { image: 'img/bg/555174-1920x1200.jpg', title: 'Image Credit: Maria Kazvan', thumb: 'img/bg/555174-1920x1200.jpg', url: '' },
+                    //                           { image: 'img/bg/555174-1920x1200.jpg', title: 'Image Credit: Maria Kazvan', thumb: 'img/bg/555174-1920x1200.jpg', url: '' },
+
+                    //],
+
+                    slides: temp,
+                    // Theme Options			   
+                    progress_bar: 1,			// Timer for each slide							
+                    mouse_scrub: 0
+
+                });
+            });
+        }
+    });
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            $('.add').click(function (e) {
+                e.stopPropagation();
+                if ($(this).hasClass('active')) {
+                    $('.dialog').fadeOut(200);
+                    $(this).removeClass('active');
+                } else {
+                    $('.dialog').delay(300).fadeIn(200);
+                    $(this).addClass('active');
+                }
+            });
+            $('.radio > .button').click(function () {
+                $('.radio').find('.button.active').removeClass('active');
+                $(this).addClass('active');
+            });
+
+            function closeMenu() {
+                $('.dialog').fadeOut(200);
+                $('.add').removeClass('active');
+            }
+
+            $(document.body).click(function (e) {
+                closeMenu();
+            });
+
+            $(".dialog").click(function (e) {
+                e.stopPropagation();
+            });
+        });
+
+    </script>
+    <script>
+        // Wait until the DOM has loaded before querying the document
+        $(document).ready(function () {
+            $('ul.tabs').each(function () {
+                // For each set of tabs, we want to keep track of
+                // which tab is active and it's associated content
+                var $active, $content, $links = $(this).find('a');
+
+                // If the location.hash matches one of the links, use that as the active tab.
+                // If no match is found, use the first link as the initial active tab.
+                $active = $($links.filter('[href="' + location.hash + '"]')[0] || $links[0]);
+                $active.addClass('active');
+
+                $content = $($active[0].hash);
+
+                // Hide the remaining content
+                $links.not($active).each(function () {
+                    $(this.hash).hide();
+                });
+
+                // Bind the click event handler
+                $(this).on('click', 'a', function (e) {
+                    // Make the old tab inactive.
+                    $active.removeClass('active');
+                    $content.hide();
+
+                    // Update the variables with the new link and content
+                    $active = $(this);
+                    $content = $(this.hash);
+
+                    // Make the tab active.
+                    $active.addClass('active');
+                    $content.show();
+
+                    // Prevent the anchor's default click action
+                    e.preventDefault();
+                });
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var temp1 = 1;
+            setTimeout(initialize, 15000);
+            function initialize() {
+                var data; var temp = [];
+                data = $("#maploaction").val();
+                if (data !== null && data !== undefined && data !== "") {
+                    var dataValue = JSON.parse(data);
+                    temp1 = 2;
+                    for (var i = 0; i < dataValue.length; i++) {
+                        temp[i] = { lat: dataValue[i].latitude, lng: dataValue[i].longitude };
+                    }
+                }
+
+                var centerLat = 13.736717;
+                var centerLong = 100.523186;
+                var center = new google.maps.LatLng(centerLat, centerLong);
+                var mapOptions = {
+                    zoom: 10,
+                    center: center
+                }
+                var map = new google.maps.Map(document.getElementById('gmap'), mapOptions);
+                var json
+                var marker, i;
+                if (temp !== null && temp !== undefined && temp !== "") {
+                    json = temp;
+                } else {
+                    json = [{ lat: "13.7563309", lng: "100.50176510000006" }, { lat: "14.7563309", lng: "99.50176510000006" }, { lat: "15.7563309", lng: "97.50176510000006" }]
+                }
+                for (i = 0; i < json.length; i++) {
+                    var latLng = new google.maps.LatLng(json[i].lat, json[i].lng);
+                    marker = new google.maps.Marker({
+                        position: latLng,
+                        map: map,
+                        draggable: true
+                    });
+                }
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+        });
+</script>
+  <script type="text/javascript">
+      $(document).ready(function () {
+
+
+
+          $(".navbar-nav li a").click(function (event) {
+              $(".navbar-collapse").collapse('hide');
+          });
+      })
+</script>
+   
+</body>
+</html>

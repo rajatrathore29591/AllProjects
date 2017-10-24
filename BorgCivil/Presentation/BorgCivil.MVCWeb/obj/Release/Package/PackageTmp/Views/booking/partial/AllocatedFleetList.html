@@ -1,0 +1,37 @@
+﻿<div class="inmodal Allocatedfllet">
+    <div class="modal-header text-center">
+        <!--<i class="fa fa-sliders color-success h-modal-icon"></i>-->
+        <h4 class="modal-title">ALLOCATED FLEETS</h4>
+        <div class="clostbtn">
+           <button type="button" title="Close" data-dismiss="modal" aria-label="Close" ng-click="blCtrl.hideFleet()"><img src="Content/images/closebtn.png"></button>
+       </div>
+    </div>
+    <div class="modal-body">
+        <!--Grid Content-->
+            <div>
+   <div class="grid-tb-panel bookinglistallocated">
+      <table ng-table="blCtrl.bcaFleetList" class="table table-stripped toggle-arrow-tiny table-hover" show-filter="true">
+         <tr ng-repeat="bookedFleet in $data">
+            <td title="'Fleet Booking Date & Time'" filter="{ FleetBookingDateTime: 'text'}" sortable="'FleetBookingDateTime'" class="text-center">{{bookedFleet.FleetBookingDateTime | date :  "dd-MM-yyyy"}}</td>
+
+            <td title="'Fleet Number/Description'" filter="{ FleetNumber: 'text'}" sortable="'FleetNumber'">Number :{{bookedFleet.FleetNumber}} <p> Description: {{bookedFleet.FleetDescription}}</td>
+
+            <td title="'Site Details'" filter="{ SiteDetail: 'text'}" sortable="'SiteDetail'">{{bookedFleet.SiteDetail}}</td>
+
+            <td title="'Start Date & Time'" filter="{ CallingDateTime: 'text'}" sortable="'CallingDateTime'" class="text-center">{{bookedFleet.CallingDateTime | date :  "dd-MM-yyyy hh:mm A"}}</td>
+
+            <td title="'End Date'" filter="{ FleetBookingEndDate: 'text'}" sortable="'FleetBookingEndDate'" class="text-center enddate">{{bookedFleet.FleetBookingEndDate | date :  "dd-MM-yyyy"}}</td>
+
+            <!--<td title="'Docket Details'" filter="{ docket_details: 'text'}" sortable="'docket_details'"><a href="javascript:void(0)">{{bookedFleet.docket_details}}</a></td>-->
+         </tr>
+      </table>
+   </div>
+</div>
+        <!--Grid Content-->
+    </div>
+    <div class="modal-footer">
+  <button type="button" class="btn btn-default" ng-click="blCtrl.hideFleet()" title="Close">Close</button>
+
+    </div>
+</div>
+

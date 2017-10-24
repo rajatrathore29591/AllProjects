@@ -1,0 +1,109 @@
+﻿
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View Vocab AssessmentQuestions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+
+    <link href="~/Content/themes/fileinput.css" rel="stylesheet" />
+    <link href="~/Content/themes/style.css" rel="stylesheet" />
+    <script src="~/Scripts/fileinput.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
+</head>
+<body>
+
+    <div class="courses-page">
+        <div class="container">
+            <!------header section start------->
+            <header>
+                <h2>View Vocab Assessment Questions Info</h2>
+            <a style="cursor:pointer; color:#3d3b3b; font-size:14pt;float:right;margin-top:-55px; font-weight:200;"href="@Url.Action("VocabAssessmentQuestions", "CourseContent", new {VocabularyId=Request.QueryString["VocabularyId"] })">Go To VocabularyQuestion List</a>
+            </header>
+            <!------header section end------->
+            <!------content section start------->
+            <div class="contant">
+                <div class="row">
+
+                    @using (Html.BeginForm("AddVocabAssessmentQuestions", "CourseContent", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+
+                            <form action="" method="post" role="form">
+                                <input type="hidden" id="VocabularyId" name="VocabularyId" value="@Model.VocabularyId" />
+                                <input type="hidden" id="QuestionId" name="QuestionId" value="@Model.QuestionId" />
+                                <div class="form-group">
+                                    <label>Set</label>
+                                    <input readonly type="text" class="form-control" placeholder="Correct Answer" value="@Model.SelectSet" id="SelectSet" name="SelectSet" re>
+                                </div>
+                                <div class="form-group">
+                                    <label>Image</label>
+                                    <div class="form-group">
+                                        @*<input id="file-1a1" type="file" multiple="true" class="file" data-preview-file-type="any" data-initial-caption="" data-overwrite-initial="false" id="Image" name="Image">*@
+                                        <img id="image" style="width: 150px; height: 150px" src="@Model.ImageURL" class="file-preview-image" title="logo_symbol.png" alt="logo_symbol.png">
+                                    </div>
+                                </div>
+                                 <div class="form-group">
+                                    <label>Question</label>
+                                    <input readonly type="text" class="form-control" placeholder="Correct Answer" value="@Model.Question" id="Question" name="Question">
+                                </div>
+                                <div class="form-group">
+                                    <label>OptionsA</label>
+                                    <input type="text" class="form-control" placeholder="Correct Answer" value="@Model.OptionsA" id="OptionsA" name="OptionsA">
+                                </div>
+                                <div class="form-group">
+                                    <label>OptionsB</label>
+                                    <input type="text" class="form-control" placeholder="Correct Answer" value="@Model.OptionsB" id="OptionsB" name="OptionsB">
+                                </div>
+                                <div class="form-group">
+                                    <label>OptionsC</label>
+                                    <input type="text" class="form-control" placeholder="Correct Answer" value="@Model.OptionsC" id="OptionsC" name="OptionsC">
+                                </div>
+                                <div class="form-group">
+                                    <label>OptionsD</label>
+                                    <input type="text" class="form-control" placeholder="Correct Answer" value="@Model.OptionsD" id="OptionsD" name="OptionsD">
+                                </div>
+                                <div class="form-group">
+                                    <label>Correct Answer</label>
+                                    <input type="text" class="form-control" placeholder="Correct Answer" value="@Model.CorrectAnswer" id="CorrectAnswer" name="CorrectAnswer">
+                                </div>
+
+                                <div class="form-group">
+
+                                   
+                                </div>
+
+                            </form>
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+            <!------content section end------->
+        </div>
+    </div>
+    <script>
+        $("#file-1").fileinput({
+            initialPreview: ["<img src='Desert.jpg' class='file-preview-image'>", "<img src='Jellyfish.jpg' class='file-preview-image'>"],
+            overwriteInitial: false,
+            maxFileSize: 100,
+            maxFilesNum: 10
+        });
+        $("#file-3").fileinput({
+            showCaption: false,
+            browseClass: "btn btn-primary btn-lg",
+            fileType: "any"
+        });
+        $(".btn-warning").on('click', function () {
+            if ($('#file-4').attr('disabled')) {
+                $('#file-4').fileinput('enable');
+            } else {
+                $('#file-4').fileinput('disable');
+            }
+        });
+    </script>
+</body>
+</html>

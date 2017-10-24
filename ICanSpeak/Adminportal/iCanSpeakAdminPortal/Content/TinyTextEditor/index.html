@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>TinyEditor - JavaScript WYSIWYG Editor</title>
+    <link rel="stylesheet" href="tinyeditor.css">
+    <script src="tiny.editor.packed.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="mudiv">
+        <textarea id="tinyeditor" style="width: 400px; height: 200px"></textarea>
+    </div>
+    <br />
+    <input type="button" onclick="a()" value="Submit" />
+    <input type="hidden" id="myhd" />
+    <script>
+        var editor = new TINY.editor.edit('editor', {
+            id: 'tinyeditor',
+            width: 584,
+            height: 175,
+            cssclass: 'tinyeditor',
+            controlclass: 'tinyeditor-control',
+            rowclass: 'tinyeditor-header',
+            dividerclass: 'tinyeditor-divider',
+            controls: ['bold', 'italic', 'underline', 'strikethrough', '|', 'subscript', 'superscript', '|',
+                'orderedlist', 'unorderedlist', '|', 'outdent', 'indent', '|', 'leftalign',
+                'centeralign', 'rightalign', 'blockjustify', '|', 'unformat', '|', 'undo', 'redo', 'n',
+                'font', 'size', 'style', '|', 'image', 'hr', 'link', 'unlink', '|', 'print'],
+            footer: true,
+            fonts: ['Verdana', 'Arial', 'Georgia', 'Trebuchet MS'],
+            xhtml: true,
+            cssfile: 'custom.css',
+            bodyid: 'tinyeditor',
+            //footerclass: 'tinyeditor-footer',
+            //toggle: {text: 'source', activetext: 'wysiwyg', cssclass: 'toggle'},
+            //resize: {cssclass: 'resize'}
+        });
+    </script>
+</body>
+</html>
+<script type="text/javascript">
+    function a() {
+        var dd = editor.bodyid("tinyeditor");
+        alert(dd);
+        //var data=editor.post();
+        //alert(data.editor.bodyid("tinyeditor"));
+        //alert(tinyeditor.getElementsByClassName("editor").length);
+        //var editor = new TINY.editor.edit('tinyeditor', { id: 'tinyeditor' });
+        //var ed = new tinyeditor.innerHTML();
+        //alert(editor);
+        //var data = TINY.editor.edit("tinyeditor", { id: 'tinyeditor' });
+        //alert(data);
+        //alert(tinyeditor.parentNode.parentNode);
+        //alert(editor);
+        //alert(tinyeditor.innerHTML());
+    }
+</script>

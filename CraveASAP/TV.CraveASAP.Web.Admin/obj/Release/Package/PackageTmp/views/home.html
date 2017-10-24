@@ -1,0 +1,13 @@
+﻿<div ng-controller="homeController">
+    <h1>{{message}}</h1>
+
+    <div ng-repeat="user in users">
+        <label>{{user.userId}}</label>
+        <label>{{user.firstName}}</label>
+        <label>{{user.lastName}}</label>
+    </div>
+
+    <button ng-click="CreatNew()">
+      New
+    </button>
+</div>

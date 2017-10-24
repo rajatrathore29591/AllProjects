@@ -1,0 +1,255 @@
+﻿@using System.Globalization
+@{
+    ViewBag.Title = "Existing Account";
+    Layout = "~/Views/Shared/_CustomerLoggedInLayout.cshtml";
+}
+@model TradeSystem.Utils.Models.CustomerProductDataModel
+<div class="myinvestmentsdetails-wrapper">
+
+    <!-- Inventory Details -->
+    <div class="col-lg-12">
+        <!-- Task overview -->
+        <div class="panel panel-flat">
+            <div class="panel-heading mt-5">
+                <h5 class="panel-title f-24x">@Model.Name @Resources.Languages.Details</h5>
+            </div>
+            <div class="panel-body">
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <span class="display-block mb-15 text-center customer-inventory-img"><img class="img-responsive" src="@Model.ImageUrl" alt=""></span>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="mb-15">
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <th>@Resources.Languages.Date</th>
+                                        <th>@Resources.Languages.Day</th>
+                                        <th>@Resources.Languages.Earning</th>
+                                    </tr>
+                                    @foreach (var item in Model.CurrentWeekEarning)
+                                    {
+                                        <tr>
+                                            <td>@item.date.ToString("MM-dd-yyyy")</td>
+                                            @{
+                                                var itemday = item.day;
+                                                switch (itemday)
+                                                {
+                                                    case "Sunday":
+                                                        // Use the case for change week name for spanish langugae
+                                                        <td>@Resources.Languages.Sunday</td>
+                                                        break;  // Always break each case
+                                                    case "Monday":
+                                                        <td>@Resources.Languages.Monday</td>
+                                                        break;
+                                                    case "Tuesday":
+                                                        <td>@Resources.Languages.Tuesday</td>
+                                                        break;
+                                                    case "Wednesday":
+                                                        <td>@Resources.Languages.Wednesday</td>
+                                                        break;
+                                                    case "Thursday":
+                                                        <td>@Resources.Languages.Thursday</td>
+                                                        break;
+                                                    case "Friday":
+                                                        <td>@Resources.Languages.Friday</td>
+                                                        break;
+                                                    case "Saturday":
+                                                        <td>@Resources.Languages.Saturday</td>
+                                                        break;
+                                                    default:
+                                                        break;
+                                                }
+                                            }
+                                            <td class="text-right">
+                                                @if (item.Earning != 0 || item.Earning != 0.0)
+                                                {
+                                                    @item.Earning.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))
+                                                }
+                                                else
+                                                {
+                                                    <span>$0.0</span>
+                                                }
+                                            </td>
+                                        </tr>
+                                                }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p class="content-group f-18x">
+                            <span class="display-inline-block mr-20">
+                                <strong>
+                                    @Resources.Languages.Title:
+                                </strong> @Model.Name
+                            </span>
+                            <span class="display-inline-block text-right">
+                                <strong>
+                                    @Resources.Languages.Status:
+                                </strong>
+                                @if (Model.IsActive == "true")
+                                {
+                                    <span class="label label-success">@Resources.Languages.Active</span>
+                                }
+                                else
+                                {
+                                    <span class="label label-danger">@Resources.Languages.Inactive</span>
+                                }
+                            </span>
+                        </p>
+                        <p class="content-group">
+                            <strong>
+                                @Resources.Languages.AmountInvested:
+                            </strong> @Model.InvestmentFloat.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))
+                        </p>
+                        <p class="content-group">
+                            <strong>
+                                @Resources.Languages.Datetowithdrawtheinvestment:
+                            </strong> @Model.InvestmentWithdrawDate.ToString("MM-dd-yyyy")
+                        </p>
+                        <p class="content-group">
+                            <strong>
+                                @Resources.Languages.StartDate:
+                            </strong> @Model.CreatedDate.ToString("MM-dd-yyyy")
+                        </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p class="content-group">
+                            <strong>
+                                @Resources.Languages.PreviousMonthWeeklyEarning:
+                            </strong> @Model.PreviousMonthEarningFloat.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))
+
+                            @if (Model.PreviousMonthEarning == "0.0" || Model.PreviousMonthEarning == "0")
+                            {
+                                <a href="javascript:void(0);" class="btn btn-primary" disabled='disabled'>@Resources.Languages.Withdraw</a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("WithdrawEarning", "Investment", new { amount = Model.PreviousMonthEarning, withdrawType = "WeeklyEarning", productId = Model.ProductId, customerId = Model.CustomerId })" class="btn btn-primary">@Resources.Languages.Withdraw</a>
+                            }
+
+                            @*<input type="button" value="Withdraw" />*@
+                            @*<a href="">History</a>*@
+                            <a href="#" data-toggle="modal" data-target="#withdraw_modal" title="Click here">@Resources.Languages.History</a>
+                        </p>
+                        <p class="content-group">
+                            <strong>
+                                @Resources.Languages.CurrentWeekEarning:
+                            </strong>
+                            @if (Model.CurrentWeekTotalEarning != null)
+                            {
+                                @Model.CurrentWeekTotalEarning.Value.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))
+                            }
+                            else
+                            {
+                                <span>$0.0</span>
+                            }
+
+                        </p>
+                        <p class="content-group">
+                            <strong>
+                                @Resources.Languages.DatetoWithdrawEarning:
+                            </strong> @Model.DatetoWithdrawEarning.ToString("MM-dd-yyyy")
+                        </p>
+                    </div>
+                </div>
+                <a href="@Url.Action("WithdrawEarning", "Investment", new { amount = Model.Investment, withdrawType = "Investment", productId = Model.ProductId, customerId = Model.CustomerId })" class="btn btn-primary">@Resources.Languages.WithdrawInvestment</a>
+            </div>
+        </div>
+        <!-- /task overview -->
+
+    </div>
+    <!-- /inventory details -->
+
+</div>
+
+<!-- Penalty modal -->
+<div id="withdraw_modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">@Resources.Languages.Historic:</h5>
+            </div>
+
+            <div class="modal-body">
+                <p>@Resources.Languages.Belowishistoryofpreviousmonthswithdrawal:</p>
+                <div class="table-responsive pre-scrollable" style="max-height:230px;">
+                    <table class="table datatable-basic table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>@Resources.Languages.Month</th>
+                                <th>@Resources.Languages.DepositIn</th>
+                                <th>@Resources.Languages.Earnings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in ViewBag.WeeklyWithdrawHistory)
+                            {
+                                <tr>
+                                    <td>@item.CreatedDate</td>
+                                    <td>@item.WithDrawalFor</td>
+                                    <td>$@item.WithdrawAmount</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /penalty modal -->
+<!-- Penalty modal -->
+<div id="withdraw_modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">@Resources.Languages.Historic:</h5>
+            </div>
+
+            <div class="modal-body">
+                <p>@Resources.Languages.Belowishistoryofpreviousmonthswithdrawal:</p>
+                <div class="table-responsive pre-scrollable" style="max-height:230px;">
+                    <table class="table datatable-basic table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>@Resources.Languages.Month</th>
+                                <th>@Resources.Languages.DepositIn</th>
+                                <th>@Resources.Languages.Earnings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in ViewBag.WeeklyWithdrawHistory)
+                            {
+                                <tr>
+                                    <td>@item.CreatedDate</td>
+                                    <td>@item.WithDrawalFor</td>
+                                    <td>$@item.WithdrawAmount</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /penalty modal -->
+<script type="text/javascript">
+    // stop browser back funtionality
+    history.pushState(null, null, document.title);
+    window.addEventListener('popstate', function () {
+        history.pushState(null, null, document.title);
+    });
+</script>

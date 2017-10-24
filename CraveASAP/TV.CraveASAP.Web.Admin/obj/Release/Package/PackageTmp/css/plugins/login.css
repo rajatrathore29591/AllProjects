@@ -1,0 +1,467 @@
+/*--------------------------------------------------
+    [TRANSITION]
+----------------------------------------------------*/
+/* Cubic Bezier Transition */
+/***
+Login page
+***/
+/* bg color */
+
+div, input, select, textarea, span, img, table, label, td, th, p, a, button, ul, code, pre, li {
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+}
+
+.form-control::-webkit-input-placeholde
+{
+  color:#8290a3;
+}
+.login {
+  background-color: #364150 !important;
+}
+
+.login1 .logo {
+  margin: 0 auto;
+  margin-top: 60px;
+  padding: 15px;
+  text-align: center;
+}
+
+.login   {
+  background-color: #eceef1 !important;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  width:400px;
+  margin: 40px auto 10px auto;
+  padding: 30px;
+  padding-top: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.login  h3 {
+  color: #4db3a5;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 400 !important;
+}
+
+.login  h4 {
+  color: #555;
+}
+
+.login .hint {
+  color: #999;
+  padding: 0;
+  margin: 15px 0 7px 0;
+}
+
+.login  .login-form,
+.login  .forget-form {
+  padding: 0px;
+  margin: 0px;
+}
+
+.login  .form-control {
+  border: none;
+  background-color: #dde3ec;
+  height: 43px;
+  color: #000;
+  border: 1px solid #dde3ec;
+}
+.login  .form-control:focus, .login  .form-control:active {
+  border: 1px solid #c3ccda;
+}
+.login  .form-control::-moz-placeholder {
+  color: #8290a3;
+  opacity: 1;
+}
+.login .form-control:-ms-input-placeholder {
+  color: #8290a3;
+}
+.login  .form-control::-webkit-input-placeholder {
+  color: #8290a3;
+}
+
+.login  select.form-control {
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+.login  .forget-form {
+  display: none;
+}
+
+.login  .register-form {
+  display: none;
+}
+
+.login  .form-title {
+  font-weight: 300;
+  margin-bottom: 25px;
+}
+
+.login .form-actions {
+  clear: both;
+  border: 0px;
+  border-bottom: 1px solid #eee;
+  padding: 0px 30px 25px 30px;
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+.login-options {
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.login-options h4 {
+  float: left;
+  font-weight: 600;
+  font-size: 15px;
+  color: #7d91aa !important;
+}
+
+.login-options .social-icons {
+  float: right;
+  padding-top: 3px;
+}
+
+.login-options .social-icons li a {
+  border-radius: 15px 15px 15px 15px !important;
+  -moz-border-radius: 15px 15px 15px 15px !important;
+  -webkit-border-radius: 15px 15px 15px 15px !important;
+}
+
+.login .form-actions .checkbox {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.login  .forget-form .form-actions {
+  border: 0;
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
+
+.login  .register-form .form-actions {
+  border: 0;
+  margin-bottom: 0;
+  padding-bottom: 0px;
+}
+
+.login  .form-actions .btn {
+  margin-top: 1px;
+}
+
+.login  .form-actions .btn-success {
+  font-weight: 600;
+  padding: 10px 20px !important;
+}
+
+.login  .form-actions .btn-default {
+  font-weight: 600;
+  padding: 10px 25px !important;
+  color: #6c7a8d;
+  background-color: #ffffff;
+  border: none;
+}
+
+.login  .form-actions .btn-default:hover {
+  background-color: #fafaff;
+  color: #45b6af;
+}
+
+.login  .forget-password {
+  font-size: 14px;
+  float: right;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.login  .check {
+  color: #8290a3;
+}
+
+.login  .rememberme {
+  margin-left: 8px;
+  margin-top: 10px;
+}
+
+.login  .create-account {
+  margin: 0 -40px -40px -40px;
+  padding: 15px 0 17px 0;
+  text-align: center;
+  background-color: #6c7a8d;
+  -webkit-border-radius: 0 0 7px 7px;
+  -moz-border-radius: 0 0 7px 7px;
+  -ms-border-radius: 0 0 7px 7px;
+  -o-border-radius: 0 0 7px 7px;
+  border-radius: 0 0 7px 7px;
+}
+
+.login  .create-account p a {
+  font-weight: 600;
+  font-size: 14px;
+  color: #c3cedd;
+}
+
+.login  .create-account a {
+  display: inline-block;
+  margin-top: 5px;
+}
+
+/* footer copyright */
+.login .copyright {
+  text-align: center;
+  margin: 0 auto 30px 0;
+  padding: 10px;
+  color: #7a8ca5;
+  font-size: 13px;
+}
+
+@media (max-width: 440px) {
+  /***
+  Login page
+  ***/
+  .login .logo {
+    margin-top: 10px;
+  }
+
+  .login  {
+    width: 280px;
+    margin-top: 10px;
+  }
+
+  .login  h3 {
+    font-size: 22px;
+  }
+
+  .forget-password {
+    display: inline-block;
+    margin-top: 20px;
+  }
+
+  .login-options .social-icons {
+    float: left;
+    padding-top: 3px;
+  }
+
+  .login .checkbox {
+    font-size: 13px;
+  }
+}
+@media screen (max-width: 768px) and (min-width:480px) {
+    .login {
+  background-color: #364150 !important;
+}
+
+.login1 .logo {
+  margin: 0 auto;
+  margin-top: 60px;
+  padding: 15px;
+  text-align: center;
+}
+
+.login   {
+  background-color: #eceef1 !important;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  width:70%;
+  margin: 40px auto 10px auto;
+  padding: 30px;
+  padding-top: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.login  h3 {
+  color: #4db3a5;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 400 !important;
+}
+
+.login  h4 {
+  color: #555;
+}
+
+.login .hint {
+  color: #999;
+  padding: 0;
+  margin: 15px 0 7px 0;
+}
+
+.login  .login-form,
+.login  .forget-form {
+  padding: 0px;
+  margin: 0px;
+}
+
+.login  .form-control {
+  border: none;
+  background-color: #dde3ec;
+  height: 43px;
+  color: #000;
+  border: 1px solid #dde3ec;
+}
+.login  .form-control:focus, .login  .form-control:active {
+  border: 1px solid #c3ccda;
+}
+.login  .form-control::-moz-placeholder {
+  color: #8290a3;
+  opacity: 1;
+}
+.login .form-control:-ms-input-placeholder {
+  color: #8290a3;
+}
+.login  .form-control::-webkit-input-placeholder {
+  color: #8290a3;
+}
+
+.login  select.form-control {
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+.login  .forget-form {
+  display: none;
+}
+
+.login  .register-form {
+  display: none;
+}
+
+.login  .form-title {
+  font-weight: 300;
+  margin-bottom: 25px;
+}
+
+.login .form-actions {
+  clear: both;
+  border: 0px;
+  border-bottom: 1px solid #eee;
+  padding: 0px 30px 25px 30px;
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+.login-options {
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.login-options h4 {
+  float: left;
+  font-weight: 600;
+  font-size: 15px;
+  color: #7d91aa !important;
+}
+
+.login-options .social-icons {
+  float: right;
+  padding-top: 3px;
+}
+
+.login-options .social-icons li a {
+  border-radius: 15px 15px 15px 15px !important;
+  -moz-border-radius: 15px 15px 15px 15px !important;
+  -webkit-border-radius: 15px 15px 15px 15px !important;
+}
+
+.login .form-actions .checkbox {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.login  .forget-form .form-actions {
+  border: 0;
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
+
+.login  .register-form .form-actions {
+  border: 0;
+  margin-bottom: 0;
+  padding-bottom: 0px;
+}
+
+.login  .form-actions .btn {
+  margin-top: 1px;
+}
+
+.login  .form-actions .btn-success {
+  font-weight: 600;
+  padding: 10px 20px !important;
+}
+
+.login  .form-actions .btn-default {
+  font-weight: 600;
+  padding: 10px 25px !important;
+  color: #6c7a8d;
+  background-color: #ffffff;
+  border: none;
+}
+
+.login  .form-actions .btn-default:hover {
+  background-color: #fafaff;
+  color: #45b6af;
+}
+
+.login  .forget-password {
+  font-size: 14px;
+  float: right;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.login  .check {
+  color: #8290a3;
+}
+
+.login  .rememberme {
+  margin-left: 8px;
+  margin-top: 10px;
+}
+
+.login  .create-account {
+  margin: 0 -40px -40px -40px;
+  padding: 15px 0 17px 0;
+  text-align: center;
+  background-color: #6c7a8d;
+  -webkit-border-radius: 0 0 7px 7px;
+  -moz-border-radius: 0 0 7px 7px;
+  -ms-border-radius: 0 0 7px 7px;
+  -o-border-radius: 0 0 7px 7px;
+  border-radius: 0 0 7px 7px;
+}
+
+.login  .create-account p a {
+  font-weight: 600;
+  font-size: 14px;
+  color: #c3cedd;
+}
+
+.login  .create-account a {
+  display: inline-block;
+  margin-top: 5px;
+}
+
+/* footer copyright */
+.login .copyright {
+  text-align: center;
+  margin: 0 auto 30px 0;
+  padding: 10px;
+  color: #7a8ca5;
+  font-size: 13px;
+}
+
+
+}

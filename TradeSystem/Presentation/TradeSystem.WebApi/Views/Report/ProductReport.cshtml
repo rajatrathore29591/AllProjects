@@ -1,0 +1,65 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+    ViewBag.Title = "Report";
+}
+@model TradeSystem.Utils.Models.CustomerReportDataModel
+
+<!-- Existing Customers -->
+<div class="panel panel-flat">
+    <div class="panel-body">       
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class=" col-md-2">
+                        <label class="control-label mt-15">Select Report Type:</label>
+                    </div>
+                    <div class="col-md-2" style="display:none;">
+                        <select class="form-control" disabled id="mainDropDown" onchange="MainDropDownChange(this.value);">
+                            <option value="">Select</option>
+                            <option value="CustomerReport">Customer Report</option>
+                            <option value="InvestmentReport" selected>Investment Report</option>
+                            <option value="WithdrawalReport">Withdrawal Report</option>
+                            <option value="TicketReport">Ticket Report</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-control" id="productReportDropDown">
+                           <option value="">Select</option>
+                            @foreach (var product in ViewBag.Product)
+                            {
+                                <option value="@product.Value">@product.Text</option>
+                            }
+
+                        </select>
+                    </div>
+                        <div class="col-md-2 text-right pull-right">
+                            <button id="submit" type="button" class="btn btn-primary" title="Submit" >Submit <i class="icon-arrow-right14 position-right"></i></button>
+                            @*<button id="reset" type="button" class="btn btn-danger" title="Reset" >Reset <i class="icon-arrow-right14 position-right"></i></button>*@
+                        </div>
+                </div>
+            </div>
+        </div>
+           <div id="customerReportPartial" class="mt-15">
+
+    </div>
+    </div>
+    
+</div>
+<!-- /existing customers -->
+<script type="text/javascript">
+    //function for call get all state list by country id
+    $('#submit').click(function () {
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("ProductReport", "Report")',
+            data: { ProductId: $('#productReportDropDown').val() },
+            success: function (response) {
+                $('#customerReportPartial').html(response);
+                loadReportTable();
+            },
+            failure: function (e) {
+            }
+        });
+    });
+</script>

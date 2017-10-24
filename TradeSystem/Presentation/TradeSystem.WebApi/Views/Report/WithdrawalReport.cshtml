@@ -1,0 +1,132 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+    ViewBag.Title = "Report";
+}
+@model TradeSystem.Utils.Models.CustomerReportDataModel
+
+<!-- Existing Customers -->
+<div class="panel panel-flat">
+    <div class="panel-body">
+        @*@using (Html.BeginForm("CustomerReport", "Report", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-validate form-horizontal" }))
+            {*@
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-2">
+                        <label class="control-label mt-15">Select Report Type:</label>
+                    </div>
+                    <div class="col-md-2" style="display:none;">
+                        <select class="form-control" disabled id="mainDropDown" onchange="MainDropDownChange(this.value);">
+                            <option value="">Select</option>
+                            <option value="CustomerReport">Customer Report</option>
+                            <option value="InvestmentReport">Investment Report</option>
+                            <option value="WithdrawalReport" selected>Withdrawal Report</option>
+                            <option value="TicketReport">Ticket Report</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-control" id="selectType">
+                            <option value="">Select</option>
+                            <option value="WeeklyWithdraw">Weekly Withdraw</option>
+                            <option value="SaleWithdraw">Sale Withdraw</option>
+                            <option value="InvestmentWithdraw">Investment Withdraw</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="icon-calendar"></i></span>
+                            <input type="text" id="fromDate" class="form-control datepicker" name="From" placeholder="From Date" value="@Model.From" required>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="icon-calendar"></i></span>
+                            <input type="text" id="toDate" class="form-control datepicker" name="To" placeholder="To Date" value="@Model.To" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 text-right pull-right">
+                        <button id="submit" type="button" class="btn btn-primary" title="Submit">Submit <i class="icon-arrow-right14 position-right"></i></button>
+                        @*<button id="reset" type="button" class="btn btn-danger" title="Reset">Reset <i class="icon-arrow-right14 position-right"></i></button>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div id="customerReportPartial" class="mt-15">
+
+    </div>
+    </div>
+  
+</div>
+<!-- /existing customers -->
+<script type="text/javascript">
+    //function for call get all state list by country id
+    $('#submit').click(function () {
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("WithdrawalReport", "Report")',
+            data: { ReportType: $('#selectType').val(), From: $('#fromDate').val(), To: $('#toDate').val() },
+            success: function (response) {
+                $('#customerReportPartial').html(response);
+                loadReportTable();
+            },
+            failure: function (e) {
+            }
+        });
+    });
+
+    ////function for disable future date
+  //   $(function () {
+
+  //       $("#fromDate").datepicker(
+  //          {
+
+  //              todayBtn: "linked",
+  //              format: "mm/dd/yyyy",
+  //              autoclose: true,
+  //          })
+
+  //       $("#toDate").datepicker(
+  // {
+  //     todayBtn: "linked",
+  //     format: "mm/dd/yyyy",
+  //     autoclose: true,
+  // })
+
+  //   });
+
+  //   // initialize end Date in from Date when it is less than from date is less than end date
+  //   $('#toDate').change(function () {
+  //       var fromDate = $('#fromDate').val();
+  //       var toDate = $('#toDate').val();
+  //       if (new Date($('#toDate').val()) <= new Date($('#fromDate').val())) {
+  //           $('#fromDate').val($('#toDate').val());
+  //       }
+
+  //   })
+
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+  
+    $("#fromDate").datepicker({
+        todayBtn:  1,
+        format: "mm/dd/yyyy",
+        autoclose: true,
+    }).on('changeDate', function (selected) {
+        var minDate = new Date(selected.date.valueOf()+1);
+        $('#toDate').datepicker('setStartDate', minDate);
+    });
+    
+    $("#toDate").datepicker({
+        todayBtn:  1,
+        format: "mm/dd/yyyy",
+        autoclose: true,
+    }).on('changeDate', function (selected) {
+            var minDate = new Date(selected.date.valueOf());
+            $('#fromDate').datepicker('setEndDate', minDate);
+        });
+
+});
+</script>

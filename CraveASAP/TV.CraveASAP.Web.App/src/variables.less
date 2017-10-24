@@ -1,0 +1,98 @@
+/*BASE COLORS*/
+@primary-color: #000; //main font-color, preloader color
+@inverse-color: #fff; //inverse font-color, hover color
+@navigation-color: #fff; // color of navigation bar
+@section-background-color: #f9f9f9; // background color of some sections
+@section-background-inverse-color: #fff; // inverse background color of other sections
+@text-color: @primary-color; // font-color
+
+/*NAVIGATION STYLES*/
+@navbar-height: 60px; // height of navigation bar
+@navbar-default-link-active-bg: transparent;
+@nav-link-padding: 10px 5px;
+@navbar-default-link-color: @primary-color; // color on navigation links
+@navbar-default-link-hover-color: @primary-color;
+
+/*BASE STYLES*/
+@grid-float-breakpoint: @screen-md-max;
+@border-radius-base: 0;
+@border-radius-small: 0;
+@border-radius-large: 0;
+@icon-font-path: "./fonts/glyphicons/";
+
+/*BUTTONS STYlES*/
+@btn-font-weight: @font-weight-bold;  // button font weight
+@btn-default-bg: transparent;
+@btn-color: @inverse-color; // base button border and font color
+@btn-hover-color: @primary-color; // base button border and font color on hover
+
+/*FORM INPUT STYLES*/
+@input-color-placeholder: #000; // color of placeholder text
+@input-color: #000; // color of input text
+@input-border-focus: #000;
+@input-border: #000;
+
+/*FONT STYLES*/
+@font-family-base: 'Titillium Web', sans-serif;
+@font-size-small: 14px;
+@font-size-base: 16px;
+@font-size-large: 18px;
+@font-size-header: 24px;
+@font-weight-extra-light: 200;
+@font-weight-light: 300;
+@font-weight-normal: 400;
+@font-weight-semi-bold: 600;
+@font-weight-bold: 700;
+
+/*FIGURE STYLES*/
+@figure_type: rhombus; // type of shape (available values: rhombus, circle, square)
+@figure_fill: gradient; // type of filling (available values: gradient, solid)
+@start-rhombus-color: #f29e4b; // start gradient color or main color for solid filling
+@end-rhombus-color: #ff151f; // end gradient color or hover color for solid filling
+@rhombus-front-color: #fff; // color of border, text, icons placed inside figure
+@rhombus_big_width: 90px; // width of biggest figure
+@rhombus_middle_width: 70px; // width of middle figure
+@rhombus_small_width: 40px; // width of small figure
+
+/*SECTION BACKGROUND IMAGES PATHS*/
+@home_background: "../img/bg/555174-1920x1200.jpg"; // title home section background
+@counter_background: "../img/bg/556685-dark.jpg"; // counter section background
+@download_app_background: "../img/bg/new_york_6-dark.jpg"; // download section background
+
+/*PRELOADER STYLES*/
+@preloader-cube-size: 20px; // size of preloader cubes
+@preloader-cube-step-duration: 0.6s; // speed of preloader cubes motion
+@preloader-background-color:@inverse-color; // background color of preloader
+@preloader-color:@primary-color; // color of cubes
+
+@screen-xs:                  480px;
+//** Deprecated `@screen-xs-min` as of v3.2.0
+@screen-xs-min:              @screen-xs;
+//** Deprecated `@screen-phone` as of v3.0.1
+@screen-phone:               @screen-xs-min;
+
+// Small screen / tablet
+//** Deprecated `@screen-sm` as of v3.0.1
+@screen-sm:                  768px;
+@screen-sm-min:              @screen-sm;
+//** Deprecated `@screen-tablet` as of v3.0.1
+@screen-tablet:              @screen-sm-min;
+
+// Medium screen / desktop
+//** Deprecated `@screen-md` as of v3.0.1
+@screen-md:                  992px;
+@screen-md-min:              @screen-md;
+//** Deprecated `@screen-desktop` as of v3.0.1
+@screen-desktop:             @screen-md-min;
+
+// Large screen / wide desktop
+//** Deprecated `@screen-lg` as of v3.0.1
+@screen-lg:                  1200px;
+@screen-lg-min:              @screen-lg;
+//** Deprecated `@screen-lg-desktop` as of v3.0.1
+@screen-lg-desktop:          @screen-lg-min;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xs-max:              (@screen-sm-min - 1);
+@screen-sm-max:              (@screen-md-min - 1);
+@screen-md-max:              (@screen-lg-min - 1);

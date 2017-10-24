@@ -1,0 +1,635 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{00785902-1EA3-47BE-AD19-CCC43E17C244}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BorgCivil.Framework</RootNamespace>
+    <AssemblyName>BorgCivil.Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Attachment.cs" />
+    <Compile Include="Entities\Booking.cs" />
+    <Compile Include="Entities\BookingFleet.cs" />
+    <Compile Include="Entities\BookingSiteGate.cs" />
+    <Compile Include="Entities\BookingSiteSupervisor.cs" />
+    <Compile Include="Entities\Company.cs" />
+    <Compile Include="Entities\Country.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\Demo.cs" />
+    <Compile Include="Entities\Docket.cs" />
+    <Compile Include="Entities\DocketCheckList.cs" />
+    <Compile Include="Entities\Document.cs" />
+    <Compile Include="Entities\AnonymousField.cs" />
+    <Compile Include="Entities\DriverInductionCard.cs" />
+    <Compile Include="Entities\Driver.cs" />
+    <Compile Include="Entities\DriversFleetsMapping.cs" />
+    <Compile Include="Entities\DriverVocCard.cs" />
+    <Compile Include="Entities\DriverWhiteCard.cs" />
+    <Compile Include="Entities\EmailSetting.cs" />
+    <Compile Include="Entities\EmailTemplate.cs" />
+    <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\EmploymentCategory.cs" />
+    <Compile Include="Entities\FleetHistory.cs" />
+    <Compile Include="Entities\WorkType.cs" />
+    <Compile Include="Entities\FleetsRegistration.cs" />
+    <Compile Include="Entities\FleetType.cs" />
+    <Compile Include="Entities\Gate.cs" />
+    <Compile Include="Entities\GateContactPerson.cs" />
+    <Compile Include="Entities\LicenseClass.cs" />
+    <Compile Include="Entities\LoadDocket.cs" />
+    <Compile Include="Entities\SentEmail.cs" />
+    <Compile Include="Entities\Site.cs" />
+    <Compile Include="Entities\Subcontractor.cs" />
+    <Compile Include="Entities\State.cs" />
+    <Compile Include="Entities\StatusLookup.cs" />
+    <Compile Include="Entities\Supervisor.cs" />
+    <Compile Include="Entities\Fleets.cs" />
+    <Compile Include="Identity\AppIdentityDbContext.cs" />
+    <Compile Include="Identity\AppIdentityDbInitializer.cs" />
+    <Compile Include="Identity\ApplicationRole.cs" />
+    <Compile Include="Identity\ApplicationRoleManager.cs" />
+    <Compile Include="Identity\ApplicationUser.cs" />
+    <Compile Include="Identity\ApplicationUserManager.cs" />
+    <Compile Include="Identity\Roles.cs" />
+    <Compile Include="Identity\UserAccount.cs" />
+    <Compile Include="Migrations\201702281156352_createDB.cs" />
+    <Compile Include="Migrations\201702281156352_createDB.Designer.cs">
+      <DependentUpon>201702281156352_createDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702281318110_addedTables.cs" />
+    <Compile Include="Migrations\201702281318110_addedTables.Designer.cs">
+      <DependentUpon>201702281318110_addedTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703081207390_AddedCompanyTable.cs" />
+    <Compile Include="Migrations\201703081207390_AddedCompanyTable.Designer.cs">
+      <DependentUpon>201703081207390_AddedCompanyTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703081301401_AddedFkInCustomer.cs" />
+    <Compile Include="Migrations\201703081301401_AddedFkInCustomer.Designer.cs">
+      <DependentUpon>201703081301401_AddedFkInCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703081305017_AddedFkRelationship.cs" />
+    <Compile Include="Migrations\201703081305017_AddedFkRelationship.Designer.cs">
+      <DependentUpon>201703081305017_AddedFkRelationship.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703091350253_addDemoTable.cs" />
+    <Compile Include="Migrations\201703091350253_addDemoTable.Designer.cs">
+      <DependentUpon>201703091350253_addDemoTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703201202180_AddedEmployeeAnd.cs" />
+    <Compile Include="Migrations\201703201202180_AddedEmployeeAnd.Designer.cs">
+      <DependentUpon>201703201202180_AddedEmployeeAnd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703201320346_addIsdeletedColumn.cs" />
+    <Compile Include="Migrations\201703201320346_addIsdeletedColumn.Designer.cs">
+      <DependentUpon>201703201320346_addIsdeletedColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703230712384_BookingFleetChanges.cs" />
+    <Compile Include="Migrations\201703230712384_BookingFleetChanges.Designer.cs">
+      <DependentUpon>201703230712384_BookingFleetChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703231022068_changeInSite.cs" />
+    <Compile Include="Migrations\201703231022068_changeInSite.Designer.cs">
+      <DependentUpon>201703231022068_changeInSite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703241234392_addField.cs" />
+    <Compile Include="Migrations\201703241234392_addField.Designer.cs">
+      <DependentUpon>201703241234392_addField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703271054258_addFieldInFleet.cs" />
+    <Compile Include="Migrations\201703271054258_addFieldInFleet.Designer.cs">
+      <DependentUpon>201703271054258_addFieldInFleet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703291308184_addFieldInBooking.cs" />
+    <Compile Include="Migrations\201703291308184_addFieldInBooking.Designer.cs">
+      <DependentUpon>201703291308184_addFieldInBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703301320196_addBookingId.cs" />
+    <Compile Include="Migrations\201703301320196_addBookingId.Designer.cs">
+      <DependentUpon>201703301320196_addBookingId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704030543400_addChangesOfGate.cs" />
+    <Compile Include="Migrations\201704030543400_addChangesOfGate.Designer.cs">
+      <DependentUpon>201704030543400_addChangesOfGate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704050526287_addForgienKey.cs" />
+    <Compile Include="Migrations\201704050526287_addForgienKey.Designer.cs">
+      <DependentUpon>201704050526287_addForgienKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704060631001_addFKInBookingSiteGate.cs" />
+    <Compile Include="Migrations\201704060631001_addFKInBookingSiteGate.Designer.cs">
+      <DependentUpon>201704060631001_addFKInBookingSiteGate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704060906394_addSiteNote.cs" />
+    <Compile Include="Migrations\201704060906394_addSiteNote.Designer.cs">
+      <DependentUpon>201704060906394_addSiteNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704061056348_FleetHistoryTable.cs" />
+    <Compile Include="Migrations\201704061056348_FleetHistoryTable.Designer.cs">
+      <DependentUpon>201704061056348_FleetHistoryTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704071331204_docket.cs" />
+    <Compile Include="Migrations\201704071331204_docket.Designer.cs">
+      <DependentUpon>201704071331204_docket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704101100271_willCascadeTrue.cs" />
+    <Compile Include="Migrations\201704101100271_willCascadeTrue.Designer.cs">
+      <DependentUpon>201704101100271_willCascadeTrue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704110947594_DocketChanges.cs" />
+    <Compile Include="Migrations\201704110947594_DocketChanges.Designer.cs">
+      <DependentUpon>201704110947594_DocketChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704111125035_DocketChanges1.cs" />
+    <Compile Include="Migrations\201704111125035_DocketChanges1.Designer.cs">
+      <DependentUpon>201704111125035_DocketChanges1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704120718104_removedocument.cs" />
+    <Compile Include="Migrations\201704120718104_removedocument.Designer.cs">
+      <DependentUpon>201704120718104_removedocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704120725555_document.cs" />
+    <Compile Include="Migrations\201704120725555_document.Designer.cs">
+      <DependentUpon>201704120725555_document.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704120935306_updateDB.cs" />
+    <Compile Include="Migrations\201704120935306_updateDB.Designer.cs">
+      <DependentUpon>201704120935306_updateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704130549379_changesEmployee.cs" />
+    <Compile Include="Migrations\201704130549379_changesEmployee.Designer.cs">
+      <DependentUpon>201704130549379_changesEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704130643187_countryState.cs" />
+    <Compile Include="Migrations\201704130643187_countryState.Designer.cs">
+      <DependentUpon>201704130643187_countryState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704130650412_countryStateTable.cs" />
+    <Compile Include="Migrations\201704130650412_countryStateTable.Designer.cs">
+      <DependentUpon>201704130650412_countryStateTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704130655062_IsActiveChange.cs" />
+    <Compile Include="Migrations\201704130655062_IsActiveChange.Designer.cs">
+      <DependentUpon>201704130655062_IsActiveChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704131224581_DocumentRelation.cs" />
+    <Compile Include="Migrations\201704131224581_DocumentRelation.Designer.cs">
+      <DependentUpon>201704131224581_DocumentRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704131256079_DocumentRelation1.cs" />
+    <Compile Include="Migrations\201704131256079_DocumentRelation1.Designer.cs">
+      <DependentUpon>201704131256079_DocumentRelation1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704141002238_driverRelations.cs" />
+    <Compile Include="Migrations\201704141002238_driverRelations.Designer.cs">
+      <DependentUpon>201704141002238_driverRelations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704141023345_driverLicense.cs" />
+    <Compile Include="Migrations\201704141023345_driverLicense.Designer.cs">
+      <DependentUpon>201704141023345_driverLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704141215262_driverDocument.cs" />
+    <Compile Include="Migrations\201704141215262_driverDocument.Designer.cs">
+      <DependentUpon>201704141215262_driverDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704170557071_addInFleetR.cs" />
+    <Compile Include="Migrations\201704170557071_addInFleetR.Designer.cs">
+      <DependentUpon>201704170557071_addInFleetR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704171102326_addChanges.cs" />
+    <Compile Include="Migrations\201704171102326_addChanges.Designer.cs">
+      <DependentUpon>201704171102326_addChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704181137587_addKey.cs" />
+    <Compile Include="Migrations\201704181137587_addKey.Designer.cs">
+      <DependentUpon>201704181137587_addKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704200559026_AddParamInEmployee.cs" />
+    <Compile Include="Migrations\201704200559026_AddParamInEmployee.Designer.cs">
+      <DependentUpon>201704200559026_AddParamInEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704200846227_AddRoleParam.cs" />
+    <Compile Include="Migrations\201704200846227_AddRoleParam.Designer.cs">
+      <DependentUpon>201704200846227_AddRoleParam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704200850528_AddCityState.cs" />
+    <Compile Include="Migrations\201704200850528_AddCityState.Designer.cs">
+      <DependentUpon>201704200850528_AddCityState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704200942517_AddDocumentRelation.cs" />
+    <Compile Include="Migrations\201704200942517_AddDocumentRelation.Designer.cs">
+      <DependentUpon>201704200942517_AddDocumentRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704240609351_AddEmployeeContact.cs" />
+    <Compile Include="Migrations\201704240609351_AddEmployeeContact.Designer.cs">
+      <DependentUpon>201704240609351_AddEmployeeContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704240918163_AddDriverMappingTable.cs" />
+    <Compile Include="Migrations\201704240918163_AddDriverMappingTable.Designer.cs">
+      <DependentUpon>201704240918163_AddDriverMappingTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704261112291_addDocument.cs" />
+    <Compile Include="Migrations\201704261112291_addDocument.Designer.cs">
+      <DependentUpon>201704261112291_addDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704270602404_updateCustomer.cs" />
+    <Compile Include="Migrations\201704270602404_updateCustomer.Designer.cs">
+      <DependentUpon>201704270602404_updateCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704270614236_updateCustomerColumns.cs" />
+    <Compile Include="Migrations\201704270614236_updateCustomerColumns.Designer.cs">
+      <DependentUpon>201704270614236_updateCustomerColumns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704270906326_addEmployee.cs" />
+    <Compile Include="Migrations\201704270906326_addEmployee.Designer.cs">
+      <DependentUpon>201704270906326_addEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704271045585_emailTables.cs" />
+    <Compile Include="Migrations\201704271045585_emailTables.Designer.cs">
+      <DependentUpon>201704271045585_emailTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704271212441_addParamInFleetReg.cs" />
+    <Compile Include="Migrations\201704271212441_addParamInFleetReg.Designer.cs">
+      <DependentUpon>201704271212441_addParamInFleetReg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704280915545_updateCustomer1.cs" />
+    <Compile Include="Migrations\201704280915545_updateCustomer1.Designer.cs">
+      <DependentUpon>201704280915545_updateCustomer1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704280933522_addCustomer.cs" />
+    <Compile Include="Migrations\201704280933522_addCustomer.Designer.cs">
+      <DependentUpon>201704280933522_addCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704280956046_addSiteDoucumentId.cs" />
+    <Compile Include="Migrations\201704280956046_addSiteDoucumentId.Designer.cs">
+      <DependentUpon>201704280956046_addSiteDoucumentId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705020530214_updateCascade.cs" />
+    <Compile Include="Migrations\201705020530214_updateCascade.Designer.cs">
+      <DependentUpon>201705020530214_updateCascade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705020647247_updateCascade1.cs" />
+    <Compile Include="Migrations\201705020647247_updateCascade1.Designer.cs">
+      <DependentUpon>201705020647247_updateCascade1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705030602016_anonymousField.cs" />
+    <Compile Include="Migrations\201705030602016_anonymousField.Designer.cs">
+      <DependentUpon>201705030602016_anonymousField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705041253495_updateDriverTable.cs" />
+    <Compile Include="Migrations\201705041253495_updateDriverTable.Designer.cs">
+      <DependentUpon>201705041253495_updateDriverTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705110556493_updateDriver.cs" />
+    <Compile Include="Migrations\201705110556493_updateDriver.Designer.cs">
+      <DependentUpon>201705110556493_updateDriver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705120624202_updateFleetRegistration.cs" />
+    <Compile Include="Migrations\201705120624202_updateFleetRegistration.Designer.cs">
+      <DependentUpon>201705120624202_updateFleetRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705121143381_updateFleetRegistration1.cs" />
+    <Compile Include="Migrations\201705121143381_updateFleetRegistration1.Designer.cs">
+      <DependentUpon>201705121143381_updateFleetRegistration1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705150908556_AddFleetR.cs" />
+    <Compile Include="Migrations\201705150908556_AddFleetR.Designer.cs">
+      <DependentUpon>201705150908556_AddFleetR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705151212038_addFields.cs" />
+    <Compile Include="Migrations\201705151212038_addFields.Designer.cs">
+      <DependentUpon>201705151212038_addFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705160519043_addNewChanges.cs" />
+    <Compile Include="Migrations\201705160519043_addNewChanges.Designer.cs">
+      <DependentUpon>201705160519043_addNewChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705161114486_DbChanges.cs" />
+    <Compile Include="Migrations\201705161114486_DbChanges.Designer.cs">
+      <DependentUpon>201705161114486_DbChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BorgCivil.Utils\BorgCivil.Utils.csproj">
+      <Project>{142584c5-62a3-4ec0-8fb1-c8d13cc929a3}</Project>
+      <Name>BorgCivil.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201702281156352_createDB.resx">
+      <DependentUpon>201702281156352_createDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702281318110_addedTables.resx">
+      <DependentUpon>201702281318110_addedTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703081207390_AddedCompanyTable.resx">
+      <DependentUpon>201703081207390_AddedCompanyTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703081301401_AddedFkInCustomer.resx">
+      <DependentUpon>201703081301401_AddedFkInCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703081305017_AddedFkRelationship.resx">
+      <DependentUpon>201703081305017_AddedFkRelationship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703091350253_addDemoTable.resx">
+      <DependentUpon>201703091350253_addDemoTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703201202180_AddedEmployeeAnd.resx">
+      <DependentUpon>201703201202180_AddedEmployeeAnd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703201320346_addIsdeletedColumn.resx">
+      <DependentUpon>201703201320346_addIsdeletedColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703230712384_BookingFleetChanges.resx">
+      <DependentUpon>201703230712384_BookingFleetChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703231022068_changeInSite.resx">
+      <DependentUpon>201703231022068_changeInSite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703241234392_addField.resx">
+      <DependentUpon>201703241234392_addField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703271054258_addFieldInFleet.resx">
+      <DependentUpon>201703271054258_addFieldInFleet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703291308184_addFieldInBooking.resx">
+      <DependentUpon>201703291308184_addFieldInBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703301320196_addBookingId.resx">
+      <DependentUpon>201703301320196_addBookingId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704030543400_addChangesOfGate.resx">
+      <DependentUpon>201704030543400_addChangesOfGate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704050526287_addForgienKey.resx">
+      <DependentUpon>201704050526287_addForgienKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704060631001_addFKInBookingSiteGate.resx">
+      <DependentUpon>201704060631001_addFKInBookingSiteGate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704060906394_addSiteNote.resx">
+      <DependentUpon>201704060906394_addSiteNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704061056348_FleetHistoryTable.resx">
+      <DependentUpon>201704061056348_FleetHistoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704071331204_docket.resx">
+      <DependentUpon>201704071331204_docket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704101100271_willCascadeTrue.resx">
+      <DependentUpon>201704101100271_willCascadeTrue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704110947594_DocketChanges.resx">
+      <DependentUpon>201704110947594_DocketChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704111125035_DocketChanges1.resx">
+      <DependentUpon>201704111125035_DocketChanges1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704120718104_removedocument.resx">
+      <DependentUpon>201704120718104_removedocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704120725555_document.resx">
+      <DependentUpon>201704120725555_document.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704120935306_updateDB.resx">
+      <DependentUpon>201704120935306_updateDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704130549379_changesEmployee.resx">
+      <DependentUpon>201704130549379_changesEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704130643187_countryState.resx">
+      <DependentUpon>201704130643187_countryState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704130650412_countryStateTable.resx">
+      <DependentUpon>201704130650412_countryStateTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704130655062_IsActiveChange.resx">
+      <DependentUpon>201704130655062_IsActiveChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704131224581_DocumentRelation.resx">
+      <DependentUpon>201704131224581_DocumentRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704131256079_DocumentRelation1.resx">
+      <DependentUpon>201704131256079_DocumentRelation1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704141002238_driverRelations.resx">
+      <DependentUpon>201704141002238_driverRelations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704141023345_driverLicense.resx">
+      <DependentUpon>201704141023345_driverLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704141215262_driverDocument.resx">
+      <DependentUpon>201704141215262_driverDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704170557071_addInFleetR.resx">
+      <DependentUpon>201704170557071_addInFleetR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704171102326_addChanges.resx">
+      <DependentUpon>201704171102326_addChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704181137587_addKey.resx">
+      <DependentUpon>201704181137587_addKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704200559026_AddParamInEmployee.resx">
+      <DependentUpon>201704200559026_AddParamInEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704200846227_AddRoleParam.resx">
+      <DependentUpon>201704200846227_AddRoleParam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704200850528_AddCityState.resx">
+      <DependentUpon>201704200850528_AddCityState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704200942517_AddDocumentRelation.resx">
+      <DependentUpon>201704200942517_AddDocumentRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704240609351_AddEmployeeContact.resx">
+      <DependentUpon>201704240609351_AddEmployeeContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704240918163_AddDriverMappingTable.resx">
+      <DependentUpon>201704240918163_AddDriverMappingTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704261112291_addDocument.resx">
+      <DependentUpon>201704261112291_addDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704270602404_updateCustomer.resx">
+      <DependentUpon>201704270602404_updateCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704270614236_updateCustomerColumns.resx">
+      <DependentUpon>201704270614236_updateCustomerColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704270906326_addEmployee.resx">
+      <DependentUpon>201704270906326_addEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704271045585_emailTables.resx">
+      <DependentUpon>201704271045585_emailTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704271212441_addParamInFleetReg.resx">
+      <DependentUpon>201704271212441_addParamInFleetReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704280915545_updateCustomer1.resx">
+      <DependentUpon>201704280915545_updateCustomer1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704280933522_addCustomer.resx">
+      <DependentUpon>201704280933522_addCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704280956046_addSiteDoucumentId.resx">
+      <DependentUpon>201704280956046_addSiteDoucumentId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705020530214_updateCascade.resx">
+      <DependentUpon>201705020530214_updateCascade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705020647247_updateCascade1.resx">
+      <DependentUpon>201705020647247_updateCascade1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705030602016_anonymousField.resx">
+      <DependentUpon>201705030602016_anonymousField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705041253495_updateDriverTable.resx">
+      <DependentUpon>201705041253495_updateDriverTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705110556493_updateDriver.resx">
+      <DependentUpon>201705110556493_updateDriver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705120624202_updateFleetRegistration.resx">
+      <DependentUpon>201705120624202_updateFleetRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705121143381_updateFleetRegistration1.resx">
+      <DependentUpon>201705121143381_updateFleetRegistration1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705150908556_AddFleetR.resx">
+      <DependentUpon>201705150908556_AddFleetR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705151212038_addFields.resx">
+      <DependentUpon>201705151212038_addFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705160519043_addNewChanges.resx">
+      <DependentUpon>201705160519043_addNewChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705161114486_DbChanges.resx">
+      <DependentUpon>201705161114486_DbChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.AddAspNetUserFK.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.addCountryState.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.addParamCompanyUser.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.addParamCompanyUser1.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.addParamCompanyUser2.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.addProduct.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.addProduct1.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.addSevenColumnInProduct.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.addSevenColumnInProduct_ChangeDataTypeLength.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.addSevenColumnInProduct_ChangeDataTypeLength1.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.addSevenColumnInProduct_ChangeDataTypeLength2.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.addSevenColumnInProduct_ChangeDataTypeLength33.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.addTwoTable_Penalty_AdminConfig.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.addTwoTable_Penalty_AdminConfig2.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.changeDataTypeIntToFloat.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.DeletedTwoColumn.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.deleteProduct.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.NewDBAdd.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.RoleFK.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.sentEmailTable.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.TradeDB.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.updatePasswordLength.resources" />
+    <EmbeddedResource Include="obj\Debug\TradeSystem.Framework.Identity.updateProductTable.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

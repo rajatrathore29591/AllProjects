@@ -1,0 +1,257 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+    ViewBag.Title = "Report";
+}
+@model TradeSystem.Utils.Models.CustomerReportDataModel
+
+<!-- Existing Customers -->
+<div class="panel panel-flat">
+    <div class="panel-body">      
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class=" col-md-2">
+                        <label class="control-label mt-15">Select Report Type:</label>
+                    </div>
+                    <div class="col-md-2" style="display:none;">
+                        <select class="form-control" disabled id="mainDropDown" onchange="MainDropDownChange(this.value);">
+                            <option value="">Select</option>
+                            <option value="CustomerReport" selected>Customer Report</option>
+                            <option value="InvestmentReport">Investment Report</option>
+                            <option value="WithdrawalReport">Withdrawal Report</option>
+                            <option value="TicketReport">Ticket Report</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-control" id="customerReportDropDown" name="ReportType" onchange="CustomerReportDropDownChange(this.value);">
+                            <option value="">Select</option>
+                            <option value="CountryState">By Country & State</option>
+                            <option value="MoneyInvested">Money Invested</option>
+                            <option value="MoneyWithdrawal">Money Withdrawal</option>
+                            <option value="PrematureWithdrawal">Premature Withdrawal</option>
+                            <option value="Referals">Referals (Registring New Users)</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-2" style="display:none" id="countryDiv">
+                        <select id="countryId" data-placeholder="Select your country" name="CountryId" onchange="GetAllState(this.value);" class="select form-control">
+                            <option value="">Select</option>
+                            @foreach (var country in ViewBag.Country)
+                            {
+                                if (country.Text.ToString() == "Mexico")
+                                {
+                                    <option selected="selected" value="@country.Value">@country.Text</option>
+                                }
+                                else
+                                {
+                                    <option value="@country.Value">@country.Text</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-2" style="display:none" id="stateDiv">
+                        <select id="state" name="StateId" data-placeholder="Select your state" class="select form-control">
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+
+
+                    <div class="col-md-2" style="display:none" id="fromDiv">
+                        <input data-parsley-type="number" class="form-control" id="from" placeholder="From" min="1" maxlength="10" name="From" value="@Model.From" required onkeyup="CheckCustomerReport();" onkeypress="return isNumberDecimalKey(event)">
+                        <label id="fromLabel" class="error-red" style="display:none">This is required field</label>
+                    </div>
+
+                    <div class="col-md-2" style="display:none" id="toDiv">
+                        <input data-parsley-type="number" class="form-control" min="1" id="to" placeholder="To" name="To" value="@Model.To" maxlength="10" onkeyup="CheckCustomerReport();" onkeypress="return isNumberDecimalKey(event)" />
+                        <label id="toLabel" class="error-red" style="display:none">This is required field</label>
+                        <span id="condition" class="red" style="display:none;">"To" should be greater than "From" value</span>
+                    </div>
+                    <div class="col-md-2 text-right pull-right">
+                        <button id="submit" type="button" class="btn btn-primary" title="Submit" style="display:none" onclick="getSelectedMoneyInvested();">Submit <i class="icon-arrow-right14 position-right"></i></button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>      
+        <div id="customerReportPartial" class="mt-15">
+
+        </div>
+    </div>
+
+</div>
+<!-- /existing customers -->
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var cId = $('#countryId :selected').val();
+        GetAllState(cId);
+    });
+
+    $('#customerReportDropDown').val("");
+    //function for call get all state list by country id
+    $('#submit').click(function () {
+        var checkInvestment = CheckCustomerReport();
+        checkInvestment == true ? $('#submit').prop("disabled", true) : $('#submit').prop("disabled", false);
+        if (checkInvestment) return false;
+        if ($('#customerReportDropDown').val() == "MoneyInvested" || $('#customerReportDropDown').val() == "MoneyWithdrawal") {
+            if ($('#from').val() != "") {
+                if ($('#to').val() != "") {
+                    $('#fromLabel').hide();
+                    $('#toLabel').hide();
+                    $.ajax({
+                        type: "Post",
+                        url: '@Url.Action("CustomerReport", "Report")',
+                        data: { ReportType: $('#customerReportDropDown').val(), CountryId: $('#countryId').val(), StateId: $('#state').val(), From: $('#from').val(), To: $('#to').val() },
+                        success: function (response) {
+                            $('#customerReportPartial').html(response);
+                            loadReportTable();
+                        },
+                        failure: function (e) {
+                        }
+                    });
+                }
+                else {
+                    $('#fromLabel').hide();
+                    $('#toLabel').show();
+                }
+            }
+            else {
+                if ($('#to').val() == "") {
+                    $('#toLabel').show();
+                }
+                $('#fromLabel').show();
+                //$('#toLabel').hide();
+            }
+        }
+        else {
+            $.ajax({
+                type: "Post",
+                url: '@Url.Action("CustomerReport", "Report")',
+                data: { ReportType: $('#customerReportDropDown').val(), CountryId: $('#countryId').val(), StateId: $('#state').val(), From: $('#from').val(), To: $('#to').val() },
+                success: function (response) {
+                    $('#customerReportPartial').html(response);
+                    loadReportTable();
+                },
+                failure: function (e) {
+                }
+            });
+        }
+
+    });
+
+    //function for call get all state list by country id
+    function GetAllState(countryid) {
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("GetAllState", "CustomerManagement")',
+            data: { id: countryid },
+            success: function (response) {
+                var appenddata;
+                var result = $.parseJSON(response);
+                //get state json to object format
+                $.each(result, function (k, v) {
+                    appenddata += "<option value = '" + v.Value + " '>" + v.Text + " </option>";
+                });
+                $('#state').html(appenddata);
+            },
+            failure: function (e) {
+            }
+        });
+    }
+
+    //function for checking report type
+    function MainDropDownChange(value) {
+        if (value == "CustomerReport") {
+            $('#customerReportDropDown').show();
+            // $('#state').show();
+        }
+        if (value == "InvestmentReport") {
+            $('#customerReportDropDown').hide();
+        }
+        if (value == "WithdrawalReport") {
+            $('#customerReportDropDown').hide();
+        }
+        if (value == "TicketReport") {
+            $('#customerReportDropDown').hide();
+        }
+    }
+
+    //function for customer report
+    function CustomerReportDropDownChange(value) {
+        if (value == "CountryState") {
+            $('#countryDiv').show();
+            $('#stateDiv').show();
+            $('#fromDiv').hide();
+            $('#toDiv').hide();
+            $('#submit').show();
+            $('#reset').show();
+        }
+        if (value == "MoneyInvested") {
+            $('#countryDiv').hide();
+            $('#stateDiv').hide();
+            $('#fromDiv').show();
+            $('#toDiv').show();
+            $('#submit').show();
+            $('#reset').show();
+            $('#fromLabel').hide();
+            $('#toLabel').hide();
+        }
+        if (value == "MoneyWithdrawal") {
+            $('#countryDiv').hide();
+            $('#stateDiv').hide();
+            $('#fromDiv').show();
+            $('#toDiv').show();
+            $('#submit').show();
+            $('#reset').show();
+            $('#fromLabel').hide();
+            $('#toLabel').hide();
+        }
+        if (value == "PrematureWithdrawal") {
+            $('#countryDiv').hide();
+            $('#stateDiv').hide();
+            $('#fromDiv').hide();
+            $('#toDiv').hide();
+            $('#submit').show();
+            $('#reset').show();
+        }
+        if (value == "Referals") {
+            $('#countryDiv').hide();
+            $('#stateDiv').hide();
+            $('#fromDiv').hide();
+            $('#toDiv').hide();
+            $('#submit').show();
+            $('#reset').show();
+        }
+    }
+
+    // numeric javascript validation funtion
+    $('.keyup-numeric').keyup(function () {
+        $('span.error-keyup-1').hide();
+        var inputVal = $(this).val();
+        var numericReg = /^\d*[0-9](|.\d*[0-9]|,\d*[0-9])?$/;
+        if (!numericReg.test(inputVal)) {
+            console.log("enter")
+            //$('#from').val("") ;
+            $(this).after('<span class="error-red error-keyup-1">Numeric characters only.</span>');
+        }
+    });
+
+    //function for check max value is not greater than total investment value
+    function CheckCustomerReport() {
+        var isCheck = false;
+        var from = parseFloat($("#from").val().trim());
+        var to = parseFloat($("#to").val().trim());
+
+        if (from > to) {
+            $('#condition').show();
+            $('#submit').prop("disabled", true);
+            return isCheck = true;
+        }
+        else {
+            $('#condition').hide();
+            $('#submit').prop("disabled", false);
+            return isCheck = false;
+        }
+    }
+</script>

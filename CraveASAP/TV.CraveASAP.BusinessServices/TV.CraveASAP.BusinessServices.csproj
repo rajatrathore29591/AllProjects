@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CC2DA54E-68CF-4A7E-8C7D-71FB0487DD08}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TV.CraveASAP.BusinessServices</RootNamespace>
+    <AssemblyName>TV.CraveASAP.BusinessServices</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Android">
+      <HintPath>..\packages\PushSharp.2.0.4.0\lib\net40\PushSharp.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Apple">
+      <HintPath>..\packages\PushSharp.2.0.4.0\lib\net40\PushSharp.Apple.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Core">
+      <HintPath>..\packages\PushSharp.2.0.4.0\lib\net40\PushSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Windows">
+      <HintPath>..\packages\PushSharp.2.0.4.0\lib\net40\PushSharp.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.WindowsPhone">
+      <HintPath>..\packages\PushSharp.2.0.4.0\lib\net40\PushSharp.WindowsPhone.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Device" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminChartServices.cs" />
+    <Compile Include="AdminManageActivePromotionsServices.cs" />
+    <Compile Include="AdminReward .cs" />
+    <Compile Include="BannerServices.cs" />
+    <Compile Include="AppDefaultLandingPageServices.cs" />
+    <Compile Include="CategoryServices.cs" />
+    <Compile Include="EddeeResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EddeeResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="HelperClass\Encrypt_decrypt.cs" />
+    <Compile Include="HelperClass\ManageMultipleDevices.cs" />
+    <Compile Include="HelperClass\ManageUserRewards.cs" />
+    <Compile Include="HelperClass\OAuthBase.cs" />
+    <Compile Include="HelperClass\ScheduledJobs.cs" />
+    <Compile Include="Interfaces\IAdminChartServices.cs" />
+    <Compile Include="Interfaces\IAdminReward.cs" />
+    <Compile Include="Interfaces\IAppDefaultLandingPageServices.cs" />
+    <Compile Include="Interfaces\IBannerServices.cs" />
+    <Compile Include="Interfaces\ICategoryServices.cs" />
+    <Compile Include="Interfaces\IPointConfigurationServices.cs" />
+    <Compile Include="Interfaces\IPushNotificationServices.cs" />
+    <Compile Include="Interfaces\IUserPrefrenceServices.cs" />
+    <Compile Include="OAuthServices.cs" />
+    <Compile Include="PointConfigurationServices.cs" />
+    <Compile Include="Interfaces\IVendorPromotionServices.cs" />
+    <Compile Include="HelperClass\PushNotification.cs" />
+    <Compile Include="PushNotificationServices.cs" />
+    <Compile Include="UserPrefrencesServices.cs" />
+    <Compile Include="VendorPromotionServices.cs" />
+    <Compile Include="DynamicHTMLContentServices.cs" />
+    <Compile Include="HelperClass\EmailUtility.cs" />
+    <Compile Include="Interfaces\IAdminManageActivePromotionsServices.cs" />
+    <Compile Include="Interfaces\IDynamicHTMLContentServices.cs" />
+    <Compile Include="Interfaces\ISubscribeServices.cs" />
+    <Compile Include="Interfaces\IUserPromotionsServices.cs" />
+    <Compile Include="Interfaces\IVendorService.cs" />
+    <Compile Include="Interfaces\IUserServices.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubscribeServices.cs" />
+    <Compile Include="UserPromotionsServices.cs" />
+    <Compile Include="UserServices.cs" />
+    <Compile Include="VendorServices.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TV.CraveASAP.BusinessEntities\TV.CraveASAP.BusinessEntities.csproj">
+      <Project>{99d1e789-85c7-4e83-a582-a2daa79d67a3}</Project>
+      <Name>TV.CraveASAP.BusinessEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TV.CraveASAP.DataModel\TV.CraveASAP.DataModel.csproj">
+      <Project>{512a1452-eaf2-4ad5-876f-92575a2ea986}</Project>
+      <Name>TV.CraveASAP.DataModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EddeeResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EddeeResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

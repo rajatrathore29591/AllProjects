@@ -1,0 +1,64 @@
+﻿@using System.Globalization;
+@model IEnumerable<TradeSystem.Utils.Models.ProductDataModel>
+@{
+    ViewBag.Title = "Inventory";
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+}
+
+<!-- Existing Customers -->
+<div class="panel panel-flat">
+    <div class="panel-body">
+        <div class="text-right">
+            <a href="@Url.Action("CreateNewInvestment", "InvestmentConfiguration")" class="btn btn-primary mr-25" title="Create New Investment">Create New Investment <i class="icon-plus-circle2 position-right"></i></a>
+            <span class="btn btn-primary pr-15 mr-60 visible-none"></span>
+            <div class="tooltip-section">
+                <button type="button" class="btn btn-primary btn-sm" data-popup="tooltip" title="<strong>@Resources.Languages.AdminExportToolTip</strong>" data-html="true"><i class="icon-question7"></i> </button>
+            </div>
+            @* <span class="btn btn-primary pr-15 visible-none"> @Html.ActionLink("Export", "ExportToExcel", "InventoryManagement", (List<TradeSystem.Utils.Models.ProductDataModel>)Model, new { @class = "btn-primary", title = "Export to Excel", id = "btn-actionlink-export" })</span>
+    <a href="@Url.Action("Export", "ExportToExcel","InventoryManagement")"><span>Text</span></a>*@
+        </div>
+        <div class="data-tbl-wrapper">
+            <table class="table table-bordered table-hover" id="inventory_admin_data_table">
+                <thead>
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Investment Name</th>
+                        <th>Total Value</th>
+                        <th>Remaining Value to Invest</th>
+                        <th>Publish Date</th>
+                        <th class="text-center">No. of Customers</th>
+                        @*<th>Status</th>*@
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    @foreach (var item in Model)
+                    {
+                        // var dateTime = ConvertJsonDateString(item.CreatedDate);
+
+                        <tr>
+                            <td></td>
+                            <td><a href="@Url.Action("InvestmentDetails", "InventoryManagement",new {@id=@item.Id})">@item.Name</a></td>
+                            <td class="text-right">@item.TotalValueOfInvestment.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
+                            <td class="text-right">@item.RemainingValueOfInvestment.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
+                            <td>@item.CreatedDate.ToString("MM-dd-yyyy")</td>
+                            <td class="text-center">@item.CustomerProductsCount</td>
+                            @*<td><span class="label label-success">@item.IsActive</span></td>*@
+                        </tr>
+                        // sno++;
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- /existing customers -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btn-actionlink-export').append('<i class="icon-file-excel position-right"></i>');
+    });
+
+</script>

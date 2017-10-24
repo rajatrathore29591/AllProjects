@@ -1,0 +1,27 @@
+﻿<div class="inmodal contactdetails">
+    <div class="modal-header text-center">
+        <!--<i class="fa fa-sliders color-success h-modal-icon"></i>-->
+        <h4 class="modal-title"> Work Type Details</h4>
+        <div class="clostbtn">
+            <button type="button" ng-click="wtCtrl.hideCancel()" title="Close"><img src="Content/images/closebtn.png"></button>
+        </div>
+    </div>
+    <form name="contactDetailForm" ng-submit="wtCtrl.saveWorkType()" novalidate>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Type <span class="text-danger"> *</span></label>
+                        <input class="form-control only-float" name="" type="text" ng-model="wtCtrl.type" ng-maxlength="50" ng-minlength="3" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" title="Close" ng-click="wtCtrl.hideCancel()">Close</button>
+            <button type="submit" class="btn btn btn-primary" data-dismiss="modal" title="Update" ng-if="wtCtrl.workTypeId">Update</button>
+            <button type="submit" class="btn btn btn-primary" data-dismiss="modal" title="Save" ng-if="!wtCtrl.workTypeId">Save</button>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,2235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CraveASAPDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="CraveASAPDBModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="CraveASAPDBModel.Store.Admin" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AdminVendor" EntityType="CraveASAPDBModel.Store.AdminVendor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AppDefaultLandingPage" EntityType="CraveASAPDBModel.Store.AppDefaultLandingPage" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Banners" EntityType="CraveASAPDBModel.Store.Banners" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Category" EntityType="CraveASAPDBModel.Store.Category" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Configuration" EntityType="CraveASAPDBModel.Store.Configuration" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ContentManagement" EntityType="CraveASAPDBModel.Store.ContentManagement" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DefaultPromotionCodeBanner" EntityType="CraveASAPDBModel.Store.DefaultPromotionCodeBanner" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DynamicHTMLContent" EntityType="CraveASAPDBModel.Store.DynamicHTMLContent" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Location" EntityType="CraveASAPDBModel.Store.Location" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OAuth" EntityType="CraveASAPDBModel.Store.OAuth" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OpeningHours" EntityType="CraveASAPDBModel.Store.OpeningHours" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OptionalCategory" EntityType="CraveASAPDBModel.Store.OptionalCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Points" EntityType="CraveASAPDBModel.Store.Points" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PointsConfiguration" EntityType="CraveASAPDBModel.Store.PointsConfiguration" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PredictiveNotifications" EntityType="CraveASAPDBModel.Store.PredictiveNotifications" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PromotionCode" EntityType="CraveASAPDBModel.Store.PromotionCode" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Rewards" EntityType="CraveASAPDBModel.Store.Rewards" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SubCategory" EntityType="CraveASAPDBModel.Store.SubCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Subscribe" EntityType="CraveASAPDBModel.Store.Subscribe" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SuperAdminLogin" EntityType="CraveASAPDBModel.Store.SuperAdminLogin" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserFavourite" EntityType="CraveASAPDBModel.Store.UserFavourite" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserLocations" EntityType="CraveASAPDBModel.Store.UserLocations" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserPrefrences" EntityType="CraveASAPDBModel.Store.UserPrefrences" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserPromotion" EntityType="CraveASAPDBModel.Store.UserPromotion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserPromotionSkip" EntityType="CraveASAPDBModel.Store.UserPromotionSkip" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserRewards" EntityType="CraveASAPDBModel.Store.UserRewards" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="CraveASAPDBModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Vendor" EntityType="CraveASAPDBModel.Store.Vendor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VendorBranch" EntityType="CraveASAPDBModel.Store.VendorBranch" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__AppDefaul__categ__25518C17" Association="CraveASAPDBModel.Store.FK__AppDefaul__categ__25518C17">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="AppDefaultLandingPage" EntitySet="AppDefaultLandingPage" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OpeningHo__fkven__51300E55" Association="CraveASAPDBModel.Store.FK__OpeningHo__fkven__51300E55">
+            <End Role="Vendor" EntitySet="Vendor" />
+            <End Role="OpeningHours" EntitySet="OpeningHours" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OptionalC__categ__3B75D760" Association="CraveASAPDBModel.Store.FK__OptionalC__categ__3B75D760">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="OptionalCategory" EntitySet="OptionalCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Promotion__vendo__0B91BA14" Association="CraveASAPDBModel.Store.FK__Promotion__vendo__0B91BA14">
+            <End Role="Vendor" EntitySet="Vendor" />
+            <End Role="PromotionCode" EntitySet="PromotionCode" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SubCatego__categ__5441852A" Association="CraveASAPDBModel.Store.FK__SubCatego__categ__5441852A">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="SubCategory" EntitySet="SubCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserFavou__userI__308E3499" Association="CraveASAPDBModel.Store.FK__UserFavou__userI__308E3499">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserFavourite" EntitySet="UserFavourite" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserFavou__vendo__2F9A1060" Association="CraveASAPDBModel.Store.FK__UserFavou__vendo__2F9A1060">
+            <End Role="Vendor" EntitySet="Vendor" />
+            <End Role="UserFavourite" EntitySet="UserFavourite" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPrefr__categ__36470DEF" Association="CraveASAPDBModel.Store.FK__UserPrefr__categ__36470DEF">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="UserPrefrences" EntitySet="UserPrefrences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPrefr__userI__3552E9B6" Association="CraveASAPDBModel.Store.FK__UserPrefr__userI__3552E9B6">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserPrefrences" EntitySet="UserPrefrences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPromo__promo__45F365D3" Association="CraveASAPDBModel.Store.FK__UserPromo__promo__45F365D3">
+            <End Role="PromotionCode" EntitySet="PromotionCode" />
+            <End Role="UserPromotionSkip" EntitySet="UserPromotionSkip" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPromo__promo__6D0D32F4" Association="CraveASAPDBModel.Store.FK__UserPromo__promo__6D0D32F4">
+            <End Role="PromotionCode" EntitySet="PromotionCode" />
+            <End Role="UserPromotion" EntitySet="UserPromotion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPromo__userI__6B24EA82" Association="CraveASAPDBModel.Store.FK__UserPromo__userI__6B24EA82">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserPromotion" EntitySet="UserPromotion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserRewar__rewar__3B0BC30C" Association="CraveASAPDBModel.Store.FK__UserRewar__rewar__3B0BC30C">
+            <End Role="Rewards" EntitySet="Rewards" />
+            <End Role="UserRewards" EntitySet="UserRewards" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserRewar__userI__6A30C649" Association="CraveASAPDBModel.Store.FK__UserRewar__userI__6A30C649">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserRewards" EntitySet="UserRewards" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vendor__business__13F1F5EB" Association="CraveASAPDBModel.Store.FK__Vendor__business__13F1F5EB">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Vendor" EntitySet="Vendor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VendorBra__vendo__693CA210" Association="CraveASAPDBModel.Store.FK__VendorBra__vendo__693CA210">
+            <End Role="Vendor" EntitySet="Vendor" />
+            <End Role="VendorBranch" EntitySet="VendorBranch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OptionalCategory_SubCategory" Association="CraveASAPDBModel.Store.FK_OptionalCategory_SubCategory">
+            <End Role="SubCategory" EntitySet="SubCategory" />
+            <End Role="OptionalCategory" EntitySet="OptionalCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLocations_UserLocations" Association="CraveASAPDBModel.Store.FK_UserLocations_UserLocations">
+            <End Role="UserLocations" EntitySet="UserLocations" />
+            <End Role="UserLocations1" EntitySet="UserLocations" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="adminId" />
+          </Key>
+          <Property Name="adminId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="adminName" Type="nvarchar" MaxLength="100" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" />
+          <Property Name="phoneNo" Type="nvarchar" MaxLength="30" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="associatedVendors" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="AdminVendor">
+          <Key>
+            <PropertyRef Name="adminVendorId" />
+          </Key>
+          <Property Name="adminVendorId" Type="int" Nullable="false" />
+          <Property Name="adminVendorName" Type="nvarchar" MaxLength="30" />
+          <Property Name="password" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="AppDefaultLandingPage">
+          <Key>
+            <PropertyRef Name="landingPageId" />
+          </Key>
+          <Property Name="landingPageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" />
+          <Property Name="fromTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="toTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="categoryId" Type="int" Nullable="false" />
+          <Property Name="categoryStatus" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Banners">
+          <Key>
+            <PropertyRef Name="bannerId" />
+          </Key>
+          <Property Name="bannerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" />
+          <Property Name="platform" Type="nvarchar" MaxLength="50" />
+          <Property Name="language" Type="nvarchar" MaxLength="50" />
+          <Property Name="imageURL" Type="nvarchar(max)" />
+          <Property Name="reference" Type="nvarchar(max)" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="delay" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="categoryId" />
+          </Key>
+          <Property Name="categoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="categoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="language" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Configuration">
+          <Key>
+            <PropertyRef Name="configId" />
+          </Key>
+          <Property Name="configId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="action" Type="nvarchar" MaxLength="200" />
+          <Property Name="value" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="ContentManagement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="contentName" Type="nchar" MaxLength="100" />
+          <Property Name="contentLink" Type="nchar" MaxLength="200" />
+          <Property Name="isActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="DefaultPromotionCodeBanner">
+          <Key>
+            <PropertyRef Name="promotionCodeBannerId" />
+          </Key>
+          <Property Name="promotionCodeBannerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="promotionCodeBannerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="bannerUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="vendorId" Type="int" />
+          <Property Name="platform" Type="nvarchar" MaxLength="50" />
+          <Property Name="language" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DynamicHTMLContent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pageName" Type="nvarchar" MaxLength="50" />
+          <Property Name="language" Type="nvarchar" MaxLength="40" />
+          <Property Name="pageContent" Type="ntext" />
+          <Property Name="plainText" Type="nvarchar" MaxLength="50" />
+          <Property Name="contentFor" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="locationId" />
+          </Key>
+          <Property Name="locationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="locationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" />
+          <Property Name="region" Type="nvarchar" MaxLength="50" />
+          <Property Name="address" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="OAuth">
+          <Key>
+            <PropertyRef Name="oAuthId" />
+          </Key>
+          <Property Name="oAuthId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="loginId" Type="int" />
+          <Property Name="appType" Type="nvarchar" MaxLength="50" />
+          <Property Name="OAuthToken" Type="nvarchar" MaxLength="1000" />
+          <Property Name="time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OpeningHours">
+          <Key>
+            <PropertyRef Name="openingHoursId" />
+          </Key>
+          <Property Name="openingHoursId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="fromday" Type="varchar" MaxLength="50" />
+          <Property Name="today" Type="varchar" MaxLength="50" />
+          <Property Name="fromtime" Type="varchar" MaxLength="50" />
+          <Property Name="totime" Type="varchar" MaxLength="50" />
+          <Property Name="fkvendorId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OptionalCategory">
+          <Key>
+            <PropertyRef Name="optCategoryId" />
+          </Key>
+          <Property Name="optCategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="optCategoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="language" Type="nvarchar" MaxLength="50" />
+          <Property Name="categoryId" Type="int" Nullable="false" />
+          <Property Name="subCategoryId" Type="int" Nullable="false" />
+          <Property Name="isDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="Points">
+          <Key>
+            <PropertyRef Name="pointId" />
+          </Key>
+          <Property Name="pointId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PointsConfiguration">
+          <Key>
+            <PropertyRef Name="ptConfigurationId" />
+          </Key>
+          <Property Name="ptConfigurationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="action" Type="nvarchar" MaxLength="50" />
+          <Property Name="limit" Type="int" />
+          <Property Name="pointsEarned" Type="int" />
+        </EntityType>
+        <EntityType Name="PredictiveNotifications">
+          <Key>
+            <PropertyRef Name="preId" />
+          </Key>
+          <Property Name="preId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="int" />
+          <Property Name="promotionCodeId" Type="int" />
+          <Property Name="status" Type="bit" />
+          <Property Name="sendTime" Type="datetime" />
+          <Property Name="reSendTime" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="PromotionCode">
+          <Key>
+            <PropertyRef Name="promotionCodeId" />
+          </Key>
+          <Property Name="promotionCodeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="nvarchar" MaxLength="20" />
+          <Property Name="name" Type="nvarchar" MaxLength="30" />
+          <Property Name="descriptionEnglish" Type="nvarchar(max)" />
+          <Property Name="descriptionThai" Type="nvarchar(max)" />
+          <Property Name="promotionCreatedDate" Type="datetime" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="expiryDate" Type="datetime" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+          <Property Name="modifyDate" Type="datetime" />
+          <Property Name="isRelaunch" Type="int" />
+          <Property Name="lastRelaunchDate" Type="datetime" />
+          <Property Name="vendorId" Type="int" Nullable="false" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="recommendation" Type="int" Nullable="false" />
+          <Property Name="isPinned" Type="bit" Nullable="false" />
+          <Property Name="PinnedDate" Type="datetime" />
+          <Property Name="categoryId" Type="int" Nullable="false" />
+          <Property Name="subCategoryId" Type="int" Nullable="false" />
+          <Property Name="optCategoryId" Type="int" Nullable="false" />
+          <Property Name="shareFacebookCount" Type="nvarchar" MaxLength="50" />
+          <Property Name="shareInstagramCount" Type="nvarchar" MaxLength="50" />
+          <Property Name="shareTwitterCount" Type="nvarchar" MaxLength="50" />
+          <Property Name="price" Type="int" />
+          <Property Name="useCount" Type="int" />
+          <Property Name="viewCount" Type="int" />
+          <Property Name="recommendationCount" Type="int" />
+          <Property Name="promotionImage" Type="nvarchar" MaxLength="100" />
+          <Property Name="isDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="Rewards">
+          <Key>
+            <PropertyRef Name="rewardId" />
+          </Key>
+          <Property Name="rewardId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="rewardName" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="image" Type="nvarchar" MaxLength="150" />
+          <Property Name="platform" Type="nvarchar" MaxLength="50" />
+          <Property Name="code" Type="nvarchar" MaxLength="50" />
+          <Property Name="endDate" Type="datetime" />
+          <Property Name="expiryHours" Type="nvarchar" MaxLength="50" />
+          <Property Name="isSpecial" Type="bit" />
+          <Property Name="nextAvailability" Type="nvarchar" MaxLength="50" />
+          <Property Name="type" Type="nvarchar" MaxLength="20" />
+          <Property Name="usedCount" Type="int" />
+          <Property Name="isActive" Type="bit" />
+          <Property Name="language" Type="nvarchar" MaxLength="50" />
+          <Property Name="link" Type="nvarchar(max)" />
+          <Property Name="point" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="subCategoryId" />
+          </Key>
+          <Property Name="subCategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="subCategoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="language" Type="nvarchar" MaxLength="50" />
+          <Property Name="categoryId" Type="int" Nullable="false" />
+          <Property Name="isDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="Subscribe">
+          <Key>
+            <PropertyRef Name="subscribeId" />
+          </Key>
+          <Property Name="subscribeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" />
+          <Property Name="isSubscribe" Type="bit" />
+        </EntityType>
+        <EntityType Name="SuperAdminLogin">
+          <Key>
+            <PropertyRef Name="loginId" />
+          </Key>
+          <Property Name="loginId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="loginName" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserFavourite">
+          <Key>
+            <PropertyRef Name="favoriteRestaurantId" />
+          </Key>
+          <Property Name="favoriteRestaurantId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vendorId" Type="int" />
+          <Property Name="userId" Type="int" />
+          <Property Name="isActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserLocations">
+          <Key>
+            <PropertyRef Name="userLocationId" />
+          </Key>
+          <Property Name="userLocationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="fkUser" Type="int" Nullable="false" />
+          <Property Name="isDefault" Type="bit" />
+          <Property Name="mealTime" Type="nvarchar" MaxLength="500" />
+          <Property Name="locationAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="locationLat" Type="nvarchar" MaxLength="100" />
+          <Property Name="locationLong" Type="nvarchar" MaxLength="100" />
+          <Property Name="isCurrent" Type="bit" />
+          <Property Name="visitedDatetime" Type="datetime" />
+          <Property Name="isDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserPrefrences">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="categoryId" Type="int" Nullable="false" />
+          <Property Name="prefrencesId" Type="int" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+          <Property Name="isActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserPromotion">
+          <Key>
+            <PropertyRef Name="userPromotionId" />
+          </Key>
+          <Property Name="userPromotionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="int" />
+          <Property Name="promotionId" Type="int" />
+          <Property Name="isRecommended" Type="bit" />
+          <Property Name="isShareFacebook" Type="bit" />
+          <Property Name="isShareTwitter" Type="bit" />
+          <Property Name="isShareInstagram" Type="bit" />
+          <Property Name="isViewed" Type="bit" />
+          <Property Name="isUsed" Type="bit" />
+          <Property Name="userTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="useDate" Type="datetime" />
+          <Property Name="isDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserPromotionSkip">
+          <Key>
+            <PropertyRef Name="userPromotionId" />
+          </Key>
+          <Property Name="userPromotionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="int" />
+          <Property Name="promotionId" Type="int" />
+          <Property Name="isRecommended" Type="bit" />
+          <Property Name="isShareFacebook" Type="bit" />
+          <Property Name="isShareTwitter" Type="bit" />
+          <Property Name="isShareInstagram" Type="bit" />
+          <Property Name="isViewed" Type="bit" />
+          <Property Name="isUsed" Type="bit" />
+          <Property Name="userTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="useDate" Type="datetime" />
+          <Property Name="deviceToken" Type="varchar" MaxLength="500" />
+          <Property Name="devicePlatform" Type="varchar" MaxLength="100" />
+          <Property Name="isDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserRewards">
+          <Key>
+            <PropertyRef Name="userRewardId" />
+          </Key>
+          <Property Name="userRewardId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="rewardId" Type="int" />
+          <Property Name="userId" Type="int" />
+          <Property Name="isUsed" Type="bit" />
+          <Property Name="useTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="150" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="150" />
+          <Property Name="profilePicture" Type="nvarchar" MaxLength="150" />
+          <Property Name="gender" Type="nvarchar" MaxLength="25" />
+          <Property Name="email" Type="nvarchar" MaxLength="200" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="points" Type="int" />
+          <Property Name="facebookId" Type="nvarchar" MaxLength="200" />
+          <Property Name="facebookInviteDate" Type="datetime" />
+          <Property Name="facebookInviteCount" Type="int" />
+          <Property Name="instagramInviteDate" Type="datetime" />
+          <Property Name="instagramInviteCount" Type="int" />
+          <Property Name="twitterInviteDate" Type="datetime" />
+          <Property Name="twitterInviteCount" Type="int" />
+          <Property Name="dealFacebookInviteDate" Type="datetime" />
+          <Property Name="dealFacebookInviteCount" Type="int" />
+          <Property Name="dealInstagramInviteDate" Type="datetime" />
+          <Property Name="dealInstagramInviteCount" Type="int" />
+          <Property Name="dealTwitterInviteDate" Type="datetime" />
+          <Property Name="dealTwitterInviteCount" Type="int" />
+          <Property Name="language" Type="nvarchar" MaxLength="25" />
+          <Property Name="deviceToken" Type="nvarchar(max)" />
+          <Property Name="devicePlatform" Type="nvarchar(max)" />
+          <Property Name="usePromoDate" Type="datetime" />
+          <Property Name="useCount" Type="int" />
+          <Property Name="likePromoDate" Type="datetime" />
+          <Property Name="likeCount" Type="int" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="vendorId" />
+          </Key>
+          <Property Name="vendorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="loginVendorName" Type="nvarchar" MaxLength="50" />
+          <Property Name="companyName" Type="nvarchar" MaxLength="100" />
+          <Property Name="businessCategory" Type="int" Nullable="false" />
+          <Property Name="shortDescription" Type="nvarchar" MaxLength="200" />
+          <Property Name="fullDescription" Type="nvarchar(max)" />
+          <Property Name="email" Type="nvarchar" MaxLength="150" />
+          <Property Name="phoneNo" Type="nvarchar" MaxLength="40" />
+          <Property Name="contactPerson" Type="nvarchar" MaxLength="100" />
+          <Property Name="contactPhoneNo" Type="nvarchar" MaxLength="30" />
+          <Property Name="contactEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="streetName" Type="nvarchar" MaxLength="150" />
+          <Property Name="postCode" Type="nvarchar" MaxLength="200" />
+          <Property Name="buildingName" Type="nvarchar" MaxLength="200" />
+          <Property Name="floor" Type="nvarchar" MaxLength="100" />
+          <Property Name="area" Type="nvarchar" MaxLength="200" />
+          <Property Name="city" Type="nvarchar" MaxLength="200" />
+          <Property Name="latitude" Type="nvarchar" MaxLength="500" />
+          <Property Name="longitude" Type="nvarchar" MaxLength="500" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="taxId" Type="int" Nullable="false" />
+          <Property Name="logoImg" Type="nvarchar(max)" />
+          <Property Name="deviceToken" Type="nvarchar(max)" />
+          <Property Name="devicePlatform" Type="nvarchar(max)" />
+          <Property Name="isDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="VendorBranch">
+          <Key>
+            <PropertyRef Name="vendorBranchId" />
+          </Key>
+          <Property Name="vendorBranchId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="businessName" Type="nvarchar" MaxLength="100" />
+          <Property Name="taxId" Type="nvarchar" MaxLength="50" />
+          <Property Name="location" Type="nvarchar" MaxLength="50" />
+          <Property Name="fullAddress" Type="nvarchar" MaxLength="200" />
+          <Property Name="deliveryAddress" Type="nvarchar" MaxLength="200" />
+          <Property Name="phoneNo" Type="nvarchar" MaxLength="30" />
+          <Property Name="contactPerson" Type="nvarchar" MaxLength="50" />
+          <Property Name="additionalInfo" Type="nvarchar" MaxLength="250" />
+          <Property Name="defaultBranch" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" />
+          <Property Name="vendorId" Type="int" Nullable="false" />
+          <Property Name="branchCode" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__AppDefaul__categ__25518C17">
+          <End Role="Category" Type="CraveASAPDBModel.Store.Category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AppDefaultLandingPage" Type="CraveASAPDBModel.Store.AppDefaultLandingPage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="categoryId" />
+            </Principal>
+            <Dependent Role="AppDefaultLandingPage">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OpeningHo__fkven__51300E55">
+          <End Role="Vendor" Type="CraveASAPDBModel.Store.Vendor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OpeningHours" Type="CraveASAPDBModel.Store.OpeningHours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="vendorId" />
+            </Principal>
+            <Dependent Role="OpeningHours">
+              <PropertyRef Name="fkvendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OptionalC__categ__3B75D760">
+          <End Role="Category" Type="CraveASAPDBModel.Store.Category" Multiplicity="1" />
+          <End Role="OptionalCategory" Type="CraveASAPDBModel.Store.OptionalCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="categoryId" />
+            </Principal>
+            <Dependent Role="OptionalCategory">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Promotion__vendo__0B91BA14">
+          <End Role="Vendor" Type="CraveASAPDBModel.Store.Vendor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PromotionCode" Type="CraveASAPDBModel.Store.PromotionCode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="vendorId" />
+            </Principal>
+            <Dependent Role="PromotionCode">
+              <PropertyRef Name="vendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SubCatego__categ__5441852A">
+          <End Role="Category" Type="CraveASAPDBModel.Store.Category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SubCategory" Type="CraveASAPDBModel.Store.SubCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="categoryId" />
+            </Principal>
+            <Dependent Role="SubCategory">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserFavou__userI__308E3499">
+          <End Role="Users" Type="CraveASAPDBModel.Store.Users" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserFavourite" Type="CraveASAPDBModel.Store.UserFavourite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserFavourite">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserFavou__vendo__2F9A1060">
+          <End Role="Vendor" Type="CraveASAPDBModel.Store.Vendor" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserFavourite" Type="CraveASAPDBModel.Store.UserFavourite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="vendorId" />
+            </Principal>
+            <Dependent Role="UserFavourite">
+              <PropertyRef Name="vendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPrefr__categ__36470DEF">
+          <End Role="Category" Type="CraveASAPDBModel.Store.Category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserPrefrences" Type="CraveASAPDBModel.Store.UserPrefrences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="categoryId" />
+            </Principal>
+            <Dependent Role="UserPrefrences">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPrefr__userI__3552E9B6">
+          <End Role="Users" Type="CraveASAPDBModel.Store.Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserPrefrences" Type="CraveASAPDBModel.Store.UserPrefrences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserPrefrences">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPromo__promo__45F365D3">
+          <End Role="PromotionCode" Type="CraveASAPDBModel.Store.PromotionCode" Multiplicity="0..1" />
+          <End Role="UserPromotionSkip" Type="CraveASAPDBModel.Store.UserPromotionSkip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PromotionCode">
+              <PropertyRef Name="promotionCodeId" />
+            </Principal>
+            <Dependent Role="UserPromotionSkip">
+              <PropertyRef Name="promotionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPromo__promo__6D0D32F4">
+          <End Role="PromotionCode" Type="CraveASAPDBModel.Store.PromotionCode" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserPromotion" Type="CraveASAPDBModel.Store.UserPromotion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PromotionCode">
+              <PropertyRef Name="promotionCodeId" />
+            </Principal>
+            <Dependent Role="UserPromotion">
+              <PropertyRef Name="promotionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPromo__userI__6B24EA82">
+          <End Role="Users" Type="CraveASAPDBModel.Store.Users" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserPromotion" Type="CraveASAPDBModel.Store.UserPromotion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserPromotion">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserRewar__rewar__3B0BC30C">
+          <End Role="Rewards" Type="CraveASAPDBModel.Store.Rewards" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserRewards" Type="CraveASAPDBModel.Store.UserRewards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rewards">
+              <PropertyRef Name="rewardId" />
+            </Principal>
+            <Dependent Role="UserRewards">
+              <PropertyRef Name="rewardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserRewar__userI__6A30C649">
+          <End Role="Users" Type="CraveASAPDBModel.Store.Users" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserRewards" Type="CraveASAPDBModel.Store.UserRewards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserRewards">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vendor__business__13F1F5EB">
+          <End Role="Category" Type="CraveASAPDBModel.Store.Category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Vendor" Type="CraveASAPDBModel.Store.Vendor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="categoryId" />
+            </Principal>
+            <Dependent Role="Vendor">
+              <PropertyRef Name="businessCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VendorBra__vendo__693CA210">
+          <End Role="Vendor" Type="CraveASAPDBModel.Store.Vendor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="VendorBranch" Type="CraveASAPDBModel.Store.VendorBranch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="vendorId" />
+            </Principal>
+            <Dependent Role="VendorBranch">
+              <PropertyRef Name="vendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OptionalCategory_SubCategory">
+          <End Role="SubCategory" Type="CraveASAPDBModel.Store.SubCategory" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OptionalCategory" Type="CraveASAPDBModel.Store.OptionalCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="subCategoryId" />
+            </Principal>
+            <Dependent Role="OptionalCategory">
+              <PropertyRef Name="subCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLocations_UserLocations">
+          <End Role="UserLocations" Type="CraveASAPDBModel.Store.UserLocations" Multiplicity="1" />
+          <End Role="UserLocations1" Type="CraveASAPDBModel.Store.UserLocations" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserLocations">
+              <PropertyRef Name="userLocationId" />
+            </Principal>
+            <Dependent Role="UserLocations1">
+              <PropertyRef Name="userLocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetCagegoryData" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetCagegoryDataByID" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryIDA" Type="int" Mode="In" />
+          <Parameter Name="CategoryIDB" Type="int" Mode="In" />
+          <Parameter Name="StaticId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_Analytics" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vendorId" Type="int" Mode="In" />
+          <Parameter Name="time" Type="nvarchar" Mode="In" />
+          <Parameter Name="CategoryType" Type="nvarchar" Mode="In" />
+          <Parameter Name="fromDate" Type="datetime" Mode="In" />
+          <Parameter Name="toDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="usp_AnalyticsByVendorID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vendorID" Type="int" Mode="In" />
+          <Parameter Name="fromDate" Type="datetime" Mode="In" />
+          <Parameter Name="toDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="usp_AnalyticsPromotion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_AnalyticsSocialMedia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_AnalyticsTrackUsage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_AnalyticsUsagePerDay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_AnalyticsUserPerDayUseCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CraveASAPDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DB_9D9221_eddeeEntities" p1:LazyLoadingEnabled="true" >
+          <EntitySet Name="AdminVendors" EntityType="CraveASAPDBModel.AdminVendor" />
+          <EntitySet Name="AppDefaultLandingPages" EntityType="CraveASAPDBModel.AppDefaultLandingPage" />
+          <EntitySet Name="Banners" EntityType="CraveASAPDBModel.Banner" />
+          <EntitySet Name="Categories" EntityType="CraveASAPDBModel.Category" />
+          <EntitySet Name="Configurations" EntityType="CraveASAPDBModel.Configuration" />
+          <EntitySet Name="ContentManagements" EntityType="CraveASAPDBModel.ContentManagement" />
+          <EntitySet Name="DefaultPromotionCodeBanners" EntityType="CraveASAPDBModel.DefaultPromotionCodeBanner" />
+          <EntitySet Name="DynamicHTMLContents" EntityType="CraveASAPDBModel.DynamicHTMLContent" />
+          <EntitySet Name="Locations" EntityType="CraveASAPDBModel.Location" />
+          <EntitySet Name="OAuths" EntityType="CraveASAPDBModel.OAuth" />
+          <EntitySet Name="OpeningHours" EntityType="CraveASAPDBModel.OpeningHour" />
+          <EntitySet Name="Points" EntityType="CraveASAPDBModel.Point" />
+          <EntitySet Name="PointsConfigurations" EntityType="CraveASAPDBModel.PointsConfiguration" />
+          <EntitySet Name="PredictiveNotifications" EntityType="CraveASAPDBModel.PredictiveNotification" />
+          <EntitySet Name="Rewards" EntityType="CraveASAPDBModel.Reward" />
+          <EntitySet Name="Subscribes" EntityType="CraveASAPDBModel.Subscribe" />
+          <EntitySet Name="SuperAdminLogins" EntityType="CraveASAPDBModel.SuperAdminLogin" />
+          <EntitySet Name="UserFavourites" EntityType="CraveASAPDBModel.UserFavourite" />
+          <EntitySet Name="UserPrefrences" EntityType="CraveASAPDBModel.UserPrefrence" />
+          <EntitySet Name="UserRewards" EntityType="CraveASAPDBModel.UserReward" />
+          <EntitySet Name="VendorBranches" EntityType="CraveASAPDBModel.VendorBranch" />
+          <AssociationSet Name="FK__AppDefaul__categ__25518C17" Association="CraveASAPDBModel.FK__AppDefaul__categ__25518C17">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="AppDefaultLandingPage" EntitySet="AppDefaultLandingPages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPrefr__categ__36470DEF" Association="CraveASAPDBModel.FK__UserPrefr__categ__36470DEF">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="UserPrefrence" EntitySet="UserPrefrences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserRewar__rewar__3B0BC30C" Association="CraveASAPDBModel.FK__UserRewar__rewar__3B0BC30C">
+            <End Role="Reward" EntitySet="Rewards" />
+            <End Role="UserReward" EntitySet="UserRewards" />
+          </AssociationSet>
+          <FunctionImport Name="usp_Analytics" ReturnType="Collection(CraveASAPDBModel.usp_Analytics_Result)">
+            <Parameter Name="vendorId" Mode="In" Type="Int32" />
+            <Parameter Name="time" Mode="In" Type="String" />
+            <Parameter Name="CategoryType" Mode="In" Type="String" />
+            <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="toDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_AnalyticsByVendorID" ReturnType="Collection(CraveASAPDBModel.usp_AnalyticsByVendorID_Result)">
+            <Parameter Name="vendorID" Mode="In" Type="Int32" />
+            <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="toDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_AnalyticsPromotion" ReturnType="Collection(CraveASAPDBModel.usp_AnalyticsPromotion_Result)" />
+          <FunctionImport Name="usp_AnalyticsSocialMedia" ReturnType="Collection(CraveASAPDBModel.usp_AnalyticsSocialMedia_Result)" />
+          <FunctionImport Name="usp_AnalyticsTrackUsage" ReturnType="Collection(CraveASAPDBModel.usp_AnalyticsTrackUsage_Result)" />
+          <FunctionImport Name="usp_AnalyticsUsagePerDay" />
+          <FunctionImport Name="usp_AnalyticsUserPerDayUseCategory" ReturnType="Collection(CraveASAPDBModel.usp_AnalyticsUserPerDayUseCategory_Result)" />
+          <EntitySet Name="SubCategories" EntityType="CraveASAPDBModel.SubCategory" />
+          <AssociationSet Name="FK__SubCatego__categ__5441852A" Association="CraveASAPDBModel.FK__SubCatego__categ__5441852A">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="SubCategory" EntitySet="SubCategories" />
+          </AssociationSet>
+          <EntitySet Name="OptionalCategories" EntityType="CraveASAPDBModel.OptionalCategory" />
+          <AssociationSet Name="FK__OptionalC__categ__5EBF139D" Association="CraveASAPDBModel.FK__OptionalC__categ__5EBF139D">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="OptionalCategory" EntitySet="OptionalCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OptionalCategory_SubCategory" Association="CraveASAPDBModel.FK_OptionalCategory_SubCategory">
+            <End Role="SubCategory" EntitySet="SubCategories" />
+            <End Role="OptionalCategory" EntitySet="OptionalCategories" />
+          </AssociationSet>
+          <EntitySet Name="Admins" EntityType="CraveASAPDBModel.Admin" />
+          <EntitySet Name="UserPromotions" EntityType="CraveASAPDBModel.UserPromotion" />
+          <EntitySet Name="UserPromotionSkips" EntityType="CraveASAPDBModel.UserPromotionSkip" />
+          <EntitySet Name="PromotionCodes" EntityType="CraveASAPDBModel.PromotionCode" />
+          <AssociationSet Name="FK__UserPromo__promo__628FA481" Association="CraveASAPDBModel.FK__UserPromo__promo__628FA481">
+            <End Role="PromotionCode" EntitySet="PromotionCodes" />
+            <End Role="UserPromotionSkip" EntitySet="UserPromotionSkips" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPromo__promo__6D0D32F4" Association="CraveASAPDBModel.FK__UserPromo__promo__6D0D32F4">
+            <End Role="PromotionCode" EntitySet="PromotionCodes" />
+            <End Role="UserPromotion" EntitySet="UserPromotions" />
+          </AssociationSet>
+          <EntitySet Name="UserLocations" EntityType="CraveASAPDBModel.UserLocation" />
+          <AssociationSet Name="FK_UserLocations_UserLocations" Association="CraveASAPDBModel.FK_UserLocations_UserLocations">
+            <End Role="UserLocation" EntitySet="UserLocations" />
+            <End Role="UserLocation1" EntitySet="UserLocations" />
+          </AssociationSet>
+          <EntitySet Name="Users" EntityType="CraveASAPDBModel.User" />
+          <AssociationSet Name="FK__UserFavou__userI__308E3499" Association="CraveASAPDBModel.FK__UserFavou__userI__308E3499">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserFavourite" EntitySet="UserFavourites" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPrefr__userI__3552E9B6" Association="CraveASAPDBModel.FK__UserPrefr__userI__3552E9B6">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserPrefrence" EntitySet="UserPrefrences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPromo__userI__6B24EA82" Association="CraveASAPDBModel.FK__UserPromo__userI__6B24EA82">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserPromotion" EntitySet="UserPromotions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserRewar__userI__6A30C649" Association="CraveASAPDBModel.FK__UserRewar__userI__6A30C649">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserReward" EntitySet="UserRewards" />
+          </AssociationSet>
+          <EntitySet Name="Vendors" EntityType="CraveASAPDBModel.Vendor" />
+          <AssociationSet Name="FK__Vendor__business__13F1F5EB" Association="CraveASAPDBModel.FK__Vendor__business__13F1F5EB">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Vendor" EntitySet="Vendors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OpeningHo__fkven__51300E55" Association="CraveASAPDBModel.FK__OpeningHo__fkven__51300E55">
+            <End Role="Vendor" EntitySet="Vendors" />
+            <End Role="OpeningHour" EntitySet="OpeningHours" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Promotion__vendo__0B91BA14" Association="CraveASAPDBModel.FK__Promotion__vendo__0B91BA14">
+            <End Role="Vendor" EntitySet="Vendors" />
+            <End Role="PromotionCode" EntitySet="PromotionCodes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserFavou__vendo__2F9A1060" Association="CraveASAPDBModel.FK__UserFavou__vendo__2F9A1060">
+            <End Role="Vendor" EntitySet="Vendors" />
+            <End Role="UserFavourite" EntitySet="UserFavourites" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VendorBra__vendo__693CA210" Association="CraveASAPDBModel.FK__VendorBra__vendo__693CA210">
+            <End Role="Vendor" EntitySet="Vendors" />
+            <End Role="VendorBranch" EntitySet="VendorBranches" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="AdminVendor">
+          <Key>
+            <PropertyRef Name="adminVendorId" />
+          </Key>
+          <Property Type="Int32" Name="adminVendorId" Nullable="false" />
+          <Property Type="String" Name="adminVendorName" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="password" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AppDefaultLandingPage">
+          <Key>
+            <PropertyRef Name="landingPageId" />
+          </Key>
+          <Property Type="Int32" Name="landingPageId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="type" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="fromTime" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="toTime" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="categoryId" Nullable="false" />
+          <Property Type="String" Name="categoryStatus" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Category" Relationship="CraveASAPDBModel.FK__AppDefaul__categ__25518C17" FromRole="AppDefaultLandingPage" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="bannerId" />
+          </Key>
+          <Property Type="Int32" Name="bannerId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="type" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="platform" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="language" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="imageURL" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="reference" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="createdDate" Precision="3" />
+          <Property Type="String" Name="delay" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="categoryId" />
+          </Key>
+          <Property Type="Int32" Name="categoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="categoryName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="language" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AppDefaultLandingPages" Relationship="CraveASAPDBModel.FK__AppDefaul__categ__25518C17" FromRole="Category" ToRole="AppDefaultLandingPage" />
+          <NavigationProperty Name="UserPrefrences" Relationship="CraveASAPDBModel.FK__UserPrefr__categ__36470DEF" FromRole="Category" ToRole="UserPrefrence" />
+          <NavigationProperty Name="SubCategories" Relationship="CraveASAPDBModel.FK__SubCatego__categ__5441852A" FromRole="Category" ToRole="SubCategory" />
+          <NavigationProperty Name="OptionalCategories" Relationship="CraveASAPDBModel.FK__OptionalC__categ__5EBF139D" FromRole="Category" ToRole="OptionalCategory" />
+          <NavigationProperty Name="Vendors" Relationship="CraveASAPDBModel.FK__Vendor__business__13F1F5EB" FromRole="Category" ToRole="Vendor" />
+        </EntityType>
+        <EntityType Name="Configuration">
+          <Key>
+            <PropertyRef Name="configId" />
+          </Key>
+          <Property Type="Int32" Name="configId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="action" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="value" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ContentManagement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="contentName" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="contentLink" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Type="Boolean" Name="isActive" />
+        </EntityType>
+        <EntityType Name="DefaultPromotionCodeBanner">
+          <Key>
+            <PropertyRef Name="promotionCodeBannerId" />
+          </Key>
+          <Property Type="Int32" Name="promotionCodeBannerId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="promotionCodeBannerName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="bannerUrl" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="vendorId" />
+          <Property Type="String" Name="platform" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="language" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DynamicHTMLContent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="pageName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="language" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pageContent" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="plainText" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="contentFor" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="locationId" />
+          </Key>
+          <Property Type="Int32" Name="locationId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="locationName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="city" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="region" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="address" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OAuth">
+          <Key>
+            <PropertyRef Name="oAuthId" />
+          </Key>
+          <Property Type="Int32" Name="oAuthId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="loginId" />
+          <Property Type="String" Name="appType" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OAuthToken" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="time" Precision="3" />
+        </EntityType>
+        <EntityType Name="OpeningHour">
+          <Key>
+            <PropertyRef Name="openingHoursId" />
+          </Key>
+          <Property Type="Int32" Name="openingHoursId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="fromday" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="today" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="fromtime" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="totime" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="fkvendorId" Nullable="false" />
+          <NavigationProperty Name="Vendor" Relationship="CraveASAPDBModel.FK__OpeningHo__fkven__51300E55" FromRole="OpeningHour" ToRole="Vendor" />
+        </EntityType>
+        <EntityType Name="Point">
+          <Key>
+            <PropertyRef Name="pointId" />
+          </Key>
+          <Property Type="Int32" Name="pointId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="quantity" />
+          <Property Type="String" Name="type" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PointsConfiguration">
+          <Key>
+            <PropertyRef Name="ptConfigurationId" />
+          </Key>
+          <Property Type="Int32" Name="ptConfigurationId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="action" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="limit" />
+          <Property Type="Int32" Name="pointsEarned" />
+        </EntityType>
+        <EntityType Name="PredictiveNotification">
+          <Key>
+            <PropertyRef Name="preId" />
+          </Key>
+          <Property Type="Int32" Name="preId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="userId" />
+          <Property Type="Int32" Name="promotionCodeId" />
+          <Property Type="Boolean" Name="status" />
+          <Property Type="DateTime" Name="sendTime" Precision="3" />
+          <Property Type="String" Name="reSendTime" MaxLength="5" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Reward">
+          <Key>
+            <PropertyRef Name="rewardId" />
+          </Key>
+          <Property Type="Int32" Name="rewardId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="rewardName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="image" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="platform" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="code" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="endDate" Precision="3" />
+          <Property Type="String" Name="expiryHours" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="isSpecial" />
+          <Property Type="String" Name="nextAvailability" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="type" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="usedCount" />
+          <Property Type="Boolean" Name="isActive" />
+          <Property Type="String" Name="language" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="link" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="point" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserRewards" Relationship="CraveASAPDBModel.FK__UserRewar__rewar__3B0BC30C" FromRole="Reward" ToRole="UserReward" />
+        </EntityType>
+        <EntityType Name="Subscribe">
+          <Key>
+            <PropertyRef Name="subscribeId" />
+          </Key>
+          <Property Type="Int32" Name="subscribeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="email" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="isSubscribe" />
+        </EntityType>
+        <EntityType Name="SuperAdminLogin">
+          <Key>
+            <PropertyRef Name="loginId" />
+          </Key>
+          <Property Type="Int32" Name="loginId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="loginName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="password" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserFavourite">
+          <Key>
+            <PropertyRef Name="favoriteRestaurantId" />
+          </Key>
+          <Property Type="Int32" Name="favoriteRestaurantId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="vendorId" />
+          <Property Type="Int32" Name="userId" />
+          <Property Type="Boolean" Name="isActive" />
+          <NavigationProperty Name="User" Relationship="CraveASAPDBModel.FK__UserFavou__userI__308E3499" FromRole="UserFavourite" ToRole="User" />
+          <NavigationProperty Name="Vendor" Relationship="CraveASAPDBModel.FK__UserFavou__vendo__2F9A1060" FromRole="UserFavourite" ToRole="Vendor" />
+        </EntityType>
+        <EntityType Name="UserPrefrence">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="userId" Nullable="false" />
+          <Property Type="Int32" Name="categoryId" Nullable="false" />
+          <Property Type="Int32" Name="prefrencesId" />
+          <Property Type="String" Name="type" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="isActive" />
+          <NavigationProperty Name="Category" Relationship="CraveASAPDBModel.FK__UserPrefr__categ__36470DEF" FromRole="UserPrefrence" ToRole="Category" />
+          <NavigationProperty Name="User" Relationship="CraveASAPDBModel.FK__UserPrefr__userI__3552E9B6" FromRole="UserPrefrence" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserReward">
+          <Key>
+            <PropertyRef Name="userRewardId" />
+          </Key>
+          <Property Type="Int32" Name="userRewardId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="rewardId" />
+          <Property Type="Int32" Name="userId" />
+          <Property Type="Boolean" Name="isUsed" />
+          <Property Type="DateTime" Name="useTime" Precision="3" />
+          <NavigationProperty Name="Reward" Relationship="CraveASAPDBModel.FK__UserRewar__rewar__3B0BC30C" FromRole="UserReward" ToRole="Reward" />
+          <NavigationProperty Name="User" Relationship="CraveASAPDBModel.FK__UserRewar__userI__6A30C649" FromRole="UserReward" ToRole="User" />
+        </EntityType>
+        <EntityType Name="VendorBranch">
+          <Key>
+            <PropertyRef Name="vendorBranchId" />
+          </Key>
+          <Property Type="Int32" Name="vendorBranchId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="businessName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="taxId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="location" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="fullAddress" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="deliveryAddress" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="phoneNo" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="contactPerson" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="additionalInfo" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="defaultBranch" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="email" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="vendorId" Nullable="false" />
+          <Property Type="String" Name="branchCode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Vendor" Relationship="CraveASAPDBModel.FK__VendorBra__vendo__693CA210" FromRole="VendorBranch" ToRole="Vendor" />
+        </EntityType>
+        <Association Name="FK__AppDefaul__categ__25518C17">
+          <End Type="CraveASAPDBModel.Category" Role="Category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CraveASAPDBModel.AppDefaultLandingPage" Role="AppDefaultLandingPage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="categoryId" />
+            </Principal>
+            <Dependent Role="AppDefaultLandingPage">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPrefr__categ__36470DEF">
+          <End Type="CraveASAPDBModel.Category" Role="Category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CraveASAPDBModel.UserPrefrence" Role="UserPrefrence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="categoryId" />
+            </Principal>
+            <Dependent Role="UserPrefrence">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserRewar__rewar__3B0BC30C">
+          <End Type="CraveASAPDBModel.Reward" Role="Reward" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CraveASAPDBModel.UserReward" Role="UserReward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reward">
+              <PropertyRef Name="rewardId" />
+            </Principal>
+            <Dependent Role="UserReward">
+              <PropertyRef Name="rewardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="usp_Analytics_Result">
+          <Property Type="Int32" Name="vendorId" Nullable="true" />
+          <Property Type="String" Name="Vendor" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Restaurant" Nullable="true" />
+          <Property Type="Int32" Name="Cafe" Nullable="true" />
+          <Property Type="Int32" Name="Dessert" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_AnalyticsByVendorID_Result">
+          <Property Type="Int32" Name="promotionCodeId" Nullable="false" />
+          <Property Type="String" Name="code" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="descriptionEnglish" Nullable="true" />
+          <Property Type="String" Name="descriptionThai" Nullable="true" />
+          <Property Type="DateTime" Name="promotionCreatedDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="createdDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="expiryDate" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="isActive" Nullable="false" />
+          <Property Type="DateTime" Name="modifyDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="isRelaunch" Nullable="true" />
+          <Property Type="DateTime" Name="lastRelaunchDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="vendorId" Nullable="false" />
+          <Property Type="Int32" Name="quantity" Nullable="true" />
+          <Property Type="Int32" Name="recommendation" Nullable="false" />
+          <Property Type="Boolean" Name="isPinned" Nullable="false" />
+          <Property Type="DateTime" Name="PinnedDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="categoryId" Nullable="false" />
+          <Property Type="Int32" Name="subCategoryId" Nullable="false" />
+          <Property Type="Int32" Name="optCategoryId" Nullable="false" />
+          <Property Type="String" Name="shareFacebookCount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="shareInstagramCount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="shareTwitterCount" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="price" Nullable="true" />
+          <Property Type="Int32" Name="useCount" Nullable="true" />
+          <Property Type="Int32" Name="viewCount" Nullable="true" />
+          <Property Type="Int32" Name="recommendationCount" Nullable="true" />
+          <Property Type="String" Name="promotionImage" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="usp_AnalyticsPromotion_Result">
+          <Property Type="String" Name="companyName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="categoryName" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="createdDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="promotionCodeId" Nullable="false" />
+          <Property Type="DateTime" Name="Expr1" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="expiryDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="vendorId" Nullable="false" />
+          <Property Type="Int32" Name="categoryId" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="usp_AnalyticsSocialMedia_Result">
+          <Property Type="String" Name="Users" Nullable="false" MaxLength="9" />
+          <Property Type="Int32" Name="FaceBook" Nullable="true" />
+          <Property Type="Int32" Name="Instagram" Nullable="true" />
+          <Property Type="Int32" Name="Twitter" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_AnalyticsTrackUsage_Result">
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Morning" Nullable="true" />
+          <Property Type="Int32" Name="Evening" Nullable="true" />
+          <Property Type="Int32" Name="Midday" Nullable="true" />
+          <Property Type="Int32" Name="Lunch" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_AnalyticsUserPerDayUseCategory_Result">
+          <Property Type="Int32" Name="Rest_Cafe" Nullable="true" />
+          <Property Type="Int32" Name="Cafe_Dess" Nullable="true" />
+          <Property Type="Int32" Name="Rest_Dess" Nullable="true" />
+          <Property Type="Int32" Name="Rest_Rest" Nullable="true" />
+          <Property Type="Int32" Name="Cafe_Cafe" Nullable="true" />
+          <Property Type="Int32" Name="Dess_Dess" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="subCategoryId" />
+          </Key>
+          <Property Type="Int32" Name="subCategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="subCategoryName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="language" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="categoryId" Nullable="false" />
+          <Property Type="Boolean" Name="isDeleted" />
+          <NavigationProperty Name="Category" Relationship="CraveASAPDBModel.FK__SubCatego__categ__5441852A" FromRole="SubCategory" ToRole="Category" />
+          <NavigationProperty Name="OptionalCategories" Relationship="CraveASAPDBModel.FK_OptionalCategory_SubCategory" FromRole="SubCategory" ToRole="OptionalCategory" />
+        </EntityType>
+        <Association Name="FK__SubCatego__categ__5441852A">
+          <End Type="CraveASAPDBModel.Category" Role="Category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CraveASAPDBModel.SubCategory" Role="SubCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="categoryId" />
+            </Principal>
+            <Dependent Role="SubCategory">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OptionalCategory">
+          <Key>
+            <PropertyRef Name="optCategoryId" />
+          </Key>
+          <Property Type="Int32" Name="optCategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="optCategoryName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="language" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="categoryId" Nullable="false" />
+          <Property Type="Int32" Name="subCategoryId" Nullable="false" />
+          <Property Type="Boolean" Name="isDeleted" />
+          <NavigationProperty Name="Category" Relationship="CraveASAPDBModel.FK__OptionalC__categ__5EBF139D" FromRole="OptionalCategory" ToRole="Category" />
+          <NavigationProperty Name="SubCategory" Relationship="CraveASAPDBModel.FK_OptionalCategory_SubCategory" FromRole="OptionalCategory" ToRole="SubCategory" />
+        </EntityType>
+        <Association Name="FK__OptionalC__categ__5EBF139D">
+          <End Type="CraveASAPDBModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="CraveASAPDBModel.OptionalCategory" Role="OptionalCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="categoryId" />
+            </Principal>
+            <Dependent Role="OptionalCategory">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OptionalCategory_SubCategory">
+          <End Type="CraveASAPDBModel.SubCategory" Role="SubCategory" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CraveASAPDBModel.OptionalCategory" Role="OptionalCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="subCategoryId" />
+            </Principal>
+            <Dependent Role="OptionalCategory">
+              <PropertyRef Name="subCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="adminId" />
+          </Key>
+          <Property Type="Int32" Name="adminId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="adminName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="firstName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="lastName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="email" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="phoneNo" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="password" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="associatedVendors" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserPromotion">
+          <Key>
+            <PropertyRef Name="userPromotionId" />
+          </Key>
+          <Property Type="Int32" Name="userPromotionId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="userId" />
+          <Property Type="Int32" Name="promotionId" />
+          <Property Type="Boolean" Name="isRecommended" />
+          <Property Type="Boolean" Name="isShareFacebook" />
+          <Property Type="Boolean" Name="isShareTwitter" />
+          <Property Type="Boolean" Name="isShareInstagram" />
+          <Property Type="Boolean" Name="isViewed" />
+          <Property Type="Boolean" Name="isUsed" />
+          <Property Type="String" Name="userTime" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="useDate" Precision="3" />
+          <Property Type="Boolean" Name="isDeleted" />
+          <NavigationProperty Name="PromotionCode" Relationship="CraveASAPDBModel.FK__UserPromo__promo__6D0D32F4" FromRole="UserPromotion" ToRole="PromotionCode" />
+          <NavigationProperty Name="User" Relationship="CraveASAPDBModel.FK__UserPromo__userI__6B24EA82" FromRole="UserPromotion" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserPromotionSkip">
+          <Key>
+            <PropertyRef Name="userPromotionId" />
+          </Key>
+          <Property Type="Int32" Name="userPromotionId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="userId" />
+          <Property Type="Int32" Name="promotionId" />
+          <Property Type="Boolean" Name="isRecommended" />
+          <Property Type="Boolean" Name="isShareFacebook" />
+          <Property Type="Boolean" Name="isShareTwitter" />
+          <Property Type="Boolean" Name="isShareInstagram" />
+          <Property Type="Boolean" Name="isViewed" />
+          <Property Type="Boolean" Name="isUsed" />
+          <Property Type="String" Name="userTime" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="useDate" Precision="3" />
+          <Property Type="String" Name="deviceToken" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="devicePlatform" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="isDeleted" />
+          <NavigationProperty Name="PromotionCode" Relationship="CraveASAPDBModel.FK__UserPromo__promo__628FA481" FromRole="UserPromotionSkip" ToRole="PromotionCode" />
+        </EntityType>
+        <EntityType Name="PromotionCode">
+          <Key>
+            <PropertyRef Name="promotionCodeId" />
+          </Key>
+          <Property Type="Int32" Name="promotionCodeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="code" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="name" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="descriptionEnglish" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="descriptionThai" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="promotionCreatedDate" Precision="3" />
+          <Property Type="DateTime" Name="createdDate" Precision="3" />
+          <Property Type="DateTime" Name="expiryDate" Precision="3" />
+          <Property Type="Boolean" Name="isActive" Nullable="false" />
+          <Property Type="DateTime" Name="modifyDate" Precision="3" />
+          <Property Type="Int32" Name="isRelaunch" />
+          <Property Type="DateTime" Name="lastRelaunchDate" Precision="3" />
+          <Property Type="Int32" Name="vendorId" Nullable="false" />
+          <Property Type="Int32" Name="quantity" />
+          <Property Type="Int32" Name="recommendation" Nullable="false" />
+          <Property Type="Boolean" Name="isPinned" Nullable="false" />
+          <Property Type="DateTime" Name="PinnedDate" Precision="3" />
+          <Property Type="Int32" Name="categoryId" Nullable="false" />
+          <Property Type="Int32" Name="subCategoryId" Nullable="false" />
+          <Property Type="Int32" Name="optCategoryId" Nullable="false" />
+          <Property Type="String" Name="shareFacebookCount" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="shareInstagramCount" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="shareTwitterCount" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="price" />
+          <Property Type="Int32" Name="useCount" />
+          <Property Type="Int32" Name="viewCount" />
+          <Property Type="Int32" Name="recommendationCount" />
+          <Property Type="String" Name="promotionImage" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="isDeleted" />
+          <NavigationProperty Name="UserPromotionSkips" Relationship="CraveASAPDBModel.FK__UserPromo__promo__628FA481" FromRole="PromotionCode" ToRole="UserPromotionSkip" />
+          <NavigationProperty Name="UserPromotions" Relationship="CraveASAPDBModel.FK__UserPromo__promo__6D0D32F4" FromRole="PromotionCode" ToRole="UserPromotion" />
+          <NavigationProperty Name="Vendor" Relationship="CraveASAPDBModel.FK__Promotion__vendo__0B91BA14" FromRole="PromotionCode" ToRole="Vendor" />
+        </EntityType>
+        <Association Name="FK__UserPromo__promo__628FA481">
+          <End Type="CraveASAPDBModel.PromotionCode" Role="PromotionCode" Multiplicity="0..1" />
+          <End Type="CraveASAPDBModel.UserPromotionSkip" Role="UserPromotionSkip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PromotionCode">
+              <PropertyRef Name="promotionCodeId" />
+            </Principal>
+            <Dependent Role="UserPromotionSkip">
+              <PropertyRef Name="promotionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPromo__promo__6D0D32F4">
+          <End Type="CraveASAPDBModel.PromotionCode" Role="PromotionCode" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CraveASAPDBModel.UserPromotion" Role="UserPromotion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PromotionCode">
+              <PropertyRef Name="promotionCodeId" />
+            </Principal>
+            <Dependent Role="UserPromotion">
+              <PropertyRef Name="promotionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserLocation">
+          <Key>
+            <PropertyRef Name="userLocationId" />
+          </Key>
+          <Property Type="Int32" Name="userLocationId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="fkUser" Nullable="false" />
+          <Property Type="Boolean" Name="isDefault" />
+          <Property Type="String" Name="mealTime" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="locationAddress" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="locationLat" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="locationLong" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="isCurrent" />
+          <Property Type="DateTime" Name="visitedDatetime" Precision="3" />
+          <Property Type="Boolean" Name="isDeleted" />
+          <NavigationProperty Name="UserLocations1" Relationship="CraveASAPDBModel.FK_UserLocations_UserLocations" FromRole="UserLocation" ToRole="UserLocation1" />
+          <NavigationProperty Name="UserLocation1" Relationship="CraveASAPDBModel.FK_UserLocations_UserLocations" FromRole="UserLocation1" ToRole="UserLocation" />
+        </EntityType>
+        <Association Name="FK_UserLocations_UserLocations">
+          <End Type="CraveASAPDBModel.UserLocation" Role="UserLocation" Multiplicity="1" />
+          <End Type="CraveASAPDBModel.UserLocation" Role="UserLocation1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserLocation">
+              <PropertyRef Name="userLocationId" />
+            </Principal>
+            <Dependent Role="UserLocation1">
+              <PropertyRef Name="userLocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Type="Int32" Name="userId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="firstName" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="lastName" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="profilePicture" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="gender" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="email" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="createdDate" Precision="3" />
+          <Property Type="Int32" Name="points" />
+          <Property Type="String" Name="facebookId" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="facebookInviteDate" Precision="3" />
+          <Property Type="Int32" Name="facebookInviteCount" />
+          <Property Type="DateTime" Name="instagramInviteDate" Precision="3" />
+          <Property Type="Int32" Name="instagramInviteCount" />
+          <Property Type="DateTime" Name="twitterInviteDate" Precision="3" />
+          <Property Type="Int32" Name="twitterInviteCount" />
+          <Property Type="DateTime" Name="dealFacebookInviteDate" Precision="3" />
+          <Property Type="Int32" Name="dealFacebookInviteCount" />
+          <Property Type="DateTime" Name="dealInstagramInviteDate" Precision="3" />
+          <Property Type="Int32" Name="dealInstagramInviteCount" />
+          <Property Type="DateTime" Name="dealTwitterInviteDate" Precision="3" />
+          <Property Type="Int32" Name="dealTwitterInviteCount" />
+          <Property Type="String" Name="language" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="deviceToken" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="devicePlatform" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="usePromoDate" Precision="3" />
+          <Property Type="Int32" Name="useCount" />
+          <Property Type="DateTime" Name="likePromoDate" Precision="3" />
+          <Property Type="Int32" Name="likeCount" />
+          <NavigationProperty Name="UserFavourites" Relationship="CraveASAPDBModel.FK__UserFavou__userI__308E3499" FromRole="User" ToRole="UserFavourite" />
+          <NavigationProperty Name="UserPrefrences" Relationship="CraveASAPDBModel.FK__UserPrefr__userI__3552E9B6" FromRole="User" ToRole="UserPrefrence" />
+          <NavigationProperty Name="UserPromotions" Relationship="CraveASAPDBModel.FK__UserPromo__userI__6B24EA82" FromRole="User" ToRole="UserPromotion" />
+          <NavigationProperty Name="UserRewards" Relationship="CraveASAPDBModel.FK__UserRewar__userI__6A30C649" FromRole="User" ToRole="UserReward" />
+        </EntityType>
+        <Association Name="FK__UserFavou__userI__308E3499">
+          <End Type="CraveASAPDBModel.User" Role="User" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CraveASAPDBModel.UserFavourite" Role="UserFavourite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserFavourite">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPrefr__userI__3552E9B6">
+          <End Type="CraveASAPDBModel.User" Role="User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CraveASAPDBModel.UserPrefrence" Role="UserPrefrence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserPrefrence">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPromo__userI__6B24EA82">
+          <End Type="CraveASAPDBModel.User" Role="User" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CraveASAPDBModel.UserPromotion" Role="UserPromotion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserPromotion">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserRewar__userI__6A30C649">
+          <End Type="CraveASAPDBModel.User" Role="User" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CraveASAPDBModel.UserReward" Role="UserReward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserReward">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="vendorId" />
+          </Key>
+          <Property Type="Int32" Name="vendorId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="loginVendorName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="companyName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="businessCategory" Nullable="false" />
+          <Property Type="String" Name="shortDescription" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="fullDescription" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="email" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="phoneNo" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="contactPerson" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="contactPhoneNo" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="contactEmail" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="streetName" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="postCode" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="buildingName" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="floor" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="area" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="city" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="latitude" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="longitude" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="password" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="taxId" Nullable="false" />
+          <Property Type="String" Name="logoImg" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="deviceToken" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="devicePlatform" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="isDeleted" />
+          <NavigationProperty Name="Category" Relationship="CraveASAPDBModel.FK__Vendor__business__13F1F5EB" FromRole="Vendor" ToRole="Category" />
+          <NavigationProperty Name="OpeningHours" Relationship="CraveASAPDBModel.FK__OpeningHo__fkven__51300E55" FromRole="Vendor" ToRole="OpeningHour" />
+          <NavigationProperty Name="PromotionCodes" Relationship="CraveASAPDBModel.FK__Promotion__vendo__0B91BA14" FromRole="Vendor" ToRole="PromotionCode" />
+          <NavigationProperty Name="UserFavourites" Relationship="CraveASAPDBModel.FK__UserFavou__vendo__2F9A1060" FromRole="Vendor" ToRole="UserFavourite" />
+          <NavigationProperty Name="VendorBranches" Relationship="CraveASAPDBModel.FK__VendorBra__vendo__693CA210" FromRole="Vendor" ToRole="VendorBranch" />
+        </EntityType>
+        <Association Name="FK__Vendor__business__13F1F5EB">
+          <End Type="CraveASAPDBModel.Category" Role="Category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CraveASAPDBModel.Vendor" Role="Vendor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="categoryId" />
+            </Principal>
+            <Dependent Role="Vendor">
+              <PropertyRef Name="businessCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OpeningHo__fkven__51300E55">
+          <End Type="CraveASAPDBModel.Vendor" Role="Vendor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CraveASAPDBModel.OpeningHour" Role="OpeningHour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="vendorId" />
+            </Principal>
+            <Dependent Role="OpeningHour">
+              <PropertyRef Name="fkvendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Promotion__vendo__0B91BA14">
+          <End Type="CraveASAPDBModel.Vendor" Role="Vendor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CraveASAPDBModel.PromotionCode" Role="PromotionCode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="vendorId" />
+            </Principal>
+            <Dependent Role="PromotionCode">
+              <PropertyRef Name="vendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserFavou__vendo__2F9A1060">
+          <End Type="CraveASAPDBModel.Vendor" Role="Vendor" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CraveASAPDBModel.UserFavourite" Role="UserFavourite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="vendorId" />
+            </Principal>
+            <Dependent Role="UserFavourite">
+              <PropertyRef Name="vendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VendorBra__vendo__693CA210">
+          <End Type="CraveASAPDBModel.Vendor" Role="Vendor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CraveASAPDBModel.VendorBranch" Role="VendorBranch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="vendorId" />
+            </Principal>
+            <Dependent Role="VendorBranch">
+              <PropertyRef Name="vendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CraveASAPDBModelStoreContainer" CdmEntityContainer="DB_9D9221_eddeeEntities" >
+          <EntitySetMapping Name="AdminVendors">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.AdminVendor">
+              <MappingFragment StoreEntitySet="AdminVendor">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="adminVendorName" ColumnName="adminVendorName" />
+                <ScalarProperty Name="adminVendorId" ColumnName="adminVendorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppDefaultLandingPages">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.AppDefaultLandingPage">
+              <MappingFragment StoreEntitySet="AppDefaultLandingPage">
+                <ScalarProperty Name="categoryStatus" ColumnName="categoryStatus" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="toTime" ColumnName="toTime" />
+                <ScalarProperty Name="fromTime" ColumnName="fromTime" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="landingPageId" ColumnName="landingPageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Banners">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.Banner">
+              <MappingFragment StoreEntitySet="Banners">
+                <ScalarProperty Name="delay" ColumnName="delay" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="reference" ColumnName="reference" />
+                <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+                <ScalarProperty Name="language" ColumnName="language" />
+                <ScalarProperty Name="platform" ColumnName="platform" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="bannerId" ColumnName="bannerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="language" ColumnName="language" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Configurations">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.Configuration">
+              <MappingFragment StoreEntitySet="Configuration">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="action" ColumnName="action" />
+                <ScalarProperty Name="configId" ColumnName="configId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentManagements">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.ContentManagement">
+              <MappingFragment StoreEntitySet="ContentManagement">
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="contentLink" ColumnName="contentLink" />
+                <ScalarProperty Name="contentName" ColumnName="contentName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DefaultPromotionCodeBanners">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.DefaultPromotionCodeBanner">
+              <MappingFragment StoreEntitySet="DefaultPromotionCodeBanner">
+                <ScalarProperty Name="language" ColumnName="language" />
+                <ScalarProperty Name="platform" ColumnName="platform" />
+                <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+                <ScalarProperty Name="bannerUrl" ColumnName="bannerUrl" />
+                <ScalarProperty Name="promotionCodeBannerName" ColumnName="promotionCodeBannerName" />
+                <ScalarProperty Name="promotionCodeBannerId" ColumnName="promotionCodeBannerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DynamicHTMLContents">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.DynamicHTMLContent">
+              <MappingFragment StoreEntitySet="DynamicHTMLContent">
+                <ScalarProperty Name="contentFor" ColumnName="contentFor" />
+                <ScalarProperty Name="plainText" ColumnName="plainText" />
+                <ScalarProperty Name="pageContent" ColumnName="pageContent" />
+                <ScalarProperty Name="language" ColumnName="language" />
+                <ScalarProperty Name="pageName" ColumnName="pageName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="locationName" ColumnName="locationName" />
+                <ScalarProperty Name="locationId" ColumnName="locationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OAuths">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.OAuth">
+              <MappingFragment StoreEntitySet="OAuth">
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="OAuthToken" ColumnName="OAuthToken" />
+                <ScalarProperty Name="appType" ColumnName="appType" />
+                <ScalarProperty Name="loginId" ColumnName="loginId" />
+                <ScalarProperty Name="oAuthId" ColumnName="oAuthId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OpeningHours">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.OpeningHour">
+              <MappingFragment StoreEntitySet="OpeningHours">
+                <ScalarProperty Name="fkvendorId" ColumnName="fkvendorId" />
+                <ScalarProperty Name="totime" ColumnName="totime" />
+                <ScalarProperty Name="fromtime" ColumnName="fromtime" />
+                <ScalarProperty Name="today" ColumnName="today" />
+                <ScalarProperty Name="fromday" ColumnName="fromday" />
+                <ScalarProperty Name="openingHoursId" ColumnName="openingHoursId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Points">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.Point">
+              <MappingFragment StoreEntitySet="Points">
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="pointId" ColumnName="pointId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PointsConfigurations">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.PointsConfiguration">
+              <MappingFragment StoreEntitySet="PointsConfiguration">
+                <ScalarProperty Name="pointsEarned" ColumnName="pointsEarned" />
+                <ScalarProperty Name="limit" ColumnName="limit" />
+                <ScalarProperty Name="action" ColumnName="action" />
+                <ScalarProperty Name="ptConfigurationId" ColumnName="ptConfigurationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PredictiveNotifications">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.PredictiveNotification">
+              <MappingFragment StoreEntitySet="PredictiveNotifications">
+                <ScalarProperty Name="reSendTime" ColumnName="reSendTime" />
+                <ScalarProperty Name="sendTime" ColumnName="sendTime" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="promotionCodeId" ColumnName="promotionCodeId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="preId" ColumnName="preId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rewards">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.Reward">
+              <MappingFragment StoreEntitySet="Rewards">
+                <ScalarProperty Name="point" ColumnName="point" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="language" ColumnName="language" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="usedCount" ColumnName="usedCount" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="nextAvailability" ColumnName="nextAvailability" />
+                <ScalarProperty Name="isSpecial" ColumnName="isSpecial" />
+                <ScalarProperty Name="expiryHours" ColumnName="expiryHours" />
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="platform" ColumnName="platform" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="rewardName" ColumnName="rewardName" />
+                <ScalarProperty Name="rewardId" ColumnName="rewardId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subscribes">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.Subscribe">
+              <MappingFragment StoreEntitySet="Subscribe">
+                <ScalarProperty Name="isSubscribe" ColumnName="isSubscribe" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="subscribeId" ColumnName="subscribeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SuperAdminLogins">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.SuperAdminLogin">
+              <MappingFragment StoreEntitySet="SuperAdminLogin">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="loginName" ColumnName="loginName" />
+                <ScalarProperty Name="loginId" ColumnName="loginId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserFavourites">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.UserFavourite">
+              <MappingFragment StoreEntitySet="UserFavourite">
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+                <ScalarProperty Name="favoriteRestaurantId" ColumnName="favoriteRestaurantId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserPrefrences">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.UserPrefrence">
+              <MappingFragment StoreEntitySet="UserPrefrences">
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="prefrencesId" ColumnName="prefrencesId" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRewards">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.UserReward">
+              <MappingFragment StoreEntitySet="UserRewards">
+                <ScalarProperty Name="useTime" ColumnName="useTime" />
+                <ScalarProperty Name="isUsed" ColumnName="isUsed" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="rewardId" ColumnName="rewardId" />
+                <ScalarProperty Name="userRewardId" ColumnName="userRewardId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VendorBranches">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.VendorBranch">
+              <MappingFragment StoreEntitySet="VendorBranch">
+                <ScalarProperty Name="branchCode" ColumnName="branchCode" />
+                <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="defaultBranch" ColumnName="defaultBranch" />
+                <ScalarProperty Name="additionalInfo" ColumnName="additionalInfo" />
+                <ScalarProperty Name="contactPerson" ColumnName="contactPerson" />
+                <ScalarProperty Name="phoneNo" ColumnName="phoneNo" />
+                <ScalarProperty Name="deliveryAddress" ColumnName="deliveryAddress" />
+                <ScalarProperty Name="fullAddress" ColumnName="fullAddress" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="taxId" ColumnName="taxId" />
+                <ScalarProperty Name="businessName" ColumnName="businessName" />
+                <ScalarProperty Name="vendorBranchId" ColumnName="vendorBranchId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_Analytics" FunctionName="CraveASAPDBModel.Store.usp_Analytics">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CraveASAPDBModel.usp_Analytics_Result">
+                <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+                <ScalarProperty Name="Restaurant" ColumnName="Restaurant" />
+                <ScalarProperty Name="Cafe" ColumnName="Cafe" />
+                <ScalarProperty Name="Dessert" ColumnName="Dessert" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_AnalyticsByVendorID" FunctionName="CraveASAPDBModel.Store.usp_AnalyticsByVendorID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CraveASAPDBModel.usp_AnalyticsByVendorID_Result">
+                <ScalarProperty Name="promotionCodeId" ColumnName="promotionCodeId" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="descriptionEnglish" ColumnName="descriptionEnglish" />
+                <ScalarProperty Name="descriptionThai" ColumnName="descriptionThai" />
+                <ScalarProperty Name="promotionCreatedDate" ColumnName="promotionCreatedDate" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="expiryDate" ColumnName="expiryDate" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="modifyDate" ColumnName="modifyDate" />
+                <ScalarProperty Name="isRelaunch" ColumnName="isRelaunch" />
+                <ScalarProperty Name="lastRelaunchDate" ColumnName="lastRelaunchDate" />
+                <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="recommendation" ColumnName="recommendation" />
+                <ScalarProperty Name="isPinned" ColumnName="isPinned" />
+                <ScalarProperty Name="PinnedDate" ColumnName="PinnedDate" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="subCategoryId" ColumnName="subCategoryId" />
+                <ScalarProperty Name="optCategoryId" ColumnName="optCategoryId" />
+                <ScalarProperty Name="shareFacebookCount" ColumnName="shareFacebookCount" />
+                <ScalarProperty Name="shareInstagramCount" ColumnName="shareInstagramCount" />
+                <ScalarProperty Name="shareTwitterCount" ColumnName="shareTwitterCount" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="useCount" ColumnName="useCount" />
+                <ScalarProperty Name="viewCount" ColumnName="viewCount" />
+                <ScalarProperty Name="recommendationCount" ColumnName="recommendationCount" />
+                <ScalarProperty Name="promotionImage" ColumnName="promotionImage" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_AnalyticsPromotion" FunctionName="CraveASAPDBModel.Store.usp_AnalyticsPromotion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CraveASAPDBModel.usp_AnalyticsPromotion_Result">
+                <ScalarProperty Name="companyName" ColumnName="companyName" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="promotionCodeId" ColumnName="promotionCodeId" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="expiryDate" ColumnName="expiryDate" />
+                <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_AnalyticsSocialMedia" FunctionName="CraveASAPDBModel.Store.usp_AnalyticsSocialMedia">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CraveASAPDBModel.usp_AnalyticsSocialMedia_Result">
+                <ScalarProperty Name="Users" ColumnName="Users" />
+                <ScalarProperty Name="FaceBook" ColumnName="FaceBook" />
+                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_AnalyticsTrackUsage" FunctionName="CraveASAPDBModel.Store.usp_AnalyticsTrackUsage">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CraveASAPDBModel.usp_AnalyticsTrackUsage_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Morning" ColumnName="Morning" />
+                <ScalarProperty Name="Evening" ColumnName="Evening" />
+                <ScalarProperty Name="Midday" ColumnName="Midday" />
+                <ScalarProperty Name="Lunch" ColumnName="Lunch" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_AnalyticsUsagePerDay" FunctionName="CraveASAPDBModel.Store.usp_AnalyticsUsagePerDay" />
+          <FunctionImportMapping FunctionImportName="usp_AnalyticsUserPerDayUseCategory" FunctionName="CraveASAPDBModel.Store.usp_AnalyticsUserPerDayUseCategory">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CraveASAPDBModel.usp_AnalyticsUserPerDayUseCategory_Result">
+                <ScalarProperty Name="Rest_Cafe" ColumnName="Rest_Cafe" />
+                <ScalarProperty Name="Cafe_Dess" ColumnName="Cafe_Dess" />
+                <ScalarProperty Name="Rest_Dess" ColumnName="Rest_Dess" />
+                <ScalarProperty Name="Rest_Rest" ColumnName="Rest_Rest" />
+                <ScalarProperty Name="Cafe_Cafe" ColumnName="Cafe_Cafe" />
+                <ScalarProperty Name="Dess_Dess" ColumnName="Dess_Dess" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="SubCategories">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.SubCategory">
+              <MappingFragment StoreEntitySet="SubCategory">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="language" ColumnName="language" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="subCategoryName" ColumnName="subCategoryName" />
+                <ScalarProperty Name="subCategoryId" ColumnName="subCategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OptionalCategories">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.OptionalCategory">
+              <MappingFragment StoreEntitySet="OptionalCategory">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="subCategoryId" ColumnName="subCategoryId" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="language" ColumnName="language" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="optCategoryName" ColumnName="optCategoryName" />
+                <ScalarProperty Name="optCategoryId" ColumnName="optCategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="associatedVendors" ColumnName="associatedVendors" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="phoneNo" ColumnName="phoneNo" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="adminName" ColumnName="adminName" />
+                <ScalarProperty Name="adminId" ColumnName="adminId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserPromotions">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.UserPromotion">
+              <MappingFragment StoreEntitySet="UserPromotion">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="useDate" ColumnName="useDate" />
+                <ScalarProperty Name="userTime" ColumnName="userTime" />
+                <ScalarProperty Name="isUsed" ColumnName="isUsed" />
+                <ScalarProperty Name="isViewed" ColumnName="isViewed" />
+                <ScalarProperty Name="isShareInstagram" ColumnName="isShareInstagram" />
+                <ScalarProperty Name="isShareTwitter" ColumnName="isShareTwitter" />
+                <ScalarProperty Name="isShareFacebook" ColumnName="isShareFacebook" />
+                <ScalarProperty Name="isRecommended" ColumnName="isRecommended" />
+                <ScalarProperty Name="promotionId" ColumnName="promotionId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="userPromotionId" ColumnName="userPromotionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserPromotionSkips">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.UserPromotionSkip">
+              <MappingFragment StoreEntitySet="UserPromotionSkip">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="devicePlatform" ColumnName="devicePlatform" />
+                <ScalarProperty Name="deviceToken" ColumnName="deviceToken" />
+                <ScalarProperty Name="useDate" ColumnName="useDate" />
+                <ScalarProperty Name="userTime" ColumnName="userTime" />
+                <ScalarProperty Name="isUsed" ColumnName="isUsed" />
+                <ScalarProperty Name="isViewed" ColumnName="isViewed" />
+                <ScalarProperty Name="isShareInstagram" ColumnName="isShareInstagram" />
+                <ScalarProperty Name="isShareTwitter" ColumnName="isShareTwitter" />
+                <ScalarProperty Name="isShareFacebook" ColumnName="isShareFacebook" />
+                <ScalarProperty Name="isRecommended" ColumnName="isRecommended" />
+                <ScalarProperty Name="promotionId" ColumnName="promotionId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="userPromotionId" ColumnName="userPromotionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PromotionCodes">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.PromotionCode">
+              <MappingFragment StoreEntitySet="PromotionCode">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="promotionImage" ColumnName="promotionImage" />
+                <ScalarProperty Name="recommendationCount" ColumnName="recommendationCount" />
+                <ScalarProperty Name="viewCount" ColumnName="viewCount" />
+                <ScalarProperty Name="useCount" ColumnName="useCount" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="shareTwitterCount" ColumnName="shareTwitterCount" />
+                <ScalarProperty Name="shareInstagramCount" ColumnName="shareInstagramCount" />
+                <ScalarProperty Name="shareFacebookCount" ColumnName="shareFacebookCount" />
+                <ScalarProperty Name="optCategoryId" ColumnName="optCategoryId" />
+                <ScalarProperty Name="subCategoryId" ColumnName="subCategoryId" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="PinnedDate" ColumnName="PinnedDate" />
+                <ScalarProperty Name="isPinned" ColumnName="isPinned" />
+                <ScalarProperty Name="recommendation" ColumnName="recommendation" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+                <ScalarProperty Name="lastRelaunchDate" ColumnName="lastRelaunchDate" />
+                <ScalarProperty Name="isRelaunch" ColumnName="isRelaunch" />
+                <ScalarProperty Name="modifyDate" ColumnName="modifyDate" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="expiryDate" ColumnName="expiryDate" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="promotionCreatedDate" ColumnName="promotionCreatedDate" />
+                <ScalarProperty Name="descriptionThai" ColumnName="descriptionThai" />
+                <ScalarProperty Name="descriptionEnglish" ColumnName="descriptionEnglish" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="promotionCodeId" ColumnName="promotionCodeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLocations">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.UserLocation">
+              <MappingFragment StoreEntitySet="UserLocations">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="visitedDatetime" ColumnName="visitedDatetime" />
+                <ScalarProperty Name="isCurrent" ColumnName="isCurrent" />
+                <ScalarProperty Name="locationLong" ColumnName="locationLong" />
+                <ScalarProperty Name="locationLat" ColumnName="locationLat" />
+                <ScalarProperty Name="locationAddress" ColumnName="locationAddress" />
+                <ScalarProperty Name="mealTime" ColumnName="mealTime" />
+                <ScalarProperty Name="isDefault" ColumnName="isDefault" />
+                <ScalarProperty Name="fkUser" ColumnName="fkUser" />
+                <ScalarProperty Name="userLocationId" ColumnName="userLocationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="likeCount" ColumnName="likeCount" />
+                <ScalarProperty Name="likePromoDate" ColumnName="likePromoDate" />
+                <ScalarProperty Name="useCount" ColumnName="useCount" />
+                <ScalarProperty Name="usePromoDate" ColumnName="usePromoDate" />
+                <ScalarProperty Name="devicePlatform" ColumnName="devicePlatform" />
+                <ScalarProperty Name="deviceToken" ColumnName="deviceToken" />
+                <ScalarProperty Name="language" ColumnName="language" />
+                <ScalarProperty Name="dealTwitterInviteCount" ColumnName="dealTwitterInviteCount" />
+                <ScalarProperty Name="dealTwitterInviteDate" ColumnName="dealTwitterInviteDate" />
+                <ScalarProperty Name="dealInstagramInviteCount" ColumnName="dealInstagramInviteCount" />
+                <ScalarProperty Name="dealInstagramInviteDate" ColumnName="dealInstagramInviteDate" />
+                <ScalarProperty Name="dealFacebookInviteCount" ColumnName="dealFacebookInviteCount" />
+                <ScalarProperty Name="dealFacebookInviteDate" ColumnName="dealFacebookInviteDate" />
+                <ScalarProperty Name="twitterInviteCount" ColumnName="twitterInviteCount" />
+                <ScalarProperty Name="twitterInviteDate" ColumnName="twitterInviteDate" />
+                <ScalarProperty Name="instagramInviteCount" ColumnName="instagramInviteCount" />
+                <ScalarProperty Name="instagramInviteDate" ColumnName="instagramInviteDate" />
+                <ScalarProperty Name="facebookInviteCount" ColumnName="facebookInviteCount" />
+                <ScalarProperty Name="facebookInviteDate" ColumnName="facebookInviteDate" />
+                <ScalarProperty Name="facebookId" ColumnName="facebookId" />
+                <ScalarProperty Name="points" ColumnName="points" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="profilePicture" ColumnName="profilePicture" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendors">
+            <EntityTypeMapping TypeName="CraveASAPDBModel.Vendor">
+              <MappingFragment StoreEntitySet="Vendor">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="devicePlatform" ColumnName="devicePlatform" />
+                <ScalarProperty Name="deviceToken" ColumnName="deviceToken" />
+                <ScalarProperty Name="logoImg" ColumnName="logoImg" />
+                <ScalarProperty Name="taxId" ColumnName="taxId" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="area" ColumnName="area" />
+                <ScalarProperty Name="floor" ColumnName="floor" />
+                <ScalarProperty Name="buildingName" ColumnName="buildingName" />
+                <ScalarProperty Name="postCode" ColumnName="postCode" />
+                <ScalarProperty Name="streetName" ColumnName="streetName" />
+                <ScalarProperty Name="contactEmail" ColumnName="contactEmail" />
+                <ScalarProperty Name="contactPhoneNo" ColumnName="contactPhoneNo" />
+                <ScalarProperty Name="contactPerson" ColumnName="contactPerson" />
+                <ScalarProperty Name="phoneNo" ColumnName="phoneNo" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="fullDescription" ColumnName="fullDescription" />
+                <ScalarProperty Name="shortDescription" ColumnName="shortDescription" />
+                <ScalarProperty Name="businessCategory" ColumnName="businessCategory" />
+                <ScalarProperty Name="companyName" ColumnName="companyName" />
+                <ScalarProperty Name="loginVendorName" ColumnName="loginVendorName" />
+                <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,220 @@
+﻿<div class="animate-panel fleet-registration" ng-controller="ManageFleetRegistrationCtrl as mfrCtrl">
+	<div class="row">
+	<form role="form" id="form" name="add_fleetregistration_form" ng-submit="add_fleetregistration_form.$valid && mfrCtrl.updateDetails(add_fleetregistration_form) " novalidate>
+		<div class="col-lg-12">
+			<div class="hpanel h-panel">
+				<div class="panel-body p-b0 clearfix">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">                                
+                                    <ul class="list-inline inline-form-element">
+                                        <li>
+                                            <div class="checkbox"><label class="p-l0"> <input type="radio" icheck name="radioshift"ng-model="mfrCtrl.isSubcontractor" value="no" ng-checked="true">  Borg Civil Australia</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="checkbox"><label class="p-l0"> <input type="radio" icheck name="radioshift" ng-model="mfrCtrl.isSubcontractor" value="yes"> Subcontractor</label></div>
+                                        </li>
+                                    </ul>
+                                </div>                              
+                                <select ng-model="mfrCtrl.subcontractor" name="fleetType" class="form-control" ng-required="true" ng-options="item.Text for item in mfrCtrl.subcontractorList track by item.Value" ng-if="mfrCtrl.isSubcontractor === 'yes'">
+                                    <option value="">Select</option>
+                                </select>                            
+                        </div>
+                    </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Equipment Type <span class="text-danger"> *</span></label>
+                                    <select ng-model="mfrCtrl.fleetType" name="fleetType" class="form-control" ng-required="true" ng-options="item.FleetTypeName for item in mfrCtrl.fleetTypeList track by item.FleetTypeId">
+                                        <option value="">Select</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Make</label>
+                                    <input type="text" class="form-control" ng-model="mfrCtrl.attributes.Make" ng-minlength="2" ng-maxlength="50">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Model</label>
+                                    <input type="text" class="form-control" ng-model="mfrCtrl.attributes.Model" ng-minlength="2" ng-maxlength="50">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Capacity</label>
+                                    <input type="text" class="form-control" ng-model="mfrCtrl.attributes.Capacity" ng-minlength="2" ng-maxlength="10">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Year</label>
+                                    <input type="Number" name="year" class="form-control" ng-model="mfrCtrl.attributes.Year" ng-pattern="mfrCtrl.yearRegx">
+                                    <div ng-show="add_fleetregistration_form.year.$error.pattern" class="help-block has-error error-msg">Invalid Year</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Registration </label>
+                                    <input type="text" class="form-control" ng-model="mfrCtrl.attributes.Registration"  ng-minlength="2" ng-maxlength="10">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Borg Civil Plant Number <span class="text-danger"> *</span> </label>
+                                    <input type="text" class="form-control" ng-model="mfrCtrl.attributes.BorgCivilPlantNumber" ng-minlength="2" ng-maxlength="10" required>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>VIN Number </label>
+                                    <input type="text" class="form-control" ng-model="mfrCtrl.attributes.VINNumber" ng-minlength="2" ng-maxlength="50">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Engine Number </label>
+                                    <input type="text" class="form-control" ng-model="mfrCtrl.attributes.EngineNumber" ng-minlength="2" ng-maxlength="50">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group" ng-controller="StartDatepickerCtrl">
+                                    <label>Insurance Date <span class="text-danger"> *</span> </label>
+                                    <div class="input-group date-picker">
+                                        <span class="input-group-addon" ng-click="startDate()">
+                                            <span class="fa fa-calendar"></span>
+                                        </span>
+                                        <input placeholder="DD-MM-YYYY" type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                                               show-button-bar="false" ng-model="mfrCtrl.attributes.InsuranceDate" is-open="popup1.opened"
+                                               datepicker-options="dateOptions"
+                                               ng-required="true" close-text="Close" ng-model-options="{timezone: 'UTC'}" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Current Meter Reading </label>
+                                    <input type="number" class="form-control" ng-model="mfrCtrl.attributes.CurrentMeterReading" max="999999">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Last Service Meter Reading </label>
+                                    <input type="number" class="form-control" ng-model="mfrCtrl.attributes.LastServiceMeterReading" max="999999">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Service Interval</label>
+                                    <input type="text" class="form-control" ng-model="mfrCtrl.attributes.ServiceInterval" ng-minlength="2" ng-maxlength="30">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>HVIS Type </label>
+                                    <input type="text" class="form-control" ng-model="mfrCtrl.attributes.HVISType" ng-minlength="2" ng-maxlength="30">
+                                </div>
+                            </div>
+                            <div class="col-md-3" ng-if="mfrCtrl.fleetType.FleetTypeName === 'Truck'">
+                                <div class="form-group">
+                                    <label>Attachement <span class="text-danger"> *</span></label>
+                                    <select ng-model="mfrCtrl.attributes.AttachmentId" class="form-control" required>
+                                        <option value="">Select</option>
+                                        <option ng-repeat="attachment in mfrCtrl.attachmentList" value="{{attachment.AttachmentId}}">{{attachment.AttachmentTitle}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="sub-title m-t-sm">Unavailable Period</h5>
+                        <div class="row">
+                            <div class="col-md-4 p-r0" ng-controller="StartDatepickerCtrl">
+                                <div class="form-group">
+                                    <label>From Date </label>
+                                    <div class="input-group date-picker">
+                                        <span class="input-group-addon" ng-click="startDate()">
+                                            <span class="fa fa-calendar"></span>
+                                        </span>
+                                        <input placeholder="DD-MM-YYYY" type="text" name="expiryDate" class="form-control" uib-datepicker-popup="{{format}}"
+                                               show-button-bar="false" ng-model="mfrCtrl.attributes.UnavailableFromDate" is-open="popup1.opened" min-date="minDate"
+                                               max-date="'2019-06-22'" datepicker-options="dateOptions"
+                                               date-disabled="disabled(date, mode)" close-text="Close" ng-model-options="{timezone: 'UTC'}" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 p-r0" ng-controller="StartDatepickerCtrl">
+                                <div class="form-group">
+                                    <label>To Date</label>
+                                    <div class="input-group date-picker">
+                                        <span class="input-group-addon" ng-click="startDate()">
+                                            <span class="fa fa-calendar"></span>
+                                        </span>
+                                        <input placeholder="DD-MM-YYYY" type="text" name="expiryDate" class="form-control" uib-datepicker-popup="{{format}}"
+                                               show-button-bar="false" ng-model="mfrCtrl.attributes.UnavailableToDate" is-open="popup1.opened" min-date="mfrCtrl.attributes.LeaveFromDate"
+                                               max-date="'2019-06-22'" datepicker-options="dateOptions"
+                                               date-disabled="disabled(date, mode)" close-text="Close" ng-model-options="{timezone: 'UTC'}" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Notes</label>
+                                    <textarea class="form-control" rows="5" id="comment" ng-model="mfrCtrl.attributes.UnavailableNote"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section-light-grey m-b0 p-b0">
+                            <h3 class="sub-title">Document Upload</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group image-preview">
+                                            <input type="text" class="form-control image-preview-filename"> <!-- don't give a name === doesn't send on POST/GET -->
+                                            <span class="input-group-btn">
+                                                <!-- image-preview-clear button -->
+                                                <!--<button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                                    <span class="glyphicon glyphicon-remove"></span> Clear
+                                </button>-->
+                                                <!-- image-preview-input -->
+                                                <div class="btn btn-default image-preview-input">
+                                                    <span class="glyphicon glyphicon-folder-open"></span>
+                                                    <span class="image-preview-input-title">Choose File</span>
+                                                    <input type="file" id="inputFileToLoad" multiple ngf-select ng-model="mfrCtrl.Image" name="file" accept="image/*" ngf-max-size="2MB" ngf-model-invalid="errorFile" class="btn btn-default" ng-change="mfrCtrl.loadImageFileAsURL();"><!-- rename it -->
+                                                </div>
+                                            </span>
+                                        </div><!-- /input-group image-preview [TO HERE]-->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div ng-repeat="file in mfrCtrl.files">{{file}}</div>
+                                        <div ng-repeat="files in mfrCtrl.filesSelected">{{files.name}}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+			 	<div class="bc-panel-footer text-right m-t20">                 
+			 		<!--<button type="button" title="Cancel" class="btn btn-default" ng-click="mfrCtrl.reset()">Cancel</button>-->
+                    <button type="button" title="Cancel" class="btn btn-default" ng-click="mfrCtrl.closeForm()">Cancel</button>
+	                <button class="btn btn-primary" type="submit" title="Submit" >Submit</button>
+	            </div>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>

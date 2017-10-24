@@ -1,0 +1,230 @@
+﻿@model iCanSpeakAdminPortal.Models.UsersListModel
+@{
+    ViewBag.Title = "UserProfile";
+}
+
+@*<h2>UserProfile</h2>*@
+
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <font color="44c9ff"> User Profile </font>
+                </h1>
+            </div>
+        </div>
+
+        <!--Edit Table start-->
+
+        <div class="col-lg-12 col-md-12  col-sm-12  col-xs-12">
+            <div class="row">
+
+                <!--Horizontal Tab-->
+                <div id="horizontalTab">
+                    <ul class="resp-tabs-list">
+                        <li>Profile</li>
+                        <li>Courses</li>
+                        <li>Payment</li>
+                    </ul>
+                    <div class="resp-tabs-container">
+                        <div>
+                            <img src="@Model.ProfilePicture" class="img-tab" />
+
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-2 col-sm-offset-1 control-label">First Name:</label>
+                                    <div class="col-sm-6 col-md-6 col-xs-12">
+                                        <label for="inputEmail3" class="control-label"><font color="gray">@Model.FirstName </font></label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-2 col-sm-offset-1 control-label">Last Name:</label>
+                                    <div class="col-sm-6 col-md-6 col-xs-12">
+                                        <label for="inputEmail3" class="control-label"><font color="gray">@Model.LastName</font></label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-2 col-sm-offset-1 control-label">Date of Birth:</label>
+                                    <div class="col-sm-6 col-md-6 col-xs-12">
+                                        <label for="inputEmail3" id="dob" class="control-label"><font color="gray">@Model.DOB</font></label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-2 col-sm-offset-1 control-label">Country:</label>
+                                    <div class="col-sm-6 col-md-6 col-xs-12">
+                                        <label for="inputEmail3" class="control-label"><font color="gray">@Model.Country</font></label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-2 col-sm-offset-1 control-label">About me:</label>
+                                    <div class="col-sm-6 col-md-6 col-xs-12">
+                                        <audio controls>
+                                            <source src="horse.ogg" type="audio/ogg">
+                                            <source src="@Model.AboutMe" type="audio/mpeg">
+                                        </audio>
+                                    </div>
+                                </div>
+
+
+                            </form>
+                        </div>
+
+                        <div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                    <div class="thumbnail">
+                                        <img src="../../Images/book.png" length="100px" width="100px" class="thumbnail-img"><p class="text-left">
+                                            <button type="button" class="btn thumb-button">Price:50$</button>
+                                            </p>
+                                        </img>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <div class="thumbnail">
+                                        <ul>
+                                            <li>
+                                                <label><font color="gray">Course Name:</font></label>
+                                                &nbsp;<a href="#">@Model.CourseType</a></li>
+                                            <li>
+                                            <label><font color="gray">Start Date:</font></label>
+                                            &nbsp;<a href="#">@Model.CourseStartDate</a></li>
+                                            <li>
+                                                <label><font color="gray">End Date:</font></label>
+                                                &nbsp;<a href="#">@Model.EndDate</a></li>
+                                            <li>
+                                                <label><font color="gray">Duration:</font></label>
+                                                &nbsp;<a href="#">@Model.CourseDuration</a></li>
+                                            <li>
+                                                <label><font color="gray">Remaining Days:</font></label>
+                                                &nbsp;<a href="#">@Model.CourseDaysLeft</a></li>
+                                            <li>
+                                            <li class="button">
+                                                <button type="button" class="btn btn-info">50 Points </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tr>
+                                                <th>Transaction ID</th>
+                                                <th>Amount</th>
+                                                <th>Paid For</th>
+                                                <th>Payment Status</th>
+                                                <th>Payment Date</th>
+                                                <th>Payment Gateway</th>
+                                            </tr>
+                                            <tr>
+                                                <td>01012014</td>
+                                                <td>1500</td>
+                                                <td>Grammer</td>
+                                                <td>lorem ipsum</td>
+                                                <td>50</td>
+                                                <td>50</td>
+                                            </tr>
+                                            <tr>
+                                                <td>01022014</td>
+                                                <td>1810</td>
+                                                <td>Vocab</td>
+                                                <td>lorem ipsum</td>
+                                                <td>Jackson</td>
+                                                <td>Jackson</td>
+                                            </tr>
+                                            <tr>
+                                                <td>01032014</td>
+                                                <td>1000</td>
+                                                <td>Dialoge</td>
+                                                <td>lorem ipsum</td>
+                                                <td>Jackson</td>
+                                                <td>Jackson</td>
+                                            </tr>
+                                            <tr>
+                                                <td>01042014</td>
+                                                <td>4145</td>
+                                                <td>Grammer</td>
+                                                <td>lorem ipsum</td>
+                                                <td>Jackson</td>
+                                                <td>Jackson</td>
+                                            </tr>
+                                            <tr>
+                                                <td>01052014</td>
+                                                <td>841</td>
+                                                <td>Grammer</td>
+                                                <td>lorem ipsum</td>
+                                                <td>Jackson</td>
+                                                <td>Jackson</td>
+                                            </tr>
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Horizontal Tab end -->
+
+            </div>
+        </div>
+        <!-- /.row -->
+        <!--edit table end here-->
+
+
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+
+<script src="~/Scripts/easyResponsiveTabs.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#horizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion           
+            width: 'auto', //auto or any width like 600px
+            fit: true,   // 100% fit in a container
+            closed: 'accordion', // Start closed if in accordion view
+            activate: function (event) { // Callback function if tab is switched
+                var $tab = $(this);
+                var $info = $('#tabInfo');
+                var $name = $('span', $info);
+
+                $name.text($tab.text());
+
+                $info.show();
+            }
+        });
+
+        $('#verticalTab').easyResponsiveTabs({
+            type: 'vertical',
+            width: 'auto',
+            fit: true
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    function isFutureDate() {
+        var from = $("#dob").val()
+        var f = Date(from[0], from[1], from[2]);
+        var arrDate = from.split("-");
+        var today = new Date();
+        useDate = new Date(arrDate[0], arrDate[1] - 1, arrDate[2]);
+        $("#dob");
+        alert(dob);
+    }
+</script>

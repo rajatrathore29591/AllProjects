@@ -1,0 +1,160 @@
+﻿@{
+    ViewBag.Title = "Help";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <font color="44c9ff">Help</font>
+                </h1>
+            </div>
+        </div>
+<input ID="Signup" style="display:none" />
+<input ID="Practice" style="display:none"/>
+<input ID="Friends" style="display:none"/>
+<input ID="Payment" style="display:none"/>
+<input ID="Tutors" style="display:none"/>
+<table>
+    <tr>
+        <td>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Content Type</label>
+                <select id="contenttype" class="form-control">
+                <option value="Signup and login">Signup and login</option>
+                <option value="Practice & Review">Practice & Review</option>
+                <option value="Make Friends">Make Friends</option>
+                 <option value="Payment">Payment</option>
+                 <option value="Tutors">Tutors</option>
+                 </select>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="container-fluid">
+                <div class="row">                   
+                   @* <div class="container">
+                        <div class="row">*@
+                            <div class="col-lg-12 nopadding">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Body Text</label>
+                                     @Html.Partial("CustomTextEditor")
+                                </div>
+                            </div>
+                        @*</div>
+                    </div>*@
+                    <input type="button" class="btn btn-info" onclick="SubmitAbout()" value="Update Help Text" style="margin-top: 15px;" /><br /><br />
+                    <label id="msg" style="color:green; display:none;">Help Text Updated Successfully</label>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            url: '@Url.Action("SaveHelp", "PageManagement")',
+            type: "POST",
+            data: { message: " ", header: " ", operation: "select" },
+            success: function (result) {
+                if (result == "LogIn") {
+                    window.location = "@Url.Action("Login","Account")";
+                }
+                $.each(result, function (i, e) {
+                    $("#Signup").val(e.Signup);
+                    $("#Practice").val(e.Practice);
+                    $("#Friends").val(e.Friends);
+                    $("#Payment").val(e.Payment);
+                    $("#Tutors").val(e.Tutors);
+                    CKEDITOR.instances.editor1.setData(e.Signup);
+                });
+            },
+            error: function (result) {
+            },
+        });
+//------------------------------------Select change Events----------------------------------------------------------//
+        $("#contenttype").change(function () {
+            $('#msg').hide();
+            if ($("#contenttype").val() == 'Signup and login')
+            {
+                CKEDITOR.instances.editor1.setData($("#Signup").val());
+            }
+            if ($("#contenttype").val() == 'Practice & Review') {
+                CKEDITOR.instances.editor1.setData($("#Practice").val());
+            }
+            if ($("#contenttype").val() == 'Make Friends') {
+                CKEDITOR.instances.editor1.setData($("#Friends").val());
+            }
+            if ($("#contenttype").val() == 'Payment') {
+                CKEDITOR.instances.editor1.setData($("#Payment").val());
+            }
+            if ($("#contenttype").val() == 'Tutors') {
+                CKEDITOR.instances.editor1.setData($("#Tutors").val());
+            }
+        });
+    });
+
+    function SubmitAbout() {
+        var s = CKEDITOR.instances.editor1.getData();
+       
+        var replacedata = "";
+        for (var i = 0; i < s.length; i++) {
+            var c = s.charAt(i).replace('"', '~#');
+            replacedata += c;
+        }
+        var newstring = "";
+        for (var i = 0; i < replacedata.length; i++) {
+            var c = replacedata.charAt(i).replace('<', '~!');
+            newstring += c;
+        }
+        var mystring = "";
+        for (var i = 0; i < newstring.length; i++) {
+            var c = newstring.charAt(i).replace('>', '!~');
+            mystring += c;
+        }
+
+        $.ajax({
+            url: '@Url.Action("SaveHelp", "PageManagement")',
+                type: "POST",
+                data: { message: mystring, header: $("#contenttype").val(), operation: "update" },
+                success: function (result) {
+                    if (result == "LogIn") {
+                        window.location = "@Url.Action("Login","Account")";
+                    }
+
+                    if (result == "Success") {
+                        if ($("#contenttype").val() == 'Signup and login') {
+                            $("#Signup").val(s);
+                        }
+                        if ($("#contenttype").val() == 'Practice & Review') {
+                            $("#Practice").val(s);;
+                        }
+                        if ($("#contenttype").val() == 'Make Friends') {
+                            $("#Friends").val(s);;
+                        }
+                        if ($("#contenttype").val() == 'Payment') {
+                            $("#Payment").val(s);;
+                        }
+                        if ($("#contenttype").val() == 'Tutors') {
+                            $("#Tutors").val(s);;
+                        }
+                        $("#msg").css("display", "block");
+                        $("#msg").css("color", "green");
+                        $("#msg").text('Help Text Updated Successfully');
+                    }
+                    else {
+                        $("#msg").css("display", "block");
+                        $("#msg").css("color", "red");
+                        $("#msg").text('Failed to update Help text, please try after some time later.');
+                    }
+                },
+                error: function (result) {
+                    $("#msg").css("display", "block");
+                    $("#msg").css("color", "red");
+                    $("#msg").text('Failed to update Help text, please try after some time later.');
+                },
+            });
+        }
+</script>

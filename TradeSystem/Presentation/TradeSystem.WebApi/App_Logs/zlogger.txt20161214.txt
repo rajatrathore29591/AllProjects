@@ -1,0 +1,71 @@
+﻿2016-12-13 16:02:48,124 [5] INFO  System.Web.Http.ApiController [(null)] - Test log
+2016-12-13 16:03:33,933 [7] INFO  System.Web.Http.ApiController [(null)] - Test log
+2016-12-13 16:05:51,536 [5] INFO  System.Web.Http.ApiController [(null)] - Test log
+2016-12-13 16:06:52,111 [6] INFO  System.Web.Http.ApiController [(null)] - Test log
+2016-12-13 16:07:53,658 [8] INFO  System.Web.Http.ApiController [(null)] - Test log
+2016-12-13 16:08:40,517 [7] INFO  System.Web.Http.ApiController [(null)] - Test log
+2016-12-13 16:13:17,957 [5] INFO  System.Web.Http.ApiController [(null)] - Test log
+2016-12-13 16:15:00,803 [5] INFO  System.Web.Http.ApiController [(null)] - Test log
+2016-12-13 16:18:39,082 [5] INFO  System.Web.Http.ApiController [(null)] - Test log
+2016-12-13 16:21:29,921 [5] INFO  System.Web.Http.ApiController [(null)] - Test log
+2016-12-13 16:22:16,812 [6] INFO  System.Web.Http.ApiController [(null)] - Test log on invertory
+2016-12-13 16:29:27,879 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-13 16:32:07,306 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-13 16:35:35,478 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-13 16:36:37,863 [7] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-13 16:38:40,887 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-13 16:38:44,309 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-13 16:43:23,230 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-13 16:43:24,480 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 05:32:39,347 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 05:32:40,537 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 05:50:20,974 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 05:50:22,659 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 05:56:09,062 [23] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log on invertory
+2016-12-14 06:20:05,637 [8] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 06:20:06,541 [8] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 06:34:17,235 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 06:34:18,183 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 06:34:58,611 [5] INFO  System.Web.Http.ApiController [(null)] - test customer login
+2016-12-14 06:45:47,242 [57] INFO  System.Web.Http.ApiController [(null)] - Method: AddProduct()   at TradeSystem.Service.ProductService.AddProduct(ProductDataModel productDataModel) in D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Business\TradeSystem.Service\Product\ProductService.cs:line 146
+   at TradeSystem.MVCWeb.Controllers.ProductApiController.AddProduct(ProductDataModel productDataModel) in D:\Working\Trade System Final\TradingSystem\Trunk\TradeSystem\Presentation\TradeSystem.WebApi\Controllers\ProductApiController.cs:line 215
+2016-12-14 06:48:01,376 [66] INFO  System.Web.Http.ApiController [(null)] - test customer login
+2016-12-14 06:53:16,329 [25] INFO  System.Web.Http.ApiController [(null)] - test customer login
+2016-12-14 07:17:06,299 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 07:17:07,210 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 07:18:28,821 [24] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Investment Check first step for mvc controller
+2016-12-14 07:18:30,699 [24] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Investment Check for mvc controller
+2016-12-14 07:19:39,763 [26] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Investment Check first step for mvc controller
+2016-12-14 07:20:41,352 [26] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Investment Check for mvc controller
+2016-12-14 07:22:15,514 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 07:22:16,514 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 09:27:18,863 [11] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 09:27:18,876 [11] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 10:31:41,291 [69] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 10:31:41,307 [69] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 10:33:04,708 [27] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 10:33:04,708 [27] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 11:19:38,448 [60] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 11:19:38,448 [60] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 11:20:36,071 [46] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 11:20:36,071 [46] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 11:20:36,182 [38] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 11:20:36,183 [38] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 11:20:36,406 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 11:20:36,406 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 11:20:36,500 [69] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 11:20:36,500 [69] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 11:20:36,697 [76] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 11:20:36,697 [76] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 11:20:36,771 [46] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 11:20:36,772 [46] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 11:28:04,591 [9] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 11:28:04,600 [9] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 13:40:59,674 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 13:40:59,700 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 14:11:50,421 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 14:11:50,430 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 14:20:24,639 [30] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 14:20:24,639 [30] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN
+2016-12-14 14:25:05,858 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Test log
+2016-12-14 14:25:05,867 [5] INFO  TradeSystem.WebApi.Controllers.BaseController [(null)] - Method: AddProduct()lOGIN

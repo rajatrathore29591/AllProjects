@@ -1,0 +1,71 @@
+﻿<Options>
+    <Url>http://someUrl.com/api/v2/Products</Url>
+    <XsdUrl>http://someUrl.com/api/v2/Products.XSD</XsdUrl>
+    <IsQueryableEnabled>true</IsQueryableEnabled>
+    <IsPagableEnabled>true</IsPagableEnabled>
+    <IsSortableEnabled>true</IsSortableEnabled>
+    <IsFilteringEnabled>true</IsFilteringEnabled>
+    <IsAuthenticationEnabled>true</IsAuthenticationEnabled>
+    <Verbs>
+        <Verb>
+            <Value>GET</Value>
+            <OptionalParameters>
+                <OptionalParameter>
+                    <Name>CategoryId</Name>
+                    <Type>Integer</Type>
+                    <Description>When specified will return products associated to the category id.</Description>
+                </OptionalParameter>
+            </OptionalParameters>
+            <Description>Returns a list of product resources.</Description>
+        </Verb>
+        <Verb>
+            <Value>OPTOINS</Value>
+            <OptionalParameters />
+            <Description>Returns options that can be performed against Product resource.</Description>
+        </Verb>
+        <Verb>
+            <Value>POST</Value>
+            <OptionalParameters />
+            <Description>Create a product resource object.</Description>
+        </Verb>
+    </Verbs>
+    <ErrorCodes>
+        <ErrorCode>
+            <Code>1003.211</Code>
+            <StatusCode>400 Bad Request</StatusCode>
+            <Description>Indicating the category id passed in for a GET via the query string was not valid.</Description>
+            <Links>
+                <Link>
+                    <Description>KB Article explaining error in full detail</Description>
+                    <Uri>http://someUrl.com/kb/errorcodes/1003.211</Uri>
+                </Link>
+            </Links>
+        </ErrorCode>
+    </ErrorCodes>
+    <HelpLinks>
+        <Link>
+            <Description>Developer portal for API.</Description>
+            <Uri>http://dev.someUrl.com</Uri>
+        </Link>
+        <Link>
+            <Description>Documentation on service query syntax.</Description>
+            <Uri>http://dev.someUrl.com/documentation/querying</Uri>
+        </Link>
+        <Link>
+            <Description>Documentation on service paging syntax.</Description>
+            <Uri>http://dev.someUrl.com/documentation/paging</Uri>
+        </Link>
+        <Link>
+            <Description>Documentation on service sorting syntax.</Description>
+            <Uri>http://dev.someUrl.com/documentation/sorting</Uri>
+        </Link>
+        <Link>
+            <Description>Documentation on service filtering syntax.</Description>
+            <Uri>http://dev.someUrl.com/documentation/filtering</Uri>
+        </Link>
+        <Link>
+            <Description>Documentation on service authentication.</Description>
+            <Uri>http://dev.someUrl.com/documentation/authentication</Uri>
+        </Link>
+    </HelpLinks>
+</Options>

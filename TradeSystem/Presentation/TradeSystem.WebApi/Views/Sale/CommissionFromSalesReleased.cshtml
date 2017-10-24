@@ -1,0 +1,83 @@
+﻿@model IEnumerable<TradeSystem.Utils.Models.CustomerProductDataModel>
+@{
+    ViewBag.Title = "My Sales";
+    Layout = "~/Views/Shared/_CustomerLoggedInLayout.cshtml";
+}
+@using System.Globalization;
+<!-- Existing Customers -->
+<div class="panel panel-flat">
+    <div class="panel-body">
+        <div class="text-right mt-10">
+            <!--Change for export excel by datatable tool-->
+            <span class="btn btn-primary pr-15 mr-60 visible-none"></span>
+            <div class="tooltip-section">
+                <button type="button" class="btn btn-primary btn-sm" data-popup="tooltip" title="<strong>@Resources.Languages.ExportToolTip</strong>" data-html="true"><i class="icon-question7"></i> </button>
+            </div>
+            @*<span class="btn btn-primary pr-15"> @Html.ActionLink(@Resources.Languages.Export, "ExportToCommissionExcel", "Sale", (List<TradeSystem.Utils.Models.CustomerProductDataModel>)Model, new { @class = "btn-primary", title = @Resources.Languages.ExportToExcel, id = "btn-actionlink-export" })</span>*@
+        </div>
+        <div class="data-tbl-wrapper">
+            <table class="table table-bordered table-hover" id="inventory_data_table">
+                <thead>
+                    <tr>
+                        <th>@Resources.Languages.SNo</th>
+                        <th>@Resources.Languages.CustomerName</th>
+                        <th>@Resources.Languages.InvestmentName</th>
+                        <th>@Resources.Languages.TotalEarningbySales</th>
+                        <th>@Resources.Languages.ReleasedDate</th>
+                        <th>@Resources.Languages.Status</th>
+                        <th>@Resources.Languages.Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        // var dateTime = ConvertJsonDateString(item.CreatedDate);
+
+                        <tr>
+                            <td></td>
+                            <td>@item.CustomerName</td>
+                            <td>@item.InvestmentName</td>
+                            <td class="text-right">@item.SaleEarningCustomer.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
+                            <td>@item.CreatedDate.ToString("MM-dd-yyyy")</td>
+                            @*<td class="text-right">$@item.Investment</td>*@
+                            <td class="text-center">
+                                @item.Status
+                            </td>
+                            @{
+                                if (item.SaleWithdrawDate != null)
+                                {                               
+                                    if (!item.WithdrawStatus && item.SaleEarning != "0".Trim() && item.SaleWithdrawDate.Date < item.CurrentTodayDate.Date)
+                                    {
+                                        <td class="text-center"><a href="@Url.Action("WithdrawEarning", "Investment", new { amount = item.SaleEarningCustomer, withdrawType = "SaleEarning", productId = item.ProductId, customerId = item.CustomerId })" class="btn btn-primary">@Resources.Languages.WithdrawAmount</a></td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-center">-</td>
+                                    }
+                                }
+                                else
+                                {
+                                    <td class="text-center">-</td>
+                                }
+                            }
+                        </tr>
+                                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- /existing customers -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btn-actionlink-export').append('<i class="icon-file-excel position-right"></i>');
+    });
+
+
+    // stop browser back funtionality
+    history.pushState(null, null, document.title);
+    window.addEventListener('popstate', function () {
+        history.pushState(null, null, document.title);
+    });
+</script>

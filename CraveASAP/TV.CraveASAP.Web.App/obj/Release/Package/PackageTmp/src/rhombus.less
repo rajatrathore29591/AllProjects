@@ -1,0 +1,101 @@
+@import "variables";
+@import "mixins";
+
+.rhombus_style {
+  .gradient_hover(@start-rhombus-color, @end-rhombus-color);
+}
+
+.rhombus {
+  //  big base size figure style
+  .rhombus(@rhombus_big_width, 3px)
+}
+
+.rhombus_middle {
+  //  middle size figure style
+  .rhombus(@rhombus_middle_width, 3px)
+}
+
+.rhombus_small {
+  //  small size figure style
+  .rhombus(@rhombus_small_width, 0);
+  .rhombus_border {
+    border: none;
+  }
+}
+
+.rhombus(@rhombus_width,@border-padding) {
+  color: @rhombus-front-color;
+  padding: @border-padding;
+  width: @rhombus_width;
+  height: @rhombus_width;
+  margin: (@rhombus_width/2) 15px;
+  display: inline-block;
+  //  define square rotation on 45 deg
+  .rotate_figure(45deg);
+  .apply_border-radius(@rhombus_width/2);
+
+  .rhombus_border {
+    @rb_width: @rhombus_width - @border-padding*2;
+    @border-width: 2px;
+    width: @rb_width;
+    .apply_border-radius(@rb_width/2);
+    height: @rb_width;
+    border: @border-width solid transparent;
+    text-align: center;
+
+    p, div, span {
+      line-height: @rb_width - 2*@border-width;
+      text-align: center;
+      //  inverse 45 deg rotation for content of figure
+      .rotate_figure(-45deg);
+      &.icon, &.fa {
+        margin-top: -4px;
+      }
+      img {
+        display: inline-block;
+        max-width: auto;
+        max-height: @rb_width*0.6;
+      }
+    }
+  }
+
+  &:active, &.active {
+    .rhombus_border {
+      border-color: @rhombus-front-color;
+    }
+  }
+
+  .rhombus_border:hover {
+    border-color: @rhombus-front-color;
+  }
+}
+
+.gradient_hover (@start-color,@end-color) {
+  .diagonal_gradient(@start-color, @end-color);
+  &:hover {
+    .diagonal_gradient(@end-color, @start-color);
+  }
+}
+
+.diagonal_gradient(@start-color,@end-color) when (@figure_fill = gradient) {
+  //  gradient background for figure filling
+  background: @start-color; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, @start-color 0%, @end-color 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, @start-color), color-stop(100%, @end-color)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg, @start-color 0%, @end-color 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg, @start-color 0%, @end-color 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg, @start-color 0%, @end-color 100%); /* IE10+ */
+  background: linear-gradient(135deg, @start-color 0%, @end-color 100%); /* W3C */
+}
+
+.diagonal_gradient(@start-color,@end-color) when (@figure_fill = solid) {
+  background: @start-color;
+}
+
+.rotate_figure (@degrees) when (@figure_type = rhombus) {
+  .rotate(@degrees);
+}
+
+.apply_border-radius(@radius) when (@figure_type = circle) {
+  border-radius: @radius;
+}

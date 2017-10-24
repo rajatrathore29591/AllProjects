@@ -1,0 +1,161 @@
+﻿<div class="page-content-wrapper">
+    <div class="page-content" style="min-height: 740px">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-green">
+                    <div class="panel-heading clearfix">
+                        <div class="panel-title">
+                            <div class="pagename bold pull-left">
+                                <span>Landing Page &nbsp;</span>
+                            </div>
+                            <div class="path  pull-right">
+                                <div class="path"><span class="margin-right-10">Path</span> <i class="fa fa-angle-right margin-right-10"></i><span>Landing Page</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body form ">
+                        <form action="#" class="form-horizontal">
+                            <div class="col-md-12 margin-top-20 PDB50">
+                                <div class="row">
+                                    <!--  <div ng-repeat="Main in item.AppDefaultLandingPages">-->
+                                    <div class="col-xs-12 col-sm-offset-0 col-sm-4" ng-repeat="item in landing">
+                                        <div class="row margin-top-20 ">
+                                            <div class="col-sm-12 text-center">
+                                                <button type="button" value="Restaurant" class="btn btn-danger width150">{{item.categoryName}}</button>
+                                            </div>
+                                            <div class="col-xs-8  col-xs-offset-2 col-sm-12  col-sm-offset-0 text-center">
+                                                <div class="img-thumbnail margin-top-20">
+                                                    <img class="img-responsive lpimg" src="images/image{{item.categoryId}}.jpg" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="margin-top-20 col-lg-12 text-center lpbtns">
+                                                <div class="btn-g" role="group">
+                                                    <button id="Morning" type="button" value="Morning" data-toggle="tooltip" title="{{item.AppDefaultLandingPages[0].fromTime}} To {{item.AppDefaultLandingPages[0].toTime}}" class="btn btn-{{item.AppDefaultLandingPages[0].categoryStatus}} min80" ng-click="Update(item.AppDefaultLandingPages[0].landingPageId)">{{item.AppDefaultLandingPages[0].type}} </button>
+                                                    <button id="Button2" type="button" value="Lunch" data-toggle="tooltip" title="{{item.AppDefaultLandingPages[2].fromTime}} To {{item.AppDefaultLandingPages[2].toTime}}" class="btn btn-{{item.AppDefaultLandingPages[2].categoryStatus}} min80" ng-click="Update(item.AppDefaultLandingPages[2].landingPageId)">{{item.AppDefaultLandingPages[2].type}} </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 text-center lpbtns">
+                                                <div class="btn-g" role="group">
+                                                    <button id="Button1" type="button" value="Midday" data-toggle="tooltip" title="{{item.AppDefaultLandingPages[1].fromTime}} To {{item.AppDefaultLandingPages[1].toTime}}" class="btn btn-{{item.AppDefaultLandingPages[1].categoryStatus}} min80" ng-click="Update(item.AppDefaultLandingPages[1].landingPageId)">{{item.AppDefaultLandingPages[1].type}} </button>
+                                                    <button id="Button3" type="button" value="Evening" data-toggle="tooltip" title="{{item.AppDefaultLandingPages[3].fromTime}} To {{item.AppDefaultLandingPages[3].toTime}}" class="btn btn-{{item.AppDefaultLandingPages[3].categoryStatus}} min80" ng-click="Update(item.AppDefaultLandingPages[3].landingPageId)">{{item.AppDefaultLandingPages[3].type}} </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-4">
+                                            <div class="col-lg-12">
+
+                                                <div class="col-sm-12  margin-top-20 ">
+                                                    <div class="col-sm-12 text-center">
+                                                        <button type="button" value="Restaurant" class="btn btn-danger width150">Cafe</button></div>
+                                                    <div class="col-sm-12 text-center">
+                                                        <img class="img-responsive img-wd100 margin-top-20" src="assets/admin/layout/img/image2.jpg" /></div>
+                                                </div>
+                                                <div class="col-lg-offset-2 margin-top-10 col-lg-4 text-center">
+                                                    <button type="submit" value="Dinner" class="btn btn-default">Morning</button>
+                                                    <div class="clearfix margin-top-10"></div>
+                                                    <button type="submit" value="Dinner" class="btn btn-default">Midday</button>
+                                                </div>
+                                                <div class="margin-top-10 col-lg-3 text-center">
+                                                    <button type="submit" value="Dinner" class="btn btn-default">Lunch</button>
+                                                    <div class="clearfix margin-top-10"></div>
+                                                    <button type="submit" value="Dinner" class="btn btn-default">Evening</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="col-lg-12">
+
+                                                <div class="col-sm-12  margin-top-20 ">
+                                                    <div class="col-sm-12 text-center">
+                                                        <button type="button" value="Restaurant" class="btn btn-danger width150">Dessert</button></div>
+                                                    <div class="col-sm-12 text-center">
+                                                        <img class="img-responsive img-wd100 margin-top-20" src="assets/admin/layout/img/image3.jpg" /></div>
+                                                </div>
+                                                <div class="col-lg-offset-2 margin-top-10 col-lg-4 text-center">
+                                                    <button type="submit" value="Dinner" class="btn btn-default">Morning</button>
+                                                    <div class="clearfix margin-top-10"></div>
+                                                    <button type="submit" value="Dinner" class="btn btn-default">Midday</button>
+                                                </div>
+                                                <div class="margin-top-10 col-lg-3 text-center">
+                                                    <button type="submit" value="Dinner" class="btn btn-default">Lunch</button>
+                                                    <div class="clearfix margin-top-10"></div>
+                                                    <button type="submit" value="Dinner" class="btn btn-default">Evening</button>
+                                                </div>
+                                            </div>
+
+                                        </div>-->
+                            </div>
+
+
+                        </form>
+
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-11 MT20 PDB50">
+                        <!--<button type="submit" value="Apply" class="btn MT20 btn-primary  pull-right">Apply</button>-->
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+        </div>
+    </div>
+    <!-- END CONTENT -->
+</div>
+<div id="loader" ng-show="showLoader">
+    <div class="page-spinner-bar" ng-spinner-bar="">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+
+</div>
+<div id="static" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Message</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <!-- Would you like to continue with some arbitrary task?-->
+                    {{Message}}
+                </p>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" ng-click="redirect()" data-dismiss="modal" class="btn green">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="static1" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Message</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <!-- Would you like to continue with some arbitrary task?-->
+                    {{Message1}}
+                </p>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" data-dismiss="modal" class="btn green">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>

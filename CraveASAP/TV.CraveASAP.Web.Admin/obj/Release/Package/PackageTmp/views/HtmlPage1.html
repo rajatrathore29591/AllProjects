@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myAdminApp">
+<head>
+    <title>CraveASAP-Admin</title>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="plugins/jQuery-2.1.4.min.js"></script>
+    <link type="text/css" href="plugins/jquery.simple-dtpicker.css" rel="stylesheet" />
+    <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css' />
+    <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css' />
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/textAngular/1.2.0/textAngular-sanitize.min.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/textAngular/1.2.0/textAngular.min.js'></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/adonespitogo/angular-base64-upload/master/src/angular-base64-upload.js"></script>
+
+
+    <script src="app.js"></script>
+    <script src="controllers/homeController.js"></script>
+    <script src="controllers/aboutController.js"></script>
+    <script src="controllers/vendorController.js"></script>
+    <script src="controllers/vendorListController.js"></script>
+    <script src="services/subscriptionService.js"></script>
+    <script src="controllers/privacyPolicyController.js"></script>
+    <script src="controllers/termConditionController.js"></script>
+    <script src="controllers/manageActivePromotionController.js"></script>
+    <script src="controllers/pointRewardController.js"></script>
+    <script src="controllers/landingPageController.js"></script>
+    <script src="controllers/howItWorkController.js"></script>
+    <script src="controllers/flashBannerController.js"></script>
+    <script src="controllers/testController.js"></script>
+    <script src="controllers/updateAboutController.js"></script>
+    <script src="controllers/updatePrivacyPolicyController.js"></script>
+    <script src="controllers/updateTermConditionController.js"></script>
+    <script src="controllers/createPromotionsController.js"></script>
+    <script src="controllers/dashBoardController.js"></script>
+    <script src="services/privacyService.js"></script>
+    <script src="services/aboutService.js"></script>
+    <script src="services/termService.js"></script>
+    <script src="services/homeService.js"></script>
+    <script src="services/manageActivePromotionService.js"></script>
+    <script src="services/landingService.js"></script>
+    <script src="services/vendorServices.js"></script>
+    <script src="services/pointRewardServices.js"></script>
+    <script src="services/howItWorkService.js"></script>
+    <!----------------------------------------------------Vendor Start---------------------------------------------------------------->
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
+    <link href="css/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/plugins/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="css/plugins/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/plugins/uniform.default.css" rel="stylesheet" />
+    <link href="css/plugins/bootstrap-switch.min.css" rel="stylesheet" />
+    <link href="css/plugins/daterangepicker-bs3.css" rel="stylesheet" />
+    <link href="css/plugins/fullcalendar.min.css" rel="stylesheet" />
+    <!--<link href="css/plugins/jqvmap.css" rel="stylesheet" />-->
+    <link href="css/plugins/tasks.css" rel="stylesheet" />
+    <link href="css/plugins/components.css" rel="stylesheet" />
+    <link href="css/plugins/plugins.css" rel="stylesheet" />
+    <link href="css/admin/layout.css" rel="stylesheet" />
+    <link href="css/admin/darkblue.css" rel="stylesheet" />
+    <link href="css/admin/custom.css" rel="stylesheet" />
+
+
+
+
+    <div class="page-header navbar navbar-fixed-top">
+        <!-- BEGIN HEADER INNER -->
+        <div class="page-header-inner">
+            <!-- BEGIN LOGO -->
+            <div class="page-logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="logo" class="logo-default" />
+                </a>
+                <div class="menu-toggler sidebar-toggler hide">
+                </div>
+            </div>
+            <!-- END LOGO -->
+            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"></a>
+            <!-- END RESPONSIVE MENU TOGGLER -->
+            <!-- BEGIN TOP NAVIGATION MENU -->
+
+            <!-- END TOP NAVIGATION MENU -->
+        </div>
+        <!-- END HEADER INNER -->
+
+    </div>
+
+    <!----------------------------------------------------Vendor End------------------------------------------------------------------->
+
+
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content page-sidebar-closed-hide-logo page-container-bg-solid">
+
+
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+        <!-- BEGIN SIDEBAR -->
+        <div class="page-sidebar-wrapper">
+
+            <div class="page-sidebar navbar-collapse collapse">
+
+                <ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+
+                    <li class="sidebar-toggler-wrapper">
+
+                        <div class="sidebar-toggler">
+                        </div>
+
+                    </li>
+
+                    <li class="start active open">
+                        <a href="javascript:;">
+                            <i class="icon-home"></i>
+                            <span class="title">Dashboard</span>
+                            <span class="selected"></span>
+                            <!-- <span class="arrow open"></span>-->
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="#/VendorList" data-toggle="tab">
+                            <i class="icon-bar-chart"></i>
+                            Vendor
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-basket"></i>
+                            <span class="title">Analytics/Track</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="#">
+                                    <i class="icon-home"></i>
+                                    Active Promotions</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="icon-basket"></i>
+                                    Active User</a>
+                            </li>
+                            <li>
+                                <a href="vendor.html">
+                                    <i class="icon-tag"></i>
+                                    Vendor</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="icon-handbag"></i>
+                                    Executive</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="icon-pencil"></i>
+                                    Habits</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="icon-pencil"></i>
+                                    Banner Counter</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="icon-pencil"></i>
+                                    Social Media Track</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-rocket"></i>
+                            <span class="title">Manage Application</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="#/LandingPage" data-toggle="tab">Landing Page</a>
+                            </li>
+                            <li>
+                                <a href="#/PointReward" data-toggle="tab">ASAP Point & Rewards</a>
+                            </li>
+                            <li>
+                                <a href="#/FlashBanner" data-toggle="tab">Flash Banners</a>
+                            </li>
+                            <li>
+                                <a href="#/ManageActivePromotion" data-toggle="tab">Manage Active Promotions</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-diamond"></i>
+                            <span class="title">Content Management</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="active"><a href="#/About" data-toggle="tab">About Us</a></li>
+                            <li><a href="#/TermCondition" data-toggle="tab">Terms & Conditions</a></li>
+                            <li><a href="#/PrivacyPolicy" data-toggle="tab">Privacy Policy</a></li>
+                            <li><a href="#/HowItWork" data-toggle="tab">How Its Works</a></li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="icon-puzzle"></i>
+                            <span class="title">Notification</span>
+                        </a>
+
+                    </li>
+
+                </ul>
+                <!-- END SIDEBAR MENU -->
+            </div>
+        </div>
+        <!-- END SIDEBAR -->
+          <div class="content-wrapper" ng-controller="mainController">
+                <div ng-view="">
+                </div>
+            </div>
+    </div>
+
+    <!-- BEGIN FOOTER -->
+    <div class="page-footer">
+        <div class="page-footer-inner">
+            2015 &copy; Crave ASAP 
+        </div>
+        <div class="scroll-to-top">
+            <i class="icon-arrow-up"></i>
+        </div>
+    </div>
+    <!-- END FOOTER -->
+
+    <!--animated preloader-->
+    <script src="assets/admin/pages/scripts/components-editors.js"></script>
+   
+    <script type="text/javascript" src="plugins/jquery.simple-dtpicker.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            setTimeout(function () { $(document).click() }, 1000);
+            $(document).on("click", function (event) {
+                $('[name=datetimepkr]').each(function (k, input) {
+                    if ($(input) && $(input).data('pickerId') === undefined && $(input).is('[readonly]') == false) {
+                        $(input).appendDtpicker();
+                        $(input).on('focus', function () {
+                            fnUpdateInput($(this));
+                        });
+                        $(input).on('change', function () {
+                            fnUpdateInput($(this));
+                        });
+                    }
+                });
+            });
+        });
+
+        function fnUpdateInput(input) {
+            var model = $(input).attr('ng-model');
+            var val = $(input).val();
+            var scope = angular.element($("div.content")).scope();
+            if (scope) {
+                eval("scope." + model + " = '" + val + "';");
+            }
+        }
+    </script>
+
+    <script src="assets/js/html5fileupload.minc0a6.js"></script>
+    <script src="assets/js/notify.js"></script>
+    <!--<script src="js/plugins/jquery.min.js"></script>-->
+    <script src="js/plugins/jquery-migrate.min.js"></script>
+    <script src="js/plugins/jquery-ui.min.js"></script>
+    <script src="js/plugins/bootstrap.min.js"></script>
+    <script src="js/plugins/bootstrap-hover-dropdown.min.js"></script>
+    <script src="js/plugins/jquery.slimscroll.min.js"></script>
+    <script src="js/plugins/jquery.blockui.min.js"></script>
+    <script src="js/plugins/jquery.cokie.min.js"></script>
+    <script src="js/plugins/jquery.uniform.min.js"></script>
+    <script src="js/plugins/bootstrap-switch.min.js"></script>
+    <!-- <script src="js/plugins/jquery.vmap.js"></script>
+    <script src="js/plugins/jquery.vmap.russia.js"></script>
+    <script src="js/plugins/jquery.vmap.world.js"></script>
+    <script src="js/plugins/jquery.vmap.europe.js"></script>
+    <script src="js/plugins/jquery.vmap.germany.js"></script>
+    <script src="js/plugins/jquery.vmap.usa.js"></script>
+    <script src="js/plugins/jquery.vmap.sampledata.js"></script>-->
+    <script src="js/plugins/jquery.flot.min.js"></script>
+    <script src="js/plugins/jquery.flot.resize.min.js"></script>
+    <script src="js/plugins/jquery.flot.categories.min.js"></script>
+    <script src="js/plugins/jquery.pulsate.min.js"></script>
+    <script src="js/plugins/moment.min.js"></script>
+    <script src="js/plugins/daterangepicker.js"></script>
+    <script src="js/plugins/fullcalendar.min.js"></script>
+    <script src="js/plugins/jquery.easypiechart.min.js"></script>
+    <script src="js/plugins/jquery.sparkline.min.js"></script>
+    <script src="js/plugins/metronic.js"></script>
+    <script src="js/plugins/datatable.js"></script>
+    <script src="js/plugins/scripts/layout.js"></script>
+    <script src="js/plugins/scripts/quick-sidebar.js"></script>
+    <script src="js/plugins/scripts/demo.js"></script>
+    <script src="js/plugins/scripts/index.js"></script>
+    <script src="js/plugins/scripts/tasks.js"></script>
+   
+
+
+     
+</body>
+</html>

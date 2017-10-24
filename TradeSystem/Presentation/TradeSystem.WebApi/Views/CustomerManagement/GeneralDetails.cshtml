@@ -1,0 +1,253 @@
+﻿@{
+    ViewBag.Title = "General Details";
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+}
+@model TradeSystem.Utils.Models.CustomerDataModel
+
+@using (Html.BeginForm("GeneralDetails", "CustomerManagement", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-validate" }))
+{
+    <!-- Customer Full Details -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-flat">
+                <div class="panel-heading">
+                    <div class="form-group">
+                        <label class="col-lg-5 control-label">Mark customer Active or Inactive:</label>
+                        <div class="col-lg-7">
+                            @if (Model.IsActive == true)
+                            {
+                                <label class="checkbox-inline display-inline-block">
+                                    <input type="radio" value="Active" class="styled" name="CheckStatus" checked="checked">
+                                    Active
+                                </label>
+                                <label class="checkbox-inline display-inline-block">
+                                    <input type="radio" value="InActive" name="CheckStatus" class="styled">
+                                 
+                                    Inactive
+                                </label>
+                            }
+                            else if(Model.IsActive == false)
+                            {
+                                <label class="checkbox-inline display-inline-block">
+                                    <input type="radio" value="Active" class="styled" name="CheckStatus" >
+                                    Active
+                                </label>
+                                <label class="checkbox-inline display-inline-block">
+                                    <input type="radio" value="InActive" name="CheckStatus" class="styled" checked="checked" >
+                                    @*@{Model.IsActive = true; }*@
+                                        Inactive
+                                    </label>
+                            }
+                            @Html.HiddenFor(x=>x.IsActive)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <div class="tabbable">
+                        <ul class="nav nav-tabs nav-tabs-highlight nav-justified">
+                            @*<li class="active"><a href="#general-details-tab" data-toggle="tab">General Details</a></li>
+                                <li><a href="#investments-tab" data-toggle="tab">Investments</a></li>
+                                <li><a href="#sales-tab" data-toggle="tab">Sales</a></li>*@
+                            <li class="active"><a href="@Url.Action("GeneralDetails", "CustomerManagement", new { @id = @Model.Id })">General Details</a></li>
+                            <li><a href="@Url.Action("InvestmentsList", "CustomerManagement", new { @id = @Model.Id })">Investments</a></li>
+                            <li><a href="@Url.Action("SalesList", "CustomerManagement", new { @id = @Model.Id })">Sales</a></li>
+                            @{Session["CustomerId"] = @Model.Id;}
+                        </ul>
+
+                        <div class="tab-content">
+                            <!-- General Details -->
+                            <div class="tab-pane active" id="general-details-tab">
+                                <h5 class="panel-title">Customer Details</h5>
+                                <!-- Personal Information -->
+                                <fieldset>
+                                    <legend class="text-bold">
+                                        <i class="icon-file-text2 position-left"></i>
+                                        Personal Information
+                                       
+                                    </legend>
+
+                                    <div class="collapse in" id="AM_personal_information">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group clearfix">
+                                                    <label class="col-lg-4 control-label">First Name:</label>
+                                                    <div class="col-lg-7">
+                                                        @Model.FirstName
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group clearfix">
+                                                    <label class="col-lg-4 control-label">Middle Name:</label>
+                                                    <div class="col-lg-7">
+                                                        @Model.MiddleName
+                                                    </div>
+                                                </div>
+                                                <div class="form-group clearfix">
+                                                    <label class="col-lg-4 control-label">Last Name:</label>
+                                                    <div class="col-lg-7">
+                                                        @Model.LastName
+                                                    </div>
+                                                </div>
+                                                <div class="form-group clearfix">
+                                                    <label class="col-lg-4 control-label">Mother's Last Name:</label>
+                                                    <div class="col-lg-7">
+                                                        @Model.MotherLastName
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group clearfix">
+                                                    <label class="col-lg-4 control-label">Birthdate:</label>
+                                                    <div class="col-lg-7">
+                                                        @Model.BirthDate
+                                                    </div>
+                                                </div>
+                                                <div class="form-group clearfix">
+                                                    <label class="col-lg-4 control-label">Country:</label>
+                                                    <div class="col-lg-7">
+                                                        @Model.CountryName
+                                                    </div>
+                                                </div>
+                                                <div class="form-group clearfix">
+                                                    <label class="col-lg-4 control-label">State:</label>
+                                                    <div class="col-lg-7">
+                                                        @Model.StateName
+                                                    </div>
+                                                </div>
+                                                <div class="form-group clearfix">
+                                                    @if (@Model.CountryName == "Mexico")
+                                                    {
+                                                        <label class="col-lg-4 control-label">RFC Number:</label>
+
+                                                    }
+                                                    else
+                                                    {
+                                                        <label class="col-lg-4 control-label">DNI:</label>
+
+                                                    }                                                 
+                                                    <div class="col-lg-7">
+                                                        @Model.RFC
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <!-- /personal information -->
+                                <!-- Login Details -->
+                                <fieldset>
+                                    <legend class="text-bold">
+                                        <i class="icon-reading position-left"></i>
+                                        Login Details
+                                      
+                                    </legend>
+
+                                    <div class="collapse in" id="AM_login_details">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group clearfix">
+                                                    <label class="col-lg-4 control-label">Username:</label>
+                                                    <div class="col-lg-7">
+                                                        @Model.UserName
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group clearfix">
+                                                    <label class="col-lg-4 control-label">Email Address:</label>
+                                                    <div class="col-lg-7">
+                                                        @Model.Email
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <!-- login details -->
+                                <!-- Bank Details (Optional) -->
+                                <fieldset>
+                                    <legend class="text-bold">
+                                        <i class="icon-cash4 position-left"></i>
+                                        Bank Details (Optional)
+                                        
+                                    </legend>
+
+                                    <div class="collapse in" id="CM_bank_details">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group clearfix">
+                                                    <label class="col-lg-4 control-label">Select Bank:</label>
+                                                    <div class="col-lg-7">
+                                                        @Model.BankName
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group clearfix">
+                                                    <label class="col-lg-4 control-label">Account Number:</label>
+                                                    <div class="col-lg-7">
+                                                        @Model.BankAccount
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group clearfix">
+                                                    <label class="col-lg-4 control-label">CLABE Number:</label>
+                                                    <div class="col-lg-7">
+                                                        @Model.Clabe
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group clearfix">
+                                                    <label class="col-lg-4 control-label">Beneficiary Name:</label>
+                                                    <div class="col-lg-7">
+                                                        @Model.BenificiaryName
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <!-- /bank details (optional) -->
+                                <!-- Maximum% Commission for Sale Out of Total Investment -->
+                                <fieldset>
+                                    <legend class="text-bold">
+                                        <i class="icon-percent position-left"></i>
+                                        Maximum% Commission for Sale Out of Total Investment
+                                        
+                                    </legend>
+
+                                    <div class="collapse in" id="CM_maximum_commission">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="col-lg-2 control-label">Max. % Commission:</label>
+                                                    <div class="col-lg-2">
+                                                        @*@Model.Commission*@
+                                                        @Html.TextBoxFor(x => x.Commission, new { type = "text", @class = "form-control", required = "required", maxlength = "50" })
+                                                        @Html.HiddenFor(x=>x.Id)
+                                                    </div>
+                                                    <label class="col-lg-8 control-label text-danger">
+                                                        Note: Customer's overall sales comission will not exceed
+                                                        than max. % comission sale set out of his total investment.
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <!-- /maximum% commission for sale out of total investment -->
+                                <div class="text-center mt-15">
+                                    <a class="btn bg-orange" href="@Url.Action("ExistingCustomers","CustomerManagement")" title="Back"><i class="icon-arrow-left13 position-left"></i> Back </a>
+                                    <button type="submit" class="btn btn-primary" title="Update">Update <i class="icon-arrow-right14 position-right"></i></button>
+                                </div>
+                            </div>
+                            <!-- /general details -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /customer full details -->
+                                }

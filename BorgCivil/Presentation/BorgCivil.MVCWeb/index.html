@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<!--<html ng-app="borgcivil">-->
+<html ng-app="borgcivil">
+
+<head check-route> <!-- CHECK FOR AUTH-->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title set in pageTitle directive -->
+    <title page-title></title>
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+    <!--CDN CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="Script/vendor/bootstrap/css/bootstrap.min.css" />
+    <!-- build:css(.) styles/vendor.css -->
+    <!--CDN Poppins POPPINS CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CMontserrat:400,700&amp;subset=latin,latin" media="all">
+
+    <!-- bower:css -->
+    <link rel="stylesheet" href="Script/vendor/angular-notify/angular-notify.min.css" />
+    <link rel="stylesheet" href="Script/vendor/animate.css/animate.min.css" />
+    <link rel="stylesheet" href="Script/vendor/sweetalert/sweet-alert.css" />
+    <!--<link rel="stylesheet" href="Script/vendor/angular-xeditable/xeditable.css" />-->
+    <link rel="stylesheet" href="Script/vendor/ui-select/select.min.css" />
+    <link rel="stylesheet" href="Script/vendor/ng-table/ng-table.min.css">
+    <link rel="stylesheet" href="Script/vendor/toaster/toaster.css">
+    <link rel="stylesheet" href="Script/vendor/c3/c3.min.css">
+    <link rel="stylesheet" href="Script/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+    <!-- endbower -->
+    <!-- build:css({.tmp,app}) styles/style.css -->
+    <link rel="stylesheet" href="Content/styles/style.css">
+    <!--Theme css-->
+    <link rel="stylesheet" href="Content/styles/base.css">
+    <!-- endbuild -->
+</head>
+
+<!-- Body -->
+<body class="{{$state.current.data.specialClass}}">
+
+    <!-- Simple splash screen-->
+    <div class="splash"><div class="splash-title"><h1>Borg Civil</p><div class="spinner"> <div class="rect1"></div> <div class="rect2"></div> <div class="rect3"></div> <div class="rect4"></div><div class="rect5"></div></div></div></div>
+    <!--[if lt IE 7]>
+    <p class="alert alert-danger">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Page view wrapper -->
+    <div ui-view autoscroll="true"></div>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <script src="Script/js/jquery.min.js"></script>
+    <!-- angular-1.5.3 New Files -->
+    <script src="Script/vendor/moment/min/moment.min.js"></script>
+    <script src="Script/vendor/angular-1.5.3/angular.js"></script>
+    <script src="Script/vendor/angular-1.5.3/angular-cookies.js"></script>
+    <script src="Script/vendor/angular-1.5.3/angular-animate.js"></script>
+    <script src="Script/vendor/angular-1.5.3/angular-resource.js"></script>
+    <!-- <script src="Script/vendor/angular-1.5.3/angular-messages.min.js"></script>-->
+    <script src="Script/vendor/angular-1.5.3/angular-sanitize.min.js"></script>
+
+    <script src="Script/vendor/angular-ui-router/angular-ui-router.min.js"></script>
+    <script src="Script/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="Script/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Script/vendor/sweetalert/sweet-alert.min.js"></script>
+    <script src="Script/vendor/iCheck/icheck.min.js"></script>
+
+    <script src="Script/vendor/angular-notify/angular-notify.min.js"></script>
+    <script src="Script/vendor/angular-ui-calendar/calendar.js"></script>
+    <script src="Script/vendor/angular-xeditable/xeditable.min.js"></script>
+    <script src="Script/vendor/ui-select/select.min.js"></script>
+    <script src="Script/vendor/toaster/toaster.js"></script>
+    <script src="Script/vendor/ng-table/ng-table.min.js"></script>
+    <script src="Script/vendor/angular-ui-utils/ui-utils.min.js"></script>
+    <script src="Script/vendor/ng-file-upload.js"></script>
+    <script src="Script/vendor/angular-filter.js"></script>
+    <script src="Script/vendor/ng-mask/ngMask.min.js"></script>
+    <script src="Script/vendor/angular-auto-validate/jcs-auto-validate.js"></script>
+    <script src="Script/vendor/ui-bootstrap-datetimepicker/js/datetime-picker.min.js"></script>
+    <script src="Script/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.0/jspdf.plugin.autotable.js"></script>
+
+    <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="Script/borgcivil.js"></script>
+    <script src="Script/borgcivil.app.js"></script>
+    <script src="Script/config.js"></script>
+    <script src="Script/directives/directives.js"></script>
+    <!-- endbuild -->
+    <!-- BCA Factories -->
+    <script src="Script/factories/utils.factory.js"></script>
+    <!-- Admin Factories -->
+    <script src="Script/factories/admin/admin.factory.js"></script>
+    <!-- Customer Factories -->
+    <script src="Script/factories/bookings/bookings.factory.js"></script>
+    <!-- Configuration Factories -->
+    <script src="Script/factories/configurations/configurations.factory.js"></script>
+    <!--common factory-->
+    <script src="Script/factories/bca.factory.js"></script>
+
+    <!-- BCA Controllers -->
+    <script src="Script/controllers/bca.controller.js"></script>
+    <!-- Admin Controllers -->
+    <script src="Script/controllers/admin/admin.controller.js"></script>
+    <!-- Reset Password & Change Password Controllers -->
+    <script src="Script/controllers/admin/reset.controller.js"></script>
+    <!-- Job Booking Controllers -->
+    <script src="Script/controllers/bookings/bookings.controller.js"></script>
+    <!-- Configuration Controllers -->
+    <script src="Script/controllers/configurations/configurations.controller.js"></script>
+    <!-- Customer Controllers -->
+    <script src="Script/controllers/customers/customers.controller.js"></script>
+
+</body>
+</html>

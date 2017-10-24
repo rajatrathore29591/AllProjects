@@ -1,0 +1,188 @@
+﻿@{
+    ViewBag.Title = "Notifications";
+}
+
+<link href="~/css/jquery.flipcountdown.css" rel="stylesheet" />
+<script src="@Url.Content("/Scripts/jquery.min.js")"></script>
+<script src="@Url.Content("/Scripts/jquery.flipcountdown.js")"></script>
+<script>
+    jQuery(function ($) {
+        var i = 1000;
+        $('#retroclockbox1').flipcountdown();
+        var i = 1;
+        $('#retroclockbox_counter').flipcountdown({
+            tick: function () {
+                return i++;
+            }
+        });
+        $('#retroclockbox2').flipcountdown({ showHour: false, showMinute: false, showSecond: true });
+        $('#retroclockbox3').flipcountdown({ tzoneOffset: 3, showSecond: false });
+        $('#retroclockbox4').flipcountdown({ am: true });
+        $('#retroclockbox5').flipcountdown({ speedFlip: 50 });
+        $('#retroclockbox6').flipcountdown({
+            tick: function () {
+                return new Date('5/10/2012 12:34:23');
+            }
+        });
+    })
+</script>
+
+<div class="row">
+    <div class="container PD50">
+        <div class="col-lg-12 ">
+            <div class="col-md-3 user-profice-pic">
+                <img src="@ViewBag.ProfilePicture" class="img-page">
+            </div>
+            <div class="col-md-9 right">
+                <div class="col-md-2">
+                    <h2 class=" user-profile">
+                        <img src="~/Content/img/online.png">@ViewBag.Username</h2>
+                    <h4 class="tutor-city-name left">@ViewBag.Country</h4>
+                </div>
+                <div class="col-md-10 right-profile">
+                    <ul class="nav nav-pills view-profile">
+                        @* <li><a href="#">My Activity</a></li>*@
+                        @*<li class="active"><a href="../../Notification/Notifications">My Notifications(3)</a></li>
+                        <li><a href="../../Message/Messages">Messages (0)</a></li>*@
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <div class="col-lg-2 blue-wrapper">
+                <h2>My Score</h2>
+                <h3>@ViewBag.MyScore/@ViewBag.TotalScore</h3>
+            </div>
+            <div class="col-lg-2 blue-wrapper">
+                <h2>Instructor Evaluation</h2>
+                <h3>Great </h3>
+            </div>
+            <div class="col-lg-2 blue-wrapper">
+                <a href="../../Vocab/FlashCardWordList">
+                    <h2>Flashcards</h2>
+                </a>
+                <h3>@ViewBag.FlashCard </h3>
+            </div>
+            <div class="col-lg-2 blue-wrapper">
+                <h2>Days Remaining</h2>
+                <div align="center">
+                    <div id="retroclockbox_sm"></div>
+                </div>
+                <script>
+                    jQuery(function ($) {
+                        //var NY = Math.round((new Date('1/01/2015 00:00:01')).getTime()/1000);
+                        $('#new_year').flipcountdown({
+                            size: 'lg',
+                            beforeDateTime: '1/01/2015 00:00:01'
+                            /*tick:function(){
+								var nol = function(h){
+									return h>9?h:'0'+h;
+								}
+								var	range  	= NY-Math.round((new Date()).getTime()/1000),
+									secday = 86400, sechour = 3600,
+									days 	= parseInt(range/secday),
+									hours	= parseInt((range%secday)/sechour),
+									min		= parseInt(((range%secday)%sechour)/60),
+									sec		= ((range%secday)%sechour)%60;
+								return nol(days)+' '+nol(hours)+' '+nol(min)+' '+nol(sec);
+							}*/
+                        });
+                    });
+                </script>
+                <script>
+                    jQuery(function ($) {
+                        $('#retroclockbox_lg').flipcountdown({ size: 'lg' });
+                        $('#retroclockbox_md').flipcountdown({ size: 'md' });
+                        $('#retroclockbox_sm').flipcountdown({ size: 'sm' });
+                        $('#retroclockbox_xs').flipcountdown({ size: 'xs' });
+                    })
+                </script>
+            </div>
+        </div>
+
+
+        <div class="col-lg-12">
+            <div class="col-lg-3">
+                <div class="heading">
+                    <h3>Suggested Users</h3>
+                </div>
+                <div class="friends-wrapper">
+                    <div class="suggested-profile-box">
+                        <img src="~/Content/img/profile-f-1.png" class="img-responsive img-thumbnail suggested-profile">
+                        <h4 class=" suggested-profile-name">Username</h4>
+                        <img src="~/Content/img/add-user.png" class="img-responsive">
+                    </div>
+                    <div class="suggested-profile-box">
+                        <img src="~/Content/img/profile-f-2.png" class="img-responsive img-thumbnail suggested-profile">
+                        <h4 class=" suggested-profile-name">Username</h4>
+                        <img src="~/Content/img/add-user.png" class="img-responsive">
+                    </div>
+                    <div class="suggested-profile-box">
+                        <img src="~/Content/img/profile-m-1.png" class="img-responsive img-thumbnail suggested-profile">
+                        <h4 class=" suggested-profile-name">Username</h4>
+                        <img src="~/Content/img/add-user.png" class="img-responsive">
+                    </div>
+                    <div class="suggested-profile-box">
+                        <img src="~/Content/img/profile-m-2.png" class="img-responsive img-thumbnail suggested-profile">
+                        <h4 class=" suggested-profile-name">Username</h4>
+                        <img src="~/Content/img/add-user.png" class="img-responsive">
+                    </div>
+                </div>
+                @* <a href="#" class="btn btn-info friends-but">Friends</a>*@
+
+            </div>
+            <div class="col-lg-9">
+                <div class="heading">
+                    <h3>My Notifications</h3>
+                </div>
+                @foreach (var notification in ViewBag.Notification)
+                {
+                    <div class="panel panel-default">
+                        <div class="panel-body notification4">
+                            <span class="myactivity-head">Notification from Admin.</span>
+                            <p>@notification["Message"]</p>
+                            <ul class="nav nav-pills date-time">
+                                <li>@notification["Date"]</li>
+                                <li> <i class="fa fa-clock-o"></i> @notification["Time"]</li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+                @* <div class="panel panel-default">
+            <div class="panel-body notification2">
+            	<span class="myactivity-head">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
+                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s </p>
+                <ul class="nav nav-pills date-time">
+                <li>8/11/2014</li>
+                <li>5:30 PM</li>                      
+                </ul>
+            </div>
+            </div>
+            <div class="panel panel-default">
+            <div class="panel-body notification3">
+            	<span class="myactivity-head">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
+                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s </p>
+                <ul class="nav nav-pills date-time">
+                <li>8/11/2014</li>
+                <li>5:30 PM</li>                      
+                </ul>
+            </div>
+            </div>*@
+            </div>
+
+        </div>
+        <div class="col-lg-12">
+
+            <ul class="pagination pagination-sm pagination-activity">
+                <li class="disabled"><a href="#">«</a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">»</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

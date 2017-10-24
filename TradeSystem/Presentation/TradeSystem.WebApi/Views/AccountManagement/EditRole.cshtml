@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "Edit Role";
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+}
+
+@using TradeSystem.Utils.Models
+@model RoleDataModel
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        GetAllRole();
+    });
+    function GetAllRole() {
+        $.ajax({
+            type: "Post",
+            url: '@Url.Action("_RoleListPartial", "AccountManagement")',
+            success: function (response) {
+                $("#divAllRole").html(response);
+
+            }
+        });
+    }
+</script>
+@using (Html.BeginForm("EditRoleByRoleId", "AccountManagement", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-validate" }))
+{
+                <!-- Form -->
+    <div class="row">
+        <div class="col-md-12">
+
+            <!-- Customer Form -->
+            <form class="form-horizontal" action="#">
+                <div class="panel panel-flat">
+
+                    <div class="panel-body">
+                        <!-- Personal Information -->
+                        <fieldset>
+                            <legend class="text-bold">
+                                <i class="icon-file-text2 position-left"></i>
+                                @Resources.Languages.EnterRoleDetails
+
+                            </legend>
+
+                            <div class="collapse in" id="AM_personal_information">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-lg-4 control-label">@Resources.Languages.RoleTitle:</label>
+                                            <div class="col-lg-7">
+                                                @*<input type="text" class="form-control" value="@Model.Name" placeholder="@Resources.Languages.RoleTitle">*@
+                                                @Html.TextBoxFor(model => model.Name, new { type = "text", @class = "form-control", required = "required" })
+                                                @Html.HiddenFor(model => model.Id, new { type = "hidden" })
+                                            </div>
+                                        </div>
+                                       
+
+                                        </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-lg-4 control-label">@Resources.Languages.Description:</label>
+                                            <div class="col-lg-7">
+                                                @*<textarea class="form-control" cols="5" rows="3">@Model.Name</textarea>*@
+                                                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", cols = "5", rows = "1" })
+                                            </div>
+                                        </div>
+                                        
+                                    </div><span class="clearfix"></span>
+                                    @if (ViewBag.Message != "")
+                                    {
+                                        <label class="text-center green">@ViewBag.Message</label>
+                                    }
+
+                                    <div class="text-center mt-15 mb-15">
+                                        <button type="submit" class="btn btn-primary" title="@Resources.Languages.Edit">@Resources.Languages.Edit <i class="icon-arrow-right14 position-right"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        @if (TempData["DeleteMessage"] != "")
+                        {
+                            <label class="error-red">@TempData["DeleteMessage"]</label>
+                        }
+                        <!-- /enter role details -->
+                        <!-- Role Table -->
+                        <!--Call _RolePartial view for show role list-->
+                        <div id="divAllRole">
+
+                        </div>
+                        <!-- /role table -->
+                        @*<div class="text-center mt-15 mb-10">
+                                <button type="submit" class="btn bg-orange" title="@Resources.Languages.Back"><i class="icon-arrow-left13 position-left"></i> @Resources.Languages.Back </button>
+                            </div>*@
+                    </div>
+                </div>
+            </form>
+            <!-- /customer form -->
+
+        </div>
+    </div>
+                <!-- /form -->
+}

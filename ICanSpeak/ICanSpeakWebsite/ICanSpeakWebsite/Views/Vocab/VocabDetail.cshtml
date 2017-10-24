@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "VocabDetail";
+}
+@{
+                            var userid = Session["UserId"];
+} 
+
+<script src="@Url.Content("/Scripts/jquery.min.js")"></script>
+
+<div class="row accordian">
+      	<div class="container">
+         <div class="col-lg-12 ">
+         <h2 class="header">Vocabulary Detail</h2>
+            <div class="col-md-8">
+                <h2 class=" user-profile"><img src="~/Content/img/online.png" />Username</h2>
+                <h4 class="tutor-city-name left">New York</h4>
+            </div>
+            <div class="col-md-4">
+                <ul class="nav nav-pills view-profile">
+                    <li><a href="../../Notification/Notifications">Notification (20)</a></li>
+                    <li><a href="../../Message/Messages">Messages(25)</a></li>                      
+                </ul>	
+            </div>           
+         </div>
+         
+             <a href="../../Home/MyCourse">
+            <div class="col-lg-2 grey-wrapper">
+                    <h2>Grammar</h2>
+                </div>
+                </a>
+
+                <a href="../Vocab/VocabList"> 
+                <div class="col-lg-2 blue-wrapper2">
+                    <h2>Vocabulary</h2>
+                </div>
+               </a>
+               
+                <a href="../Dialog/DialogList">
+                <div class="col-lg-2 grey-wrapper">
+                    <h2>Dialogue</h2>
+                </div>
+                </a>
+                <!--<div class="col-lg-2 grey-wrapper">
+                    <h2>Course Duration</h2>
+                    
+                </div>-->
+                <span class=" right-part">
+               @*<button type="button" class="btn submit-but"><i class="fa fa-plus-circle"></i>&nbsp;Add New course</button>*@
+               </span>
+              <div class="clearfix"></div>
+              <div class="col-lg-12">
+         	<div class="heading">
+            	
+                <span class="unit-box">
+                Vocabulary - Adjectives
+                </span>
+                
+                
+            </div>   
+            <div class="vocab-wrapper">
+            <div class="col-lg-4">
+                    <ul class="nav nav-pills nav-stacked nav-side">
+                        
+                        <li><a href="#"><i class="fa fa-pencil"></i>&nbsp;Take Assessment</a></li>
+                        @*<li><a href="#"><i class="fa fa-microphone"></i>&nbsp;Speak</a></li>
+                        <li><a href="#"><i class="fa  fa-language"></i>&nbsp;Translate into Arabic</a></li>*@
+                        <li><a href="#"><i class="fa fa-book"></i>&nbsp;Flash Card</a></li>
+                        <li><a href="#"><i class="fa fa-bookmark"></i>&nbsp;Bookmark</a></li>
+                    </ul>
+                </div>
+            	<div class="col-lg-4">
+                	<img src="~/Content/img/Bad.png" class="img-thumbnail img-responsive" />
+                      <div align="center">
+                            <audio controls>
+                            
+                            <source src="~/Content/media/BAD.mp3" type="audio/mp3" />
+                            <a href="media/BAD.mp3">horse</a>
+                            </audio>
+                        </div>
+                    
+                </div>
+                <div class="col-lg-4">
+                	<h2 class="big">Bad</h2>
+                    <div class="previous">
+                    <button type="button" class="btn btn-info">Previous</button>
+                    </div>
+                    <div class="next">
+                    <button type="button" class="btn btn-info">Next</button>
+                    </div>
+                </div>
+                
+                
+                
+            </div>           
+         </div>
+         </div>
+      </div>

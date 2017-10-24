@@ -1,0 +1,21 @@
+C:\Users\Rajat Sharma\Desktop\New folder\WCF\craveasap.tv.net\TV.CraveASAP.BusinessEntities\bin\Release\TV.CraveASAP.BusinessEntities.dll
+C:\Users\Rajat Sharma\Desktop\New folder\WCF\craveasap.tv.net\TV.CraveASAP.BusinessEntities\bin\Release\TV.CraveASAP.BusinessEntities.pdb
+C:\Users\Rajat Sharma\Desktop\New folder\WCF\craveasap.tv.net\TV.CraveASAP.BusinessEntities\obj\Release\TV.CraveASAP.BusinessEntities.dll
+C:\Users\Rajat Sharma\Desktop\New folder\WCF\craveasap.tv.net\TV.CraveASAP.BusinessEntities\obj\Release\TV.CraveASAP.BusinessEntities.pdb
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessEntities\bin\Release\TV.CraveASAP.BusinessEntities.dll
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessEntities\bin\Release\TV.CraveASAP.BusinessEntities.pdb
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessEntities\obj\Release\TV.CraveASAP.BusinessEntities.csprojResolveAssemblyReference.cache
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessEntities\obj\Release\TV.CraveASAP.BusinessEntities.dll
+C:\Users\Techvalens\Desktop\Eddee Code\CraveASAP\TV.CraveASAP.BusinessEntities\obj\Release\TV.CraveASAP.BusinessEntities.pdb
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessEntities\bin\Release\TV.CraveASAP.BusinessEntities.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessEntities\bin\Release\TV.CraveASAP.BusinessEntities.pdb
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessEntities\obj\Release\TV.CraveASAP.BusinessEntities.dll
+C:\Users\Rajat Sharma\Desktop\Eddee Code1\CraveASAP\TV.CraveASAP.BusinessEntities\obj\Release\TV.CraveASAP.BusinessEntities.pdb
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessEntities\bin\Release\TV.CraveASAP.BusinessEntities.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessEntities\bin\Release\TV.CraveASAP.BusinessEntities.pdb
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessEntities\obj\Release\TV.CraveASAP.BusinessEntities.dll
+E:\Eddee_Client_ServerBackup\CraveASAP\TV.CraveASAP.BusinessEntities\obj\Release\TV.CraveASAP.BusinessEntities.pdb
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessEntities\bin\Release\TV.CraveASAP.BusinessEntities.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessEntities\bin\Release\TV.CraveASAP.BusinessEntities.pdb
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessEntities\obj\Release\TV.CraveASAP.BusinessEntities.dll
+E:\crave_asap\CraveASAP\CraveASAP\TV.CraveASAP.BusinessEntities\obj\Release\TV.CraveASAP.BusinessEntities.pdb

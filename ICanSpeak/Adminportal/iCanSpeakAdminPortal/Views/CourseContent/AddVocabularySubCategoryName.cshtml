@@ -1,0 +1,106 @@
+﻿@model iCanSpeakAdminPortal.Models.VocabularySubCategoryModel
+@{
+    ViewBag.Title = "AddVocabularySubCategoryName";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".valid").keypress(function (e) {
+            if (e.which < 97 || e.which > 122) {
+                e.preventDefault();
+            }
+        });
+        $('#btnsubcategory').click(function () {
+            $('#btnremovesubcategory').show();
+            $('#subcategorytxtdiv').append('<div class="br"><br /></div><input type="text" maxlength="30" class="form-control valid" placeholder="Sub Category Name"  required>');
+            return false;
+        })
+
+
+        $('#btnremovesubcategory').click(function () {
+            if ($("#subcategorytxtdiv .form-control").length != 1) {
+                $("#subcategorytxtdiv .form-control:last").remove();
+                $("#subcategorytxtdiv .br:last").remove();
+            }
+            if ($("#subcategorytxtdiv .form-control").length == 1) {
+                $('#btnremovesubcategory').hide();
+            }
+            // $('#subcategorytxtdiv').append('<br /><input type="text" class="form-control" placeholder="Sub Category Name" name="subcategory" required="">');
+            return false;
+        })
+
+        $('#submtform').click(function () {
+            var subcategory = '';
+            $("#subcategorytxtdiv .form-control").each(function () {
+                subcategory = subcategory + $(this).val() + "|||"
+            });
+            subcategory = subcategory.substr(0, subcategory.length - 3);
+
+            $('#subctgryval').val(subcategory);
+
+        });
+
+    });
+        </script>
+
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <font color="44c9ff"> Add Vocabulary Sub Category Name</font>
+                </h1>
+            </div>
+            @*<a style="cursor:pointer; color:#3d3b3b; text-decoration:none; font-weight:200" href="/CourseContent/AddVocabularyCategoryName/">Add New Vocabulary Category</a>*@
+            <a style="cursor:pointer; color:#3d3b3b; font-size:14pt;margin-left: -225px; float:right;position: absolute; margin-top:55px; font-weight:200;" href="@Url.Action("VocabularySubCategoryList","CourseContent")?vocabid=@Request.QueryString["vocabid"]">Go To Sub Category List</a>
+        </div>
+
+        <!--Edit Table start-->
+
+        <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2  col-sm-6 col-sm-offset-2 col-xs-12">
+            <div class="row">
+
+                @using (Html.BeginForm("AddVocabularySubCategoryName", "CourseContent", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-info"  id="btnsubcategory" value="Add New Subcategory" />&nbsp;&nbsp; <input type="submit" class="btn btn-info"  id="btnremovesubcategory" value="Remove Last Subcategory" style="display:none" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Sub Category Name <span style="color:#FE2801;">*</span></label>
+                        <div id="subcategorytxtdiv">
+                        <input type="text"  class="form-control" maxlength="30" placeholder="Sub Category Name" required    >
+                        </div>
+                        </div>
+                    <div class="form-group">
+                        <input type="submit" id="submtform" class="btn btn-info"  value="Add Now" />&nbsp;&nbsp;
+                        <a href="../../Admin/CourseContent/AddVocabularySubCategoryName?vocabid=@Request.QueryString["vocabid"]&subcatid=0"><input type="button" class="btn btn-info" value="Reset" onclick="ResetFormValues()" /></a>
+                    </div>
+                     <input type="hidden" id="VocabularyId" name="VocabularyId" value="@Request.QueryString["vocabid"]" />
+                    <input type="hidden" id="subctgryval"  name="subcategory" />
+                }
+                
+            </div>
+        </div>
+        <!-- /.row -->
+        <!--edit table end here-->
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+
+
+@Scripts.Render("~/bundles/jquery")
+
+
+<script type="text/javascript">
+    function ResetFormValues() {
+
+    }
+</script>
